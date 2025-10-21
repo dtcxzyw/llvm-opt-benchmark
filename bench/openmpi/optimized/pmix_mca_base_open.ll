@@ -88,20 +88,22 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %9
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
-  store ptr %13, ptr @pmix_mca_base_component_path, align 8, !tbaa !10
-  br label %18
+  br label %.sink.split
 
 14:                                               ; preds = %9
   %15 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull %10) #10
   %16 = load ptr, ptr @pmix_mca_base_component_path, align 8, !tbaa !10
   call void @free(ptr noundef %16) #10
   %17 = load ptr, ptr %3, align 8, !tbaa !10
-  store ptr %17, ptr @pmix_mca_base_component_path, align 8, !tbaa !10
-  %.pre = load i32, ptr @pmix_mca_base_opened, align 4, !tbaa !8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %14, %12
+  %.sink = phi ptr [ %13, %12 ], [ %17, %14 ]
+  store ptr %.sink, ptr @pmix_mca_base_component_path, align 8, !tbaa !10
   br label %18
 
-18:                                               ; preds = %12, %14, %8
-  %19 = phi i32 [ %6, %12 ], [ %.pre, %14 ], [ %6, %8 ]
+18:                                               ; preds = %.sink.split, %8
+  %19 = load i32, ptr @pmix_mca_base_opened, align 4, !tbaa !8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr @pmix_mca_base_opened, align 4, !tbaa !8
   br label %148
@@ -394,7 +396,7 @@ set_defaults.exit:                                ; preds = %.lr.ph.i.i, %122
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -456,7 +458,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

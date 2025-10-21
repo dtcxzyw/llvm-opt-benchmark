@@ -143,19 +143,19 @@ define noundef ptr @N_VClone_SensWrapper(ptr noundef readonly captures(address_i
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @N_VCloneEmpty_SensWrapper(ptr noundef readonly captures(address_is_null) %0) #2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %140, label %3
+  br i1 %2, label %141, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %140, label %8
+  br i1 %7, label %141, label %8
 
 8:                                                ; preds = %3
   %9 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %140, label %11
+  br i1 %10, label %141, label %11
 
 11:                                               ; preds = %8
   %12 = tail call noalias dereferenceable_or_null(448) ptr @malloc(i64 noundef 448) #8
@@ -164,7 +164,7 @@ define noalias noundef ptr @N_VCloneEmpty_SensWrapper(ptr noundef readonly captu
 
 14:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %9) #7
-  br label %140
+  br label %141
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -318,45 +318,46 @@ define noalias noundef ptr @N_VCloneEmpty_SensWrapper(ptr noundef readonly captu
 126:                                              ; preds = %15
   tail call void @free(ptr noundef nonnull %12) #7
   tail call void @free(ptr noundef nonnull %9) #7
-  br label %140
+  br label %141
 
 127:                                              ; preds = %15
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store i32 %6, ptr %128, align 8, !tbaa !33
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 12
-  store i32 0, ptr %129, align 4, !tbaa !37
-  %130 = load i32, ptr %5, align 8, !tbaa !33
-  %131 = sext i32 %130 to i64
+  %128 = load i32, ptr %5, align 8, !tbaa !33
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store i32 %128, ptr %129, align 8, !tbaa !33
+  %130 = getelementptr inbounds nuw i8, ptr %124, i64 12
+  store i32 0, ptr %130, align 4, !tbaa !37
+  %131 = sext i32 %128 to i64
   %132 = shl nsw i64 %131, 3
   %133 = tail call noalias ptr @malloc(i64 noundef %132) #8
   store ptr %133, ptr %124, align 8, !tbaa !38
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %138, label %.preheader
+  br i1 %134, label %139, label %.preheader
 
 .preheader:                                       ; preds = %127
-  %135 = icmp sgt i32 %130, 0
-  br i1 %135, label %.lr.ph.preheader, label %._crit_edge
+  %135 = load i32, ptr %5, align 8, !tbaa !33
+  %136 = icmp sgt i32 %135, 0
+  br i1 %136, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %136 = zext nneg i32 %130 to i64
-  %137 = shl nuw nsw i64 %136, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %133, i8 0, i64 %137, i1 false), !tbaa !40
+  %137 = zext nneg i32 %135 to i64
+  %138 = shl nuw nsw i64 %137, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %133, i8 0, i64 %138, i1 false), !tbaa !40
   br label %._crit_edge
 
-138:                                              ; preds = %127
+139:                                              ; preds = %127
   tail call void @free(ptr noundef nonnull %12) #7
   tail call void @free(ptr noundef nonnull %9) #7
   tail call void @free(ptr noundef nonnull %124) #7
-  br label %140
+  br label %141
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
   store ptr %124, ptr %9, align 8, !tbaa !39
-  %139 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %12, ptr %139, align 8, !tbaa !3
-  br label %140
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %12, ptr %140, align 8, !tbaa !3
+  br label %141
 
-140:                                              ; preds = %8, %3, %1, %._crit_edge, %138, %126, %14
-  %.0100 = phi ptr [ null, %14 ], [ null, %126 ], [ null, %138 ], [ %9, %._crit_edge ], [ null, %1 ], [ null, %3 ], [ null, %8 ]
+141:                                              ; preds = %8, %3, %1, %._crit_edge, %139, %126, %14
+  %.0100 = phi ptr [ null, %14 ], [ null, %126 ], [ null, %139 ], [ %9, %._crit_edge ], [ null, %1 ], [ null, %3 ], [ null, %8 ]
   ret ptr %.0100
 }
 
@@ -1058,7 +1059,7 @@ define double @N_VMinQuotient_SensWrapper(ptr noundef readonly captures(none) %0
   ret double %.012.lcssa
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 declare void @N_VFreeEmpty(ptr noundef) local_unnamed_addr #1
@@ -1162,16 +1163,16 @@ declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }
 

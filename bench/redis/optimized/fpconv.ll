@@ -21,7 +21,7 @@ define dso_local double @fpconv_strtod(ptr noundef %0, ptr noundef captures(none
 
 7:                                                ; preds = %2
   %8 = tail call double @strtod(ptr noundef %0, ptr noundef %1) #11
-  br label %42
+  br label %43
 
 .preheader:                                       ; preds = %2, %valid_number_character.exit.thread.i
   %.0.i = phi ptr [ %14, %valid_number_character.exit.thread.i ], [ %0, %2 ]
@@ -57,7 +57,7 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
 
 19:                                               ; preds = %strtod_buffer_size.exit
   store ptr %0, ptr %1, align 8, !tbaa !9
-  br label %42
+  br label %43
 
 20:                                               ; preds = %strtod_buffer_size.exit
   %21 = icmp sgt i32 %18, 31
@@ -85,28 +85,29 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
   store i8 0, ptr %31, align 1, !tbaa !4
   %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.024, i32 noundef 46) #15
   %.not29 = icmp eq ptr %32, null
-  br i1 %.not29, label %34, label %33
+  br i1 %.not29, label %35, label %33
 
 33:                                               ; preds = %29
-  store i8 %5, ptr %32, align 1, !tbaa !4
-  br label %34
+  %34 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
+  store i8 %34, ptr %32, align 1, !tbaa !4
+  br label %35
 
-34:                                               ; preds = %33, %29
-  %35 = call double @strtod(ptr noundef nonnull %.024, ptr noundef nonnull %4) #11
-  %36 = load ptr, ptr %4, align 8, !tbaa !9
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.024 to i64
-  %39 = sub i64 %37, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  store ptr %40, ptr %1, align 8, !tbaa !9
-  br i1 %21, label %41, label %42
+35:                                               ; preds = %33, %29
+  %36 = call double @strtod(ptr noundef nonnull %.024, ptr noundef nonnull %4) #11
+  %37 = load ptr, ptr %4, align 8, !tbaa !9
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %.024 to i64
+  %40 = sub i64 %38, %39
+  %41 = getelementptr inbounds i8, ptr %0, i64 %40
+  store ptr %41, ptr %1, align 8, !tbaa !9
+  br i1 %21, label %42, label %43
 
-41:                                               ; preds = %34
+42:                                               ; preds = %35
   call void @free(ptr noundef nonnull %.024) #11
-  br label %42
+  br label %43
 
-42:                                               ; preds = %34, %41, %19, %7
-  %.0 = phi double [ %8, %7 ], [ 0.000000e+00, %19 ], [ %35, %41 ], [ %35, %34 ]
+43:                                               ; preds = %35, %42, %19, %7
+  %.0 = phi double [ %8, %7 ], [ 0.000000e+00, %19 ], [ %36, %42 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.0
@@ -115,7 +116,7 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -239,7 +240,7 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

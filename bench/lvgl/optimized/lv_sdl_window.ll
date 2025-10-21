@@ -574,41 +574,40 @@ define internal fastcc void @texture_resize(ptr noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %1
   tail call void @free(ptr noundef nonnull %8) #6
-  %.pre = load i32, ptr %9, align 4, !tbaa !32
-  %.pre26 = mul i32 %.pre, %5
-  %.pre27 = zext i32 %.pre26 to i64
   br label %sdl_draw_buf_realloc_aligned.exit
 
 sdl_draw_buf_realloc_aligned.exit:                ; preds = %1, %13
-  %.pre-phi28 = phi i64 [ %12, %1 ], [ %.pre27, %13 ]
   %14 = add nuw nsw i64 %12, 7
   %15 = and i64 %14, 8589934584
   %16 = tail call noalias noundef align 8 ptr @aligned_alloc(i64 noundef 8, i64 noundef %15) #8
   store ptr %16, ptr %7, align 8, !tbaa !35
-  tail call void @lv_memset(ptr noundef %16, i8 noundef zeroext 0, i64 noundef range(i64 0, 4294967296) %.pre-phi28) #6
-  %17 = load ptr, ptr %7, align 8, !tbaa !35
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
-  %20 = load i32, ptr %9, align 4, !tbaa !32
-  %21 = mul i32 %20, %5
-  tail call void @lv_display_set_buffers(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %19, i32 noundef %21, i32 noundef 1) #6
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !41
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %25, label %24
+  %17 = load i32, ptr %9, align 4, !tbaa !32
+  %18 = mul i32 %17, %5
+  %19 = zext i32 %18 to i64
+  tail call void @lv_memset(ptr noundef %16, i8 noundef zeroext 0, i64 noundef range(i64 0, 4294967296) %19) #6
+  %20 = load ptr, ptr %7, align 8, !tbaa !35
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %23 = load i32, ptr %9, align 4, !tbaa !32
+  %24 = mul i32 %23, %5
+  tail call void @lv_display_set_buffers(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %22, i32 noundef %24, i32 noundef 1) #6
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %28, label %27
 
-24:                                               ; preds = %sdl_draw_buf_realloc_aligned.exit
-  tail call void @SDL_DestroyTexture(ptr noundef nonnull %23) #6
-  br label %25
+27:                                               ; preds = %sdl_draw_buf_realloc_aligned.exit
+  tail call void @SDL_DestroyTexture(ptr noundef nonnull %26) #6
+  br label %28
 
-25:                                               ; preds = %24, %sdl_draw_buf_realloc_aligned.exit
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !34
-  %28 = load i32, ptr %0, align 8, !tbaa !16
-  %29 = load i32, ptr %9, align 4, !tbaa !32
-  %30 = tail call ptr @SDL_CreateTexture(ptr noundef %27, i32 noundef 353701890, i32 noundef 0, i32 noundef %28, i32 noundef %29) #6
-  store ptr %30, ptr %22, align 8, !tbaa !41
-  %31 = tail call i32 @SDL_SetTextureBlendMode(ptr noundef %30, i32 noundef 1) #6
+28:                                               ; preds = %27, %sdl_draw_buf_realloc_aligned.exit
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = load i32, ptr %0, align 8, !tbaa !16
+  %32 = load i32, ptr %9, align 4, !tbaa !32
+  %33 = tail call ptr @SDL_CreateTexture(ptr noundef %30, i32 noundef 353701890, i32 noundef 0, i32 noundef %31, i32 noundef %32) #6
+  store ptr %33, ptr %25, align 8, !tbaa !41
+  %34 = tail call i32 @SDL_SetTextureBlendMode(ptr noundef %33, i32 noundef 1) #6
   ret void
 }
 
@@ -622,7 +621,7 @@ declare ptr @SDL_CreateTexture(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 
 declare i32 @SDL_SetTextureBlendMode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #4
 
 declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
@@ -643,7 +642,7 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
