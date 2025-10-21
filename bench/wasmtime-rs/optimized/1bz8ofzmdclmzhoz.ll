@@ -30245,12 +30245,12 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir10immediates8Offset3211try_add_i64
   %7 = extractvalue { i32, i1 } %6, 1
   %8 = extractvalue { i32, i1 } %6, 0
   %9 = xor i1 %7, true
-  %spec.select18 = zext i1 %9 to i32
+  %spec.select10 = zext i1 %9 to i32
   br label %10
 
 10:                                               ; preds = %2, %4
   %.sroa.4.0 = phi i32 [ %8, %4 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i32 [ %spec.select18, %4 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i32 [ %spec.select10, %4 ], [ 0, %2 ]
   %11 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %12 = insertvalue { i32, i32 } %11, i32 %.sroa.4.0, 1
   ret { i32, i32 } %12

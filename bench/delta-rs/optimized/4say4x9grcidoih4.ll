@@ -141753,8 +141753,8 @@ define internal fastcc void @_ZN9arrow_ipc6reader10read_block17hfea846f92870e89e
   br i1 %8, label %9, label %10
 
 .body:                                            ; preds = %42, %33
-  %eh.lpad-body74 = phi { ptr, i32 } [ %34, %33 ], [ %43, %42 ]
-  resume { ptr, i32 } %eh.lpad-body74
+  %eh.lpad-body71 = phi { ptr, i32 } [ %34, %33 ], [ %43, %42 ]
+  resume { ptr, i32 } %eh.lpad-body71
 
 9:                                                ; preds = %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Seek$u20$for$u20$$RF$mut$u20$S$GT$4seek17h66eec7e2c6e6b34bE.exit"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78e2cf43c31d963ada85e9db6aba8ffd.399) #42

@@ -23127,14 +23127,14 @@ common.resume:                                    ; preds = %.body, %19
   store i64 1, ptr %29, align 8, !alias.scope !4310, !noalias !4278
   %.pre44.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !range !178, !alias.scope !4301, !noalias !4306
   %.phi.trans.insert45.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %.val.i64.i.i.pre.i.i = load i64, ptr %.phi.trans.insert45.i.i, align 8, !alias.scope !4301, !noalias !4306
+  %.val.i66.i.i.pre.i.i = load i64, ptr %.phi.trans.insert45.i.i, align 8, !alias.scope !4301, !noalias !4306
   %.phi.trans.insert47.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %.val4.i65.i.i.pre.i.i = load i64, ptr %.phi.trans.insert47.i.i, align 8, !alias.scope !4301, !noalias !4306
+  %.val4.i67.i.i.pre.i.i = load i64, ptr %.phi.trans.insert47.i.i, align 8, !alias.scope !4301, !noalias !4306
   %.pre44.fr.i.i = freeze i64 %.pre44.i.i
   %51 = trunc i64 %.pre44.fr.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4319)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4320)
-  %52 = sub nuw i64 %.val4.i65.i.i.pre.i.i, %.val.i64.i.i.pre.i.i
+  %52 = sub nuw i64 %.val4.i67.i.i.pre.i.i, %.val.i66.i.i.pre.i.i
   %53 = tail call i64 @llvm.uadd.sat.i64(i64 %52, i64 1)
   %54 = select i1 %51, i64 %53, i64 1
   %55 = icmp eq i8 %.pre49.pre.i.i, 2
@@ -23191,8 +23191,8 @@ common.resume:                                    ; preds = %.body, %19
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.thread.i.i.i.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i", %66, %.split.i.i.i.i, %.thread.i.i
   %80 = phi i64 [ %54, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i" ], [ %54, %66 ], [ %54, %.split.i.i.i.i ], [ %48, %.thread.i.i ]
   %.sroa.0.0.i.i7683.i.i = phi ptr [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i" ], [ %31, %66 ], [ %31, %.split.i.i.i.i ], [ %.sroa.0.0.i.i73.i.i, %.thread.i.i ]
-  %.sroa.075.083.i.i.i.i = phi i64 [ %78, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i" ], [ %72, %66 ], [ 0, %.split.i.i.i.i ], [ 0, %.thread.i.i ]
-  %81 = shl nuw i64 %.sroa.075.083.i.i.i.i, 1
+  %.sroa.077.085.i.i.i.i = phi i64 [ %78, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i" ], [ %72, %66 ], [ 0, %.split.i.i.i.i ], [ 0, %.thread.i.i ]
+  %81 = shl nuw i64 %.sroa.077.085.i.i.i.i, 1
   %82 = call i64 @llvm.uadd.sat.i64(i64 %81, i64 %80)
   %83 = call i64 @llvm.uadd.sat.i64(i64 %82, i64 1)
   %84 = call range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %83, i64 4)
@@ -23474,9 +23474,9 @@ _ZN4core3ops8function6FnOnce9call_once17h24318433ed9d833cE.exit.i10.i.i.i.i.i.i:
   %191 = sub nuw i64 %.val4.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i.i
   %192 = load i64, ptr %99, align 8, !range !178, !alias.scope !4416, !noalias !4417, !noundef !11
   %trunc40.i.i.i.i.i.i = trunc nuw i64 %192 to i1
-  %.val.i64.i.i.i.i.i.i = load i64, ptr %100, align 8, !alias.scope !4416, !noalias !4417
-  %.val4.i65.i.i.i.i.i.i = load i64, ptr %101, align 8, !alias.scope !4416, !noalias !4417
-  %193 = sub nuw i64 %.val4.i65.i.i.i.i.i.i, %.val.i64.i.i.i.i.i.i
+  %.val.i66.i.i.i.i.i.i = load i64, ptr %100, align 8, !alias.scope !4416, !noalias !4417
+  %.val4.i67.i.i.i.i.i.i = load i64, ptr %101, align 8, !alias.scope !4416, !noalias !4417
+  %193 = sub nuw i64 %.val4.i67.i.i.i.i.i.i, %.val.i66.i.i.i.i.i.i
   %.sroa.8.0.i.i.i.i.i.i = select i1 %trunc40.i.i.i.i.i.i, i64 %193, i64 0
   %194 = call i64 @llvm.uadd.sat.i64(i64 %191, i64 %.sroa.8.0.i.i.i.i.i.i)
   %195 = select i1 %trunc.i.i.i.i.i.i, i64 %194, i64 %.sroa.8.0.i.i.i.i.i.i
@@ -23520,8 +23520,8 @@ _ZN4core3ops8function6FnOnce9call_once17h24318433ed9d833cE.exit.i10.i.i.i.i.i.i:
   br i1 %216, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6d0bc6d4f71b7f13E.exit.i.i.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.thread.i.i.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i.i.i", %203, %189
-  %.sroa.075.083.i.i.i.i.i.i = phi i64 [ %215, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i.i.i" ], [ %209, %203 ], [ 0, %189 ]
-  %217 = shl nuw i64 %.sroa.075.083.i.i.i.i.i.i, 1
+  %.sroa.077.085.i.i.i.i.i.i = phi i64 [ %215, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd38f3c5f3b733172E.exit.i.i.i.i.i.i" ], [ %209, %203 ], [ 0, %189 ]
+  %217 = shl nuw i64 %.sroa.077.085.i.i.i.i.i.i, 1
   %218 = call i64 @llvm.uadd.sat.i64(i64 %217, i64 %195)
   %219 = call i64 @llvm.uadd.sat.i64(i64 %218, i64 1)
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6d0bc6d4f71b7f13E.exit.i.i.i.i"

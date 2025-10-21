@@ -1096,8 +1096,8 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %180 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %112, i64 %179)
   %181 = extractvalue { i64, i1 } %180, 1
   %182 = extractvalue { i64, i1 } %180, 0
-  %.not.i = xor i1 %181, true
-  %spec.select.i = zext i1 %.not.i to i64
+  %not..i = xor i1 %181, true
+  %spec.select.i = zext i1 %not..i to i64
   br label %183
 
 183:                                              ; preds = %178, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hff706b21e6fd04beE.exit47.i", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hff706b21e6fd04beE.exit47.thread.i"

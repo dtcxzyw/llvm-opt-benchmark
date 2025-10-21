@@ -10560,7 +10560,7 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %69, %.loopexit.loopexit, %.thread58, %.thread, %21, %31
-  %.sroa.8.0 = phi ptr [ %26, %21 ], [ %36, %31 ], [ %57, %.thread ], [ %85, %.thread58 ], [ %49, %.loopexit.loopexit ], [ %74, %69 ], [ %65, %60 ]
+  %.sroa.8.0 = phi ptr [ %26, %21 ], [ %36, %31 ], [ %57, %.thread ], [ %86, %.thread58 ], [ %49, %.loopexit.loopexit ], [ %80, %69 ], [ %65, %60 ]
   %.sroa.0.0 = phi i64 [ 1, %21 ], [ 1, %31 ], [ 1, %.thread ], [ 1, %.thread58 ], [ 0, %.loopexit.loopexit ], [ 1, %69 ], [ 1, %60 ]
   %50 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, ptr } %50, ptr %.sroa.8.0, 1
@@ -10623,7 +10623,7 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %68 = extractvalue { i64, i1 } %67, 1
   br i1 %68, label %.thread58, label %.critedge, !prof !51
 
-69:                                               ; preds = %58
+69:; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -10632,21 +10632,21 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..escape..Byte$u20$as$u20$core..fmt..Display$GT$3fmt17h61b14394460a36c6E", ptr %.sroa.434.0..sroa_idx, align 8
   store ptr @anon.445edfb3d893364410e0537e46991e65.41, ptr %12, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %11, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 1, ptr %73, align 8
-  %74 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %11, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 1, ptr %79, align 8
+  %80 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.critedge:                                        ; preds = %66
+.thread59:                                        ; preds = %66
   %75 = zext nneg i8 %42 to i64
   %76 = extractvalue { i64, i1 } %67, 0
   %77 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %76, i64 %75)
@@ -10659,21 +10659,21 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %1, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %1, ptr %81, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.438.0..sroa_idx, align 8
   store ptr @anon.445edfb3d893364410e0537e46991e65.43, ptr %9, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 2, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 1, ptr %84, align 8
-  %85 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 2, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 1, ptr %85, align 8
+  %86 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

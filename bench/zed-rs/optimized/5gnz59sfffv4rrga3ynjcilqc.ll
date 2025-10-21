@@ -8768,9 +8768,9 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
   store i64 1, ptr %57, align 8, !alias.scope !2157, !noalias !2139
   %.pre25.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !range !228, !alias.scope !2147, !noalias !2152
   %.phi.trans.insert26.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.val.i63.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert26.i.i.i, align 8, !alias.scope !2147, !noalias !2152
+  %.val.i65.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert26.i.i.i, align 8, !alias.scope !2147, !noalias !2152
   %.phi.trans.insert28.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 72
-  %.val4.i64.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert28.i.i.i, align 8, !alias.scope !2147, !noalias !2152
+  %.val4.i66.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert28.i.i.i, align 8, !alias.scope !2147, !noalias !2152
   %.pre30.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 8, !range !1286, !alias.scope !2147, !noalias !2152
   %.pre25.fr.i.i.i = freeze i64 %.pre25.i.i.i
   %81 = trunc i64 %.pre25.fr.i.i.i to i1
@@ -8786,7 +8786,7 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
   br label %192
 
 85:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i"
-  %86 = sub nuw i64 %.val4.i64.i.i.pre.i.i.i, %.val.i63.i.i.pre.i.i.i
+  %86 = sub nuw i64 %.val4.i66.i.i.pre.i.i.i, %.val.i65.i.i.pre.i.i.i
   %87 = call i64 @llvm.uadd.sat.i64(i64 %86, i64 1)
   br i1 %82, label %.thread.i.i.i.i.i, label %90
 
@@ -8983,12 +8983,12 @@ _ZN4core3ops8function6FnOnce9call_once17hc13154d3dff25e69E.exit.i10.i.i.i.i.i.i.
   %155 = sub nuw i64 %.val4.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i.i.i
   %156 = load i64, ptr %114, align 8, !range !228, !alias.scope !2233, !noalias !2234, !noundef !4
   %trunc40.i.i.i.i.i.i.i = trunc nuw i64 %156 to i1
-  %.val.i63.i.i.i.i.i.i.i = load i64, ptr %115, align 8, !alias.scope !2233, !noalias !2234
-  %.val4.i64.i.i.i.i.i.i.i = load i64, ptr %116, align 8, !alias.scope !2233, !noalias !2234
-  %157 = sub nuw i64 %.val4.i64.i.i.i.i.i.i.i, %.val.i63.i.i.i.i.i.i.i
-  %.sroa.072.0.i.i.i.i.i.i.i = select i1 %trunc40.i.i.i.i.i.i.i, i64 %157, i64 0
-  %158 = call i64 @llvm.uadd.sat.i64(i64 %155, i64 %.sroa.072.0.i.i.i.i.i.i.i)
-  %159 = select i1 %trunc.i.i.i.i.i.i.i, i64 %158, i64 %.sroa.072.0.i.i.i.i.i.i.i
+  %.val.i65.i.i.i.i.i.i.i = load i64, ptr %115, align 8, !alias.scope !2233, !noalias !2234
+  %.val4.i66.i.i.i.i.i.i.i = load i64, ptr %116, align 8, !alias.scope !2233, !noalias !2234
+  %157 = sub nuw i64 %.val4.i66.i.i.i.i.i.i.i, %.val.i65.i.i.i.i.i.i.i
+  %.sroa.074.0.i.i.i.i.i.i.i = select i1 %trunc40.i.i.i.i.i.i.i, i64 %157, i64 0
+  %158 = call i64 @llvm.uadd.sat.i64(i64 %155, i64 %.sroa.074.0.i.i.i.i.i.i.i)
+  %159 = select i1 %trunc.i.i.i.i.i.i.i, i64 %158, i64 %.sroa.074.0.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !2237
   %160 = load i8, ptr %113, align 8, !range !1286, !alias.scope !2233, !noalias !2234, !noundef !4
   %161 = icmp eq i8 %160, 2

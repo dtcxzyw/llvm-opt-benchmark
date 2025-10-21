@@ -23305,7 +23305,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
   %78 = add i64 %.sroa.17.2381, -2
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.0246.2383, i64 2
   %80 = load i8, ptr %72, align 1, !alias.scope !4765, !noalias !4769
-  %.fr483 = freeze i8 %80
+  %.fr481 = freeze i8 %80
   %81 = select i1 %12, i8 16, i8 8
   %82 = add nuw nsw i8 %81, %.sroa.18.sroa.0.0
   %83 = icmp sgt i8 %.fr, -1
@@ -23326,31 +23326,31 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
 
 87:                                               ; preds = %77
   %88 = shl nuw i8 %.fr, 1
-  %89 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %88, i8 %.fr483)
+  %89 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %88, i8 %.fr481)
   %90 = extractvalue { i8, i1 } %89, 1
   %91 = extractvalue { i8, i1 } %89, 0
-  br i1 %90, label %.thread467, label %.thread464
+  br i1 %90, label %.thread465, label %.thread462
 
-.thread464:                                       ; preds = %87
+.thread462:                                       ; preds = %87
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %94, label %96
 
-.thread467:                                       ; preds = %87, %77
-  %..sroa.675.0463469 = phi i8 [ undef, %77 ], [ %91, %87 ]
+.thread465:                                       ; preds = %87, %77
+  %..sroa.675.0461467 = phi i8 [ undef, %77 ], [ %91, %87 ]
   store i8 48, ptr %0, align 8
   %.sroa.2167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %..sroa.675.0463469, ptr %.sroa.2167.0..sroa_idx, align 1
+  store i8 %..sroa.675.0461467, ptr %.sroa.2167.0..sroa_idx, align 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 3, ptr %93, align 1
   br label %108
 
-94:                                               ; preds = %.thread464
+94:                                               ; preds = %.thread462
   store i8 48, ptr %0, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 3, ptr %95, align 1
   br label %108
 
-96:                                               ; preds = %.thread464
+96:                                               ; preds = %.thread462
   %97 = urem i8 %82, %91
   %98 = icmp eq i8 %97, 0
   %99 = sub i8 %91, %97
@@ -23378,7 +23378,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
   %.sroa.10104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 42
   store <2 x i8> %46, ptr %.sroa.10104.0..sroa_idx, align 2
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %.fr483, ptr %.sroa.11.0..sroa_idx, align 4
+  store i8 %.fr481, ptr %.sroa.11.0..sroa_idx, align 4
   br label %108
 
 105:                                              ; preds = %96
@@ -23390,7 +23390,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
   store i8 3, ptr %107, align 1
   br label %108
 
-108:                                              ; preds = %40, %74, %69, %65, %48, %105, %94, %.thread467, %84, %102, %34
+108:                                              ; preds = %40, %74, %69, %65, %48, %105, %94, %.thread465, %84, %102, %34
   ret void
 }
 

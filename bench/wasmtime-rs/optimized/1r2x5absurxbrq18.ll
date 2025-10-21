@@ -16299,38 +16299,38 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.021.lcssa = phi i32 [ 0, %10 ], [ %.122, %.critedge.loopexit ]
   %.019.lcssa = phi i32 [ %11, %10 ], [ %.120, %.critedge.loopexit ]
   %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %.critedge.loopexit ]
-  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %10 ], [ %20, %.critedge.loopexit ]
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %23
+  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %10 ], [ %19, %.critedge.loopexit ]
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %22
 
-23:                                               ; preds = %.critedge
+22:                                               ; preds = %.critedge
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %.critedge
-  %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %26
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %25
 
-26:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
+25:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
-  br i1 %.sroa.015.0.lcssa, label %27, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
+  br i1 %.sroa.015.0.lcssa, label %26, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-27:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29
+26:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29
   %28 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 1
   br i1 %28, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %29
 
-29:                                               ; preds = %27
+29:                                               ; preds = %26
   %30 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 0
   %31 = icmp ult i8 %30, 17
   %32 = zext i1 %31 to i8
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, %27, %29
+_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, %26, %29
   %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29 ], [ 0, %27 ], [ %32, %29 ]
   %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29 ], [ undef, %27 ], [ %30, %29 ]
   %33 = add i32 %11, -1
@@ -16444,39 +16444,39 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.022.lcssa = phi i32 [ %8, %7 ], [ %.123, %._crit_edge.loopexit ]
   %.020.lcssa = phi i32 [ 0, %7 ], [ %.121, %._crit_edge.loopexit ]
   %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %7 ], [ %15, %._crit_edge.loopexit ]
-  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.022.lcssa)
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %.noexc
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.022.lcssa)
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %17, label %.noexc
 
 .noexc:                                           ; preds = %._crit_edge
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
-18:                                               ; preds = %._crit_edge
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.026.lcssa)
-  %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %.noexc32
+17:                                               ; preds = %._crit_edge
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.026.lcssa)
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %20, label %.noexc32
 
-.noexc32:                                         ; preds = %18
+.noexc32:                                         ; preds = %17
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
-21:                                               ; preds = %18
-  br i1 %.sroa.015.0.lcssa, label %22, label %28
+20:                                               ; preds = %17
+  br i1 %.sroa.015.0.lcssa, label %21, label %28
 
-22:                                               ; preds = %21
+21:                                               ; preds = %20
   %23 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 1
   br i1 %23, label %28, label %24
 
-24:                                               ; preds = %22
+24:                                               ; preds = %21
   %25 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 0
   %26 = icmp ult i8 %25, 17
   %27 = zext i1 %26 to i8
   br label %28
 
-28:                                               ; preds = %24, %22, %21
-  %.sroa.03.0.i = phi i8 [ 0, %21 ], [ 0, %22 ], [ %27, %24 ]
-  %.sroa.5.0.i = phi i8 [ undef, %21 ], [ undef, %22 ], [ %25, %24 ]
+28:                                               ; preds = %24, %21, %20
+  %.sroa.03.0.i = phi i8 [ 0, %20 ], [ 0, %21 ], [ %27, %24 ]
+  %.sroa.5.0.i = phi i8 [ undef, %20 ], [ undef, %21 ], [ %25, %24 ]
   %29 = add i32 %8, -1
   %30 = add i32 %.026.lcssa, %29
   %31 = sub i32 0, %.026.lcssa
@@ -16617,7 +16617,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.sroa.3.0.i = phi ptr [ undef, %.split ], [ %35, %32 ]
   %41 = extractvalue { i64, ptr } %40, 0
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32.loopexit", label %48
+  br i1 %42, label %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32.loopexit", label %47
 
 "_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32.loopexit": ; preds = %39
   %43 = trunc nuw i8 %.sroa.015.0 to i1
@@ -16631,13 +16631,13 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.us-phi65 = phi i32 [ %15, %17 ], [ %.022, %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32.loopexit" ]
   %.us-phi66 = phi i32 [ 0, %17 ], [ %.020, %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32.loopexit" ]
   %.us-phi67 = phi { i8, i1 } [ { i8 1, i1 false }, %17 ], [ %44, %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32.loopexit" ]
-  %45 = call { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h561e8eb3fb25bffeE.llvm.11357125133562502446"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
+  %44 = call { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h561e8eb3fb25bffeE.llvm.11357125133562502446"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %46 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.us-phi65)
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %49, label %.noexc33
+  %45 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.us-phi65)
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %48, label %.noexc33
 
-48:                                               ; preds = %39
+47:                                               ; preds = %39
   %.not = icmp eq ptr %.sroa.3.0.i, null
   br i1 %.not, label %.thread54, label %80
 
@@ -16645,29 +16645,29 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
-49:                                               ; preds = %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32"
-  %50 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.us-phi63)
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %.noexc36
+48:                                               ; preds = %"_ZN4core3ptr375drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$C$2_usize$GT$$C$wasmtime_environ..fact..trampoline..variant_info$LT$$u5b$core..option..Option$LT$$RF$wasmtime_environ..component..types..InterfaceType$GT$$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h40c22adb9ce8d941E.exit32"
+  %49 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.us-phi63)
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %51, label %.noexc36
 
-.noexc36:                                         ; preds = %49
+.noexc36:                                         ; preds = %48
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
-52:                                               ; preds = %49
-  br i1 %.us-phi, label %53, label %59
+51:                                               ; preds = %48
+  br i1 %.us-phi, label %52, label %59
 
-53:                                               ; preds = %52
+52:                                               ; preds = %51
   %54 = extractvalue { i8, i1 } %.us-phi67, 1
   br i1 %54, label %59, label %55
 
-55:                                               ; preds = %53
+55:                                               ; preds = %52
   %56 = extractvalue { i8, i1 } %.us-phi67, 0
   %57 = icmp ult i8 %56, 17
   %58 = zext i1 %57 to i8
   br label %59
 
-59:                                               ; preds = %55, %53, %52
+59:                                               ; preds = %55, %52, %51
   %.sroa.03.0.i = phi i8 [ 0, %52 ], [ 0, %53 ], [ %58, %55 ]
   %.sroa.5.0.i = phi i8 [ undef, %52 ], [ undef, %53 ], [ %56, %55 ]
   %60 = add i32 %15, -1
@@ -16699,7 +16699,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.thread54:                                        ; preds = %26, %80, %48
+.thread54:                                        ; preds = %26, %80, %47
   %.sroa.015.1 = phi i8 [ %92, %80 ], [ %.sroa.015.0, %48 ], [ %.sroa.015.0, %26 ]
   %.127 = phi i32 [ %.0.sroa.speculated.i42, %80 ], [ %.026, %48 ], [ %.026, %26 ]
   %.125 = phi i32 [ %.0.sroa.speculated.i41, %80 ], [ %.024, %48 ], [ %.024, %26 ]
@@ -16710,7 +16710,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.pre85 = load i64, ptr %18, align 8, !alias.scope !3860
   br label %.split, !llvm.loop !3873
 
-80:                                               ; preds = %48
+80:                                               ; preds = %47
   %81 = load i32, ptr %.sroa.3.0.i, align 4, !noundef !16
   %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.020, i32 %81)
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 4
@@ -16803,38 +16803,38 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.021.lcssa = phi i32 [ 0, %10 ], [ %.122, %._crit_edge.loopexit ]
   %.019.lcssa = phi i32 [ %11, %10 ], [ %.120, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %._crit_edge.loopexit ]
-  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %10 ], [ %20, %._crit_edge.loopexit ]
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %23
+  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %10 ], [ %19, %._crit_edge.loopexit ]
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %22
 
-23:                                               ; preds = %._crit_edge
+22:                                               ; preds = %._crit_edge
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %._crit_edge
-  %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %26
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %25
 
-26:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
+25:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
-  br i1 %.sroa.015.0.lcssa, label %27, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
+  br i1 %.sroa.015.0.lcssa, label %26, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-27:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29
+26:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29
   %28 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 1
   br i1 %28, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %29
 
-29:                                               ; preds = %27
+29:                                               ; preds = %26
   %30 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 0
   %31 = icmp ult i8 %30, 17
   %32 = zext i1 %31 to i8
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, %27, %29
+_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, %26, %29
   %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29 ], [ 0, %27 ], [ %32, %29 ]
   %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29 ], [ undef, %27 ], [ %30, %29 ]
   %33 = add i32 %11, -1
@@ -16953,38 +16953,38 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.021.lcssa = phi i32 [ 0, %10 ], [ %.122, %.critedge.loopexit ]
   %.019.lcssa = phi i32 [ %11, %10 ], [ %.120, %.critedge.loopexit ]
   %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %.critedge.loopexit ]
-  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %10 ], [ %20, %.critedge.loopexit ]
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %23
+  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %10 ], [ %19, %.critedge.loopexit ]
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %22
 
-23:                                               ; preds = %.critedge
+22:                                               ; preds = %.critedge
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %.critedge
-  %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %26
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %25
 
-26:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
+25:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27
-  br i1 %.sroa.015.0.lcssa, label %27, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
+  br i1 %.sroa.015.0.lcssa, label %26, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-27:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29
+26:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29
   %28 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 1
   br i1 %28, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %29
 
-29:                                               ; preds = %27
+29:                                               ; preds = %26
   %30 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 0
   %31 = icmp ult i8 %30, 17
   %32 = zext i1 %31 to i8
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, %27, %29
+_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, %26, %29
   %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29 ], [ 0, %27 ], [ %32, %29 ]
   %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29 ], [ undef, %27 ], [ %30, %29 ]
   %33 = add i32 %11, -1

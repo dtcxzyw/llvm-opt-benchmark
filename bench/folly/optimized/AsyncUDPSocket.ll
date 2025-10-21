@@ -7538,127 +7538,127 @@ _ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i:     ; preds = %10
   unreachable
 
 _ZNK5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE14computeNewSizeEv.exit: ; preds = %10
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = lshr i64 %17, 1
-  %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 4611686018427387902)
-  %20 = add nuw nsw i64 %19, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %17 = lshr i64 %16, 1
+  %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 4611686018427387902)
+  %.sroa.speculated.i = add nuw nsw i64 %18, 1
   %.sroa.speculated.i = select i1 %.not.i.i, i64 %20, i64 2
   %.sroa.speculated30 = tail call i64 @llvm.umax.i64(i64 %1, i64 %.sroa.speculated.i)
-  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.speculated30, i64 136)
-  %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit, label %23, !prof !12
+  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.speculated30, i64 136)
+  %20 = extractvalue { i64, i1 } %19, 1
+  br i1 %20, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit, label %21, !prof !12
 
 _ZN5folly11checked_mulImvEEbPT_S1_S1_.exit:       ; preds = %_ZNK5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE14computeNewSizeEv.exit
   tail call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.48) #10
   unreachable
 
-23:                                               ; preds = %_ZNK5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE14computeNewSizeEv.exit
-  %24 = extractvalue { i64, i1 } %21, 0
-  %25 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %_ZN5folly10canNallocxEv.exit.i, !prof !193
+21:                                               ; preds = %_ZNK5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE14computeNewSizeEv.exit
+  %22 = extractvalue { i64, i1 } %19, 0
+  %23 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %_ZN5folly10canNallocxEv.exit.i, !prof !193
 
-27:                                               ; preds = %23
-  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
-  %.not.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %29
+25:                                               ; preds = %21
+  %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
+  %.not.i.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %27
 
-29:                                               ; preds = %27
+27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %30 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %28 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %31 = zext i1 %30 to i8
-  store i8 %31, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194
-  %32 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194
+  %30 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
   br label %_ZN5folly10canNallocxEv.exit.i
 
-_ZN5folly10canNallocxEv.exit.i:                   ; preds = %29, %27, %23
-  %33 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194, !range !21, !noundef !22
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %_ZN5folly14goodMallocSizeEm.exit
+_ZN5folly10canNallocxEv.exit.i:                   ; preds = %27, %25, %21
+  %31 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194, !range !21, !noundef !22
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5folly14goodMallocSizeEm.exit
 
-35:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
-  %36 = call i64 @nallocx(i64 noundef %24, i32 noundef 0) #42
-  %.not.i = icmp eq i64 %36, 0
-  %37 = select i1 %.not.i, i64 %24, i64 %36
+33:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
+  %34 = call i64 @nallocx(i64 noundef %22, i32 noundef 0) #42
+  %.not.i = icmp eq i64 %34, 0
+  %35 = select i1 %.not.i, i64 %22, i64 %34
   br label %_ZN5folly14goodMallocSizeEm.exit
 
-_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %35
-  %.0.i14 = phi i64 [ %37, %35 ], [ %24, %_ZN5folly10canNallocxEv.exit.i ]
-  %38 = udiv i64 %.0.i14, 136
-  %39 = mul nuw i64 %38, 136
-  %40 = call noalias ptr @malloc(i64 noundef %39) #43
-  %.not.i16 = icmp eq ptr %40, null
-  br i1 %.not.i16, label %41, label %_ZN5folly13checkedMallocEm.exit
+_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %33
+  %.0.i14 = phi i64 [ %35, %35 ], [ %22, %_ZN5folly10canNallocxEv.exit.i ]
+  %36 = udiv i64 %.0.i14, 136
+  %37 = mul nuw i64 %36, 136
+  %38 = call noalias ptr @malloc(i64 noundef %37) #43
+  %.not.i16 = icmp eq ptr %38, null
+  br i1 %.not.i16, label %39, label %_ZN5folly13checkedMallocEm.exit
 
-41:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
+39:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
   call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #10
   unreachable
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
-  %42 = load i64, ptr %0, align 8, !tbaa !185
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %.not1.i = icmp slt i64 %42, 0
-  %45 = select i1 %.not1.i, ptr %44, ptr %43
-  %.not = icmp eq ptr %45, null
+  %40 = load i64, ptr %0, align 8, !tbaa !185
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not1.i = icmp slt i64 %40, 0
+  %43 = select i1 %.not1.i, ptr %42, ptr %41
+  %.not = icmp eq ptr %43, null
   br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exitthread-pre-split
 
 _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exitthread-pre-split: ; preds = %_ZN5folly13checkedMallocEm.exit
-  %46 = and i64 %42, 4611686018427387903
-  %.idx = mul nuw nsw i64 %46, 136
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %45, i64 %.idx, i1 false)
+  %44 = and i64 %40, 4611686018427387903
+  %.idx = mul nuw nsw i64 %44, 136
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %43, i64 %.idx, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
 _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exitthread-pre-split, %_ZN5folly13checkedMallocEm.exit
-  %.not.i22 = icmp sgt i64 %42, -1
-  %.not6.i = icmp eq ptr %44, null
+  %.not.i22 = icmp sgt i64 %40, -1
+  %.not6.i = icmp eq ptr %42, null
   %or.cond = select i1 %.not.i22, i1 true, i1 %.not6.i
-  br i1 %or.cond, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8freeHeapEv.exit, label %47
+  br i1 %or.cond, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8freeHeapEv.exit, label %45
 
-47:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %48 = load i64, ptr %12, align 8, !tbaa !190
-  %49 = mul i64 %48, 136
-  %50 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %52, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !193
+45:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
+  %46 = load i64, ptr %12, align 8, !tbaa !190
+  %47 = mul i64 %46, 136
+  %48 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %50, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !193
 
-52:                                               ; preds = %47
-  %53 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
-  %.not.i.i.i.i.i = icmp eq i32 %53, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %54
+50:                                               ; preds = %45
+  %51 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
+  %.not.i.i.i.i.i = icmp eq i32 %51, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %52
 
-54:                                               ; preds = %52
+52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %55 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %53 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %56 = zext i1 %55 to i8
-  store i8 %56, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194
-  %57 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %54 = zext i1 %53 to i8
+  store i8 %54, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194
+  %55 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
-_ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %54, %52, %47
-  %58 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194, !range !21, !noundef !22
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %61
+_ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %52, %50, %45
+  %56 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194, !range !21, !noundef !22
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %59
 
-60:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
-  call void @sdallocx(ptr noundef nonnull %44, i64 noundef %49, i32 noundef 0) #36
+58:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
+  call void @sdallocx(ptr noundef nonnull %42, i64 noundef %47, i32 noundef 0) #36
   br label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8freeHeapEv.exit
 
-61:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
-  call void @free(ptr noundef nonnull %44) #36
+59:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
+  call void @free(ptr noundef nonnull %42) #36
   br label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8freeHeapEv.exit
 
-_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8freeHeapEv.exit: ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %60, %61
-  store ptr %40, ptr %43, align 8, !tbaa !33
-  %62 = load i64, ptr %0, align 8
-  %63 = and i64 %62, 4611686018427387903
-  %storemerge.i24 = or disjoint i64 %63, -9223372036854775808
+_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8freeHeapEv.exit: ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %58, %59
+  store ptr %38, ptr %41, align 8, !tbaa !33
+  %60 = load i64, ptr %0, align 8
+  %61 = and i64 %60, 4611686018427387903
+  %storemerge.i24 = or disjoint i64 %61, -9223372036854775808
   store i64 %storemerge.i24, ptr %0, align 8, !tbaa !185
-  store i64 %38, ptr %12, align 8, !tbaa !190
+  store i64 %36, ptr %12, align 8, !tbaa !190
   ret void
 }
 

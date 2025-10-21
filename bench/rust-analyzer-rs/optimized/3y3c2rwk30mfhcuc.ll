@@ -517,12 +517,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !237, !alias.scope !268, !noalias !273
   %.phi.trans.insert135 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val.i68.i.i.pre = load i64, ptr %.phi.trans.insert135, align 8, !alias.scope !268, !noalias !273
+  %.val.i71.i.i.pre = load i64, ptr %.phi.trans.insert135, align 8, !alias.scope !268, !noalias !273
   %.phi.trans.insert137 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.val3.i69.i.i.pre = load i64, ptr %.phi.trans.insert137, align 8, !alias.scope !268, !noalias !273
+  %.val3.i72.i.i.pre = load i64, ptr %.phi.trans.insert137, align 8, !alias.scope !268, !noalias !273
   %.pre.fr = freeze i64 %.pre
   %56 = trunc i64 %.pre.fr to i1
-  %57 = sub nuw i64 %.val3.i69.i.i.pre, %.val.i68.i.i.pre
+  %57 = sub nuw i64 %.val3.i72.i.i.pre, %.val.i71.i.i.pre
   %spec.select = select i1 %56, i64 %57, i64 0
   br label %58
 

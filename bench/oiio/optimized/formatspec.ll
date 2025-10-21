@@ -2952,7 +2952,7 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread: ; preds = %2
   %57 = sext i32 %56 to i64
   %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %57, i64 %54)
   %mul.val.i = extractvalue { i64, i1 } %mul.i, 0
-  %.not.i.not = icmp eq i32 %56, 0
+  %.not.i = icmp eq i32 %56, 0
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   %spec.select.i = select i1 %mul.ov.i, i64 -1, i64 %mul.val.i
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %51, i32 1)
@@ -2961,18 +2961,18 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread: ; preds = %2
   %59 = call noundef i64 @_ZNK11OpenImageIO6v3_1_08TypeDesc8basesizeEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #37
   %60 = mul i64 %59, %58
   %61 = mul i64 %60, %spec.select.i2
-  %62 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %61, i64 %spec.select.i)
-  %63 = extractvalue { i64, i1 } %62, 0
+  %mul.i3 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %61, i64 %spec.select.i)
+  %mul.val.i4 = extractvalue { i64, i1 } %mul.i3, 0
   %.not.i5 = icmp eq i64 %61, 0
-  %64 = extractvalue { i64, i1 } %62, 1
-  %mul.val.i4 = select i1 %64, i64 -1, i64 %63
-  %65 = select i1 %.not.i5, i1 true, i1 %.not.i.not
+  %mul.ov.i6 = extractvalue { i64, i1 } %mul.i3, 1
+  %spec.select.i7 = select i1 %mul.ov.i6, i64 -1, i64 %mul.val.i4
+  %.0.i8 = select i1 %.not.i5, i1 true, i1 %.not.i
   %.0.i8 = select i1 %65, i64 0, i64 %mul.val.i4
   br label %_ZNK11OpenImageIO6v3_1_09ImageSpec14scanline_bytesEb.exit
 
 _ZNK11OpenImageIO6v3_1_09ImageSpec14scanline_bytesEb.exit: ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb.exit.thread.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb.exit.i, %5, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread
-  %66 = phi i64 [ %.0.i8, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread ], [ 0, %5 ], [ 0, %_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb.exit.thread.i ], [ %spec.select.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb.exit.i ]
-  ret i64 %66
+  %62 = phi i64 [ %.0.i8, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread ], [ 0, %5 ], [ 0, %_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb.exit.thread.i ], [ %spec.select.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb.exit.i ]
+  ret i64 %62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3141,7 +3141,7 @@ define noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec10tile_bytesENS0_8TypeDesc
 
 8:                                                ; preds = %2
   %9 = tail call noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec10tile_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext true) #37
-  br label %37
+  br label %33
 
 _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread: ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3183,7 +3183,7 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec11tile_pixelsEv.exit: ; preds = %_ZNK11OpenIma
   %28 = sext i32 %27 to i64
   %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %28, i64 %.03.i)
   %mul.val.i = extractvalue { i64, i1 } %mul.i, 0
-  %.not.i1.not = icmp eq i32 %27, 0
+  %.not.i1 = icmp eq i32 %27, 0
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   %spec.select.i = select i1 %mul.ov.i, i64 -1, i64 %mul.val.i
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
@@ -3192,18 +3192,18 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec11tile_pixelsEv.exit: ; preds = %_ZNK11OpenIma
   %30 = call noundef i64 @_ZNK11OpenImageIO6v3_1_08TypeDesc8basesizeEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #37
   %31 = mul i64 %30, %29
   %32 = mul i64 %31, %spec.select.i2
-  %33 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %32, i64 %spec.select.i)
-  %34 = extractvalue { i64, i1 } %33, 0
+  %mul.i3 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %32, i64 %spec.select.i)
+  %mul.val.i4 = extractvalue { i64, i1 } %mul.i3, 0
   %.not.i5 = icmp eq i64 %32, 0
-  %35 = extractvalue { i64, i1 } %33, 1
-  %mul.val.i4 = select i1 %35, i64 -1, i64 %34
-  %36 = select i1 %.not.i5, i1 true, i1 %.not.i1.not
+  %mul.ov.i6 = extractvalue { i64, i1 } %mul.i3, 1
+  %spec.select.i7 = select i1 %mul.ov.i6, i64 -1, i64 %mul.val.i4
+  %.0.i8 = select i1 %.not.i5, i1 true, i1 %.not.i1
   %.0.i8 = select i1 %36, i64 0, i64 %mul.val.i4
   br label %37
 
-37:                                               ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec11tile_pixelsEv.exit, %8
-  %38 = phi i64 [ %9, %8 ], [ %.0.i8, %_ZNK11OpenImageIO6v3_1_09ImageSpec11tile_pixelsEv.exit ]
-  ret i64 %38
+33:                                               ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec11tile_pixelsEv.exit, %8
+  %34 = phi i64 [ %9, %8 ], [ %.0.i8, %_ZNK11OpenImageIO6v3_1_09ImageSpec11tile_pixelsEv.exit ]
+  ret i64 %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -285,7 +285,7 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   %7 = load i8, ptr %0, align 1, !range !11, !alias.scope !70
   %8 = trunc nuw i8 %7 to i1
   %.not = select i1 %.not.i, i1 true, i1 %8
-  br i1 %.not, label %23, label %9
+  br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %1
   %10 = tail call { i8, i1 } @llvm.sadd.with.overflow.i8(i8 %6, i8 1)
@@ -299,7 +299,7 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   %16 = sext i8 %4 to i64
   %17 = sub nsw i64 %15, %16
   %.sink4.i.i.i = select i1 %14, i64 %17, i64 0
-  br label %23
+  br label %24
 
 18:                                               ; preds = %9
   %19 = icmp slt i8 %4, %6
@@ -307,13 +307,13 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   %21 = sext i8 %4 to i64
   %reass.sub = sub nsw i64 %20, %21
   %22 = add nsw i64 %reass.sub, 1
-  %.sroa.5.0.i = select i1 %19, i64 %22, i64 1
-  br label %23
+  %23 = select i1 %19, i64 %22, i64 1
+  br label %24
 
-23:                                               ; preds = %12, %18, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %12 ], [ %.sroa.5.0.i, %18 ]
-  %24 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %24
+24:                                               ; preds = %12, %18, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %12 ], [ %23, %18 ]
+  %25 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -398,7 +398,7 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %7 = load i8, ptr %6, align 2, !range !11, !alias.scope !90
   %.not23 = icmp ne i8 %7, 0
   %.not = select i1 %.not.i, i1 true, i1 %.not23
-  br i1 %.not, label %22, label %8
+  br i1 %.not, label %23, label %8
 
 8:                                                ; preds = %1
   %9 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %5, i16 1)
@@ -412,7 +412,7 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %15 = sext i16 %3 to i64
   %16 = sub nsw i64 %14, %15
   %.sink4.i.i.i = select i1 %13, i64 %16, i64 0
-  br label %22
+  br label %23
 
 17:                                               ; preds = %8
   %18 = icmp slt i16 %3, %5
@@ -420,13 +420,13 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %20 = sext i16 %3 to i64
   %reass.sub = sub nsw i64 %19, %20
   %21 = add nsw i64 %reass.sub, 1
-  %.sroa.5.0.i = select i1 %18, i64 %21, i64 1
-  br label %22
+  %22 = select i1 %18, i64 %21, i64 1
+  br label %23
 
-22:                                               ; preds = %11, %17, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %.sroa.5.0.i, %17 ]
-  %23 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %23
+23:                                               ; preds = %11, %17, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %22, %17 ]
+  %24 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -522,9 +522,9 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %10, %14, %1
   %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %10 ], [ %21, %14 ]
   %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %10 ], [ %.sroa.0.1.i, %14 ]
-  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %23
+  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -604,13 +604,13 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %19 = sext i32 %2 to i64
   %reass.sub = sub nsw i64 %18, %19
   %20 = add nuw nsw i64 %reass.sub, 1
-  %.sroa.5.0.i = select i1 %17, i64 %20, i64 1
+  %21 = select i1 %17, i64 %20, i64 1
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread": ; preds = %10, %16, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %.sroa.5.0.i, %16 ]
-  %21 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %21
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %21, %16 ]
+  %22 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -701,9 +701,9 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %10, %14, %1
   %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %10 ], [ %21, %14 ]
   %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %10 ], [ %.sroa.0.1.i, %14 ]
-  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %23
+  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

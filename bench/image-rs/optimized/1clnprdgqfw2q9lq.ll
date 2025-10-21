@@ -36976,14 +36976,14 @@ define { i64, i64 } @_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972
   %17 = extractvalue { i64, i1 } %15, 1
   %or.cond.demorgan = or i1 %8, %12
   %or.cond3.demorgan = or i1 %or.cond.demorgan, %17
-  br i1 %or.cond3.demorgan, label %.thread, label %18
+  br i1 %or.cond3.demorgan, label %28, label %18
 
 18:                                               ; preds = %4
   %19 = extractvalue { i64, i1 } %11, 0
   %20 = extractvalue { i64, i1 } %7, 0
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 %19)
   %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %18
   %24 = extractvalue { i64, i1 } %21, 0
@@ -36992,14 +36992,14 @@ define { i64, i64 } @_ZN5image4flat12SampleLayout21index_ignoring_bounds17h46972
   %27 = extractvalue { i64, i1 } %25, 0
   %not. = xor i1 %26, true
   %spec.select20 = zext i1 %not. to i64
-  br label %.thread
+  br label %28
 
-.thread:                                          ; preds = %18, %23, %4
+28:                                               ; preds = %18, %23, %4
   %.sroa.5.0 = phi i64 [ undef, %4 ], [ %27, %23 ], [ undef, %18 ]
   %.sroa.0.0 = phi i64 [ 0, %4 ], [ %spec.select20, %23 ], [ 0, %18 ]
-  %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %29 = insertvalue { i64, i64 } %28, i64 %.sroa.5.0, 1
-  ret { i64, i64 } %29
+  %29 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %30 = insertvalue { i64, i64 } %29, i64 %.sroa.5.0, 1
+  ret { i64, i64 } %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -58664,7 +58664,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$17try_with_capacity1
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, i8 0, i64 18, i1 false)
-  br label %29
+  br label %28
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -58698,9 +58698,9 @@ _ZN4http6header3map15to_raw_capacity17h0f6944be6344efdfE.exit: ; preds = %10
   %21 = icmp ult i64 %20, 2
   br i1 %21, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h260e4e7f17931878E.exit", label %22
 
-22:                                               ; preds = %_ZN4http6header3map15to_raw_capacity17h0f6944be6344efdfE.exit
+22:; preds = %_ZN4http6header3map15to_raw_capacity17h0f6944be6344efdfE.exit
   %23 = add i64 %20, -1
-  %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
   %25 = lshr i64 -1, %24
   %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %25, i64 1)
   br label %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h260e4e7f17931878E.exit"
@@ -58711,24 +58711,24 @@ _ZN4http6header3map15to_raw_capacity17h0f6944be6344efdfE.exit: ; preds = %10
   %28 = extractvalue { i64, i1 } %.0.i, 0
   br i1 %27, label %30, label %31
 
-29:                                               ; preds = %55, %52, %30, %9
+28:                                               ; preds = %52, %49, %29, %9
   ret void
 
-30:                                               ; preds = %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h260e4e7f17931878E.exit"
+29:                                               ; preds = %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h260e4e7f17931878E.exit"
   store i64 3, ptr %0, align 8
-  br label %29
+  br label %28
 
-31:                                               ; preds = %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h260e4e7f17931878E.exit"
-  %32 = icmp ugt i64 %28, 32768
-  br i1 %32, label %52, label %33
+30:                                               ; preds = %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h260e4e7f17931878E.exit"
+  %31 = icmp ugt i64 %28, 32768
+  br i1 %31, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i.i"
 
-33:                                               ; preds = %31
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i.i": ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !12620
   %34 = icmp eq i64 %28, 0
-  br i1 %34, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5c458cd21cfbbcf2E.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i.i"
+  br i1 %34, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5c458cd21cfbbcf2E.exit.i", label %36
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i.i": ; preds = %33
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i.i":; preds = %33
   %35 = shl nuw nsw i64 %28, 2
   %36 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !12620
   %37 = tail call noundef align 2 ptr @__rust_alloc(i64 noundef %35, i64 noundef range(i64 1, 0) 2) #61, !noalias !12620
@@ -58749,56 +58749,56 @@ _ZN4http6header3map15to_raw_capacity17h0f6944be6344efdfE.exit: ; preds = %10
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h663a9ef0825a7db4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef range(i64 0, 32769) %28, i16 noundef -1, i16 noundef 0)
           to label %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h42bd3c78c92688aaE.exit" unwind label %42, !noalias !12620
 
-42:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5c458cd21cfbbcf2E.exit.i"
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5c458cd21cfbbcf2E.exit.i"
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$http..header..map..Pos$GT$$GT$17h9bca05d81299aa3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #60
-          to label %common.resume unwind label %44, !noalias !12620
+          to label %common.resume unwind label %41, !noalias !12620
 
-44:                                               ; preds = %42
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #62, !noalias !12620
   unreachable
 
-common.resume:                                    ; preds = %42, %53
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %43, %42 ]
+common.resume:                                    ; preds = %39, %50
+  %common.resume.op = phi { ptr, i32 } [ %51, %53 ], [ %40, %42 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h42bd3c78c92688aaE.exit": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5c458cd21cfbbcf2E.exit.i"
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5c458cd21cfbbcf2E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12620
-  %46 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h5f7bea11e0dac81dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-  %.fca.0.extract17 = extractvalue { ptr, i64 } %46, 0
-  %.fca.1.extract18 = extractvalue { ptr, i64 } %46, 1
+  %43 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h5f7bea11e0dac81dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  %.fca.0.extract17 = extractvalue { ptr, i64 } %43, 0
+  %.fca.1.extract18 = extractvalue { ptr, i64 } %43, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %34, label %55, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i"
+  br i1 %34, label %55, label %48
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i": ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h42bd3c78c92688aaE.exit"
+48:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i"
   %47 = mul nuw nsw i64 %28, 104
   %48 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %49 = call noundef align 8 ptr @__rust_alloc(i64 noundef %47, i64 noundef range(i64 1, 0) 8) #61
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %55
 
-51:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i"
+.noexc:                                           ; preds = %48
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 8, i64 noundef %47) #59
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %51
   unreachable
 
-52:                                               ; preds = %31
+49:                                               ; preds = %30
   store i64 3, ptr %0, align 8
-  br label %29
+  br label %28
 
-53:                                               ; preds = %51
-  %54 = landingpad { ptr, i32 }
+50:                                               ; preds = %51
+  %51 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17h83fdedee4da7c4c3E"(ptr %.fca.0.extract17, i64 %.fca.1.extract18) #60
   br label %common.resume
 
-55:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i", %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h42bd3c78c92688aaE.exit"
+52:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i", %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h42bd3c78c92688aaE.exit"
   %.sroa.0.0.i36 = phi ptr [ inttoptr (i64 8 to ptr), %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h42bd3c78c92688aaE.exit" ], [ %49, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.i" ]
   %56 = trunc nuw i64 %28 to i16
   %57 = add i16 %56, -1
@@ -58821,7 +58821,7 @@ common.resume:                                    ; preds = %42, %53
   %.sroa.815.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.429.0..sroa.7.0..sroa_idx14.sroa_idx, i8 0, i64 16, i1 false)
   store i16 %57, ptr %.sroa.815.0..sroa_idx, align 8
-  br label %29
+  br label %28
 }
 
 ; Function Attrs: nonlazybind uwtable

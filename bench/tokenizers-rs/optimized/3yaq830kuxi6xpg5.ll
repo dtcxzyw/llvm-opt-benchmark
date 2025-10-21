@@ -562,10 +562,10 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next
   %2 = icmp ult i64 %0, 2
   br i1 %2, label %8, label %3
 
-3:                                                ; preds = %1
+3:; preds = %1
   %4 = add i64 %0, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
-  %6 = lshr i64 -1, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
+  %6 = lshr i64 -1, %6
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 1)
   br label %8
 
@@ -576,9 +576,9 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next
   %.sroa.3.0 = select i1 %9, i64 undef, i64 %10
   %not. = xor i1 %9, true
   %.sroa.0.0 = zext i1 %not. to i64
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %12
+  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -624,10 +624,10 @@ define hidden { i64, i64 } @_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9
   %2 = icmp ult i64 %0, 2
   br i1 %2, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h234eeaadb5aa8185E.llvm.2256714685376175499.exit", label %3
 
-3:                                                ; preds = %1
+3:; preds = %1
   %4 = add i64 %0, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
-  %6 = lshr i64 -1, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
+  %6 = lshr i64 -1, %6
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 1)
   br label %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17h234eeaadb5aa8185E.llvm.2256714685376175499.exit"
 
@@ -638,9 +638,9 @@ define hidden { i64, i64 } @_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9
   %.sroa.3.0.i = select i1 %8, i64 undef, i64 %9
   %not..i = xor i1 %8, true
   %.sroa.0.0.i = zext i1 %not..i to i64
-  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.3.0.i, 1
-  ret { i64, i64 } %11
+  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0.i, 1
+  ret { i64, i64 } %10
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -12725,11 +12725,11 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h89
 9:                                                ; preds = %1
   %10 = extractvalue { i64, i1 } %7, 0
   %11 = icmp ult i64 %10, 2
-  br i1 %11, label %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit, label %12
+  br i1 %10, label %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit, label %12
 
-12:                                               ; preds = %9
-  %13 = add i64 %10, -1
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
+12:; preds = %9
+  %13 = add i64 %9, -1
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
   %15 = lshr i64 -1, %14
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 1)
   br label %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit
@@ -12743,25 +12743,25 @@ _ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175
   tail call void @_ZN4core6option13expect_failed17h9d76e63e47b0f089E(ptr noalias noundef nonnull readonly align 1 @anon.561421ce84617cadbc77fc4f9399e594.43.llvm.2256714685376175499, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.561421ce84617cadbc77fc4f9399e594.45.llvm.2256714685376175499) #31
   unreachable
 
-19:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit
-  %20 = extractvalue { i64, i1 } %.0.i.i, 0
-  %21 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e965ae504d9E.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %20)
-  %22 = extractvalue { i64, i64 } %21, 0
-  switch i64 %22, label %24 [
+18:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit
+  %19 = extractvalue { i64, i1 } %.0.i.i, 0
+  %20 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e965ae504d9E.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %19)
+  %21 = extractvalue { i64, i64 } %20, 0
+  switch i64 %21, label %24 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h22cac1cb7ad06844E.llvm.2256714685376175499.exit
-    i64 0, label %23
+    i64 0, label %22
   ]
 
-23:                                               ; preds = %19
+22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.561421ce84617cadbc77fc4f9399e594.43.llvm.2256714685376175499, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.561421ce84617cadbc77fc4f9399e594.44.llvm.2256714685376175499) #31
   unreachable
 
-24:                                               ; preds = %19
-  %25 = extractvalue { i64, i64 } %21, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef %22, i64 noundef %25) #31
+23:                                               ; preds = %18
+  %24 = extractvalue { i64, i64 } %20, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef %21, i64 noundef %24) #31
   unreachable
 
-_ZN8smallvec10infallible17h22cac1cb7ad06844E.llvm.2256714685376175499.exit: ; preds = %19
+_ZN8smallvec10infallible17h22cac1cb7ad06844E.llvm.2256714685376175499.exit: ; preds = %18
   ret void
 }
 
@@ -12780,11 +12780,11 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h91
 9:                                                ; preds = %1
   %10 = extractvalue { i64, i1 } %7, 0
   %11 = icmp ult i64 %10, 2
-  br i1 %11, label %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit, label %12
+  br i1 %10, label %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit, label %12
 
-12:                                               ; preds = %9
-  %13 = add i64 %10, -1
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
+12:; preds = %9
+  %13 = add i64 %9, -1
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
   %15 = lshr i64 -1, %14
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 1)
   br label %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit
@@ -12798,25 +12798,25 @@ _ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175
   tail call void @_ZN4core6option13expect_failed17h9d76e63e47b0f089E(ptr noalias noundef nonnull readonly align 1 @anon.561421ce84617cadbc77fc4f9399e594.43.llvm.2256714685376175499, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.561421ce84617cadbc77fc4f9399e594.45.llvm.2256714685376175499) #31
   unreachable
 
-19:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit
-  %20 = extractvalue { i64, i1 } %.0.i.i, 0
-  %21 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b1f2e2541E.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %20)
-  %22 = extractvalue { i64, i64 } %21, 0
-  switch i64 %22, label %24 [
+18:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h08b5ed489d9f5f6cE.llvm.2256714685376175499.exit
+  %19 = extractvalue { i64, i1 } %.0.i.i, 0
+  %20 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b1f2e2541E.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %19)
+  %21 = extractvalue { i64, i64 } %20, 0
+  switch i64 %21, label %24 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h22cac1cb7ad06844E.llvm.2256714685376175499.exit
-    i64 0, label %23
+    i64 0, label %22
   ]
 
-23:                                               ; preds = %19
+22:                                               ; preds = %18
   tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.561421ce84617cadbc77fc4f9399e594.43.llvm.2256714685376175499, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.561421ce84617cadbc77fc4f9399e594.44.llvm.2256714685376175499) #31
   unreachable
 
-24:                                               ; preds = %19
-  %25 = extractvalue { i64, i64 } %21, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef %22, i64 noundef %25) #31
+23:                                               ; preds = %18
+  %24 = extractvalue { i64, i64 } %20, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef %21, i64 noundef %24) #31
   unreachable
 
-_ZN8smallvec10infallible17h22cac1cb7ad06844E.llvm.2256714685376175499.exit: ; preds = %19
+_ZN8smallvec10infallible17h22cac1cb7ad06844E.llvm.2256714685376175499.exit: ; preds = %18
   ret void
 }
 

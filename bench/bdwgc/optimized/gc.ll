@@ -2714,13 +2714,13 @@ GC_find_header.exit.i.i:                          ; preds = %43
   %52 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %51
   %.0.i.i = load ptr, ptr %52, align 8, !tbaa !57
   %53 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %53, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i.loopexit, !llvm.loop !67
+  br i1 %53, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !67
 
-GC_find_starting_hblk.exit.i.loopexit:            ; preds = %GC_find_header.exit.i.i
+GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i
   %54 = tail call align 8 ptr @llvm.ptrmask.p0.i64(ptr %38, i64 -8)
   br label %GC_find_starting_hblk.exit.i
 
-GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_starting_hblk.exit.i.loopexit, %33
+GC_find_starting_hblk.exit.i:; preds = %GC_find_starting_hblk.exit.i, %33
   %.031.i = phi ptr [ %31, %33 ], [ %.0.i.i, %GC_find_starting_hblk.exit.i.loopexit ]
   %.028.i = phi ptr [ %34, %33 ], [ %38, %GC_find_starting_hblk.exit.i.loopexit ]
   %.027.i = phi ptr [ %0, %33 ], [ %54, %GC_find_starting_hblk.exit.i.loopexit ]
