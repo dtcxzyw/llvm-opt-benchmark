@@ -767,40 +767,40 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit81:    ; preds = %308, %310, %311
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %321 = load i8, ptr %320, align 8, !tbaa !24
   %322 = icmp eq i8 %321, 24
-  br i1 %322, label %.thread, label %.thread276
+  br i1 %322, label %.thread, label %.thread277
 
 323:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit81
   %324 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %271, ptr nonnull @.str.9, i64 11) #14
   %325 = extractvalue { ptr, i64 } %324, 0
   %326 = extractvalue { ptr, i64 } %324, 1
   %327 = icmp eq i64 %326, 0
-  br i1 %327, label %.thread, label %.thread276
+  br i1 %327, label %.thread, label %.thread277
 
-.thread276:                                       ; preds = %318, %323
-  %.sroa.0147.2280 = phi ptr [ %325, %323 ], [ @.str.11, %318 ]
-  %.sroa.7.2279 = phi i64 [ %326, %323 ], [ 7, %318 ]
+.thread277:                                       ; preds = %318, %323
+  %.sroa.0147.2281 = phi ptr [ %325, %323 ], [ @.str.11, %318 ]
+  %.sroa.7.2280 = phi i64 [ %326, %323 ], [ 7, %318 ]
   %328 = load ptr, ptr %95, align 8, !tbaa !46
   %329 = load ptr, ptr %96, align 8, !tbaa !51
   %.not.i82 = icmp ult ptr %328, %329
   br i1 %.not.i82, label %332, label %330
 
-330:                                              ; preds = %.thread276
+330:                                              ; preds = %.thread277
   %331 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 61) #14
   br label %_ZN4llvm11raw_ostreamlsEc.exit84
 
-332:                                              ; preds = %.thread276
+332:                                              ; preds = %.thread277
   %333 = getelementptr inbounds nuw i8, ptr %328, i64 1
   store ptr %333, ptr %95, align 8, !tbaa !46
   store i8 61, ptr %328, align 1, !tbaa !52
   br label %_ZN4llvm11raw_ostreamlsEc.exit84
 
 _ZN4llvm11raw_ostreamlsEc.exit84:                 ; preds = %330, %332
-  %334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.sroa.0147.2280, i64 %.sroa.7.2279, i1 noundef zeroext false) #14
+  %334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.sroa.0147.2281, i64 %.sroa.7.2280, i1 noundef zeroext false) #14
   br label %.thread
 
 .thread:                                          ; preds = %318, %_ZN4llvm11raw_ostreamlsEc.exit84, %323
-  %.sroa.0147.2195 = phi ptr [ %.sroa.0147.2280, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ %325, %323 ], [ null, %318 ]
-  %.sroa.7.2194 = phi i64 [ %.sroa.7.2279, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ 0, %323 ], [ 0, %318 ]
+  %.sroa.0147.2195 = phi ptr [ %.sroa.0147.2281, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ %325, %323 ], [ null, %318 ]
+  %.sroa.7.2194 = phi i64 [ %.sroa.7.2280, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ 0, %323 ], [ 0, %318 ]
   %335 = load ptr, ptr %96, align 8, !tbaa !51
   %336 = load ptr, ptr %95, align 8, !tbaa !46
   %337 = ptrtoint ptr %335 to i64

@@ -2065,16 +2065,16 @@ _ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpO
   %58 = load ptr, ptr %_M_finish.i272, align 8, !tbaa !77
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i272, align 8, !tbaa !77
-  br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split
+  br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %invoke.cont132
   invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %newVols, ptr %53, ptr noundef nonnull align 8 dereferenceable(24) %firstRateVols)
           to label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split unwind label %lpad135
 
-_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %if.else.i
+_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %if.else.i
   br i1 %cmp.i.i.i.i.i.i.i, label %for.cond.cleanup140, label %for.body141.lr.ph
 
-for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split
+for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
   %columns_.i.i290 = getelementptr inbounds nuw i8, ptr %invertedZedMatrix, i64 16
   %n_.i.i = getelementptr inbounds nuw i8, ptr %cylinderCentre.i, i64 8
   %n_.i198.i = getelementptr inbounds nuw i8, ptr %targetArray.i, i64 8
@@ -2097,7 +2097,7 @@ for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSa
   %cmp30.i = fcmp olt double %caplet0Swaption1Priority, 5.000000e-01
   br label %for.body141
 
-for.cond.cleanup140:                              ; preds = %invoke.cont248, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split
+for.cond.cleanup140:                              ; preds = %invoke.cont248, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
   %failures.0.lcssa = phi i32 [ 0, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split ], [ %spec.select, %invoke.cont248 ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %swapCovariancePseudoRoots, i64 8
   %59 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !79

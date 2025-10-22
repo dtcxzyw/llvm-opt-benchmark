@@ -380,8 +380,8 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
 
 81:                                               ; preds = %82, %.preheader41.i.i
   %.3.i.i = phi i8 [ %.245.i.i, %.preheader41.i.i ], [ %88, %82 ]
-  %exitcond57.not.i.i = icmp eq i64 %77, 4
-  br i1 %exitcond57.not.i.i, label %72, label %.preheader41.i.i
+  %exitcond59.not.i.i = icmp eq i64 %77, 4
+  br i1 %exitcond59.not.i.i, label %72, label %.preheader41.i.i
 
 82:                                               ; preds = %.preheader41.i.i
   %83 = shl nuw nsw i64 %.sroa.028.046.i.i, 4

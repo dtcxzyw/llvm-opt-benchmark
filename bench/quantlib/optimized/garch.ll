@@ -883,7 +883,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN8QuantLib5ArrayC
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i125, align 8, !tbaa !21
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 8
-  %add.ptr.idx.i.i.i.i.i.i.i = add i64 %sub.ptr.sub.i, -8
+  %sub.i.i.i.i.i = add i64 %sub.ptr.sub.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
   %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 %sub.ptr.sub.i
   %cmp.i.not5.i = icmp eq ptr %1, %0

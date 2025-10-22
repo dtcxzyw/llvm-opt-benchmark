@@ -2622,8 +2622,8 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
-  %.06996 = phi i32 [ %145, %.loopexit ], [ %14, %.lr.ph.preheader ]
-  %.07095 = phi i32 [ %144, %.loopexit ], [ %15, %.lr.ph.preheader ]
+  %.06996 = phi i32 [ %148, %.loopexit ], [ %14, %.lr.ph.preheader ]
+  %.07095 = phi i32 [ %147, %.loopexit ], [ %15, %.lr.ph.preheader ]
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.06996)
   %17 = add i32 %.06996, 1
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %17)
@@ -2641,9 +2641,9 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
 25:                                               ; preds = %.lr.ph
   switch i8 %16, label %138 [
     i8 1, label %26
-    i8 2, label %82
-    i8 3, label %88
-    i8 4, label %113
+    i8 2, label %85
+    i8 3, label %91
+    i8 4, label %116
   ]
 
 26:                                               ; preds = %25
@@ -2688,172 +2688,172 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   %56 = add nsw i32 %21, -19
   %57 = shl nuw nsw i32 %51, 3
   %.not.i = icmp eq i32 %56, %57
-  br i1 %.not.i, label %.preheader.i, label %58
+  br i1 %.not.i, label %.preheader.i, label %61
 
 .preheader.i:                                     ; preds = %54
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i
+  %58 = icmp eq i32 %56, 0
+  br i1 %58, label %._crit_edge.i, label %.lr.ph.i
 
-58:                                               ; preds = %54
-  %59 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %55, i32 noundef 0, ptr noundef nonnull @.str.889)
+61:                                               ; preds = %54
+  %62 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %55, i32 noundef 0, ptr noundef nonnull @.str.889)
   br label %.loopexit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %63
-  %.087.i = phi i8 [ %74, %63 ], [ %32, %.preheader.i ]
-  %.07586.i = phi i32 [ %72, %63 ], [ %55, %.preheader.i ]
-  %.07685.i = phi i32 [ %73, %63 ], [ %56, %.preheader.i ]
-  %60 = icmp samesign ult i32 %.07685.i, 8
-  br i1 %60, label %61, label %63
+.lr.ph.i:                                         ; preds = %.preheader.i, %66
+  %.087.i = phi i8 [ %77, %63 ], [ %32, %.preheader.i ]
+  %.07586.i = phi i32 [ %75, %63 ], [ %55, %.preheader.i ]
+  %.07685.i = phi i32 [ %76, %63 ], [ %56, %.preheader.i ]
+  %63 = icmp samesign ult i32 %.07685.i, 8
+  br i1 %63, label %64, label %66
 
-61:                                               ; preds = %.lr.ph.i
-  %62 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.890, i32 noundef %.07685.i, i32 noundef 8)
+64:                                               ; preds = %.lr.ph.i
+  %65 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.890, i32 noundef %.07685.i, i32 noundef 8)
   br label %.loopexit
 
-63:                                               ; preds = %.lr.ph.i
+66:                                               ; preds = %.lr.ph.i
   tail call void @proto_tree_add_bitmask_list(ptr noundef %35, ptr noundef %0, i32 noundef %.07586.i, i32 noundef 1, ptr noundef nonnull @dissect_isis_lsp_clv_mt_cap_spb_instance.lsp_cap_spb_instance_vlanid_tuple, i32 noundef 0)
-  %64 = add i32 %.07586.i, 1
-  %65 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_vlanid_tuple_ect, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0)
-  %67 = add i32 %.07586.i, 5
-  %68 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_vlanid_tuple_base_vid, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 3, i32 noundef 0)
-  %70 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_vlanid_tuple_spvid, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %70, ptr noundef %0, i32 noundef %67, i32 noundef 3, i32 noundef 0)
-  %72 = add i32 %.07586.i, 8
-  %73 = add nsw i32 %.07685.i, -8
-  %74 = add i8 %.087.i, -1
-  %75 = icmp ne i32 %73, 0
-  %76 = icmp ne i8 %74, 0
-  %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
+  %67 = add i32 %.07586.i, 1
+  %68 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_vlanid_tuple_ect, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef 0)
+  %70 = add i32 %.07586.i, 5
+  %71 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_vlanid_tuple_base_vid, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef 3, i32 noundef 0)
+  %73 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_vlanid_tuple_spvid, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %73, ptr noundef %0, i32 noundef %70, i32 noundef 3, i32 noundef 0)
+  %75 = add i32 %.07586.i, 8
+  %76 = add nsw i32 %.07685.i, -8
+  %77 = add i8 %.087.i, -1
+  %78 = icmp ne i32 %76, 0
+  %79 = icmp ne i8 %77, 0
+  %80 = select i1 %78, i1 %79, i1 false
+  br i1 %80, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %63, %.preheader.i
-  %.0.lcssa84.i = phi i8 [ %32, %.preheader.i ], [ %74, %63 ]
-  %.076.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %73, %63 ]
+._crit_edge.i:                                    ; preds = %66, %.preheader.i
+  %.0.lcssa84.i = phi i8 [ %32, %.preheader.i ], [ %77, %63 ]
+  %.076.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %76, %63 ]
   %.not80.i = icmp eq i8 %.0.lcssa84.i, 0
-  br i1 %.not80.i, label %.loopexit, label %78
+  br i1 %.not80.i, label %.loopexit, label %81
 
-78:                                               ; preds = %._crit_edge.i
-  %79 = zext i8 %.0.lcssa84.i to i32
-  %80 = shl nuw nsw i32 %79, 3
-  %81 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.891, i32 noundef %.076.lcssa.i, i32 noundef %80)
+81:                                               ; preds = %._crit_edge.i
+  %82 = zext i8 %.0.lcssa84.i to i32
+  %83 = shl nuw nsw i32 %82, 3
+  %84 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.891, i32 noundef %.076.lcssa.i, i32 noundef %83)
   br label %.loopexit
 
-82:                                               ; preds = %25
-  %83 = load i32, ptr @hf_isis_lsp_mt_cap_spb_opaque_algorithm, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0)
-  %85 = add i32 %.06996, 6
-  %86 = load i32, ptr @hf_isis_lsp_mt_cap_spb_opaque_information, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef -1, i32 noundef 0)
+85:                                               ; preds = %25
+  %86 = load i32, ptr @hf_isis_lsp_mt_cap_spb_opaque_algorithm, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0)
+  %88 = add i32 %.06996, 6
+  %89 = load i32, ptr @hf_isis_lsp_mt_cap_spb_opaque_information, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef -1, i32 noundef 0)
   br label %.loopexit
 
-88:                                               ; preds = %25
-  %89 = icmp ult i8 %18, 8
-  br i1 %89, label %90, label %92
+91:                                               ; preds = %25
+  %92 = icmp ult i8 %18, 8
+  br i1 %92, label %93, label %95
 
-90:                                               ; preds = %88
-  %91 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.892, i32 noundef range(i32 0, 256) %21, i32 noundef 8)
+93:                                               ; preds = %91
+  %94 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.892, i32 noundef range(i32 0, 256) %21, i32 noundef 8)
   br label %.loopexit
 
-92:                                               ; preds = %88
-  %93 = add nuw nsw i32 %21, 2
-  %94 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spbm_service_identifier, align 4
-  %95 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.06996, i32 noundef %93, i32 noundef %94, ptr noundef null, ptr noundef nonnull @.str.893, i32 noundef 3, i32 noundef range(i32 0, 256) %21)
-  %96 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_b_mac, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %0, i32 noundef %20, i32 noundef 6, i32 noundef 0)
-  %98 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_base_vid, align 4
-  %99 = add i32 %.06996, 8
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0)
-  %101 = add nsw i32 %21, -8
-  %.not42.i = icmp eq i32 %101, 0
+95:                                               ; preds = %91
+  %96 = add nuw nsw i32 %21, 2
+  %97 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spbm_service_identifier, align 4
+  %98 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.06996, i32 noundef %96, i32 noundef %97, ptr noundef null, ptr noundef nonnull @.str.893, i32 noundef 3, i32 noundef range(i32 0, 256) %21)
+  %99 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_b_mac, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef %20, i32 noundef 6, i32 noundef 0)
+  %101 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_base_vid, align 4
+  %102 = add i32 %.06996, 8
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef 0)
+  %104 = add nsw i32 %21, -8
+  %.not42.i = icmp eq i32 %104, 0
   br i1 %.not42.i, label %.loopexit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %92
-  %102 = add i32 %.06996, 10
-  %103 = and i32 %21, 3
+.lr.ph.preheader.i:                               ; preds = %95
+  %105 = add i32 %.06996, 10
+  %106 = and i32 %21, 3
   br label %.lr.ph.i79
 
-.lr.ph.i79:                                       ; preds = %107, %.lr.ph.preheader.i
-  %.044.i = phi i32 [ %111, %107 ], [ %102, %.lr.ph.preheader.i ]
-  %.03843.i = phi i32 [ %112, %107 ], [ %101, %.lr.ph.preheader.i ]
-  %104 = icmp samesign ult i32 %.03843.i, 4
-  br i1 %104, label %105, label %107
+.lr.ph.i79:                                       ; preds = %110, %.lr.ph.preheader.i
+  %.044.i = phi i32 [ %114, %107 ], [ %105, %.lr.ph.preheader.i ]
+  %.03843.i = phi i32 [ %115, %107 ], [ %104, %.lr.ph.preheader.i ]
+  %107 = icmp samesign ult i32 %.03843.i, 4
+  br i1 %107, label %108, label %110
 
-105:                                              ; preds = %.lr.ph.i79
-  %106 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %95, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.894, i32 noundef %103, i32 noundef 4)
+108:                                              ; preds = %.lr.ph.i79
+  %109 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.894, i32 noundef %106, i32 noundef 4)
   br label %.loopexit
 
-107:                                              ; preds = %.lr.ph.i79
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %95, ptr noundef %0, i32 noundef %.044.i, i32 noundef 1, ptr noundef nonnull @dissect_isis_lsp_clv_mt_cap_spbm_service_identifier.lsp_cap_spbm_service_identifier, i32 noundef 0)
-  %108 = add i32 %.044.i, 1
-  %109 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_i_sid, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef 3, i32 noundef 0)
-  %111 = add i32 %.044.i, 4
-  %112 = add nsw i32 %.03843.i, -4
-  %.not.i80 = icmp eq i32 %112, 0
+110:                                              ; preds = %.lr.ph.i79
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %98, ptr noundef %0, i32 noundef %.044.i, i32 noundef 1, ptr noundef nonnull @dissect_isis_lsp_clv_mt_cap_spbm_service_identifier.lsp_cap_spbm_service_identifier, i32 noundef 0)
+  %111 = add i32 %.044.i, 1
+  %112 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_i_sid, align 4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 3, i32 noundef 0)
+  %114 = add i32 %.044.i, 4
+  %115 = add nsw i32 %.03843.i, -4
+  %.not.i80 = icmp eq i32 %115, 0
   br i1 %.not.i80, label %.loopexit, label %.lr.ph.i79, !llvm.loop !18
 
-113:                                              ; preds = %25
-  %114 = icmp ult i8 %18, 2
-  br i1 %114, label %115, label %117
+116:                                              ; preds = %25
+  %117 = icmp ult i8 %18, 2
+  br i1 %117, label %118, label %120
 
-115:                                              ; preds = %113
-  %116 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.895, i32 noundef range(i32 0, 256) %21, i32 noundef 2)
+118:                                              ; preds = %116
+  %119 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.895, i32 noundef range(i32 0, 256) %21, i32 noundef 2)
   br label %.loopexit
 
-117:                                              ; preds = %113
-  %118 = add nuw nsw i32 %21, 2
-  %119 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spbv_mac_address, align 4
-  %120 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.06996, i32 noundef %118, i32 noundef %119, ptr noundef null, ptr noundef nonnull @.str.896, i32 noundef 4, i32 noundef range(i32 0, 256) %21)
-  %121 = load i32, ptr @hf_isis_lsp_spb_reserved, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  %123 = load i32, ptr @hf_isis_lsp_spb_sr_bit, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %123, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  %125 = load i32, ptr @hf_isis_lsp_spb_spvid, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  %127 = add nsw i32 %21, -2
-  %.not43.i = icmp eq i32 %127, 0
+120:                                              ; preds = %116
+  %121 = add nuw nsw i32 %21, 2
+  %122 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spbv_mac_address, align 4
+  %123 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.06996, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.896, i32 noundef 4, i32 noundef range(i32 0, 256) %21)
+  %124 = load i32, ptr @hf_isis_lsp_spb_reserved, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
+  %126 = load i32, ptr @hf_isis_lsp_spb_sr_bit, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %126, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
+  %128 = load i32, ptr @hf_isis_lsp_spb_spvid, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %128, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
+  %130 = add nsw i32 %21, -2
+  %.not43.i = icmp eq i32 %130, 0
   br i1 %.not43.i, label %.loopexit, label %.lr.ph.preheader.i81
 
-.lr.ph.preheader.i81:                             ; preds = %117
-  %128 = add i32 %.06996, 4
+.lr.ph.preheader.i81:                             ; preds = %120
+  %131 = add i32 %.06996, 4
   br label %.lr.ph.i82
 
-.lr.ph.i82:                                       ; preds = %132, %.lr.ph.preheader.i81
-  %.045.i = phi i32 [ %136, %132 ], [ %128, %.lr.ph.preheader.i81 ]
-  %.04044.i = phi i32 [ %137, %132 ], [ %127, %.lr.ph.preheader.i81 ]
-  %129 = icmp samesign ult i32 %.04044.i, 7
-  br i1 %129, label %130, label %132
+.lr.ph.i82:                                       ; preds = %135, %.lr.ph.preheader.i81
+  %.045.i = phi i32 [ %139, %132 ], [ %131, %.lr.ph.preheader.i81 ]
+  %.04044.i = phi i32 [ %140, %132 ], [ %130, %.lr.ph.preheader.i81 ]
+  %132 = icmp samesign ult i32 %.04044.i, 7
+  br i1 %132, label %133, label %135
 
-130:                                              ; preds = %.lr.ph.i82
-  %131 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %120, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.897, i32 noundef %.04044.i, i32 noundef 7)
+133:                                              ; preds = %.lr.ph.i82
+  %134 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.897, i32 noundef %.04044.i, i32 noundef 7)
   br label %.loopexit
 
-132:                                              ; preds = %.lr.ph.i82
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %120, ptr noundef %0, i32 noundef %.045.i, i32 noundef 1, ptr noundef nonnull @dissect_isis_lsp_clv_mt_cap_spbv_mac_address.lsp_spb_short_mac_address, i32 noundef 0)
-  %133 = add i32 %.045.i, 1
-  %134 = load i32, ptr @hf_isis_lsp_spb_short_mac_address, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef 6, i32 noundef 0)
-  %136 = add i32 %.045.i, 7
-  %137 = add nsw i32 %.04044.i, -7
-  %.not.i83 = icmp eq i32 %137, 0
+135:                                              ; preds = %.lr.ph.i82
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %123, ptr noundef %0, i32 noundef %.045.i, i32 noundef 1, ptr noundef nonnull @dissect_isis_lsp_clv_mt_cap_spbv_mac_address.lsp_spb_short_mac_address, i32 noundef 0)
+  %136 = add i32 %.045.i, 1
+  %137 = load i32, ptr @hf_isis_lsp_spb_short_mac_address, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 6, i32 noundef 0)
+  %139 = add i32 %.045.i, 7
+  %140 = add nsw i32 %.04044.i, -7
+  %.not.i83 = icmp eq i32 %140, 0
   br i1 %.not.i83, label %.loopexit, label %.lr.ph.i82, !llvm.loop !19
 
-138:                                              ; preds = %25
-  %139 = tail call fastcc i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20, i32 noundef %23, i32 noundef %21)
-  %140 = icmp eq i32 %139, -1
-  br i1 %140, label %141, label %.loopexit
+141:                                              ; preds = %25
+  %142 = tail call fastcc i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20, i32 noundef %23, i32 noundef %21)
+  %143 = icmp eq i32 %142, -1
+  br i1 %143, label %144, label %.loopexit
 
-141:                                              ; preds = %138
-  %142 = add nuw nsw i32 %21, 2
-  %143 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_subtlv, ptr noundef %0, i32 noundef %.06996, i32 noundef %142, ptr noundef nonnull @.str.885, i32 noundef %23, i32 noundef %21)
+144:                                              ; preds = %141
+  %145 = add nuw nsw i32 %21, 2
+  %146 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_subtlv, ptr noundef %0, i32 noundef %.06996, i32 noundef %145, ptr noundef nonnull @.str.885, i32 noundef %23, i32 noundef %21)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %132, %107, %138, %141, %82, %28, %58, %61, %._crit_edge.i, %78, %90, %92, %105, %115, %117, %130
-  %144 = sub nsw i32 %19, %21
-  %145 = add i32 %20, %21
-  %146 = icmp sgt i32 %144, 1
-  br i1 %146, label %.lr.ph, label %.loopexit87
+.loopexit:                                        ; preds = %135, %110, %141, %144, %85, %28, %61, %64, %._crit_edge.i, %81, %93, %95, %108, %118, %120, %133
+  %147 = sub nsw i32 %19, %21
+  %148 = add i32 %20, %21
+  %149 = icmp sgt i32 %147, 1
+  br i1 %149, label %.lr.ph, label %.loopexit87
 
 .loopexit87:                                      ; preds = %.loopexit, %8, %.thread, %6
   ret void

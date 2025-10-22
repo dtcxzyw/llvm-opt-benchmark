@@ -1229,7 +1229,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.045, label %23, label %101
+  br i1 %.045, label %23, label %108
 
 .sink.split:                                      ; preds = %.thread, %.thread87
   %.pn.pn86.ph = phi { ptr, i32 } [ %20, %.thread87 ], [ %19, %.thread ]
@@ -1239,7 +1239,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
 23:                                               ; preds = %.sink.split, %21
   %.pn.pn86 = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn86.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %14) #22
-  br label %101
+  br label %108
 
 24:                                               ; preds = %4
   %25 = icmp ugt i64 %11, 1152921504606846975
@@ -1256,9 +1256,9 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !61
   %29 = getelementptr i8, ptr %26, i64 8
-  %.idx.i.i.i.i.i.i.i = add i64 %10, -8
+  %30 = add i64 %10, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !10
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %30, align 8, !tbaa !62
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load double, ptr %31, align 8, !tbaa !10
@@ -1290,7 +1290,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %56 = icmp ugt i64 %55, 2
   br i1 %56, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.noexc56
+._crit_edge:; preds = %.lr.ph, %.noexc56
   %57 = add nsw i64 %54, -1
   %58 = getelementptr inbounds double, ptr %1, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !10
@@ -1322,14 +1322,14 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   ret void
 
 .lr.ph:                                           ; preds = %.noexc56, %.lr.ph
-  %83 = phi double [ %90, %.lr.ph ], [ %38, %.noexc56 ]
-  %.092 = phi i64 [ %88, %.lr.ph ], [ 2, %.noexc56 ]
-  %84 = getelementptr double, ptr %1, i64 %.092
-  %85 = getelementptr i8, ptr %84, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !10
-  %87 = fneg double %86
-  %88 = add nuw i64 %.092, 1
-  %89 = getelementptr inbounds double, ptr %1, i64 %88
+  %90 = phi double [ %90, %.lr.ph ], [ %38, %.noexc56 ]
+  %.092 = phi i64 [ %95, %.lr.ph ], [ 2, %.noexc56 ]
+  %91 = getelementptr double, ptr %1, i64 %.092
+  %92 = getelementptr i8, ptr %91, i64 16
+  %93 = load double, ptr %92, align 8, !tbaa !10
+  %94 = fneg double %93
+  %95 = add nuw i64 %.092, 1
+  %96 = getelementptr inbounds double, ptr %1, i64 %95
   %90 = load double, ptr %89, align 8, !tbaa !10
   %91 = tail call double @llvm.fmuladd.f64(double %90, double 1.600000e+01, double %87)
   %92 = tail call double @llvm.fmuladd.f64(double %83, double -3.000000e+01, double %91)
@@ -1345,11 +1345,11 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %exitcond.not = icmp eq i64 %88, %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
-101:                                              ; preds = %21, %23
+108:                                              ; preds = %21, %23
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn86, %23 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn.pn.pn
 
-102:                                              ; preds = %18
+109:                                              ; preds = %18
   unreachable
 }
 

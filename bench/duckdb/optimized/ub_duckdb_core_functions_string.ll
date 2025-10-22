@@ -114384,7 +114384,7 @@ define linkonce_odr void @_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !2038
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %45, label %5
+  br i1 %.not, label %46, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %4, align 4, !tbaa !2020
@@ -114452,52 +114452,52 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %_ZN10duckdb_fmt2v68
 37:                                               ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit41.i
   %38 = lshr i64 %32, 1
   %39 = icmp eq i32 %6, 2
-  br i1 %39, label %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit43.i, label %40
+  br i1 %39, label %42, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 %38
   tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 %31, i64 %38, i1 false)
-  br label %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit43.i
+  br label %42
 
-_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit43.i:          ; preds = %40, %37
+42:                                               ; preds = %40, %37
   %.0.i.i42.i = phi ptr [ %29, %37 ], [ %41, %40 ]
   store i8 %1, ptr %.0.i.i42.i, align 1, !tbaa !65
-  %42 = sub nsw i64 %32, %38
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %43, i8 %31, i64 %42, i1 false)
+  %43 = sub nsw i64 %32, %38
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 %31, i64 %43, i1 false)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS1_18arg_formatter_baseIS4_NS1_13error_handlerEE11char_writerEEEvRKNS0_18basic_format_specsIcEEOT_.exit
 
 _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit47.i:          ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit41.i
-  %44 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 %1, ptr %29, align 1, !tbaa !65
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 %31, i64 %32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %45, i8 %31, i64 %32, i1 false)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS1_18arg_formatter_baseIS4_NS1_13error_handlerEE11char_writerEEEvRKNS0_18basic_format_specsIcEEOT_.exit
 
-45:                                               ; preds = %2
+46:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !2015
-  %48 = add i64 %47, 1
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !2006
-  %51 = icmp ugt i64 %48, %50
-  br i1 %51, label %52, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 16
+  %48 = load i64, ptr %47, align 8, !tbaa !2015
+  %49 = add i64 %48, 1
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !2006
+  %52 = icmp ugt i64 %49, %51
+  br i1 %52, label %53, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %.sroa.0.0.copyload.i.i.i, align 8, !tbaa !58
-  %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i.i.i, i64 noundef %48)
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %.sroa.0.0.copyload.i.i.i, align 8, !tbaa !58
+  %55 = load ptr, ptr %54, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.copyload.i.i.i, i64 noundef %49)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit
 
-_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit: ; preds = %45, %52
-  store i64 %48, ptr %46, align 8, !tbaa !2015
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !2004
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %47
-  store i8 %1, ptr %57, align 1, !tbaa !65
+_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit: ; preds = %46, %53
+  store i64 %49, ptr %47, align 8, !tbaa !2015
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !2004
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %48
+  store i8 %1, ptr %58, align 1, !tbaa !65
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS1_18arg_formatter_baseIS4_NS1_13error_handlerEE11char_writerEEEvRKNS0_18basic_format_specsIcEEOT_.exit
 
-_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS1_18arg_formatter_baseIS4_NS1_13error_handlerEE11char_writerEEEvRKNS0_18basic_format_specsIcEEOT_.exit: ; preds = %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit47.i, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit43.i, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit
+_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS1_18arg_formatter_baseIS4_NS1_13error_handlerEE11char_writerEEEvRKNS0_18basic_format_specsIcEEOT_.exit: ; preds = %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit47.i, %42, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeEc.exit
   ret void
 }
 

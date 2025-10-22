@@ -55076,23 +55076,23 @@ define internal fastcc void @_ZN11ruff_linter5rules26flake8_implicit_str_concat5
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %23, label %28, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit77"
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit77": ; preds = %21
+24:                                               ; preds = %21
   %24 = getelementptr i8, ptr %16, i64 -2
   %25 = load i8, ptr %24, align 1, !noundef !3
   %26 = and i8 %25, -8
   %27 = icmp eq i8 %26, 48
   br i1 %27, label %35, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit.thread106"
 
-28:                                               ; preds = %21
+27:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %29 = add i64 %.sroa.2.0, -2
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %59, label %31
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 %29
-  %33 = load i8, ptr %32, align 1, !alias.scope !6623, !noundef !3
-  %34 = icmp sgt i8 %33, -65
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit77": ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 %29
+  %32 = load i8, ptr %31, align 1, !alias.scope !6623, !noundef !3
+  %34 = icmp sgt i8 %32, -65
   br i1 %34, label %59, label %66
 
 35:                                               ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit77"

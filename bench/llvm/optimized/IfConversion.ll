@@ -5496,8 +5496,8 @@ _ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE.e
   %1909 = getelementptr inbounds nuw i8, ptr %1908, i64 848
   %1910 = load ptr, ptr %1909, align 8
   %1911 = call noundef zeroext i1 %1910(ptr noundef nonnull align 8 dereferenceable(80) %1907, ptr noundef nonnull align 8 dereferenceable(70) %1903) #24
-  %not. = xor i1 %1911, true
-  %spec.select.i = select i1 %not., i1 %1901, i1 false
+  %not.281 = xor i1 %1911, true
+  %spec.select.i = select i1 %not.281, i1 %1901, i1 false
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1906, %1900

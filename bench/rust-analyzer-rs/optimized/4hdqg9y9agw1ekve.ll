@@ -50987,15 +50987,15 @@ _ZN11ide_assists8handlers16extract_function8Function11type_params17h1ea059bfa2ec
   br label %925
 
 921:                                              ; preds = %899
-  %.pre28.i.i.i = extractvalue { i64, ptr } %900, 0
+  %.pre.i.i.i = extractvalue { i64, ptr } %900, 0
   %922 = extractvalue { i64, ptr } %900, 1
   %923 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 %.pre28.i.i.i, ptr %30, align 8, !alias.scope !13284, !noalias !13334
+  store i64 %.pre.i.i.i, ptr %30, align 8, !alias.scope !13284, !noalias !13334
   store ptr %922, ptr %923, align 8, !alias.scope !13284, !noalias !13334
-  %924 = icmp ne i64 %.pre28.i.i.i, 4
+  %924 = icmp ne i64 %.pre.i.i.i, 4
   call void @llvm.assume(i1 %924)
-  %.not.i.i37 = icmp eq i64 %.pre28.i.i.i, 3
-  br i1 %.not.i.i37, label %.thread13.i.i, label %925
+  %.not.i.i37 = icmp eq i64 %.pre.i.i.i, 3
+  br i1 %.not.i.i37, label %.thread12.i.i, label %925
 
 925:                                              ; preds = %921, %.thread.i.i35
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !13281
@@ -51007,7 +51007,7 @@ _ZN11ide_assists8handlers16extract_function8Function11type_params17h1ea059bfa2ec
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !13281
   br label %931
 
-.thread13.i.i:                                    ; preds = %921
+.thread12.i.i:                                    ; preds = %921
   invoke void @"_ZN4core3ptr536drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$syntax..ast..generated..nodes..GenericParamList$GT$$C$core..iter..adapters..filter..Filter$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$ide_assists..handlers..extract_function..make_generic_param_list..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_assists..handlers..extract_function..make_generic_param_list..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hff74da53cbd430acE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30)
           to label %931 unwind label %929
 
@@ -51027,13 +51027,13 @@ _ZN11ide_assists8handlers16extract_function8Function11type_params17h1ea059bfa2ec
   invoke void @"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #46
           to label %.body45.thread unwind label %987
 
-929:                                              ; preds = %.thread13.i.i, %925
+929:                                              ; preds = %.thread12.i.i, %925
   %930 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i33
 
-931:                                              ; preds = %.thread13.i.i, %.noexc.i36
-  %.016.i.i = phi ptr [ %926, %.noexc.i36 ], [ null, %.thread13.i.i ]
+931:                                              ; preds = %.thread12.i.i, %.noexc.i36
+  %.015.i.i = phi ptr [ %926, %.noexc.i36 ], [ null, %.thread13.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !13281
   %932 = load ptr, ptr %884, align 8, !noalias !13249, !nonnull !23, !noundef !23
   %933 = load i64, ptr %886, align 8, !noalias !13249, !noundef !23
@@ -51191,11 +51191,11 @@ _ZN11ide_assists8handlers16extract_function8Function11type_params17h1ea059bfa2ec
 
 .body37.i:                                        ; preds = %969, %.body.thread5.i23.i
   %eh.lpad-body38.i = phi { ptr, i32 } [ %970, %969 ], [ %eh.lpad-body4.i24.i, %.body.thread5.i23.i ]
-  %971 = icmp eq ptr %.016.i.i, null
+  %971 = icmp eq ptr %.015.i.i, null
   br i1 %971, label %.body.i33, label %972
 
 972:                                              ; preds = %.body37.i
-  %973 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 48
+  %973 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 48
   %974 = load i32, ptr %973, align 4, !noalias !13389, !noundef !23
   %975 = add i32 %974, -1
   store i32 %975, ptr %973, align 4, !noalias !13389
@@ -51203,7 +51203,7 @@ _ZN11ide_assists8handlers16extract_function8Function11type_params17h1ea059bfa2ec
   br i1 %976, label %977, label %.body.i33
 
 977:                                              ; preds = %972
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.016.i.i)
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.015.i.i)
           to label %.body.i33 unwind label %987
 
 978:                                              ; preds = %966, %.noexc35.i
@@ -51253,7 +51253,7 @@ _ZN11ide_assists8handlers16extract_function8Function11type_params17h1ea059bfa2ec
   %996 = getelementptr inbounds nuw i8, ptr %2, i64 81
   %997 = load i8, ptr %996, align 1, !range !665, !noundef !23
   %998 = trunc nuw i8 %997 to i1
-  %999 = call noundef nonnull ptr @_ZN6syntax3ast4make3fn_17haa67e8388b0fcbffE(ptr noundef null, ptr noundef nonnull %85, ptr noundef %.016.i.i, ptr noundef %.09.i.i, ptr noundef nonnull %111, ptr noundef nonnull %.0217.i, ptr noundef %.0.i, i1 noundef zeroext %992, i1 noundef zeroext %995, i1 noundef zeroext %998)
+  %999 = call noundef nonnull ptr @_ZN6syntax3ast4make3fn_17haa67e8388b0fcbffE(ptr noundef null, ptr noundef nonnull %85, ptr noundef %.015.i.i, ptr noundef %.09.i.i, ptr noundef nonnull %111, ptr noundef nonnull %.0217.i, ptr noundef %.0.i, i1 noundef zeroext %992, i1 noundef zeroext %995, i1 noundef zeroext %998)
   ret ptr %999
 
 .body45.thread:                                   ; preds = %.body.i33, %.body45.thread89

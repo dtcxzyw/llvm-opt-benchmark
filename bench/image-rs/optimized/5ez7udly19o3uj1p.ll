@@ -33797,10 +33797,10 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23, !noalias !4389
   unreachable
 
-.body:                                            ; preds = %47, %.body36, %29, %25, %185
+.body:                                            ; preds = %47, %.body36, %29, %25, %187
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %185 ], [ %lpad.thr_comm.split-lp, %.body36 ], [ %30, %29 ], [ %26, %25 ], [ %48, %47 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$image..codecs..webp..vp8..Frame$GT$17h69ec787f0a78d900E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %2) #22
-          to label %72 unwind label %186
+          to label %72 unwind label %188
 
 29:                                               ; preds = %19
   %30 = landingpad { ptr, i32 }
@@ -33816,7 +33816,7 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %21, ptr %35, align 8, !alias.scope !4398
   invoke void @_ZN5image6codecs4webp3vp85Frame9fill_rgba17hb2787f2e6e1f08ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %2, ptr noalias noundef nonnull align 1 %33, i64 noundef %21)
-          to label %36 unwind label %185
+          to label %36 unwind label %187
 
 .body36:                                          ; preds = %67, %52, %55
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -33825,32 +33825,32 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
 
 36:                                               ; preds = %31
   %37 = load i16, ptr %15, align 2, !noundef !19
-  %.not106 = icmp eq i16 %37, 0
-  %.pre143 = load i16, ptr %12, align 8
-  br i1 %.not106, label %._crit_edge, label %.lr.ph105
+  %.not111 = icmp eq i16 %37, 0
+  %.pre152 = load i16, ptr %12, align 8
+  br i1 %.not111, label %._crit_edge, label %.lr.ph110
 
-.lr.ph105:                                        ; preds = %36
+.lr.ph110:                                        ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not107 = icmp eq i16 %.pre143, 0
-  br i1 %.not107, label %._crit_edge, label %.lr.ph105.split.preheader
+  %.not112 = icmp eq i16 %.pre152, 0
+  br i1 %.not112, label %._crit_edge, label %.lr.ph110.split.preheader
 
-.lr.ph105.split.preheader:                        ; preds = %.lr.ph105
-  %wide.trip.count141 = zext i16 %37 to i64
-  br label %.lr.ph105.split
+.lr.ph110.split.preheader:                        ; preds = %.lr.ph110
+  %wide.trip.count150 = zext i16 %37 to i64
+  br label %.lr.ph110.split
 
-.loopexit:                                        ; preds = %181, %.lr.ph105.split
-  %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
-  br i1 %exitcond142.not, label %._crit_edge.loopexit109, label %.lr.ph105.split, !llvm.loop !4401
+.loopexit:                                        ; preds = %183, %.lr.ph110.split
+  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
+  br i1 %exitcond151.not, label %._crit_edge.loopexit114, label %.lr.ph110.split, !llvm.loop !4401
 
-._crit_edge.loopexit109:                          ; preds = %.loopexit
+._crit_edge.loopexit114:                          ; preds = %.loopexit
   %.pre = load i16, ptr %12, align 8
-  %.pre144 = load i16, ptr %15, align 2
+  %.pre153 = load i16, ptr %15, align 2
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph105, %._crit_edge.loopexit109, %36
-  %40 = phi i16 [ %.pre144, %._crit_edge.loopexit109 ], [ 0, %36 ], [ %37, %.lr.ph105 ]
-  %41 = phi i16 [ %.pre, %._crit_edge.loopexit109 ], [ %.pre143, %36 ], [ 0, %.lr.ph105 ]
+._crit_edge:                                      ; preds = %.lr.ph110, %._crit_edge.loopexit114, %36
+  %40 = phi i16 [ %.pre153, %._crit_edge.loopexit109 ], [ 0, %36 ], [ %37, %.lr.ph105 ]
+  %41 = phi i16 [ %.pre, %._crit_edge.loopexit109 ], [ %.pre152, %36 ], [ 0, %.lr.ph105 ]
   %42 = zext i16 %41 to i32
   %43 = zext i16 %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -33905,25 +33905,25 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23, !noalias !4403
   unreachable
 
-.lr.ph105.split:                                  ; preds = %.lr.ph105.split.preheader, %.loopexit
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph105.split.preheader ], [ %indvars.iv.next139, %.loopexit ]
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+.lr.ph110.split:                                  ; preds = %.lr.ph110.split.preheader, %.loopexit
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph105.split.preheader ], [ %indvars.iv.next148, %.loopexit ]
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %61 = load i16, ptr %12, align 8, !noundef !19
-  %.not108 = icmp eq i16 %61, 0
-  br i1 %.not108, label %.loopexit, label %.lr.ph
+  %.not113 = icmp eq i16 %61, 0
+  br i1 %.not113, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph105.split
-  %62 = icmp eq i64 %indvars.iv138, 0
-  %63 = add nsw i64 %indvars.iv138, -1
-  %64 = shl nuw nsw i64 %indvars.iv138, 2
+.lr.ph:                                           ; preds = %.lr.ph110.split
+  %62 = icmp eq i64 %indvars.iv147, 0
+  %63 = add nsw i64 %indvars.iv147, -1
+  %64 = shl nuw nsw i64 %indvars.iv147, 2
   %65 = add nsw i64 %64, -4
   %wide.trip.count = zext i16 %61 to i64
   br label %83
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit": ; preds = %49
-  %.sroa.058.0.copyload59 = load i64, ptr %8, align 8, !alias.scope !4411
+  %.sroa.059.0.copyload60 = load i64, ptr %8, align 8, !alias.scope !4411
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %66 = icmp eq i64 %.sroa.058.0.copyload59, -9223372036854775808
+  %66 = icmp eq i64 %.sroa.059.0.copyload60, -9223372036854775808
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit.thread", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7941bb38d78acc84E.exit"
@@ -33935,7 +33935,7 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %70, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.058.0.copyload59, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.059.0.copyload60, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -33953,9 +33953,9 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
 72:                                               ; preds = %73, %.body
   %.pn27 = phi { ptr, i32 } [ %74, %73 ], [ %.pn, %.body ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #22
-          to label %196 unwind label %186
+          to label %196 unwind label %188
 
-73:                                               ; preds = %68, %188
+73:                                               ; preds = %68, %190
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %72
@@ -33979,10 +33979,10 @@ define void @_ZN5image6codecs4webp8extended10WebPStatic16from_alpha_lossy17hf358
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4419
   br label %82
 
-82:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit52", %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit"
+82:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit53", %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit"
   ret void
 
-83:                                               ; preds = %.lr.ph, %181
+83:                                               ; preds = %.lr.ph, %183
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i16, ptr %12, align 8, !noundef !19
@@ -33999,12 +33999,12 @@ default.unreachable:                              ; preds = %83
   unreachable
 
 87:                                               ; preds = %83
-  %88 = or i64 %indvars.iv, %indvars.iv138
+  %88 = or i64 %indvars.iv, %indvars.iv147
   %or.cond.i = icmp eq i64 %88, 0
   br i1 %or.cond.i, label %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit, label %93
 
 89:                                               ; preds = %83
-  %90 = or i64 %indvars.iv, %indvars.iv138
+  %90 = or i64 %indvars.iv, %indvars.iv147
   %or.cond1.i = icmp eq i64 %90, 0
   br i1 %or.cond1.i, label %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit, label %114
 
@@ -34023,7 +34023,7 @@ default.unreachable:                              ; preds = %83
   br i1 %98, label %105, label %.invoke, !prof !480
 
 99:                                               ; preds = %93
-  %100 = mul nuw nsw i64 %indvars.iv138, %85
+  %100 = mul nuw nsw i64 %indvars.iv147, %85
   %101 = add nuw nsw i64 %100, %indvars.iv
   %102 = shl nuw nsw i64 %101, 2
   %103 = add nsw i64 %102, -1
@@ -34035,12 +34035,12 @@ default.unreachable:                              ; preds = %83
   %107 = load i8, ptr %106, align 1, !alias.scope !4428, !noundef !19
   br label %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit
 
-.invoke:                                          ; preds = %177, %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit, %160, %151, %147, %133, %119, %115, %99, %95
-  %108 = phi i64 [ %97, %95 ], [ %103, %99 ], [ %117, %115 ], [ %123, %119 ], [ %135, %133 ], [ %149, %147 ], [ %155, %151 ], [ %164, %160 ], [ %175, %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit ], [ %179, %177 ]
+.invoke:                                          ; preds = %179, %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit, %160, %151, %147, %133, %119, %115, %99, %95
+  %108 = phi i64 [ %97, %95 ], [ %103, %99 ], [ %117, %115 ], [ %123, %119 ], [ %135, %133 ], [ %149, %147 ], [ %155, %151 ], [ %164, %160 ], [ %177, %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit ], [ %181, %177 ]
   %109 = phi i64 [ %21, %95 ], [ %21, %99 ], [ %21, %115 ], [ %21, %119 ], [ %21, %133 ], [ %21, %147 ], [ %21, %151 ], [ %21, %160 ], [ %.val30, %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit ], [ %21, %177 ]
   %110 = phi ptr [ @anon.dbc83011fcb707429349569d3c6bc524.346, %95 ], [ @anon.dbc83011fcb707429349569d3c6bc524.347, %99 ], [ @anon.dbc83011fcb707429349569d3c6bc524.348, %115 ], [ @anon.dbc83011fcb707429349569d3c6bc524.349, %119 ], [ @anon.dbc83011fcb707429349569d3c6bc524.350, %133 ], [ @anon.dbc83011fcb707429349569d3c6bc524.351, %147 ], [ @anon.dbc83011fcb707429349569d3c6bc524.352, %151 ], [ @anon.dbc83011fcb707429349569d3c6bc524.353, %160 ], [ @anon.dbc83011fcb707429349569d3c6bc524.343, %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit ], [ @anon.dbc83011fcb707429349569d3c6bc524.345, %177 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %108, i64 noundef %109, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #21
-          to label %.cont unwind label %185
+          to label %.cont unwind label %187
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -34115,7 +34115,7 @@ default.unreachable:                              ; preds = %83
   br i1 %150, label %157, label %.invoke, !prof !480
 
 151:                                              ; preds = %132
-  %152 = mul nuw nsw i64 %indvars.iv138, %85
+  %152 = mul nuw nsw i64 %indvars.iv147, %85
   %153 = add nuw nsw i64 %152, %indvars.iv
   %154 = shl nuw nsw i64 %153, 2
   %155 = add nsw i64 %154, -1
@@ -34135,7 +34135,7 @@ default.unreachable:                              ; preds = %83
   %165 = icmp samesign ult i64 %164, %21
   br i1 %165, label %166, label %.invoke, !prof !480
 
-166:                                              ; preds = %160
+166:; preds = %160
   %167 = getelementptr inbounds nuw i8, ptr %33, i64 %155
   %168 = load i8, ptr %167, align 1, !alias.scope !4428, !noundef !19
   %169 = getelementptr inbounds nuw i8, ptr %33, i64 %164
@@ -34147,75 +34147,75 @@ default.unreachable:                              ; preds = %83
 
 _ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit.i", %128, %125, %111, %105, %89, %87, %83
   %.011.i = phi i8 [ %107, %105 ], [ %113, %111 ], [ %127, %125 ], [ %130, %128 ], [ %143, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit.i" ], [ %86, %83 ], [ 0, %87 ], [ 0, %89 ]
-  %174 = mul nuw nsw i64 %indvars.iv138, %85
-  %175 = add nuw nsw i64 %174, %indvars.iv
+  %176 = mul nuw nsw i64 %indvars.iv147, %85
+  %177 = add nuw nsw i64 %176, %indvars.iv
   %.val30 = load i64, ptr %10, align 8, !noundef !19
-  %176 = icmp ult i64 %175, %.val30
-  br i1 %176, label %177, label %.invoke, !prof !480
+  %178 = icmp ult i64 %177, %.val30
+  br i1 %178, label %179, label %.invoke, !prof !480
 
-177:                                              ; preds = %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit
-  %178 = shl nuw nsw i64 %175, 2
-  %179 = or disjoint i64 %178, 3
-  %180 = icmp samesign ult i64 %179, %21
-  br i1 %180, label %181, label %.invoke, !prof !480
+179:                                              ; preds = %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit
+  %180 = shl nuw nsw i64 %177, 2
+  %181 = or disjoint i64 %180, 3
+  %182 = icmp samesign ult i64 %181, %21
+  br i1 %182, label %183, label %.invoke, !prof !480
 
-181:                                              ; preds = %177
+183:                                              ; preds = %179
   %.val = load ptr, ptr %39, align 8, !nonnull !19, !noundef !19
-  %182 = getelementptr inbounds nuw i8, ptr %.val, i64 %175
-  %183 = load i8, ptr %182, align 1, !noundef !19
-  %.narrow = add i8 %183, %.011.i
-  %184 = getelementptr inbounds nuw i8, ptr %33, i64 %179
-  store i8 %.narrow, ptr %184, align 1
+  %184 = getelementptr inbounds nuw i8, ptr %.val, i64 %177
+  %185 = load i8, ptr %184, align 1, !noundef !19
+  %.narrow = add i8 %185, %.011.i
+  %186 = getelementptr inbounds nuw i8, ptr %33, i64 %181
+  store i8 %.narrow, ptr %186, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %83
 
-185:                                              ; preds = %.invoke, %31
+187:                                              ; preds = %.invoke, %31
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #22
-          to label %.body unwind label %186
+          to label %.body unwind label %188
 
-186:                                              ; preds = %185, %72, %.body
-  %187 = landingpad { ptr, i32 }
+188:                                              ; preds = %187, %72, %.body
+  %189 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-188:                                              ; preds = %23
+190:                                              ; preds = %23
   store i32 1, ptr %24, align 8, !noalias !4431
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4389
   store i8 4, ptr %0, align 8
-  %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %.sroa.454.0..sroa_idx, align 8
+  %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %.sroa.455.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 3, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %24, ptr %.sroa.655.0..sroa_idx, align 8
+  %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %24, ptr %.sroa.656.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.22.llvm.9742654456972663382, ptr %.sroa.7.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr52drop_in_place$LT$image..codecs..webp..vp8..Frame$GT$17h69ec787f0a78d900E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %2)
           to label %189 unwind label %73
 
-189:                                              ; preds = %188
+191:                                              ; preds = %190
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4432
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-  %190 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %191 = load i64, ptr %190, align 8, !range !101, !noalias !4432, !noundef !19
-  %.not.i.i.i.i50 = icmp eq i64 %191, 0
-  br i1 %.not.i.i.i.i50, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit52", label %192
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %193 = load i64, ptr %192, align 8, !range !101, !noalias !4432, !noundef !19
+  %.not.i.i.i.i51 = icmp eq i64 %193, 0
+  br i1 %.not.i.i.i.i51, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit53", label %194
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %4, align 8, !noalias !4432, !nonnull !19, !noundef !19
-  %194 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %195 = load i64, ptr %194, align 8, !noalias !4432, !noundef !19
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %10, ptr noundef nonnull %193, i64 noundef %191, i64 noundef %195)
-  br label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit52"
+194:                                              ; preds = %191
+  %195 = load ptr, ptr %4, align 8, !noalias !4432, !nonnull !19, !noundef !19
+  %196 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %197 = load i64, ptr %196, align 8, !noalias !4432, !noundef !19
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %10, ptr noundef nonnull %195, i64 noundef %193, i64 noundef %197)
+  br label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit53"
 
-"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit52": ; preds = %189, %192
+"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..extended..AlphaChunk$GT$17he6cc29becc3dfeebE.exit53": ; preds = %191, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4432
   br label %82
 
-196:                                              ; preds = %72
+198:                                              ; preds = %72
   resume { ptr, i32 } %.pn27
 }
 

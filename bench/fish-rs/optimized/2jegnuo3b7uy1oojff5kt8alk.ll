@@ -8176,26 +8176,26 @@ define void @_ZN4fish3ast9Traversal13skip_children17hf84b006e48b1b98fE(ptr noali
   %11 = load ptr, ptr %10, align 8, !nonnull !4
   br label %12
 
-12:                                               ; preds = %18, %.split
+13:                                               ; preds = %18, %.split
   %.sroa.01.0 = phi i64 [ %8, %.split ], [ %19, %18 ]
   %.not = icmp eq i64 %.sroa.01.0, 0
-  br i1 %.not, label %13, label %18, !prof !126
+  br i1 %.not, label %14, label %18, !prof !126
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.c3855246c02a9407b3365b2c3e5c0e37.447, ptr %5, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %17, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %18, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c3855246c02a9407b3365b2c3e5c0e37.448) #26
   unreachable
 
-18:                                               ; preds = %12
+24:                                               ; preds = %12
   %19 = add nsw i64 %.sroa.01.0, -1
   %20 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %11, i64 %19
   %21 = load i64, ptr %20, align 8, !range !49, !noundef !4
@@ -8209,19 +8209,19 @@ define void @_ZN4fish3ast9Traversal13skip_children17hf84b006e48b1b98fE(ptr noali
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !45, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !525)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
-  %28 = icmp eq ptr %1, %25
-  br i1 %28, label %29, label %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread7, !prof !530
+  %29 = icmp eq ptr %1, %25
+  br i1 %29, label %30, label %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread7, !prof !530
 
-29:                                               ; preds = %23
-  %30 = icmp eq ptr %2, %27
-  br i1 %30, label %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread, label %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit
+30:                                               ; preds = %23
+  %31 = icmp eq ptr %2, %27
+  br i1 %31, label %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread, label %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit
 
-_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit: ; preds = %29
+_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit: ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !531
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %32 = load ptr, ptr %31, align 8, !invariant.load !4, !alias.scope !525, !noalias !528, !nonnull !4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %36 = load ptr, ptr %35, align 8, !invariant.load !4, !alias.scope !525, !noalias !528, !nonnull !4
   call void %32(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %1), !noalias !531
-  %33 = load i64, ptr %4, align 8, !range !497, !noalias !531, !noundef !4
+  %37 = load i64, ptr %4, align 8, !range !497, !noalias !531, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !531
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %35 = load ptr, ptr %34, align 8, !invariant.load !4, !alias.scope !528, !noalias !525, !nonnull !4
@@ -8235,18 +8235,18 @@ _ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit: ; preds = %29
 _ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread7: ; preds = %23, %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.c3855246c02a9407b3365b2c3e5c0e37.451, ptr %6, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %41, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %42, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c3855246c02a9407b3365b2c3e5c0e37.452) #26
   unreachable
 
-_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread: ; preds = %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit, %29
+_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.thread: ; preds = %_ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit, %30
   store i64 %19, ptr %7, align 8
   ret void
 }
