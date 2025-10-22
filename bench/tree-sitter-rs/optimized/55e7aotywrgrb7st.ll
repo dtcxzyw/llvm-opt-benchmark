@@ -18328,13 +18328,13 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037
   %68 = add nsw i64 %67, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3324)
   %69 = icmp ult i64 %68, %21
-  br i1 %69, label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit49, label %70, !prof !205
+  br i1 %69, label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit, label %70, !prof !205
 
 70:                                               ; preds = %66
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %68, i64 noundef %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f4ab2160caa6653ef344418ff3b39bb7.172.llvm.18097807149992804452) #45, !noalias !3327
   unreachable
 
-_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit49: ; preds = %66
+_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit: ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !3324, !noalias !3334, !nonnull !14, !noundef !14
   %73 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %72, i64 %68
@@ -18342,17 +18342,17 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   %75 = load i8, ptr %74, align 8, !range !1084, !noalias !3336, !noundef !14
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %77 = load ptr, ptr %76, align 8, !alias.scope !3337, !noalias !3340, !nonnull !14, !noundef !14
-  %78 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %77, i64 %68
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 96
+  %78 = getelementptr { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %77, i64 %67
+  %79 = getelementptr i8, ptr %78, i64 -8
   %80 = load i8, ptr %79, align 8, !range !1084, !noalias !3346, !noundef !14
   %81 = icmp eq i8 %75, 2
   br i1 %81, label %82, label %83
 
-82:                                               ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit49
+82:                                               ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
   %.not82 = icmp eq i8 %80, 2
   br i1 %.not82, label %.thread73, label %.critedge
 
-83:                                               ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit49
+83:                                               ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
   %.not81 = icmp eq i8 %75, %80
   br i1 %.not81, label %.thread73, label %.critedge
 

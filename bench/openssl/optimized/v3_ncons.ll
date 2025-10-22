@@ -685,21 +685,21 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   call void @CRYPTO_free(ptr noundef %.pre.i, ptr noundef nonnull @.str.2, i32 noundef 383) #9
   br label %cn2dnsid.exit
 
-33:                                               ; preds = %51, %.outer.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ %indvars.iv.ph.i, %.outer.i ]
+33:                                               ; preds = %50, %.outer.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ %indvars.iv.ph.i, %.outer.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %indvars.iv.i
   %35 = load i8, ptr %34, align 1, !tbaa !11
   %36 = and i8 %35, -33
   %37 = add i8 %36, -65
   %or.cond54.i = icmp ult i8 %37, 26
-  br i1 %or.cond54.i, label %51, label %38
+  br i1 %or.cond54.i, label %50, label %38
 
 38:                                               ; preds = %33
   %39 = add i8 %35, -48
   %or.cond8.i = icmp ult i8 %39, 10
   %40 = icmp eq i8 %35, 95
   %or.cond11.i = or i1 %40, %or.cond8.i
-  br i1 %or.cond11.i, label %51, label %41
+  br i1 %or.cond11.i, label %50, label %41
 
 41:                                               ; preds = %38
   %.not49.i = icmp ne i64 %indvars.iv.i, 0
@@ -709,7 +709,7 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
 
 43:                                               ; preds = %41
   switch i8 %35, label %.loopexit [
-    i8 45, label %51
+    i8 45, label %50
     i8 46, label %44
   ]
 
@@ -718,40 +718,36 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !11
   %.not50.i = icmp eq i8 %47, 46
-  br i1 %.not50.i, label %.loopexit, label %48
+  br i1 %.not50.i, label %.loopexit, label %.thread.i
 
-48:                                               ; preds = %44
-  %49 = getelementptr i8, ptr %45, i64 -1
-  %50 = load i8, ptr %49, align 1, !tbaa !11
-  %.not51.i = icmp eq i8 %50, 45
+.thread.i:                                        ; preds = %44
+  %48 = getelementptr i8, ptr %45, i64 -1
+  %49 = load i8, ptr %48, align 1, !tbaa !11
+  %.not51.i = icmp eq i8 %49, 45
   %.not52.i = icmp eq i8 %47, 45
   %or.cond57.i = or i1 %.not52.i, %.not51.i
-  br i1 %or.cond57.i, label %.loopexit, label %.thread.i
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv.i, 1
+  br i1 %or.cond57.i, label %.loopexit, label %.outer.i, !llvm.loop !62
 
-51:                                               ; preds = %43, %38, %33
+50:                                               ; preds = %43, %38, %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26
   br i1 %exitcond.not.i, label %._crit_edge.i, label %33, !llvm.loop !62
 
-.thread.i:                                        ; preds = %48
-  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not84.i = icmp eq i64 %indvars.iv.next83.i, %26
-  br i1 %exitcond.not84.i, label %.loopexit41, label %.outer.i, !llvm.loop !62
-
-._crit_edge.i:                                    ; preds = %51
-  br i1 %31, label %.loopexit, label %.loopexit41
+._crit_edge.i:                                    ; preds = %50
+  br i1 %31, label %.loopexit, label %51
 
 cn2dnsid.exit:                                    ; preds = %13, %32
   %.0.i = phi i32 [ 53, %32 ], [ 17, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread34
 
-.loopexit:                                        ; preds = %44, %48, %41, %43, %.preheader.i, %._crit_edge.i
+.loopexit:                                        ; preds = %44, %.thread.i, %41, %43, %.preheader.i, %._crit_edge.i
   call void @CRYPTO_free(ptr noundef %.pre.i, ptr noundef nonnull @.str.2, i32 noundef 431) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %select.unfold
 
-.loopexit41:                                      ; preds = %.thread.i, %._crit_edge.i
+51:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.045.lcssa.i, ptr %4, align 8, !tbaa !63
   store ptr %.pre.i, ptr %12, align 8, !tbaa !64
@@ -760,13 +756,13 @@ cn2dnsid.exit:                                    ; preds = %13, %32
   %.not19 = icmp eq i32 %52, 0
   br i1 %.not19, label %select.unfold, label %.thread34
 
-select.unfold:                                    ; preds = %.loopexit41, %.loopexit
+select.unfold:                                    ; preds = %51, %.loopexit
   %53 = call i32 @X509_NAME_get_index_by_NID(ptr noundef %6, i32 noundef 13, i32 noundef %14) #9
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %.thread34, label %13
 
-.thread34:                                        ; preds = %select.unfold, %.loopexit41, %2, %cn2dnsid.exit
-  %.2 = phi i32 [ %.0.i, %cn2dnsid.exit ], [ 0, %2 ], [ 0, %select.unfold ], [ %52, %.loopexit41 ]
+.thread34:                                        ; preds = %select.unfold, %51, %2, %cn2dnsid.exit
+  %.2 = phi i32 [ %.0.i, %cn2dnsid.exit ], [ 0, %2 ], [ 0, %select.unfold ], [ %52, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2

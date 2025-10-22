@@ -1125,19 +1125,15 @@ json_find_attr.exit203.thread.i.i:                ; preds = %json_find_attr.exit
   %252 = add i64 %.1291.i.i, 1
   %253 = and i64 %252, 576460752303423487
   %.not153.i.i = icmp eq i64 %253, 101
-  br i1 %.not153.i.i, label %json_prep.exit.i, label %.preheader.i.i, !llvm.loop !18
-
-json_prep.exit.i:                                 ; preds = %251
-  %.not.i82.i = icmp eq i32 %40, 0
-  br i1 %.not.i82.i, label %json_find_attr.exit.thread.i, label %.lr.ph.i84.i
+  br i1 %.not153.i.i, label %.lr.ph.i84.i, label %.preheader.i.i, !llvm.loop !18
 
 254:                                              ; preds = %.lr.ph.i84.i
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i85.i, 2
   %255 = icmp samesign ult i64 %indvars.iv.next.i86.i, %42
   br i1 %255, label %.lr.ph.i84.i, label %json_find_attr.exit.thread.i, !llvm.loop !10
 
-.lr.ph.i84.i:                                     ; preds = %json_prep.exit.i, %254
-  %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %254 ], [ 0, %json_prep.exit.i ]
+.lr.ph.i84.i:                                     ; preds = %251, %254
+  %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %254 ], [ 0, %251 ]
   %256 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i85.i
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4
@@ -1155,7 +1151,7 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i84.i
   %.not.i = icmp eq ptr %265, null
   br i1 %.not.i, label %json_find_attr.exit.thread.i, label %267
 
-json_find_attr.exit.thread.i:                     ; preds = %254, %json_find_attr.exit.i, %json_prep.exit.i
+json_find_attr.exit.thread.i:                     ; preds = %254, %json_find_attr.exit.i
   %266 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %266, i32 noundef -32601, ptr poison, ptr noundef nonnull @.str.12)
   br label %sharkd_session_process.exit

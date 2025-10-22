@@ -801,132 +801,123 @@ declare i32 @Gia_ManLutLevel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Seg_ManAlloc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #19
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %5, align 4, !tbaa !3
-  store i32 1000, ptr %4, align 8, !tbaa !10
-  %6 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #16
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !11
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr %4, ptr %8, align 8, !tbaa !55
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %10, align 4, !tbaa !3
-  store i32 1000, ptr %9, align 8, !tbaa !10
-  %11 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #16
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %9, ptr %13, align 8, !tbaa !56
-  %14 = tail call ptr @Seg_ManCountIntEdges(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %1)
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %14, ptr %15, align 8, !tbaa !57
-  %16 = getelementptr i8, ptr %14, i64 4
-  %.val = load i32, ptr %16, align 4, !tbaa !3
-  %17 = sdiv i32 %.val, 2
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %17, ptr %18, align 8, !tbaa !58
-  %19 = icmp ult i32 %17, 2
-  br i1 %19, label %Abc_Base2Log.exit, label %20
+Abc_Base2Log.exit:
+  %2 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #19
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 0, ptr %4, align 4, !tbaa !3
+  store i32 1000, ptr %3, align 8, !tbaa !10
+  %5 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %5, ptr %6, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store ptr %3, ptr %7, align 8, !tbaa !55
+  %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %9, align 4, !tbaa !3
+  store i32 1000, ptr %8, align 8, !tbaa !10
+  %10 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %10, ptr %11, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr %8, ptr %12, align 8, !tbaa !56
+  %13 = tail call ptr @Seg_ManCountIntEdges(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %8, i32 noundef %1)
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %13, ptr %14, align 8, !tbaa !57
+  %15 = getelementptr i8, ptr %13, i64 4
+  %.val = load i32, ptr %15, align 4, !tbaa !3
+  %16 = sdiv i32 %.val, 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %16, ptr %17, align 8, !tbaa !58
+  %18 = icmp ult i32 %16, 2
+  %19 = add nsw i32 %16, -1
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %21 = sub nuw nsw i32 32, %20
+  %.09.i = select i1 %18, i32 %16, i32 %21
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %.09.i, ptr %22, align 4, !tbaa !59
+  %23 = shl nuw i32 1, %.09.i
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %23, ptr %24, align 8, !tbaa !60
+  %25 = tail call ptr @sat_solver_new() #17
+  store ptr %25, ptr %2, align 8, !tbaa !61
+  tail call void @sat_solver_setnvars(ptr noundef %25, i32 noundef %16) #17
+  %26 = tail call i32 @sat_solver_nvars(ptr noundef %25) #17
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i32 %26, ptr %27, align 4, !tbaa !62
+  %28 = load i32, ptr %25, align 8, !tbaa !63
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  store i32 %28, ptr %29, align 8, !tbaa !75
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !76
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 100
+  store i32 %31, ptr %32, align 4, !tbaa !77
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %34 = load i32, ptr %33, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i32 %34, ptr %35, align 8, !tbaa !32
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %37 = load i32, ptr %36, align 4, !tbaa !32
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  store i32 %37, ptr %38, align 4, !tbaa !32
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %40 = load i32, ptr %39, align 8, !tbaa !32
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %42 = load i32, ptr %41, align 8, !tbaa !78
+  %43 = shl i32 %40, %42
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %45 = load ptr, ptr %44, align 8, !tbaa !79
+  %46 = sext i32 %40 to i64
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !80
+  %.val.i.i.i = load i32, ptr %48, align 4, !tbaa !32
+  %49 = or i32 %.val.i.i.i, %43
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i32 %49, ptr %50, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 44
+  %52 = load i32, ptr %51, align 4, !tbaa !32
+  %53 = shl i32 %52, %42
+  %54 = sext i32 %52 to i64
+  %55 = getelementptr inbounds ptr, ptr %45, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !80
+  %.val.i8.i.i = load i32, ptr %56, align 4, !tbaa !32
+  %57 = or i32 %.val.i8.i.i, %53
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 28
+  store i32 %57, ptr %58, align 4, !tbaa !32
+  %59 = getelementptr inbounds nuw i8, ptr %25, i64 152
+  %60 = load ptr, ptr %59, align 8, !tbaa !81
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %sat_solver_bookmark.exit, label %61
 
-20:                                               ; preds = %2
-  %21 = add nsw i32 %17, -1
-  %.not11.i = icmp eq i32 %21, 0
-  br i1 %.not11.i, label %Abc_Base2Log.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %20
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
-  %23 = sub nuw nsw i32 32, %22
-  br label %Abc_Base2Log.exit
-
-Abc_Base2Log.exit:                                ; preds = %2, %20, %.lr.ph.preheader.i
-  %.09.i = phi i32 [ %17, %2 ], [ 0, %20 ], [ %23, %.lr.ph.preheader.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %.09.i, ptr %24, align 4, !tbaa !59
-  %25 = shl nuw i32 1, %.09.i
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %25, ptr %26, align 8, !tbaa !60
-  %27 = tail call ptr @sat_solver_new() #17
-  store ptr %27, ptr %3, align 8, !tbaa !61
-  tail call void @sat_solver_setnvars(ptr noundef %27, i32 noundef %17) #17
-  %28 = tail call i32 @sat_solver_nvars(ptr noundef %27) #17
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %28, ptr %29, align 4, !tbaa !62
-  %30 = load i32, ptr %27, align 8, !tbaa !63
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  store i32 %30, ptr %31, align 8, !tbaa !75
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !76
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 100
-  store i32 %33, ptr %34, align 4, !tbaa !77
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !32
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i32 %36, ptr %37, align 8, !tbaa !32
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  %39 = load i32, ptr %38, align 4, !tbaa !32
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  store i32 %39, ptr %40, align 4, !tbaa !32
-  %41 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %42 = load i32, ptr %41, align 8, !tbaa !32
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %44 = load i32, ptr %43, align 8, !tbaa !78
-  %45 = shl i32 %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !79
-  %48 = sext i32 %42 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !80
-  %.val.i.i.i = load i32, ptr %50, align 4, !tbaa !32
-  %51 = or i32 %.val.i.i.i, %45
-  %52 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i32 %51, ptr %52, align 8, !tbaa !32
-  %53 = getelementptr inbounds nuw i8, ptr %27, i64 44
-  %54 = load i32, ptr %53, align 4, !tbaa !32
-  %55 = shl i32 %54, %44
-  %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %47, i64 %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !80
-  %.val.i8.i.i = load i32, ptr %58, align 4, !tbaa !32
-  %59 = or i32 %.val.i8.i.i, %55
-  %60 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  store i32 %59, ptr %60, align 4, !tbaa !32
-  %61 = getelementptr inbounds nuw i8, ptr %27, i64 152
-  %62 = load ptr, ptr %61, align 8, !tbaa !81
-  %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %sat_solver_bookmark.exit, label %63
-
-63:                                               ; preds = %Abc_Base2Log.exit
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 120
-  %65 = load i64, ptr %64, align 8, !tbaa !82
-  %66 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  store i64 %65, ptr %66, align 8, !tbaa !83
-  %67 = getelementptr inbounds nuw i8, ptr %27, i64 144
-  %68 = load ptr, ptr %67, align 8, !tbaa !84
-  %69 = sext i32 %30 to i64
-  %70 = shl nsw i64 %69, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %68, i64 %70, i1 false)
+61:                                               ; preds = %Abc_Base2Log.exit
+  %62 = getelementptr inbounds nuw i8, ptr %25, i64 120
+  %63 = load i64, ptr %62, align 8, !tbaa !82
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  store i64 %63, ptr %64, align 8, !tbaa !83
+  %65 = getelementptr inbounds nuw i8, ptr %25, i64 144
+  %66 = load ptr, ptr %65, align 8, !tbaa !84
+  %67 = sext i32 %28 to i64
+  %68 = shl nsw i64 %67, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr align 8 %66, i64 %68, i1 false)
   br label %sat_solver_bookmark.exit
 
-sat_solver_bookmark.exit:                         ; preds = %Abc_Base2Log.exit, %63
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %0, ptr %71, align 8, !tbaa !47
+sat_solver_bookmark.exit:                         ; preds = %Abc_Base2Log.exit, %61
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store ptr %0, ptr %69, align 8, !tbaa !47
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %calloc, ptr %72, align 8, !tbaa !44
-  %calloc31 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %calloc31, ptr %73, align 8, !tbaa !48
-  %calloc32 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %calloc32, ptr %74, align 8, !tbaa !85
-  %75 = tail call i32 @Seg_ManCountIntLevels(ptr noundef nonnull %3, i32 noundef %28)
-  %76 = load ptr, ptr %3, align 8, !tbaa !61
-  tail call void @sat_solver_setnvars(ptr noundef %76, i32 noundef %75) #17
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %calloc, ptr %70, align 8, !tbaa !44
+  %calloc29 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr %calloc29, ptr %71, align 8, !tbaa !48
+  %calloc30 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %calloc30, ptr %72, align 8, !tbaa !85
+  %73 = tail call i32 @Seg_ManCountIntLevels(ptr noundef nonnull %2, i32 noundef %26)
+  %74 = load ptr, ptr %2, align 8, !tbaa !61
+  tail call void @sat_solver_setnvars(ptr noundef %74, i32 noundef %73) #17
   tail call void @Gia_ManFillValue(ptr noundef %0) #17
-  ret ptr %3
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)

@@ -6170,18 +6170,15 @@ _ZN4llvh5APIntlSEj.exit:                          ; preds = %if.end14
   %sh_prom.i.i107 = zext nneg i32 %sub2.i.i106 to i64
   %shr.i.i108 = lshr i64 -1, %sh_prom.i.i107
   %and.i.i109 = and i64 %shr.i.i108, %or
-  %26 = trunc nuw nsw i64 %and to i32
-  %sub16173 = add nsw i32 %26, -1075
-  %cmp.i = icmp eq i32 %sub16173, %width
-  %sh_prom.i = zext nneg i32 %sub16173 to i64
+  %sub16173 = add nuw nsw i64 %and, 4294966221
+  %sh_prom.i = and i64 %sub16173, 4294967295
   %shl.i = shl i64 %and.i.i109, %sh_prom.i
-  %storemerge.i = select i1 %cmp.i, i64 0, i64 %shl.i
-  %and.i.i119 = and i64 %storemerge.i, %shr.i.i108
+  %and.i.i119 = and i64 %shl.i, %shr.i.i108
   br i1 %tobool.not, label %if.then.i124, label %cleanup.done26.thread195
 
 _ZN4llvh5APIntlSEj.exit.thread:                   ; preds = %if.end5.i, %if.end17.i.i
-  %27 = phi i64 [ %and6.i.i.i102, %if.end5.i ], [ %.pre, %if.end17.i.i ]
-  %and6.i.i = and i64 %27, %shr.i.i10.i97
+  %26 = phi i64 [ %and6.i.i.i102, %if.end5.i ], [ %.pre, %if.end17.i.i ]
+  %and6.i.i = and i64 %26, %shr.i.i10.i97
   store i64 %and6.i.i, ptr %arrayidx.i.i.i101, align 8
   br i1 %tobool.not, label %if.else.i122, label %if.then.i144.thread
 
@@ -6219,10 +6216,10 @@ cleanup.done26:                                   ; preds = %if.else.i122, %if.t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   call void @_ZN4llvh5APInt6negateEv(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp20), !noalias !73
   %BitWidth.i.i125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %28 = load i32, ptr %BitWidth.i120184, align 8, !noalias !73
-  store i32 %28, ptr %BitWidth.i.i125, align 8, !alias.scope !73
-  %29 = load i64, ptr %agg.tmp20, align 8, !noalias !73
-  store i64 %29, ptr %agg.result, align 8, !alias.scope !73
+  %27 = load i32, ptr %BitWidth.i120184, align 8, !noalias !73
+  store i32 %27, ptr %BitWidth.i.i125, align 8, !alias.scope !73
+  %28 = load i64, ptr %agg.tmp20, align 8, !noalias !73
+  store i64 %28, ptr %agg.result, align 8, !alias.scope !73
   store i32 0, ptr %BitWidth.i120184, align 8, !noalias !73
   %cmp.i.i.i143 = icmp ult i32 %width, 65
   %isnull.i145 = icmp eq i64 %Tmp.sroa.0.1177182, 0
@@ -6231,8 +6228,8 @@ cleanup.done26:                                   ; preds = %if.else.i122, %if.t
 
 delete.notnull.i146:                              ; preds = %cleanup.done26, %if.then.i144.thread
   %Tmp.sroa.0.1178191194200 = phi i64 [ %18, %if.then.i144.thread ], [ %Tmp.sroa.0.1177182, %cleanup.done26 ]
-  %30 = inttoptr i64 %Tmp.sroa.0.1178191194200 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %30) #25
+  %29 = inttoptr i64 %Tmp.sroa.0.1178191194200 to ptr
+  call void @_ZdaPv(ptr noundef nonnull %29) #25
   br label %return
 
 return:                                           ; preds = %cleanup.action, %cleanup.done26.thread195, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i55, %if.else.i41, %delete.notnull.i146, %cleanup.done26, %if.else.i65, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i79, %if.else.i, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i

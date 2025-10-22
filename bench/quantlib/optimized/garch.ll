@@ -883,24 +883,15 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN8QuantLib5ArrayC
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i125, align 8, !tbaa !21
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont71, label %if.end.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  %add.ptr.idx.i.i.i.i.i.i.i = add i64 %sub.ptr.sub.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
-  br label %invoke.cont71
-
-invoke.cont71:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 %sub.ptr.sub.i
   %cmp.i.not5.i = icmp eq ptr %1, %0
   br i1 %cmp.i.not5.i, label %invoke.cont87, label %for.body.i
 
-for.body.i:                                       ; preds = %invoke.cont71, %for.body.i
-  %__first.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %1, %invoke.cont71 ]
-  %__result.sroa.0.06.i = phi ptr [ %incdec.ptr.i1.i, %for.body.i ], [ %call5.i.i.i.i2.i.i125, %invoke.cont71 ]
+for.body.i:                                       ; preds = %call5.i.i.i.i2.i.i.noexc, %for.body.i
+  %__first.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %1, %call5.i.i.i.i2.i.i.noexc ]
+  %__result.sroa.0.06.i = phi ptr [ %incdec.ptr.i1.i, %for.body.i ], [ %call5.i.i.i.i2.i.i125, %call5.i.i.i.i2.i.i.noexc ]
   %39 = load double, ptr %__first.sroa.0.07.i, align 8, !tbaa !21
   %sub.i.i = fsub double %39, %mean_r2
   store double %sub.i.i, ptr %__result.sroa.0.06.i, align 8, !tbaa !21
@@ -909,8 +900,8 @@ for.body.i:                                       ; preds = %invoke.cont71, %for
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %0
   br i1 %cmp.i.not.i, label %invoke.cont87, label %for.body.i, !llvm.loop !55
 
-invoke.cont87:                                    ; preds = %for.body.i, %invoke.cont71
-  invoke void @_ZN8QuantLib15autocovariancesIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES3_EEvT_S8_T0_m(ptr nonnull %call5.i.i.i.i2.i.i125, ptr %__first.addr.0.i.i.i.i.i, ptr noundef %cond.i, i64 noundef %conv67)
+invoke.cont87:                                    ; preds = %for.body.i, %call5.i.i.i.i2.i.i.noexc
+  invoke void @_ZN8QuantLib15autocovariancesIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES3_EEvT_S8_T0_m(ptr nonnull %call5.i.i.i.i2.i.i125, ptr %add.ptr.i.i.i.i.i.i.i, ptr noundef %cond.i, i64 noundef %conv67)
           to label %do.body101 unwind label %lpad86
 
 do.body101:                                       ; preds = %invoke.cont87
