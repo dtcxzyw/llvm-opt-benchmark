@@ -40735,7 +40735,7 @@ parser_cr.exit:                                   ; preds = %26, %23, %21, %15, 
 declare ptr @rb_parser_set_location(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #19 {
+define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef range(i32 -1, 256) %1) unnamed_addr #19 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %22, label %4
 

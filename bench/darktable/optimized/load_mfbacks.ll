@@ -776,7 +776,7 @@ define void @_ZN6LibRaw20phase_one_flat_fieldEii(ptr noundef nonnull align 8 der
   %199 = load i16, ptr %38, align 2, !tbaa !89
   %200 = zext i16 %199 to i32
   %201 = sub nsw i32 %.0106158, %200
-  %202 = shl i32 %198, 1
+  %202 = shl nsw i32 %198, 1
   %203 = and i32 %202, 14
   %204 = and i32 %201, 1
   %205 = or disjoint i32 %203, %204

@@ -514,9 +514,9 @@ select.unfold99:                                  ; preds = %32
   %50 = load ptr, ptr %37, align 8, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 440
   %52 = load double, ptr %51, align 8, !tbaa !46
-  %.fr143 = freeze double %52
-  %53 = fadd double %48, %.fr143
-  switch i32 %.087, label %default.unreachable131 [
+  %.fr142 = freeze double %52
+  %53 = fadd double %48, %.fr142
+  switch i32 %.087, label %default.unreachable130 [
     i32 1, label %54
     i32 2, label %64
     i32 3, label %68
@@ -633,7 +633,7 @@ select.unfold99:                                  ; preds = %32
   %115 = and i1 %113, %114
   br i1 %115, label %119, label %.thread121
 
-default.unreachable131:                           ; preds = %34
+default.unreachable130:                           ; preds = %34
   unreachable
 
 .critedge:                                        ; preds = %109

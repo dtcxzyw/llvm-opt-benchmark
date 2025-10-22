@@ -31943,10 +31943,10 @@ mpd_del.exit100:                                  ; preds = %536, %533, %mpd_del
   br label %604
 
 mpd_qcopy.exit.thread.sink.split:                 ; preds = %72, %69, %._crit_edge, %432
-  %.sink206 = phi i32 [ 256, %432 ], [ %430, %._crit_edge ], [ 512, %69 ], [ 8, %72 ]
+  %.sink205 = phi i32 [ 256, %432 ], [ %430, %._crit_edge ], [ 512, %69 ], [ 8, %72 ]
   %.067.ph = phi ptr [ %.1, %432 ], [ %.1, %._crit_edge ], [ null, %69 ], [ %.1, %72 ]
   %542 = load i32, ptr %4, align 4, !tbaa !23
-  %543 = or i32 %542, %.sink206
+  %543 = or i32 %542, %.sink205
   store i32 %543, ptr %4, align 4, !tbaa !23
   br label %mpd_qcopy.exit.thread
 

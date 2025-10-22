@@ -1238,12 +1238,12 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i: ; preds = %.noexc193, %_ZNSt6
   %130 = add nuw nsw i32 %.0148, 1
   %131 = add nsw i32 %.0148, -2
   %132 = add nuw nsw i32 %.0148, 2
-  %.sroa.6.0.insert.ext = zext i32 %132 to i64
-  %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
+  %.sroa.6.0.insert.ext = zext nneg i32 %132 to i64
+  %.sroa.6.0.insert.shift = shl nuw nsw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %131 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
-  %.sroa.6.0.insert.ext704 = zext i32 %132 to i64
-  %.sroa.6.0.insert.shift705 = shl nuw i64 %.sroa.6.0.insert.ext704, 32
+  %.sroa.6.0.insert.ext704 = zext nneg i32 %132 to i64
+  %.sroa.6.0.insert.shift705 = shl nuw nsw i64 %.sroa.6.0.insert.ext704, 32
   %.sroa.0.0.insert.ext700 = zext i32 %131 to i64
   %.sroa.0.0.insert.insert702 = or disjoint i64 %.sroa.6.0.insert.shift705, %.sroa.0.0.insert.ext700
   br label %133

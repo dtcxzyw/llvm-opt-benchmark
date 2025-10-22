@@ -21794,7 +21794,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit14
 
 49:                                               ; preds = %47
   %50 = ashr i64 %.0101, 1
-  %51 = add i64 %50, %.0105
+  %51 = add nsw i64 %50, %.0105
   %52 = add i64 %51, 4611686018427387904
   %or.cond = icmp sgt i64 %52, -1
   br i1 %or.cond, label %69, label %rb_long2num_inline.exit
@@ -21846,7 +21846,7 @@ rbimpl_RB_TYPE_P_fastpath.exit134:                ; preds = %55
   br i1 %.not.i144, label %77, label %73
 
 73:                                               ; preds = %71
-  %74 = shl i64 %.0105, 1
+  %74 = shl nsw i64 %.0105, 1
   %75 = or disjoint i64 %74, 1
   %76 = tail call i64 @rb_fix_plus(i64 noundef %75, i64 noundef %.0115) #24
   br label %77
@@ -21874,7 +21874,7 @@ rbimpl_RB_TYPE_P_fastpath.exit132.thread:         ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %.not.i147, label %89, label %85
 
 85:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit132.thread
-  %86 = shl i64 %.0105, 1
+  %86 = shl nsw i64 %.0105, 1
   %87 = or disjoint i64 %86, 1
   %88 = tail call i64 @rb_fix_plus(i64 noundef %87, i64 noundef %.0115) #24
   br label %89

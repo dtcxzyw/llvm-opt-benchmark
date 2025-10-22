@@ -45712,7 +45712,7 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit235: ; pr
           cleanup
   br label %.body
 
-.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5381, %.invoke5379, %.invoke
+.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5380, %.invoke5378, %.invoke
   %lpad.loopexit.split-lp1135 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -45736,7 +45736,7 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit235: ; pr
   %568 = add i32 %564, -1
   %569 = zext i32 %568 to i64
   %570 = icmp ugt i64 %567, %569
-  br i1 %570, label %571, label %.invoke5379
+  br i1 %570, label %571, label %.invoke5378
 
 571:                                              ; preds = %566
   %572 = extractvalue { ptr, i64 } %565, 0
@@ -45809,7 +45809,7 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit235: ; pr
   %601 = add i32 %595, -1
   %602 = zext i32 %601 to i64
   %603 = icmp ugt i64 %600, %602
-  br i1 %603, label %604, label %.invoke5379
+  br i1 %603, label %604, label %.invoke5378
 
 604:                                              ; preds = %.noexc240
   %605 = extractvalue { ptr, i64 } %599, 0
@@ -45844,7 +45844,7 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit235: ; pr
   %619 = add i32 %.val5.i.i, -1
   %620 = zext i32 %619 to i64
   %621 = icmp ugt i64 %618, %620
-  br i1 %621, label %622, label %.invoke5379
+  br i1 %621, label %622, label %.invoke5378
 
 622:                                              ; preds = %.noexc243
   %623 = extractvalue { ptr, i64 } %617, 0
@@ -46086,7 +46086,7 @@ _ZN11ruff_linter5rules8pyflakes5rules15undefined_local15undefined_local17h774947
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5383, %3631
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5382, %3631
   %lpad.loopexit.split-lp1138 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -46139,7 +46139,7 @@ _ZN11ruff_linter5rules8pyflakes5rules15undefined_local15undefined_local17h774947
           cleanup
   br label %.loopexit.split-lp1042
 
-.loopexit.split-lp1042.loopexit.split-lp.loopexit: ; preds = %.invoke5387, %.backedge1118, %3389
+.loopexit.split-lp1042.loopexit.split-lp.loopexit: ; preds = %.invoke5386, %.backedge1118, %3389
   %lpad.loopexit1112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp1042
@@ -46295,7 +46295,7 @@ _ZN11ruff_linter5rules8pyflakes5rules15undefined_local15undefined_local17h774947
   %775 = add i32 %770, -1
   %776 = zext i32 %775 to i64
   %777 = icmp ugt i64 %774, %776
-  br i1 %777, label %"_ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused_private_type_var28_$u7b$$u7b$closure$u7d$$u7d$17ha508f3e0df2c8991E.exit.i", label %.invoke5379
+  br i1 %777, label %"_ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused_private_type_var28_$u7b$$u7b$closure$u7d$$u7d$17ha508f3e0df2c8991E.exit.i", label %.invoke5378
 
 "_ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused_private_type_var28_$u7b$$u7b$closure$u7d$$u7d$17ha508f3e0df2c8991E.exit.i": ; preds = %.noexc260
   %778 = extractvalue { ptr, i64 } %773, 0
@@ -46349,18 +46349,18 @@ _ZN11ruff_linter5rules8pyflakes5rules15undefined_local15undefined_local17h774947
 802:                                              ; preds = %.noexc268, %.noexc265
   %803 = phi i32 [ %814, %.noexc268 ], [ %795, %.noexc265 ]
   %.not.i.i.i.i = icmp eq i32 %803, 0
-  br i1 %.not.i.i.i.i, label %.invoke5381, label %804
+  br i1 %.not.i.i.i.i, label %.invoke5380, label %804
 
 804:                                              ; preds = %802
   %805 = load i64, ptr %796, align 8, !noalias !4139, !noundef !8
   %806 = add i32 %803, -1
   %807 = zext i32 %806 to i64
   %808 = icmp ugt i64 %805, %807
-  br i1 %808, label %809, label %.invoke5379
+  br i1 %808, label %809, label %.invoke5378
 
 809:                                              ; preds = %804
   %810 = icmp ugt i64 %799, %807
-  br i1 %810, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i", label %.invoke5379
+  br i1 %810, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i", label %.invoke5378
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i": ; preds = %809
   %811 = load ptr, ptr %797, align 8, !noalias !4139, !nonnull !8, !noundef !8
@@ -46705,7 +46705,7 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused
   %909 = add i32 %904, -1
   %910 = zext i32 %909 to i64
   %911 = icmp ugt i64 %908, %910
-  br i1 %911, label %"_ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused_private_protocol28_$u7b$$u7b$closure$u7d$$u7d$17hbaefb60dedd24f4cE.exit.i", label %.invoke5379
+  br i1 %911, label %"_ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused_private_protocol28_$u7b$$u7b$closure$u7d$$u7d$17hbaefb60dedd24f4cE.exit.i", label %.invoke5378
 
 "_ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused_private_protocol28_$u7b$$u7b$closure$u7d$$u7d$17hbaefb60dedd24f4cE.exit.i": ; preds = %.noexc302
   %912 = extractvalue { ptr, i64 } %907, 0
@@ -46759,18 +46759,18 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused
 936:                                              ; preds = %.noexc310, %.noexc307
   %937 = phi i32 [ %948, %.noexc310 ], [ %929, %.noexc307 ]
   %.not.i.i.i.i287 = icmp eq i32 %937, 0
-  br i1 %.not.i.i.i.i287, label %.invoke5381, label %938
+  br i1 %.not.i.i.i.i287, label %.invoke5380, label %938
 
 938:                                              ; preds = %936
   %939 = load i64, ptr %930, align 8, !noalias !4181, !noundef !8
   %940 = add i32 %937, -1
   %941 = zext i32 %940 to i64
   %942 = icmp ugt i64 %939, %941
-  br i1 %942, label %943, label %.invoke5379
+  br i1 %942, label %943, label %.invoke5378
 
 943:                                              ; preds = %938
   %944 = icmp ugt i64 %933, %941
-  br i1 %944, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i288", label %.invoke5379
+  br i1 %944, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i288", label %.invoke5378
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i288": ; preds = %943
   %945 = load ptr, ptr %931, align 8, !noalias !4181, !nonnull !8, !noundef !8
@@ -46969,7 +46969,7 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused
   %1005 = add i32 %1000, -1
   %1006 = zext i32 %1005 to i64
   %1007 = icmp ugt i64 %1004, %1006
-  br i1 %1007, label %1008, label %.invoke5379
+  br i1 %1007, label %1008, label %.invoke5378
 
 1008:                                             ; preds = %.noexc335
   %1009 = extractvalue { ptr, i64 } %1003, 0
@@ -47018,18 +47018,18 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition23unused
 1030:                                             ; preds = %.noexc342, %.noexc339
   %1031 = phi i32 [ %1042, %.noexc342 ], [ %1025, %.noexc339 ]
   %.not.i.i.i.i326 = icmp eq i32 %1031, 0
-  br i1 %.not.i.i.i.i326, label %.invoke5381, label %1032
+  br i1 %.not.i.i.i.i326, label %.invoke5380, label %1032
 
 1032:                                             ; preds = %1030
   %1033 = load i64, ptr %1026, align 8, !noalias !4200, !noundef !8
   %1034 = add i32 %1031, -1
   %1035 = zext i32 %1034 to i64
   %1036 = icmp ugt i64 %1033, %1035
-  br i1 %1036, label %1037, label %.invoke5379
+  br i1 %1036, label %1037, label %.invoke5378
 
 1037:                                             ; preds = %1032
   %1038 = icmp ugt i64 %1028, %1035
-  br i1 %1038, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i327", label %.invoke5379
+  br i1 %1038, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i327", label %.invoke5378
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i327": ; preds = %1037
   %1039 = load ptr, ptr %1027, align 8, !noalias !4200, !nonnull !8, !noundef !8
@@ -47209,7 +47209,7 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition25unused
   %1105 = add i32 %1100, -1
   %1106 = zext i32 %1105 to i64
   %1107 = icmp ugt i64 %1104, %1106
-  br i1 %1107, label %1108, label %.invoke5379
+  br i1 %1107, label %1108, label %.invoke5378
 
 1108:                                             ; preds = %.noexc367
   %1109 = extractvalue { ptr, i64 } %1103, 0
@@ -47269,18 +47269,18 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition25unused
 1131:                                             ; preds = %.noexc375, %.noexc372
   %1132 = phi i32 [ %1143, %.noexc375 ], [ %1126, %.noexc372 ]
   %.not.i.i.i.i359 = icmp eq i32 %1132, 0
-  br i1 %.not.i.i.i.i359, label %.invoke5381, label %1133
+  br i1 %.not.i.i.i.i359, label %.invoke5380, label %1133
 
 1133:                                             ; preds = %1131
   %1134 = load i64, ptr %1127, align 8, !noalias !4227, !noundef !8
   %1135 = add i32 %1132, -1
   %1136 = zext i32 %1135 to i64
   %1137 = icmp ugt i64 %1134, %1136
-  br i1 %1137, label %1138, label %.invoke5379
+  br i1 %1137, label %1138, label %.invoke5378
 
 1138:                                             ; preds = %1133
   %1139 = icmp ugt i64 %1129, %1136
-  br i1 %1139, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i360", label %.invoke5379
+  br i1 %1139, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i360", label %.invoke5378
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i360": ; preds = %1138
   %1140 = load ptr, ptr %1128, align 8, !noalias !4227, !nonnull !8, !noundef !8
@@ -47295,11 +47295,11 @@ _ZN11ruff_linter5rules10flake8_pyi5rules30unused_private_type_definition25unused
   %.not7.i.i.i361 = icmp eq ptr %1145, null
   br i1 %.not7.i.i.i361, label %1131, label %_ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exit.i362
 
-.invoke5381:                                      ; preds = %802, %936, %1030, %1131
+.invoke5380:                                      ; preds = %802, %936, %1030, %1131
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.9a3c7070530f84c5ad699604f23a6f35.53, i64 noundef 18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a3c7070530f84c5ad699604f23a6f35.54) #40
-          to label %.cont5382 unwind label %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont5381 unwind label %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont5382:                                        ; preds = %.invoke5381
+.cont5381:                                        ; preds = %.invoke5380
   unreachable
 
 _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exit.i362: ; preds = %.noexc375
@@ -47735,7 +47735,7 @@ _ZN4core3ops8function6FnOnce9call_once17hecfa519d93cea536E.exit.i16.i.i: ; preds
   %1316 = add i32 %.sroa.12.1.i, -1
   %1317 = zext i32 %1316 to i64
   %1318 = icmp ugt i64 %1315, %1317
-  br i1 %1318, label %1319, label %.invoke5379
+  br i1 %1318, label %1319, label %.invoke5378
 
 1319:                                             ; preds = %.noexc401
   %1320 = extractvalue { ptr, i64 } %1314, 0
@@ -47847,7 +47847,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0c088663c0742a78E.exit.thread.
   %1360 = add i32 %.val.i.i, -1
   %1361 = zext i32 %1360 to i64
   %1362 = icmp ugt i64 %1359, %1361
-  br i1 %1362, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc451db914147e89eE.exit.i.i", label %.invoke5379
+  br i1 %1362, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc451db914147e89eE.exit.i.i", label %.invoke5378
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc451db914147e89eE.exit.i.i": ; preds = %.noexc408
   %1363 = extractvalue { ptr, i64 } %1358, 0
@@ -48274,9 +48274,9 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit448: ; pr
   store ptr %1515, ptr %.sroa.2.0..sroa_idx, align 8
   br label %1516
 
-1516:                                             ; preds = %.backedge6424, %1514
-  %.sroa.751.3 = phi i64 [ %.sroa.751.02763, %1514 ], [ %.sroa.751.4, %.backedge6424 ]
-  %.sroa.852.3 = phi ptr [ %.sroa.852.02764, %1514 ], [ %.sroa.852.4, %.backedge6424 ]
+1516:                                             ; preds = %.backedge6423, %1514
+  %.sroa.751.3 = phi i64 [ %.sroa.751.02763, %1514 ], [ %.sroa.751.4, %.backedge6423 ]
+  %.sroa.852.3 = phi ptr [ %.sroa.852.02764, %1514 ], [ %.sroa.852.4, %.backedge6423 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %249)
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h15cb479a8e63954cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %249, ptr noalias noundef nonnull align 8 dereferenceable(40) %259, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.2.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.046.sroa.2.0..sroa_idx)
           to label %1517 unwind label %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -48352,7 +48352,7 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit448: ; pr
   %1543 = add i32 %.val7.i.i, -1
   %1544 = zext i32 %1543 to i64
   %1545 = icmp ugt i64 %1542, %1544
-  br i1 %1545, label %1546, label %.invoke5379
+  br i1 %1545, label %1546, label %.invoke5378
 
 1546:                                             ; preds = %.noexc457
   %1547 = extractvalue { ptr, i64 } %1541, 0
@@ -50625,20 +50625,20 @@ _ZN11ruff_linter5rules20flake8_type_checking5rules37runtime_import_in_type_check
   %2268 = add i32 %2265, -1
   %2269 = zext i32 %2268 to i64
   %2270 = icmp ugt i64 %2267, %2269
-  br i1 %2270, label %2273, label %.invoke849.i
+  br i1 %2270, label %2273, label %.invoke848.i
 
-.invoke849.i:                                     ; preds = %2273, %2266
+.invoke848.i:                                     ; preds = %2273, %2266
   %2271 = phi i64 [ %2267, %2266 ], [ %2261, %2273 ]
   %2272 = phi ptr [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %2266 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %2273 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %2269, i64 noundef %2271, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2272) #40
-          to label %.cont850.i unwind label %.thread338.loopexit.split-lp.loopexit.split-lp.i, !noalias !4595
+          to label %.cont849.i unwind label %.thread338.loopexit.split-lp.loopexit.split-lp.i, !noalias !4595
 
-.cont850.i:                                       ; preds = %.invoke849.i
+.cont849.i:                                       ; preds = %.invoke848.i
   unreachable
 
 2273:                                             ; preds = %2266
   %2274 = icmp ugt i64 %2261, %2269
-  br i1 %2274, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i.i550", label %.invoke849.i
+  br i1 %2274, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i.i550", label %.invoke848.i
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i.i.i550": ; preds = %2273
   %2275 = load ptr, ptr %2259, align 8, !noalias !4626, !nonnull !8, !noundef !8
@@ -51277,7 +51277,7 @@ _ZN11ruff_linter5rules20flake8_type_checking5rules26typing_only_runtime_import14
           cleanup
   br label %.thread330.i
 
-.thread338.loopexit.split-lp.loopexit.split-lp.i: ; preds = %2281, %.invoke849.i
+.thread338.loopexit.split-lp.loopexit.split-lp.i: ; preds = %2281, %.invoke848.i
   %lpad.loopexit.split-lp401.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread330.i
@@ -53718,7 +53718,7 @@ _ZN11ruff_linter5rules8pyflakes5rules15unused_variable15unused_variable17h472ff1
   %3242 = load i64, ptr %3241, align 8, !noundef !8
   %3243 = and i64 %3242, 512
   %3244 = icmp eq i64 %3243, 0
-  br i1 %3244, label %.backedge6424, label %3245
+  br i1 %3244, label %.backedge6423, label %3245
 
 3245:                                             ; preds = %3239
   call void @llvm.experimental.noalias.scope.decl(metadata !4864)
@@ -53957,9 +53957,9 @@ _ZN11ruff_linter5rules8pyflakes5rules15unused_variable15unused_variable17h472ff1
 
 _ZN11ruff_linter5rules4ruff5rules24unused_unpacked_variable24unused_unpacked_variable17h9a9d2943ed1a7efbE.exit: ; preds = %.noexc664, %.noexc668
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.backedge6424
+  br label %.backedge6423
 
-.backedge6424:                                    ; preds = %_ZN11ruff_linter5rules4ruff5rules24unused_unpacked_variable24unused_unpacked_variable17h9a9d2943ed1a7efbE.exit, %3239
+.backedge6423:                                    ; preds = %_ZN11ruff_linter5rules4ruff5rules24unused_unpacked_variable24unused_unpacked_variable17h9a9d2943ed1a7efbE.exit, %3239
   br label %1516
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %3385
@@ -54226,7 +54226,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit: ; preds
   %3396 = icmp ult i64 %3395, 384307168202282326
   call void @llvm.assume(i1 %3396)
   %3397 = icmp eq i64 %3395, 0
-  br i1 %3397, label %.invoke5387, label %3398
+  br i1 %3397, label %.invoke5386, label %3398
 
 3398:                                             ; preds = %_ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit
   %3399 = load i32, ptr %725, align 4, !range !644, !noundef !8
@@ -54253,11 +54253,11 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit: ; preds
   %3411 = add i32 %3408, -1
   %3412 = zext i32 %3411 to i64
   %3413 = icmp ugt i64 %3410, %3412
-  br i1 %3413, label %3414, label %.invoke5385
+  br i1 %3413, label %3414, label %.invoke5384
 
 3414:                                             ; preds = %3409
   %3415 = icmp ugt i64 %3405, %3412
-  br i1 %3415, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i", label %.invoke5385
+  br i1 %3415, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i", label %.invoke5384
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i": ; preds = %3414
   %3416 = load ptr, ptr %3404, align 8, !noalias !4928, !nonnull !8, !noundef !8
@@ -54279,7 +54279,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit: ; preds
 .noexc687:                                        ; preds = %3422
   unreachable
 
-.invoke5387:                                      ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit704", %_ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$ruff_diagnostics..edit..Edit$C$anyhow..Error$GT$$GT$17hd9d8a6b2dda86822E.exit"
+.invoke5386:                                      ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit704", %_ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$ruff_diagnostics..edit..Edit$C$anyhow..Error$GT$$GT$17hd9d8a6b2dda86822E.exit"
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hc9bbfb8db4ae8313E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %273)
           to label %.backedge1118.sink.split unwind label %.loopexit.split-lp1042.loopexit.split-lp.loopexit
 
@@ -54308,7 +54308,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h923132700c8114dbE.exit: ; preds
           cleanup
   br label %.loopexit.split-lp1047
 
-.loopexit.split-lp1047.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5385, %3422
+.loopexit.split-lp1047.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5384, %3422
   %lpad.loopexit.split-lp1116 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp1047
@@ -54346,7 +54346,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3433 = add i32 %3430, -1
   %3434 = zext i32 %3433 to i64
   %3435 = icmp ugt i64 %3432, %3434
-  br i1 %3435, label %3436, label %.invoke5385
+  br i1 %3435, label %3436, label %.invoke5384
 
 3436:                                             ; preds = %3431
   %3437 = load ptr, ptr %3428, align 8, !noalias !4953, !nonnull !8, !noundef !8
@@ -54385,16 +54385,16 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hdf94338b66057b71E.exit.i: ;
   %3449 = add i32 %3446, -1
   %3450 = zext i32 %3449 to i64
   %3451 = icmp ugt i64 %3448, %3450
-  br i1 %3451, label %3455, label %.invoke5385
+  br i1 %3451, label %3455, label %.invoke5384
 
-.invoke5385:                                      ; preds = %3414, %3409, %3431, %3447
+.invoke5384:                                      ; preds = %3414, %3409, %3431, %3447
   %3452 = phi i64 [ %3450, %3447 ], [ %3434, %3431 ], [ %3412, %3409 ], [ %3412, %3414 ]
   %3453 = phi i64 [ %3448, %3447 ], [ %3432, %3431 ], [ %3405, %3414 ], [ %3410, %3409 ]
   %3454 = phi ptr [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %3447 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %3431 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %3414 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %3409 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %3452, i64 noundef %3453, ptr noalias noundef readonly align 8 dereferenceable(24) %3454) #40
-          to label %.cont5386 unwind label %.loopexit.split-lp1047.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont5385 unwind label %.loopexit.split-lp1047.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont5386:                                        ; preds = %.invoke5385
+.cont5385:                                        ; preds = %.invoke5384
   unreachable
 
 3455:                                             ; preds = %3447
@@ -54503,9 +54503,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit704": ; preds = %3491, %3494
   call void @llvm.lifetime.end.p0(ptr nonnull %271)
-  br label %.invoke5387
+  br label %.invoke5386
 
-.backedge1118.sink.split:                         ; preds = %.invoke5387
+.backedge1118.sink.split:                         ; preds = %.invoke5386
   call void @llvm.lifetime.end.p0(ptr nonnull %273)
   br label %.backedge1118.backedge
 
@@ -54520,7 +54520,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
 
 "_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$ruff_diagnostics..edit..Edit$C$anyhow..Error$GT$$GT$17hd9d8a6b2dda86822E.exit": ; preds = %3474
   call void @llvm.lifetime.end.p0(ptr nonnull %272)
-  br label %.invoke5387
+  br label %.invoke5386
 
 3496:                                             ; preds = %714
   call void @llvm.lifetime.start.p0(ptr nonnull %277)
@@ -54551,7 +54551,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
   %3505 = add i32 %3504, -1
   %3506 = zext i32 %3505 to i64
   %3507 = icmp ugt i64 %3503, %3506
-  br i1 %3507, label %3545, label %.invoke5383
+  br i1 %3507, label %3545, label %.invoke5382
 
 3508:                                             ; preds = %3497
   %3509 = getelementptr inbounds nuw i8, ptr %.pre16.i, i64 320
@@ -54668,7 +54668,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
   %3559 = add i32 %3556, -1
   %3560 = zext i32 %3559 to i64
   %3561 = icmp ugt i64 %3558, %3560
-  br i1 %3561, label %3562, label %.invoke5383
+  br i1 %3561, label %3562, label %.invoke5382
 
 3562:                                             ; preds = %3557
   %3563 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %3555, i64 %3560
@@ -54677,14 +54677,14 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
   %3566 = icmp eq i32 %3565, 5
   br i1 %3566, label %.backedge, label %3570
 
-.invoke5383:                                      ; preds = %3575, %3557, %.noexc711, %3623, %3618
+.invoke5382:                                      ; preds = %3575, %3557, %.noexc711, %3623, %3618
   %3567 = phi i64 [ %3621, %3618 ], [ %3621, %3623 ], [ %3506, %.noexc711 ], [ %3560, %3557 ], [ %3578, %3575 ]
   %3568 = phi i64 [ %3614, %3623 ], [ %3619, %3618 ], [ %3503, %.noexc711 ], [ %3558, %3557 ], [ %3576, %3575 ]
   %3569 = phi ptr [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %3623 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %3618 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.52, %.noexc711 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.243, %3557 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.244, %3575 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %3567, i64 noundef %3568, ptr noalias noundef readonly align 8 dereferenceable(24) %3569) #40
-          to label %.cont5384 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont5383 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont5384:                                        ; preds = %.invoke5383
+.cont5383:                                        ; preds = %.invoke5382
   unreachable
 
 3570:                                             ; preds = %3562
@@ -54705,7 +54705,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
   %3577 = add i32 %3574, -1
   %3578 = zext i32 %3577 to i64
   %3579 = icmp ugt i64 %3576, %3578
-  br i1 %3579, label %3580, label %.invoke5383
+  br i1 %3579, label %3580, label %.invoke5382
 
 3580:                                             ; preds = %3575
   %3581 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %3573, i64 %3578
@@ -54801,11 +54801,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf56eb59aaa45e52dE.exit.i: ; pr
   %3620 = add i32 %3617, -1
   %3621 = zext i32 %3620 to i64
   %3622 = icmp ugt i64 %3619, %3621
-  br i1 %3622, label %3623, label %.invoke5383
+  br i1 %3622, label %3623, label %.invoke5382
 
 3623:                                             ; preds = %3618
   %3624 = icmp ugt i64 %3614, %3621
-  br i1 %3624, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i719", label %.invoke5383
+  br i1 %3624, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i719", label %.invoke5382
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h05de6c61bb97fa90E.exit.i.i719": ; preds = %3623
   %3625 = load ptr, ptr %3613, align 8, !noalias !4997, !nonnull !8, !noundef !8
@@ -55014,7 +55014,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3718 = add i32 %3717, -1
   %3719 = zext i32 %3718 to i64
   %3720 = icmp ugt i64 %3716, %3719
-  br i1 %3720, label %3758, label %.invoke5379
+  br i1 %3720, label %3758, label %.invoke5378
 
 3721:                                             ; preds = %3710
   %3722 = getelementptr inbounds nuw i8, ptr %.pre16.i735, i64 320
@@ -55131,7 +55131,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3772 = add i32 %3769, -1
   %3773 = zext i32 %3772 to i64
   %3774 = icmp ugt i64 %3771, %3773
-  br i1 %3774, label %3775, label %.invoke5379
+  br i1 %3774, label %3775, label %.invoke5378
 
 3775:                                             ; preds = %3770
   %3776 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %3768, i64 %3773
@@ -55154,7 +55154,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3787 = add i32 %3784, -1
   %3788 = zext i32 %3787 to i64
   %3789 = icmp ugt i64 %3786, %3788
-  br i1 %3789, label %3790, label %.invoke5379
+  br i1 %3789, label %3790, label %.invoke5378
 
 3790:                                             ; preds = %3785
   %3791 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %3783, i64 %3788
@@ -55292,7 +55292,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3837 = add i32 %3836, -1
   %3838 = zext i32 %3837 to i64
   %3839 = icmp ugt i64 %3835, %3838
-  br i1 %3839, label %3877, label %.invoke5379
+  br i1 %3839, label %3877, label %.invoke5378
 
 3840:                                             ; preds = %3829
   %3841 = getelementptr inbounds nuw i8, ptr %.pre16.i769, i64 320
@@ -55409,7 +55409,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3891 = add i32 %3888, -1
   %3892 = zext i32 %3891 to i64
   %3893 = icmp ugt i64 %3890, %3892
-  br i1 %3893, label %3894, label %.invoke5379
+  br i1 %3893, label %3894, label %.invoke5378
 
 3894:                                             ; preds = %3889
   %3895 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %3887, i64 %3892
@@ -55435,7 +55435,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3905 = add i32 %3902, -1
   %3906 = zext i32 %3905 to i64
   %3907 = icmp ugt i64 %3904, %3906
-  br i1 %3907, label %3908, label %.invoke5379
+  br i1 %3907, label %3908, label %.invoke5378
 
 3908:                                             ; preds = %3903
   %3909 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %3901, i64 %3906
@@ -55480,7 +55480,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3924 = add i32 %3923, -1
   %3925 = zext i32 %3924 to i64
   %3926 = icmp ugt i64 %3921, %3925
-  br i1 %3926, label %3927, label %.invoke5379
+  br i1 %3926, label %3927, label %.invoke5378
 
 3927:                                             ; preds = %3920
   %3928 = extractvalue { ptr, i64 } %3919, 0
@@ -55550,7 +55550,7 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3954 = add i32 %662, -1
   %3955 = zext i32 %3954 to i64
   %3956 = icmp ugt i64 %3953, %3955
-  br i1 %3956, label %3957, label %.invoke5379
+  br i1 %3956, label %3957, label %.invoke5378
 
 3957:                                             ; preds = %3952
   %3958 = extractvalue { ptr, i64 } %663, 0
@@ -55584,16 +55584,16 @@ _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exi
   %3975 = add i32 %.val5.i, -1
   %3976 = zext i32 %3975 to i64
   %3977 = icmp ugt i64 %3974, %3976
-  br i1 %3977, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2d8038638e2a00aE.exit.i", label %.invoke5379
+  br i1 %3977, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2d8038638e2a00aE.exit.i", label %.invoke5378
 
-.invoke5379:                                      ; preds = %566, %.noexc240, %3952, %.noexc260, %.noexc302, %.noexc335, %.noexc367, %.noexc401, %.noexc243, %.noexc809, %3920, %3903, %3889, %.noexc792, %3785, %3770, %.noexc758, %809, %804, %943, %938, %1037, %1032, %1138, %1133, %.noexc457, %.noexc408
+.invoke5378:                                      ; preds = %566, %.noexc240, %3952, %.noexc260, %.noexc302, %.noexc335, %.noexc367, %.noexc401, %.noexc243, %.noexc809, %3920, %3903, %3889, %.noexc792, %3785, %3770, %.noexc758, %809, %804, %943, %938, %1037, %1032, %1138, %1133, %.noexc457, %.noexc408
   %3978 = phi i64 [ %1361, %.noexc408 ], [ %1544, %.noexc457 ], [ %1136, %1133 ], [ %1136, %1138 ], [ %1035, %1032 ], [ %1035, %1037 ], [ %941, %938 ], [ %941, %943 ], [ %807, %804 ], [ %807, %809 ], [ %3719, %.noexc758 ], [ %3773, %3770 ], [ %3788, %3785 ], [ %3838, %.noexc792 ], [ %3892, %3889 ], [ %3906, %3903 ], [ %3925, %3920 ], [ %3976, %.noexc809 ], [ %620, %.noexc243 ], [ %1317, %.noexc401 ], [ %1106, %.noexc367 ], [ %1006, %.noexc335 ], [ %910, %.noexc302 ], [ %776, %.noexc260 ], [ %3955, %3952 ], [ %602, %.noexc240 ], [ %569, %566 ]
   %3979 = phi i64 [ %1359, %.noexc408 ], [ %1542, %.noexc457 ], [ %1129, %1138 ], [ %1134, %1133 ], [ %1028, %1037 ], [ %1033, %1032 ], [ %933, %943 ], [ %939, %938 ], [ %799, %809 ], [ %805, %804 ], [ %3716, %.noexc758 ], [ %3771, %3770 ], [ %3786, %3785 ], [ %3835, %.noexc792 ], [ %3890, %3889 ], [ %3904, %3903 ], [ %3921, %3920 ], [ %3974, %.noexc809 ], [ %618, %.noexc243 ], [ %1315, %.noexc401 ], [ %1104, %.noexc367 ], [ %1004, %.noexc335 ], [ %908, %.noexc302 ], [ %774, %.noexc260 ], [ %3953, %3952 ], [ %600, %.noexc240 ], [ %567, %566 ]
   %3980 = phi ptr [ @anon.9a3c7070530f84c5ad699604f23a6f35.253, %.noexc408 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc457 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %1138 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %1133 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %1037 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %1032 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %943 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %938 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.55, %809 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.57, %804 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.52, %.noexc758 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.246, %3770 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.247, %3785 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.52, %.noexc792 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.248, %3889 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.249, %3903 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.250, %3920 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.253, %.noexc809 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.253, %.noexc243 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc401 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc367 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc335 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc302 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc260 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %3952 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.251, %.noexc240 ], [ @anon.9a3c7070530f84c5ad699604f23a6f35.237, %566 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %3978, i64 noundef %3979, ptr noalias noundef readonly align 8 dereferenceable(24) %3980) #40
-          to label %.cont5380 unwind label %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont5379 unwind label %.loopexit.split-lp983.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont5380:                                        ; preds = %.invoke5379
+.cont5379:                                        ; preds = %.invoke5378
   unreachable
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2d8038638e2a00aE.exit.i": ; preds = %.noexc809

@@ -1265,7 +1265,7 @@ VP8LSetError.exit77:                              ; preds = %139, %127, %._crit_
   br i1 %.not81.i, label %143, label %VP8LSetError.exit77.thread
 
 143:                                              ; preds = %VP8LSetError.exit77
-  %144 = call i32 @ReadHuffmanCodesHelper(i32 noundef range(i32 -2147483648, 12) %.052, i32 noundef %.064.i, i32 noundef %.066.i, ptr noundef %.070.i, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %7)
+  %144 = call i32 @ReadHuffmanCodesHelper(i32 noundef range(i32 0, 12) %.052, i32 noundef %.064.i, i32 noundef %.066.i, ptr noundef %.070.i, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %7)
   %.not82.i = icmp eq i32 %144, 0
   br i1 %.not82.i, label %VP8LSetError.exit77.thread, label %148
 

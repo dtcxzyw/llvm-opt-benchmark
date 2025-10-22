@@ -138482,8 +138482,8 @@ _ZN6QDebuglsEPKc.exit183:                         ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not280, label %.loopexit, label %279, !llvm.loop !916
 
 ._crit_edge.thread:                               ; preds = %152, %158, %._crit_edge
-  %.sroa.0224.0.lcssa381 = phi ptr [ %.sroa.0224.1, %._crit_edge ], [ %.sroa.0258.0.lcssa, %158 ], [ %.sroa.0258.0.lcssa, %152 ]
-  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0224.0.lcssa381, i64 8
+  %.sroa.0224.0.lcssa380 = phi ptr [ %.sroa.0224.1, %._crit_edge ], [ %.sroa.0258.0.lcssa, %158 ], [ %.sroa.0258.0.lcssa, %152 ]
+  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0224.0.lcssa380, i64 8
   %301 = load double, ptr %300, align 8
   %302 = fcmp ogt double %301, %.sroa.0.0.copyload.i
   %303 = fcmp olt double %301, %.sroa.2.0.copyload.i
@@ -138493,7 +138493,7 @@ _ZN6QDebuglsEPKc.exit183:                         ; preds = %_ZN7QStringD2Ev.exi
 304:                                              ; preds = %._crit_edge.thread
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %306 = load i64, ptr %305, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %306, ptr noundef align 8 dereferenceable(16) %.sroa.0224.0.lcssa381)
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %306, ptr noundef align 8 dereferenceable(16) %.sroa.0224.0.lcssa380)
   br label %.loopexit
 
 .lr.ph298:                                        ; preds = %102, %108

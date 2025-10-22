@@ -101908,12 +101908,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj22contour_p
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
   %.03143.fr = freeze i32 %.03143
   %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select74 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %spec.select73 = select i1 %49, i32 %.03041, i32 %.03143.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293968 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select74, %.loopexit ]
+  %.0293967 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
+  %50 = phi i32 [ %21, %.critedge ], [ %spec.select73, %.loopexit ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, contour_point_vector_t>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -102050,7 +102050,7 @@ _ZN22contour_point_vector_taSERKS_.exit:          ; preds = %95, %_ZN11hb_vector
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %110 = load i16, ptr %109, align 2, !tbaa !1855
   %111 = zext i16 %110 to i32
-  %112 = icmp ugt i32 %.0293968, %111
+  %112 = icmp ugt i32 %.0293967, %111
   br i1 %112, label %113, label %120, !prof !33
 
 113:                                              ; preds = %_ZN22contour_point_vector_taSERKS_.exit

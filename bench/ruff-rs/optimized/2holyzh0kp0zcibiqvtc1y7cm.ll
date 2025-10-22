@@ -5695,8 +5695,8 @@ _ZN22ruff_annotate_snippets8renderer12display_list13format_footer17had945e903864
   %.sroa.0.0.copyload = load i64, ptr %33, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.48.0.copyload = load ptr, ptr %.sroa.48.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %.idx90 = mul nuw nsw i64 %49, 72
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 %.idx90
+  %.idx89 = mul nuw nsw i64 %49, 72
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 %.idx89
   %138 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %138)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -5791,7 +5791,7 @@ _ZN22ruff_annotate_snippets8renderer12display_list13format_footer17had945e903864
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.i.loopexit:                    ; preds = %172, %238, %.loopexit.thread112.i, %277
+.loopexit.split-lp.i.loopexit:                    ; preds = %172, %238, %.loopexit.thread111.i, %277
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -5984,21 +5984,21 @@ _ZN22ruff_annotate_snippets8renderer12display_list13newline_count17hbad3c3b6f1bb
   store i64 %256, ptr %.sroa.027.094.i, align 8, !noalias !489
   store i64 %259, ptr %257, align 8, !noalias !489
   %260 = icmp eq ptr %254, %253
-  br i1 %260, label %.loopexit.thread112.i, label %.lr.ph.i
+  br i1 %260, label %.loopexit.thread111.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %210, %.noexc36.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !493
-  br i1 %170, label %.loopexit.thread.i, label %.loopexit.i..loopexit.thread112.i_crit_edge
+  br i1 %170, label %.loopexit.thread.i, label %.loopexit.i..loopexit.thread111.i_crit_edge
 
-.loopexit.i..loopexit.thread112.i_crit_edge:      ; preds = %.loopexit.i
+.loopexit.i..loopexit.thread111.i_crit_edge:      ; preds = %.loopexit.i
   %.pre = load ptr, ptr %.sroa.912.8..sroa_idx, align 8, !alias.scope !484, !noalias !481
   %.pre67 = mul nuw nsw i64 %169, 40
-  br label %.loopexit.thread112.i
+  br label %.loopexit.thread111.i
 
-.loopexit.thread112.i:                            ; preds = %.lr.ph.i, %.loopexit.i..loopexit.thread112.i_crit_edge
-  %.idx89.i.pre-phi = phi i64 [ %.pre67, %.loopexit.i..loopexit.thread112.i_crit_edge ], [ %.idx95.i, %.lr.ph.i ]
-  %261 = phi ptr [ %189, %.loopexit.i..loopexit.thread112.i_crit_edge ], [ %239, %.lr.ph.i ]
-  %262 = phi ptr [ %.pre, %.loopexit.i..loopexit.thread112.i_crit_edge ], [ %252, %.lr.ph.i ]
+.loopexit.thread111.i:                            ; preds = %.lr.ph.i, %.loopexit.i..loopexit.thread111.i_crit_edge
+  %.idx89.i.pre-phi = phi i64 [ %.pre67, %.loopexit.i..loopexit.thread111.i_crit_edge ], [ %.idx95.i, %.lr.ph.i ]
+  %261 = phi ptr [ %189, %.loopexit.i..loopexit.thread111.i_crit_edge ], [ %239, %.lr.ph.i ]
+  %262 = phi ptr [ %.pre, %.loopexit.i..loopexit.thread111.i_crit_edge ], [ %252, %.lr.ph.i ]
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx89.i.pre-phi
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 40
   %265 = getelementptr i8, ptr %262, i64 8
@@ -6006,9 +6006,9 @@ _ZN22ruff_annotate_snippets8renderer12display_list13newline_count17hbad3c3b6f1bb
   %266 = invoke noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf060c373b85720c7E"(ptr noundef nonnull %264, ptr noundef nonnull %263, i64 noundef %.val.i.i44.i)
           to label %.loopexit.thread.i unwind label %.loopexit.split-lp.i.loopexit, !noalias !489
 
-.loopexit.thread.i:                               ; preds = %.loopexit.thread112.i, %.loopexit.i, %250
-  %267 = phi ptr [ %189, %.loopexit.i ], [ %261, %.loopexit.thread112.i ], [ %239, %250 ]
-  %.sroa.3.0.i45.i = phi i64 [ undef, %.loopexit.i ], [ %266, %.loopexit.thread112.i ], [ undef, %250 ]
+.loopexit.thread.i:                               ; preds = %.loopexit.thread111.i, %.loopexit.i, %250
+  %267 = phi ptr [ %189, %.loopexit.i ], [ %261, %.loopexit.thread111.i ], [ %239, %250 ]
+  %.sroa.3.0.i45.i = phi i64 [ undef, %.loopexit.i ], [ %266, %.loopexit.thread111.i ], [ undef, %250 ]
   %268 = load i64, ptr %143, align 8, !alias.scope !484, !noalias !481, !noundef !3
   %spec.select.i = select i1 %170, i64 %268, i64 %.sroa.3.0.i45.i
   %269 = icmp eq i64 %spec.select.i, 0

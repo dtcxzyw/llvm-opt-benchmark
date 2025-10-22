@@ -10572,42 +10572,42 @@ Py_DECREF.exit125:                                ; preds = %532, %.preheader
   br i1 %.not.i176, label %Py_XDECREF.exit, label %.thread192.thread
 
 .thread192.thread:                                ; preds = %335, %333, %312, %309, %Py_DECREF.exit133.thread189, %Py_DECREF.exit133.thread, %.thread192
-  %.097.ph322 = phi i32 [ %.097.ph, %.thread192 ], [ -1, %335 ], [ -1, %333 ], [ -1, %312 ], [ -1, %309 ], [ 0, %Py_DECREF.exit133.thread189 ], [ -1, %Py_DECREF.exit133.thread ]
-  %.pr197321 = phi ptr [ %.pr197, %.thread192 ], [ %.0.i, %335 ], [ %.0.i, %333 ], [ %.0.i, %312 ], [ %.0.i, %309 ], [ %.0.i, %Py_DECREF.exit133.thread189 ], [ %.0.i, %Py_DECREF.exit133.thread ]
-  %549 = load i32, ptr %.pr197321, align 8, !tbaa !42
+  %.097.ph321 = phi i32 [ %.097.ph, %.thread192 ], [ -1, %335 ], [ -1, %333 ], [ -1, %312 ], [ -1, %309 ], [ 0, %Py_DECREF.exit133.thread189 ], [ -1, %Py_DECREF.exit133.thread ]
+  %.pr197320 = phi ptr [ %.pr197, %.thread192 ], [ %.0.i, %335 ], [ %.0.i, %333 ], [ %.0.i, %312 ], [ %.0.i, %309 ], [ %.0.i, %Py_DECREF.exit133.thread189 ], [ %.0.i, %Py_DECREF.exit133.thread ]
+  %549 = load i32, ptr %.pr197320, align 8, !tbaa !42
   %.not.i.i177 = icmp sgt i32 %549, -1
   br i1 %.not.i.i177, label %550, label %Py_XDECREF.exit
 
 550:                                              ; preds = %.thread192.thread
   %551 = add nsw i32 %549, -1
-  store i32 %551, ptr %.pr197321, align 8, !tbaa !42
+  store i32 %551, ptr %.pr197320, align 8, !tbaa !42
   %552 = icmp eq i32 %551, 0
   br i1 %552, label %553, label %Py_XDECREF.exit
 
 553:                                              ; preds = %550
-  call void @_Py_Dealloc(ptr noundef nonnull %.pr197321) #13
+  call void @_Py_Dealloc(ptr noundef nonnull %.pr197320) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %28, %19, %whichmodule.exit.thread, %whichmodule.exit, %.thread192, %.thread192.thread, %550, %553
   %.1204.ph = phi ptr [ null, %28 ], [ null, %19 ], [ %30, %whichmodule.exit.thread ], [ %30, %whichmodule.exit ], [ %30, %553 ], [ %30, %550 ], [ %30, %.thread192.thread ], [ %30, %.thread192 ]
-  %.097203.ph = phi i32 [ -1, %28 ], [ -1, %19 ], [ -1, %whichmodule.exit.thread ], [ -1, %whichmodule.exit ], [ %.097.ph322, %553 ], [ %.097.ph322, %550 ], [ %.097.ph322, %.thread192.thread ], [ %.097.ph, %.thread192 ]
-  %.pr330 = load ptr, ptr %8, align 8, !tbaa !35
-  %.not.i179 = icmp eq ptr %.pr330, null
+  %.097203.ph = phi i32 [ -1, %28 ], [ -1, %19 ], [ -1, %whichmodule.exit.thread ], [ -1, %whichmodule.exit ], [ %.097.ph321, %553 ], [ %.097.ph321, %550 ], [ %.097.ph321, %.thread192.thread ], [ %.097.ph, %.thread192 ]
+  %.pr329 = load ptr, ptr %8, align 8, !tbaa !35
+  %.not.i179 = icmp eq ptr %.pr329, null
   br i1 %.not.i179, label %Py_XDECREF.exit182, label %554
 
 554:                                              ; preds = %Py_XDECREF.exit
-  %555 = load i32, ptr %.pr330, align 8, !tbaa !42
+  %555 = load i32, ptr %.pr329, align 8, !tbaa !42
   %.not.i.i180 = icmp sgt i32 %555, -1
   br i1 %.not.i.i180, label %556, label %Py_XDECREF.exit182
 
 556:                                              ; preds = %554
   %557 = add nsw i32 %555, -1
-  store i32 %557, ptr %.pr330, align 8, !tbaa !42
+  store i32 %557, ptr %.pr329, align 8, !tbaa !42
   %558 = icmp eq i32 %557, 0
   br i1 %558, label %559, label %Py_XDECREF.exit182
 
 559:                                              ; preds = %556
-  call void @_Py_Dealloc(ptr noundef nonnull %.pr330) #13
+  call void @_Py_Dealloc(ptr noundef nonnull %.pr329) #13
   br label %Py_XDECREF.exit182
 
 Py_XDECREF.exit182:                               ; preds = %Py_XDECREF.exit, %554, %556, %559
@@ -10630,10 +10630,10 @@ Py_XDECREF.exit182:                               ; preds = %Py_XDECREF.exit, %5
   br label %Py_XDECREF.exit186
 
 Py_XDECREF.exit186:                               ; preds = %25, %565, %562, %560, %Py_XDECREF.exit182
-  %.097203335339 = phi i32 [ %.097203.ph, %565 ], [ %.097203.ph, %562 ], [ %.097203.ph, %560 ], [ %.097203.ph, %Py_XDECREF.exit182 ], [ -1, %25 ]
+  %.097203334338 = phi i32 [ %.097203.ph, %565 ], [ %.097203.ph, %562 ], [ %.097203.ph, %560 ], [ %.097203.ph, %Py_XDECREF.exit182 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %.097203335339
+  ret i32 %.097203334338
 }
 
 declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) local_unnamed_addr #1

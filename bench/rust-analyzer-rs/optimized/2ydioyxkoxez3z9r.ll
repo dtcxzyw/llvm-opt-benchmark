@@ -74108,7 +74108,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf3400c107519e14eE.exit.i: ; pr
           cleanup
   br label %.body31
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke193, %.invoke, %318
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke192, %.invoke, %318
   %lpad.loopexit.split-lp94 = landingpad { ptr, i32 }
           cleanup
   br label %.body31
@@ -74153,21 +74153,21 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf3400c107519e14eE.exit.i: ; pr
   %253 = ptrtoint ptr %.sroa.28.0.copyload to i64
   br label %254
 
-254:                                              ; preds = %.backedge220, %252
-  %.sroa.062.1 = phi i32 [ %.sroa.062.0.copyload, %252 ], [ %.sroa.062.2, %.backedge220 ]
-  %.sroa.664.1 = phi i32 [ %.sroa.664.0.copyload, %252 ], [ %.sroa.664.3, %.backedge220 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0.copyload, %252 ], [ %.sroa.10.2, %.backedge220 ]
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0.copyload, %252 ], [ %.sroa.13.2, %.backedge220 ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.0.copyload, %252 ], [ %.sroa.17.5, %.backedge220 ]
-  %.sroa.25.1 = phi ptr [ %.sroa.25.0.copyload, %252 ], [ %.sroa.25.3, %.backedge220 ]
-  %.sroa.29.1 = phi i64 [ %.sroa.29.0.copyload, %252 ], [ %.sroa.29.3, %.backedge220 ]
-  %255 = phi i32 [ %.sroa.13.0.copyload, %252 ], [ %.be, %.backedge220 ]
-  %256 = phi ptr [ %.sroa.25.0.copyload, %252 ], [ %.be221, %.backedge220 ]
-  %257 = phi i32 [ %.sroa.17.0.copyload, %252 ], [ %.be222, %.backedge220 ]
-  %258 = phi i64 [ %.sroa.29.0.copyload, %252 ], [ %.be223, %.backedge220 ]
-  %259 = phi ptr [ %.sroa.10.0.copyload, %252 ], [ %.be224, %.backedge220 ]
-  %260 = phi i32 [ %.sroa.062.0.copyload, %252 ], [ %.be225, %.backedge220 ]
-  %261 = phi i32 [ %.sroa.664.0.copyload, %252 ], [ %.be226, %.backedge220 ]
+254:                                              ; preds = %.backedge219, %252
+  %.sroa.062.1 = phi i32 [ %.sroa.062.0.copyload, %252 ], [ %.sroa.062.2, %.backedge219 ]
+  %.sroa.664.1 = phi i32 [ %.sroa.664.0.copyload, %252 ], [ %.sroa.664.3, %.backedge219 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0.copyload, %252 ], [ %.sroa.10.2, %.backedge219 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0.copyload, %252 ], [ %.sroa.13.2, %.backedge219 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.0.copyload, %252 ], [ %.sroa.17.5, %.backedge219 ]
+  %.sroa.25.1 = phi ptr [ %.sroa.25.0.copyload, %252 ], [ %.sroa.25.3, %.backedge219 ]
+  %.sroa.29.1 = phi i64 [ %.sroa.29.0.copyload, %252 ], [ %.sroa.29.3, %.backedge219 ]
+  %255 = phi i32 [ %.sroa.13.0.copyload, %252 ], [ %.be, %.backedge219 ]
+  %256 = phi ptr [ %.sroa.25.0.copyload, %252 ], [ %.be220, %.backedge219 ]
+  %257 = phi i32 [ %.sroa.17.0.copyload, %252 ], [ %.be221, %.backedge219 ]
+  %258 = phi i64 [ %.sroa.29.0.copyload, %252 ], [ %.be222, %.backedge219 ]
+  %259 = phi ptr [ %.sroa.10.0.copyload, %252 ], [ %.be223, %.backedge219 ]
+  %260 = phi i32 [ %.sroa.062.0.copyload, %252 ], [ %.be224, %.backedge219 ]
+  %261 = phi i32 [ %.sroa.664.0.copyload, %252 ], [ %.be225, %.backedge219 ]
   switch i32 %261, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.i.i.i.i.i.i.i [
     i32 3, label %268
     i32 2, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.thread.i.i.i.i.i.i.i
@@ -74314,27 +74314,27 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.thread.
   %300 = phi i32 [ %spec.store.select.i.i.i.i.i.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.i.i.i.i.i.i.i.i ], [ 3, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i" ], [ %295, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.thread.sink.split.i.i.i" ]
   %.sroa.8.1.i = phi i32 [ %.sroa.24.0.copyload, %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.i.i.i.i.i.i.i.i ], [ %.sroa.16.0.copyload, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i" ], [ %297, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.thread.sink.split.i.i.i" ]
   %.not.i.i3.i = icmp ugt i32 %.sroa.6.017.i.i.i, %.sroa.8.1.i
-  br i1 %.not.i.i3.i, label %.invoke193, label %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i"
+  br i1 %.not.i.i3.i, label %.invoke192, label %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i"
 
-.invoke193:                                       ; preds = %342, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98d907eaf0e26bE.exit.i"
+.invoke192:                                       ; preds = %342, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98d907eaf0e26bE.exit.i"
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.c4859ffb8bd0a3f8cc4bb8136f5647c8.15, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4859ffb8bd0a3f8cc4bb8136f5647c8.17) #44
-          to label %.cont194 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont193 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont194:                                         ; preds = %.invoke193
+.cont193:                                         ; preds = %.invoke192
   unreachable
 
 "_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i": ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98d907eaf0e26bE.exit.i"
   %.not.i5.i.i = icmp eq i32 %.sroa.6.017.i.i.i, %.sroa.8.1.i
-  br i1 %.not.i5.i.i, label %.backedge220, label %301
+  br i1 %.not.i5.i.i, label %.backedge219, label %301
 
-.backedge220:                                     ; preds = %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i", %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit
+.backedge219:                                     ; preds = %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i", %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit
   %.be = phi i32 [ %298, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.13.2, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
-  %.be221 = phi ptr [ %299, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.25.3, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
-  %.be222 = phi i32 [ %300, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.17.5, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
-  %.be223 = phi i64 [ 0, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.29.3, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
-  %.be224 = phi ptr [ %269, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.10.2, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
-  %.be225 = phi i32 [ %270, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.062.2, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
-  %.be226 = phi i32 [ %271, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.664.3, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
+  %.be220 = phi ptr [ %299, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.25.3, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
+  %.be221 = phi i32 [ %300, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.17.5, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
+  %.be222 = phi i64 [ 0, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.29.3, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
+  %.be223 = phi ptr [ %269, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.10.2, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
+  %.be224 = phi i32 [ %270, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.062.2, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
+  %.be225 = phi i32 [ %271, %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i" ], [ %.sroa.664.3, %_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f3980126677f4E.exit ]
   br label %254
 
 301:                                              ; preds = %"_ZN10line_index9LineIndex5lines28_$u7b$$u7b$closure$u7d$$u7d$17hd9bb4c6315faacf4E.exit.i.i"
@@ -74451,7 +74451,7 @@ _ZN13rust_analyzer3lsp8to_proto8position17h77c0bfa2aee7bd15E.exit.thread.i: ; pr
 342:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5d64494e34fd3f88E.exit"
   %343 = add i32 %.sroa.8.1.i, -1
   %.not = icmp ugt i32 %.sroa.6.017.i.i.i, %343
-  br i1 %.not, label %.invoke193, label %321
+  br i1 %.not, label %.invoke192, label %321
 
 344:                                              ; preds = %337, %_ZN13rust_analyzer3lsp8to_proto8position17h77c0bfa2aee7bd15E.exit.thread.i
   %345 = phi i32 [ %332, %337 ], [ %324, %_ZN13rust_analyzer3lsp8to_proto8position17h77c0bfa2aee7bd15E.exit.thread.i ]
@@ -74507,7 +74507,7 @@ _ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuilder4push17hda6f398012
   store i64 %366, ptr %.sroa.5.0..sroa_idx.i22, align 8, !alias.scope !16016, !noalias !16019
   store i32 %346, ptr %44, align 8, !alias.scope !16011, !noalias !16014
   store i32 %345, ptr %45, align 4, !alias.scope !16011, !noalias !16014
-  br label %.backedge220
+  br label %.backedge219
 
 367:                                              ; preds = %369, %.body25, %.body31
   %368 = landingpad { ptr, i32 }

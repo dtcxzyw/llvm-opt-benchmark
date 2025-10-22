@@ -1305,7 +1305,7 @@ _ZN5ZXing6QRCodeL16EmbedVersionInfoERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit:
 .preheader.i72:                                   ; preds = %514, %.preheader.lr.ph.i
   %indvars.iv102.i = phi i64 [ %501, %.preheader.lr.ph.i ], [ %indvars.iv.next103.i, %514 ]
   %.15589.i = phi i32 [ %.05492.i, %.preheader.lr.ph.i ], [ %.357.i, %514 ]
-  %503 = mul nsw i64 %indvars.iv102.i, %494
+  %503 = mul nuw nsw i64 %indvars.iv102.i, %494
   %504 = load ptr, ptr %493, align 8
   %505 = load ptr, ptr %0, align 8
   %506 = ptrtoint ptr %504 to i64

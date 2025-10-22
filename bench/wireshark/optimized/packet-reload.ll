@@ -1900,7 +1900,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not577, label %393, label %362
 
 362:                                              ; preds = %358
-  %363 = add i32 %339, 7
+  %363 = add nuw i32 %339, 7
   %364 = load i32, ptr @hf_reload_self_tuning_data, align 4
   %365 = and i32 %363, 65535
   %366 = call ptr @proto_tree_add_item(ptr noundef %351, i32 noundef %364, ptr noundef %0, i32 noundef %365, i32 noundef 12, i32 noundef 0)

@@ -2091,7 +2091,7 @@ RARRAY_AREF.exit64.i:                             ; preds = %121, %rb_array_len.
 
 126:                                              ; preds = %RARRAY_AREF.exit64.i
   %127 = ashr i64 %124, 1
-  %128 = add i64 %127, %.0.i76
+  %128 = add nsw i64 %127, %.0.i76
   %129 = add i64 %128, 4611686018427387904
   %or.cond.i77 = icmp sgt i64 %129, -1
   br i1 %or.cond.i77, label %141, label %rb_long2num_inline.exit.i
