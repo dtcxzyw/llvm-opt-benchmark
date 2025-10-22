@@ -6040,8 +6040,8 @@ define internal fastcc void @dolink(ptr noundef %0, ptr noundef %1, i1 noundef z
 sub_0:
   %3 = alloca i8, align 1
   %4 = load i8, ptr %0, align 1
-  %.not94 = icmp eq i8 %4, 45
-  br i1 %.not94, label %.tail, label %.tail.thread
+  %.not95 = icmp eq i8 %4, 45
+  br i1 %.not95, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6096,15 +6096,15 @@ sub_0:
 
 32:                                               ; preds = %20, %23
   %.060 = phi i8 [ 0, %23 ], [ 1, %20 ]
-  br i1 %16, label %hardlinkerr.exit74.thread, label %33
+  br i1 %16, label %hardlinkerr.exit75.thread, label %33
 
 33:                                               ; preds = %32
-  br i1 %.0.in, label %hardlinkerr.exit74.thread87, label %34
+  br i1 %.0.in, label %hardlinkerr.exit75.thread88, label %34
 
 34:                                               ; preds = %33
   %35 = tail call i32 @linkat(i32 noundef -100, ptr noundef nonnull %0, i32 noundef -100, ptr noundef %1, i32 noundef 1024) #25
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %hardlinkerr.exit74.thread, label %hardlinkerr.exit
+  br i1 %36, label %hardlinkerr.exit75.thread, label %hardlinkerr.exit
 
 hardlinkerr.exit:                                 ; preds = %34
   %37 = tail call ptr @__errno_location() #27
@@ -6112,32 +6112,32 @@ hardlinkerr.exit:                                 ; preds = %34
   %39 = icmp ne i32 %38, 2
   %40 = trunc nuw i8 %.060 to i1
   %or.cond = select i1 %39, i1 true, i1 %40
-  br i1 %or.cond, label %hardlinkerr.exit74, label %41
+  br i1 %or.cond, label %hardlinkerr.exit75, label %41
 
 41:                                               ; preds = %hardlinkerr.exit
   tail call fastcc void @mkdirs(ptr noundef %1, i1 noundef zeroext true)
   %42 = tail call i32 @linkat(i32 noundef -100, ptr noundef nonnull %0, i32 noundef -100, ptr noundef %1, i32 noundef 1024) #25
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %hardlinkerr.exit74.thread, label %44
+  br i1 %43, label %hardlinkerr.exit75.thread, label %44
 
 44:                                               ; preds = %41
   %45 = load i32, ptr %37, align 4
-  br label %hardlinkerr.exit74
+  br label %hardlinkerr.exit75
 
-hardlinkerr.exit74:                               ; preds = %44, %hardlinkerr.exit
+hardlinkerr.exit75:                               ; preds = %44, %hardlinkerr.exit
   %.061 = phi i32 [ %38, %hardlinkerr.exit ], [ %45, %44 ]
   %.1 = phi i8 [ %.060, %hardlinkerr.exit ], [ 1, %44 ]
-  %.not67 = icmp eq i32 %.061, 0
-  br i1 %.not67, label %hardlinkerr.exit74.thread, label %hardlinkerr.exit74.thread87
+  %.not68 = icmp eq i32 %.061, 0
+  br i1 %.not68, label %hardlinkerr.exit75.thread, label %hardlinkerr.exit75.thread88
 
-hardlinkerr.exit74.thread87:                      ; preds = %33, %hardlinkerr.exit74
-  %.192 = phi i8 [ %.1, %hardlinkerr.exit74 ], [ %.060, %33 ]
-  %.06191 = phi i32 [ %.061, %hardlinkerr.exit74 ], [ 95, %33 ]
+hardlinkerr.exit75.thread88:                      ; preds = %33, %hardlinkerr.exit75
+  %.193 = phi i8 [ %.1, %hardlinkerr.exit74 ], [ %.060, %33 ]
+  %.06192 = phi i32 [ %.061, %hardlinkerr.exit74 ], [ 95, %33 ]
   %46 = load i8, ptr %0, align 1
   %47 = icmp eq i8 %46, 47
   br i1 %47, label %relname.exit, label %48
 
-48:                                               ; preds = %hardlinkerr.exit74.thread87
+48:                                               ; preds = %hardlinkerr.exit75.thread88
   %49 = load i8, ptr %1, align 1
   %50 = icmp eq i8 %49, 47
   br i1 %50, label %51, label %76
@@ -6280,7 +6280,7 @@ emalloc.exit67.i:                                 ; preds = %106, %105
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull align 1 %100, i64 %103, i1 false)
   br label %relname.exit
 
-relname.exit:                                     ; preds = %._crit_edge.i, %99, %hardlinkerr.exit74.thread87
+relname.exit:                                     ; preds = %._crit_edge.i, %99, %hardlinkerr.exit75.thread88
   %117 = phi ptr [ %0, %hardlinkerr.exit74.thread87 ], [ %.255.i, %._crit_edge.i ], [ %.053.i, %99 ]
   %118 = phi ptr [ null, %hardlinkerr.exit74.thread87 ], [ %.255.i, %._crit_edge.i ], [ %.053.i, %99 ]
   %119 = tail call i32 @symlink(ptr noundef %117, ptr noundef %1) #25
@@ -6294,7 +6294,7 @@ relname.exit:                                     ; preds = %._crit_edge.i, %99,
 
 124:                                              ; preds = %relname.exit, %121
   %125 = phi i32 [ %123, %121 ], [ 0, %relname.exit ]
-  %126 = trunc nuw i8 %.192 to i1
+  %126 = trunc nuw i8 %.193 to i1
   br i1 %126, label %136, label %127
 
 127:                                              ; preds = %124
@@ -6306,9 +6306,9 @@ relname.exit:                                     ; preds = %._crit_edge.i, %99,
 128:                                              ; preds = %127, %127
   %129 = icmp eq i32 %125, 2
   tail call fastcc void @mkdirs(ptr noundef %1, i1 noundef zeroext true)
-  br i1 %129, label %130, label %.thread80
+  br i1 %129, label %130, label %.thread81
 
-.thread80:                                        ; preds = %128
+.thread81:                                        ; preds = %128
   tail call void @free(ptr noundef %118) #25
   br label %139
 
@@ -6333,14 +6333,14 @@ relname.exit:                                     ; preds = %._crit_edge.i, %99,
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %.thread, %136
-  %.not73 = icmp eq i32 %.06191, 95
-  br i1 %.not73, label %hardlinkerr.exit74.thread, label %hardlinkerr.exit74.thread.sink.split
+  %.not74 = icmp eq i32 %.06192, 95
+  br i1 %.not74, label %hardlinkerr.exit75.thread, label %hardlinkerr.exit75.thread.sink.split
 
-139:                                              ; preds = %.thread80, %136
-  %.06282 = phi i32 [ %125, %.thread80 ], [ %.062, %136 ]
+139:                                              ; preds = %.thread81, %136
+  %.06283 = phi i32 [ %125, %.thread80 ], [ %.062, %136 ]
   %140 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.43)
-  %.not68 = icmp eq ptr %140, null
-  br i1 %.not68, label %141, label %149
+  %.not69 = icmp eq ptr %140, null
+  br i1 %.not69, label %141, label %149
 
 141:                                              ; preds = %139
   %142 = tail call ptr @__errno_location() #27
@@ -6355,13 +6355,13 @@ relname.exit:                                     ; preds = %._crit_edge.i, %99,
 
 149:                                              ; preds = %139
   %150 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.45)
-  %.not69 = icmp eq ptr %150, null
-  br i1 %.not69, label %152, label %.preheader
+  %.not70 = icmp eq ptr %150, null
+  br i1 %.not70, label %152, label %.preheader
 
 .preheader:                                       ; preds = %149
   %151 = tail call i32 @getc(ptr noundef nonnull %140)
-  %.not7093 = icmp eq i32 %151, -1
-  br i1 %.not7093, label %._crit_edge, label %.lr.ph
+  %.not7194 = icmp eq i32 %151, -1
+  br i1 %.not7194, label %._crit_edge, label %.lr.ph
 
 152:                                              ; preds = %149
   %153 = tail call ptr @__errno_location() #27
@@ -6378,29 +6378,29 @@ relname.exit:                                     ; preds = %._crit_edge.i, %99,
   %160 = phi i32 [ %162, %.lr.ph ], [ %151, %.preheader ]
   %161 = tail call i32 @putc(i32 noundef %160, ptr noundef nonnull %150)
   %162 = tail call i32 @getc(ptr noundef nonnull %140)
-  %.not70 = icmp eq i32 %162, -1
-  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  %.not71 = icmp eq i32 %162, -1
+  br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %163 = load ptr, ptr @directory, align 8
   tail call fastcc void @close_file(ptr noundef nonnull %140, ptr noundef %163, ptr noundef nonnull %0)
   %164 = load ptr, ptr @directory, align 8
   tail call fastcc void @close_file(ptr noundef nonnull %150, ptr noundef %164, ptr noundef %1)
-  %.not71 = icmp eq i32 %.06191, 95
-  br i1 %.not71, label %165, label %hardlinkerr.exit74.thread.sink.split
+  %.not72 = icmp eq i32 %.06192, 95
+  br i1 %.not72, label %165, label %hardlinkerr.exit75.thread.sink.split
 
 165:                                              ; preds = %._crit_edge
-  %.not72 = icmp eq i32 %.06282, 95
-  br i1 %.not72, label %hardlinkerr.exit74.thread, label %hardlinkerr.exit74.thread.sink.split
+  %.not73 = icmp eq i32 %.06283, 95
+  br i1 %.not73, label %hardlinkerr.exit75.thread, label %hardlinkerr.exit75.thread.sink.split
 
-hardlinkerr.exit74.thread.sink.split:             ; preds = %165, %._crit_edge, %138
-  %.06191.sink = phi i32 [ %.06191, %138 ], [ %.06191, %._crit_edge ], [ %.06282, %165 ]
+hardlinkerr.exit75.thread.sink.split:             ; preds = %165, %._crit_edge, %138
+  %.06192.sink = phi i32 [ %.06192, %138 ], [ %.06192, %._crit_edge ], [ %.06283, %165 ]
   %.str.47.sink = phi ptr [ @.str.42, %138 ], [ @.str.47, %._crit_edge ], [ @.str.48, %165 ]
-  %166 = tail call ptr @pg_strerror(i32 noundef %.06191.sink) #25
+  %166 = tail call ptr @pg_strerror(i32 noundef %.06192.sink) #25
   tail call void (ptr, ...) @warning(ptr noundef nonnull %.str.47.sink, ptr noundef %166)
-  br label %hardlinkerr.exit74.thread
+  br label %hardlinkerr.exit75.thread
 
-hardlinkerr.exit74.thread:                        ; preds = %hardlinkerr.exit74.thread.sink.split, %34, %41, %hardlinkerr.exit74, %165, %138, %32
+hardlinkerr.exit75.thread:                        ; preds = %hardlinkerr.exit75.thread.sink.split, %34, %41, %hardlinkerr.exit75, %165, %138, %32
   ret void
 }
 

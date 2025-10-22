@@ -203,8 +203,8 @@ define dso_local range(i32 -1, 1) i32 @load_idx(ptr noundef %0, i32 noundef %1, 
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %2, align 4, !tbaa !38
-  %.not74 = icmp eq i32 %15, 1666151679
-  br i1 %.not74, label %git_bswap32.exit, label %21
+  %.not119 = icmp eq i32 %15, 1666151679
+  br i1 %.not119, label %git_bswap32.exit, label %23
 
 git_bswap32.exit:                                 ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -217,48 +217,48 @@ git_bswap32.exit:                                 ; preds = %14
   %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef %0, i32 noundef %18) #21
   br label %62
 
-21:                                               ; preds = %14, %git_bswap32.exit
-  %spec.select.idx = phi i64 [ 8, %git_bswap32.exit ], [ 0, %14 ]
-  %.062 = phi i32 [ 2, %git_bswap32.exit ], [ 1, %14 ]
-  %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx
+23:                                               ; preds = %14, %git_bswap32.exit
+  %.06297 = phi i64 [ 8, %git_bswap32.exit ], [ 0, %14 ]
+  %24 = phi i32 [ 2, %git_bswap32.exit ], [ 1, %14 ]
+  %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %.06297
   br label %git_bswap32.exit80
 
-22:                                               ; preds = %git_bswap32.exit80
+25:                                               ; preds = %git_bswap32.exit79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %27, label %git_bswap32.exit80, !llvm.loop !42
+  br i1 %exitcond.not, label %30, label %git_bswap32.exit79, !llvm.loop !42
 
-git_bswap32.exit80:                               ; preds = %22, %21
+git_bswap32.exit79:                               ; preds = %25, %23
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %22 ]
-  %.067103 = phi i32 [ 0, %21 ], [ %25, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %spec.select, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4, !tbaa !36
-  %25 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #24, !srcloc !41
-  %.not78 = icmp ult i32 %25, %.067103
-  br i1 %.not78, label %.thread, label %22
+  %.067107 = phi i32 [ 0, %21 ], [ %28, %22 ]
+  %26 = getelementptr inbounds nuw i32, ptr %spec.select, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 4, !tbaa !36
+  %28 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %27) #24, !srcloc !41
+  %.not77 = icmp ult i32 %28, %.067107
+  br i1 %.not77, label %.thread99, label %25
 
-.thread:                                          ; preds = %git_bswap32.exit80
-  %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef %0) #21
+.thread99:                                        ; preds = %git_bswap32.exit79
+  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef %0) #21
   br label %62
 
-27:                                               ; preds = %22
-  br i1 %.not74, label %st_mult.exit84, label %st_add.exit
+30:                                               ; preds = %25
+  br i1 %.not119, label %st_mult.exit83, label %st_add.exit
 
-st_add.exit:                                      ; preds = %27
-  %28 = zext i32 %25 to i64
-  %29 = add i32 %1, 4
-  %30 = zext i32 %29 to i64
-  %31 = mul nuw i64 %28, %30
-  %32 = add nuw i64 %31, %7
-  %.not77 = icmp eq i64 %3, %32
-  br i1 %.not77, label %57, label %33
+st_add.exit:                                      ; preds = %30
+  %31 = zext i32 %28 to i64
+  %32 = add i32 %1, 4
+  %33 = zext i32 %32 to i64
+  %34 = mul nuw i64 %31, %33
+  %35 = add nuw i64 %34, %7
+  %.not76 = icmp eq i64 %3, %35
+  br i1 %.not76, label %57, label %36
 
-33:                                               ; preds = %st_add.exit
-  %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %0) #21
+36:                                               ; preds = %st_add.exit
+  %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %0) #21
   br label %62
 
-st_mult.exit84:                                   ; preds = %27
-  %35 = add i32 %reass.add, 1032
+st_mult.exit83:                                   ; preds = %30
+  %38 = add i32 %reass.add, 1032
   %36 = zext i32 %35 to i64
   %37 = zext i32 %25 to i64
   %38 = add i32 %1, 8
@@ -268,24 +268,24 @@ st_mult.exit84:                                   ; preds = %27
   %.not76 = icmp eq i32 %25, 0
   br i1 %.not76, label %49, label %st_mult.exit89
 
-st_mult.exit89:                                   ; preds = %st_mult.exit84
-  %42 = add i32 %25, -1
+st_mult.exit89:; preds = %st_mult.exit84
+  %42 = add i32 %28, -1
   %43 = zext i32 %42 to i64
   %44 = shl nuw nsw i64 %43, 3
   %45 = xor i64 %41, -1
   %46 = icmp ugt i64 %44, %45
   br i1 %46, label %47, label %st_add.exit90
 
-47:                                               ; preds = %st_mult.exit89
+47:; preds = %st_mult.exit89
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef %41, i64 noundef %44) #25
   unreachable
 
-st_add.exit90:                                    ; preds = %st_mult.exit89
-  %48 = add i64 %44, %41
-  br label %49
+st_add.exit89:                                    ; preds = %st_mult.exit89
+  %51 = add i64 %44, %41
+  br label %65
 
-49:                                               ; preds = %st_add.exit90, %st_mult.exit84
-  %.0 = phi i64 [ %48, %st_add.exit90 ], [ %41, %st_mult.exit84 ]
+65:                                               ; preds = %st_add.exit90, %st_mult.exit83
+  %.061 = phi i64 [ %51, %st_add.exit90 ], [ %41, %st_mult.exit84 ]
   %50 = icmp ult i64 %3, %41
   %51 = icmp ugt i64 %3, %.0
   %or.cond = select i1 %50, i1 true, i1 %51

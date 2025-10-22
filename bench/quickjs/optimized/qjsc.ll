@@ -466,8 +466,8 @@ define internal fastcc void @get_c_name(ptr noundef nonnull %0, ptr noundef %1) 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.037 = select i1 %.not, ptr %1, ptr %4
   %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.037, i32 noundef 46) #18
-  %.not41 = icmp eq ptr %5, null
-  br i1 %.not41, label %6, label %8
+  %.not42 = icmp eq ptr %5, null
+  br i1 %.not42, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037) #18
@@ -485,40 +485,40 @@ define internal fastcc void @get_c_name(ptr noundef nonnull %0, ptr noundef %1) 
   tail call void @pstrcpy(ptr noundef nonnull %0, i32 noundef 1024, ptr noundef %13) #17
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  %.not45 = icmp eq i64 %.036, 0
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not46 = icmp eq i64 %.036, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %16 = ptrtoint ptr %0 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %29
-  %.044 = phi ptr [ %15, %.lr.ph ], [ %.1, %29 ]
-  %.03543 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %18 = ptrtoint ptr %.044 to i64
+  %.045 = phi ptr [ %15, %.lr.ph ], [ %.1, %29 ]
+  %.03544 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
+  %18 = ptrtoint ptr %.045 to i64
   %19 = sub i64 %18, %16
   %20 = icmp ult i64 %19, 1023
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %.037, i64 %.03543
+  %22 = getelementptr inbounds nuw i8, ptr %.037, i64 %.03544
   %23 = load i8, ptr %22, align 1, !tbaa !27
   %24 = add i8 %23, -48
   %or.cond = icmp ult i8 %24, 10
   %25 = add i8 %23, -65
   %or.cond3 = icmp ult i8 %25, 26
-  %or.cond42 = or i1 %or.cond, %or.cond3
+  %or.cond43 = or i1 %or.cond, %or.cond3
   %26 = add i8 %23, -97
   %or.cond5 = icmp ult i8 %26, 26
-  %27 = select i1 %or.cond42, i1 true, i1 %or.cond5
+  %27 = select i1 %or.cond43, i1 true, i1 %or.cond5
   %.034 = select i1 %27, i8 %23, i8 95
-  %28 = getelementptr inbounds nuw i8, ptr %.044, i64 1
-  store i8 %.034, ptr %.044, align 1, !tbaa !27
+  %28 = getelementptr inbounds nuw i8, ptr %.045, i64 1
+  store i8 %.034, ptr %.045, align 1, !tbaa !27
   br label %29
 
 29:                                               ; preds = %17, %21
-  %.1 = phi ptr [ %28, %21 ], [ %.044, %17 ]
-  %30 = add nuw i64 %.03543, 1
+  %.1 = phi ptr [ %28, %21 ], [ %.045, %17 ]
+  %30 = add nuw i64 %.03544, 1
   %exitcond.not = icmp eq i64 %30, %.036
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !31
 

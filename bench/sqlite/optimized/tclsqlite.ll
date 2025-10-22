@@ -6256,7 +6256,7 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   %185 = call i32 %184(ptr noundef %1, ptr noundef %10, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %208
+  br label %207
 
 186:                                              ; preds = %._crit_edge.split
   %187 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
@@ -6290,17 +6290,17 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 48
   %202 = load ptr, ptr %201, align 8, !tbaa !36
   call void %202(ptr noundef %8) #14
-  %203 = icmp eq i32 %.250, 3
-  br i1 %203, label %204, label %208
+  %cond = icmp eq i32 %.250, 3
+  br i1 %cond, label %203, label %207
 
-204:                                              ; preds = %199
-  %205 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 1752
-  %207 = load ptr, ptr %206, align 8, !tbaa !96
+203:                                              ; preds = %199
+  %204 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1752
+  %206 = load ptr, ptr %205, align 8, !tbaa !96
   call void %207(ptr noundef %1) #14
-  br label %208
+  br label %207
 
-208:                                              ; preds = %.thread, %204, %199
+207:                                              ; preds = %.thread, %203, %199
   %.2 = phi i32 [ 0, %204 ], [ %.250, %199 ], [ %185, %.thread ]
   ret i32 %.2
 }

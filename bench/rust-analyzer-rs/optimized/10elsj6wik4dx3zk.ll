@@ -11954,7 +11954,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
     i8 21, label %223
   ]
 
-default.unreachable75:                            ; preds = %.lr.ph.i, %3
+default.unreachable76:                            ; preds = %.lr.ph.i, %3
   unreachable
 
 55:                                               ; preds = %3

@@ -25160,18 +25160,18 @@ define hidden { i64, ptr } @_ZN6yara_x8compiler2ir6ast2ir17patterns_from_ast17hf
   %.sroa.13.0 = phi ptr [ undef, %2 ], [ %.sroa.13.2.lcssa, %1201 ]
   %.sroa.8.0 = phi ptr [ null, %2 ], [ %142, %1201 ]
   %.sroa.5.061 = phi ptr [ %., %2 ], [ %.sroa.5.263.lcssa, %1201 ]
-  %.not.i.us.i716 = icmp eq ptr %.sroa.8.0, null
+  %.not.i.us.i717 = icmp eq ptr %.sroa.8.0, null
   %137 = icmp eq ptr %.sroa.8.0, %.sroa.13.0
-  %or.cond717 = select i1 %.not.i.us.i716, i1 true, i1 %137
-  br i1 %or.cond717, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca921ed109a88a1eE.exit"
+  %or.cond718 = select i1 %.not.i.us.i717, i1 true, i1 %137
+  br i1 %or.cond718, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca921ed109a88a1eE.exit"
 
 select.unfold.us.i:                               ; preds = %.split.us.preheader.i, %.split.us.i
-  %.sroa.5.263718 = phi ptr [ null, %.split.us.i ], [ %.sroa.5.061, %.split.us.preheader.i ]
-  %.not4.us.i = icmp eq ptr %.sroa.5.263718, null
+  %.sroa.5.263719 = phi ptr [ null, %.split.us.i ], [ %.sroa.5.061, %.split.us.preheader.i ]
+  %.not4.us.i = icmp eq ptr %.sroa.5.263719, null
   br i1 %.not4.us.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb5e99773a2f24888E.exit.thread.i", label %.split.us.i
 
 .split.us.i:                                      ; preds = %select.unfold.us.i
-  %138 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h8503f95e18808904E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.5.263718), !noalias !3609
+  %138 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h8503f95e18808904E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.5.263719), !noalias !3609
   %139 = extractvalue { ptr, ptr } %138, 0
   %140 = extractvalue { ptr, ptr } %138, 1
   %.not.i.us.i = icmp eq ptr %139, null
@@ -25220,7 +25220,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %244, %248, %292, %450, %775, %787, %902, %.invoke335.i, %.thread.i.i, %1066, %.invoke.i, %1080, %1105, %1108
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %244, %248, %292, %450, %775, %787, %902, %.invoke336.i, %.thread.i.i, %1066, %.invoke.i, %1080, %1105, %1108
   %lpad.loopexit.split-lp106 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -27306,7 +27306,7 @@ select.unfold.i.i.i:                              ; preds = %._crit_edge.i.i.i.i
 911:                                              ; preds = %914, %910
   %912 = phi ptr [ %915, %914 ], [ %805, %910 ]
   %913 = icmp eq ptr %912, %808
-  br i1 %913, label %.invoke335.i, label %914
+  br i1 %913, label %.invoke336.i, label %914
 
 914:                                              ; preds = %911
   %915 = getelementptr inbounds nuw i8, ptr %912, i64 64
@@ -27653,14 +27653,14 @@ select.unfold.i.i107.i:                           ; preds = %._crit_edge.i.i.i.i
 
 1046:                                             ; preds = %893, %.noexc126.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3938
-  br label %.invoke335.i
+  br label %.invoke336.i
 
-.invoke335.i:                                     ; preds = %911, %1046
+.invoke336.i:                                     ; preds = %911, %1046
   %1047 = phi ptr [ @anon.50173b3802231cb0b0223069ffbbcabd.578, %1046 ], [ @anon.50173b3802231cb0b0223069ffbbcabd.580, %911 ]
   invoke void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1047) #48
           to label %.cont336.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, !noalias !3619
 
-.cont336.i:                                       ; preds = %.invoke335.i
+.cont337.i:                                       ; preds = %.invoke336.i
   unreachable
 
 .thread.i.i:                                      ; preds = %.noexc125.i
@@ -51440,9 +51440,9 @@ define internal fastcc void @_ZN6yara_x2re6parser6Parser5parse17hdc545ab34a16339
   br label %118
 
 118:                                              ; preds = %109, %115
-  %storemerge515 = phi i64 [ %114, %115 ], [ %.sroa.026.0.copyload.us, %109 ]
+  %storemerge516 = phi i64 [ %114, %115 ], [ %.sroa.026.0.copyload.us, %109 ]
   %storemerge = phi ptr [ %116, %115 ], [ %.sroa.528.0.copyload.us, %109 ]
-  store i64 %storemerge515, ptr %27, align 8
+  store i64 %storemerge516, ptr %27, align 8
   store ptr %storemerge, ptr %.sroa.485.0..sroa_idx, align 8
   store i64 %.sroa.631.0.copyload.us, ptr %.sroa.586.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6758)
@@ -51523,10 +51523,10 @@ define internal fastcc void @_ZN6yara_x2re6parser6Parser5parse17hdc545ab34a16339
   br label %150
 
 150:                                              ; preds = %141, %147
-  %storemerge517 = phi i64 [ %146, %147 ], [ %.sroa.018.0.copyload.us, %141 ]
-  %storemerge516 = phi ptr [ %148, %147 ], [ %.sroa.5.0.copyload.us, %141 ]
-  store i64 %storemerge517, ptr %28, align 8
-  store ptr %storemerge516, ptr %.sroa.480.0..sroa_idx, align 8
+  %storemerge518 = phi i64 [ %146, %147 ], [ %.sroa.018.0.copyload.us, %141 ]
+  %storemerge517 = phi ptr [ %148, %147 ], [ %.sroa.5.0.copyload.us, %141 ]
+  store i64 %storemerge518, ptr %28, align 8
+  store ptr %storemerge517, ptr %.sroa.480.0..sroa_idx, align 8
   store i64 %.sroa.622.0.copyload.us, ptr %.sroa.581.0..sroa_idx, align 8
   %151 = load i64, ptr %49, align 8, !noundef !4
   invoke fastcc void @_ZN5alloc6string6String6remove17h718997202aae8366E(ptr noalias noundef align 8 dereferenceable(24) %28, i64 noundef %151)
@@ -52787,9 +52787,9 @@ define hidden noundef zeroext i1 @_ZN6yara_x7scanner7context11ScanContext14regex
   br label %171
 
 171:                                              ; preds = %168, %162
-  %storemerge516.i.i.i.i = phi i64 [ %167, %168 ], [ %.sroa.026.0.copyload.us.i.i.i.i, %162 ]
+  %storemerge517.i.i.i.i = phi i64 [ %167, %168 ], [ %.sroa.026.0.copyload.us.i.i.i.i, %162 ]
   %storemerge.i.i.i.i = phi ptr [ %169, %168 ], [ %.sroa.528.0.copyload.us.i.i.i.i, %162 ]
-  store i64 %storemerge516.i.i.i.i, ptr %36, align 8, !noalias !6845
+  store i64 %storemerge517.i.i.i.i, ptr %36, align 8, !noalias !6845
   store ptr %storemerge.i.i.i.i, ptr %.sroa.485.0..sroa_idx.i.i.i.i, align 8, !noalias !6845
   store i64 %.sroa.631.0.copyload.us.i.i.i.i, ptr %.sroa.586.0..sroa_idx.i.i.i.i, align 8, !noalias !6845
   call void @llvm.experimental.noalias.scope.decl(metadata !6882)
@@ -52870,10 +52870,10 @@ define hidden noundef zeroext i1 @_ZN6yara_x7scanner7context11ScanContext14regex
   br label %203
 
 203:                                              ; preds = %200, %194
-  %storemerge518.i.i.i.i = phi i64 [ %199, %200 ], [ %.sroa.018.0.copyload.us.i.i.i.i, %194 ]
-  %storemerge517.i.i.i.i = phi ptr [ %201, %200 ], [ %.sroa.5.0.copyload.us.i.i.i.i, %194 ]
-  store i64 %storemerge518.i.i.i.i, ptr %37, align 8, !noalias !6845
-  store ptr %storemerge517.i.i.i.i, ptr %.sroa.480.0..sroa_idx.i.i.i.i, align 8, !noalias !6845
+  %storemerge519.i.i.i.i = phi i64 [ %199, %200 ], [ %.sroa.018.0.copyload.us.i.i.i.i, %194 ]
+  %storemerge518.i.i.i.i = phi ptr [ %201, %200 ], [ %.sroa.5.0.copyload.us.i.i.i.i, %194 ]
+  store i64 %storemerge519.i.i.i.i, ptr %37, align 8, !noalias !6845
+  store ptr %storemerge518.i.i.i.i, ptr %.sroa.480.0..sroa_idx.i.i.i.i, align 8, !noalias !6845
   store i64 %.sroa.622.0.copyload.us.i.i.i.i, ptr %.sroa.581.0..sroa_idx.i.i.i.i, align 8, !noalias !6845
   %204 = load i64, ptr %102, align 8, !noalias !6845, !noundef !4
   invoke fastcc void @_ZN5alloc6string6String6remove17h718997202aae8366E(ptr noalias noundef align 8 dereferenceable(24) %37, i64 noundef %204)
