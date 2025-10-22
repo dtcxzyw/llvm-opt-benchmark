@@ -462,11 +462,11 @@ define void @_ZN19ruff_python_codegen7stylist7Stylist11from_tokens17hf12661774bb
   unreachable
 
 _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit.i", %"_ZN84_$LT$ruff_python_codegen..stylist..Indentation$u20$as$u20$core..default..Default$GT$7default17h99c35e796da773c6E.exit.i", %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit20.i"
-  %.sink105.i = phi i64 [ %104, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit.i" ], [ %117, %"_ZN84_$LT$ruff_python_codegen..stylist..Indentation$u20$as$u20$core..default..Default$GT$7default17h99c35e796da773c6E.exit.i" ], [ %211, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit20.i" ]
+  %.sink104.i = phi i64 [ %104, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit.i" ], [ %117, %"_ZN84_$LT$ruff_python_codegen..stylist..Indentation$u20$as$u20$core..default..Default$GT$7default17h99c35e796da773c6E.exit.i" ], [ %211, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit20.i" ]
   %.sink.i = phi ptr [ %108, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit.i" ], [ %121, %"_ZN84_$LT$ruff_python_codegen..stylist..Indentation$u20$as$u20$core..default..Default$GT$7default17h99c35e796da773c6E.exit.i" ], [ %215, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit20.i" ]
   %.sroa.4.0.sink.i = phi i64 [ %.sroa.4.0.i, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit.i" ], [ 4, %"_ZN84_$LT$ruff_python_codegen..stylist..Indentation$u20$as$u20$core..default..Default$GT$7default17h99c35e796da773c6E.exit.i" ], [ %131, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h236cce916ab5d8b6E.exit20.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %.sink105.i, ptr %14, align 8
+  store i64 %.sink104.i, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.sink.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16

@@ -463,11 +463,11 @@ define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.169.i = phi i64 [ %32, %.lr.ph.i ], [ %27, %.preheader.i ]
-  %.16268.i = phi i64 [ %33, %.lr.ph.i ], [ %28, %.preheader.i ]
-  %32 = add i64 %.169.i, -1
-  %33 = shl i64 %.16268.i, 1
-  %34 = and i64 %.16268.i, 32
+  %.168.i = phi i64 [ %32, %.lr.ph.i ], [ %27, %.preheader.i ]
+  %.16267.i = phi i64 [ %33, %.lr.ph.i ], [ %28, %.preheader.i ]
+  %32 = add i64 %.168.i, -1
+  %33 = shl i64 %.16267.i, 1
+  %34 = and i64 %.16267.i, 32
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
@@ -491,8 +491,8 @@ define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %44 = icmp eq i8 %25, 3
   %or.cond5.i = select i1 %44, i1 %43, i1 false
-  %or.cond66.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
-  %spec.select = select i1 %or.cond66.i, i16 32639, i16 32640
+  %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
+  %spec.select = select i1 %or.cond65.i, i16 32639, i16 32640
   br label %62
 
 45:                                               ; preds = %18, %._crit_edge.i
@@ -513,12 +513,12 @@ define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
   %55 = or i64 %54, 64
   %56 = zext i1 %53 to i64
   %spec.select.i = lshr i64 %55, %56
-  %spec.select67.i = select i1 %53, i64 0, i64 %50
+  %spec.select66.i = select i1 %53, i64 0, i64 %50
   br label %recip7.exit
 
 recip7.exit:                                      ; preds = %45, %52
   %.058.i = phi i64 [ %49, %45 ], [ %spec.select.i, %52 ]
-  %.0.i = phi i64 [ %50, %45 ], [ %spec.select67.i, %52 ]
+  %.0.i = phi i64 [ %50, %45 ], [ %spec.select66.i, %52 ]
   %57 = and i64 %46, 32768
   %58 = shl nsw i64 %.0.i, 7
   %59 = or i64 %.058.i, %57
@@ -602,11 +602,11 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.169.i = phi i64 [ %32, %.lr.ph.i ], [ %27, %.preheader.i ]
-  %.16268.i = phi i64 [ %33, %.lr.ph.i ], [ %28, %.preheader.i ]
-  %32 = add i64 %.169.i, -1
-  %33 = shl i64 %.16268.i, 1
-  %34 = and i64 %.16268.i, 256
+  %.168.i = phi i64 [ %32, %.lr.ph.i ], [ %27, %.preheader.i ]
+  %.16267.i = phi i64 [ %33, %.lr.ph.i ], [ %28, %.preheader.i ]
+  %32 = add i64 %.168.i, -1
+  %33 = shl i64 %.16267.i, 1
+  %34 = and i64 %.16267.i, 256
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
@@ -630,8 +630,8 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %44 = icmp eq i8 %25, 3
   %or.cond5.i = select i1 %44, i1 %43, i1 false
-  %or.cond66.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
-  %spec.select = select i1 %or.cond66.i, i16 31743, i16 31744
+  %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
+  %spec.select = select i1 %or.cond65.i, i16 31743, i16 31744
   br label %64
 
 45:                                               ; preds = %18, %._crit_edge.i
@@ -654,12 +654,12 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %57 = or i64 %56, 512
   %58 = zext i1 %55 to i64
   %spec.select.i = lshr exact i64 %57, %58
-  %spec.select67.i = select i1 %55, i64 0, i64 %52
+  %spec.select66.i = select i1 %55, i64 0, i64 %52
   br label %recip7.exit
 
 recip7.exit:                                      ; preds = %45, %54
   %.058.i = phi i64 [ %51, %45 ], [ %spec.select.i, %54 ]
-  %.0.i = phi i64 [ %52, %45 ], [ %spec.select67.i, %54 ]
+  %.0.i = phi i64 [ %52, %45 ], [ %spec.select66.i, %54 ]
   %59 = and i64 %46, 32768
   %60 = shl nsw i64 %.0.i, 10
   %61 = or i64 %.058.i, %59
@@ -741,11 +741,11 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.169.i = phi i64 [ %30, %.lr.ph.i ], [ %27, %.preheader.i ]
-  %.16268.i = phi i64 [ %31, %.lr.ph.i ], [ %23, %.preheader.i ]
-  %30 = add i64 %.169.i, -1
-  %31 = shl i64 %.16268.i, 1
-  %32 = and i64 %.16268.i, 2097152
+  %.168.i = phi i64 [ %30, %.lr.ph.i ], [ %27, %.preheader.i ]
+  %.16267.i = phi i64 [ %31, %.lr.ph.i ], [ %23, %.preheader.i ]
+  %30 = add i64 %.168.i, -1
+  %31 = shl i64 %.16267.i, 1
+  %32 = and i64 %.16267.i, 2097152
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
@@ -769,8 +769,8 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %42 = icmp eq i8 %25, 3
   %or.cond5.i = select i1 %42, i1 %41, i1 false
-  %or.cond66.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
-  %spec.select = select i1 %or.cond66.i, i32 2139095039, i32 2139095040
+  %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
+  %spec.select = select i1 %or.cond65.i, i32 2139095039, i32 2139095040
   br label %61
 
 43:                                               ; preds = %18, %._crit_edge.i
@@ -794,12 +794,12 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   %55 = or i64 %54, 4194304
   %56 = zext i1 %53 to i64
   %spec.select.i = lshr exact i64 %55, %56
-  %spec.select67.i = select i1 %53, i64 0, i64 %50
+  %spec.select66.i = select i1 %53, i64 0, i64 %50
   br label %recip7.exit
 
 recip7.exit:                                      ; preds = %43, %52
   %.058.i = phi i64 [ %49, %43 ], [ %spec.select.i, %52 ]
-  %.0.i = phi i64 [ %50, %43 ], [ %spec.select67.i, %52 ]
+  %.0.i = phi i64 [ %50, %43 ], [ %spec.select66.i, %52 ]
   %57 = shl nsw i64 %.0.i, 23
   %58 = or i64 %.058.i, %44
   %59 = or i64 %58, %57
@@ -879,11 +879,11 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.169.i = phi i64 [ %28, %.lr.ph.i ], [ %25, %.preheader.i ]
-  %.16268.i = phi i64 [ %29, %.lr.ph.i ], [ %0, %.preheader.i ]
-  %28 = add i64 %.169.i, -1
-  %29 = shl i64 %.16268.i, 1
-  %30 = and i64 %.16268.i, 1125899906842624
+  %.168.i = phi i64 [ %28, %.lr.ph.i ], [ %25, %.preheader.i ]
+  %.16267.i = phi i64 [ %29, %.lr.ph.i ], [ %0, %.preheader.i ]
+  %28 = add i64 %.168.i, -1
+  %29 = shl i64 %.16267.i, 1
+  %30 = and i64 %.16267.i, 1125899906842624
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
@@ -907,8 +907,8 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %40 = icmp eq i8 %23, 3
   %or.cond5.i = select i1 %40, i1 %39, i1 false
-  %or.cond66.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
-  %spec.select = select i1 %or.cond66.i, i64 9218868437227405311, i64 9218868437227405312
+  %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
+  %spec.select = select i1 %or.cond65.i, i64 9218868437227405311, i64 9218868437227405312
   br label %58
 
 41:                                               ; preds = %18, %._crit_edge.i
@@ -931,12 +931,12 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   %53 = or i64 %52, 2251799813685248
   %54 = zext i1 %51 to i64
   %spec.select.i = lshr exact i64 %53, %54
-  %spec.select67.i = select i1 %51, i64 0, i64 %48
+  %spec.select66.i = select i1 %51, i64 0, i64 %48
   br label %recip7.exit
 
 recip7.exit:                                      ; preds = %41, %50
   %.058.i = phi i64 [ %47, %41 ], [ %spec.select.i, %50 ]
-  %.0.i = phi i64 [ %48, %41 ], [ %spec.select67.i, %50 ]
+  %.0.i = phi i64 [ %48, %41 ], [ %spec.select66.i, %50 ]
   %55 = shl nsw i64 %.0.i, 52
   %56 = or i64 %.058.i, %42
   %57 = or i64 %56, %55

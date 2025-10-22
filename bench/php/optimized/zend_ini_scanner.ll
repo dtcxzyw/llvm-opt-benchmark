@@ -229,7 +229,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.backedge2451
 
 .backedge2451:                                    ; preds = %18, %3196
-  %.promoted3051 = phi ptr [ %14, %18 ], [ %.lcssa3588.sink, %3196 ]
+  %.promoted3051 = phi ptr [ %14, %18 ], [ %.lcssa3587.sink, %3196 ]
   store ptr %.promoted3051, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %.not = icmp ult ptr %.promoted3051, %2
   br i1 %.not, label %11, label %._crit_edge
@@ -419,7 +419,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.thread2298
 
 .loopexit2335:                                    ; preds = %191, %406, %535, %479, %554, %532, %529, %498, %476, %473, %425, %403, %400, %217, %210, %195, %94, %78, %63, %539, %483, %410, %552, %548, %545, %496, %492, %489, %423, %419, %416, %215, %207, %201, %198, %105, %95, %90, %86, %79, %74, %64, %58, %56, %50, %48, %44, %41
-  %.promoted28084876 = phi ptr [ %.promoted2808, %554 ], [ %.promoted2808, %532 ], [ %.promoted2808, %529 ], [ %.promoted2808, %498 ], [ %.promoted2808, %476 ], [ %.promoted2808, %473 ], [ %.promoted2808, %425 ], [ %.promoted2808, %403 ], [ %.promoted2808, %400 ], [ %.promoted2808, %217 ], [ %.promoted2808, %210 ], [ %.promoted2808, %195 ], [ %.promoted2808, %94 ], [ %.promoted2808, %78 ], [ %.promoted2808, %63 ], [ %.promoted2808, %539 ], [ %.promoted2808, %483 ], [ %.promoted2808, %410 ], [ %.promoted2808, %552 ], [ %.promoted2808, %548 ], [ %.promoted2808, %545 ], [ %.promoted2808, %496 ], [ %.promoted2808, %492 ], [ %.promoted2808, %489 ], [ %.promoted2808, %423 ], [ %.promoted2808, %419 ], [ %.promoted2808, %416 ], [ %.promoted2808, %215 ], [ %.promoted2808, %207 ], [ %.promoted2808, %201 ], [ %.promoted2808, %198 ], [ %.promoted28084875, %105 ], [ %.promoted2808, %95 ], [ %.promoted2808, %90 ], [ %.promoted2808, %86 ], [ %.promoted2808, %79 ], [ %.promoted2808, %74 ], [ %.promoted2808, %64 ], [ %.promoted2808, %58 ], [ %.promoted2808, %56 ], [ %.promoted2808, %50 ], [ %.promoted2808, %48 ], [ %.promoted2808, %44 ], [ %.promoted2808, %41 ], [ %.promoted2808, %479 ], [ %.promoted2808, %535 ], [ %.promoted2808, %406 ], [ %.promoted2808, %191 ]
+  %.promoted28084875 = phi ptr [ %.promoted2808, %554 ], [ %.promoted2808, %532 ], [ %.promoted2808, %529 ], [ %.promoted2808, %498 ], [ %.promoted2808, %476 ], [ %.promoted2808, %473 ], [ %.promoted2808, %425 ], [ %.promoted2808, %403 ], [ %.promoted2808, %400 ], [ %.promoted2808, %217 ], [ %.promoted2808, %210 ], [ %.promoted2808, %195 ], [ %.promoted2808, %94 ], [ %.promoted2808, %78 ], [ %.promoted2808, %63 ], [ %.promoted2808, %539 ], [ %.promoted2808, %483 ], [ %.promoted2808, %410 ], [ %.promoted2808, %552 ], [ %.promoted2808, %548 ], [ %.promoted2808, %545 ], [ %.promoted2808, %496 ], [ %.promoted2808, %492 ], [ %.promoted2808, %489 ], [ %.promoted2808, %423 ], [ %.promoted2808, %419 ], [ %.promoted2808, %416 ], [ %.promoted2808, %215 ], [ %.promoted2808, %207 ], [ %.promoted2808, %201 ], [ %.promoted2808, %198 ], [ %.promoted28084874, %105 ], [ %.promoted2808, %95 ], [ %.promoted2808, %90 ], [ %.promoted2808, %86 ], [ %.promoted2808, %79 ], [ %.promoted2808, %74 ], [ %.promoted2808, %64 ], [ %.promoted2808, %58 ], [ %.promoted2808, %56 ], [ %.promoted2808, %50 ], [ %.promoted2808, %48 ], [ %.promoted2808, %44 ], [ %.promoted2808, %41 ], [ %.promoted2808, %479 ], [ %.promoted2808, %535 ], [ %.promoted2808, %406 ], [ %.promoted2808, %191 ]
   %100 = phi ptr [ %520, %554 ], [ %520, %532 ], [ %520, %529 ], [ %464, %498 ], [ %464, %476 ], [ %464, %473 ], [ %391, %425 ], [ %391, %403 ], [ %391, %400 ], [ %181, %217 ], [ %181, %210 ], [ %181, %195 ], [ %.promoted2808, %94 ], [ %.promoted2808, %78 ], [ %.promoted2808, %63 ], [ %520, %539 ], [ %464, %483 ], [ %391, %410 ], [ %520, %552 ], [ %520, %548 ], [ %520, %545 ], [ %464, %496 ], [ %464, %492 ], [ %464, %489 ], [ %391, %423 ], [ %391, %419 ], [ %391, %416 ], [ %181, %215 ], [ %181, %207 ], [ %181, %201 ], [ %181, %198 ], [ %106, %105 ], [ %.promoted2808, %95 ], [ %.promoted2808, %90 ], [ %.promoted2808, %86 ], [ %.promoted2808, %79 ], [ %.promoted2808, %74 ], [ %.promoted2808, %64 ], [ %.promoted2808, %58 ], [ %.promoted2808, %56 ], [ %.promoted2808, %50 ], [ %.promoted2808, %48 ], [ %.promoted2808, %44 ], [ %.promoted2808, %41 ], [ %464, %479 ], [ %520, %535 ], [ %391, %406 ], [ %181, %191 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
@@ -431,7 +431,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %105
 
 105:                                              ; preds = %357, %347, %344, %343, %260, %250, %515, %507, %501, %455, %451, %447, %386, %382, %354, %331, %270, %266, %242, %364, %360, %348, %264, %263, %254, %253, %103
-  %.promoted28084875 = phi ptr [ %.promoted28084876, %103 ], [ %.promoted2808, %501 ], [ %.promoted2808, %455 ], [ %.promoted2808, %331 ], [ %.promoted2808, %242 ], [ %.promoted2808, %344 ], [ %.promoted2808, %348 ], [ %.promoted2808, %354 ], [ %.promoted2808, %360 ], [ %.promoted2808, %364 ], [ %.promoted2808, %507 ], [ %.promoted2808, %382 ], [ %.promoted2808, %253 ], [ %.promoted2808, %254 ], [ %.promoted2808, %386 ], [ %.promoted2808, %263 ], [ %.promoted2808, %264 ], [ %.promoted2808, %515 ], [ %.promoted2808, %447 ], [ %.promoted2808, %266 ], [ %.promoted2808, %451 ], [ %.promoted2808, %270 ], [ %.promoted2808, %250 ], [ %.promoted2808, %260 ], [ %.promoted2808, %343 ], [ %.promoted2808, %347 ], [ %.promoted2808, %357 ]
+  %.promoted28084874 = phi ptr [ %.promoted28084875, %103 ], [ %.promoted2808, %501 ], [ %.promoted2808, %455 ], [ %.promoted2808, %331 ], [ %.promoted2808, %242 ], [ %.promoted2808, %344 ], [ %.promoted2808, %348 ], [ %.promoted2808, %354 ], [ %.promoted2808, %360 ], [ %.promoted2808, %364 ], [ %.promoted2808, %507 ], [ %.promoted2808, %382 ], [ %.promoted2808, %253 ], [ %.promoted2808, %254 ], [ %.promoted2808, %386 ], [ %.promoted2808, %263 ], [ %.promoted2808, %264 ], [ %.promoted2808, %515 ], [ %.promoted2808, %447 ], [ %.promoted2808, %266 ], [ %.promoted2808, %451 ], [ %.promoted2808, %270 ], [ %.promoted2808, %250 ], [ %.promoted2808, %260 ], [ %.promoted2808, %343 ], [ %.promoted2808, %347 ], [ %.promoted2808, %357 ]
   %106 = phi ptr [ %101, %103 ], [ %504, %501 ], [ %456, %455 ], [ %332, %331 ], [ %243, %242 ], [ %336, %344 ], [ %336, %348 ], [ %336, %354 ], [ %336, %360 ], [ %336, %364 ], [ %508, %507 ], [ %383, %382 ], [ %247, %253 ], [ %247, %254 ], [ %387, %386 ], [ %257, %263 ], [ %257, %264 ], [ %516, %515 ], [ %448, %447 ], [ %267, %266 ], [ %452, %451 ], [ %271, %270 ], [ %247, %250 ], [ %257, %260 ], [ %336, %343 ], [ %336, %347 ], [ %336, %357 ]
   %.01835 = phi i8 [ %104, %103 ], [ %505, %501 ], [ %457, %455 ], [ %333, %331 ], [ %244, %242 ], [ %337, %344 ], [ %337, %348 ], [ %337, %354 ], [ %337, %360 ], [ %337, %364 ], [ %509, %507 ], [ %384, %382 ], [ %248, %253 ], [ %248, %254 ], [ %388, %386 ], [ %258, %263 ], [ %258, %264 ], [ %517, %515 ], [ %449, %447 ], [ %268, %266 ], [ %453, %451 ], [ %272, %270 ], [ %248, %250 ], [ %258, %260 ], [ %337, %343 ], [ %337, %347 ], [ %337, %357 ]
   %107 = zext i8 %.01835 to i64
@@ -447,7 +447,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond81, label %.preheader2321, label %.loopexit2448
 
 .preheader2321:                                   ; preds = %215, %423, %496, %552, %111
-  %.promoted28084874 = phi ptr [ %.promoted2808, %215 ], [ %.promoted2808, %423 ], [ %.promoted2808, %496 ], [ %.promoted2808, %552 ], [ %.promoted28084875, %111 ]
+  %.promoted28084873 = phi ptr [ %.promoted2808, %215 ], [ %.promoted2808, %423 ], [ %.promoted2808, %496 ], [ %.promoted2808, %552 ], [ %.promoted28084874, %111 ]
   %.promoted2790 = phi ptr [ %181, %215 ], [ %391, %423 ], [ %464, %496 ], [ %520, %552 ], [ %106, %111 ]
   %113 = getelementptr inbounds nuw i8, ptr %.promoted2790, i64 1
   store ptr %113, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
@@ -455,10 +455,10 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %114, label %.thread2298, label %.lr.ph2791
 
 .loopexit2448:                                    ; preds = %191, %207, %198, %217, %201, %111
-  %.promoted28084880 = phi ptr [ %.promoted2808, %207 ], [ %.promoted2808, %198 ], [ %.promoted2808, %217 ], [ %.promoted2808, %201 ], [ %.promoted28084875, %111 ], [ %.promoted2808, %191 ]
+  %.promoted28084879 = phi ptr [ %.promoted2808, %207 ], [ %.promoted2808, %198 ], [ %.promoted2808, %217 ], [ %.promoted2808, %201 ], [ %.promoted28084874, %111 ], [ %.promoted2808, %191 ]
   %115 = phi ptr [ %181, %207 ], [ %181, %198 ], [ %181, %217 ], [ %181, %201 ], [ %106, %111 ], [ %181, %191 ]
   %116 = ptrtoint ptr %115 to i64
-  %117 = ptrtoint ptr %.promoted28084880 to i64
+  %117 = ptrtoint ptr %.promoted28084879 to i64
   %118 = sub i64 %116, %117
   %119 = trunc i64 %118 to i32
   store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
@@ -467,7 +467,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 .lr.ph2781:                                       ; preds = %.loopexit2448, %122
   %storemerge22432779 = phi i32 [ %124, %122 ], [ %119, %.loopexit2448 ]
-  %120 = phi ptr [ %123, %122 ], [ %.promoted28084880, %.loopexit2448 ]
+  %120 = phi ptr [ %123, %122 ], [ %.promoted28084879, %.loopexit2448 ]
   %121 = load i8, ptr %120, align 1, !tbaa !14
   switch i8 %121, label %.lr.ph2786 [
     i8 32, label %122
@@ -511,7 +511,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.critedge
 
 .critedge:                                        ; preds = %122, %.critedge.loopexit, %.loopexit2448
-  %131 = phi ptr [ %120, %.critedge.loopexit ], [ %.promoted28084880, %.loopexit2448 ], [ %123, %122 ]
+  %131 = phi ptr [ %120, %.critedge.loopexit ], [ %.promoted28084879, %.loopexit2448 ], [ %123, %122 ]
   %.lcssa2462 = phi i64 [ %130, %.critedge.loopexit ], [ 0, %.loopexit2448 ], [ 0, %122 ]
   %132 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
   %133 = trunc nuw i8 %132 to i1
@@ -692,7 +692,7 @@ zend_string_alloc.exit2282:                       ; preds = %136, %138
   ]
 
 .preheader2324.preheader:                         ; preds = %162, %63, %210
-  %.ph4194 = phi ptr [ %181, %210 ], [ %.promoted2808, %63 ], [ %148, %162 ]
+  %.ph4193 = phi ptr [ %181, %210 ], [ %.promoted2808, %63 ], [ %148, %162 ]
   br label %.preheader2324
 
 .preheader2326:                                   ; preds = %164, %63, %210
@@ -726,7 +726,7 @@ zend_string_alloc.exit2282:                       ; preds = %136, %138
   br label %.thread2298
 
 .preheader2324:                                   ; preds = %.preheader2324.preheader, %227
-  %224 = phi ptr [ %225, %227 ], [ %.ph4194, %.preheader2324.preheader ]
+  %224 = phi ptr [ %225, %227 ], [ %.ph4193, %.preheader2324.preheader ]
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 1
   store ptr %225, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %226 = icmp ugt ptr %225, %2
@@ -816,7 +816,7 @@ zend_string_alloc.exit2282:                       ; preds = %136, %138
   ]
 
 .preheader2349.preheader:                         ; preds = %264, %451, %515, %260
-  %.ph4245 = phi ptr [ %257, %260 ], [ %516, %515 ], [ %452, %451 ], [ %257, %264 ]
+  %.ph4244 = phi ptr [ %257, %260 ], [ %516, %515 ], [ %452, %451 ], [ %257, %264 ]
   br label %.preheader2349
 
 261:                                              ; preds = %256
@@ -873,7 +873,7 @@ zend_string_alloc.exit2282:                       ; preds = %136, %138
 
 282:                                              ; preds = %.lr.ph2791
   %283 = ptrtoint ptr %278 to i64
-  %284 = ptrtoint ptr %.promoted28084874 to i64
+  %284 = ptrtoint ptr %.promoted28084873 to i64
   %285 = sub i64 %283, %284
   %286 = trunc i64 %285 to i32
   store i32 %286, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
@@ -882,7 +882,7 @@ zend_string_alloc.exit2282:                       ; preds = %136, %138
 
 .lr.ph2796:                                       ; preds = %282, %289
   %storemerge22402794 = phi i32 [ %291, %289 ], [ %286, %282 ]
-  %287 = phi ptr [ %290, %289 ], [ %.promoted28084874, %282 ]
+  %287 = phi ptr [ %290, %289 ], [ %.promoted28084873, %282 ]
   %288 = load i8, ptr %287, align 1, !tbaa !14
   switch i8 %288, label %.lr.ph2801 [
     i8 32, label %289
@@ -927,7 +927,7 @@ zend_string_alloc.exit2282:                       ; preds = %136, %138
   br label %.critedge7
 
 .critedge7:                                       ; preds = %289, %282, %.critedge7.loopexit
-  %298 = phi ptr [ %287, %.critedge7.loopexit ], [ %.promoted28084874, %282 ], [ %290, %289 ]
+  %298 = phi ptr [ %287, %.critedge7.loopexit ], [ %.promoted28084873, %282 ], [ %290, %289 ]
   %.lcssa2459 = phi i64 [ %297, %.critedge7.loopexit ], [ 0, %282 ], [ 0, %289 ]
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %299 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
@@ -1036,7 +1036,7 @@ zend_string_alloc.exit2281:                       ; preds = %303, %305
   ]
 
 .preheader2333.preheader:                         ; preds = %386, %501, %347
-  %.ph4205 = phi ptr [ %336, %347 ], [ %504, %501 ], [ %387, %386 ]
+  %.ph4204 = phi ptr [ %336, %347 ], [ %504, %501 ], [ %387, %386 ]
   br label %.preheader2333
 
 348:                                              ; preds = %345
@@ -1131,7 +1131,7 @@ zend_string_alloc.exit2280:                       ; preds = %373, %375
   br i1 %or.cond129, label %.preheader2333.preheader, label %105
 
 .preheader2349:                                   ; preds = %.preheader2349.preheader, %408
-  %390 = phi ptr [ %391, %408 ], [ %.ph4245, %.preheader2349.preheader ]
+  %390 = phi ptr [ %391, %408 ], [ %.ph4244, %.preheader2349.preheader ]
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 1
   store ptr %391, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %392 = icmp ugt ptr %391, %2
@@ -1295,7 +1295,7 @@ zend_string_alloc.exit2279:                       ; preds = %435, %437
   br i1 %462, label %.thread2298, label %.lr.ph2773
 
 .preheader2333:                                   ; preds = %.preheader2333.preheader, %481
-  %463 = phi ptr [ %464, %481 ], [ %.ph4205, %.preheader2333.preheader ]
+  %463 = phi ptr [ %464, %481 ], [ %.ph4204, %.preheader2333.preheader ]
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 1
   store ptr %464, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %465 = icmp ugt ptr %464, %2
@@ -1584,8 +1584,8 @@ zend_string_alloc.exit2278:                       ; preds = %564, %566
 
 586:                                              ; preds = %584
   %587 = add nsw i8 %22, -9
-  %or.cond4143 = icmp ult i8 %587, 2
-  br i1 %or.cond4143, label %676, label %.loopexit
+  %or.cond4142 = icmp ult i8 %587, 2
+  br i1 %or.cond4142, label %676, label %.loopexit
 
 588:                                              ; preds = %584
   switch i8 %22, label %.loopexit [
@@ -1608,8 +1608,8 @@ zend_string_alloc.exit2278:                       ; preds = %564, %566
 595:                                              ; preds = %593
   %596 = icmp samesign ult i8 %22, 45
   %.not2206 = icmp eq i8 %22, 47
-  %or.cond4144 = or i1 %596, %.not2206
-  br i1 %or.cond4144, label %.loopexit, label %702
+  %or.cond4143 = or i1 %596, %.not2206
+  br i1 %or.cond4143, label %.loopexit, label %702
 
 597:                                              ; preds = %580
   %598 = icmp ult i8 %22, 92
@@ -1630,8 +1630,8 @@ zend_string_alloc.exit2278:                       ; preds = %564, %566
 605:                                              ; preds = %599
   %606 = icmp samesign ult i8 %22, 65
   %.not2200 = icmp eq i8 %22, 91
-  %or.cond4145 = or i1 %606, %.not2200
-  br i1 %or.cond4145, label %.loopexit, label %.preheader2316.preheader
+  %or.cond4144 = or i1 %606, %.not2200
+  br i1 %or.cond4144, label %.loopexit, label %.preheader2316.preheader
 
 607:                                              ; preds = %597
   %608 = icmp ult i8 %22, 95
@@ -1646,8 +1646,8 @@ zend_string_alloc.exit2278:                       ; preds = %564, %566
 610:                                              ; preds = %607
   %611 = icmp ne i8 %22, 96
   %612 = icmp ult i8 %22, 123
-  %or.cond4146 = and i1 %611, %612
-  br i1 %or.cond4146, label %.preheader2316.preheader, label %.loopexit
+  %or.cond4145 = and i1 %611, %612
+  br i1 %or.cond4145, label %.preheader2316.preheader, label %.loopexit
 
 .preheader2316.preheader:                         ; preds = %605, %610
   br label %.preheader2316
@@ -2306,8 +2306,8 @@ zend_string_alloc.exit2274:                       ; preds = %893, %895
 
 914:                                              ; preds = %912
   %915 = add nsw i8 %24, -9
-  %or.cond4147 = icmp ult i8 %915, 2
-  br i1 %or.cond4147, label %1006, label %.loopexit2389
+  %or.cond4146 = icmp ult i8 %915, 2
+  br i1 %or.cond4146, label %1006, label %.loopexit2389
 
 916:                                              ; preds = %912
   switch i8 %24, label %.loopexit2389 [
@@ -2330,8 +2330,8 @@ zend_string_alloc.exit2274:                       ; preds = %893, %895
 923:                                              ; preds = %921
   %924 = icmp samesign ult i8 %24, 45
   %.not2186 = icmp eq i8 %24, 47
-  %or.cond4148 = or i1 %924, %.not2186
-  br i1 %or.cond4148, label %.loopexit2389, label %1032
+  %or.cond4147 = or i1 %924, %.not2186
+  br i1 %or.cond4147, label %.loopexit2389, label %1032
 
 925:                                              ; preds = %908
   %926 = icmp ult i8 %24, 92
@@ -2352,8 +2352,8 @@ zend_string_alloc.exit2274:                       ; preds = %893, %895
 933:                                              ; preds = %927
   %934 = icmp samesign ult i8 %24, 65
   %.not2180 = icmp eq i8 %24, 91
-  %or.cond4149 = or i1 %934, %.not2180
-  br i1 %or.cond4149, label %.loopexit2389, label %.preheader2399.preheader
+  %or.cond4148 = or i1 %934, %.not2180
+  br i1 %or.cond4148, label %.loopexit2389, label %.preheader2399.preheader
 
 935:                                              ; preds = %925
   %936 = icmp ult i8 %24, 95
@@ -2374,8 +2374,8 @@ zend_string_alloc.exit2274:                       ; preds = %893, %895
 940:                                              ; preds = %935
   %941 = icmp ne i8 %24, 96
   %942 = icmp ult i8 %24, 123
-  %or.cond4150 = and i1 %941, %942
-  br i1 %or.cond4150, label %.preheader2399.preheader, label %.loopexit2389
+  %or.cond4149 = and i1 %941, %942
+  br i1 %or.cond4149, label %.preheader2399.preheader, label %.loopexit2389
 
 .preheader2399.preheader:                         ; preds = %933, %940
   br label %.preheader2399
@@ -2628,7 +2628,7 @@ zend_string_alloc.exit2273:                       ; preds = %971, %973
   ]
 
 .preheader2393.preheader:                         ; preds = %1032, %1054
-  %.ph4333 = phi ptr [ %1037, %1054 ], [ %1033, %1032 ]
+  %.ph4332 = phi ptr [ %1037, %1054 ], [ %1033, %1032 ]
   br label %.preheader2393
 
 1055:                                             ; preds = %1052
@@ -2912,7 +2912,7 @@ zend_string_alloc.exit2271:                       ; preds = %1119, %1121
   br i1 %.not2189, label %1219, label %.preheader2391
 
 .preheader2393:                                   ; preds = %.preheader2393.preheader, %1201
-  %1183 = phi ptr [ %1184, %1201 ], [ %.ph4333, %.preheader2393.preheader ]
+  %1183 = phi ptr [ %1184, %1201 ], [ %.ph4332, %.preheader2393.preheader ]
   %1184 = getelementptr inbounds nuw i8, ptr %1183, i64 1
   store ptr %1184, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   store ptr %1184, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
@@ -3083,16 +3083,16 @@ zend_string_alloc.exit2270:                       ; preds = %1243, %1245
     i8 39, label %1413
     i8 45, label %1416
     i8 46, label %1416
-    i8 48, label %.preheader4306
-    i8 49, label %.preheader4306
-    i8 50, label %.preheader4306
-    i8 51, label %.preheader4306
-    i8 52, label %.preheader4306
-    i8 53, label %.preheader4306
-    i8 54, label %.preheader4306
-    i8 55, label %.preheader4306
-    i8 56, label %.preheader4306
-    i8 57, label %.preheader4306
+    i8 48, label %.preheader4305
+    i8 49, label %.preheader4305
+    i8 50, label %.preheader4305
+    i8 51, label %.preheader4305
+    i8 52, label %.preheader4305
+    i8 53, label %.preheader4305
+    i8 54, label %.preheader4305
+    i8 55, label %.preheader4305
+    i8 56, label %.preheader4305
+    i8 57, label %.preheader4305
     i8 59, label %.preheader2374.preheader
     i8 61, label %1489
     i8 65, label %.preheader2361
@@ -3149,7 +3149,7 @@ zend_string_alloc.exit2270:                       ; preds = %1243, %1245
     i8 89, label %1725
   ]
 
-.preheader4306:                                   ; preds = %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258
+.preheader4305:                                   ; preds = %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258
   br label %1420
 
 1259:                                             ; preds = %1258, %1258, %1258, %1258, %1258, %1258, %1258, %1258
@@ -3303,7 +3303,7 @@ zend_string_alloc.exit2269:                       ; preds = %1297, %1299
   br i1 %1326, label %.preheader2374.preheader, label %1327
 
 .preheader2374.preheader:                         ; preds = %1258, %1325
-  %.ph4311 = phi ptr [ %1309, %1325 ], [ %.promoted2808, %1258 ]
+  %.ph4310 = phi ptr [ %1309, %1325 ], [ %.promoted2808, %1258 ]
   br label %.preheader2374
 
 1327:                                             ; preds = %1319, %1325, %1323, %1315
@@ -3486,8 +3486,8 @@ zend_string_alloc.exit2268:                       ; preds = %1359, %1361
   %or.cond255 = icmp ult i8 %1419, 10
   br i1 %or.cond255, label %.preheader2371.preheader, label %1275
 
-1420:                                             ; preds = %.preheader4306, %1424
-  %1421 = phi ptr [ %1422, %1424 ], [ %.promoted2808, %.preheader4306 ]
+1420:                                             ; preds = %.preheader4305, %1424
+  %1421 = phi ptr [ %1422, %1424 ], [ %.promoted2808, %.preheader4305 ]
   %1422 = getelementptr inbounds nuw i8, ptr %1421, i64 1
   store ptr %1422, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   store ptr %1422, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
@@ -3554,7 +3554,7 @@ zend_string_alloc.exit2268:                       ; preds = %1359, %1361
   ]
 
 .preheader2371.preheader:                         ; preds = %1416, %1448
-  %.ph4295 = phi ptr [ %1422, %1448 ], [ %1417, %1416 ]
+  %.ph4294 = phi ptr [ %1422, %1448 ], [ %1417, %1416 ]
   br label %.preheader2371
 
 1449:                                             ; preds = %1446
@@ -3628,7 +3628,7 @@ zend_string_alloc.exit2267:                       ; preds = %1470, %1472
   br label %.thread2298
 
 .preheader2374:                                   ; preds = %.preheader2374.preheader, %1485
-  %1482 = phi ptr [ %1483, %1485 ], [ %.ph4311, %.preheader2374.preheader ]
+  %1482 = phi ptr [ %1483, %1485 ], [ %.ph4310, %.preheader2374.preheader ]
   %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 1
   store ptr %1483, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1484 = icmp ugt ptr %1483, %2
@@ -4365,7 +4365,7 @@ zend_string_alloc.exit2266:                       ; preds = %1545, %1547
   br i1 %.not2168, label %2176, label %.preheader2369
 
 .preheader2371:                                   ; preds = %.preheader2371.preheader, %1822
-  %1796 = phi ptr [ %1797, %1822 ], [ %.ph4295, %.preheader2371.preheader ]
+  %1796 = phi ptr [ %1797, %1822 ], [ %.ph4294, %.preheader2371.preheader ]
   %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 1
   store ptr %1797, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   store ptr %1797, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
@@ -6336,8 +6336,8 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
 
 2653:                                             ; preds = %2651
   %2654 = add nsw i8 %30, -9
-  %or.cond4151 = icmp ult i8 %2654, 2
-  br i1 %or.cond4151, label %2748, label %.loopexit2421
+  %or.cond4150 = icmp ult i8 %2654, 2
+  br i1 %or.cond4150, label %2748, label %.loopexit2421
 
 2655:                                             ; preds = %2651
   switch i8 %30, label %.loopexit2421 [
@@ -6360,8 +6360,8 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
 2662:                                             ; preds = %2660
   %2663 = icmp samesign ult i8 %30, 45
   %.not2087 = icmp eq i8 %30, 47
-  %or.cond4152 = or i1 %2663, %.not2087
-  br i1 %or.cond4152, label %.loopexit2421, label %2771
+  %or.cond4151 = or i1 %2663, %.not2087
+  br i1 %or.cond4151, label %.loopexit2421, label %2771
 
 2664:                                             ; preds = %2647
   %2665 = icmp ult i8 %30, 93
@@ -6659,7 +6659,7 @@ zend_string_alloc.exit2260:                       ; preds = %2714, %2716
   ]
 
 .preheader2423.preheader:                         ; preds = %2771, %2796
-  %.ph4388 = phi ptr [ %2776, %2796 ], [ %2772, %2771 ]
+  %.ph4387 = phi ptr [ %2776, %2796 ], [ %2772, %2771 ]
   br label %.preheader2423
 
 2797:                                             ; preds = %2791
@@ -6890,7 +6890,7 @@ zend_string_alloc.exit2258:                       ; preds = %2857, %2859
   br label %.thread2298
 
 .preheader2423:                                   ; preds = %.preheader2423.preheader, %2918
-  %2898 = phi ptr [ %2899, %2918 ], [ %.ph4388, %.preheader2423.preheader ]
+  %2898 = phi ptr [ %2899, %2918 ], [ %.ph4387, %.preheader2423.preheader ]
   %2899 = getelementptr inbounds nuw i8, ptr %2898, i64 1
   store ptr %2899, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   store ptr %2899, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
@@ -7270,7 +7270,7 @@ zend_string_alloc.exit2257:                       ; preds = %3006, %3008
   br i1 %3045, label %.preheader2434.preheader, label %.loopexit2444
 
 .preheader2434.preheader:                         ; preds = %3179, %3044
-  %.ph4424 = phi ptr [ %.promoted2808, %3044 ], [ %3171, %3179 ]
+  %.ph4423 = phi ptr [ %.promoted2808, %3044 ], [ %3171, %3179 ]
   br label %.preheader2434
 
 3046:                                             ; preds = %3036
@@ -7559,7 +7559,7 @@ zend_string_alloc.exit:                           ; preds = %3121, %3123
   br i1 %3161, label %.loopexit2446, label %3149
 
 .preheader2434:                                   ; preds = %.preheader2434.preheader, %3165
-  %3162 = phi ptr [ %3163, %3165 ], [ %.ph4424, %.preheader2434.preheader ]
+  %3162 = phi ptr [ %3163, %3165 ], [ %.ph4423, %.preheader2434.preheader ]
   %3163 = getelementptr inbounds nuw i8, ptr %3162, i64 1
   store ptr %3163, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %3164 = icmp ugt ptr %3163, %2
@@ -7637,8 +7637,8 @@ zend_string_alloc.exit:                           ; preds = %3121, %3123
   br i1 %3195, label %3180, label %3184
 
 3196:                                             ; preds = %3177, %3179, %154, %162, %164, %158
-  %.lcssa3588.sink = phi ptr [ %148, %158 ], [ %148, %164 ], [ %148, %162 ], [ %148, %154 ], [ %3171, %3179 ], [ %3171, %3177 ]
-  %3197 = ptrtoint ptr %.lcssa3588.sink to i64
+  %.lcssa3587.sink = phi ptr [ %148, %158 ], [ %148, %164 ], [ %148, %162 ], [ %148, %154 ], [ %3171, %3179 ], [ %3171, %3177 ]
+  %3197 = ptrtoint ptr %.lcssa3587.sink to i64
   %3198 = ptrtoint ptr %.promoted2808 to i64
   %3199 = sub i64 %3197, %3198
   %storemerge2301 = trunc i64 %3199 to i32

@@ -2013,8 +2013,8 @@ _get_image_list.exit:                             ; preds = %15, %1
   call void @free(ptr noundef %13) #17
   %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
   %36 = and i32 %35, 256
-  %.not73 = icmp eq i32 %36, 0
-  br i1 %.not73, label %38, label %37
+  %.not72 = icmp eq i32 %36, 0
+  br i1 %.not72, label %38, label %37
 
 37:                                               ; preds = %30
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.48, i32 noundef 1249, ptr noundef nonnull @__FUNCTION__.dt_control_delete_images_job_run, ptr noundef nonnull @.str.106) #17
@@ -2024,8 +2024,8 @@ _get_image_list.exit:                             ; preds = %15, %1
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !79
   %40 = call ptr @dt_database_get(ptr noundef %39) #17
   %41 = call i32 @sqlite3_prepare_v2(ptr noundef %40, ptr noundef nonnull @.str.106, i32 noundef -1, ptr noundef nonnull %7, ptr noundef null) #17
-  %.not74 = icmp eq i32 %41, 0
-  br i1 %.not74, label %48, label %42
+  %.not73 = icmp eq i32 %41, 0
+  br i1 %.not73, label %48, label %42
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @stderr, align 8, !tbaa !80
@@ -2042,11 +2042,11 @@ _get_image_list.exit:                             ; preds = %15, %1
   br label %52
 
 52:                                               ; preds = %_update_progress.exit, %48
-  %.084 = phi nsz double [ 0.000000e+00, %48 ], [ %.1, %_update_progress.exit ]
+  %.083 = phi nsz double [ 0.000000e+00, %48 ], [ %.1, %_update_progress.exit ]
   %.060 = phi nsz double [ 0.000000e+00, %48 ], [ %114, %_update_progress.exit ]
   %.0 = phi ptr [ %10, %48 ], [ %113, %_update_progress.exit ]
-  %.not75 = icmp eq ptr %.0, null
-  br i1 %.not75, label %131, label %53
+  %.not74 = icmp eq ptr %.0, null
+  br i1 %.not74, label %131, label %53
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %.0, align 8, !tbaa !61
@@ -2054,15 +2054,15 @@ _get_image_list.exit:                             ; preds = %15, %1
   %56 = trunc i64 %55 to i32
   %57 = call ptr @dt_overlay_get_used_in_imgs(i32 noundef %56, i32 noundef 1) #17
   %.not11.i = icmp eq ptr %57, null
-  br i1 %.not11.i, label %_count_images_using_overlay.exit.thread, label %.lr.ph.i82
+  br i1 %.not11.i, label %_count_images_using_overlay.exit.thread, label %.lr.ph.i81
 
 _count_images_using_overlay.exit.thread:          ; preds = %53
   call void @g_list_free(ptr noundef null) #17
   br label %69
 
-.lr.ph.i82:                                       ; preds = %53, %.lr.ph.i82
-  %.013.i = phi i32 [ %spec.select.i, %.lr.ph.i82 ], [ 0, %53 ]
-  %.0912.i = phi ptr [ %64, %.lr.ph.i82 ], [ %57, %53 ]
+.lr.ph.i81:                                       ; preds = %53, %.lr.ph.i81
+  %.013.i = phi i32 [ %spec.select.i, %.lr.ph.i81 ], [ 0, %53 ]
+  %.0912.i = phi ptr [ %64, %.lr.ph.i81 ], [ %57, %53 ]
   %58 = load ptr, ptr %.0912.i, align 8, !tbaa !61
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
@@ -2072,13 +2072,13 @@ _count_images_using_overlay.exit.thread:          ; preds = %53
   %spec.select.i = add nuw nsw i32 %.013.i, %62
   %63 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !63
-  %.not.i83 = icmp eq ptr %64, null
-  br i1 %.not.i83, label %_count_images_using_overlay.exit, label %.lr.ph.i82
+  %.not.i82 = icmp eq ptr %64, null
+  br i1 %.not.i82, label %_count_images_using_overlay.exit, label %.lr.ph.i81
 
-_count_images_using_overlay.exit:                 ; preds = %.lr.ph.i82
+_count_images_using_overlay.exit:                 ; preds = %.lr.ph.i81
   call void @g_list_free(ptr noundef nonnull %57) #17
-  %.not86 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not86, label %69, label %65
+  %.not85 = icmp eq i32 %spec.select.i, 0
+  br i1 %.not85, label %69, label %65
 
 65:                                               ; preds = %_count_images_using_overlay.exit
   %66 = call ptr @dt_image_get_filename(i32 noundef %56) #17
@@ -2093,8 +2093,8 @@ _count_images_using_overlay.exit:                 ; preds = %.lr.ph.i82
   call void @dt_image_full_path(i32 noundef %56, ptr noundef nonnull %8, i64 noundef 4096, ptr noundef null) #17
   %70 = load ptr, ptr %7, align 8, !tbaa !82
   %71 = call i32 @sqlite3_bind_int(ptr noundef %70, i32 noundef 1, i32 noundef %56) #17
-  %.not76 = icmp eq i32 %71, 0
-  br i1 %.not76, label %78, label %72
+  %.not75 = icmp eq i32 %71, 0
+  br i1 %.not75, label %78, label %72
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr @stderr, align 8, !tbaa !80
@@ -2122,8 +2122,8 @@ _count_images_using_overlay.exit:                 ; preds = %.lr.ph.i82
 
 90:                                               ; preds = %83
   %91 = call i32 @dt_image_local_copy_reset(i32 noundef %56) #17
-  %.not77 = icmp eq i32 %91, 0
-  br i1 %.not77, label %92, label %111
+  %.not76 = icmp eq i32 %91, 0
+  br i1 %.not76, label %92, label %111
 
 92:                                               ; preds = %90
   %93 = call fastcc i32 @delete_file_from_disk(ptr noundef nonnull %8, ptr noundef %6)
@@ -2139,21 +2139,21 @@ _count_images_using_overlay.exit:                 ; preds = %.lr.ph.i82
 
 97:                                               ; preds = %94
   %98 = call ptr @dt_image_find_duplicates(ptr noundef nonnull %8) #17
-  %.not7887 = icmp eq ptr %98, null
-  br i1 %.not7887, label %._crit_edge, label %.lr.ph
+  %.not7786 = icmp eq ptr %98, null
+  br i1 %.not7786, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %97, %101
-  %.05988 = phi ptr [ %103, %101 ], [ %98, %97 ]
-  %99 = load ptr, ptr %.05988, align 8, !tbaa !61
+  %.05987 = phi ptr [ %103, %101 ], [ %98, %97 ]
+  %99 = load ptr, ptr %.05987, align 8, !tbaa !61
   %100 = call fastcc i32 @delete_file_from_disk(ptr noundef %99, ptr noundef %6)
-  %.not79 = icmp eq i32 %100, 1
-  br i1 %.not79, label %101, label %._crit_edge
+  %.not78 = icmp eq i32 %100, 1
+  br i1 %.not78, label %101, label %._crit_edge
 
 101:                                              ; preds = %.lr.ph
-  %102 = getelementptr inbounds nuw i8, ptr %.05988, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.05987, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !63
-  %.not78 = icmp eq ptr %103, null
-  br i1 %.not78, label %._crit_edge, label %.lr.ph
+  %.not77 = icmp eq ptr %103, null
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %101, %.lr.ph, %97
   %.2 = phi i32 [ 1, %97 ], [ %100, %.lr.ph ], [ 1, %101 ]
@@ -2190,7 +2190,7 @@ _count_images_using_overlay.exit:                 ; preds = %.lr.ph.i82
   %121 = fmul reassoc nsz arcp contract afn double %120, 0x3EB0C6F7A0B5ED8D
   %122 = fadd reassoc nsz arcp contract afn double %121, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %123 = fadd reassoc nsz arcp contract afn double %.084, 5.000000e-01
+  %123 = fadd reassoc nsz arcp contract afn double %.083, 5.000000e-01
   %124 = fcmp reassoc nsz arcp contract afn ogt double %122, %123
   br i1 %124, label %125, label %_update_progress.exit
 
@@ -2203,25 +2203,25 @@ _count_images_using_overlay.exit:                 ; preds = %.lr.ph.i82
   br label %_update_progress.exit
 
 _update_progress.exit:                            ; preds = %111, %125
-  %.1 = phi nsz double [ %122, %125 ], [ %.084, %111 ]
+  %.1 = phi nsz double [ %122, %125 ], [ %.083, %111 ]
   %130 = icmp eq i32 %.065, 4
   br i1 %130, label %131, label %52
 
 131:                                              ; preds = %_update_progress.exit, %52
   %132 = load ptr, ptr %7, align 8, !tbaa !82
   %133 = call i32 @sqlite3_finalize(ptr noundef %132) #17
-  %.not8091 = icmp eq ptr %34, null
-  br i1 %.not8091, label %._crit_edge95, label %.lr.ph94
+  %.not7990 = icmp eq ptr %34, null
+  br i1 %.not7990, label %._crit_edge94, label %.lr.ph93
 
-.lr.ph94:                                         ; preds = %131, %.lr.ph94
-  %.06292 = phi ptr [ %135, %.lr.ph94 ], [ %34, %131 ]
-  %134 = load ptr, ptr %.06292, align 8, !tbaa !61
+.lr.ph93:                                         ; preds = %131, %.lr.ph93
+  %.06291 = phi ptr [ %135, %.lr.ph93 ], [ %34, %131 ]
+  %134 = load ptr, ptr %.06291, align 8, !tbaa !61
   call void @dt_image_synch_all_xmp(ptr noundef %134) #17
-  %135 = call ptr @g_list_delete_link(ptr noundef nonnull %.06292, ptr noundef nonnull %.06292) #17
-  %.not80 = icmp eq ptr %135, null
-  br i1 %.not80, label %._crit_edge95, label %.lr.ph94
+  %135 = call ptr @g_list_delete_link(ptr noundef nonnull %.06291, ptr noundef nonnull %.06291) #17
+  %.not79 = icmp eq ptr %135, null
+  br i1 %.not79, label %._crit_edge94, label %.lr.ph93
 
-._crit_edge95:                                    ; preds = %.lr.ph94, %131
+._crit_edge94:                                    ; preds = %.lr.ph93, %131
   call void @g_list_free(ptr noundef null) #17
   call void (...) @dt_film_remove_empty() #17
   %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
@@ -2236,17 +2236,17 @@ _update_progress.exit:                            ; preds = %111, %125
   %or.cond3 = select i1 %141, i1 %143, i1 false
   br i1 %or.cond3, label %144, label %148
 
-144:                                              ; preds = %._crit_edge95
+144:                                              ; preds = %._crit_edge94
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
   %146 = and i32 %145, 1048576
-  %.not81 = icmp eq i32 %146, 0
-  br i1 %.not81, label %148, label %147
+  %.not80 = icmp eq i32 %146, 0
+  br i1 %.not80, label %148, label %147
 
 147:                                              ; preds = %144
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 1362, ptr noundef nonnull @__FUNCTION__.dt_control_delete_images_job_run) #17
   br label %148
 
-148:                                              ; preds = %144, %147, %._crit_edge95
+148:                                              ; preds = %144, %147, %._crit_edge94
   %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %149, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17

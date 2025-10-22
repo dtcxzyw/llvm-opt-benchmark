@@ -5375,7 +5375,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
   %81 = fmul double %74, %74
   %82 = tail call double @llvm.fmuladd.f64(double %71, double %71, double %81)
   %83 = tail call double @llvm.fmuladd.f64(double %77, double %77, double %82)
-  %sqrt.i32.i = tail call noundef double @llvm.sqrt.f64(double %83)
+  %sqrt.i31.i = tail call noundef double @llvm.sqrt.f64(double %83)
   %84 = fcmp oeq double %80, 0.000000e+00
   %85 = fcmp oeq double %83, 0.000000e+00
   %or.cond.i = or i1 %84, %85
@@ -5390,10 +5390,10 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
 
 88:                                               ; preds = %87, %86, %39
   %.025.i = phi double [ %.1.i, %87 ], [ %.1.i, %86 ], [ %sqrt.i.i, %39 ]
-  %.024.i = phi double [ 0x3EB0C6F7A0B5ED8D, %87 ], [ %sqrt.i32.i, %86 ], [ %sqrt.i32.i, %39 ]
-  %89 = fmul double %58, %sqrt.i32.i
-  %90 = fmul double %63, %sqrt.i32.i
-  %91 = fmul double %68, %sqrt.i32.i
+  %.024.i = phi double [ 0x3EB0C6F7A0B5ED8D, %87 ], [ %sqrt.i31.i, %86 ], [ %sqrt.i31.i, %39 ]
+  %89 = fmul double %58, %sqrt.i31.i
+  %90 = fmul double %63, %sqrt.i31.i
+  %91 = fmul double %68, %sqrt.i31.i
   %92 = fmul double %71, %sqrt.i.i
   %93 = fmul double %74, %sqrt.i.i
   %94 = fmul double %sqrt.i.i, %77
@@ -7434,7 +7434,7 @@ define noundef double @_ZN4ARAP13CurrentEnergyEv(ptr noundef nonnull readonly al
   %54 = fmul double %47, %47
   %55 = call double @llvm.fmuladd.f64(double %44, double %44, double %54)
   %56 = call double @llvm.fmuladd.f64(double %50, double %50, double %55)
-  %sqrt.i32.i = call noundef double @llvm.sqrt.f64(double %56)
+  %sqrt.i31.i = call noundef double @llvm.sqrt.f64(double %56)
   %57 = fcmp oeq double %53, 0.000000e+00
   %58 = fcmp oeq double %56, 0.000000e+00
   %or.cond.i = or i1 %57, %58
@@ -7449,10 +7449,10 @@ define noundef double @_ZN4ARAP13CurrentEnergyEv(ptr noundef nonnull readonly al
 
 61:                                               ; preds = %60, %59, %20
   %.025.i = phi double [ %.1.i, %60 ], [ %.1.i, %59 ], [ %sqrt.i.i, %20 ]
-  %.024.i = phi double [ 0x3EB0C6F7A0B5ED8D, %60 ], [ %sqrt.i32.i, %59 ], [ %sqrt.i32.i, %20 ]
-  %62 = fmul double %31, %sqrt.i32.i
-  %63 = fmul double %36, %sqrt.i32.i
-  %64 = fmul double %41, %sqrt.i32.i
+  %.024.i = phi double [ 0x3EB0C6F7A0B5ED8D, %60 ], [ %sqrt.i31.i, %59 ], [ %sqrt.i31.i, %20 ]
+  %62 = fmul double %31, %sqrt.i31.i
+  %63 = fmul double %36, %sqrt.i31.i
+  %64 = fmul double %41, %sqrt.i31.i
   %65 = fmul double %44, %sqrt.i.i
   %66 = fmul double %47, %sqrt.i.i
   %67 = fmul double %sqrt.i.i, %50
@@ -8237,7 +8237,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE7reserveEm.exit.i: ; 
   %310 = fmul double %303, %303
   %311 = call double @llvm.fmuladd.f64(double %300, double %300, double %310)
   %312 = call double @llvm.fmuladd.f64(double %306, double %306, double %311)
-  %sqrt.i32.i.i = call noundef double @llvm.sqrt.f64(double %312)
+  %sqrt.i31.i.i = call noundef double @llvm.sqrt.f64(double %312)
   %313 = fcmp oeq double %309, 0.000000e+00
   %314 = fcmp oeq double %312, 0.000000e+00
   %or.cond.i.i = or i1 %313, %314
@@ -8252,10 +8252,10 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE7reserveEm.exit.i: ; 
 
 317:                                              ; preds = %316, %315, %272
   %.025.i.i = phi double [ %.1.i.i, %316 ], [ %.1.i.i, %315 ], [ %sqrt.i.i.i124, %272 ]
-  %.024.i.i = phi double [ 0x3EB0C6F7A0B5ED8D, %316 ], [ %sqrt.i32.i.i, %315 ], [ %sqrt.i32.i.i, %272 ]
-  %318 = fmul double %287, %sqrt.i32.i.i
-  %319 = fmul double %292, %sqrt.i32.i.i
-  %320 = fmul double %297, %sqrt.i32.i.i
+  %.024.i.i = phi double [ 0x3EB0C6F7A0B5ED8D, %316 ], [ %sqrt.i31.i.i, %315 ], [ %sqrt.i31.i.i, %272 ]
+  %318 = fmul double %287, %sqrt.i31.i.i
+  %319 = fmul double %292, %sqrt.i31.i.i
+  %320 = fmul double %297, %sqrt.i31.i.i
   %321 = fmul double %300, %sqrt.i.i.i124
   %322 = fmul double %303, %sqrt.i.i.i124
   %323 = fmul double %sqrt.i.i.i124, %306

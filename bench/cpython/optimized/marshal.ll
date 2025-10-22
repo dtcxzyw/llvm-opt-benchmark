@@ -5263,7 +5263,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @_Py_hashtable_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @r_string(i64 noundef range(i64 -9223372036854775808, 2147483648) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
+define internal fastcc ptr @r_string(i64 noundef range(i64 -2147483648, 2147483648) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.Py_buffer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !48

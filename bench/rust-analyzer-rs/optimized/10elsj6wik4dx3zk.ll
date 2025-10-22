@@ -11929,7 +11929,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %52 = alloca { i8, [23 x i8] }, align 8
   %53 = alloca { i8, [23 x i8] }, align 8
   %54 = load i8, ptr %1, align 8, !range !25, !noundef !4
-  switch i8 %54, label %default.unreachable76 [
+  switch i8 %54, label %default.unreachable75 [
     i8 0, label %55
     i8 1, label %61
     i8 2, label %68
@@ -11954,7 +11954,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
     i8 21, label %223
   ]
 
-default.unreachable76:                            ; preds = %.lr.ph.i, %3
+default.unreachable75:                            ; preds = %.lr.ph.i, %3
   unreachable
 
 55:                                               ; preds = %3
@@ -12527,7 +12527,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h370311680a0df429E.exit: 
   call void @llvm.experimental.noalias.scope.decl(metadata !3922)
   call void @llvm.experimental.noalias.scope.decl(metadata !3925)
   %260 = load i8, ptr %255, align 8, !range !25, !alias.scope !3928, !noalias !3929, !noundef !4
-  switch i8 %260, label %default.unreachable76 [
+  switch i8 %260, label %default.unreachable75 [
     i8 0, label %261
     i8 1, label %264
     i8 2, label %267
