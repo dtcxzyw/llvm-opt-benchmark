@@ -1208,12 +1208,12 @@ lj_debug_line.exit:                               ; preds = %3, %21, %25, %32, %
 
 51:                                               ; preds = %lj_debug_line.exit
   %52 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #11
-  br label %79
+  br label %78
 
 53:                                               ; preds = %lj_debug_line.exit
   %54 = load i8, ptr %7, align 1, !tbaa !15
   %55 = icmp eq i8 %54, 64
-  br i1 %55, label %56, label %68
+  br i1 %55, label %56, label %67
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 25
@@ -1221,7 +1221,7 @@ lj_debug_line.exit:                               ; preds = %3, %21, %25, %32, %
   %.not38 = icmp eq i32 %.03337, 0
   br i1 %.not38, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %56
+.lr.ph.preheader:; preds = %56
   %58 = zext i32 %.03337 to i64
   br label %.lr.ph
 
@@ -1242,38 +1242,38 @@ lj_debug_line.exit:                               ; preds = %3, %21, %25, %32, %
     i8 92, label %64
   ], !llvm.loop !55
 
-64:                                               ; preds = %.lr.ph, %.lr.ph
-  %65 = zext i32 %.033.in39 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %57, i64 %65
+63:                                               ; preds = %.lr.ph, %.lr.ph
+  %64 = zext i32 %.033.in39 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %56, %64
-  %.0 = phi ptr [ %66, %64 ], [ %57, %56 ], [ %57, %59 ]
-  %67 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %.0, i32 noundef %.1.i) #11
-  br label %79
+.loopexit:                                        ; preds = %59, %56, %63
+  %.0 = phi ptr [ %65, %64 ], [ %57, %56 ], [ %57, %59 ]
+  %66 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %.0, i32 noundef %.1.i) #11
+  br label %78
 
-68:                                               ; preds = %53
-  %69 = icmp ugt i32 %9, 40
-  br i1 %69, label %70, label %72
+67:                                               ; preds = %53
+  %68 = icmp ugt i32 %9, 40
+  br i1 %68, label %69, label %71
 
-70:                                               ; preds = %68
-  %71 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull %1, i32 noundef %.1.i) #11
-  br label %79
+69:                                               ; preds = %67
+  %70 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull %1, i32 noundef %.1.i) #11
+  br label %78
 
-72:                                               ; preds = %68
-  %73 = icmp eq i8 %54, 61
-  br i1 %73, label %74, label %77
+71:                                               ; preds = %67
+  %72 = icmp eq i8 %54, 61
+  br i1 %72, label %73, label %76
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %76 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %75, i32 noundef %.1.i) #11
-  br label %79
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  %75 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %74, i32 noundef %.1.i) #11
+  br label %78
 
-77:                                               ; preds = %72
-  %78 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, i32 noundef %.1.i) #11
-  br label %79
+76:                                               ; preds = %71
+  %77 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, i32 noundef %.1.i) #11
+  br label %78
 
-79:                                               ; preds = %.loopexit, %74, %77, %70, %51
+78:                                               ; preds = %.loopexit, %73, %76, %69, %51
   ret void
 }
 

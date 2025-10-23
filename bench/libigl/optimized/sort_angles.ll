@@ -689,27 +689,27 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops1
   %13 = icmp eq i64 %2, 0
   br i1 %13, label %._crit_edge, label %.lr.ph27
 
-14:                                               ; preds = %.lr.ph27
+13:                                               ; preds = %.lr.ph27
   %15 = icmp eq i64 %19, 0
-  br i1 %15, label %._crit_edge, label %.lr.ph27, !llvm.loop !67
+  br i1 %15, label %16, label %19, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %14, %.lr.ph
+16:                                               ; preds = %13, %.lr.ph
   %.020.lcssa = phi ptr [ %1, %.lr.ph ], [ %23, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %4, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %4, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %4, ptr %18, align 8
   call void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_RSG_(ptr noundef %0, ptr noundef %.020.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZSt11__sort_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_RSG_(ptr noundef %0, ptr noundef %.020.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-.lr.ph27:                                         ; preds = %.lr.ph, %14
+19:                                               ; preds = %.lr.ph, %13
   %.0171926 = phi i64 [ %19, %14 ], [ %2, %.lr.ph ]
   %.02025 = phi ptr [ %23, %14 ], [ %1, %.lr.ph ]
   %18 = phi i64 [ %25, %14 ], [ %10, %.lr.ph ]

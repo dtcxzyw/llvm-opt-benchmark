@@ -2461,7 +2461,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.not20.not.not.i.not57 = icmp eq i64 %60, 0
   br i1 %.not20.not.not.i.not57, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %46
+thread-pre-split.i:                               ; preds = %46
   %indvars.iv.next.i96 = add nuw nsw i64 %56, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 8
   br i1 %exitcond.not.i97, label %.loopexit, label %thread-pre-split.i.lr.ph, !llvm.loop !178
@@ -2479,7 +2479,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 .lr.ph:                                           ; preds = %thread-pre-split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i98, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.lr.ph..loopexit.loopexit_crit_edge, label %thread-pre-split.i, !llvm.loop !178
+  br i1 %exitcond.not.i, label %.loopexit, label %thread-pre-split.i, !llvm.loop !178
 
 ._crit_edge.loopexit:                             ; preds = %thread-pre-split.i
   %62 = trunc nuw nsw i64 %indvars.iv.next.i98 to i32
@@ -2499,7 +2499,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
   store i32 %69, ptr %1, align 4, !tbaa !4
   br label %95
 
-.lr.ph..loopexit.loopexit_crit_edge:              ; preds = %.lr.ph
+.loopexit:                                        ; preds = %.lr.ph
   br label %.loopexit, !llvm.loop !178
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.lr.ph..loopexit.loopexit_crit_edge, %41

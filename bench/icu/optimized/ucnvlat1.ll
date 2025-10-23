@@ -688,18 +688,18 @@ define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UCo
 46:                                               ; preds = %41, %.thread
   %.073 = phi ptr [ %9, %.thread ], [ %spec.select, %41 ]
   %47 = icmp ult ptr %.074, %.073
-  br i1 %47, label %.lr.ph.preheader, label %.loopexit
+  br i1 %47, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %46
+.lr.ph:                                           ; preds = %46
   %48 = icmp sgt i32 %.069, 0
   br i1 %48, label %.lr.ph126, label %.loopexit.thread
 
-.lr.ph:                                           ; preds = %63
+.lr.ph:; preds = %63
   %.2 = add nsw i32 %.198123, -1
   %49 = icmp sgt i32 %.198123, 1
   br i1 %49, label %.lr.ph126, label %.loopexit.thread, !llvm.loop !52
 
-.lr.ph126:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph126:; preds = %.lr.ph.preheader, %.lr.ph
   %.17596125 = phi ptr [ %.276, %.lr.ph ], [ %.074, %.lr.ph.preheader ]
   %.17197124 = phi ptr [ %.272, %.lr.ph ], [ %.070, %.lr.ph.preheader ]
   %.198123 = phi i32 [ %.2, %.lr.ph ], [ %.069, %.lr.ph.preheader ]
@@ -730,7 +730,7 @@ define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UCo
   store i32 -127, ptr %2, align 4, !tbaa !17
   br label %89
 
-.loopexit.thread:                                 ; preds = %.lr.ph, %.lr.ph.preheader
+.loopexit.thread:                                 ; preds = %.lr.ph, %.lr.ph
   %.17197.lcssa = phi ptr [ %.070, %.lr.ph.preheader ], [ %.272, %.lr.ph ]
   %.17596.lcssa = phi ptr [ %.074, %.lr.ph.preheader ], [ %.276, %.lr.ph ]
   store i32 15, ptr %2, align 4, !tbaa !17

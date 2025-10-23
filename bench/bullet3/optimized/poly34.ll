@@ -925,7 +925,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %36 = fcmp olt float %35, 0x3E80000000000000
   br i1 %36, label %.loopexit, label %.preheader131
 
-.lr.ph:                                           ; preds = %49
+.preheader:                                       ; preds = %49
   %37 = fmul float %0, 4.000000e+00
   %38 = fmul float %1, 3.000000e+00
   %39 = fmul float %2, 2.000000e+00
@@ -952,7 +952,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %..1112 = select i1 %50, float %41, float %.1112139
   %51 = add nuw nsw i32 %.0126137, 1
   %exitcond.not = icmp eq i32 %51, 10
-  br i1 %exitcond.not, label %.lr.ph, label %.preheader131, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader, label %.preheader131, !llvm.loop !13
 
 52:                                               ; preds = %68
   %53 = fcmp ogt float %65, 0.000000e+00
@@ -962,7 +962,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %exitcond151 = icmp eq i32 %54, 52
   br i1 %exitcond151, label %.loopexit, label %55, !llvm.loop !14
 
-55:                                               ; preds = %.lr.ph, %52
+55: ; preds = %.lr.ph, %52
   %56 = phi i32 [ 11, %.lr.ph ], [ %54, %52 ]
   %.0143 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %52 ]
   %.2142 = phi float [ %41, %.lr.ph ], [ %.5, %52 ]
@@ -970,35 +970,35 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %.3120140 = phi float [ %.1118., %.lr.ph ], [ %.3120..4, %52 ]
   %57 = fcmp ugt float %.2142, %.3120140
   %58 = fcmp ult float %.2142, %.3114141
-  %or.cond = select i1 %57, i1 %58, i1 false
+  %.4 = select i1 %57, i1 %58, i1 false
   %59 = fadd float %.3120140, %.3114141
   %60 = fmul float %59, 5.000000e-01
   %.4 = select i1 %or.cond, float %.2142, float %60
   %61 = fadd float %0, %.4
-  %62 = tail call float @llvm.fmuladd.f32(float %61, float %.4, float %1)
-  %63 = tail call float @llvm.fmuladd.f32(float %62, float %.4, float %2)
+  %63 = tail call float @llvm.fmuladd.f32(float %61, float %.4, float %1)
+  %64 = tail call float @llvm.fmuladd.f32(float %63, float %.4, float %2)
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %.4, float %3)
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %.4, float %4)
   %66 = tail call noundef float @llvm.fabs.f32(float %65)
   %67 = fcmp olt float %66, 0x3E80000000000000
   br i1 %67, label %.loopexit, label %68
 
-68:                                               ; preds = %55
-  %69 = tail call float @llvm.fmuladd.f32(float %.4, float 5.000000e+00, float %37)
-  %70 = tail call float @llvm.fmuladd.f32(float %69, float %.4, float %38)
-  %71 = tail call float @llvm.fmuladd.f32(float %70, float %.4, float %39)
-  %72 = tail call float @llvm.fmuladd.f32(float %71, float %.4, float %3)
-  %73 = tail call noundef float @llvm.fabs.f32(float %72)
-  %74 = fcmp olt float %73, 0x3E80000000000000
-  %75 = fdiv float %65, %72
-  %76 = fsub float %.4, %75
-  %.5 = select i1 %74, float 0x7FF0000000000000, float %76
-  %.1 = select i1 %74, float %.0143, float %75
-  %77 = tail call noundef float @llvm.fabs.f32(float %.1)
-  %78 = fcmp ogt float %77, 0x3E80000000000000
-  br i1 %78, label %52, label %..loopexit_crit_edge, !llvm.loop !14
+68:; preds = %55
+  %68 = tail call float @llvm.fmuladd.f32(float %.4, float 5.000000e+00, float %37)
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %.4, float %38)
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float %.4, float %39)
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %.4, float %3)
+  %72 = tail call noundef float @llvm.fabs.f32(float %71)
+  %73 = fcmp olt float %72, 0x3E80000000000000
+  %74 = fdiv float %65, %71
+  %75 = fsub float %.4, %74
+  %.5 = select i1 %73, float 0x7FF0000000000000, float %75
+  %.1 = select i1 %73, float %.0143, float %74
+  %76 = tail call noundef float @llvm.fabs.f32(float %.1)
+  %77 = fcmp ogt float %76, 0x3E80000000000000
+  br i1 %77, label %52, label %.loopexit, !llvm.loop !14
 
-..loopexit_crit_edge:                             ; preds = %68
+.loopexit:                                        ; preds = %68
   br label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader131, %52, %55, %..loopexit_crit_edge, %32, %34, %5

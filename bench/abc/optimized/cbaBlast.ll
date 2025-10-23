@@ -1621,29 +1621,29 @@ declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i32 @Cba_BlastLess2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 0
-  br i1 %5, label %.lr.ph.preheader, label %._crit_edge25
+  br i1 %5, label %6, label %._crit_edge25
 
-.lr.ph.preheader:                                 ; preds = %4
+6:                                                ; preds = %4
   %6 = zext nneg i32 %3 to i64
-  br label %.lr.ph
+  br label %14
 
-7:                                                ; preds = %.lr.ph
+7:; preds = %.lr.ph
   %8 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %8, label %.lr.ph, label %._crit_edge25, !llvm.loop !54
+  br i1 %8, label %9, label %._crit_edge25, !llvm.loop !54
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+9:                                                ; preds = %6, %7
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %.024 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %7 ]
+  %.024 = phi i32 [ 0, %.lr.ph.preheader ], [ %20, %7 ]
   %.01923 = phi i32 [ 0, %.lr.ph.preheader ], [ %19, %7 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %15 = load i32, ptr %14, align 4, !tbaa !11
   %11 = xor i32 %10, 1
   %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
-  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %18 = load i32, ptr %12, align 4, !tbaa !11
   %14 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %11, i32 noundef %13) #21
-  %15 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.01923, i32 noundef %.024, i32 noundef %14) #21
-  %16 = load i32, ptr %9, align 4, !tbaa !11
+  %20 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.01923, i32 noundef %.024, i32 noundef %14) #21
+  %16 = load i32, ptr %14, align 4, !tbaa !11
   %17 = load i32, ptr %12, align 4, !tbaa !11
   %18 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %16, i32 noundef %17) #21
   %19 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.01923, i32 noundef %18) #21

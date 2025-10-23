@@ -1712,16 +1712,16 @@ define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef reado
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph.preheader:     ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %.lr.ph
 
-20:                                               ; preds = %.lr.ph
+20:; preds = %.lr.ph
   %exitcond.not = icmp eq i64 %22, %18
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+.lr.ph:; preds = %.lr.ph.preheader, %20
   %21 = phi i64 [ %24, %20 ], [ %.pre, %.lr.ph.preheader ]
   %.01216 = phi i64 [ %22, %20 ], [ 1, %.lr.ph.preheader ]
   %22 = add nuw i64 %.01216, 1

@@ -1881,41 +1881,41 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h916b0a2b8369331fE.exit4", label %.lr.ph.i
 
-6:                                                ; preds = %.lr.ph.i
+5:                                                ; preds = %7
   %7 = icmp eq i64 %9, %4
-  br i1 %7, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$wast..core..expr..Instruction$u5d$$GT$17h7ed812e5665874ceE.exit", label %.lr.ph.i
+  br i1 %7, label %.body, label %7
 
-.lr.ph.i:                                         ; preds = %1, %6
+7:                                                ; preds = %1, %5
   %.sroa.0.07.i = phi i64 [ %9, %6 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %2, i64 %.sroa.0.07.i
   %9 = add nuw i64 %.sroa.0.07.i, 1
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$wast..core..expr..Instruction$GT$17h1922c3517e072e36E"(ptr noalias noundef align 8 dereferenceable(88) %8)
-          to label %6 unwind label %13
+          to label %6 unwind label %12
 
-10:                                               ; preds = %.lr.ph10.i
+10:                                               ; preds = %14
   %11 = add i64 %.sroa.0.18.i, 1
-  %12 = icmp eq i64 %11, %4
-  br i1 %12, label %.loopexit, label %.lr.ph10.i
+  %11 = icmp eq i64 %11, %4
+  br i1 %11, label %.loopexit, label %14
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   %15 = icmp eq i64 %9, %4
   br i1 %15, label %.loopexit, label %.lr.ph10.i
 
-.lr.ph10.i:                                       ; preds = %13, %10
+14:                                               ; preds = %13, %10
   %.sroa.0.18.i = phi i64 [ %11, %10 ], [ %9, %13 ]
   %16 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %2, i64 %.sroa.0.18.i
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$wast..core..expr..Instruction$GT$17h1922c3517e072e36E"(ptr noalias noundef align 8 dereferenceable(88) %16) #10
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$wast..core..expr..Instruction$GT$17h1922c3517e072e36E"(ptr noalias noundef align 8 dereferenceable(88) %15) #10
           to label %10 unwind label %17
 
-17:                                               ; preds = %.lr.ph10.i
+17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #11
   unreachable
 
-"_ZN4core3ptr60drop_in_place$LT$$u5b$wast..core..expr..Instruction$u5d$$GT$17h7ed812e5665874ceE.exit": ; preds = %6
+.body:                                            ; preds = %6
   %19 = mul nuw nsw i64 %4, 88
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %19, i64 noundef 8) #9
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h916b0a2b8369331fE.exit4"

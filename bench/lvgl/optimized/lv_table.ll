@@ -286,10 +286,10 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %exitcond188.not208 = icmp eq i64 %63, 0
   br i1 %exitcond188.not208, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph210, !llvm.loop !38
 
-.lr.ph210:                                        ; preds = %.lr.ph162
+64:                                               ; preds = %.lr.ph162
   br label %65, !llvm.loop !38
 
-64:                                               ; preds = %65
+66:                                               ; preds = %65
   %exitcond188.not = icmp eq i64 %indvars.iv.next.i, %63
   br i1 %exitcond188.not, label %..._crit_edge.i.loopexit_crit_edge_crit_edge, label %65, !llvm.loop !38
 
@@ -303,7 +303,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %70 = icmp slt i32 %55, %69
   br i1 %70, label %._crit_edge.i.loopexit, label %64, !llvm.loop !38
 
-..._crit_edge.i.loopexit_crit_edge_crit_edge:     ; preds = %64
+.._crit_edge.i.loopexit_crit_edge:                ; preds = %64
   br label %.._crit_edge.i.loopexit_crit_edge, !llvm.loop !38
 
 .._crit_edge.i.loopexit_crit_edge:                ; preds = %..._crit_edge.i.loopexit_crit_edge_crit_edge, %.lr.ph162
@@ -345,10 +345,10 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %exitcond189.not211 = icmp eq i64 %88, 0
   br i1 %exitcond189.not211, label %.get_pressed_cell.exit.loopexit_crit_edge172, label %.lr.ph213, !llvm.loop !40
 
-.lr.ph213:                                        ; preds = %.lr.ph169
+89:                                               ; preds = %.lr.ph169
   br label %90, !llvm.loop !40
 
-89:                                               ; preds = %90
+91:                                               ; preds = %90
   %exitcond189.not = icmp eq i64 %indvars.iv.next88.i, %88
   br i1 %exitcond189.not, label %..get_pressed_cell.exit.loopexit_crit_edge172_crit_edge, label %90, !llvm.loop !40
 
@@ -362,7 +362,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %95 = icmp slt i32 %80, %94
   br i1 %95, label %get_pressed_cell.exit.loopexit, label %89, !llvm.loop !40
 
-..get_pressed_cell.exit.loopexit_crit_edge172_crit_edge: ; preds = %89
+.get_pressed_cell.exit.loopexit_crit_edge172:     ; preds = %89
   br label %.get_pressed_cell.exit.loopexit_crit_edge172, !llvm.loop !40
 
 .get_pressed_cell.exit.loopexit_crit_edge172:     ; preds = %..get_pressed_cell.exit.loopexit_crit_edge172_crit_edge, %.lr.ph169

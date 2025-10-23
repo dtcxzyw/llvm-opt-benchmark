@@ -415,7 +415,7 @@ for.body.lr.ph.i:                                 ; preds = %while.end
   %cmp5.not.i24 = icmp ugt i32 %9, %lastLocationOffset.0.lcssa
   br i1 %cmp5.not.i24, label %if.end13, label %if.then.i.preheader
 
-if.then.i.preheader:                              ; preds = %for.body.lr.ph.i
+for.body.i:                                       ; preds = %for.body.lr.ph.i
   %exitcond.not.i41 = icmp eq i32 %7, 1
   br i1 %exitcond.not.i41, label %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge, label %for.body.i.lr.ph, !llvm.loop !9
 
@@ -438,7 +438,7 @@ if.then.i:                                        ; preds = %for.body.i
 if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge: ; preds = %if.then.i
   br label %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge, !llvm.loop !9
 
-if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; preds = %if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge, %if.then.i.preheader
+if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; preds = %if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge, %for.body.i
   %indvars.iv.i25.lcssa = phi i64 [ %indvars.iv.next.i43, %if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge ], [ 0, %if.then.i.preheader ]
   br label %if.then10, !llvm.loop !9
 

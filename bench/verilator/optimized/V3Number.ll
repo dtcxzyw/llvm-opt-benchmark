@@ -12277,7 +12277,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllXEv(ptr noundef nonnull 
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5
+.lr.ph:; preds = %5
   %9 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %9, 2
   %10 = icmp samesign ult i32 %7, 129
@@ -12285,7 +12285,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllXEv(ptr noundef nonnull 
   %spec.select.i = select i1 %10, ptr %0, ptr %11
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %22, !prof !41
 
-_ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
+_ZNK12V3NumberData3numEv.exit.preheader:; preds = %.lr.ph
   %12 = and i32 %7, 31
   %.not.i = icmp eq i32 %12, 0
   %notmask.i = shl nsw i32 -1, %12
@@ -12296,11 +12296,11 @@ _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
   %17 = zext nneg i32 %16 to i64
   br label %_ZNK12V3NumberData3numEv.exit
 
-18:                                               ; preds = %_ZNK12V3NumberData3numEv.exit
+18:; preds = %_ZNK12V3NumberData3numEv.exit
   %19 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %19, label %.critedge, label %_ZNK12V3NumberData3numEv.exit, !llvm.loop !245
 
-_ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit.preheader, %18
+_ZNK12V3NumberData3numEv.exit:; preds = %_ZNK12V3NumberData3numEv.exit.preheader, %18
   %indvars.iv = phi i64 [ %17, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %18 ]
   %.0814 = phi i32 [ %14, %_ZNK12V3NumberData3numEv.exit.preheader ], [ -1, %18 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -12310,7 +12310,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !62
   %21 = and i32 %.sroa.4.0.copyload, %.sroa.0.0.copyload
   %.not = icmp eq i32 %21, %.0814
-  br i1 %.not, label %18, label %_ZNK12V3NumberData3numEv.exit..critedge.loopexit_crit_edge, !llvm.loop !245
+  br i1 %.not, label %18, label %.critedge, !llvm.loop !245
 
 22:                                               ; preds = %.lr.ph
   %23 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.95, i32 noundef 198)
@@ -12320,7 +12320,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3
   tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %26) #35
   unreachable
 
-_ZNK12V3NumberData3numEv.exit..critedge.loopexit_crit_edge: ; preds = %_ZNK12V3NumberData3numEv.exit
+.critedge:                                        ; preds = %_ZNK12V3NumberData3numEv.exit
   br label %.critedge, !llvm.loop !245
 
 .critedge:                                        ; preds = %18, %5, %_ZNK12V3NumberData3numEv.exit..critedge.loopexit_crit_edge, %1

@@ -131,11 +131,11 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %10 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %10, label %.thread [
     i32 0, label %11
-    i32 1, label %._crit_edge125
+    i32 1, label %._crit_edge
     i32 2, label %109
   ]
 
-._crit_edge125:                                   ; preds = %9
+._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.promoted.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !33
   br label %84
@@ -242,39 +242,39 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   store i32 1, ptr %0, align 8, !tbaa !18
   br label %84
 
-84:                                               ; preds = %._crit_edge125, %83
+84:                                               ; preds = %._crit_edge, %83
   %.promoted = phi i64 [ %.promoted.pre, %._crit_edge125 ], [ %68, %83 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %86 = and i64 %.promoted, 3
   %.not112123 = icmp eq i64 %86, 0
   br i1 %.not112123, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %84
+86:                                               ; preds = %84
   %.promoted124 = load i64, ptr %3, align 8, !tbaa !17
   br label %89
 
 87:                                               ; preds = %92
   %88 = and i64 %93, 3
   %.not112 = icmp eq i64 %88, 0
-  br i1 %.not112, label %._crit_edge, label %89, !llvm.loop !39
+  br i1 %.not112, label %96, label %89, !llvm.loop !39
 
-89:                                               ; preds = %.lr.ph, %87
+89:                                               ; preds = %86, %87
   %90 = phi i64 [ %.promoted124, %.lr.ph ], [ %94, %87 ]
   %91 = phi i64 [ %.promoted, %.lr.ph ], [ %93, %87 ]
   %.not115 = icmp ult i64 %90, %4
-  br i1 %.not115, label %92, label %.thread
+  br i1 %.not115, label %91, label %.thread
 
-92:                                               ; preds = %89
-  %93 = add i64 %91, 1
-  store i64 %93, ptr %85, align 8, !tbaa !33
-  %94 = add nuw i64 %90, 1
-  store i64 %94, ptr %3, align 8, !tbaa !17
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 %90
-  %96 = load i8, ptr %95, align 1, !tbaa !41
-  %.not116 = icmp eq i8 %96, 0
+91:                                               ; preds = %89
+  %92 = add i64 %91, 1
+  store i64 %92, ptr %85, align 8, !tbaa !33
+  %93 = add nuw i64 %90, 1
+  store i64 %93, ptr %3, align 8, !tbaa !17
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 %90
+  %95 = load i8, ptr %94, align 1, !tbaa !41
+  %.not116 = icmp eq i8 %95, 0
   br i1 %.not116, label %87, label %.thread, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %87, %84
+96:                                               ; preds = %87, %84
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %98 = load ptr, ptr %97, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -282,7 +282,7 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %.thread, label %102
 
-102:                                              ; preds = %._crit_edge
+102:                                              ; preds = %96
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %104 = load i8, ptr %103, align 8, !tbaa !31, !range !37, !noundef !38
   %105 = trunc nuw i8 %104 to i1
@@ -335,7 +335,7 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 133:                                              ; preds = %130, %125, %121
   br label %.thread
 
-.thread:                                          ; preds = %92, %89, %67, %76, %66, %43, %9, %133, %109, %130, %._crit_edge
+.thread:                                          ; preds = %91, %89, %67, %76, %66, %43, %9, %133, %109, %130, %96
   %.3 = phi i32 [ 1, %._crit_edge ], [ 1, %133 ], [ 0, %109 ], [ 9, %130 ], [ 11, %9 ], [ 9, %67 ], [ 9, %76 ], [ %33, %66 ], [ 9, %43 ], [ 9, %92 ], [ 0, %89 ]
   ret i32 %.3
 }

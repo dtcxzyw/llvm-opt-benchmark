@@ -1314,7 +1314,7 @@ define hidden range(i64 1, 0) i64 @_mi_os_numa_node_count_get() local_unnamed_ad
   %exitcond.not.i = icmp eq i32 %10, 256
   br i1 %exitcond.not.i, label %._crit_edge.i, label %9, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %8
+9:                                                ; preds = %8
   br label %mi_os_numa_node_countx.exit, !llvm.loop !23
 
 9:                                                ; preds = %8, %7
@@ -1329,7 +1329,7 @@ split.i:                                          ; preds = %9
   %13 = zext nneg i32 %10 to i64
   br label %mi_os_numa_node_countx.exit
 
-mi_os_numa_node_countx.exit:                      ; preds = %._crit_edge.i, %split.i
+mi_os_numa_node_countx.exit:                      ; preds = %9, %split.i
   %.0.lcssa.i = phi i64 [ 257, %._crit_edge.i ], [ %13, %split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %14

@@ -22,7 +22,7 @@ define i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %1, ptr noundef 
     i64 -1, label %40
   ]
 
-.split:                                           ; preds = %4
+tailrecurse.preheader:                            ; preds = %4
   %5 = add nsw i32 %3, -1
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph.preheader
@@ -33,17 +33,17 @@ define i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 tailrecurse:                                      ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %8, label %tailrecurse._crit_edge, label %.lr.ph
+  %6 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %6, label %7, label %12
 
-tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.split
-  %9 = load i32, ptr %2, align 4, !tbaa !3
-  %10 = icmp eq i64 %1, 6148914691236517205
-  %11 = zext i1 %10 to i32
-  %12 = xor i32 %9, %11
+7:                                                ; preds = %tailrecurse, %.split
+  %8 = load i32, ptr %2, align 4, !tbaa !3
+  %9 = icmp eq i64 %1, 6148914691236517205
+  %10 = zext i1 %9 to i32
+  %11 = xor i32 %8, %10
   br label %40
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
+12:                                               ; preds = %.lr.ph.preheader, %tailrecurse
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %tailrecurse ]
   %13 = trunc nsw i64 %indvars.iv to i32
   %14 = shl nuw i32 1, %13
@@ -56,7 +56,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.spli
   %.not35 = icmp eq i64 %20, 0
   br i1 %.not35, label %tailrecurse, label %21
 
-21:                                               ; preds = %.lr.ph
+21:                                               ; preds = %12
   %22 = and i64 %18, %1
   %23 = shl i64 %22, %15
   %24 = or i64 %23, %22
@@ -85,8 +85,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.spli
 .loopexit:                                        ; preds = %4
   br label %40
 
-40:                                               ; preds = %4, %.loopexit, %38, %36, %tailrecurse._crit_edge
-  %.0 = phi i32 [ %12, %tailrecurse._crit_edge ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
+40:                                               ; preds = %4, %.loopexit, %38, %36, %7
+  %.0 = phi i32 [ %11, %tailrecurse._crit_edge ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
   ret i32 %.0
 }
 

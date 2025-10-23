@@ -118,11 +118,11 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   %6 = icmp ugt ptr %5, %0
   br i1 %6, label %.lr.ph, label %.loopexit
 
-7:                                                ; preds = %.lr.ph
+6:                                                ; preds = %8
   %8 = icmp ugt ptr %9, %0
   br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %4, %7
+8:                                                ; preds = %4, %6
   %.014 = phi ptr [ %9, %7 ], [ %5, %4 ]
   %9 = getelementptr i8, ptr %.014, i64 -1
   %10 = load i8, ptr %9, align 1
@@ -130,9 +130,9 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   %12 = getelementptr i8, ptr %2, i64 %11
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %7, label %14, !llvm.loop !11
+  br i1 %.not, label %6, label %14, !llvm.loop !11
 
-14:                                               ; preds = %.lr.ph
+14:                                               ; preds = %8
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %.loopexit, label %15
 
@@ -140,7 +140,7 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   store i8 %10, ptr %3, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %7, %4, %14, %15
+.loopexit:                                        ; preds = %6, %4, %14, %15
   %.010 = phi ptr [ %9, %15 ], [ %9, %14 ], [ null, %4 ], [ null, %7 ]
   ret ptr %.010
 }

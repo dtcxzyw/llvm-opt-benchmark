@@ -17082,13 +17082,13 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %8, %7
   %10 = icmp sgt i64 %9, 128
-  br i1 %10, label %.lr.ph.preheader, label %.loopexit
+  br i1 %10, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %4
+.lr.ph:                                           ; preds = %4
   %11 = icmp eq i64 %2, 0
-  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph24
+  br i1 %11, label %.lr.ph._crit_edge, label %17
 
-.lr.ph:                                           ; preds = %.lr.ph24
+12:                                               ; preds = %.lr.ph24
   %12 = icmp eq i64 %17, 0
   br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph24, !llvm.loop !344
 
@@ -17115,7 +17115,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+17:                                               ; preds = %12, %.lr.ph
   %storemerge1723 = phi ptr [ %18, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %.01822 = phi i64 [ %17, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %17 = add nsw i64 %.01822, -1
@@ -17124,7 +17124,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %7
   %21 = icmp sgt i64 %20, 128
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !344
+  br i1 %21, label %12, label %.loopexit, !llvm.loop !344
 
 .loopexit:                                        ; preds = %.lr.ph24, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_T0_.exit
   ret void

@@ -1983,18 +1983,18 @@ define internal noundef i32 @find_island_for_ref(ptr noundef %0, ptr readnone ca
   %13 = zext nneg i32 %.01945 to i64
   br label %16
 
-14:                                               ; preds = %16
+12:                                               ; preds = %16
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %15 = icmp sgt i64 %indvars.iv, 0
   br i1 %15, label %16, label %.thread, !llvm.loop !94
 
 16:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %17 = load ptr, ptr %12, align 8, !tbaa !60
+  %16 = load ptr, ptr %12, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw %struct.re_pattern_buffer, ptr %17, i64 %indvars.iv
   %19 = call i32 @regexec(ptr noundef %18, ptr noundef %0, i64 noundef 16, ptr noundef nonnull %6, i32 noundef 0) #17
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %14, !llvm.loop !94
+  br i1 %.not, label %20, label %12, !llvm.loop !94
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -2022,8 +2022,8 @@ _.exit:                                           ; preds = %23, %25
   br label %30
 
 30:                                               ; preds = %27, %52
-  %indvars.iv69 = phi i64 [ 1, %27 ], [ %indvars.iv.next70, %52 ]
-  %31 = getelementptr inbounds nuw %struct.regmatch_t, ptr %6, i64 %indvars.iv69
+  %indvars.iv67 = phi i64 [ 1, %27 ], [ %indvars.iv.next68, %52 ]
+  %31 = getelementptr inbounds nuw %struct.regmatch_t, ptr %6, i64 %indvars.iv67
   %32 = load i32, ptr %31, align 8, !tbaa !95
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %52, label %34
@@ -2073,8 +2073,8 @@ strbuf_addch.exit:                                ; preds = %36, %strbuf_avail.e
   br label %52
 
 52:                                               ; preds = %30, %44
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next70, 16
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next68, 16
   br i1 %exitcond.not, label %53, label %30, !llvm.loop !99
 
 53:                                               ; preds = %52
@@ -2512,7 +2512,7 @@ add_ref_to_island.exit:                           ; preds = %.kh_put_str.exit_cr
   call void @strbuf_release(ptr noundef nonnull %7) #17
   br label %.thread
 
-.thread:                                          ; preds = %14, %5, %add_ref_to_island.exit
+.thread:                                          ; preds = %12, %5, %add_ref_to_island.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0

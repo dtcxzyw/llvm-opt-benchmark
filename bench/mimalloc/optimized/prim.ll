@@ -470,7 +470,7 @@ define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unn
   %exitcond.not = icmp eq i32 %4, 256
   br i1 %exitcond.not, label %._crit_edge, label %3, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %2
+2:                                                ; preds = %2
   br label %10, !llvm.loop !23
 
 3:                                                ; preds = %0, %2
@@ -485,9 +485,9 @@ define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unn
 split:                                            ; preds = %3
   %8 = add nuw nsw i32 %.04, 1
   %9 = zext nneg i32 %8 to i64
-  br label %10
+  br label %._crit_edge
 
-10:                                               ; preds = %split, %._crit_edge
+._crit_edge:                                      ; preds = %split, %2
   %.0.lcssa = phi i64 [ 257, %._crit_edge ], [ %9, %split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0.lcssa

@@ -75545,14 +75545,14 @@ define hidden void @"_ZN93_$LT$slotmap..basic..Drain$LT$K$C$V$GT$$u20$as$u20$cor
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i64, ptr %7, align 8
   %8 = icmp ult i64 %.promoted, %5
-  br i1 %8, label %.lr.ph, label %12
+  br i1 %8, label %9, label %12
 
-.lr.ph:                                           ; preds = %2
+9:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !7, !noundef !7
   br label %13
 
-11:                                               ; preds = %13
+12:                                               ; preds = %13
   %exitcond.not = icmp eq i64 %15, %5
   br i1 %exitcond.not, label %._crit_edge, label %13
 
@@ -75564,7 +75564,7 @@ define hidden void @"_ZN93_$LT$slotmap..basic..Drain$LT$K$C$V$GT$$u20$as$u20$cor
   store i32 0, ptr %0, align 8
   br label %20
 
-13:                                               ; preds = %.lr.ph, %11
+13:                                               ; preds = %9, %11
   %14 = phi i64 [ %.promoted, %.lr.ph ], [ %15, %11 ]
   %15 = add i64 %14, 1
   %16 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %10, i64 %14

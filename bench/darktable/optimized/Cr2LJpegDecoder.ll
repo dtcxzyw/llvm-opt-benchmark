@@ -1390,27 +1390,27 @@ define hidden void @_ZN8rawspeed15Cr2LJpegDecoder6decodeERKNS_14Cr2SliceWidthsE(
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !177
   %4 = load i32, ptr %3, align 4, !tbaa !178
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  br i1 %5, label %7, label %5
 
-6:                                                ; preds = %.lr.ph
+5:                                                ; preds = %7
   %exitcond.not = icmp eq i32 %7, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
+  br i1 %exitcond.not, label %6, label %.lr.ph, !llvm.loop !180
 
-._crit_edge:                                      ; preds = %6, %2
+6:                                                ; preds = %5, %2
   tail call void @_ZN8rawspeed20AbstractLJpegDecoder9decodeSOIEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
   ret void
 
-.lr.ph:                                           ; preds = %2, %6
+7:                                                ; preds = %2, %5
   %.07 = phi i32 [ %7, %6 ], [ 0, %2 ]
   %7 = add nuw nsw i32 %.07, 1
   %8 = icmp eq i32 %7, %4
   %.0.in.v.i = select i1 %8, i64 8, i64 4
   %.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v.i
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !16
-  %9 = icmp slt i32 %.0.i, 1
-  br i1 %9, label %10, label %6, !llvm.loop !180
+  %10 = icmp slt i32 %.0.i, 1
+  br i1 %10, label %11, label %5, !llvm.loop !180
 
-10:                                               ; preds = %.lr.ph
+11:                                               ; preds = %7
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2LJpegDecoder6decodeERKNS_14Cr2SliceWidthsE, i32 noundef %.0.i) #14
   unreachable
 }

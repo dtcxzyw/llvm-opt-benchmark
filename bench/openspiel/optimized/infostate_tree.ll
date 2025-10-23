@@ -10513,13 +10513,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %7, %6
   %9 = icmp sgt i64 %8, 512
-  br i1 %9, label %.lr.ph.preheader, label %.loopexit
+  br i1 %9, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph20
 
-.lr.ph:                                           ; preds = %.lr.ph20
+11:                                               ; preds = %.lr.ph20
   %11 = icmp eq i64 %16, 0
   br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !87
 
@@ -10544,7 +10544,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+16:                                               ; preds = %11, %.lr.ph
   %storemerge1319 = phi ptr [ %17, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %.01418 = phi i64 [ %16, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %16 = add nsw i64 %.01418, -1
@@ -10555,7 +10555,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
   %20 = icmp sgt i64 %19, 512
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !87
 
-.loopexit:                                        ; preds = %.lr.ph20, %3, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_SF_T0_.exit
+.loopexit:                                        ; preds = %16, %3, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_SF_T0_.exit
   ret void
 }
 

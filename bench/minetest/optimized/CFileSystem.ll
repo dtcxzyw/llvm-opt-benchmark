@@ -1687,9 +1687,9 @@ for.body.preheader:                               ; preds = %entry
   %3 = and i64 %sub.ptr.div.i.i, 4294967295
   %4 = load ptr, ptr %1, align 8, !tbaa !27
   %cmp422 = icmp eq ptr %4, %archive
-  br i1 %cmp422, label %if.then, label %for.inc.preheader
+  br i1 %cmp422, label %if.then, label %for.body
 
-for.inc.preheader:                                ; preds = %for.body.preheader
+for.body:                                         ; preds = %for.body.preheader
   %exitcond.not2 = icmp eq i64 %3, 1
   br i1 %exitcond.not2, label %cleanup, label %for.body.lr.ph, !llvm.loop !56
 
@@ -1720,9 +1720,9 @@ if.then:                                          ; preds = %for.body.if.then_cr
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv.next3, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond.not, label %for.inc.cleanup.loopexit_crit_edge, label %for.body, !llvm.loop !56
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !56
 
-for.inc.cleanup.loopexit_crit_edge:               ; preds = %for.inc
+cleanup:                                          ; preds = %for.inc
   br label %cleanup, !llvm.loop !56
 
 cleanup:                                          ; preds = %for.inc.preheader, %for.inc.cleanup.loopexit_crit_edge, %if.then, %entry

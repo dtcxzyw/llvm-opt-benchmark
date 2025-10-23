@@ -17302,7 +17302,7 @@ define internal fastcc void @_ZL18stbi__out_gif_codeP9stbi__gift(ptr noundef non
   %.not43 = icmp slt i32 %71, %60
   br i1 %.not43, label %..critedge.loopexit_crit_edge, label %66, !llvm.loop !310
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph50
+63:                                               ; preds = %.lr.ph50
   store i32 %69, ptr %55, align 4, !tbaa !291
   store i32 %71, ptr %10, align 8, !tbaa !309
   store i32 %72, ptr %59, align 8, !tbaa !292
@@ -17314,7 +17314,7 @@ define internal fastcc void @_ZL18stbi__out_gif_codeP9stbi__gift(ptr noundef non
   store i32 %72, ptr %59, align 8, !tbaa !292
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %..critedge.loopexit_crit_edge, %52, %47, %9
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %63, %52, %47, %9
   ret void
 }
 

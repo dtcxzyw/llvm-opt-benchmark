@@ -582,7 +582,7 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
   %or.cond.us15.i = or i1 %cmp2.us13.i, %cmp4.us14.i
   br i1 %or.cond.us15.i, label %if.then6, label %lor.lhs.false5.us.i.preheader
 
-lor.lhs.false5.us.i.preheader:                    ; preds = %for.body.lr.ph.split.us.i
+for.body.us.i:                                    ; preds = %for.body.lr.ph.split.us.i
   %incdec.ptr.us.i105 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %cmp.not.us.i106 = icmp eq ptr %incdec.ptr.us.i105, %1
   br i1 %cmp.not.us.i106, label %if.end.i.i, label %for.body.us.i
@@ -617,7 +617,7 @@ if.then6:                                         ; preds = %for.body.us.i, %for
   store i8 0, ptr %valid_7, align 2
   br label %return
 
-if.end.i.i:                                       ; preds = %lor.lhs.false5.us.i, %for.cond.i, %lor.lhs.false5.us.i.preheader
+if.end.i.i:                                       ; preds = %lor.lhs.false5.us.i, %for.cond.i, %for.body.us.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -678,10 +678,10 @@ invoke.cont33:                                    ; preds = %if.then30
   br label %if.end38
 
 if.end38:                                         ; preds = %invoke.cont28, %invoke.cont33
-  %.str.1.sink113 = phi ptr [ %add.ptr.i, %invoke.cont33 ], [ @.str.1, %invoke.cont28 ]
+  %.str.1.sink110 = phi ptr [ %add.ptr.i, %invoke.cont33 ], [ @.str.1, %invoke.cont28 ]
   %.str.1.sink = phi ptr [ %add.ptr.i.i51, %invoke.cont33 ], [ @.str.1, %invoke.cont28 ]
   %path_37 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr %.str.1.sink113, ptr %path_37, align 8
+  store ptr %.str.1.sink110, ptr %path_37, align 8
   %ref.tmp35.sroa.2.0.path_37.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %.str.1.sink, ptr %ref.tmp35.sroa.2.0.path_37.sroa_idx, align 8
   %cmp39 = icmp ult i64 %retval.0.i.i20, %retval.0.i.i35

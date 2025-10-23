@@ -113,37 +113,37 @@ define internal fastcc void @_ZN5ZXingL14AppendFromUtf8ESt17basic_string_viewIDu
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not.i = icmp eq i64 %0, 0
-  br i1 %.not.i, label %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit.thread, label %.lr.ph23.i
+  br i1 %.not.i, label %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit.thread, label %.lr.ph.i
 
 _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit.thread: ; preds = %3
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %5)
   br label %._crit_edge
 
-.lr.ph23.i:                                       ; preds = %3, %.critedge.i
-  %.022.i = phi i64 [ %.1.i, %.critedge.i ], [ 0, %3 ]
-  %.01321.i = phi i64 [ %27, %.critedge.i ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
+.lr.ph.i:                                         ; preds = %3, %.critedge.i
+  %.018.i = phi i64 [ %.1.i, %.critedge.i ], [ 0, %3 ]
+  %.01317.i = phi i64 [ %27, %.critedge.i ], [ 0, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.018.i
   %7 = load i8, ptr %6, align 1, !tbaa !16
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %11
 
-9:                                                ; preds = %.lr.ph23.i
-  %10 = add nuw i64 %.022.i, 1
+9:                                                ; preds = %.lr.ph.i
+  %10 = add nuw i64 %.018.i, 1
   br label %.critedge.i
 
-11:                                               ; preds = %.lr.ph23.i
+11:                                               ; preds = %.lr.ph.i
   %12 = zext i8 %7 to i32
   %13 = add nsw i32 %12, -192
   %14 = lshr i32 %13, 4
   switch i32 %14, label %.preheader.i [
     i32 0, label %16
     i32 1, label %16
-    i32 2, label %18
-    i32 3, label %20
+    i32 2, label %17
+    i32 3, label %19
   ]
 
-.preheader.i:                                     ; preds = %11
-  %.217.i = add nuw i64 %.022.i, 1
+15:                                               ; preds = %11
+  %16 = add nuw i64 %.018.i, 1
   %15 = icmp ult i64 %.217.i, %0
   br i1 %15, label %.lr.ph.i, label %.critedge.i
 
@@ -151,25 +151,25 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exi
   %17 = add i64 %.022.i, 2
   br label %.critedge.i
 
-18:                                               ; preds = %11
-  %19 = add i64 %.022.i, 3
+17:                                               ; preds = %11
+  %18 = add i64 %.018.i, 3
   br label %.critedge.i
 
-20:                                               ; preds = %11
-  %21 = add i64 %.022.i, 4
+19:                                               ; preds = %11
+  %20 = add i64 %.018.i, 4
   br label %.critedge.i
 
-22:                                               ; preds = %.lr.ph.i
+.preheader.i:                                     ; preds = %.lr.ph
   %.2.i = add nuw i64 %.218.i, 1
   %exitcond.not.i = icmp eq i64 %.2.i, %0
-  br i1 %exitcond.not.i, label %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit.thread29, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit.thread29, label %.lr.ph, !llvm.loop !18
 
 _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit.thread29: ; preds = %22
   %23 = add i64 %.01321.i, 1
   br label %.lr.ph
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %22
-  %.218.i = phi i64 [ %.2.i, %22 ], [ %.217.i, %.preheader.i ]
+.lr.ph:                                           ; preds = %.preheader.i, %.preheader.i
+  %.sink35 = phi i64 [ %.2.i, %22 ], [ %16, %.preheader.i ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.218.i
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = icmp slt i8 %25, -64

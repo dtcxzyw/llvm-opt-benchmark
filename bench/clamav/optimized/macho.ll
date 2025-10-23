@@ -1091,8 +1091,8 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
   br label %.loopexit
 
 17:                                               ; preds = %14
-  %.4..4..4..sroa_idx88 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx88, align 4, !tbaa !57
+  %.4..4..4..sroa_idx79 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx79, align 4, !tbaa !57
   %18 = tail call i32 @llvm.bswap.i32(i32 %.4..4..4.55)
   br label %19
 
@@ -1122,9 +1122,9 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
 
 .lr.ph:                                           ; preds = %26
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.8..8..8..sroa_idx86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.8..8..8..sroa_idx77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.12..12..12..sroa_idx87 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.12..12..12..sroa_idx78 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %28
 
 27:                                               ; preds = %62
@@ -1174,11 +1174,11 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
   %.8..8..8.41 = load i32, ptr %.8..8..8..sroa_idx, align 4
   %45 = tail call i32 @llvm.bswap.i32(i32 %.8..8..8.41)
   %46 = select i1 %13, i32 %.8..8..8.41, i32 %45
-  store i32 %46, ptr %.8..8..8..sroa_idx86, align 4, !tbaa !58
+  store i32 %46, ptr %.8..8..8..sroa_idx77, align 4, !tbaa !58
   %.12..12..12.48 = load i32, ptr %.12..12..12..sroa_idx, align 4
   %47 = tail call i32 @llvm.bswap.i32(i32 %.12..12..12.48)
   %48 = select i1 %13, i32 %.12..12..12.48, i32 %47
-  store i32 %48, ptr %.12..12..12..sroa_idx87, align 4, !tbaa !60
+  store i32 %48, ptr %.12..12..12..sroa_idx78, align 4, !tbaa !60
   %49 = add nuw nsw i32 %.02265, 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.51, i32 noundef %49, i32 noundef %20) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52, i32 noundef %46) #8

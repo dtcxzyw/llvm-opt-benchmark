@@ -4710,9 +4710,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph:                                           ; preds = %.preheader.split, %.lr.ph
   %.sroa.01.08 = phi i64 [ %7, %.lr.ph ], [ 0, %.preheader.split ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.01.08
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.08
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.08
   %.val = load i32, ptr %5, align 4, !noundef !3
-  %.val5 = load i32, ptr %6, align 4, !noundef !3
+  %.val = load i32, ptr %7, align 4, !noundef !3
   %.not6 = icmp eq i32 %.val, %.val5
   %7 = add nuw i64 %.sroa.01.08, 1
   %exitcond.not = icmp ne i64 %7, %1

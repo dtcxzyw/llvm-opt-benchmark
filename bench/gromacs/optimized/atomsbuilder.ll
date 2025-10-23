@@ -371,14 +371,14 @@ define void @_ZN3gmx12AtomsBuilder21discardCurrentResidueEv(ptr noundef nonnull 
   %3 = load i32, ptr %2, align 8, !tbaa !13
   %.04 = add i32 %3, -1
   %4 = icmp sgt i32 %3, 1
-  br i1 %4, label %.lr.ph, label %..critedge_crit_edge
+  br i1 %4, label %.lr.ph, label %8
 
-..critedge_crit_edge:                             ; preds = %1
+8:                                                ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %.critedge
 
-.lr.ph:                                           ; preds = %1
+.critedge:                                        ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -414,8 +414,8 @@ define void @_ZN3gmx12AtomsBuilder21discardCurrentResidueEv(ptr noundef nonnull 
   %21 = phi i32 [ %8, %..critedge_crit_edge7 ], [ %.pre, %..critedge_crit_edge ], [ %8, %.critedge.loopexit ]
   %.0.lcssa = phi i32 [ %19, %..critedge_crit_edge7 ], [ %.04, %..critedge_crit_edge ], [ %20, %.critedge.loopexit ]
   store i32 %.0.lcssa, ptr %2, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %21, ptr %22, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %21, ptr %17, align 8, !tbaa !23
   ret void
 }
 

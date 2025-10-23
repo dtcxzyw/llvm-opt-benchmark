@@ -17,15 +17,15 @@ define i32 @ff_guess_image2_codec(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %5 = tail call i32 @av_strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_img_tags, i64 4)) #4
   %.not11.i1 = icmp eq i32 %5, 0
-  br i1 %.not11.i1, label %str2id.exit, label %.lr.ph.preheader
+  br i1 %.not11.i1, label %str2id.exit, label %8
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader
+.lr.ph:                                           ; preds = %8
   %6 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %.not10.i = icmp eq i32 %7, 0
-  br i1 %.not10.i, label %.str2id.exit.loopexit_crit_edge3, label %.lr.ph.preheader, !llvm.loop !9
+  br i1 %.not10.i, label %.str2id.exit.loopexit_crit_edge3, label %8, !llvm.loop !9
 
-.lr.ph.preheader:                                 ; preds = %3, %.lr.ph
+8:                                                ; preds = %3, %.lr.ph
   %8 = phi i32 [ %7, %.lr.ph ], [ 7, %3 ]
   %9 = phi ptr [ %6, %.lr.ph ], [ getelementptr inbounds nuw (i8, ptr @ff_img_tags, i64 16), %3 ]
   %.01.i29 = phi ptr [ %9, %.lr.ph ], [ @ff_img_tags, %3 ]
@@ -37,7 +37,7 @@ define i32 @ff_guess_image2_codec(ptr noundef %0) local_unnamed_addr #0 {
 .str2id.exit.loopexit_crit_edge3:                 ; preds = %.lr.ph
   br label %str2id.exit, !llvm.loop !9
 
-str2id.exit:                                      ; preds = %.lr.ph.preheader, %3, %.str2id.exit.loopexit_crit_edge3, %1
+str2id.exit:                                      ; preds = %8, %3, %.str2id.exit.loopexit_crit_edge3, %1
   %.08.i = phi i32 [ 0, %1 ], [ 0, %.str2id.exit.loopexit_crit_edge3 ], [ 7, %3 ], [ %8, %.lr.ph.preheader ]
   ret i32 %.08.i
 }

@@ -7775,19 +7775,19 @@ evhttp_find_header.exit:                          ; preds = %12
   %.03054 = getelementptr i8, ptr %22, i64 -1
   br label %.lr.ph
 
-23:                                               ; preds = %.lr.ph
+22:                                               ; preds = %24
   %.030 = getelementptr inbounds i8, ptr %.03055, i64 -1
   %24 = icmp ugt ptr %.030, %18
   br i1 %24, label %.lr.ph, label %.critedge45, !llvm.loop !32
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+24:                                               ; preds = %.lr.ph.preheader, %22
   %.03055 = phi ptr [ %.030, %23 ], [ %.03054, %.lr.ph.preheader ]
   %25 = load i8, ptr %.03055, align 1
   %26 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %25) #18
   %.not43 = icmp eq i32 %26, 0
-  br i1 %.not43, label %.critedge, label %23, !llvm.loop !32
+  br i1 %.not43, label %.critedge, label %22, !llvm.loop !32
 
-.critedge:                                        ; preds = %.lr.ph
+.critedge:                                        ; preds = %24
   %27 = load i8, ptr %.03055, align 1
   %28 = icmp eq i8 %27, 58
   br i1 %28, label %29, label %.critedge45
@@ -7814,7 +7814,7 @@ evhttp_find_header.exit:                          ; preds = %12
   %38 = load ptr, ptr %2, align 8
   br label %.critedge45
 
-.critedge45:                                      ; preds = %.preheader, %23, %19, %7, %.thread, %evhttp_find_header.exit, %35, %.critedge, %.critedge46, %1
+.critedge45:                                      ; preds = %.preheader, %22, %19, %7, %.thread, %evhttp_find_header.exit, %35, %.critedge, %.critedge46, %1
   %.0 = phi ptr [ %3, %1 ], [ null, %.critedge46 ], [ %9, %7 ], [ null, %.thread ], [ %38, %35 ], [ %18, %.critedge ], [ null, %evhttp_find_header.exit ], [ %18, %19 ], [ %18, %23 ], [ null, %.preheader ]
   ret ptr %.0
 }

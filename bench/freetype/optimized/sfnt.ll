@@ -144,7 +144,7 @@ define internal range(i32 0, 256) i32 @tt_cmap0_char_next(ptr noundef readonly c
   %8 = icmp ult i32 %7, 256
   br i1 %8, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %2
+7:                                                ; preds = %2
   %9 = zext nneg i32 %7 to i64
   br label %.lr.ph
 

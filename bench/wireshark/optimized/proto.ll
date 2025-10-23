@@ -24695,7 +24695,7 @@ define ptr @proto_item_get_parent_nth(ptr noundef readonly captures(address_is_n
   %.not911 = icmp eq i32 %1, 0
   br i1 %.not911, label %.loopexit, label %.lr.ph
 
-3:                                                ; preds = %.lr.ph
+3:  ; preds = %.lr.ph
   %4 = add i32 %.013, -1
   %.not9 = icmp eq i32 %4, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !40
@@ -24706,9 +24706,9 @@ define ptr @proto_item_get_parent_nth(ptr noundef readonly captures(address_is_n
   %5 = getelementptr inbounds nuw i8, ptr %.0512, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
-  br i1 %.not10, label %..loopexit_crit_edge, label %3, !llvm.loop !40
+  br i1 %.not10, label %.loopexit, label %3, !llvm.loop !40
 
-..loopexit_crit_edge:                             ; preds = %.lr.ph
+.loopexit:                                        ; preds = %.lr.ph
   br label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %3, %.preheader, %..loopexit_crit_edge, %2

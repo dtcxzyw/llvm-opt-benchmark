@@ -9419,28 +9419,28 @@ define internal fastcc void @propagate_total_memory(ptr noundef captures(none) i
   %35 = zext i32 %32 to i64
   br label %37
 
-36:                                               ; preds = %37
+35:                                               ; preds = %36
   %.not29.wide = icmp eq i64 %38, 0
   br i1 %.not29.wide, label %._crit_edge45, label %37, !llvm.loop !221
 
-37:                                               ; preds = %.lr.ph43, %36
+36:                                               ; preds = %.lr.ph43, %35
   %indvars.iv = phi i64 [ %35, %.lr.ph43 ], [ %38, %36 ]
   %38 = add nsw i64 %indvars.iv, -1
   %39 = getelementptr inbounds nuw %struct.hwloc_memory_page_type_s, ptr %34, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !222
   %.not30 = icmp eq i64 %40, 0
-  br i1 %.not30, label %36, label %._crit_edge44, !llvm.loop !221
+  br i1 %.not30, label %35, label %.split.loop.exit, !llvm.loop !221
 
-._crit_edge44:                                    ; preds = %37
+.split.loop.exit:                                 ; preds = %36
   %41 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge45, !llvm.loop !221
+  br label %.split.loop.exit42, !llvm.loop !221
 
-._crit_edge45:                                    ; preds = %36, %._crit_edge44, %26
+.split.loop.exit42:                               ; preds = %35, %.split.loop.exit, %26
   %.0.lcssa = phi i32 [ %41, %._crit_edge44 ], [ 0, %26 ], [ 0, %36 ]
   store i32 %.0.lcssa, ptr %31, align 8, !tbaa !53
   br label %42
 
-42:                                               ; preds = %19, %._crit_edge45, %._crit_edge39
+42:                                               ; preds = %19, %.split.loop.exit42, %._crit_edge39
   ret void
 }
 

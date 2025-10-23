@@ -1748,19 +1748,19 @@ define ptr @lv_spangroup_get_child(ptr noundef %0, i32 noundef %1) local_unnamed
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %7, label %.loopexit, label %.lr.ph38
 
-8:                                                ; preds = %.lr.ph38
+8:; preds = %.lr.ph38
   %9 = add nsw i32 %.12027.us37, -1
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %.loopexit, label %.lr.ph38, !llvm.loop !85
 
-.lr.ph38:                                         ; preds = %.lr.ph.split.us, %8
+.lr.ph38:; preds = %.lr.ph.split.us, %8
   %.12027.us37 = phi i32 [ %9, %8 ], [ %.lobit, %.lr.ph.split.us ]
   %.128.us36 = phi ptr [ %11, %8 ], [ %.0, %.lr.ph.split.us ]
   %11 = tail call ptr @lv_ll_get_prev(ptr noundef nonnull %5, ptr noundef nonnull %.128.us36) #9
   %.not.us = icmp eq ptr %11, null
   br i1 %.not.us, label %.loopexit, label %8, !llvm.loop !85
 
-.lr.ph.split:                                     ; preds = %.lr.ph
+.lr.ph.split:; preds = %.lr.ph
   br i1 %7, label %.loopexit, label %.lr.ph34
 
 12:                                               ; preds = %.lr.ph34
@@ -1770,7 +1770,7 @@ define ptr @lv_spangroup_get_child(ptr noundef %0, i32 noundef %1) local_unnamed
 
 .lr.ph34:                                         ; preds = %.lr.ph.split, %12
   %.1202733 = phi i32 [ %13, %12 ], [ %.lobit, %.lr.ph.split ]
-  %.12832 = phi ptr [ %15, %12 ], [ %.0, %.lr.ph.split ]
+  %.022 = phi ptr [ %15, %12 ], [ %.0, %.lr.ph.split ]
   %15 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %5, ptr noundef nonnull %.12832) #9
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !85

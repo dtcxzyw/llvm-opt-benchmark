@@ -15334,7 +15334,7 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(
   %exitcond.not.not94 = icmp eq i64 %29, %24
   br i1 %exitcond.not.not94, label %.critedge2, label %.lr.ph96, !llvm.loop !28
 
-.lr.ph96:                                         ; preds = %.critedge4.us.preheader
+30:                                               ; preds = %.critedge4.us.preheader
   br label %30, !llvm.loop !28
 
 30:                                               ; preds = %.lr.ph96, %.critedge4.us
@@ -15347,13 +15347,13 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(
 
 .critedge4.us:                                    ; preds = %30
   %exitcond.not.not = icmp eq i64 %indvars.iv.next, %29
-  br i1 %exitcond.not.not, label %.critedge4.us..critedge2.loopexit_crit_edge, label %30, !llvm.loop !28
+  br i1 %exitcond.not.not, label %.critedge2, label %30, !llvm.loop !28
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %30
   %34 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge2
 
-.critedge4.us..critedge2.loopexit_crit_edge:      ; preds = %.critedge4.us
+.critedge2:                                       ; preds = %.critedge4.us
   br label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %.critedge4.us.preheader, %.critedge4.us..critedge2.loopexit_crit_edge, %.critedge2.loopexit.split.loop.exit, %.lr.ph, %18

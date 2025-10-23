@@ -13458,13 +13458,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
   %exitcond114 = icmp sgt i32 %.06073, 255
   br i1 %exitcond114, label %.loopexit65.sink.split, label %.lr.ph117
 
-12:                                               ; preds = %.lr.ph117
+12: ; preds = %.lr.ph117
   %13 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   store i8 %8, ptr %13, align 1, !tbaa !23
   %exitcond = icmp eq i32 %14, %10
   br i1 %exitcond, label %.loopexit65.sink.split, label %.lr.ph117, !llvm.loop !269
 
-.lr.ph117:                                        ; preds = %.lr.ph, %12
+.lr.ph117:; preds = %.lr.ph, %12
   %.05572116 = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
   %indvars.iv115 = phi i64 [ %indvars.iv.next, %12 ], [ %9, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv115, 1

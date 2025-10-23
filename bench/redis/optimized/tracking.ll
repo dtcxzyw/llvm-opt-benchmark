@@ -1567,7 +1567,7 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
   %13 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   call void @raxStart(ptr noundef nonnull %1, ptr noundef %13) #9
   %14 = icmp sgt i32 %12, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %29
 
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1577,21 +1577,21 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
 .critedge:                                        ; preds = %23
   %17 = add nsw i32 %.0712, -1
   %18 = icmp sgt i32 %.0712, 1
-  br i1 %18, label %19, label %._crit_edge
+  br i1 %18, label %19, label %29
 
-19:                                               ; preds = %.lr.ph, %.critedge
+19:; preds = %.lr.ph, %.critedge
   %.0712 = phi i32 [ %12, %.lr.ph ], [ %17, %.critedge ]
   %20 = call i32 @raxSeek(ptr noundef nonnull %1, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #9
   %21 = call i32 @raxRandomWalk(ptr noundef nonnull %1, i64 noundef 0) #9
   %22 = call i32 @raxEOF(ptr noundef nonnull %1) #9
   %.not10 = icmp eq i32 %22, 0
-  br i1 %.not10, label %23, label %._crit_edge
+  br i1 %.not10, label %23, label %29
 
-23:                                               ; preds = %19
+23:    ; preds = %19
   %24 = load ptr, ptr %15, align 8, !tbaa !32
-  %25 = load i64, ptr %16, align 8, !tbaa !36
-  %26 = call ptr @createStringObject(ptr noundef %24, i64 noundef %25) #9
-  call void @trackingInvalidateKey(ptr noundef null, ptr noundef %26, i32 noundef 0)
+  %26 = load i64, ptr %16, align 8, !tbaa !36
+  %27 = call ptr @createStringObject(ptr noundef %24, i64 noundef %25) #9
+  call void @trackingInvalidateKey(ptr noundef null, ptr noundef %27, i32 noundef 0)
   call void @decrRefCount(ptr noundef %26) #9
   %27 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %28 = call i64 @raxSize(ptr noundef %27) #9
@@ -1603,14 +1603,14 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
   call void @raxStop(ptr noundef nonnull %1) #9
   br label %32, !llvm.loop !111
 
-._crit_edge:                                      ; preds = %.critedge, %19, %9
+29:                                               ; preds = %.critedge, %19, %9
   call void @raxStop(ptr noundef nonnull %1) #9
   %30 = load i32, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
   %31 = add i32 %30, 1
   store i32 %31, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
   br label %32
 
-32:                                               ; preds = %29, %._crit_edge
+32:                                               ; preds = %29, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %33
 

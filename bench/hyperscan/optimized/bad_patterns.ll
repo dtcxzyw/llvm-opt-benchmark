@@ -10777,10 +10777,10 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %11 = load i16, ptr %4, align 8
-  store i16 %11, ptr %3, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %9) #24
+  %12 = load i16, ptr %4, align 8
+  store i16 %12, ptr %3, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %9) #24
   %.not10.i.i = icmp samesign eq i64 %7, 0
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i.preheader
 
@@ -10799,7 +10799,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   %17 = invoke noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %.noexc.i unwind label %.body
 
-.noexc.i:                                         ; preds = %.lr.ph.i.i
+14:                                               ; preds = %.lr.ph.i.i
   %18 = load i16, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %20 = load ptr, ptr %19, align 8
@@ -10810,27 +10810,27 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   %.not9.i.i = icmp eq i16 %24, 0
   br i1 %.not9.i.i, label %._crit_edge.i.i, label %14, !llvm.loop !73
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i
+15:                                               ; preds = %14
   br label %.loopexit, !llvm.loop !73
 
-.body:                                            ; preds = %.lr.ph.i.i
+.noexc.i:                                         ; preds = %.lr.ph.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #24
   resume { ptr, i32 } %25
 
-.loopexit:                                        ; preds = %14, %._crit_edge.i.i, %2
-  %26 = phi ptr [ %.sroa.0.011.i.i, %._crit_edge.i.i ], [ %5, %2 ], [ %5, %14 ]
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
+27:                                               ; preds = %14, %15, %2
+  %28 = phi ptr [ %.sroa.0.011.i.i, %._crit_edge.i.i ], [ %5, %2 ], [ %5, %14 ]
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %27 = load ptr, ptr %0, align 8
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  store i64 %30, ptr %6, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %30
-  store i8 0, ptr %31, align 1
+  %29 = load ptr, ptr %0, align 8
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  store i64 %32, ptr %6, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
+  store i8 0, ptr %33, align 1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #24
   ret void
 }

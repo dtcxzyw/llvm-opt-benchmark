@@ -1951,11 +1951,11 @@ invoke.cont7.i:                                   ; preds = %if.end12
   br i1 %cmp.not3.i.i, label %invoke.cont19, label %invoke.cont7.i.for.body.preheader.i.i_crit_edge
 
 invoke.cont7.i.for.body.preheader.i.i_crit_edge:  ; preds = %invoke.cont7.i
-  %.pre35 = shl nuw nsw i64 %conv, 4
+  %.pre31 = shl nuw nsw i64 %conv, 4
   br label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %invoke.cont7.i.for.body.preheader.i.i_crit_edge, %invoke.cont7.thread.i
-  %add.ptr.i.idx.i.pre-phi = phi i64 [ %.pre35, %invoke.cont7.i.for.body.preheader.i.i_crit_edge ], [ %mul.i.i.i.i.i, %invoke.cont7.thread.i ]
+  %add.ptr.i.idx.i.pre-phi = phi i64 [ %.pre31, %invoke.cont7.i.for.body.preheader.i.i_crit_edge ], [ %mul.i.i.i.i.i, %invoke.cont7.thread.i ]
   %retval.0.i.i8.i = phi ptr [ %vec_storage, %invoke.cont7.i.for.body.preheader.i.i_crit_edge ], [ %call5.i.i.i2.i.i18, %invoke.cont7.thread.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i.i8.i, i8 0, i64 %add.ptr.i.idx.i.pre-phi, i1 false)
   %data_.i.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vec_storage, i64 280
@@ -2012,7 +2012,7 @@ if.end36:                                         ; preds = %if.then29, %if.end2
   %or.cond33.not = or i1 %cmp38, %cmp4130
   br i1 %or.cond33.not, label %cleanup, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %if.end36
+for.cond.preheader:                               ; preds = %if.end36
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 

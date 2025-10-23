@@ -390,9 +390,9 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
   %13 = load i32, ptr %12, align 8, !tbaa !30
   %.01418 = add i32 %11, -1
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %.preheader
+  br i1 %14, label %.lr.ph, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9
+.lr.ph:; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -404,13 +404,13 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
 21:                                               ; preds = %27
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = icmp samesign ugt i64 %indvars.iv28, 1
-  br i1 %22, label %27, label %.preheader.loopexit, !llvm.loop !34
+  br i1 %22, label %27, label %.lr.ph, !llvm.loop !34
 
-.preheader.loopexit:                              ; preds = %21
+.preheader:                                       ; preds = %21
   %23 = trunc nsw i64 %indvars.iv.next to i32
-  br label %.preheader
+  br label %.lr.ph
 
-.preheader:                                       ; preds = %.preheader.loopexit, %9
+.lr.ph:                                           ; preds = %.preheader, %9
   %.014.lcssa = phi i32 [ %.01418, %9 ], [ %23, %.preheader.loopexit ]
   %24 = icmp sgt i32 %.014.lcssa, -1
   br i1 %24, label %.lr.ph22, label %.loopexit
@@ -420,7 +420,7 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
   %26 = load ptr, ptr %25, align 8, !tbaa !31
   br label %35
 
-27:                                               ; preds = %.lr.ph, %21
+24:                                               ; preds = %.lr.ph, %21
   %indvars.iv28 = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next29, %21 ]
   %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, -1
@@ -432,19 +432,19 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
   br i1 %.not15, label %21, label %.loopexit, !llvm.loop !34
 
 32:                                               ; preds = %35
-  %33 = add nsw i32 %.121, -1
-  %34 = icmp sgt i32 %.121, 0
+  %33 = add nsw i32 %.118, -1
+  %34 = icmp sgt i32 %.118, 0
   br i1 %34, label %35, label %.loopexit, !llvm.loop !35
 
 35:                                               ; preds = %.lr.ph22, %32
-  %.121 = phi i32 [ %.014.lcssa, %.lr.ph22 ], [ %33, %32 ]
-  %36 = zext nneg i32 %.121 to i64
+  %.118 = phi i32 [ %.014.lcssa, %.lr.ph22 ], [ %33, %32 ]
+  %36 = zext nneg i32 %.118 to i64
   %37 = getelementptr inbounds nuw i64, ptr %26, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !29
   %.not = icmp eq i64 %38, 1
   br i1 %.not, label %32, label %.loopexit
 
-.loopexit:                                        ; preds = %27, %32, %35, %.preheader, %2
+.loopexit:                                        ; preds = %24, %32, %35, %.preheader, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 1, %32 ], [ 0, %35 ], [ 0, %27 ]
   ret i32 %.0
 }

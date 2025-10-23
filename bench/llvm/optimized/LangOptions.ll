@@ -450,7 +450,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader: ; preds = %.lr.ph.split
   %.not.us.not.not35 = icmp eq i64 %17, 1
   br i1 %.not.us.not.not35, label %.thread, label %.lr.ph37, !llvm.loop !65
 
-.lr.ph37:                                         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader
+18:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader
   br label %18, !llvm.loop !65
 
 18:                                               ; preds = %.lr.ph37, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
@@ -459,12 +459,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader: ; preds = %.lr.ph.split
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !48
   %.not.i.us = icmp eq i64 %21, 0
-  br i1 %.not.i.us, label %..thread.loopexit_crit_edge, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, !llvm.loop !65
+  br i1 %.not.i.us, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, !llvm.loop !65
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us:    ; preds = %18
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv.next2936, 1
   %.not.us.not.not = icmp eq i64 %indvars.iv.next29, %17
-  br i1 %.not.us.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us..thread.loopexit_crit_edge, label %18, !llvm.loop !65
+  br i1 %.not.us.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.thread, label %18, !llvm.loop !65
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ]
@@ -485,7 +485,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %.lr.ph.split, %_ZN4
   %.not.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %.not.not, label %.thread, label %.lr.ph.split, !llvm.loop !65
 
-..thread.loopexit_crit_edge:                      ; preds = %18
+.thread:                                          ; preds = %18
   br label %.thread, !llvm.loop !65
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us..thread.loopexit_crit_edge: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us

@@ -373,9 +373,9 @@ define hidden noundef zeroext i1 @_ZN9benchmark15IsColorTerminalEv() local_unnam
 .split:                                           ; preds = %0
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.2) #17
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.split21.us, label %.lr.ph.preheader
+  br i1 %3, label %.split21.us, label %4
 
-.lr.ph.preheader:                                 ; preds = %.split, %.lr.ph.preheader
+4:                                                ; preds = %.split, %4
   %.011.add26 = phi i64 [ %.011.add, %.lr.ph.preheader ], [ 8, %.split ]
   %.011.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN9benchmark15IsColorTerminalEv.SUPPORTED_TERM_VALUES, i64 %.011.add26
   %4 = load ptr, ptr %.011.ptr, align 8, !tbaa !19
@@ -384,9 +384,9 @@ define hidden noundef zeroext i1 @_ZN9benchmark15IsColorTerminalEv() local_unnam
   %.011.add = add nuw nsw i64 %.011.add26, 8
   %.not.not.not = icmp eq i64 %.011.add, 128
   %or.cond = select i1 %6, i1 true, i1 %.not.not.not
-  br i1 %or.cond, label %.split21.us, label %.lr.ph.preheader
+  br i1 %or.cond, label %.split21.us, label %4
 
-.split21.us:                                      ; preds = %.lr.ph.preheader, %0, %.split
+.split21.us:; preds = %4, %0, %.split
   %.us-phi = phi i1 [ true, %.split ], [ false, %0 ], [ %6, %.lr.ph.preheader ]
   %7 = load ptr, ptr @stdout, align 8, !tbaa !20
   %8 = tail call i32 @fileno(ptr noundef %7) #14

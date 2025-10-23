@@ -2221,10 +2221,10 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %6 = icmp ult i64 %.val2, 192153584101141163
   tail call void @llvm.assume(i1 %6)
   %7 = icmp samesign ugt i64 %.val2, 1
-  br i1 %7, label %.lr.ph.preheader.i, label %"_ZN9elfshaker4repo10repository10Repository26find_redundant_loose_packs28_$u7b$$u7b$closure$u7d$$u7d$17h8a839a0bf688e902E.exit"
+  br i1 %7, label %8, label %"_ZN9elfshaker4repo10repository10Repository26find_redundant_loose_packs28_$u7b$$u7b$closure$u7d$$u7d$17h8a839a0bf688e902E.exit"
 
-.lr.ph.preheader.i:                               ; preds = %2
-  %8 = icmp ne ptr %.val, null
+8:                                                ; preds = %2
+  %9 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %9)
@@ -2232,19 +2232,19 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %10 = getelementptr inbounds nuw i8, ptr %.val1, i64 %.idx.i
   %11 = load ptr, ptr %.val, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !372, !noalias !375, !nonnull !3, !align !4
-  br label %.lr.ph.i
+  %13 = load ptr, ptr %11, align 8, !alias.scope !372, !noalias !375, !nonnull !3, !align !4
+  br label %14
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %13 = phi ptr [ %.val1, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
+14:                                               ; preds = %14, %8
+  %15 = phi ptr [ %.val1, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %14 = tail call noundef align 8 dereferenceable(24) ptr @_ZN9elfshaker4repo4pack10SnapshotId4pack17hdbb36c0228d6311cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13), !noalias !377
   %15 = tail call noundef zeroext i1 @_ZN9elfshaker4repo10repository10Repository13is_pack_loose17he2b99a4b44c027cbE(ptr noundef nonnull align 8 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14), !noalias !377
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %.not.not.not.i.not.i = icmp ne ptr %16, %10
   %or.cond.not.i = select i1 %15, i1 %.not.not.not.i.not.i, i1 false
-  br i1 %or.cond.not.i, label %.lr.ph.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h611233af7ee90654E.exit.loopexit.i"
+  br i1 %or.cond.not.i, label %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h611233af7ee90654E.exit.loopexit.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h611233af7ee90654E.exit.loopexit.i": ; preds = %.lr.ph.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h611233af7ee90654E.exit.loopexit.i":; preds = %14
   %.sroa.0.0.ph.i = xor i1 %15, true
   br label %"_ZN9elfshaker4repo10repository10Repository26find_redundant_loose_packs28_$u7b$$u7b$closure$u7d$$u7d$17h8a839a0bf688e902E.exit"
 

@@ -518,10 +518,10 @@ opj_jp2_free_pclr.exit:                           ; preds = %131, %142
   %exitcond.not150 = icmp eq i8 %151, 1
   br i1 %exitcond.not150, label %._crit_edge.i27, label %.lr.ph152, !llvm.loop !58
 
-.lr.ph152:                                        ; preds = %.lr.ph.preheader
+.lr.ph:                                           ; preds = %.lr.ph.preheader
   br label %161, !llvm.loop !58
 
-.lr.ph:                                           ; preds = %161
+161:                                              ; preds = %161
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph.._crit_edge.i27_crit_edge, label %161, !llvm.loop !58
 
@@ -546,7 +546,7 @@ opj_jp2_free_pclr.exit:                           ; preds = %131, %142
   %170 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %.lcssa) #6
   br label %opj_jp2_check_color.exit.thread
 
-.lr.ph.._crit_edge.i27_crit_edge:                 ; preds = %.lr.ph
+._crit_edge.i27:                                  ; preds = %.lr.ph
   br label %._crit_edge.i27, !llvm.loop !58
 
 ._crit_edge.i27:                                  ; preds = %.lr.ph.._crit_edge.i27_crit_edge, %.lr.ph.preheader

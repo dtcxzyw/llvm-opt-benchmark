@@ -1561,16 +1561,16 @@ define hidden void @event_disable_debug_mode() local_unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %event_mm_free_.exit
-  %.017 = phi ptr [ %.015.i, %event_mm_free_.exit ], [ %12, %.lr.ph.preheader ]
-  %13 = load ptr, ptr %.017, align 8
+  %.016 = phi ptr [ %.015.i, %event_mm_free_.exit ], [ %12, %.lr.ph.preheader ]
+  %13 = load ptr, ptr %.016, align 8
   %14 = getelementptr i8, ptr %13, i64 8
   %.val.i = load ptr, ptr %14, align 8
   %15 = load ptr, ptr %13, align 8
-  store ptr %15, ptr %.017, align 8
+  store ptr %15, ptr %.016, align 8
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 12), align 4
   %17 = add i32 %16, -1
   store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 12), align 4
-  %18 = load ptr, ptr %.017, align 8
+  %18 = load ptr, ptr %.016, align 8
   %.not.i8 = icmp eq ptr %18, null
   br i1 %.not.i8, label %19, label %event_debug_map_HT_NEXT_RMV.exit
 
@@ -1590,71 +1590,71 @@ define hidden void @event_disable_debug_mode() local_unnamed_addr #0 {
   %28 = zext i32 %23 to i64
   br label %31
 
-29:                                               ; preds = %31
+26:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = icmp samesign ult i64 %indvars.iv.next, %28
   br i1 %30, label %31, label %event_debug_map_HT_NEXT_RMV.exit, !llvm.loop !16
 
-31:                                               ; preds = %29, %.lr.ph.i9
+28:                                               ; preds = %26, %.lr.ph.i9
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ %27, %.lr.ph.i9 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8
-  %.not16.i = icmp eq ptr %33, null
-  br i1 %.not16.i, label %29, label %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, !llvm.loop !16
+  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %31 = load ptr, ptr %30, align 8
+  %.not16.i = icmp eq ptr %31, null
+  br i1 %.not16.i, label %26, label %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, !llvm.loop !16
 
-event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit: ; preds = %31
-  %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit: ; preds = %28
+  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   br label %event_debug_map_HT_NEXT_RMV.exit
 
-event_debug_map_HT_NEXT_RMV.exit:                 ; preds = %29, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, %.lr.ph, %19
-  %.015.i = phi ptr [ %.017, %.lr.ph ], [ null, %19 ], [ %34, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit ], [ null, %29 ]
-  %35 = load ptr, ptr @mm_free_fn_, align 8
-  %.not.i10 = icmp eq ptr %35, null
-  br i1 %.not.i10, label %37, label %36
+event_debug_map_HT_NEXT_RMV.exit:                 ; preds = %26, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, %.lr.ph, %19
+  %.015.i = phi ptr [ %.016, %.lr.ph ], [ null, %19 ], [ %32, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit ], [ null, %29 ]
+  %33 = load ptr, ptr @mm_free_fn_, align 8
+  %.not.i9 = icmp eq ptr %33, null
+  br i1 %.not.i9, label %35, label %34
 
-36:                                               ; preds = %event_debug_map_HT_NEXT_RMV.exit
+34:                                               ; preds = %event_debug_map_HT_NEXT_RMV.exit
   tail call void %35(ptr noundef nonnull %13) #26
   br label %event_mm_free_.exit
 
-37:                                               ; preds = %event_debug_map_HT_NEXT_RMV.exit
+35:                                               ; preds = %event_debug_map_HT_NEXT_RMV.exit
   tail call void @free(ptr noundef %13) #26
   br label %event_mm_free_.exit
 
-event_mm_free_.exit:                              ; preds = %36, %37
+event_mm_free_.exit:                              ; preds = %34, %35
   %.not6 = icmp eq ptr %.015.i, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %8, %event_mm_free_.exit, %5
-  %38 = load ptr, ptr @global_debug_map, align 8
-  %.not.i11 = icmp eq ptr %38, null
-  br i1 %.not.i11, label %event_debug_map_HT_CLEAR.exit, label %39
+  %36 = load ptr, ptr @global_debug_map, align 8
+  %.not.i10 = icmp eq ptr %36, null
+  br i1 %.not.i10, label %event_debug_map_HT_CLEAR.exit, label %37
 
-39:                                               ; preds = %._crit_edge
-  %40 = load ptr, ptr @mm_free_fn_, align 8
-  %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %42, label %41
+37:                                               ; preds = %._crit_edge
+  %38 = load ptr, ptr @mm_free_fn_, align 8
+  %.not.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i, label %40, label %39
 
-41:                                               ; preds = %39
-  tail call void %40(ptr noundef nonnull %38) #26
+39:                                               ; preds = %37
+  tail call void %40(ptr noundef nonnull %36) #26
   br label %event_debug_map_HT_CLEAR.exit
 
-42:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %38) #26
+40:                                               ; preds = %37
+  tail call void @free(ptr noundef nonnull %36) #26
   br label %event_debug_map_HT_CLEAR.exit
 
-event_debug_map_HT_CLEAR.exit:                    ; preds = %._crit_edge, %41, %42
+event_debug_map_HT_CLEAR.exit:                    ; preds = %._crit_edge, %39, %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @global_debug_map, i8 0, i64 20, i1 false)
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 20), align 4
-  %43 = load ptr, ptr @event_debug_map_lock_, align 8
-  %.not7 = icmp eq ptr %43, null
-  br i1 %.not7, label %47, label %44
+  %41 = load ptr, ptr @event_debug_map_lock_, align 8
+  %.not7 = icmp eq ptr %41, null
+  br i1 %.not7, label %45, label %42
 
-44:                                               ; preds = %event_debug_map_HT_CLEAR.exit
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %46 = tail call i32 %45(i32 noundef 0, ptr noundef nonnull %43) #26
-  br label %47
+42:                                               ; preds = %event_debug_map_HT_CLEAR.exit
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %44 = tail call i32 %45(i32 noundef 0, ptr noundef nonnull %41) #26
+  br label %45
 
-47:                                               ; preds = %44, %event_debug_map_HT_CLEAR.exit
+45:                                               ; preds = %42, %event_debug_map_HT_CLEAR.exit
   store i32 0, ptr @event_debug_mode_on_, align 4
   ret void
 }

@@ -945,12 +945,12 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias noundef captures(none
   %10 = icmp samesign ult i32 %8, 64
   br i1 %10, label %.lr.ph, label %decode_many_ints_uint64.exit
 
-.lr.ph126.i:                                      ; preds = %stream_read_bit.exit58._crit_edge.i
+.lr.ph126.i:; preds = %stream_read_bit.exit58._crit_edge.i
   %indvars.iv.next144.i = add nsw i64 %indvars.iv.next144.i66, -1
   %11 = icmp ugt i64 %indvars.iv.next144.i66, %9
   br i1 %11, label %.lr.ph, label %decode_many_ints_uint64.exit
 
-.lr.ph:                                           ; preds = %.lr.ph126.preheader.i, %.lr.ph126.i
+.lr.ph:  ; preds = %.lr.ph126.preheader.i, %.lr.ph126.i
   %indvars.iv.next144.i66 = phi i64 [ %indvars.iv.next144.i, %.lr.ph126.i ], [ 63, %.lr.ph126.preheader.i ]
   %.sroa.10.0120.i65 = phi i64 [ %.sroa.10.3.i, %.lr.ph126.i ], [ %.sroa.10.0.copyload.i, %.lr.ph126.preheader.i ]
   %.sroa.16.0121.i64 = phi ptr [ %.sroa.16.3.i, %.lr.ph126.i ], [ %.sroa.16.0.copyload.i, %.lr.ph126.preheader.i ]

@@ -1353,15 +1353,15 @@ switch.lookup:                                    ; preds = %16, %_ZZN9grpc_core
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = load i8, ptr %switch.load, align 1, !tbaa !6
   %.not2018.i.i = icmp eq i8 %29, 0
-  br i1 %.not2018.i.i, label %.loopexit.i.i, label %.lr.ph.i.preheader.i
+  br i1 %.not2018.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.preheader.i:                             ; preds = %switch.lookup
+.lr.ph.i.i:                                       ; preds = %switch.lookup
   %30 = ptrtoint ptr %.2.i.i to i64
   %31 = sub i64 %30, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %32 = icmp eq i64 %31, 86
   br i1 %32, label %.lr.ph.i.preheader._crit_edge.i, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.preheader.i
 
-_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.preheader.i: ; preds = %.lr.ph.i.preheader.i
+_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.preheader.i:; preds = %.lr.ph.i.i
   %scevgep.i = getelementptr i8, ptr %.2.i.i, i64 add (i64 ptrtoint (ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE to i64), i64 213)
   %33 = sub i64 0, %30
   %scevgep7.i = getelementptr i8, ptr %scevgep.i, i64 %33

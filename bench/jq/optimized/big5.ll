@@ -84,46 +84,46 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone captures(ad
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %5, label %27
+  br i1 %.not, label %3, label %27
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr %1, align 1, !tbaa !4
-  %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i8, ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !4
-  %.not24.not = icmp eq i8 %9, 0
-  br i1 %.not24.not, label %.loopexit, label %.lr.ph.preheader
+3:                                                ; preds = %2
+  %4 = load i8, ptr %1, align 1, !tbaa !4
+  %5 = zext i8 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 %5
+  %7 = load i8, ptr %6, align 1, !tbaa !4
+  %.not24 = icmp eq i8 %7, 0
+  br i1 %.not24, label %.loopexit, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %5
+.preheader:                                       ; preds = %3
   %10 = sub i64 %4, %3
   %scevgep = getelementptr i8, ptr %1, i64 %10
   br label %.lr.ph
 
-11:                                               ; preds = %.lr.ph
+9:                                                ; preds = %.lr.ph
   %12 = icmp ugt ptr %13, %0
   br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+.lr.ph:; preds = %.preheader, %9
   %.125 = phi ptr [ %13, %11 ], [ %1, %.lr.ph.preheader ]
   %13 = getelementptr inbounds i8, ptr %.125, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = add i8 %14, 95
   %16 = icmp ult i8 %15, 94
-  br i1 %16, label %11, label %..loopexit_crit_edge26, !llvm.loop !9
+  br i1 %16, label %9, label %..loopexit_crit_edge26, !llvm.loop !9
 
-..loopexit_crit_edge26:                           ; preds = %.lr.ph
+..loopexit_crit_edge26:; preds = %.lr.ph
   br label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %..loopexit_crit_edge26, %5
   %.019 = phi ptr [ %1, %5 ], [ %.125, %..loopexit_crit_edge26 ], [ %scevgep, %11 ]
-  %17 = load ptr, ptr @OnigEncodingBIG5, align 8, !tbaa !11
+  %17 = load ptr, ptr @OnigEncodingBIG5, align 8, !tbaa !9
   %18 = tail call i32 %17(ptr noundef nonnull %.019) #5
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %.019, i64 %19
   %21 = icmp ugt ptr %20, %1
-  br i1 %21, label %27, label %22
+  br i1 %21, label %27, label %25
 
-22:                                               ; preds = %.loopexit
+25:                                               ; preds = %.loopexit
   %23 = ptrtoint ptr %20 to i64
   %24 = sub i64 %3, %23
   %25 = and i64 %24, -2

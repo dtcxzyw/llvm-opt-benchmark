@@ -29,12 +29,12 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   br i1 %.not.i44, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split": ; preds = %9, %26
-  %.sink77 = phi i64 [ 3, %26 ], [ 2, %9 ]
+  %.sink73 = phi i64 [ 3, %26 ], [ 2, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val39 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val41 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %13 = shl nsw i64 %.val42, %.sink77
+  %13 = shl nsw i64 %.val42, %.sink73
   %bcmp.i46 = tail call i32 @bcmp(ptr nonnull readonly align 4 %.val41, ptr nonnull readonly align 4 %.val39, i64 %13)
   %14 = icmp eq i32 %bcmp.i46, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
@@ -51,7 +51,7 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %.not67 = icmp eq i64 %.val42, 0
   br i1 %.not67, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %15, %.lr.ph.i
+.lr.ph.i:     ; preds = %15, %.lr.ph.i
   %20 = phi i64 [ %24, %.lr.ph.i ], [ 0, %15 ]
   %21 = getelementptr inbounds i32, ptr %17, i64 %20
   %22 = getelementptr inbounds i64, ptr %19, i64 %20
@@ -70,8 +70,8 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 26:                                               ; preds = %8
   br i1 %.not.i44, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !nonnull !5, !noundef !5

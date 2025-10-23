@@ -8463,8 +8463,8 @@ define linkonce_odr void @_ZN7rocksdb11TableReader8MultiGetERKNS_11ReadOptionsEP
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
   %storemerge.lcssa.i.i = phi i64 [ %8, %5 ], [ %storemerge3.i.i, %21 ]
-  %.not18 = icmp eq i64 %storemerge.lcssa.i.i, %11
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq i64 %storemerge.lcssa.i.i, %11
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 3584
@@ -8482,9 +8482,9 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
   ret void
 
 35:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
-  %.sroa.8.019 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %.sroa.8.018 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.019
+  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.018
   %37 = load ptr, ptr %36, align 8, !tbaa !476
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 160
@@ -8547,7 +8547,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = load i64, ptr %10, align 8, !tbaa !463
-  %64 = add i64 %.sroa.8.019, 1
+  %64 = add i64 %.sroa.8.018, 1
   %65 = icmp ult i64 %64, %63
   br i1 %65, label %.lr.ph.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
 
@@ -8561,19 +8561,19 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   %72 = or i64 %70, %71
   br label %75
 
-73:                                               ; preds = %75
+73: ; preds = %75
   %74 = add nuw i64 %76, 1
   %exitcond.not.i = icmp eq i64 %74, %63
   br i1 %exitcond.not.i, label %._crit_edge, label %75, !llvm.loop !502
 
-75:                                               ; preds = %73, %.lr.ph.i
+75:; preds = %73, %.lr.ph.i
   %76 = phi i64 [ %64, %.lr.ph.i ], [ %74, %73 ]
   %77 = shl nuw i64 1, %76
   %78 = and i64 %77, %72
   %.not.i6 = icmp eq i64 %78, 0
-  br i1 %.not.i6, label %..critedge_crit_edge1.i, label %73, !llvm.loop !502
+  br i1 %.not.i6, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %73, !llvm.loop !502
 
-..critedge_crit_edge1.i:                          ; preds = %75
+_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %75
   br label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, !llvm.loop !502
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %..critedge_crit_edge1.i

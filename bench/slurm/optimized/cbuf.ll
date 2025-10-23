@@ -322,7 +322,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   %26 = icmp eq i32 %spec.select43.i19, 0
   br i1 %26, label %cbuf_find_unread_line.exit, label %.lr.ph
 
-27:                                               ; preds = %.lr.ph
+27:; preds = %.lr.ph
   %spec.select43.i = add nsw i32 %spec.select43.i21, -1
   %28 = sext i32 %35 to i64
   %29 = getelementptr inbounds i8, ptr %19, i64 %28
@@ -333,16 +333,16 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   %33 = icmp eq i32 %spec.select43.i, 0
   br i1 %33, label %cbuf_find_unread_line.exit, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %27
+.lr.ph:; preds = %.lr.ph.i, %27
   %.232.i22 = phi i32 [ %.232.i, %27 ], [ %25, %.lr.ph.i ]
   %spec.select43.i21 = phi i32 [ %spec.select43.i, %27 ], [ %spec.select43.i19, %.lr.ph.i ]
-  %.03747.i20 = phi i32 [ %35, %27 ], [ %15, %.lr.ph.i ]
-  %34 = add nsw i32 %.03747.i20, 1
+  %.0 = phi i32 [ %35, %27 ], [ %15, %.lr.ph.i ]
+  %34 = add nsw i32 %.0, 1
   %35 = srem i32 %34, %20
   %.not.i = icmp eq i32 %35, %17
   br i1 %.not.i, label %.cbuf_find_unread_line.exit.loopexit_crit_edge, label %27, !llvm.loop !8
 
-.cbuf_find_unread_line.exit.loopexit_crit_edge:   ; preds = %.lr.ph
+.cbuf_find_unread_line.exit.loopexit_crit_edge:; preds = %.lr.ph
   br label %cbuf_find_unread_line.exit, !llvm.loop !8
 
 cbuf_find_unread_line.exit:                       ; preds = %27, %.lr.ph.i, %.cbuf_find_unread_line.exit.loopexit_crit_edge, %13, %5, %9
@@ -357,7 +357,7 @@ cbuf_find_unread_line.exit:                       ; preds = %27, %.lr.ph.i, %.cb
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_lines_used) #16
   unreachable
 
-39:                                               ; preds = %cbuf_find_unread_line.exit
+34:                                               ; preds = %cbuf_find_unread_line.exit
   ret i32 %.0
 }
 

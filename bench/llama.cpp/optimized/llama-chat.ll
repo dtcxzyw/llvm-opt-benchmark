@@ -6408,8 +6408,8 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, i64 %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
-  %.not9 = icmp eq i64 %.8.val, 0
-  br i1 %.not9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, label %.lr.ph
+  %.not4 = icmp eq i64 %.8.val, 0
+  br i1 %.not4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
   %.0161 = phi i64 [ %8, %7 ], [ 0, %1 ]
@@ -6429,11 +6429,11 @@ define internal fastcc void @_ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_trait
   %9 = icmp ugt i64 %.8.val, %.0161
   br i1 %9, label %.lr.ph5, label %.critedge2
 
-10:                                               ; preds = %.lr.ph5
+9:                                                ; preds = %11
   %11 = icmp ugt i64 %12, %.0161
   br i1 %11, label %.lr.ph5, label %.critedge2, !llvm.loop !63
 
-.lr.ph5:                                          ; preds = %.critedge, %10
+11:                                               ; preds = %.critedge, %9
   %.04 = phi i64 [ %12, %10 ], [ %.8.val, %.critedge ]
   %12 = add i64 %.04, -1
   %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %12
@@ -6441,12 +6441,12 @@ define internal fastcc void @_ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_trait
   %15 = sext i8 %14 to i32
   %16 = tail call i32 @isspace(i32 noundef %15) #26
   %.not17 = icmp eq i32 %16, 0
-  br i1 %.not17, label %..critedge2_crit_edge7, label %10, !llvm.loop !63
+  br i1 %.not17, label %..critedge2_crit_edge7, label %9, !llvm.loop !63
 
 ..critedge2_crit_edge7:                           ; preds = %.lr.ph5
   br label %.critedge2, !llvm.loop !63
 
-.critedge2:                                       ; preds = %10, %..critedge2_crit_edge7, %.critedge
+.critedge2:                                       ; preds = %9, %..critedge2_crit_edge7, %.critedge
   %.0.lcssa = phi i64 [ %.04, %..critedge2_crit_edge7 ], [ %.8.val, %.critedge ], [ %.0161, %10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %17 = icmp ugt i64 %.0161, %.8.val

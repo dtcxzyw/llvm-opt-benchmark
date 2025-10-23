@@ -2127,9 +2127,9 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %.val = load double, ptr %3, align 8
   br label %5
 
-5:                                                ; preds = %23, %4
-  %.sroa.3.0 = phi i64 [ %2, %4 ], [ %28, %23 ]
-  %.sroa.0.0 = phi ptr [ %1, %4 ], [ %27, %23 ]
+5:                                                ; preds = %24, %4
+  %.sroa.3.0 = phi i64 [ %2, %4 ], [ %29, %23 ]
+  %.sroa.0.0 = phi ptr [ %1, %4 ], [ %28, %23 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 186
   %8 = load i16, ptr %7, align 2, !noalias !431, !noundef !4
@@ -2139,50 +2139,50 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %11 = icmp eq i16 %8, 0
   br i1 %11, label %.loopexit.i, label %.lr.ph.i.i
 
-12:                                               ; preds = %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
+11:                                               ; preds = %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
   %13 = add nuw nsw i64 %.sroa.8.012.i.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.03.011.i.i, i64 8
-  %15 = icmp eq ptr %14, %10
-  br i1 %15, label %.loopexit.i, label %.lr.ph.i.i
+  %12 = icmp eq ptr %14, %10
+  br i1 %12, label %21, label %13
 
 default.unreachable.i.i:                          ; preds = %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
   unreachable
 
-.lr.ph.i.i:                                       ; preds = %5, %12
+13:                                               ; preds = %5, %11
   %.sroa.8.012.i.i = phi i64 [ %13, %12 ], [ 0, %5 ]
   %.sroa.03.011.i.i = phi ptr [ %14, %12 ], [ %6, %5 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  %16 = load double, ptr %.sroa.03.011.i.i, align 8, !alias.scope !437, !noalias !440, !noundef !4
-  %17 = fcmp uno double %.val, %16
-  br i1 %17, label %18, label %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
+  %14 = load double, ptr %.sroa.03.011.i.i, align 8, !alias.scope !437, !noalias !440, !noundef !4
+  %15 = fcmp uno double %.val, %14
+  br i1 %15, label %16, label %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
 
-18:                                               ; preds = %.lr.ph.i.i
+16:                                               ; preds = %13
   tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2e0ec6afcc8886635c093ddcdbf46286.10.llvm.9554138872291501309) #20, !noalias !443
   unreachable
 
-"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i": ; preds = %.lr.ph.i.i
+"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i": ; preds = %13
   %19 = fcmp ult double %.val, %16
   %20 = fcmp ugt double %.val, %16
   %..i.i.i.i = select i1 %19, i8 2, i8 1
   %.1.i.i.i.i = sext i1 %19 to i8
   %.sroa.0.0.i.i.i.i = select i1 %20, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   switch i8 %.sroa.0.0.i.i.i.i, label %default.unreachable.i.i [
-    i8 -1, label %.loopexit.i
+    i8 -1, label %21
     i8 0, label %.loopexit
-    i8 1, label %12
+    i8 1, label %11
   ]
 
-.loopexit.i:                                      ; preds = %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i", %12, %5
+21:                                               ; preds = %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i", %11, %5
   %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ 0, %5 ], [ %.sroa.8.012.i.i, %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i" ], [ %9, %12 ]
-  %21 = icmp eq i64 %.sroa.3.0, 0
-  br i1 %21, label %.loopexit, label %23
+  %22 = icmp eq i64 %.sroa.3.0, 0
+  br i1 %22, label %.loopexit, label %24
 
-.loopexit:                                        ; preds = %.loopexit.i, %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
+.loopexit:                                        ; preds = %21, %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i"
   %.sink = phi i64 [ %.sroa.3.0, %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i" ], [ 0, %.loopexit.i ]
   %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %.sroa.8.012.i.i, %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i" ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit.i ]
   %storemerge = phi i64 [ 0, %"_ZN83_$LT$statrs..distribution..empirical..NonNan$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdd5fa4e5cc0ee790E.exit.i.i" ], [ 1, %.loopexit.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0, ptr %23, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2190,13 +2190,13 @@ default.unreachable.i.i:                          ; preds = %"_ZN83_$LT$statrs..
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-23:                                               ; preds = %.loopexit.i
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 192
-  %25 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.sroa.4.0.i.ph.sink.i.ph
-  %27 = load ptr, ptr %26, align 8, !noalias !444, !nonnull !4, !noundef !4
-  %28 = add i64 %.sroa.3.0, -1
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 192
+  %26 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
+  tail call void @llvm.assume(i1 %26)
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.sroa.4.0.i.ph.sink.i.ph
+  %28 = load ptr, ptr %27, align 8, !noalias !444, !nonnull !4, !noundef !4
+  %29 = add i64 %.sroa.3.0, -1
   br label %5
 }
 

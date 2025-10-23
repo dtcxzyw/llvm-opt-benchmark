@@ -6530,11 +6530,11 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %.split.i.i, label %.lr.ph34
 
-12:                                               ; preds = %.lr.ph34
+11:                                               ; preds = %.lr.ph34
   %13 = icmp eq i64 %27, 0
-  br i1 %13, label %.split.i.i, label %.lr.ph34, !llvm.loop !83
+  br i1 %13, label %.split.i.i, label %26, !llvm.loop !83
 
-.split.i.i:                                       ; preds = %12, %.lr.ph
+.split.i.i:                                       ; preds = %11, %.lr.ph
   %.lcssa = phi i64 [ %8, %.lr.ph ], [ %34, %12 ]
   %storemerge20.lcssa = phi ptr [ %1, %.lr.ph ], [ %31, %12 ]
   %14 = add nsw i64 %.lcssa, -2
@@ -6563,7 +6563,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %25 = icmp sgt i64 %23, 4
   br i1 %25, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg17ComparisonFunctorIfEEEEEvT_SD_SD_T0_.exit, !llvm.loop !85
 
-.lr.ph34:                                         ; preds = %.lr.ph, %12
+26:                                               ; preds = %.lr.ph, %11
   %storemerge2033 = phi ptr [ %31, %12 ], [ %1, %.lr.ph ]
   %.02132 = phi i64 [ %27, %12 ], [ %2, %.lr.ph ]
   %26 = phi i64 [ %34, %12 ], [ %8, %.lr.ph ]
@@ -6578,9 +6578,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %33 = sub i64 %32, %5
   %34 = ashr exact i64 %33, 2
   %35 = icmp sgt i64 %34, 16
-  br i1 %35, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg17ComparisonFunctorIfEEEEEvT_SD_SD_T0_.exit, !llvm.loop !83
+  br i1 %35, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg17ComparisonFunctorIfEEEEEvT_SD_SD_T0_.exit, !llvm.loop !83
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg17ComparisonFunctorIfEEEEEvT_SD_SD_T0_.exit: ; preds = %.lr.ph34, %.lr.ph.i.i, %4
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg17ComparisonFunctorIfEEEEEvT_SD_SD_T0_.exit: ; preds = %26, %.lr.ph.i.i, %4
   ret void
 }
 

@@ -701,16 +701,16 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..in_pla
   %27 = icmp eq i64 %7, %4
   br i1 %27, label %"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h199f6b020ba2db4fE.exit", label %.lr.ph.i.i
 
-28:                                               ; preds = %.lr.ph12.i.i
+.body.i.i:                                        ; preds = %.lr.ph12.i.i
   %29 = add i64 %.111.i.i, 1
-  %30 = icmp eq i64 %29, %4
-  br i1 %30, label %._crit_edge13.i.i, label %.lr.ph12.i.i
+  %28 = icmp eq i64 %29, %4
+  br i1 %28, label %33, label %.lr.ph12.i.i
 
-.body.i.i:                                        ; preds = %18, %10
+29:                                               ; preds = %18, %10
   %31 = icmp eq i64 %7, %4
-  br i1 %31, label %._crit_edge13.i.i, label %.lr.ph12.i.i
+  br i1 %31, label %33, label %.lr.ph12.i.i
 
-.lr.ph12.i.i:                                     ; preds = %.body.i.i, %28
+.lr.ph12.i.i:; preds = %.body.i.i, %28
   %.111.i.i = phi i64 [ %29, %28 ], [ %7, %.body.i.i ]
   %32 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.0.val, i64 %.111.i.i
   %.val.i.i = load ptr, ptr %32, align 8, !alias.scope !276, !noundef !7
@@ -719,7 +719,7 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..in_pla
   invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$17ha6966e6e168ed420E"(ptr %.val.i.i, ptr nonnull %.val7.i.i) #27
           to label %28 unwind label %34, !noalias !276
 
-._crit_edge13.i.i:                                ; preds = %28, %.body.i.i
+33:                                               ; preds = %28, %.body.i.i
   resume { ptr, i32 } %11
 
 34:                                               ; preds = %.lr.ph12.i.i

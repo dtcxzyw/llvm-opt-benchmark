@@ -352,19 +352,19 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; pr
   %.sroa.4.1.i.ph.i.i.i = phi i32 [ %26, %25 ], [ %37, %33 ]
   %53 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i, 1114112
   tail call void @llvm.assume(i1 %53)
-  br label %54
+  br label %.preheader.i.i.i.i
 
-54:                                               ; preds = %54, %52
-  %.idx12.i.i.i.i = phi i64 [ 0, %52 ], [ %.add.i.i.i.i, %54 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx12.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %54, %52
+  %.idx.i.i.i.i = phi i64 [ 0, %52 ], [ %.add.i.i.i.i, %54 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i
   %.val4.i.i.i.i.i = load i32, ptr %.ptr.i.i.i.i, align 4, !range !73, !alias.scope !74, !noalias !79, !noundef !25
   %55 = icmp eq i32 %.val4.i.i.i.i.i, %.sroa.4.1.i.ph.i.i.i
-  %.add.i.i.i.i = add nuw nsw i64 %.idx12.i.i.i.i, 4
+  %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 4
   %.not.not.not.i.not.i.i.i.i = icmp eq i64 %.add.i.i.i.i, 8
   %or.cond.i.i.i.i = select i1 %55, i1 true, i1 %.not.not.not.i.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit, label %54
 
-_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit: ; preds = %54
+_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; preds = %.preheader.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
   br i1 %55, label %.split12, label %56
 

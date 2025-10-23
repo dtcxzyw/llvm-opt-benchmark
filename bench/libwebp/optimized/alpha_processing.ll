@@ -676,13 +676,13 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr noundef readonly captures(
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-4:                                                ; preds = %.lr.ph
+4:; preds = %.lr.ph
   %5 = add nsw i32 %.05, -1
   %6 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   %7 = icmp sgt i32 %.05, 1
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
-.lr.ph:                                           ; preds = %2, %4
+.lr.ph:; preds = %2, %4
   %.05 = phi i32 [ %5, %4 ], [ %1, %2 ]
   %.024 = phi ptr [ %6, %4 ], [ %0, %2 ]
   %8 = load i8, ptr %.024, align 1, !tbaa !9
@@ -692,7 +692,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr noundef readonly captures(
 ._crit_edge6:                                     ; preds = %.lr.ph
   br label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %4, %._crit_edge6, %2
+9:                                                ; preds = %4, %._crit_edge6, %2
   %.03 = phi i32 [ 1, %._crit_edge6 ], [ 0, %2 ], [ 0, %4 ]
   ret i32 %.03
 }

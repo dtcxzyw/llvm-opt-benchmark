@@ -53,35 +53,35 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTra
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17h82718d181f70e6e6E.exit", label %.lr.ph
 
-7:                                                ; preds = %.lr.ph
+6:                                                ; preds = %8
   %8 = icmp eq i64 %10, %5
   br i1 %8, label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17h82718d181f70e6e6E.exit", label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %7
+8:                                                ; preds = %1, %6
   %.sroa.0.0.i.i1 = phi i64 [ %10, %7 ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %3, i64 %.sroa.0.0.i.i1
   %10 = add nuw i64 %.sroa.0.0.i.i1, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9)
-          to label %7 unwind label %14, !noalias !4
+          to label %7 unwind label %13, !noalias !4
 
-11:                                               ; preds = %.lr.ph3
+11:                                               ; preds = %15
   %12 = add i64 %.sroa.0.1.i.i2, 1
-  %13 = icmp eq i64 %12, %5
-  br i1 %13, label %.body, label %.lr.ph3
+  %12 = icmp eq i64 %12, %5
+  br i1 %12, label %.body, label %15
 
-14:                                               ; preds = %.lr.ph
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           cleanup
   %16 = icmp eq i64 %10, %5
   br i1 %16, label %.body, label %.lr.ph3
 
-.lr.ph3:                                          ; preds = %14, %11
+15:                                               ; preds = %14, %11
   %.sroa.0.1.i.i2 = phi i64 [ %12, %11 ], [ %10, %14 ]
   %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %3, i64 %.sroa.0.1.i.i2
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #6
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16) #6
           to label %11 unwind label %18, !noalias !4
 
-18:                                               ; preds = %.lr.ph3
+18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h02d583d60c45268eE() #7, !noalias !4
@@ -98,9 +98,9 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTra
   unreachable
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..raw_vec..RawVec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17hf5b73234a85c64b7E.exit": ; preds = %.body
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 
-"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17h82718d181f70e6e6E.exit": ; preds = %7, %1
+"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17h82718d181f70e6e6E.exit": ; preds = %6, %1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h572c970f650adbb3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 8, i64 noundef 48)
   ret void
 }
@@ -120,35 +120,35 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_allo
   %4 = icmp eq i64 %.val1, 0
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbc0a0e049761306E.exit", label %.lr.ph.i
 
-5:                                                ; preds = %.lr.ph.i
+4:                                                ; preds = %6
   %6 = icmp eq i64 %8, %.val1
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbc0a0e049761306E.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1, %5
+6:                                                ; preds = %1, %4
   %.sroa.0.0.i1.i = phi i64 [ %8, %5 ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %.val, i64 %.sroa.0.0.i1.i
   %8 = add nuw i64 %.sroa.0.0.i1.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
-          to label %5 unwind label %12
+          to label %5 unwind label %11
 
-9:                                                ; preds = %.lr.ph3.i
+9:                                                ; preds = %13
   %10 = add i64 %.sroa.0.1.i2.i, 1
-  %11 = icmp eq i64 %10, %.val1
-  br i1 %11, label %.body, label %.lr.ph3.i
+  %10 = icmp eq i64 %10, %.val1
+  br i1 %10, label %.body, label %13
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           cleanup
   %14 = icmp eq i64 %8, %.val1
   br i1 %14, label %.body, label %.lr.ph3.i
 
-.lr.ph3.i:                                        ; preds = %12, %9
+13:                                               ; preds = %12, %9
   %.sroa.0.1.i2.i = phi i64 [ %10, %9 ], [ %8, %12 ]
   %15 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %.val, i64 %.sroa.0.1.i2.i
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15) #6
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #6
           to label %9 unwind label %16
 
-16:                                               ; preds = %.lr.ph3.i
+16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h02d583d60c45268eE() #7
@@ -158,7 +158,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_allo
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h572c970f650adbb3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 48)
           to label %"_ZN4core3ptr89drop_in_place$LT$alloc..raw_vec..RawVec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17hf5b73234a85c64b7E.exit" unwind label %18
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbc0a0e049761306E.exit": ; preds = %5, %1
+"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbc0a0e049761306E.exit": ; preds = %4, %1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h572c970f650adbb3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 48)
   ret void
 
@@ -169,7 +169,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_allo
   unreachable
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..raw_vec..RawVec$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$$GT$17hf5b73234a85c64b7E.exit": ; preds = %.body
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

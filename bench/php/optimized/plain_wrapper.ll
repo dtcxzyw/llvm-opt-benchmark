@@ -1675,15 +1675,15 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   %.not165182 = icmp eq i64 %43, 0
   br i1 %.not165182, label %.critedge.thread, label %.lr.ph
 
-44:                                               ; preds = %.lr.ph
+44:; preds = %.lr.ph
   br i1 %48, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %40, %44
+.lr.ph:; preds = %40, %44
   %.0144183 = phi i64 [ %45, %44 ], [ %43, %40 ]
   %45 = add i64 %.0144183, -1
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !4
-  %.not166 = icmp eq i8 %47, 47
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 %45
+  %48 = load i8, ptr %47, align 1, !tbaa !4
+  %.not166 = icmp eq i8 %48, 47
   %48 = icmp eq i64 %45, 0
   br i1 %.not166, label %.critedge, label %44
 
@@ -1704,45 +1704,45 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 1 dereferenceable(1) %41, i64 %49, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %51
   store i8 0, ptr %56, align 1, !tbaa !4
-  br label %.lr.ph187
+  br label %.lr.ph
 
 57:                                               ; preds = %36, %38, %.critedge
   %58 = tail call noalias ptr @_estrdup(ptr noundef nonnull %2) #17
-  %.not167185 = icmp eq ptr %58, null
-  br i1 %.not167185, label %.critedge2, label %.lr.ph187
+  %.not167182 = icmp eq ptr %58, null
+  br i1 %.not167182, label %.critedge2, label %.lr.ph
 
-.lr.ph187:                                        ; preds = %.critedge.thread, %57
-  %.1211 = phi ptr [ %53, %.critedge.thread ], [ %58, %57 ]
+.lr.ph:                                           ; preds = %.critedge.thread, %57
+  %.1205 = phi ptr [ %53, %.critedge.thread ], [ %58, %57 ]
   %59 = and i32 %4, 1024
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.lr.ph187.split.us, label %.lr.ph187.split
+  br i1 %60, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph187.split.us:                               ; preds = %.lr.ph187, %74
-  %.1148186.us = phi ptr [ %.0146177.us, %74 ], [ %.1211, %.lr.ph187 ]
-  %61 = load i8, ptr %.1148186.us, align 1, !tbaa !4
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %74
+  %.1148183.us = phi ptr [ %.0146177.us, %74 ], [ %.1205, %.lr.ph187 ]
+  %61 = load i8, ptr %.1148183.us, align 1, !tbaa !4
   %.not168.us = icmp eq i8 %61, 0
   br i1 %.not168.us, label %.critedge2, label %62
 
-62:                                               ; preds = %.lr.ph187.split.us
-  %63 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1148186.us, i32 noundef 58) #16
+62:                                               ; preds = %.lr.ph.split.us
+  %63 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1148183.us, i32 noundef 58) #16
   %.not169.us = icmp eq ptr %63, null
   br i1 %.not169.us, label %.thread174.us, label %64
 
 64:                                               ; preds = %62
   store i8 0, ptr %63, align 1, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  %.pr.us = load i8, ptr %.1148186.us, align 1, !tbaa !4
+  %.pr.us = load i8, ptr %.1148183.us, align 1, !tbaa !4
   %66 = icmp eq i8 %.pr.us, 0
   br i1 %66, label %74, label %.thread174.us
 
 .thread174.us:                                    ; preds = %64, %62
   %.0146176.us = phi ptr [ %65, %64 ], [ null, %62 ]
-  %67 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %.1148186.us, ptr noundef nonnull %0) #17
+  %67 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %.1148183.us, ptr noundef nonnull %0) #17
   %68 = icmp sgt i32 %67, 4095
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %.thread174.us
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1148186.us, ptr noundef nonnull %0, i32 noundef 4096) #17
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1148183.us, ptr noundef nonnull %0, i32 noundef 4096) #17
   br label %70
 
 70:                                               ; preds = %69, %.thread174.us
@@ -1758,34 +1758,34 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
 74:                                               ; preds = %72, %70, %64
   %.0146177.us = phi ptr [ %.0146176.us, %72 ], [ %.0146176.us, %70 ], [ %65, %64 ]
   %.not167.us = icmp eq ptr %.0146177.us, null
-  br i1 %.not167.us, label %.critedge2, label %.lr.ph187.split.us
+  br i1 %.not167.us, label %.critedge2, label %.lr.ph.split.us
 
-.lr.ph187.split:                                  ; preds = %.lr.ph187, %86
-  %.1148186 = phi ptr [ %.0146177, %86 ], [ %.1211, %.lr.ph187 ]
-  %75 = load i8, ptr %.1148186, align 1, !tbaa !4
+.lr.ph.split:                                     ; preds = %.lr.ph, %86
+  %.1148183 = phi ptr [ %.0146177, %86 ], [ %.1205, %.lr.ph187 ]
+  %75 = load i8, ptr %.1148183, align 1, !tbaa !4
   %.not168 = icmp eq i8 %75, 0
   br i1 %.not168, label %.critedge2, label %76
 
-76:                                               ; preds = %.lr.ph187.split
-  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1148186, i32 noundef 58) #16
+76:                                               ; preds = %.lr.ph.split
+  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1148183, i32 noundef 58) #16
   %.not169 = icmp eq ptr %77, null
   br i1 %.not169, label %.thread174, label %78
 
 78:                                               ; preds = %76
   store i8 0, ptr %77, align 1, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  %.pr = load i8, ptr %.1148186, align 1, !tbaa !4
+  %.pr = load i8, ptr %.1148183, align 1, !tbaa !4
   %80 = icmp eq i8 %.pr, 0
   br i1 %80, label %86, label %.thread174
 
 .thread174:                                       ; preds = %76, %78
   %.0146176 = phi ptr [ %79, %78 ], [ null, %76 ]
-  %81 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %.1148186, ptr noundef nonnull %0) #17
+  %81 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %.1148183, ptr noundef nonnull %0) #17
   %82 = icmp sgt i32 %81, 4095
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %.thread174
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1148186, ptr noundef nonnull %0, i32 noundef 4096) #17
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1148183, ptr noundef nonnull %0, i32 noundef 4096) #17
   br label %84
 
 84:                                               ; preds = %83, %.thread174
@@ -1795,17 +1795,17 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
 
 .split.us:                                        ; preds = %84, %72
   %.us-phi = phi ptr [ %73, %72 ], [ %85, %84 ]
-  call void @_efree(ptr noundef nonnull %.1211) #17
+  call void @_efree(ptr noundef nonnull %.1205) #17
   br label %87
 
 86:                                               ; preds = %84, %78
   %.0146177 = phi ptr [ %.0146176, %84 ], [ %79, %78 ]
   %.not167 = icmp eq ptr %.0146177, null
-  br i1 %.not167, label %.critedge2, label %.lr.ph187.split
+  br i1 %.not167, label %.critedge2, label %.lr.ph.split
 
-.critedge2:                                       ; preds = %.lr.ph187.split, %86, %.lr.ph187.split.us, %74, %57
-  %.1212 = phi ptr [ null, %57 ], [ %.1211, %74 ], [ %.1211, %.lr.ph187.split.us ], [ %.1211, %86 ], [ %.1211, %.lr.ph187.split ]
-  call void @_efree(ptr noundef %.1212) #17
+.critedge2:                                       ; preds = %.lr.ph.split, %86, %.lr.ph.split.us, %74, %57
+  %.1206 = phi ptr [ null, %57 ], [ %.1205, %74 ], [ %.1205, %.lr.ph187.split.us ], [ %.1205, %86 ], [ %.1205, %.lr.ph187.split ]
+  call void @_efree(ptr noundef %.1206) #17
   br label %87
 
 87:                                               ; preds = %28, %21, %8, %.critedge2, %.split.us, %34, %30, %23

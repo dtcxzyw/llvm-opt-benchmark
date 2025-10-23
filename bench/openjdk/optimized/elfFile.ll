@@ -4230,16 +4230,16 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   %25 = icmp eq i32 %1, 1
   br i1 %25, label %._crit_edge, label %.lr.ph42
 
-26:                                               ; preds = %85
+25:                                               ; preds = %85
   %27 = add i32 %.02841, 1
   %28 = icmp eq i32 %27, %1
-  br i1 %28, label %._crit_edge, label %.lr.ph42, !llvm.loop !22
+  br i1 %28, label %28, label %30, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %26, %.lr.ph
+28:                                               ; preds = %25, %.lr.ph
   %29 = tail call noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenameEPcm(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %2, i64 noundef %3)
   br label %.loopexit
 
-.lr.ph42:                                         ; preds = %.lr.ph, %26
+30:                                               ; preds = %.lr.ph, %25
   %.02841 = phi i32 [ %27, %26 ], [ 1, %.lr.ph ]
   %30 = phi i64 [ %88, %26 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4254,7 +4254,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   %or.cond.i = select i1 %34, i1 %36, i1 false
   br i1 %or.cond.i, label %.split.us.i, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread
 
-.split.us.i:                                      ; preds = %.lr.ph42, %46
+.split.us.i:                                      ; preds = %30, %46
   %37 = load i64, ptr %18, align 8
   %38 = icmp ne i64 %37, -1
   %39 = load i64, ptr %19, align 8
@@ -4275,7 +4275,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %.split.us.i, !llvm.loop !18
 
-_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.lr.ph42, %.split.us.i, %41
+_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %30, %.split.us.i, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit

@@ -1886,23 +1886,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i34.i
   %511 = icmp eq ptr %.sroa.068.4.i403, %510
   br i1 %511, label %.critedge2.i, label %.lr.ph
 
-512:                                              ; preds = %.lr.ph
+512: ; preds = %.lr.ph
   %.sroa.068.4.i = getelementptr inbounds nuw i8, ptr %.sroa.068.4.i404, i64 1
   %513 = icmp eq ptr %.sroa.068.4.i, %510
   br i1 %513, label %.critedge2.i, label %.lr.ph, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %507, %512
+.lr.ph:; preds = %507, %512
   %.sroa.068.4.i404 = phi ptr [ %.sroa.068.4.i, %512 ], [ %.sroa.068.4.i403, %507 ]
   %514 = load i8, ptr %.sroa.068.4.i404, align 1
   %.not27.i = icmp eq i8 %514, 58
-  br i1 %.not27.i, label %..critedge2.i.loopexit_crit_edge405, label %512, !llvm.loop !10
+  br i1 %.not27.i, label %.critedge2.i, label %512, !llvm.loop !10
 
 515:                                              ; preds = %502, %496
   %516 = landingpad { ptr, i32 }
           cleanup
   br label %560
 
-..critedge2.i.loopexit_crit_edge405:              ; preds = %.lr.ph
+.critedge2.i:                                     ; preds = %.lr.ph
   br label %.critedge2.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %512, %507, %..critedge2.i.loopexit_crit_edge405, %506

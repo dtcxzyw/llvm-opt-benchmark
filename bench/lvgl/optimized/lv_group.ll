@@ -1203,13 +1203,13 @@ declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #1
 define ptr @lv_group_get_obj_by_index(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_ll_get_head(ptr noundef %0) #10
   %.not11 = icmp eq ptr %3, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not11, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
+.lr.ph:                                           ; preds = %2
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph20
 
-.lr.ph:                                           ; preds = %.lr.ph20
+5:                                                ; preds = %.lr.ph20
   %5 = add i32 %.081219, 1
   %6 = icmp eq i32 %5, %1
   br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !61
@@ -1219,14 +1219,14 @@ define ptr @lv_group_get_obj_by_index(ptr noundef %0, i32 noundef %1) local_unna
   %7 = load ptr, ptr %.013.lcssa, align 8, !tbaa !13
   br label %.loopexit
 
-.lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+7:                                                ; preds = %5, %.lr.ph
   %.081219 = phi i32 [ %5, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.01318 = phi ptr [ %8, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %8 = tail call ptr @lv_ll_get_next(ptr noundef %0, ptr noundef nonnull %.01318) #10
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
-.loopexit:                                        ; preds = %.lr.ph20, %2, %.lr.ph._crit_edge
+.loopexit:                                        ; preds = %7, %2, %.lr.ph._crit_edge
   %.09 = phi ptr [ %7, %.lr.ph._crit_edge ], [ null, %2 ], [ null, %.lr.ph20 ]
   ret ptr %.09
 }

@@ -724,50 +724,50 @@ define void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell8contents(pt
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4ItercENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.llvm.6172016698289805888.exit.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %9
+15:                                               ; preds = %9
   %15 = zext nneg i8 %13 to i64
-  br label %.lr.ph
+  br label %22
 
 16:                                               ; preds = %2
   %17 = load i64, ptr %8, align 8
   tail call void @_ZN5alloc7raw_vec12handle_error17had94eb94ada9491aE(i64 noundef %7, i64 %17) #19
   unreachable
 
-18:                                               ; preds = %.lr.ph
+17:                                               ; preds = %22
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx9, 4
   %19 = add nsw i64 %.sroa.7.08, -1
-  %20 = icmp eq i64 %19, 0
-  %21 = icmp eq i64 %.sroa.0.0.add, 24
-  %or.cond = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4ItercENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.llvm.6172016698289805888.exit.thread, label %.lr.ph
+  %18 = icmp eq i64 %19, 0
+  %19 = icmp eq i64 %.sroa.0.0.add, 24
+  %or.cond = select i1 %18, i1 true, i1 %19
+  br i1 %or.cond, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4ItercENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.llvm.6172016698289805888.exit.thread, label %22
 
-_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4ItercENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.llvm.6172016698289805888.exit.thread: ; preds = %18, %9
+_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4ItercENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.llvm.6172016698289805888.exit.thread: ; preds = %17, %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-22:                                               ; preds = %.lr.ph
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %22
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #20
           to label %27 unwind label %25
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
+22:                                               ; preds = %15, %17
   %.sroa.0.0.idx9 = phi i64 [ %.sroa.0.0.add, %18 ], [ 0, %.lr.ph.preheader ]
   %.sroa.7.08 = phi i64 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
   %.sroa.0.0.ptr10 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0.0.idx9
   %24 = load i32, ptr %.sroa.0.0.ptr10, align 4, !range !37, !noundef !4
   invoke void @_ZN5alloc6string6String4push17h2eefef5338b5c74cE.llvm.6172016698289805888(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %24)
-          to label %18 unwind label %22
+          to label %18 unwind label %20
 
-25:                                               ; preds = %22
+25:                                               ; preds = %20
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #21
   unreachable
 
-27:                                               ; preds = %22
-  resume { ptr, i32 } %23
+27:                                               ; preds = %20
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

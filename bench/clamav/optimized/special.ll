@@ -54,23 +54,23 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.loopexit, label %.preheader
 
-16:                                               ; preds = %.preheader
+.preheader.preheader:                             ; preds = %.preheader
   %.not82 = icmp eq i32 %17, 0
   br i1 %.not82, label %20, label %.preheader
 
-.preheader:                                       ; preds = %10, %16
-  %.07986 = phi i32 [ %17, %16 ], [ %spec.store.select, %10 ]
+.preheader:                                       ; preds = %10, %.preheader.preheader
+  %indvars.iv = phi i32 [ %17, %16 ], [ %spec.store.select, %10 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !26
-  %17 = add nsw i32 %.07986, -1
+  %18 = add nsw i32 %indvars.iv, -1
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) %2, i64 4)
   %.not85.not = icmp eq i32 %bcmp, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not85.not, label %.loopexit, label %16
+  br i1 %.not85.not, label %.loopexit, label %.preheader.preheader
 
-20:                                               ; preds = %16
+20:                                               ; preds = %.preheader.preheader
   %.sroa.0.0.copyload = load i32, ptr %15, align 4
   %.sroa.7.0..0.27.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..0.27.sroa_idx, align 4

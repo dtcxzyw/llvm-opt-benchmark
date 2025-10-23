@@ -3023,9 +3023,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmaengine_init_unmap_pool(
   %4 = tail call ptr @mempool_create(i32 noundef 1, ptr noundef nonnull @mempool_alloc_slab, ptr noundef nonnull @mempool_free_slab, ptr noundef nonnull %1) #12
   store ptr %4, ptr @unmap_pool.2, align 16
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.critedge2, label %.loopexit, !llvm.loop !75
+  br i1 %.not, label %.critedge, label %.loopexit, !llvm.loop !75
 
-.critedge2:                                       ; preds = %..critedge2_crit_edge, %3
+.critedge:                                        ; preds = %..critedge2_crit_edge, %3
   %5 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ null, %3 ]
   tail call void @mempool_destroy(ptr noundef %5) #12
   store ptr null, ptr @unmap_pool.2, align 16
@@ -3034,7 +3034,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmaengine_init_unmap_pool(
   store ptr null, ptr @unmap_pool.0, align 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %3, %.critedge2
+.loopexit:                                        ; preds = %3, %.critedge
   %7 = phi i32 [ -12, %.critedge2 ], [ 0, %3 ]
   ret i32 %7
 }

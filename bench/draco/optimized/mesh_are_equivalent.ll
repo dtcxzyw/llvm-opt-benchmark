@@ -1397,11 +1397,11 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %13 = icmp eq i64 %2, 0
   br i1 %13, label %._crit_edge, label %.lr.ph24
 
-14:                                               ; preds = %.lr.ph24
+13:                                               ; preds = %.lr.ph24
   %15 = icmp eq i64 %17, 0
-  br i1 %15, label %._crit_edge, label %.lr.ph24, !llvm.loop !131
+  br i1 %15, label %16, label %.lr.ph24, !llvm.loop !131
 
-._crit_edge:                                      ; preds = %14, %.lr.ph
+16:                                               ; preds = %13, %.lr.ph
   %storemerge16.lcssa = phi ptr [ %1, %.lr.ph ], [ %21, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
@@ -1413,7 +1413,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.lr.ph24:                                         ; preds = %.lr.ph, %14
+17:                                               ; preds = %.lr.ph, %13
   %storemerge1623 = phi ptr [ %21, %14 ], [ %1, %.lr.ph ]
   %.01722 = phi i64 [ %17, %14 ], [ %2, %.lr.ph ]
   %16 = phi i64 [ %24, %14 ], [ %10, %.lr.ph ]

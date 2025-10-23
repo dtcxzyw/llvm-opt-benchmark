@@ -718,12 +718,12 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %exitcond.not = icmp eq i64 %6, %1
   br i1 %exitcond.not, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h637d1ed1356d7c12E.exit.thread", label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader.split, %5
+.lr.ph:; preds = %.preheader.split, %5
   %.sroa.01.011 = phi i64 [ %6, %5 ], [ 0, %.preheader.split ]
   %7 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %0, i64 %.sroa.01.011
   %8 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %2, i64 %.sroa.01.011
   %9 = getelementptr i8, ptr %7, i64 16
-  %.val5 = load i64, ptr %9, align 8, !noundef !12
+  %.val7 = load i64, ptr %9, align 8, !noundef !12
   %10 = getelementptr i8, ptr %8, i64 16
   %.val7 = load i64, ptr %10, align 8, !noundef !12
   %.not.i.i = icmp eq i64 %.val5, %.val7

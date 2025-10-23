@@ -17,7 +17,7 @@ define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
 
 get_executable_path_raw.exit.thread:              ; preds = %0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %27
+  br label %28
 
 get_executable_path_raw.exit.thread33:            ; preds = %0
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -61,15 +61,15 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
   store i8 %spec.store.select, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
-  br i1 %exitcond.not, label %.lr.ph39, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !7
 
-20:                                               ; preds = %.lr.ph39
+.preheader.preheader:                             ; preds = %.lr.ph39
   %21 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %21, label %.lr.ph39, label %._crit_edge, !llvm.loop !9
 
-.lr.ph39:                                         ; preds = %.lr.ph, %20
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %20 ], [ %15, %.lr.ph ]
-  %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
+.preheader:                                       ; preds = %.lr.ph, %.preheader.preheader
+  %indvars.iv40 = phi i64 [ %indvars.iv.next43, %20 ], [ %15, %.lr.ph ]
+  %indvars.iv.next43 = add nsw i64 %indvars.iv40, -1
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.next43
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %20 [
@@ -78,16 +78,16 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
   ], !llvm.loop !9
 
 24:                                               ; preds = %.lr.ph39, %.lr.ph39
-  %25 = and i64 %indvars.iv42, 4294967295
+  %25 = and i64 %indvars.iv40, 4294967295
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   store i8 0, ptr %26, align 1
-  br label %27
+  br label %28
 
-._crit_edge:                                      ; preds = %20, %get_executable_path_raw.exit31
+27:                                               ; preds = %.preheader.preheader, %get_executable_path_raw.exit31
   store i8 0, ptr %16, align 1
-  br label %27
+  br label %28
 
-27:                                               ; preds = %get_executable_path_raw.exit.thread, %._crit_edge, %24
+28:                                               ; preds = %get_executable_path_raw.exit.thread, %27, %24
   %.025 = phi ptr [ %8, %24 ], [ %8, %._crit_edge ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }

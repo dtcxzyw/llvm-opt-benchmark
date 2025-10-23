@@ -295,11 +295,11 @@ define noundef nonnull ptr @Extra_FileInTheSameDir(ptr noundef readonly captures
   %.not14 = icmp slt i64 %4, 1
   br i1 %.not14, label %._crit_edge19, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %2
+6:                                                ; preds = %2
   %.013 = getelementptr inbounds i8, ptr %5, i64 -1
   br label %.lr.ph
 
-6:                                                ; preds = %.lr.ph
+7:                                                ; preds = %.lr.ph
   %.0 = getelementptr inbounds i8, ptr %.016, i64 -1
   %.not = icmp ult ptr %.0, @Extra_FileInTheSameDir.pBuffer
   br i1 %.not, label %._crit_edge19, label %.lr.ph, !llvm.loop !11
@@ -313,10 +313,10 @@ define noundef nonnull ptr @Extra_FileInTheSameDir(ptr noundef readonly captures
     i8 47, label %._crit_edge
   ], !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph
+9:                                                ; preds = %.lr.ph, %.lr.ph
   br label %._crit_edge19, !llvm.loop !11
 
-._crit_edge19:                                    ; preds = %6, %._crit_edge, %2
+._crit_edge19:; preds = %6, %9, %2
   %.pn.lcssa = phi ptr [ %.pn15, %._crit_edge ], [ %5, %2 ], [ %.016, %6 ]
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn.lcssa, ptr nonnull align 1 %1, i64 %8, i1 false)

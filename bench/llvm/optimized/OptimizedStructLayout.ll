@@ -515,7 +515,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %.not37.us107191 = icmp eq i32 %.val41, 1
   br i1 %.not37.us107191, label %.thread.i, label %.lr.ph194
 
-.lr.ph194:                                        ; preds = %.preheader.us112.lr.ph
+44:                                               ; preds = %.preheader.us112.lr.ph
   %.230.us106190 = getelementptr inbounds i8, ptr %7, i64 -24
   br label %45
 
@@ -524,7 +524,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %.not37.us107 = icmp eq ptr %.230.us106, %.val
   br i1 %.not37.us107, label %.thread.i, label %45, !llvm.loop !46
 
-45:                                               ; preds = %.lr.ph194, %44
+45:                                               ; preds = %44, %44
   %.230.us106193 = phi ptr [ %.230.us106190, %.lr.ph194 ], [ %.230.us106, %44 ]
   %.129.pn.us105192 = phi ptr [ %7, %.lr.ph194 ], [ %.230.us106193, %44 ]
   %46 = getelementptr inbounds i8, ptr %.129.pn.us105192, i64 -32

@@ -7560,15 +7560,15 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
 109:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i"
   %110 = add i64 %.sroa.5.09.i, -16
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.0310.i, i64 64
-  %112 = icmp eq i64 %110, 0
-  br i1 %112, label %._crit_edge.i, label %.lr.ph.i
+  %110 = icmp eq i64 %110, 0
+  br i1 %110, label %._crit_edge.i, label %.preheader
 
-.lr.ph.i:                                         ; preds = %98, %109
-  %.sroa.0.0310.i = phi ptr [ %111, %109 ], [ %102, %98 ]
-  %.sroa.5.09.i = phi i64 [ %110, %109 ], [ %106, %98 ]
+.preheader:                                       ; preds = %98, %109
+  %.sroa.07.0.i.i = phi ptr [ %111, %109 ], [ %102, %98 ]
+  %.sroa.09.0.i.i131 = phi i64 [ %110, %109 ], [ %106, %98 ]
   br label %113
 
-113:                                              ; preds = %113, %.lr.ph.i
+113:; preds = %113, %.lr.ph.i
   %.sroa.07.0.i.i = phi i1 [ false, %.lr.ph.i ], [ %116, %113 ]
   %.sroa.09.0.i.i131 = phi i64 [ 0, %.lr.ph.i ], [ %117, %113 ]
   %114 = getelementptr inbounds nuw i32, ptr %.sroa.0.0310.i, i64 %.sroa.09.0.i.i131
@@ -7577,9 +7577,9 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   %116 = or i1 %.sroa.07.0.i.i, %115
   %117 = add nuw nsw i64 %.sroa.09.0.i.i131, 1
   %118 = icmp eq i64 %117, 16
-  br i1 %118, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i", label %113
+  br i1 %118, label %118, label %113
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i": ; preds = %113
+118:                                              ; preds = %113
   br i1 %116, label %.loopexit, label %109
 
 ._crit_edge.i:                                    ; preds = %109, %98
@@ -7589,7 +7589,7 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   %.not.not.not.i.not11.i = icmp samesign eq i64 %.idx.i, 0
   br i1 %.not.not.not.i.not11.i, label %"_ZN55_$LT$u32$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2b164750a5293d29E.exit", label %.lr.ph13.i
 
-121:                                              ; preds = %.lr.ph13.i
+121:; preds = %.lr.ph13.i
   %122 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %.not.not.not.i.not.i = icmp eq ptr %122, %120
   br i1 %.not.not.not.i.not.i, label %"_ZN55_$LT$u32$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2b164750a5293d29E.exit", label %.lr.ph13.i

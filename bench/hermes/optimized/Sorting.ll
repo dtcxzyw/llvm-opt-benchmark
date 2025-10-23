@@ -194,9 +194,9 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end.
 do.cond.i:                                        ; preds = %do.body.i
   %dec.i = add i32 %start.0.i, -1
   %cmp6.not.i = icmp eq i32 %start.0.i, %l.addr.0.lcssa
-  br i1 %cmp6.not.i, label %while.body.preheader.i, label %do.body.i, !llvm.loop !8
+  br i1 %cmp6.not.i, label %while.cond.preheader.i, label %do.body.i, !llvm.loop !8
 
-while.body.preheader.i:                           ; preds = %do.cond.i
+while.cond.preheader.i:                           ; preds = %do.cond.i
   %conv.i.i = zext i32 %l.addr.0.lcssa to i64
   br label %while.body.i
 

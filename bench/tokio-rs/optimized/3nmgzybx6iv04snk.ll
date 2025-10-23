@@ -2657,32 +2657,32 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %15 = icmp eq i16 %12, 0
   br i1 %15, label %.loopexit.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i"
 
-16:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i"
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0312.i.i.i, i64 16
+15:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i"
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0312.i.i.i, i64 15
   %18 = add nuw nsw i64 %.sroa.8.011.i.i.i, 1
-  %19 = icmp eq ptr %17, %14
-  br i1 %19, label %.loopexit.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i"
+  %16 = icmp eq ptr %17, %14
+  br i1 %16, label %19, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i"
 
 default.unreachable.i.i.i:                        ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i"
   unreachable
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i": ; preds = %10, %16
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i": ; preds = %10, %15
   %.sroa.0.0312.i.i.i = phi ptr [ %17, %16 ], [ %.sroa.0.0.i, %10 ]
   %.sroa.8.011.i.i.i = phi i64 [ %18, %16 ], [ 0, %10 ]
   %.val20.i.i.i = load i128, ptr %.sroa.0.0312.i.i.i, align 8, !noalias !708, !noundef !53
   %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128 %2, i128 %.val20.i.i.i)
   switch i8 %.0.i.i.i.i, label %default.unreachable.i.i.i [
-    i8 -1, label %.loopexit.i.i
+    i8 -1, label %19
     i8 0, label %26
-    i8 1, label %16
+    i8 1, label %15
   ]
 
-.loopexit.i.i:                                    ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i", %16, %10
+19:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i", %15, %10
   %.sroa.4.0.i.ph.sink.i.ph.i = phi i64 [ 0, %10 ], [ %13, %16 ], [ %.sroa.8.011.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i" ]
   %.not.i.not.i = icmp eq i64 %.sroa.3.0.i, 0
   br i1 %.not.i.not.i, label %28, label %20
 
-20:                                               ; preds = %.loopexit.i.i
+20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 368
   %22 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph.i, 12
   tail call void @llvm.assume(i1 %22)
@@ -2703,7 +2703,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN110_$LT$core..i
   store ptr null, ptr %0, align 8
   br label %29
 
-28:                                               ; preds = %.loopexit.i.i
+28:                                               ; preds = %19
   store ptr %1, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %2, ptr %.sroa.410.0..sroa_idx, align 8
@@ -2741,32 +2741,32 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %16 = icmp eq i16 %13, 0
   br i1 %16, label %.loopexit.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
 
-17:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0312.i.i.i.i, i64 16
+16:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0312.i.i.i.i, i64 15
   %19 = add nuw nsw i64 %.sroa.8.011.i.i.i.i, 1
-  %20 = icmp eq ptr %18, %15
-  br i1 %20, label %.loopexit.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
+  %17 = icmp eq ptr %18, %15
+  br i1 %17, label %20, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
 
 default.unreachable.i.i.i.i:                      ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
   unreachable
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i": ; preds = %11, %17
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i": ; preds = %11, %16
   %.sroa.0.0312.i.i.i.i = phi ptr [ %18, %17 ], [ %.sroa.0.0.i.i, %11 ]
-  %.sroa.8.011.i.i.i.i = phi i64 [ %19, %17 ], [ 0, %11 ]
+  %.sroa.8.011.i.i.i.i = phi i64 [ %16, %17 ], [ 0, %11 ]
   %.val20.i.i.i.i = load i128, ptr %.sroa.0.0312.i.i.i.i, align 8, !noalias !719, !noundef !53
   %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128 %1, i128 %.val20.i.i.i.i)
   switch i8 %.0.i.i.i.i.i, label %default.unreachable.i.i.i.i [
-    i8 -1, label %.loopexit.i.i.i
+    i8 -1, label %20
     i8 0, label %31
-    i8 1, label %17
+    i8 1, label %16
   ]
 
-.loopexit.i.i.i:                                  ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i", %17, %11
+20:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i", %16, %11
   %.sroa.4.0.i.ph.sink.i.ph.i.i = phi i64 [ 0, %11 ], [ %.sroa.8.011.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i" ], [ %14, %17 ]
   %.not.i.not.i.i = icmp eq i64 %.sroa.3.0.i.i, 0
   br i1 %.not.i.not.i.i, label %.loopexit, label %21
 
-21:                                               ; preds = %.loopexit.i.i.i
+21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 368
   %23 = icmp samesign ult i64 %.sroa.4.0.i.ph.sink.i.ph.i.i, 12
   tail call void @llvm.assume(i1 %23)
@@ -2775,7 +2775,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN110_$LT$core..i
   %26 = add i64 %.sroa.3.0.i.i, -1
   br label %11
 
-.loopexit:                                        ; preds = %.loopexit.i.i.i, %4
+.loopexit:                                        ; preds = %20, %4
   %.sroa.13.0.ph = phi ptr [ null, %4 ], [ %.sroa.0.0.i.i, %.loopexit.i.i.i ]
   store ptr %0, ptr %5, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16

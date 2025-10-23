@@ -987,7 +987,7 @@ addbyter.exit50:                                  ; preds = %32, %28
   %.not24.i457 = icmp eq i8 %390, 0
   br i1 %.not24.i457, label %addbyter.exit.thread323, label %.lr.ph463.preheader
 
-.lr.ph463.preheader:                              ; preds = %386
+addbyter.exit.thread323:                          ; preds = %386
   %391 = icmp ult i64 %.sroa.51.4, %1
   br i1 %391, label %.lr.ph1026, label %addbyter.exit
 
@@ -1002,15 +1002,15 @@ addbyter.exit.thread323:                          ; preds = %.lr.ph1026, %386
   %392 = icmp ult i64 %395, %1
   br i1 %392, label %.lr.ph1026, label %addbyter.exit, !llvm.loop !37
 
-.lr.ph1026:                                       ; preds = %.lr.ph463.preheader, %.lr.ph463
-  %.sroa.51.64581025 = phi i64 [ %395, %.lr.ph463 ], [ %.sroa.51.4, %.lr.ph463.preheader ]
+.lr.ph1026:; preds = %.lr.ph463.preheader, %.lr.ph463
+  %.sroa.51.6458 = phi i64 [ %395, %.lr.ph463 ], [ %.sroa.51.4, %.lr.ph463.preheader ]
   %.sroa.0.64591024 = phi ptr [ %394, %.lr.ph463 ], [ %.sroa.0.4, %.lr.ph463.preheader ]
   %.30.i4601023 = phi i32 [ %396, %.lr.ph463 ], [ %.1357.i, %.lr.ph463.preheader ]
   %.8337.i4611022 = phi ptr [ %397, %.lr.ph463 ], [ %9, %.lr.ph463.preheader ]
   %393 = phi i8 [ %398, %.lr.ph463 ], [ %390, %.lr.ph463.preheader ]
   %394 = getelementptr inbounds nuw i8, ptr %.sroa.0.64591024, i64 1
   store i8 %393, ptr %.sroa.0.64591024, align 1, !tbaa !14
-  %395 = add nuw i64 %.sroa.51.64581025, 1
+  %395 = add nuw i64 %.sroa.51.6458, 1
   %396 = add nsw i32 %.30.i4601023, 1
   %397 = getelementptr inbounds nuw i8, ptr %.8337.i4611022, i64 1
   %398 = load i8, ptr %397, align 1, !tbaa !14

@@ -3616,15 +3616,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 83:                                               ; preds = %.lr.ph.i
   %storemerge.i = add nuw i64 %storemerge71.i, 1
   store i64 %storemerge.i, ptr %11, align 8, !tbaa !95
-  %exitcond.not.i = icmp eq i64 %storemerge.i, %40
-  br i1 %exitcond.not.i, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %.lr.ph.i, !llvm.loop !138
+  %82 = icmp eq i64 %storemerge.i, %40
+  br i1 %82, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %83, !llvm.loop !138
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %83
+83:                                               ; preds = %.preheader.i, %83
   %storemerge71.i = phi i64 [ %storemerge.i, %83 ], [ %storemerge70.i, %.preheader.i ]
   %84 = getelementptr inbounds nuw i8, ptr %33, i64 %storemerge71.i
   %85 = load i8, ptr %84, align 1, !tbaa !18
   %.not.i = icmp eq i8 %85, 10
-  br i1 %.not.i, label %..critedge.loopexit_crit_edge.i, label %83, !llvm.loop !138
+  br i1 %.not.i, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %83, !llvm.loop !138
 
 86:                                               ; preds = %79
   %87 = add i64 %34, 2
@@ -4006,7 +4006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-..critedge.loopexit_crit_edge.i:                  ; preds = %.lr.ph.i
+_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %83
   br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, !llvm.loop !138
 
 _ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %83, %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i, %..critedge.loopexit_crit_edge.i

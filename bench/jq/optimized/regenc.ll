@@ -397,7 +397,7 @@ define dso_local ptr @onigenc_step_back(ptr noundef readonly captures(none) %0, 
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph22, label %.critedge
 
-7:                                                ; preds = %10
+7: ; preds = %10
   %8 = add nsw i32 %.in, -1
   %9 = icmp sgt i32 %.in, 1
   br i1 %9, label %.lr.ph22, label %.critedge, !llvm.loop !28

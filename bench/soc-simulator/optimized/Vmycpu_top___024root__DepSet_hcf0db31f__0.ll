@@ -684,13 +684,13 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__icoP
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i5.not = icmp eq i64 %4, 0
-  br i1 %.not.i5.not, label %_Z31Vmycpu_top___024root___eval_icoP20Vmycpu_top___024root.exit, label %5
+  br i1 %.not.i5.not, label %_ZNK12VlTriggerVecILm1EE3anyEv.exit, label %5
 
-5:                                                ; preds = %1
+5:; preds = %1
   tail call void @_Z42Vmycpu_top___024root___ico_sequent__TOP__0P20Vmycpu_top___024root(ptr noundef nonnull %0)
-  br label %_Z31Vmycpu_top___024root___eval_icoP20Vmycpu_top___024root.exit
+  br label %_ZNK12VlTriggerVecILm1EE3anyEv.exit
 
-_Z31Vmycpu_top___024root___eval_icoP20Vmycpu_top___024root.exit: ; preds = %5, %1
+_ZNK12VlTriggerVecILm1EE3anyEv.exit:              ; preds = %5, %1
   %.not.i = icmp ne i64 %3, 0
   ret i1 %.not.i
 }

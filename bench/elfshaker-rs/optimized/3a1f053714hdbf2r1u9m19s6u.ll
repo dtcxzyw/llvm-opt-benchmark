@@ -2416,23 +2416,23 @@ define void @_ZN9elfshaker4repo10repository10Repository23find_pack_with_snapshot
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !129
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !129
   %.pre.i = load ptr, ptr %22, align 8, !noalias !129
-  %.pre52.i = load i64, ptr %51, align 8, !noalias !129
+  %.pre50.i = load i64, ptr %51, align 8, !noalias !129
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !129
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !129
   store ptr %48, ptr %13, align 8, !noalias !132
   store ptr %49, ptr %12, align 8, !noalias !132
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %50, ptr %58, align 8, !noalias !132
-  %.idx.i.i = mul nuw nsw i64 %.pre52.i, 24
+  %.idx.i.i = mul nuw nsw i64 %.pre50.i, 24
   %59 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !132
-  %60 = icmp eq i64 %.pre52.i, 0
+  %60 = icmp eq i64 %.pre50.i, 0
   br i1 %60, label %76, label %61, !prof !137
 
 61:                                               ; preds = %.thread, %57
   %62 = phi ptr [ %56, %.thread ], [ %59, %57 ]
   %63 = phi ptr [ %47, %.thread ], [ %.pre.i, %57 ]
-  %64 = phi i64 [ %43, %.thread ], [ %.pre52.i, %57 ]
+  %64 = phi i64 [ %43, %.thread ], [ %.pre50.i, %57 ]
   invoke fastcc void @"_ZN9elfshaker4repo10repository10Repository19are_snapshots_equal28_$u7b$$u7b$closure$u7d$$u7d$17hc40ef7222efdce78E"(ptr noalias noundef align 1 captures(none) dereferenceable(21) %11, ptr nonnull %13, ptr nonnull %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63)
           to label %.noexc unwind label %.thread101.loopexit.split-lp.loopexit.split-lp
 
@@ -2638,7 +2638,7 @@ define void @_ZN9elfshaker4repo10repository10Repository23find_pack_with_snapshot
   %127 = icmp eq i64 %124, 0
   br i1 %127, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.thread.i", label %.lr.ph.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.thread.i": ; preds = %.loopexit47.i
+127:                                              ; preds = %.loopexit47.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !129
   br label %138
 
@@ -2647,16 +2647,16 @@ define void @_ZN9elfshaker4repo10repository10Repository23find_pack_with_snapshot
   %130 = icmp eq ptr %129, %126
   br i1 %130, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.i", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit47.i, %128
+130:                                              ; preds = %.loopexit47.i, %128
   %131 = phi ptr [ %129, %128 ], [ %125, %.loopexit47.i ]
   %132 = invoke noundef zeroext i1 @_ZN9elfshaker4repo10repository10Repository13is_pack_loose17he2b99a4b44c027cbE(ptr noundef nonnull align 8 %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %131)
           to label %.noexc49 unwind label %.thread101.loopexit
 
-.noexc49:                                         ; preds = %.lr.ph.i
+.noexc49:                                         ; preds = %130
   br i1 %132, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.i", label %128
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.i": ; preds = %.noexc49, %128
-  %.sroa.0.0.i.ph.i = phi ptr [ %131, %.noexc49 ], [ null, %128 ]
+  %.sroa.0.0.i.i = phi ptr [ %131, %.noexc49 ], [ null, %128 ]
   %.pre53.i = load i64, ptr %51, align 8, !noalias !129
   %133 = icmp eq i64 %.pre53.i, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !129
@@ -2690,7 +2690,7 @@ define void @_ZN9elfshaker4repo10repository10Repository23find_pack_with_snapshot
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24, !noalias !126
   unreachable
 
-138:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.thread.i"
+138:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.i", %127
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d7fa6b3a568edea7c5b2245a49c0080.237) #25
           to label %.noexc50 unwind label %.thread101.loopexit.split-lp.loopexit.split-lp
 
@@ -2705,8 +2705,8 @@ define void @_ZN9elfshaker4repo10repository10Repository23find_pack_with_snapshot
 
 141:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9bfbfe7860ba3194E.exit.i"
   %142 = load ptr, ptr %22, align 8, !noalias !129, !nonnull !5, !align !18, !noundef !5
-  %.not34.i = icmp eq ptr %.sroa.0.0.i.ph.i, null
-  %spec.select.i = select i1 %.not34.i, ptr %142, ptr %.sroa.0.0.i.ph.i
+  %.not34.i = icmp eq ptr %.sroa.0.0.i.i, null
+  %spec.select.i = select i1 %.not34.i, ptr %142, ptr %.sroa.0.0.i.i
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h264d14c2948c37e0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %spec.select.i)
           to label %.noexc51 unwind label %.thread101.loopexit.split-lp.loopexit.split-lp
 
@@ -2789,7 +2789,7 @@ _ZN9elfshaker4repo10repository10Repository21disambiguate_snapshot17h1a11d1daadc1
   %170 = load i64, ptr %168, align 8, !noalias !169
   br label %.invoke
 
-.thread101.loopexit:                              ; preds = %.lr.ph.i
+.thread101.loopexit:                              ; preds = %130
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread96

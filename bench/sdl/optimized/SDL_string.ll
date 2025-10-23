@@ -759,25 +759,25 @@ define hidden range(i32 0, 1966080) i32 @SDL_StepBackUTF8_REAL(ptr noundef readn
   %3 = ptrtoint ptr %0 to i64
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %19, label %5
+  br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
   %7 = ptrtoint ptr %6 to i64
   %.not11 = icmp ugt ptr %6, %0
-  br i1 %.not11, label %.lr.ph.preheader, label %19
+  br i1 %.not11, label %8, label %22
 
-.lr.ph.preheader:                                 ; preds = %5
+8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = sub i64 %3, %7
-  %scevgep = getelementptr i8, ptr %6, i64 %8
+  %9 = sub i64 %3, %7
+  %scevgep = getelementptr i8, ptr %6, i64 %9
   br label %.lr.ph
 
-9:                                                ; preds = %.lr.ph
+17:                                               ; preds = %.lr.ph
   %10 = icmp eq ptr %12, %0
   br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+.lr.ph:; preds = %8, %9
   %11 = phi ptr [ %12, %9 ], [ %6, %.lr.ph.preheader ]
   %12 = getelementptr inbounds i8, ptr %11, i64 -1
   %13 = load i8, ptr %12, align 1
@@ -795,9 +795,9 @@ define hidden range(i32 0, 1966080) i32 @SDL_StepBackUTF8_REAL(ptr noundef readn
   store ptr %15, ptr %1, align 8
   %18 = call fastcc i32 @StepUTF8(ptr noundef nonnull %4, i64 noundef %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %19
+  br label %22
 
-19:                                               ; preds = %2, %5, %._crit_edge
+22:                                               ; preds = %2, %5, %._crit_edge
   %.0 = phi i32 [ %18, %._crit_edge ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.0
 }

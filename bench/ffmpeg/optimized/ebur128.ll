@@ -950,16 +950,16 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_global(ptr noundef readonly ca
   %3 = load i32, ptr %0, align 8, !tbaa !25
   %4 = and i32 %3, 5
   %.not41.i = icmp eq i32 %4, 5
-  br i1 %.not41.i, label %.split.i, label %ebur128_gated_loudness.exit, !llvm.loop !51
+  br i1 %.not41.i, label %4, label %ebur128_gated_loudness.exit, !llvm.loop !51
 
-.split.i:                                         ; preds = %2
+4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   br label %9
 
-9:                                                ; preds = %9, %.split.i
+9:                                                ; preds = %9, %4
   %.122.i.i = phi i32 [ 0, %.split.i ], [ %18, %9 ]
   %.02021.i.i = phi i64 [ 0, %.split.i ], [ %19, %9 ]
   %10 = phi double [ 0.000000e+00, %.split.i ], [ %16, %9 ]
@@ -1027,20 +1027,20 @@ find_histogram_index.exit.i:                      ; preds = %.preheader2.i
   %43 = add i64 %38, %.1346.us.i
   %44 = add nuw i64 %.0317.us.i, 1
   %exitcond.not.i = icmp eq i64 %44, 1000
-  br i1 %exitcond.not.i, label %.split13.i, label %.preheader.us.i, !llvm.loop !52
+  br i1 %exitcond.not.i, label %.split12.i, label %.preheader.us.i, !llvm.loop !52
 
-.split13.i:                                       ; preds = %.preheader.us.i
+.split12.i:                                       ; preds = %.preheader.us.i
   %.not40.i = icmp eq i64 %43, 0
   br i1 %.not40.i, label %.loopexit3.sink.split.i, label %45
 
-45:                                               ; preds = %.split13.i
+45:                                               ; preds = %.split12.i
   %46 = uitofp i64 %43 to double
   %47 = fdiv nsz double %42, %46
   %48 = tail call nsz double @llvm.log10.f64(double %47)
   %49 = tail call nsz noundef double @llvm.fmuladd.f64(double %48, double 1.000000e+01, double -6.910000e-01)
   br label %.loopexit3.sink.split.i
 
-.loopexit3.sink.split.i:                          ; preds = %45, %.split13.i, %find_histogram_index.exit.i, %ebur128_calc_relative_threshold.exit.i
+.loopexit3.sink.split.i:                          ; preds = %45, %.split12.i, %find_histogram_index.exit.i, %ebur128_calc_relative_threshold.exit.i
   %.sink.i = phi double [ %49, %45 ], [ 0xFFF0000000000000, %ebur128_calc_relative_threshold.exit.i ], [ 0xFFF0000000000000, %find_histogram_index.exit.i ], [ 0xFFF0000000000000, %.split13.i ]
   store double %.sink.i, ptr %1, align 8, !tbaa !29
   br label %ebur128_gated_loudness.exit

@@ -222,13 +222,13 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19200
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp ne i64 %3, 0
-  br i1 %.not.i, label %4, label %5
+  br i1 %.not.i, label %4, label %_ZNK12VlTriggerVecILm2EE3anyEv.exit
 
-4:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #12
-  br label %5
+  br label %_ZNK12VlTriggerVecILm2EE3anyEv.exit
 
-5:                                                ; preds = %4, %1
+_ZNK12VlTriggerVecILm2EE3anyEv.exit:              ; preds = %4, %1
   ret i1 %.not.i
 }
 

@@ -3019,21 +3019,21 @@ select.unfold.preheader76:                        ; preds = %select.unfold.prehe
   %.not5773 = icmp eq ptr %13, null
   br label %select.unfold
 
-14:                                               ; preds = %select.unfold
+13:                                               ; preds = %select.unfold
   %15 = add i64 %.0466675, 1
   %exitcond.not = icmp eq i64 %15, %11
   br i1 %exitcond.not, label %.critedge, label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.preheader76, %14
+select.unfold:                                    ; preds = %select.unfold.preheader76, %13
   %.0466675 = phi i64 [ %15, %14 ], [ 0, %select.unfold.preheader76 ]
-  %16 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %13, i64 %.0466675
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !158
-  %19 = icmp ne ptr %18, %12
+  %15 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %13, i64 %.0466675
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !158
+  %18 = icmp ne ptr %17, %12
   %.not57 = or i1 %19, %.not5773
   br i1 %.not57, label %14, label %.critedge61
 
-.critedge:                                        ; preds = %14, %select.unfold.preheader
+.critedge:; preds = %14, %select.unfold.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load ptr, ptr %12, align 8, !tbaa !65
   %21 = tail call i32 @reftable_stack_reload(ptr noundef %20) #20
@@ -3109,7 +3109,7 @@ st_mult.exit:                                     ; preds = %32
   br label %.critedge61
 
 .critedge61:                                      ; preds = %select.unfold, %40
-  %.2 = phi ptr [ %43, %40 ], [ %16, %select.unfold ]
+  %.2 = phi ptr [ %43, %40 ], [ %15, %select.unfold ]
   %48 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %49 = load i64, ptr %48, align 8, !tbaa !85
   %50 = add i64 %49, 1

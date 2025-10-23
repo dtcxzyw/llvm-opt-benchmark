@@ -9,28 +9,28 @@ define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef r
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #3
   %spec.select = tail call i64 @llvm.umin.i64(i64 %4, i64 %5)
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %.critedge._crit_edge, label %.lr.ph59
+  br i1 %.not, label %.critedge._crit_edge, label %.lr.ph53
 
-.lr.ph59:                                         ; preds = %3, %.critedge2
-  %.058 = phi i64 [ %25, %.critedge2 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.058
+.lr.ph53:                                         ; preds = %3, %.critedge2
+  %.052 = phi i64 [ %25, %.critedge2 ], [ 0, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.052
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %.critedge [
     i8 34, label %8
     i8 39, label %8
   ]
 
-8:                                                ; preds = %.lr.ph59, %.lr.ph59
-  %9 = add nuw i64 %.058, 1
+8:                                                ; preds = %.lr.ph53, %.lr.ph53
+  %9 = add nuw i64 %.052, 1
   %10 = icmp ult i64 %9, %5
-  br i1 %10, label %.lr.ph, label %.critedge
+  br i1 %10, label %13, label %.critedge
 
-11:                                               ; preds = %.lr.ph
+10:                                               ; preds = %13
   %12 = add nuw i64 %13, 1
   %exitcond.not = icmp eq i64 %12, %5
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge, label %13
 
-.lr.ph:                                           ; preds = %8, %11
+13:                                               ; preds = %8, %10
   %13 = phi i64 [ %12, %11 ], [ %9, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -39,8 +39,8 @@ define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef r
     i8 39, label %.critedge
   ]
 
-.critedge:                                        ; preds = %11, %.lr.ph, %.lr.ph, %8, %.lr.ph59
-  %.1 = phi i64 [ %.058, %.lr.ph59 ], [ %9, %8 ], [ %5, %11 ], [ %13, %.lr.ph ], [ %13, %.lr.ph ]
+.critedge:                                        ; preds = %11, %13, %13, %8, %.lr.ph53
+  %.1 = phi i64 [ %.052, %.lr.ph59 ], [ %9, %8 ], [ %5, %11 ], [ %13, %.lr.ph ], [ %13, %.lr.ph ]
   %16 = sub i64 %5, %.1
   %17 = icmp ult i64 %16, %spec.select
   br i1 %17, label %.critedge._crit_edge, label %18
@@ -51,11 +51,11 @@ define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef r
   %.not42 = icmp eq i32 %20, 0
   %21 = icmp ult i64 %.1, %5
   %or.cond = and i1 %.not42, %21
-  br i1 %or.cond, label %.lr.ph48, label %.critedge2
+  br i1 %or.cond, label %.lr.ph, label %.critedge2
 
-.lr.ph48:                                         ; preds = %18, %_ZN6Assimp9IsLineEndIcEEbT_.exit
-  %.347 = phi i64 [ %24, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.1, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.347
+.lr.ph:                                           ; preds = %18, %_ZN6Assimp9IsLineEndIcEEbT_.exit
+  %.343 = phi i64 [ %24, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.1, %18 ]
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.343
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %_ZN6Assimp9IsLineEndIcEEbT_.exit [
     i8 13, label %.critedge2
@@ -64,17 +64,17 @@ define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef r
     i8 12, label %.critedge2
   ]
 
-_ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.lr.ph48
-  %24 = add i64 %.347, 1
+_ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.lr.ph
+  %24 = add i64 %.343, 1
   store i8 %2, ptr %22, align 1
-  %exitcond60.not = icmp eq i64 %24, %5
-  br i1 %exitcond60.not, label %.critedge2, label %.lr.ph48, !llvm.loop !3
+  %exitcond.not = icmp eq i64 %24, %5
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !3
 
-.critedge2:                                       ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit, %.lr.ph48, %.lr.ph48, %.lr.ph48, %.lr.ph48, %18
-  %.4 = phi i64 [ %.1, %18 ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.347, %.lr.ph48 ], [ %.347, %.lr.ph48 ], [ %.347, %.lr.ph48 ], [ %.347, %.lr.ph48 ]
+.critedge2:                                       ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %18
+  %.4 = phi i64 [ %.1, %18 ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.343, %.lr.ph48 ], [ %.343, %.lr.ph48 ], [ %.343, %.lr.ph48 ], [ %.343, %.lr.ph48 ]
   %25 = add i64 %.4, 1
   %26 = icmp ult i64 %25, %5
-  br i1 %26, label %.lr.ph59, label %.critedge._crit_edge, !llvm.loop !5
+  br i1 %26, label %.lr.ph53, label %.critedge._crit_edge, !llvm.loop !5
 
 .critedge._crit_edge:                             ; preds = %.critedge2, %.critedge, %3
   ret void

@@ -8787,13 +8787,13 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %7, %6
   %9 = icmp sgt i64 %8, 128
-  br i1 %9, label %.lr.ph.preheader, label %.loopexit
+  br i1 %9, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph19
 
-.lr.ph:                                           ; preds = %.lr.ph19
+11:                                               ; preds = %.lr.ph19
   %11 = icmp eq i64 %12, 0
   br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph19, !llvm.loop !450
 
@@ -8807,7 +8807,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+12:                                               ; preds = %11, %.lr.ph
   %storemerge1218 = phi ptr [ %13, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %.01317 = phi i64 [ %12, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %12 = add nsw i64 %.01317, -1
@@ -8818,7 +8818,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %16 = icmp sgt i64 %15, 128
   br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !450
 
-.loopexit:                                        ; preds = %.lr.ph19, %3, %.lr.ph._crit_edge
+.loopexit:                                        ; preds = %12, %3, %.lr.ph._crit_edge
   ret void
 }
 

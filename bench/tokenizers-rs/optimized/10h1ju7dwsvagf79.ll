@@ -30235,12 +30235,12 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %.lr.ph
 
-45:                                               ; preds = %.lr.ph
+45:; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 48
   %47 = icmp eq ptr %46, %43
   br i1 %47, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %.lr.ph
 
-.lr.ph:                                           ; preds = %38, %45
+.lr.ph:; preds = %38, %45
   %.sroa.0.07 = phi ptr [ %46, %45 ], [ %40, %38 ]
   %48 = tail call { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h3dc2169f03a01c15E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.07, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   %49 = extractvalue { ptr, ptr } %48, 0

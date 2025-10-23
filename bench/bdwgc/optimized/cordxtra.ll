@@ -895,13 +895,13 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %.051.lcssa98 = phi i64 [ 0, %.preheader.thread ], [ %72, %.preheader ]
   %37 = and i64 %.050.lcssa99, %.049.lcssa100
   %38 = icmp eq i64 %37, %.051.lcssa98
-  br i1 %38, label %.loopexit, label %.lr.ph73.preheader
+  br i1 %38, label %.loopexit, label %.lr.ph73
 
-.lr.ph73.preheader:                               ; preds = %.preheader.split.us
+.lr.ph73:                                         ; preds = %.preheader.split.us
   %39 = icmp eq i64 %1, %36
   br i1 %39, label %.loopexit, label %.lr.ph111
 
-.lr.ph73:                                         ; preds = %61
+40:                                               ; preds = %61
   %40 = icmp eq i64 %62, %36
   br i1 %40, label %.loopexit, label %.lr.ph111
 
@@ -1067,7 +1067,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %125 = add i64 %.0, 1
   br label %.preheader.split
 
-.loopexit:                                        ; preds = %101, %97, %61, %.lr.ph73, %.lr.ph73.preheader, %.preheader.split.us, %15, %3
+.loopexit:                                        ; preds = %101, %97, %61, %.lr.ph73, %40, %.preheader.split.us, %15, %3
   %.054 = phi i64 [ %1, %3 ], [ -1, %15 ], [ %1, %.preheader.split.us ], [ -1, %.lr.ph73.preheader ], [ -1, %.lr.ph73 ], [ %62, %61 ], [ %.0, %97 ], [ -1, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.054

@@ -1082,7 +1082,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   %.not.not.not.i3.not = icmp eq i64 %2, 0
   br i1 %.not.not.not.i3.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit", label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit": ; preds = %3, %.lr.ph
   %5 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
   %6 = tail call noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h745857070c73a145E.llvm.14531926216617506853"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !213
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24

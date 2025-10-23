@@ -13946,12 +13946,12 @@ define linkonce_odr void @_ZN7QVectorI5PatchE7reallocEi6QFlagsIN10QArrayData16Al
 .preheader:                                       ; preds = %12
   br i1 %.not2737, label %.loopexit, label %.lr.ph40
 
-28:                                               ; preds = %.lr.ph40
+28:; preds = %.lr.ph40
   %29 = getelementptr inbounds nuw i8, ptr %.02338, i64 168
   %.not27 = icmp eq ptr %29, %24
   br i1 %.not27, label %.loopexit, label %.lr.ph40, !llvm.loop !104
 
-.lr.ph40:                                         ; preds = %.preheader, %28
+.lr.ph40:; preds = %.preheader, %28
   %.039 = phi ptr [ %30, %28 ], [ %27, %.preheader ]
   %.02338 = phi ptr [ %29, %28 ], [ %20, %.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %.039, i64 168

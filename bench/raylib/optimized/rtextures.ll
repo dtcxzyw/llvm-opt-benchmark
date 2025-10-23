@@ -38898,7 +38898,7 @@ define internal fastcc void @stbi__out_gif_code(ptr noundef nonnull captures(non
   %63 = icmp sgt i32 %.promoted46, 0
   br i1 %63, label %.lr.ph50.preheader, label %.critedge
 
-.lr.ph50.preheader:                               ; preds = %.lr.ph
+.lr.ph50.preheader:; preds = %.lr.ph
   %64 = load i32, ptr %61, align 4
   %65 = load i32, ptr %62, align 8
   br label %.lr.ph50
@@ -38920,7 +38920,7 @@ define internal fastcc void @stbi__out_gif_code(ptr noundef nonnull captures(non
   store i32 %70, ptr %59, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %52, %47, %9
+66:                                               ; preds = %.critedge.loopexit, %.lr.ph, %52, %47, %9
   ret void
 }
 
@@ -41363,13 +41363,13 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %exitcond114 = icmp sgt i32 %.06073, 255
   br i1 %exitcond114, label %.loopexit65.sink.split, label %.lr.ph117
 
-12:                                               ; preds = %.lr.ph117
+12: ; preds = %.lr.ph117
   %13 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   store i8 %8, ptr %13, align 1
   %exitcond = icmp eq i32 %14, %10
   br i1 %exitcond, label %.loopexit65.sink.split, label %.lr.ph117
 
-.lr.ph117:                                        ; preds = %.lr.ph, %12
+.lr.ph117:; preds = %.lr.ph, %12
   %.05572116 = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
   %indvars.iv115 = phi i64 [ %indvars.iv.next, %12 ], [ %9, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv115, 1

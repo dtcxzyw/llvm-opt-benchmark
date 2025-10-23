@@ -1036,8 +1036,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 .lr.ph.i.i:                                       ; preds = %.preheader.split.i.i, %.lr.ph.i.i
   %.sroa.01.09.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ 0, %.preheader.split.i.i ]
   %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.01.09.i.i
-  %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val3, i64 %.sroa.01.09.i.i
-  %9 = getelementptr i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val3, i64 %.sroa.01.09.i.i
+  %10 = getelementptr i8, ptr %7, i64 8
   %.val.i.i = load ptr, ptr %9, align 8, !alias.scope !119, !noalias !122, !nonnull !6, !noundef !6
   %10 = getelementptr i8, ptr %7, i64 16
   %.val5.i.i = load i64, ptr %10, align 8, !alias.scope !119, !noalias !122, !noundef !6

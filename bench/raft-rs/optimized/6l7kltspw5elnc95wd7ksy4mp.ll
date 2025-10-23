@@ -1318,14 +1318,14 @@ define hidden noundef ptr @"_ZN66_$LT$slog_envlogger..EnvLogger$LT$T$GT$$u20$as$
   %21 = getelementptr i8, ptr %0, i64 16
   %.val7 = load i64, ptr %21, align 8, !noundef !12
   %22 = icmp eq i64 %.val7, 0
-  br i1 %22, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread", label %.lr.ph.preheader.i
+  br i1 %22, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread", label %23
 
-.lr.ph.preheader.i:                               ; preds = %3
+23:                                               ; preds = %3
   %.idx.i = shl nuw nsw i64 %.val7, 5
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   br label %.lr.ph.i
 
-24:                                               ; preds = %28
+25:                                               ; preds = %28
   %25 = icmp eq ptr %.val, %26
   br i1 %25, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread", label %.lr.ph.i
 

@@ -180,17 +180,17 @@ define internal fastcc void @verror_at(ptr noundef %0, ptr noundef readnone capt
   %8 = icmp ult ptr %1, %3
   br i1 %8, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %6
+.lr.ph.preheader:; preds = %6
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %9, %7
   %scevgep = getelementptr i8, ptr %3, i64 %10
   br label %.lr.ph
 
-11:                                               ; preds = %.lr.ph
+11:; preds = %.lr.ph
   %12 = icmp ult ptr %1, %13
   br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !21
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+.lr.ph:; preds = %.lr.ph.preheader, %11
   %.026 = phi ptr [ %13, %11 ], [ %3, %.lr.ph.preheader ]
   %13 = getelementptr inbounds i8, ptr %.026, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !18
@@ -212,22 +212,22 @@ define internal fastcc void @verror_at(ptr noundef %0, ptr noundef readnone capt
     i8 10, label %.critedge2
   ]
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %.022, i64 1
+13:                                               ; preds = %15
+  %14 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   br label %15, !llvm.loop !22
 
 .critedge2:                                       ; preds = %15, %15
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.17, ptr noundef %0, i32 noundef %2) #25
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %22 = ptrtoint ptr %.022 to i64
-  %23 = ptrtoint ptr %.0.lcssa to i64
-  %24 = sub i64 %22, %23
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.17, ptr noundef %0, i32 noundef %2) #25
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %18 = ptrtoint ptr %.022 to i64
+  %19 = ptrtoint ptr %.0.lcssa to i64
+  %20 = sub i64 %18, %19
   %25 = trunc i64 %24 to i32
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.18, i32 noundef %25, ptr noundef %.0.lcssa) #25
-  %27 = sub i64 %7, %23
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.18, i32 noundef %25, ptr noundef %.0.lcssa) #27
+  %27 = sub i64 %7, %19
   %28 = trunc i64 %27 to i32
-  %29 = tail call i32 @display_width(ptr noundef %.0.lcssa, i32 noundef %28) #27
+  %29 = tail call i32 @display_width(ptr noundef %.0.lcssa, i32 noundef %28) #25
   %30 = add nsw i32 %29, %20
   %31 = load ptr, ptr @stderr, align 8, !tbaa !7
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.19, i32 noundef %30, ptr noundef nonnull @.str.20) #25

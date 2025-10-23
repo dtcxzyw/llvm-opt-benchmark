@@ -555,13 +555,13 @@ define hidden noundef align 2 dereferenceable_or_null(98) ptr @_ZN12clap_builder
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread", label %.lr.ph.i
 
-10:                                               ; preds = %.lr.ph.i
+10:; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0613.i, i64 16
   %12 = add nuw nsw i64 %.sroa.8.012.i, 1
   %13 = icmp eq ptr %11, %8
   br i1 %13, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1, %10
+.lr.ph.i:; preds = %1, %10
   %.sroa.0.0613.i = phi ptr [ %11, %10 ], [ %5, %1 ]
   %.sroa.8.012.i = phi i64 [ %12, %10 ], [ 0, %1 ]
   %14 = call noundef zeroext i1 @"_ZN82_$LT$clap_builder..util..any_value..AnyValueId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd07ecf55208d1f1dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0613.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !noalias !37

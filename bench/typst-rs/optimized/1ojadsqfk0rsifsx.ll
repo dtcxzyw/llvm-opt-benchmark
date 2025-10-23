@@ -2248,20 +2248,20 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   %.val = load ptr, ptr %12, align 8, !nonnull !37, !noundef !37
   %.val28 = load i64, ptr %13, align 8, !noundef !37
   %.idx39 = mul nsw i64 %.val28, 96
-  %32 = getelementptr inbounds i8, ptr %.val, i64 %.idx39
+  %33 = getelementptr inbounds i8, ptr %.val, i64 %.idx39
   %33 = icmp eq i64 %.val28, 0
-  br i1 %33, label %._crit_edge, label %.lr.ph
+  br i1 %33, label %37, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %38
 
-36:                                               ; preds = %52
+35:                                               ; preds = %52
   %37 = icmp eq ptr %39, %32
-  br i1 %37, label %._crit_edge, label %38
+  br i1 %37, label %37, label %38
 
-._crit_edge:                                      ; preds = %36, %30
+37:                                               ; preds = %35, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 8 dereferenceable(616) %9, i64 616, i1 false)
   call fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(616) %4)
@@ -2270,7 +2270,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-38:                                               ; preds = %.lr.ph, %36
+38:                                               ; preds = %.lr.ph, %35
   %.sroa.0.038 = phi ptr [ %.val, %.lr.ph ], [ %39, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 96
   %40 = load double, ptr %8, align 8, !noundef !37

@@ -372,7 +372,7 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %104 = icmp slt i16 %103, 1
   br i1 %104, label %.thread.i.preheader, label %._crit_edge
 
-.thread.i.preheader:                              ; preds = %.outer.i
+105:                                              ; preds = %.outer.i
   %indvars.iv.next60.i142 = add nuw nsw i64 %indvars.iv.ph.i, 1
   %.not61.i143 = icmp slt i64 %indvars.iv.next60.i142, %101
   br i1 %.not61.i143, label %.lr.ph145, label %.thread.i.preheader.._crit_edge.thread.i.loopexit_crit_edge, !llvm.loop !9
@@ -425,7 +425,7 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   store i8 1, ptr %116, align 4
   br label %index_unchanged_by_update.exit
 
-.thread.i.preheader.._crit_edge.thread.i.loopexit_crit_edge: ; preds = %.thread.i.preheader
+._crit_edge.thread.i:                             ; preds = %.thread.i.preheader
   br label %._crit_edge.thread.i, !llvm.loop !9
 
 .thread.i.._crit_edge.thread.i.loopexit_crit_edge: ; preds = %.thread.i

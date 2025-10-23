@@ -727,27 +727,27 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %4 = load i64, ptr %3, align 8, !alias.scope !161, !noundef !4
   %.promoted = load i64, ptr %2, align 8, !alias.scope !161
   %5 = icmp ult i64 %.promoted, %4
-  br i1 %5, label %.lr.ph, label %13
+  br i1 %5, label %6, label %13
 
-.lr.ph:                                           ; preds = %1
+6:                                                ; preds = %1
   %.val4.i.i = load ptr, ptr %0, align 8, !alias.scope !161, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %6, align 8, !alias.scope !161, !nonnull !4, !noundef !4
   br label %8
 
-7:                                                ; preds = %8
+9:                                                ; preds = %8
   %exitcond.not = icmp eq i64 %10, %4
   br i1 %exitcond.not, label %.sink.split, label %8
 
-8:                                                ; preds = %.lr.ph, %7
+8: ; preds = %.lr.ph, %7
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %10, %7 ]
   %10 = add i64 %9, 1
   %11 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %9
   %12 = getelementptr inbounds i8, ptr %.val.i.i, i64 %9
   %.fca.0.extract.val = load i8, ptr %11, align 1, !range !132, !noundef !4
   %.fca.1.extract.val = load i8, ptr %12, align 1, !range !132, !noundef !4
-  %.not.not.not = icmp ne i8 %.fca.0.extract.val, %.fca.1.extract.val
-  br i1 %.not.not.not, label %.sink.split, label %7
+  %.not = icmp ne i8 %.fca.0.extract.val, %.fca.1.extract.val
+  br i1 %.not, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %8, %7
   %.lcssa20.sink = phi i64 [ %10, %8 ], [ %4, %7 ]
@@ -755,7 +755,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %13
 
 13:                                               ; preds = %.sink.split, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %.not.not.not, %.sink.split ]
+  %.lcssa = phi i1 [ false, %1 ], [ %.not, %.sink.split ]
   ret i1 %.lcssa
 }
 
@@ -1877,9 +1877,9 @@ define hidden void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core.
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b3aa12c9f205c1eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #12 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, %3
-  br i1 %.not, label %5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7edd114388089e2cE.llvm.11416644905663497080.exit
+  br i1 %.not, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7edd114388089e2cE.llvm.11416644905663497080.exit
 
-5:                                                ; preds = %4
+.preheader:                                       ; preds = %4
   %.not8 = icmp eq i64 %1, 0
   br i1 %.not8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7edd114388089e2cE.llvm.11416644905663497080.exit, label %.lr.ph.i
 
@@ -1888,8 +1888,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = getelementptr inbounds i8, ptr %2, i64 %6
   %.fca.0.extract.val.i = load i8, ptr %7, align 1, !range !132, !noalias !378, !noundef !4
-  %.fca.1.extract.val.i = load i8, ptr %8, align 1, !range !132, !noalias !378, !noundef !4
-  %.not.i.not = icmp eq i8 %.fca.0.extract.val.i, %.fca.1.extract.val.i
+  %.fca.0.extract.val.i = load i8, ptr %8, align 1, !range !132, !noalias !378, !noundef !4
+  %.not.i.not = icmp eq i8 %.fca.0.extract.val.i, %.fca.0.extract.val.i
   %9 = add nuw i64 %6, 1
   %exitcond.not.i = icmp ne i64 %9, %1
   %or.cond.not = select i1 %.not.i.not, i1 %exitcond.not.i, i1 false

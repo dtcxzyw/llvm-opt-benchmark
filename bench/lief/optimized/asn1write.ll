@@ -1172,14 +1172,14 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr noundef captures(none)
   %16 = trunc nuw i32 %15 to i8
   %17 = and i8 %16, 1
   %.not2627 = icmp eq i8 %17, 0
-  br i1 %.not2627, label %.lr.ph.preheader, label %.loopexit
+  br i1 %.not2627, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %5
+.lr.ph:                                           ; preds = %5
   %18 = add i64 %3, -1
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %.loopexit, label %.lr.ph36
 
-.lr.ph:                                           ; preds = %29
+20:                                               ; preds = %29
   %20 = add i64 %22, -1
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.loopexit, label %.lr.ph36
@@ -1193,7 +1193,7 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr noundef captures(none)
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %.lr.ph36
+26:; preds = %.lr.ph36
   %27 = getelementptr inbounds i8, ptr %.0202835, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !10
   br label %29
@@ -1205,10 +1205,10 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr noundef captures(none)
   %.not26 = icmp eq i8 %30, 0
   br i1 %.not26, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %29, %.lr.ph, %.lr.ph.preheader, %5, %4
+.loopexit:                                        ; preds = %29, %.lr.ph, %20, %5, %4
   %.0 = phi i64 [ 0, %4 ], [ %3, %5 ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ %22, %29 ]
-  %31 = tail call i32 @mbedtls_asn1_write_bitstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.0)
-  ret i32 %31
+  %29 = tail call i32 @mbedtls_asn1_write_bitstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.0)
+  ret i32 %29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

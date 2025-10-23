@@ -580,11 +580,11 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #22
   %103 = load ptr, ptr @stderr, align 8, !tbaa !9
   %104 = tail call i32 @fflush(ptr noundef %103)
-  %.pre141 = load ptr, ptr %88, align 8, !tbaa !31
+  %.pre128 = load ptr, ptr %88, align 8, !tbaa !31
   br label %105
 
 105:                                              ; preds = %100, %97
-  %106 = phi ptr [ %.pre141, %100 ], [ %87, %97 ]
+  %106 = phi ptr [ %.pre128, %100 ], [ %87, %97 ]
   %.not.i115 = icmp eq ptr %106, null
   br i1 %.not.i115, label %108, label %107
 
@@ -658,21 +658,21 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %134 = load ptr, ptr @stderr, align 8, !tbaa !9
   %135 = tail call i32 @fflush(ptr noundef %134)
   %.pre = load i64, ptr %85, align 8, !tbaa !20
-  %.pre140.pre = load ptr, ptr %88, align 8, !tbaa !31
+  %.pre127.pre = load ptr, ptr %88, align 8, !tbaa !31
   br label %136
 
 136:                                              ; preds = %131, %128
-  %.pre140 = phi ptr [ %.pre140.pre, %131 ], [ %87, %128 ]
+  %.pre127 = phi ptr [ %.pre127.pre, %131 ], [ %87, %128 ]
   %137 = phi i64 [ %.pre, %131 ], [ %84, %128 ]
-  %.not133 = icmp eq i64 %137, 0
-  br i1 %.not133, label %._crit_edge, label %.lr.ph
+  %.not123 = icmp eq i64 %137, 0
+  br i1 %.not123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %136, %.lr.ph
   %138 = phi i64 [ %141, %.lr.ph ], [ 0, %136 ]
-  %.0126 = phi i32 [ %140, %.lr.ph ], [ 0, %136 ]
-  %139 = getelementptr inbounds nuw i32, ptr %.pre140, i64 %138
-  store i32 %.0126, ptr %139, align 4, !tbaa !18
-  %140 = add i32 %.0126, 1
+  %.0122 = phi i32 [ %140, %.lr.ph ], [ 0, %136 ]
+  %139 = getelementptr inbounds nuw i32, ptr %.pre127, i64 %138
+  store i32 %.0122, ptr %139, align 4, !tbaa !18
+  %140 = add i32 %.0122, 1
   %141 = zext i32 %140 to i64
   %142 = icmp ugt i64 %137, %141
   br i1 %142, label %.lr.ph, label %._crit_edge, !llvm.loop !42
@@ -681,7 +681,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %143 = load i32, ptr %120, align 8, !tbaa !40
   %144 = icmp ult i32 %143, 9
   %145 = select i1 %144, ptr @COVER_strict_cmp8, ptr @COVER_strict_cmp
-  tail call void @qsort_r(ptr noundef %.pre140, i64 noundef %137, i64 noundef 4, ptr noundef nonnull %145, ptr noundef nonnull %0) #24
+  tail call void @qsort_r(ptr noundef %.pre127, i64 noundef %137, i64 noundef 4, ptr noundef nonnull %145, ptr noundef nonnull %0) #24
   %146 = load i32, ptr @g_displayLevel, align 4, !tbaa !18
   %147 = icmp sgt i32 %146, 1
   br i1 %147, label %148, label %153
@@ -703,21 +703,21 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   br i1 %.not.i116, label %COVER_groupBy.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %153, %COVER_group.exit.i
-  %.01913.i = phi i64 [ %.1.lcssa.i, %COVER_group.exit.i ], [ 0, %153 ]
-  %.02012.i = phi ptr [ %.0.lcssa.i, %COVER_group.exit.i ], [ %154, %153 ]
+  %.0192.i = phi i64 [ %.1.lcssa.i, %COVER_group.exit.i ], [ 0, %153 ]
+  %.0201.i = phi ptr [ %.0.lcssa.i, %COVER_group.exit.i ], [ %154, %153 ]
   %.01.i = getelementptr inbounds nuw i8, ptr %.02012.i, i64 4
-  %.12.i = add nuw i64 %.01913.i, 1
+  %.12.i = add nuw i64 %.0192.i, 1
   %159 = icmp ult i64 %.12.i, %155
-  br i1 %159, label %.lr.ph.i117.preheader, label %.critedge.i
+  br i1 %159, label %161, label %.critedge.i
 
-.lr.ph.i117.preheader:                            ; preds = %.preheader.i
-  %160 = tail call i32 %158(ptr noundef nonnull %0, ptr noundef %.02012.i, ptr noundef nonnull %.01.i) #24, !callees !43
+161:                                              ; preds = %.preheader.i
+  %160 = tail call i32 %158(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.01.i) #24, !callees !43
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %.lr.ph129, label %..critedge_crit_edge8.i, !llvm.loop !44
 
-.lr.ph129:                                        ; preds = %.lr.ph.i117.preheader
+.lr.ph129:; preds = %.lr.ph.i117.preheader
   %.0.i170 = getelementptr inbounds nuw i8, ptr %.02012.i, i64 8
-  %.1.i171 = add nuw i64 %.01913.i, 2
+  %.1.i171 = add nuw i64 %.0192.i, 2
   %exitcond.not.i118172 = icmp eq i64 %.1.i171, %155
   br i1 %exitcond.not.i118172, label %.critedge.i, label %.lr.ph.i117.lr.ph, !llvm.loop !44
 
@@ -736,9 +736,9 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %.04.i128173 = phi ptr [ %.01.i, %.lr.ph.i117.lr.ph ], [ %.0.i174, %162 ]
   %163 = tail call i32 %158(ptr noundef nonnull %0, ptr noundef %.02012.i, ptr noundef nonnull %.0.i174) #24, !callees !43
   %164 = icmp eq i32 %163, 0
-  br i1 %164, label %162, label %.lr.ph.i117...critedge_crit_edge8.i_crit_edge, !llvm.loop !44
+  br i1 %164, label %162, label %.critedge.i, !llvm.loop !44
 
-.lr.ph.i117...critedge_crit_edge8.i_crit_edge:    ; preds = %.lr.ph.i117
+.critedge.i:                                      ; preds = %.lr.ph.i117
   br label %..critedge_crit_edge8.i, !llvm.loop !44
 
 ..critedge_crit_edge8.i:                          ; preds = %.lr.ph.i117...critedge_crit_edge8.i_crit_edge, %.lr.ph.i117.preheader
@@ -755,7 +755,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %.0.lcssa.i = phi ptr [ %.04.i.lcssa, %..critedge_crit_edge8.i ], [ %.01.i, %.preheader.i ], [ %.0.i, %..critedge.i.loopexit_crit_edge ], [ %.0.i170, %.lr.ph129 ]
   %.1.lcssa.i = phi i64 [ %.15.i.lcssa, %..critedge_crit_edge8.i ], [ %.12.i, %.preheader.i ], [ %155, %..critedge.i.loopexit_crit_edge ], [ %155, %.lr.ph129 ]
   %165 = load ptr, ptr %88, align 8, !tbaa !31
-  %166 = ptrtoint ptr %.02012.i to i64
+  %166 = ptrtoint ptr %.0201.i to i64
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
   %169 = lshr exact i64 %168, 2
@@ -769,7 +769,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   br label %177
 
 177:                                              ; preds = %198, %.critedge.i
-  %.038.i.i = phi ptr [ %.02012.i, %.critedge.i ], [ %199, %198 ]
+  %.038.i.i = phi ptr [ %.0201.i, %.critedge.i ], [ %199, %198 ]
   %.02637.i.i = phi i64 [ %174, %.critedge.i ], [ %.1.i.i, %198 ]
   %.02736.i.i = phi i32 [ 0, %.critedge.i ], [ %.128.i.i, %198 ]
   %.02935.i.i = phi ptr [ %171, %.critedge.i ], [ %.130.i.i, %198 ]

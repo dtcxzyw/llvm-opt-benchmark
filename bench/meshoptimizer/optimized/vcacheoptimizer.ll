@@ -720,14 +720,14 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   br label %59
 
 59:                                               ; preds = %51, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit
-  %.0106165 = phi i32 [ 0, %51 ], [ %.1107, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
-  %.0109164 = phi i32 [ %54, %51 ], [ %.1110.lcssa, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
-  %.0114163 = phi i32 [ 0, %51 ], [ %.1115.lcssa, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
-  %.0144162 = phi i32 [ 1, %51 ], [ %.1, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
-  %.0145161 = phi i32 [ 0, %51 ], [ %.3148, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
-  %60 = zext i32 %.0145161 to i64
+  %.0106168 = phi i32 [ 0, %51 ], [ %.1107, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
+  %.0109167 = phi i32 [ %54, %51 ], [ %.1110.lcssa, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
+  %.0114166 = phi i32 [ 0, %51 ], [ %.1115.lcssa, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
+  %.0144165 = phi i32 [ 1, %51 ], [ %.1, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
+  %.0145164 = phi i32 [ 0, %51 ], [ %.3148, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit ]
+  %60 = zext i32 %.0145164 to i64
   %61 = getelementptr inbounds nuw i32, ptr %45, i64 %60
-  %62 = zext i32 %.0106165 to i64
+  %62 = zext i32 %.0106168 to i64
   %63 = getelementptr inbounds nuw i32, ptr %58, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !14
   %65 = zext i32 %64 to i64
@@ -737,8 +737,8 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %69 = zext i32 %68 to i64
   %.idx = shl nuw nsw i64 %69, 2
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
-  %.not127154 = icmp eq i32 %68, 0
-  br i1 %.not127154, label %._crit_edge, label %.lr.ph
+  %.not127153 = icmp eq i32 %68, 0
+  br i1 %.not127153, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %166
   %.pre = zext i32 %.2147 to i64
@@ -746,11 +746,11 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %59
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %60, %59 ]
-  %.1146.lcssa = phi i32 [ %.2147, %._crit_edge.loopexit ], [ %.0145161, %59 ]
-  %.1115.lcssa = phi i32 [ %.2116, %._crit_edge.loopexit ], [ %.0114163, %59 ]
-  %.1110.lcssa = phi i32 [ %.2111, %._crit_edge.loopexit ], [ %.0109164, %59 ]
+  %.1146.lcssa = phi i32 [ %.2147, %._crit_edge.loopexit ], [ %.0145164, %59 ]
+  %.1115.lcssa = phi i32 [ %.2116, %._crit_edge.loopexit ], [ %.0114166, %59 ]
+  %.1110.lcssa = phi i32 [ %.2111, %._crit_edge.loopexit ], [ %.0109167, %59 ]
   %71 = getelementptr inbounds nuw i32, ptr %45, i64 %.pre-phi
-  %.not28.i = icmp eq i32 %.0145161, %.1146.lcssa
+  %.not28.i = icmp eq i32 %.0145164, %.1146.lcssa
   br i1 %.not28.i, label %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %84
@@ -815,11 +815,11 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   br label %193
 
 .lr.ph:                                           ; preds = %59, %166
-  %.0108158 = phi ptr [ %167, %166 ], [ %66, %59 ]
-  %.1110157 = phi i32 [ %.2111, %166 ], [ %.0109164, %59 ]
-  %.1115156 = phi i32 [ %.2116, %166 ], [ %.0114163, %59 ]
-  %.1146155 = phi i32 [ %.2147, %166 ], [ %.0145161, %59 ]
-  %97 = load i32, ptr %.0108158, align 4, !tbaa !14
+  %.0108157 = phi ptr [ %167, %166 ], [ %66, %59 ]
+  %.1110156 = phi i32 [ %.2111, %166 ], [ %.0109167, %59 ]
+  %.1115155 = phi i32 [ %.2116, %166 ], [ %.0114166, %59 ]
+  %.1146154 = phi i32 [ %.2147, %166 ], [ %.0145164, %59 ]
+  %97 = load i32, ptr %.0108157, align 4, !tbaa !14
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %50, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !23
@@ -839,7 +839,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw i32, ptr %.0, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !14
-  %114 = mul i32 %.1115156, 3
+  %114 = mul i32 %.1115155, 3
   %115 = zext i32 %114 to i64
   %116 = getelementptr inbounds nuw i32, ptr %0, i64 %115
   store i32 %105, ptr %116, align 4, !tbaa !14
@@ -851,19 +851,19 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   %121 = zext i32 %120 to i64
   %122 = getelementptr inbounds nuw i32, ptr %0, i64 %121
   store i32 %113, ptr %122, align 4, !tbaa !14
-  %123 = add i32 %.1115156, 1
-  %124 = zext i32 %.1146155 to i64
+  %123 = add i32 %.1115155, 1
+  %124 = zext i32 %.1146154 to i64
   %125 = getelementptr inbounds nuw i32, ptr %45, i64 %124
   store i32 %105, ptr %125, align 4, !tbaa !14
-  %126 = add i32 %.1146155, 1
+  %126 = add i32 %.1146154, 1
   %127 = zext i32 %126 to i64
   %128 = getelementptr inbounds nuw i32, ptr %45, i64 %127
   store i32 %109, ptr %128, align 4, !tbaa !14
-  %129 = add i32 %.1146155, 2
+  %129 = add i32 %.1146154, 2
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw i32, ptr %45, i64 %130
   store i32 %113, ptr %131, align 4, !tbaa !14
-  %132 = add i32 %.1146155, 3
+  %132 = add i32 %.1146154, 3
   %133 = zext i32 %105 to i64
   %134 = getelementptr inbounds nuw i32, ptr %29, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !14
@@ -881,17 +881,17 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   store i32 %144, ptr %142, align 4, !tbaa !14
   %145 = getelementptr inbounds nuw i32, ptr %37, i64 %133
   %146 = load i32, ptr %145, align 4, !tbaa !14
-  %147 = sub i32 %.1110157, %146
+  %147 = sub i32 %.1110156, %146
   %148 = icmp ugt i32 %147, %4
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %101
-  %150 = add i32 %.1110157, 1
-  store i32 %.1110157, ptr %145, align 4, !tbaa !14
+  %150 = add i32 %.1110156, 1
+  store i32 %.1110156, ptr %145, align 4, !tbaa !14
   br label %151
 
 151:                                              ; preds = %149, %101
-  %.3112 = phi i32 [ %150, %149 ], [ %.1110157, %101 ]
+  %.3112 = phi i32 [ %150, %149 ], [ %.1110156, %101 ]
   %152 = getelementptr inbounds nuw i32, ptr %37, i64 %137
   %153 = load i32, ptr %152, align 4, !tbaa !14
   %154 = sub i32 %.3112, %153
@@ -922,29 +922,29 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   br label %166
 
 166:                                              ; preds = %165, %.lr.ph
-  %.2147 = phi i32 [ %132, %165 ], [ %.1146155, %.lr.ph ]
-  %.2116 = phi i32 [ %123, %165 ], [ %.1115156, %.lr.ph ]
-  %.2111 = phi i32 [ %.5, %165 ], [ %.1110157, %.lr.ph ]
-  %167 = getelementptr inbounds nuw i8, ptr %.0108158, i64 4
+  %.2147 = phi i32 [ %132, %165 ], [ %.1146154, %.lr.ph ]
+  %.2116 = phi i32 [ %123, %165 ], [ %.1115155, %.lr.ph ]
+  %.2111 = phi i32 [ %.5, %165 ], [ %.1110156, %.lr.ph ]
+  %167 = getelementptr inbounds nuw i8, ptr %.0108157, i64 4
   %.not127 = icmp eq ptr %167, %70
   br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._crit_edge, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit
-  %.not19.i = icmp eq i32 %.1146.lcssa, 0
-  br i1 %.not19.i, label %.preheader.i, label %.lr.ph.i132
+  %.not.i132160 = icmp eq i32 %.1146.lcssa, 0
+  br i1 %.not.i132160, label %.preheader.i, label %.lr.ph162
 
-168:                                              ; preds = %.lr.ph.i132
-  %.not.i134 = icmp eq i32 %indvars.i, 0
-  br i1 %.not.i134, label %.preheader.i, label %.lr.ph.i132
+168:                                              ; preds = %.lr.ph162
+  %.not.i132 = icmp eq i32 %indvars.i, 0
+  br i1 %.not.i132, label %.preheader.i, label %.lr.ph162
 
 .preheader.i:                                     ; preds = %168, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread
-  %169 = zext i32 %.0144162 to i64
+  %169 = zext i32 %.0144165 to i64
   %170 = icmp ugt i64 %3, %169
-  br i1 %170, label %.lr.ph21.i, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread
+  br i1 %170, label %.lr.ph.i134, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread
 
-.lr.ph.i132:                                      ; preds = %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread, %168
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %168 ], [ %.pre-phi, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+.lr.ph162:                                        ; preds = %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread, %168
+  %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i, %168 ], [ %.pre-phi, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i161, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %171 = and i64 %indvars.iv.next.i, 4294967295
   %172 = getelementptr inbounds nuw i32, ptr %45, i64 %171
@@ -953,23 +953,23 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
   %175 = getelementptr inbounds nuw i32, ptr %29, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !14
   %.not17.not.i = icmp eq i32 %176, 0
-  br i1 %.not17.not.i, label %168, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit
+  br i1 %.not17.not.i, label %168, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit169
 
-.lr.ph21.i:                                       ; preds = %.preheader.i, %180
-  %.2 = phi i32 [ %181, %180 ], [ %.0144162, %.preheader.i ]
+.lr.ph.i134:                                      ; preds = %.preheader.i, %180
+  %.2 = phi i32 [ %181, %180 ], [ %.0144165, %.preheader.i ]
   %177 = phi i64 [ %182, %180 ], [ %169, %.preheader.i ]
   %178 = getelementptr inbounds nuw i32, ptr %29, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !14
   %.not16.i = icmp eq i32 %179, 0
   br i1 %.not16.i, label %180, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit
 
-180:                                              ; preds = %.lr.ph21.i
+180:                                              ; preds = %.lr.ph.i134
   %181 = add i32 %.2, 1
   %182 = zext i32 %181 to i64
   %183 = icmp ugt i64 %3, %182
-  br i1 %183, label %.lr.ph21.i, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, !llvm.loop !38
+  br i1 %183, label %.lr.ph.i134, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, !llvm.loop !38
 
-_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit: ; preds = %.lr.ph.i132, %.lr.ph21.i, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit
+_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit169: ; preds = %.lr.ph162, %.lr.ph21.i, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit
   %.3148 = phi i32 [ %.1146.lcssa, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ 0, %.lr.ph21.i ], [ %indvars.i, %.lr.ph.i132 ]
   %.1 = phi i32 [ %.0144162, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %.2, %.lr.ph21.i ], [ %.0144162, %.lr.ph.i132 ]
   %.1107 = phi i32 [ %.1.i, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %.2, %.lr.ph21.i ], [ %173, %.lr.ph.i132 ]

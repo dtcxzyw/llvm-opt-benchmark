@@ -2113,7 +2113,7 @@ invoke.cont:
   %cmp.i.not12 = icmp eq ptr %1, %it.sroa.0.011
   br i1 %cmp.i.not12, label %cleanup, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %invoke.cont
+invoke.cont5:                                     ; preds = %invoke.cont
   %cmp18 = icmp eq i32 %index, 0
   br i1 %cmp18, label %invoke.cont7, label %invoke.cont5
 
@@ -2130,7 +2130,7 @@ for.body:                                         ; preds = %invoke.cont5
   %cmp = icmp eq i32 %inc, %index
   br i1 %cmp, label %invoke.cont7, label %invoke.cont5
 
-invoke.cont7:                                     ; preds = %for.body, %for.body.preheader
+invoke.cont7:                                     ; preds = %for.body, %invoke.cont5
   %it.sroa.0.014.lcssa = phi ptr [ %it.sroa.0.011, %for.body.preheader ], [ %it.sroa.0.0, %for.body ]
   %2 = load ptr, ptr %it.sroa.0.014.lcssa, align 8
   br label %cleanup

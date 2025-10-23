@@ -10054,27 +10054,27 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
 
 12:                                               ; preds = %8
   %.not46 = icmp eq i64 %7, 0
-  br i1 %.not46, label %15, label %.preheader
+  br i1 %.not46, label %14, label %.preheader
 
 .preheader:                                       ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %14 = icmp eq i32 %10, %4
   br i1 %14, label %._crit_edge, label %.lr.ph
 
-15:                                               ; preds = %12
+14:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef %0, ptr noundef nonnull @.str.85)
   br label %.thread
 
-16:                                               ; preds = %25
+15:                                               ; preds = %25
   %17 = add i64 %21, %.0375969
   %18 = icmp eq i32 %29, %4
-  br i1 %18, label %._crit_edge, label %.lr.ph
+  br i1 %18, label %._crit_edge, label %18
 
-._crit_edge:                                      ; preds = %16, %.preheader
+17:                                               ; preds = %15, %.preheader
   call void (ptr, ptr, ...) @virtio_error(ptr noundef %0, ptr noundef nonnull @.str.86)
   br label %.thread
 
-.lr.ph:                                           ; preds = %.preheader, %16
+18:                                               ; preds = %.preheader, %15
   %.1425771 = phi i32 [ %29, %16 ], [ %10, %.preheader ]
   %.0385870 = phi i64 [ %28, %16 ], [ %7, %.preheader ]
   %.0375969 = phi i64 [ %17, %16 ], [ %6, %.preheader ]
@@ -10090,11 +10090,11 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %.not48 = icmp eq ptr %20, null
   br i1 %.not48, label %24, label %25
 
-24:                                               ; preds = %.lr.ph
+24:                                               ; preds = %18
   call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.87)
   br label %.thread
 
-25:                                               ; preds = %.lr.ph
+25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %21, ptr %26, align 8
   %27 = getelementptr inbounds nuw i64, ptr %2, i64 %22
@@ -10102,9 +10102,9 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %28 = sub i64 %.0385870, %21
   %29 = add i32 %.1425771, 1
   %.not47 = icmp eq i64 %28, 0
-  br i1 %.not47, label %.thread, label %16
+  br i1 %.not47, label %.thread, label %15
 
-.thread:                                          ; preds = %25, %24, %._crit_edge, %15
+.thread:                                          ; preds = %25, %24, %17, %14
   %.041 = phi i32 [ %10, %15 ], [ %4, %._crit_edge ], [ %.1425771, %24 ], [ %29, %25 ]
   %.040 = phi i1 [ false, %15 ], [ false, %._crit_edge ], [ false, %24 ], [ true, %25 ]
   store i32 %.041, ptr %1, align 4

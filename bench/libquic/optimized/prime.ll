@@ -900,15 +900,15 @@ define internal fastcc range(i32 -1, 2) i32 @witness(ptr noundef nonnull %0, ptr
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %21, label %.loopexit
 
-21:                                               ; preds = %19
-  %22 = tail call i32 @BN_cmp(ptr noundef nonnull %0, ptr noundef %2) #5
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %..loopexit_crit_edge27, label %15, !llvm.loop !33
+15:                                               ; preds = %19
+  %16 = tail call i32 @BN_cmp(ptr noundef nonnull %0, ptr noundef %2) #5
+  %.not22 = icmp eq i32 %16, 0
+  br i1 %.not22, label %..loopexit_crit_edge27, label %15, !llvm.loop !33
 
-..loopexit_crit_edge27:                           ; preds = %21
+19:                                               ; preds = %21
   br label %.loopexit, !llvm.loop !33
 
-.loopexit:                                        ; preds = %.lr.ph, %19, %15, %.preheader, %..loopexit_crit_edge27, %11, %9, %7
+.loopexit:                                        ; preds = %.lr.ph, %19, %15, %.preheader, %19, %11, %9, %7
   %.0 = phi i32 [ -1, %7 ], [ 0, %9 ], [ 0, %11 ], [ 0, %..loopexit_crit_edge27 ], [ 1, %.preheader ], [ -1, %.lr.ph ], [ 1, %19 ], [ 1, %15 ]
   ret i32 %.0
 }

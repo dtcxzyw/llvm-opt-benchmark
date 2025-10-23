@@ -2040,22 +2040,22 @@ define dso_local noundef ptr @sema_find_label_symbol(ptr noundef readonly captur
 
 .lr.ph.preheader:                                 ; preds = %8
   %13 = zext i32 %12 to i64
-  br label %.lr.ph
+  br label %15
 
-14:                                               ; preds = %.lr.ph
+14:                                               ; preds = %15
   %15 = add nsw i64 %.01218, -1
-  %.not16.not = icmp sgt i64 %.01218, %11
-  br i1 %.not16.not, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  %.not16 = icmp sgt i64 %.01218, %11
+  br i1 %.not16, label %15, label %.loopexit, !llvm.loop !25
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+15:                                               ; preds = %.lr.ph.preheader, %14
   %.01218 = phi i64 [ %15, %14 ], [ %13, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01218
+  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01218
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %1
-  br i1 %19, label %..loopexit_crit_edge, label %14, !llvm.loop !25
+  br i1 %19, label %.loopexit, label %14, !llvm.loop !25
 
-..loopexit_crit_edge:                             ; preds = %.lr.ph
+.loopexit:                                        ; preds = %15
   br label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %14, %8, %..loopexit_crit_edge, %2, %5
@@ -2081,12 +2081,12 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr noundef readon
   %10 = zext i32 %9 to i64
   br label %14
 
-11:                                               ; preds = %14
+11:                                               ; preds = %13
   %12 = add nsw i64 %.01115, -1
-  %13 = icmp sgt i64 %.01115, 0
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !26
+  %12 = icmp sgt i64 %.01115, 0
+  br i1 %12, label %13, label %.loopexit, !llvm.loop !26
 
-14:                                               ; preds = %8, %11
+13:                                               ; preds = %8, %11
   %.01115 = phi i64 [ %10, %8 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01115
   %16 = load ptr, ptr %15, align 8
@@ -2094,7 +2094,7 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr noundef readon
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %.loopexit, label %11, !llvm.loop !26
 
-.loopexit:                                        ; preds = %11, %14, %2, %5
+.loopexit:                                        ; preds = %11, %13, %2, %5
   %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %11 ], [ %16, %14 ]
   ret ptr %.0
 }

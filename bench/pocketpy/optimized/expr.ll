@@ -3997,8 +3997,8 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   br i1 %34, label %._crit_edge.thread, label %68
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.lcssa57 = phi i32 [ %33, %._crit_edge ], [ %11, %2 ]
-  %.lcssa2756 = phi i64 [ %32, %._crit_edge ], [ %10, %2 ]
+  %.lcssa51 = phi i32 [ %33, %._crit_edge ], [ %11, %2 ]
+  %.lcssa2750 = phi i64 [ %32, %._crit_edge ], [ %10, %2 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
@@ -4014,7 +4014,7 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   %42 = getelementptr inbounds i8, ptr %38, i64 -2
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
-  %45 = icmp eq i32 %.lcssa57, %44
+  %45 = icmp eq i32 %.lcssa51, %44
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %41
@@ -4045,7 +4045,7 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   br label %77
 
 .thread:                                          ; preds = %._crit_edge.thread, %41
-  %64 = trunc i64 %.lcssa2756 to i16
+  %64 = trunc i64 %.lcssa2750 to i16
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 100, i16 noundef zeroext %64, i32 noundef %66, i1 noundef zeroext false)
@@ -4097,10 +4097,10 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(12) %91, ptr noundef %1)
   br i1 %95, label %87, label %..loopexit_crit_edge, !llvm.loop !32
 
-..loopexit_crit_edge:                             ; preds = %.lr.ph40
-  br label %.loopexit, !llvm.loop !32
+85:                                               ; preds = %.lr.ph40
+  br label %88, !llvm.loop !32
 
-.loopexit:                                        ; preds = %21, %87, %77, %..loopexit_crit_edge, %68
+88:                                               ; preds = %21, %87, %77, %85, %68
   %.0 = phi i1 [ false, %68 ], [ false, %..loopexit_crit_edge ], [ true, %77 ], [ true, %87 ], [ false, %21 ]
   ret i1 %.0
 }

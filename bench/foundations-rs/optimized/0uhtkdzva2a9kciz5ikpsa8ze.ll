@@ -11741,12 +11741,12 @@ define internal { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit", label %.lr.ph
 
-7:                                                ; preds = %.lr.ph
+7:; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %9 = icmp eq ptr %8, %5
   br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit", label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %7
+.lr.ph:; preds = %4, %7
   %10 = phi ptr [ %8, %7 ], [ %2, %4 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !714, !noundef !4

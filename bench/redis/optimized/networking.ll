@@ -14709,7 +14709,7 @@ define dso_local void @processEventsWhileBlocked() local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %0
-  %6 = phi i64 [ %.pre, %0 ], [ %11, %5 ]
+  %.06 = phi i64 [ %.pre, %0 ], [ %11, %5 ]
   %.068 = phi i32 [ 4, %0 ], [ %12, %5 ]
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8, !tbaa !277
   %8 = tail call i32 @aeProcessEvents(ptr noundef %7, i32 noundef 29) #26
@@ -14721,22 +14721,22 @@ define dso_local void @processEventsWhileBlocked() local_unnamed_addr #0 {
   %12 = add nsw i32 %.068, -1
   %.not = icmp eq i32 %12, 0
   %or.cond = select i1 %.not7, i1 true, i1 %.not
-  br i1 %or.cond, label %13, label %5
+  br i1 %or.cond, label %14, label %5
 
-13:                                               ; preds = %5
+14:                                               ; preds = %5
   tail call void @whileBlockedCron() #26
-  %14 = load i32, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
-  %15 = add nsw i32 %14, -1
-  store i32 %15, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
-  %16 = icmp sgt i32 %14, 0
-  br i1 %16, label %18, label %17, !prof !5
+  %15 = load i32, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
+  %16 = add nsw i32 %15, -1
+  store i32 %16, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
+  %17 = icmp sgt i32 %15, 0
+  br i1 %17, label %19, label %18, !prof !5
 
-17:                                               ; preds = %13
+18:                                               ; preds = %14
   tail call void @_serverAssert(ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.1, i32 noundef 4492) #26
   tail call void @abort() #27
   unreachable
 
-18:                                               ; preds = %13
+19:                                               ; preds = %14
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7824), align 8, !tbaa !275
   ret void
 }

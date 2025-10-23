@@ -3457,17 +3457,17 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as
 .lr.ph.i.i.i:                                     ; preds = %.preheader.split.i.i.i, %.lr.ph.i.i.i
   %.sroa.01.09.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ 0, %.preheader.split.i.i.i ]
   %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6.i, i64 %.sroa.01.09.i.i.i
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8.i, i64 %.sroa.01.09.i.i.i
+  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8.i, i64 %.sroa.01.09.i.i.i
   %21 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h5101c8de422f1c19E.llvm.3646540950948783737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !455
   %22 = add nuw i64 %.sroa.01.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %22, %.val7.i
   %or.cond.not = select i1 %21, i1 %exitcond.not.i.i.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
-"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit": ; preds = %.lr.ph.i.i.i, %2, %7, %10, %14, %.preheader.split.i.i.i
+"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit":; preds = %.lr.ph.i.i.i, %2, %7, %10, %14, %.preheader.split.i.i.i
   %.0.shrunk.i = phi i1 [ false, %2 ], [ %13, %10 ], [ false, %7 ], [ false, %14 ], [ true, %.preheader.split.i.i.i ], [ %21, %.lr.ph.i.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 146
-  %24 = load i8, ptr %23, align 2, !range !115
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 146
+  %27 = load i8, ptr %26, align 2, !range !115
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 146
   %26 = load i8, ptr %25, align 2, !range !115
   %27 = icmp eq i8 %24, %26
