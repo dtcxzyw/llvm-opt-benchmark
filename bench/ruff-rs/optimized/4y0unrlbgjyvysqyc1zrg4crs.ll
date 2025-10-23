@@ -17102,21 +17102,21 @@ define hidden void @"_ZN121_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %3, i8 0, i64 23, i1 false), !noalias !3423
   %11 = trunc nuw nsw i64 %8 to i8
   %12 = or disjoint i8 %11, -64
-  %.23..23..23..23..23..23..23..23..23..23..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 23
-  store i8 %12, ptr %.23..23..23..23..23..23..23..23..23..23..sroa_idx, align 1, !noalias !3423
+  %.23..23..23..23..23..23..23..23..23..23..23..23..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 23
+  store i8 %12, ptr %.23..23..23..23..23..23..23..23..23..23..23..23..sroa_idx, align 1, !noalias !3423
   %.not5.i.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not5.i.i.i.i.i, label %_ZN11compact_str4repr6inline12InlineBuffer9new_const17he366c9d636c53776E.exit.i.i.i.i, label %.lr.ph.preheader.i.preheader.i.i.i.i
+  br i1 %.not5.i.i.i.i.i, label %_ZN11compact_str4repr6inline12InlineBuffer9new_const17he366c9d636c53776E.exit.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
-.lr.ph.preheader.i.preheader.i.i.i.i:             ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull readonly align 1 %6, i64 %8, i1 false), !noalias !3434
+.lr.ph.preheader.i.i.i.i.i:                       ; preds = %10
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull readonly align 1 %6, i64 range(i64 0, 25) %8, i1 false), !noalias !3434
   %.0..0..0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i.i = load ptr, ptr %3, align 8, !noalias !3435
   %.8..8..8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i.i = load i64, ptr %.8..8..8..8..8..8..8..8..8..sroa_idx, align 8, !noalias !3435
   br label %_ZN11compact_str4repr6inline12InlineBuffer9new_const17he366c9d636c53776E.exit.i.i.i.i
 
-_ZN11compact_str4repr6inline12InlineBuffer9new_const17he366c9d636c53776E.exit.i.i.i.i: ; preds = %.lr.ph.preheader.i.preheader.i.i.i.i, %10
-  %.8..8..sroa.5.0.copyload3.i.i.i = phi i64 [ %.8..8..8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i.i, %.lr.ph.preheader.i.preheader.i.i.i.i ], [ 0, %10 ]
-  %.0..0..sroa.0.0.copyload1.i.i.i = phi ptr [ %.0..0..0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i.i, %.lr.ph.preheader.i.preheader.i.i.i.i ], [ null, %10 ]
+_ZN11compact_str4repr6inline12InlineBuffer9new_const17he366c9d636c53776E.exit.i.i.i.i: ; preds = %.lr.ph.preheader.i.i.i.i.i, %10
+  %.8..8..sroa.5.0.copyload3.i.i.i = phi i64 [ %.8..8..8..8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ 0, %10 ]
+  %.0..0..sroa.0.0.copyload1.i.i.i = phi ptr [ %.0..0..0..0..0..0..0..0..0..sroa.0.0.copyload1.pre.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ null, %10 ]
   %.16..16..16..16..16..16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.16..16..16..16..16..16..16..16..16..sroa.6.0.copyload5.i.i.i = load i64, ptr %.16..16..16..16..16..16..16..16..16..sroa_idx, align 8, !noalias !3435
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17hc87152e7d035f012E.exit"

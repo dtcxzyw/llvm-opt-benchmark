@@ -14370,8 +14370,8 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIcLb0EjE
   br label %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i
 
 _ZN6vectorIcLb0EjE7reserveEjRKc.exit.i:           ; preds = %.lr.ph.preheader.i.i.i, %41, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i.i, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i
-  %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %_ZN3sat6solver21num_diff_levels_belowEjPKNS_7literalEjRj.exit, label %.lr.ph.i
+  %.not13 = icmp eq i32 %25, 0
+  br i1 %.not13, label %_ZN3sat6solver21num_diff_levels_belowEjPKNS_7literalEjRj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 3296

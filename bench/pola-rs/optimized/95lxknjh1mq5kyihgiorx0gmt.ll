@@ -24238,7 +24238,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %2
   br label %293
 
 293:                                              ; preds = %302, %290
-  %294 = phi i64 [ %.pre167.i, %302 ], [ %271, %290 ]
+  %294 = phi i64 [ %.pre166.i, %302 ], [ %271, %290 ]
   %295 = phi ptr [ %.pre.i, %302 ], [ %273, %290 ]
   %.idx.i = mul nuw nsw i64 %294, 40
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx.i
@@ -24286,7 +24286,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %2
 302:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1794
   %.pre.i = load ptr, ptr %269, align 8, !noalias !1794
-  %.pre167.i = load i64, ptr %270, align 8, !noalias !1794
+  %.pre166.i = load i64, ptr %270, align 8, !noalias !1794
   br label %293
 
 303:                                              ; preds = %.lr.ph.i

@@ -516,56 +516,50 @@ define dso_local noundef zeroext i1 @_ZNK4llvm10X86TTIImpl30hasConditionalLoadSt
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %6 = load i8, ptr %5, align 8, !tbaa !154, !range !149, !noundef !150
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %25
+  br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %25, label %9
+  br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = and i32 %11, 255
   %trunc = trunc i32 %11 to i8
-  switch i8 %trunc, label %25 [
+  switch i8 %trunc, label %22 [
     i8 12, label %_ZNK4llvm4Type13getScalarTypeEv.exit
-    i8 17, label %13
+    i8 17, label %12
   ]
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !155
-  %.not12 = icmp eq i32 %15, 1
-  br i1 %.not12, label %16, label %25
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = load i32, ptr %13, align 8, !tbaa !155
+  %.not12 = icmp eq i32 %14, 1
+  br i1 %.not12, label %15, label %22
 
-16:                                               ; preds = %13
-  %17 = add nsw i32 %12, -17
-  %spec.select.i.i13 = icmp ult i32 %17, 2
-  br i1 %spec.select.i.i13, label %18, label %_ZNK4llvm4Type13getScalarTypeEv.exit
-
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !162
-  %21 = load ptr, ptr %20, align 8, !tbaa !163
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 8
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !162
+  %18 = load ptr, ptr %17, align 8, !tbaa !163
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit
 
-_ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %9, %16, %18
-  %22 = phi i32 [ %.pre, %18 ], [ %11, %16 ], [ %11, %9 ]
-  %23 = lshr i32 %22, 8
-  %switch.tableidx = add nsw i32 %23, -16
-  %24 = icmp ult i32 %switch.tableidx, 49
-  br i1 %24, label %switch.lookup, label %25
+_ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %9, %15
+  %19 = phi i32 [ %.pre, %15 ], [ %11, %9 ]
+  %20 = lshr i32 %19, 8
+  %switch.tableidx = add nsw i32 %20, -16
+  %21 = icmp ult i32 %switch.tableidx, 49
+  br i1 %21, label %switch.lookup, label %22
 
 switch.lookup:                                    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
   %switch.cast = zext nneg i32 %switch.tableidx to i49
   %switch.downshift = lshr i49 -281474976645119, %switch.cast
   %switch.masked = trunc i49 %switch.downshift to i1
-  br label %25
+  br label %22
 
-25:                                               ; preds = %switch.lookup, %_ZNK4llvm4Type13getScalarTypeEv.exit, %9, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ false, %13 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ false, %9 ], [ %switch.masked, %switch.lookup ]
+22:                                               ; preds = %switch.lookup, %_ZNK4llvm4Type13getScalarTypeEv.exit, %9, %12, %8, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ false, %12 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ false, %9 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0
 }
 
@@ -21741,97 +21735,91 @@ define dso_local noundef zeroext i1 @_ZN4llvm10X86TTIImpl17isLegalMaskedLoadEPNS
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 255
   %trunc.i = trunc i32 %24 to i8
   switch i8 %trunc.i, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit [
     i8 12, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
-    i8 17, label %26
+    i8 17, label %25
   ]
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %28 = load i32, ptr %27, align 8, !tbaa !155
-  %.not12.i = icmp eq i32 %28, 1
-  br i1 %.not12.i, label %29, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %27 = load i32, ptr %26, align 8, !tbaa !155
+  %.not12.i = icmp eq i32 %27, 1
+  br i1 %.not12.i, label %28, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-29:                                               ; preds = %26
-  %30 = add nsw i32 %25, -17
-  %spec.select.i.i13.i = icmp ult i32 %30, 2
-  br i1 %spec.select.i.i13.i, label %31, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
-
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !162
-  %34 = load ptr, ptr %33, align 8, !tbaa !163
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %34, i64 8
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !162
+  %31 = load ptr, ptr %30, align 8, !tbaa !163
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %31, %29, %22
-  %35 = phi i32 [ %.pre.i, %31 ], [ %24, %29 ], [ %24, %22 ]
-  %36 = lshr i32 %35, 8
-  %switch.tableidx = add nsw i32 %36, -16
-  %37 = icmp ult i32 %switch.tableidx, 49
-  br i1 %37, label %switch.lookup, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
+_ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %28, %22
+  %32 = phi i32 [ %.pre.i, %28 ], [ %24, %22 ]
+  %33 = lshr i32 %32, 8
+  %switch.tableidx = add nsw i32 %33, -16
+  %34 = icmp ult i32 %switch.tableidx, 49
+  br i1 %34, label %switch.lookup, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
 _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %3, %8
   %.0.i21 = phi ptr [ %11, %8 ], [ %1, %3 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 320
-  %41 = load i32, ptr %40, align 8, !tbaa !151
-  %42 = icmp sgt i32 %41, 6
-  br i1 %42, label %43, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  %38 = load i32, ptr %37, align 8, !tbaa !151
+  %39 = icmp sgt i32 %38, 6
+  br i1 %39, label %40, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-43:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i21, i64 8
-  %45 = load i32, ptr %44, align 8
-  %trunc = trunc i32 %45 to i8
+40:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i21, i64 8
+  %42 = load i32, ptr %41, align 8
+  %trunc = trunc i32 %42 to i8
   switch i8 %trunc, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split [
     i8 14, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
     i8 2, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
     i8 3, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
-    i8 0, label %46
-    i8 1, label %50
-    i8 12, label %54
+    i8 0, label %43
+    i8 1, label %47
+    i8 12, label %51
   ]
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %39, i64 355
-  %48 = load i8, ptr %47, align 1, !tbaa !203, !range !149, !noundef !150
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %.thread22
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %45 = load i8, ptr %44, align 1, !tbaa !203, !range !149, !noundef !150
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %.thread22
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 351
-  %52 = load i8, ptr %51, align 1, !tbaa !464, !range !149, !noundef !150
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %.thread22
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 351
+  %49 = load i8, ptr %48, align 1, !tbaa !464, !range !149, !noundef !150
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %.thread22
 
-.thread22:                                        ; preds = %50, %46
+.thread22:                                        ; preds = %47, %43
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-54:                                               ; preds = %43
-  %55 = lshr i32 %45, 8
-  %56 = add nsw i32 %55, -8
-  %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 29)
-  switch i32 %57, label %.fold.split [
+51:                                               ; preds = %40
+  %52 = lshr i32 %42, 8
+  %53 = add nsw i32 %52, -8
+  %54 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 29)
+  switch i32 %54, label %.fold.split [
     i32 7, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
     i32 3, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
-    i32 1, label %58
-    i32 0, label %58
+    i32 1, label %55
+    i32 0, label %55
   ]
 
-58:                                               ; preds = %54, %54
-  %59 = getelementptr inbounds nuw i8, ptr %39, i64 355
-  %60 = load i8, ptr %59, align 1, !tbaa !203, !range !149, !noundef !150
-  %61 = trunc nuw i8 %60 to i1
+55:                                               ; preds = %51, %51
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 355
+  %57 = load i8, ptr %56, align 1, !tbaa !203, !range !149, !noundef !150
+  %58 = trunc nuw i8 %57 to i1
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-.fold.split:                                      ; preds = %54
+.fold.split:                                      ; preds = %51
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split: ; preds = %43
+_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split: ; preds = %40
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
@@ -21840,8 +21828,8 @@ switch.lookup:                                    ; preds = %_ZNK4llvm4Type13get
   %switch.masked = trunc i49 %switch.downshift to i1
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit: ; preds = %switch.lookup, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %43, %43, %43, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split, %.thread22, %26, %22, %21, %54, %54, %.fold.split, %58, %50, %46, %_ZNK4llvm4Type13getScalarTypeEv.exit, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %43 ], [ true, %46 ], [ true, %50 ], [ true, %54 ], [ %61, %58 ], [ true, %54 ], [ false, %.fold.split ], [ true, %21 ], [ false, %26 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ false, %22 ], [ false, %.thread22 ], [ true, %43 ], [ true, %43 ], [ false, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split ], [ %switch.masked, %switch.lookup ]
+_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit: ; preds = %switch.lookup, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %40, %40, %40, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split, %.thread22, %25, %22, %21, %51, %51, %.fold.split, %55, %47, %43, %_ZNK4llvm4Type13getScalarTypeEv.exit, %15
+  %.0 = phi i1 [ false, %15 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %40 ], [ true, %43 ], [ true, %47 ], [ true, %51 ], [ %58, %55 ], [ true, %51 ], [ false, %.fold.split ], [ true, %21 ], [ false, %25 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ false, %22 ], [ false, %.thread22 ], [ true, %40 ], [ true, %40 ], [ false, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0
 }
 

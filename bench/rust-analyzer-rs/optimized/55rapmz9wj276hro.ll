@@ -17130,8 +17130,8 @@ define hidden void @_ZN3ide9doc_links16rewrite_url_link17he0deec70bf471965E(ptr 
 
 81:                                               ; preds = %82, %.preheader41.i.i
   %.3.i.i = phi i8 [ %.245.i.i, %.preheader41.i.i ], [ %88, %82 ]
-  %exitcond59.not.i.i = icmp eq i64 %77, 4
-  br i1 %exitcond59.not.i.i, label %72, label %.preheader41.i.i
+  %exitcond57.not.i.i = icmp eq i64 %77, 4
+  br i1 %exitcond57.not.i.i, label %72, label %.preheader41.i.i
 
 82:                                               ; preds = %.preheader41.i.i
   %83 = shl nuw nsw i64 %.sroa.028.046.i.i, 4

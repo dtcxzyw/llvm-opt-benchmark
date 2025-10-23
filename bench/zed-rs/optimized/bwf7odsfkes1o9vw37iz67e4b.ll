@@ -1338,8 +1338,8 @@ default.unreachable:                              ; preds = %.noexc131.i
 
 214:                                              ; preds = %215, %.preheader43.i.i
   %.sroa.014.3.i.i = phi i8 [ %.sroa.014.247.i.i, %.preheader43.i.i ], [ %221, %215 ]
-  %exitcond61.not.i.i = icmp eq i64 %210, 4
-  br i1 %exitcond61.not.i.i, label %205, label %.preheader43.i.i
+  %exitcond59.not.i.i = icmp eq i64 %210, 4
+  br i1 %exitcond59.not.i.i, label %205, label %.preheader43.i.i
 
 215:                                              ; preds = %.preheader43.i.i
   %216 = shl nuw nsw i64 %.sroa.028.048.i.i, 4

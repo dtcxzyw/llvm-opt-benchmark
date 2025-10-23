@@ -6028,109 +6028,104 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt11tcI
   br label %_ZN4llvm5APIntlSEj.exit.thread
 
 _ZN4llvm5APIntlSEj.exit:                          ; preds = %86
-  %135 = trunc nuw nsw i64 %6 to i32
-  %136 = add nsw i32 %135, -1075
-  %137 = icmp eq i32 %136, %2
-  %138 = zext nneg i32 %136 to i64
-  %139 = shl i64 %20, %138
-  %storemerge.i = select i1 %137, i64 0, i64 %139
-  %140 = add nuw nsw i32 %2, 63
-  %141 = and i32 %140, 63
-  %142 = xor i32 %141, 63
-  %143 = zext nneg i32 %142 to i64
-  %144 = lshr i64 -1, %143
-  %145 = icmp eq i32 %2, 0
-  %spec.select.i = select i1 %145, i64 0, i64 %144, !prof !11
-  %146 = and i64 %storemerge.i, %spec.select.i
+  %135 = add nuw nsw i64 %6, 4294966221
+  %136 = and i64 %135, 4294967295
+  %137 = shl i64 %20, %136
+  %138 = add nuw nsw i32 %2, 63
+  %139 = and i32 %138, 63
+  %140 = xor i32 %139, 63
+  %141 = zext nneg i32 %140 to i64
+  %142 = lshr i64 -1, %141
+  %143 = and i64 %137, %142
   br i1 %.not, label %_ZN4llvm5APIntC2ERKS0_.exit44.thread, label %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread102
 
 _ZN4llvm5APIntlSEj.exit.thread:                   ; preds = %.loopexit.i.i, %88
-  %147 = add i32 %2, 63
-  %148 = and i32 %147, 63
-  %149 = xor i32 %148, 63
-  %150 = zext nneg i32 %149 to i64
-  %151 = lshr i64 -1, %150
-  %152 = add nuw nsw i64 %95, 4294967295
-  %153 = and i64 %152, 4294967295
-  %154 = getelementptr inbounds nuw i64, ptr %92, i64 %153
-  %155 = load i64, ptr %154, align 8, !tbaa !9
-  %156 = and i64 %155, %151
-  store i64 %156, ptr %154, align 8, !tbaa !9
+  %144 = add i32 %2, 63
+  %145 = and i32 %144, 63
+  %146 = xor i32 %145, 63
+  %147 = zext nneg i32 %146 to i64
+  %148 = lshr i64 -1, %147
+  %149 = add nuw nsw i64 %95, 4294967295
+  %150 = and i64 %149, 4294967295
+  %151 = getelementptr inbounds nuw i64, ptr %92, i64 %150
+  %152 = load i64, ptr %151, align 8, !tbaa !9
+  %153 = and i64 %152, %148
+  store i64 %153, ptr %151, align 8, !tbaa !9
   br i1 %.not, label %.thread, label %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread
 
 .thread:                                          ; preds = %_ZN4llvm5APIntlSEj.exit.thread
-  %157 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %157, ptr nonnull align 8 %92, i64 %91, i1 false)
+  %154 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %154, ptr nonnull align 8 %92, i64 %91, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   br label %.lr.ph.i.i.i.i.i28
 
 .lr.ph.i.i.i.i.i28:                               ; preds = %.lr.ph.i.i.i.i.i28, %.thread
   %indvars.iv.i.i.i.i.i29 = phi i64 [ %indvars.iv.next.i.i.i.i.i30, %.lr.ph.i.i.i.i.i28 ], [ 0, %.thread ]
-  %158 = getelementptr inbounds nuw i64, ptr %157, i64 %indvars.iv.i.i.i.i.i29
-  %159 = load i64, ptr %158, align 8, !tbaa !9, !noalias !87
-  %160 = xor i64 %159, -1
-  store i64 %160, ptr %158, align 8, !tbaa !9, !noalias !87
+  %155 = getelementptr inbounds nuw i64, ptr %154, i64 %indvars.iv.i.i.i.i.i29
+  %156 = load i64, ptr %155, align 8, !tbaa !9, !noalias !87
+  %157 = xor i64 %156, -1
+  store i64 %157, ptr %155, align 8, !tbaa !9, !noalias !87
   %indvars.iv.next.i.i.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i.i.i29, 1
   %exitcond.not.i.i.i.i.i31 = icmp eq i64 %indvars.iv.next.i.i.i.i.i30, %95
   br i1 %exitcond.not.i.i.i.i.i31, label %.lr.ph.preheader.i.i.i.i.i32, label %.lr.ph.i.i.i.i.i28, !llvm.loop !17
 
 .lr.ph.preheader.i.i.i.i.i32:                     ; preds = %.lr.ph.i.i.i.i.i28
-  %161 = getelementptr inbounds nuw i64, ptr %157, i64 %153
-  %162 = load i64, ptr %161, align 8, !tbaa !9, !noalias !87
-  %163 = and i64 %162, %151
-  store i64 %163, ptr %161, align 8, !tbaa !9, !noalias !87
+  %158 = getelementptr inbounds nuw i64, ptr %154, i64 %150
+  %159 = load i64, ptr %158, align 8, !tbaa !9, !noalias !87
+  %160 = and i64 %159, %148
+  store i64 %160, ptr %158, align 8, !tbaa !9, !noalias !87
   br label %.lr.ph.i.i.i1.i.i33
 
 .lr.ph.i.i.i1.i.i33:                              ; preds = %.lr.ph.i.i.i1.i.i33, %.lr.ph.preheader.i.i.i.i.i32
   %indvars.iv.i.i.i2.i.i34 = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i32 ], [ %indvars.iv.next.i.i.i3.i.i36, %.lr.ph.i.i.i1.i.i33 ]
-  %164 = getelementptr inbounds nuw i64, ptr %157, i64 %indvars.iv.i.i.i2.i.i34
-  %165 = load i64, ptr %164, align 8, !tbaa !9, !noalias !87
-  %166 = add i64 %165, 1
-  store i64 %166, ptr %164, align 8, !tbaa !9, !noalias !87
-  %.not.i.i.i.i.i35 = icmp ne i64 %166, 0
+  %161 = getelementptr inbounds nuw i64, ptr %154, i64 %indvars.iv.i.i.i2.i.i34
+  %162 = load i64, ptr %161, align 8, !tbaa !9, !noalias !87
+  %163 = add i64 %162, 1
+  store i64 %163, ptr %161, align 8, !tbaa !9, !noalias !87
+  %.not.i.i.i.i.i35 = icmp ne i64 %163, 0
   %indvars.iv.next.i.i.i3.i.i36 = add nuw nsw i64 %indvars.iv.i.i.i2.i.i34, 1
   %exitcond.not.i.i.i4.i.i37 = icmp eq i64 %indvars.iv.next.i.i.i3.i.i36, %95
   %or.cond.i.i.i38 = select i1 %.not.i.i.i.i.i35, i1 true, i1 %exitcond.not.i.i.i4.i.i37
   br i1 %or.cond.i.i.i38, label %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread104, label %.lr.ph.i.i.i1.i.i33, !llvm.loop !13
 
 _ZN4llvm5APIntC2ERKS0_.exit44.thread.thread104:   ; preds = %.lr.ph.i.i.i1.i.i33
-  %167 = ptrtoint ptr %157 to i64
-  %168 = load i64, ptr %161, align 8, !tbaa !9, !noalias !87
-  %169 = and i64 %168, %151
-  store i64 %169, ptr %161, align 8, !tbaa !9, !noalias !87
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %170, align 8, !tbaa !3, !alias.scope !87
-  store i64 %167, ptr %0, align 8, !alias.scope !87
-  br label %178
+  %164 = ptrtoint ptr %154 to i64
+  %165 = load i64, ptr %158, align 8, !tbaa !9, !noalias !87
+  %166 = and i64 %165, %148
+  store i64 %166, ptr %158, align 8, !tbaa !9, !noalias !87
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %167, align 8, !tbaa !3, !alias.scope !87
+  store i64 %164, ptr %0, align 8, !alias.scope !87
+  br label %175
 
 _ZN4llvm5APIntC2ERKS0_.exit44.thread.thread102:   ; preds = %_ZN4llvm5APIntlSEj.exit
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %171, align 8, !tbaa !3
-  store i64 %146, ptr %0, align 8, !tbaa !8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %168, align 8, !tbaa !3
+  store i64 %143, ptr %0, align 8, !tbaa !8
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit44.thread.thread:      ; preds = %_ZN4llvm5APIntlSEj.exit.thread
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %172, align 8, !tbaa !3
-  %173 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
-  store ptr %173, ptr %0, align 8, !tbaa !8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %173, ptr nonnull align 8 %92, i64 %91, i1 false)
-  br label %178
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %169, align 8, !tbaa !3
+  %170 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
+  store ptr %170, ptr %0, align 8, !tbaa !8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %92, i64 %91, i1 false)
+  br label %175
 
 _ZN4llvm5APIntC2ERKS0_.exit44.thread:             ; preds = %_ZN4llvm5APIntlSEj.exit
-  %174 = xor i64 %146, %spec.select.i
-  %175 = add i64 %174, 1
-  %176 = and i64 %175, %spec.select.i
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %177, align 8, !tbaa !3, !alias.scope !87
-  store i64 %176, ptr %0, align 8, !alias.scope !87
+  %171 = xor i64 %143, %142
+  %172 = add i64 %171, 1
+  %173 = and i64 %172, %142
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %174, align 8, !tbaa !3, !alias.scope !87
+  store i64 %173, ptr %0, align 8, !alias.scope !87
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-178:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread, %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread104
+175:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread, %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread104
   tail call void @_ZdaPv(ptr noundef nonnull %92) #23
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit44.thread, %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread102, %66, %67, %178, %81, %80, %12, %11, %_ZN4llvm5APIntD2Ev.exit
+_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit44.thread, %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread102, %66, %67, %175, %81, %80, %12, %11, %_ZN4llvm5APIntD2Ev.exit
   ret void
 }
 

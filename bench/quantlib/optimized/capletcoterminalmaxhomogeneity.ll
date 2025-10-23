@@ -2065,16 +2065,16 @@ _ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpO
   %58 = load ptr, ptr %_M_finish.i272, align 8, !tbaa !77
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i272, align 8, !tbaa !77
-  br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
+  br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split
 
 if.else.i:                                        ; preds = %invoke.cont132
   invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %newVols, ptr %53, ptr noundef nonnull align 8 dereferenceable(24) %firstRateVols)
-          to label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit unwind label %lpad135
+          to label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split unwind label %lpad135
 
-_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
+_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %if.else.i
   br i1 %cmp.i.i.i.i.i.i.i, label %for.cond.cleanup140, label %for.body141.lr.ph
 
-for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
+for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split
   %columns_.i.i290 = getelementptr inbounds nuw i8, ptr %invertedZedMatrix, i64 16
   %n_.i.i = getelementptr inbounds nuw i8, ptr %cylinderCentre.i, i64 8
   %n_.i198.i = getelementptr inbounds nuw i8, ptr %targetArray.i, i64 8
@@ -2097,8 +2097,8 @@ for.body141.lr.ph:                                ; preds = %_ZNSt6vectorIS_IdSa
   %cmp30.i = fcmp olt double %caplet0Swaption1Priority, 5.000000e-01
   br label %for.body141
 
-for.cond.cleanup140:                              ; preds = %invoke.cont248, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
-  %failures.0.lcssa = phi i32 [ 0, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit ], [ %spec.select, %invoke.cont248 ]
+for.cond.cleanup140:                              ; preds = %invoke.cont248, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split
+  %failures.0.lcssa = phi i32 [ 0, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit.split ], [ %spec.select, %invoke.cont248 ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %swapCovariancePseudoRoots, i64 8
   %59 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !79
   %60 = load ptr, ptr %swapCovariancePseudoRoots, align 8, !tbaa !80
@@ -2482,17 +2482,6 @@ for.body.i:                                       ; preds = %for.cond.cleanup210
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !94
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp.i.i.i307 = icmp ugt i64 %i137.0913, 1152921504606846974
-  br i1 %cmp.i.i.i307, label %if.then.i.i.i, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i:                                    ; preds = %for.end.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.22) #22
-          to label %.noexc328 unwind label %lpad224.loopexit.split-lp
-
-.noexc328:                                        ; preds = %if.then.i.i.i
-  unreachable
-
-if.then.i.i.i.i.i.i:                              ; preds = %for.end.i
   %add.ptr.i191.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i249, i64 %add
   %116 = load double, ptr %add.ptr.i191.i, align 8, !tbaa !74
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %add, 3
@@ -2501,7 +2490,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.end.i
   %call.i194.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i.i.i.i.i.i) #25
           to label %cond.true.i196.i unwind label %ehcleanup376.thread.i
 
-cond.true.i196.i:                                 ; preds = %if.then.i.i.i.i.i.i
+cond.true.i196.i:                                 ; preds = %for.end.i
   %mul111110113.i = fmul double %84, %84
   store ptr %call.i194.i, ptr %cylinderCentre.i, align 8, !tbaa !70
   store i64 %add, ptr %n_.i.i, align 8, !tbaa !95
@@ -2540,7 +2529,7 @@ for.cond.cleanup.i:                               ; preds = %for.body126.i
   %cmp165.i = fcmp ogt double %sub164.i, 0.000000e+00
   br i1 %cmp165.i, label %cond.true.i, label %cond.end.i
 
-ehcleanup376.thread.i:                            ; preds = %if.then.i.i.i.i.i.i
+ehcleanup376.thread.i:                            ; preds = %for.end.i
   %122 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %cylinderCentre.i)
@@ -3241,7 +3230,7 @@ lpad224.loopexit:                                 ; preds = %if.then.i319, %.noe
           cleanup
   br label %ehcleanup423
 
-lpad224.loopexit.split-lp:                        ; preds = %if.then3.i.i.i.i.i.i.i.i.i359.invoke, %if.then.i.i.i
+lpad224.loopexit.split-lp:                        ; preds = %if.then3.i.i.i.i.i.i.i.i.i359.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup423

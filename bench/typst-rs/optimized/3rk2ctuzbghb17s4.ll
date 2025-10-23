@@ -97320,8 +97320,8 @@ default.unreachable100:                           ; preds = %279, %"_ZN4core3ptr
 
 151:                                              ; preds = %152, %.preheader41.i.i.i.i
   %.3.i.i.i.i = phi i8 [ %.245.i.i.i.i, %.preheader41.i.i.i.i ], [ %158, %152 ]
-  %exitcond59.not.i.i.i.i = icmp eq i64 %147, 4
-  br i1 %exitcond59.not.i.i.i.i, label %142, label %.preheader41.i.i.i.i
+  %exitcond57.not.i.i.i.i = icmp eq i64 %147, 4
+  br i1 %exitcond57.not.i.i.i.i, label %142, label %.preheader41.i.i.i.i
 
 152:                                              ; preds = %.preheader41.i.i.i.i
   %153 = shl nuw nsw i64 %.sroa.028.046.i.i.i.i, 4

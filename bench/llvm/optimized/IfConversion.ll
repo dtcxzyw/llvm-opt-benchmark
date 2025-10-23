@@ -4700,13 +4700,11 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default
   br i1 %or.cond230, label %.thread215, label %1489
 
 1489:                                             ; preds = %1480
-  %1490 = icmp ne i32 %1457, 5
+  %1490 = icmp eq i32 %1457, 5
   %1491 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DisableTriangleF, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
   %1492 = trunc nuw i8 %1491 to i1
-  %not. = xor i1 %1492, true
-  %or.cond10 = select i1 %not., i1 true, i1 %1490
-  %or.cond12 = select i1 %or.cond10, i1 true, i1 %1482
-  br i1 %or.cond12, label %1493, label %.thread215
+  %or.cond10.not = select i1 %1492, i1 %1490, i1 false
+  br i1 %or.cond10.not, label %.thread215, label %1493
 
 1493:                                             ; preds = %1489
   %1494 = getelementptr inbounds nuw i8, ptr %1455, i64 24
@@ -5498,8 +5496,8 @@ _ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE.e
   %1909 = getelementptr inbounds nuw i8, ptr %1908, i64 848
   %1910 = load ptr, ptr %1909, align 8
   %1911 = call noundef zeroext i1 %1910(ptr noundef nonnull align 8 dereferenceable(80) %1907, ptr noundef nonnull align 8 dereferenceable(70) %1903) #24
-  %not.281 = xor i1 %1911, true
-  %spec.select.i = select i1 %not.281, i1 %1901, i1 false
+  %not. = xor i1 %1911, true
+  %spec.select.i = select i1 %not., i1 %1901, i1 false
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1906, %1900

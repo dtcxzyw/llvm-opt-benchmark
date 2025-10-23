@@ -3739,8 +3739,8 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
 
 534:                                              ; preds = %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit", %.preheader41.i.i
   %.3.i.i = phi i8 [ %.245.i.i, %.preheader41.i.i ], [ %546, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit" ]
-  %exitcond59.not.i.i = icmp eq i64 %530, 4
-  br i1 %exitcond59.not.i.i, label %525, label %.preheader41.i.i
+  %exitcond57.not.i.i = icmp eq i64 %530, 4
+  br i1 %exitcond57.not.i.i, label %525, label %.preheader41.i.i
 
 535:                                              ; preds = %.preheader41.i.i
   %536 = trunc nuw i8 %.245.i.i to i1

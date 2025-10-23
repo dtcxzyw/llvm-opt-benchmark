@@ -2840,148 +2840,154 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i16 0, 258) i16 @_ZN4llvm4yaml9parseBoolENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #6 {
-  switch i64 %1, label %.thread138 [
+  switch i64 %1, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144 [
     i64 1, label %3
     i64 2, label %6
-    i64 3, label %19
-    i64 4, label %29
-    i64 5, label %35
+    i64 3, label %22
+    i64 4, label %32
+    i64 5, label %38
   ]
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !23
-  switch i8 %4, label %.thread138 [
-    i8 121, label %.thread
-    i8 89, label %.thread
+  switch i8 %4, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144 [
+    i8 121, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread
+    i8 89, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread
     i8 110, label %5
     i8 78, label %5
   ]
 
 5:                                                ; preds = %3, %3
-  br label %.thread
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %0, align 1, !tbaa !23
-  switch i8 %7, label %.thread138 [
+  switch i8 %7, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144 [
     i8 79, label %8
-    i8 111, label %._crit_edge128
+    i8 111, label %._crit_edge133
     i8 78, label %15
     i8 110, label %._crit_edge
   ]
 
-._crit_edge128:                                   ; preds = %6
-  %.phi.trans.insert129 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.pre130 = load i8, ptr %.phi.trans.insert129, align 1, !tbaa !23
+._crit_edge133:                                   ; preds = %6
+  %.phi.trans.insert134 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.pre135 = load i8, ptr %.phi.trans.insert134, align 1, !tbaa !23
   br label %12
 
 ._crit_edge:                                      ; preds = %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !23
-  br label %41
+  br label %19
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !23
   %11 = icmp eq i8 %10, 78
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %12
 
-12:                                               ; preds = %._crit_edge128, %8
-  %13 = phi i8 [ %.pre130, %._crit_edge128 ], [ %10, %8 ]
-  %.fr143 = freeze i8 %13
-  %14 = icmp eq i8 %.fr143, 110
-  br i1 %14, label %.thread, label %.thread138
+12:                                               ; preds = %._crit_edge133, %8
+  %13 = phi i8 [ %.pre135, %._crit_edge133 ], [ %10, %8 ]
+  %.fr156 = freeze i8 %13
+  %14 = icmp eq i8 %.fr156, 110
+  br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !23
   %18 = icmp eq i8 %17, 79
-  br i1 %18, label %.thread, label %41
+  br i1 %18, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %19
 
-19:                                               ; preds = %2
-  %20 = load i8, ptr %0, align 1, !tbaa !23
-  switch i8 %20, label %.thread138 [
+19:                                               ; preds = %._crit_edge, %15
+  %20 = phi i8 [ %.pre, %._crit_edge ], [ %17, %15 ]
+  %.fr = freeze i8 %20
+  %21 = icmp eq i8 %.fr, 111
+  br i1 %21, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
+
+22:                                               ; preds = %2
+  %23 = load i8, ptr %0, align 1, !tbaa !23
+  switch i8 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144 [
     i8 79, label %_ZN4llvmeqENS_9StringRefES0_.exit
-    i8 111, label %_ZN4llvmeqENS_9StringRefES0_.exit21
+    i8 111, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
     i8 89, label %_ZN4llvmeqENS_9StringRefES0_.exit28
-    i8 121, label %_ZN4llvmeqENS_9StringRefES0_.exit35
+    i8 121, label %_ZN4llvmeqENS_9StringRefES0_.exit28.thread
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %21, ptr noundef nonnull dereferenceable(2) @.str.41, i64 2)
-  %22 = icmp eq i32 %bcmp.i, 0
-  br i1 %22, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.41, i64 2)
+  %25 = icmp eq i32 %bcmp.i, 0
+  br i1 %25, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit21:              ; preds = %19, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %23, ptr noundef nonnull dereferenceable(2) @.str.42, i64 2)
-  %24 = icmp eq i32 %bcmp.i20, 0
-  br i1 %24, label %.thread, label %.thread138
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %26, ptr noundef nonnull dereferenceable(2) @.str.42, i64 2)
+  %bcmp.i20.fr = freeze i32 %bcmp.i20
+  %27 = icmp eq i32 %bcmp.i20.fr, 0
+  br i1 %27, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
-_ZN4llvmeqENS_9StringRefES0_.exit28:              ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %25, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2)
-  %26 = icmp eq i32 %bcmp.i27, 0
-  br i1 %26, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit35
+_ZN4llvmeqENS_9StringRefES0_.exit28:              ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %28, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2)
+  %29 = icmp eq i32 %bcmp.i27, 0
+  br i1 %29, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit28.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit35:              ; preds = %19, %_ZN4llvmeqENS_9StringRefES0_.exit28
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %27, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
-  %28 = icmp eq i32 %bcmp.i34, 0
-  br i1 %28, label %.thread, label %.thread138
+_ZN4llvmeqENS_9StringRefES0_.exit28.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit28, %22
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %30, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
+  %bcmp.i34.fr = freeze i32 %bcmp.i34
+  %31 = icmp eq i32 %bcmp.i34.fr, 0
+  %.sroa.0116.0152 = zext i1 %31 to i16
+  br i1 %31, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
-29:                                               ; preds = %2
-  %30 = load i8, ptr %0, align 1, !tbaa !23
-  switch i8 %30, label %.thread138 [
+32:                                               ; preds = %2
+  %33 = load i8, ptr %0, align 1, !tbaa !23
+  switch i8 %33, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144 [
     i8 84, label %_ZN4llvmeqENS_9StringRefES0_.exit42
-    i8 116, label %_ZN4llvmeqENS_9StringRefES0_.exit49
+    i8 116, label %_ZN4llvmeqENS_9StringRefES0_.exit42.thread
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit42:              ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %31, ptr noundef nonnull dereferenceable(3) @.str.45, i64 3)
-  %32 = icmp eq i32 %bcmp.i41, 0
-  br i1 %32, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit49
+_ZN4llvmeqENS_9StringRefES0_.exit42:              ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %34, ptr noundef nonnull dereferenceable(3) @.str.45, i64 3)
+  %35 = icmp eq i32 %bcmp.i41, 0
+  br i1 %35, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit42.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit49:              ; preds = %29, %_ZN4llvmeqENS_9StringRefES0_.exit42
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %33, ptr noundef nonnull dereferenceable(3) @.str.46, i64 3)
-  %34 = icmp eq i32 %bcmp.i48, 0
-  br i1 %34, label %.thread, label %.thread138
+_ZN4llvmeqENS_9StringRefES0_.exit42.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit42, %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %36, ptr noundef nonnull dereferenceable(3) @.str.46, i64 3)
+  %bcmp.i48.fr = freeze i32 %bcmp.i48
+  %37 = icmp eq i32 %bcmp.i48.fr, 0
+  %.sroa.0116.0154 = zext i1 %37 to i16
+  br i1 %37, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
-35:                                               ; preds = %2
-  %36 = load i8, ptr %0, align 1, !tbaa !23
-  switch i8 %36, label %.thread138 [
+38:                                               ; preds = %2
+  %39 = load i8, ptr %0, align 1, !tbaa !23
+  switch i8 %39, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144 [
     i8 70, label %_ZN4llvmeqENS_9StringRefES0_.exit56
-    i8 102, label %_ZN4llvmeqENS_9StringRefES0_.exit63
+    i8 102, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit56:              ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i55 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %37, ptr noundef nonnull dereferenceable(4) @.str.47, i64 4)
-  %38 = icmp eq i32 %bcmp.i55, 0
-  br i1 %38, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit63
+_ZN4llvmeqENS_9StringRefES0_.exit56:              ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i55 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %40, ptr noundef nonnull dereferenceable(4) @.str.47, i64 4)
+  %41 = icmp eq i32 %bcmp.i55, 0
+  br i1 %41, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit63:              ; preds = %35, %_ZN4llvmeqENS_9StringRefES0_.exit56
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %bcmp.i62 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %39, ptr noundef nonnull dereferenceable(4) @.str.48, i64 4)
-  %40 = icmp eq i32 %bcmp.i62, 0
-  br i1 %40, label %.thread, label %.thread138
+_ZN4llvmeqENS_9StringRefES0_.exit21.thread:       ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %bcmp.i62 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %42, ptr noundef nonnull dereferenceable(4) @.str.48, i64 4)
+  %bcmp.i62.fr = freeze i32 %bcmp.i62
+  %43 = icmp eq i32 %bcmp.i62.fr, 0
+  br i1 %43, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
-41:                                               ; preds = %15, %._crit_edge
-  %42 = phi i8 [ %.pre, %._crit_edge ], [ %17, %15 ]
-  %.fr = freeze i8 %42
-  %43 = icmp eq i8 %.fr, 111
-  br i1 %43, label %.thread, label %.thread138
+_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56, %_ZN4llvmeqENS_9StringRefES0_.exit42, %_ZN4llvmeqENS_9StringRefES0_.exit28, %_ZN4llvmeqENS_9StringRefES0_.exit, %15, %8, %3, %3, %5, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %19, %12, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread
+  %.sroa.0116.0142 = phi i16 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 1, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0116.0152, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ %.sroa.0116.0154, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit56 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit42 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit28 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %15 ], [ 1, %8 ], [ 1, %3 ], [ 1, %3 ], [ 0, %5 ]
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
-.thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit63, %_ZN4llvmeqENS_9StringRefES0_.exit56, %_ZN4llvmeqENS_9StringRefES0_.exit49, %_ZN4llvmeqENS_9StringRefES0_.exit42, %_ZN4llvmeqENS_9StringRefES0_.exit35, %_ZN4llvmeqENS_9StringRefES0_.exit28, %_ZN4llvmeqENS_9StringRefES0_.exit21, %_ZN4llvmeqENS_9StringRefES0_.exit, %15, %8, %3, %3, %5, %12, %41
-  %.sroa.0116.0136 = phi i16 [ 0, %41 ], [ 1, %12 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit63 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit56 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit42 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit35 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit28 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %15 ], [ 1, %8 ], [ 1, %3 ], [ 1, %3 ], [ 0, %5 ]
-  br label %.thread138
-
-.thread138:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit63, %_ZN4llvmeqENS_9StringRefES0_.exit49, %_ZN4llvmeqENS_9StringRefES0_.exit35, %_ZN4llvmeqENS_9StringRefES0_.exit21, %3, %2, %35, %29, %19, %6, %12, %41, %.thread
-  %.sroa.0116.0135 = phi i16 [ %.sroa.0116.0136, %.thread ], [ 0, %41 ], [ 1, %12 ], [ 0, %6 ], [ 0, %19 ], [ 0, %29 ], [ 0, %35 ], [ 0, %2 ], [ 0, %3 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit35 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit63 ]
-  %44 = phi i16 [ 256, %.thread ], [ 0, %41 ], [ 0, %12 ], [ 0, %6 ], [ 0, %19 ], [ 0, %29 ], [ 0, %35 ], [ 0, %2 ], [ 0, %3 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit35 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit63 ]
-  %.sroa.0116.0.insert.insert = or disjoint i16 %44, %.sroa.0116.0135
+_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144: ; preds = %3, %2, %38, %32, %22, %6, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %19, %12, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread
+  %.sroa.0116.0141 = phi i16 [ %.sroa.0116.0142, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 1, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0116.0152, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ %.sroa.0116.0154, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %6 ], [ 0, %22 ], [ 0, %32 ], [ 0, %38 ], [ 0, %2 ], [ 0, %3 ]
+  %44 = phi i16 [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 0, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %6 ], [ 0, %22 ], [ 0, %32 ], [ 0, %38 ], [ 0, %2 ], [ 0, %3 ]
+  %.sroa.0116.0.insert.insert = or disjoint i16 %44, %.sroa.0116.0141
   ret i16 %.sroa.0116.0.insert.insert
 }
 

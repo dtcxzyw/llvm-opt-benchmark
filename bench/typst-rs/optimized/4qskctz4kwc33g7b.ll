@@ -31797,8 +31797,8 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 38:                                               ; preds = %39, %.preheader41.i
   %.3.i = phi i8 [ %.245.i, %.preheader41.i ], [ %45, %39 ]
-  %exitcond59.not.i = icmp eq i64 %34, 4
-  br i1 %exitcond59.not.i, label %29, label %.preheader41.i
+  %exitcond57.not.i = icmp eq i64 %34, 4
+  br i1 %exitcond57.not.i, label %29, label %.preheader41.i
 
 39:                                               ; preds = %.preheader41.i
   %40 = shl nuw nsw i64 %.sroa.028.046.i, 4
