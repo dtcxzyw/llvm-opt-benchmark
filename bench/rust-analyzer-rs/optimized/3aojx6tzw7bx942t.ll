@@ -987,7 +987,6 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %.val.i.i13.i = load i64, ptr %116, align 8, !alias.scope !461, !noalias !466
   %117 = icmp ne i64 %.val.i.i13.i, 0
   %.sroa.056.0.i.i14.not58.i = select i1 %115, i1 %117, i1 false
-  %spec.select55.i = select i1 %.sroa.056.0.i.i14.not58.i, i64 undef, i64 %112
   %trunc.i.i17.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i.i17.i, label %118, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h022f883286ab4d1dE.exit.i.i18.i"
 
@@ -1094,11 +1093,11 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
 
 178:                                              ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hff706b21e6fd04beE.exit47.i"
   %179 = extractvalue { i64, i1 } %174, 0
-  %180 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select55.i, i64 %179)
+  %180 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %112, i64 %179)
   %181 = extractvalue { i64, i1 } %180, 1
   %182 = extractvalue { i64, i1 } %180, 0
-  %not..i = xor i1 %181, true
-  %spec.select.i = zext i1 %not..i to i64
+  %.not.i = xor i1 %181, true
+  %spec.select.i = zext i1 %.not.i to i64
   br label %183
 
 183:                                              ; preds = %178, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hff706b21e6fd04beE.exit47.i", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hff706b21e6fd04beE.exit47.thread.i"

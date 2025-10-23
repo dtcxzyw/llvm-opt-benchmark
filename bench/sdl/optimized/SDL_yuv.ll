@@ -86,38 +86,39 @@ define hidden zeroext i1 @SDL_CalculateYUVSize(i32 noundef %0, i32 noundef %1, i
   %35 = ashr exact i64 %sext110, 32
   %sext111 = shl i64 %34, 32
   %36 = ashr exact i64 %sext111, 32
-  br label %51
+  %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %35, i64 range(i64 -2147483648, 2147483648) %36)
+  br label %52
 
 IsPlanar2x2Format.exit:                           ; preds = %5
-  %37 = sext i32 %1 to i64
-  %38 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %37, i64 1)
-  %39 = extractvalue { i64, i1 } %38, 1
-  br i1 %39, label %40, label %42
+  %38 = sext i32 %1 to i64
+  %39 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %38, i64 1)
+  %40 = extractvalue { i64, i1 } %39, 1
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %IsPlanar2x2Format.exit
-  %41 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
+41:                                               ; preds = %IsPlanar2x2Format.exit
+  %42 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
   br label %.thread87
 
-42:                                               ; preds = %IsPlanar2x2Format.exit
-  %43 = extractvalue { i64, i1 } %38, 0
-  %44 = lshr i64 %43, 1
-  %45 = sext i32 %2 to i64
-  %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 range(i64 -2147483648, -9223372036854775808) %45)
-  %47 = extractvalue { i64, i1 } %46, 1
-  %48 = extractvalue { i64, i1 } %46, 0
-  br i1 %47, label %49, label %51
+43:                                               ; preds = %IsPlanar2x2Format.exit
+  %44 = extractvalue { i64, i1 } %39, 0
+  %45 = lshr i64 %44, 1
+  %46 = sext i32 %2 to i64
+  %47 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 range(i64 -2147483648, -9223372036854775808) %46)
+  %48 = extractvalue { i64, i1 } %47, 1
+  %49 = extractvalue { i64, i1 } %47, 0
+  br i1 %48, label %50, label %52
 
-49:                                               ; preds = %42
-  %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #7
+50:                                               ; preds = %43
+  %51 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #7
   br label %.thread87
 
-51:                                               ; preds = %42, %33
-  %.148 = phi i64 [ %35, %33 ], [ 0, %42 ]
-  %.146 = phi i64 [ %36, %33 ], [ 0, %42 ]
-  %.043 = phi i64 [ 0, %33 ], [ %48, %42 ]
-  switch i32 %0, label %109 [
-    i32 842094169, label %52
-    i32 1448433993, label %52
+52:                                               ; preds = %43, %33
+  %.148 = phi { i64, i1 } [ %37, %33 ], [ zeroinitializer, %43 ]
+  %.146 = phi i64 [ %36, %33 ], [ 0, %43 ]
+  %.043 = phi i64 [ 0, %33 ], [ %49, %43 ]
+  switch i32 %0, label %108 [
+    i32 842094169, label %53
+    i32 1448433993, label %53
     i32 844715353, label %70
     i32 1498831189, label %70
     i32 1431918169, label %70
@@ -125,30 +126,29 @@ IsPlanar2x2Format.exit:                           ; preds = %5
     i32 825382478, label %91
   ]
 
-52:                                               ; preds = %51, %51
+53:                                               ; preds = %52, %52
   %.not67 = icmp eq ptr %4, null
-  br i1 %.not67, label %55, label %53
+  br i1 %.not67, label %56, label %54
 
-53:                                               ; preds = %52
-  %54 = sext i32 %1 to i64
-  store i64 %54, ptr %4, align 8
-  br label %55
+54:                                               ; preds = %53
+  %55 = sext i32 %1 to i64
+  store i64 %55, ptr %4, align 8
+  br label %56
 
-55:                                               ; preds = %53, %52
+56:                                               ; preds = %54, %53
   %.not68 = icmp eq ptr %3, null
-  br i1 %.not68, label %.thread87, label %56
+  br i1 %.not68, label %.thread87, label %57
 
-56:                                               ; preds = %55
-  %57 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.148, i64 range(i64 -2147483648, 2147483648) %.146)
-  %58 = extractvalue { i64, i1 } %57, 1
+57:                                               ; preds = %56
+  %58 = extractvalue { i64, i1 } %.148, 1
   br i1 %58, label %59, label %61
 
-59:                                               ; preds = %56
+59:                                               ; preds = %57
   %60 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
   br label %.thread87
 
-61:                                               ; preds = %56
-  %62 = extractvalue { i64, i1 } %57, 0
+61:                                               ; preds = %57
+  %62 = extractvalue { i64, i1 } %.148, 0
   %63 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %62, i64 range(i64 -2147483648, 2147483648) %.146)
   %64 = extractvalue { i64, i1 } %63, 1
   br i1 %64, label %65, label %67
@@ -164,7 +164,7 @@ IsPlanar2x2Format.exit:                           ; preds = %5
   store i64 %69, ptr %3, align 8
   br label %.thread87
 
-70:                                               ; preds = %51, %51, %51
+70:                                               ; preds = %52, %52, %52
   %.not63 = icmp eq ptr %4, null
   br i1 %.not63, label %85, label %71
 
@@ -212,7 +212,7 @@ IsPlanar2x2Format.exit:                           ; preds = %5
   %90 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6) #7
   br label %.thread87
 
-91:                                               ; preds = %51, %51
+91:                                               ; preds = %52, %52
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %94, label %92
 
@@ -226,37 +226,36 @@ IsPlanar2x2Format.exit:                           ; preds = %5
   br i1 %.not62, label %.thread87, label %95
 
 95:                                               ; preds = %94
-  %96 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.148, i64 range(i64 -2147483648, 2147483648) %.146)
-  %97 = extractvalue { i64, i1 } %96, 1
-  br i1 %97, label %98, label %100
+  %96 = extractvalue { i64, i1 } %.148, 1
+  br i1 %96, label %97, label %99
 
-98:                                               ; preds = %95
-  %99 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+97:                                               ; preds = %95
+  %98 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
   br label %.thread87
 
-100:                                              ; preds = %95
-  %101 = extractvalue { i64, i1 } %96, 0
-  %102 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %101, i64 range(i64 -2147483648, 2147483648) %.146)
-  %103 = extractvalue { i64, i1 } %102, 1
-  br i1 %103, label %104, label %106
+99:                                               ; preds = %95
+  %100 = extractvalue { i64, i1 } %.148, 0
+  %101 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %100, i64 range(i64 -2147483648, 2147483648) %.146)
+  %102 = extractvalue { i64, i1 } %101, 1
+  br i1 %102, label %103, label %105
 
-104:                                              ; preds = %100
-  %105 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #7
+103:                                              ; preds = %99
+  %104 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #7
   br label %.thread87
 
-106:                                              ; preds = %100
-  %107 = extractvalue { i64, i1 } %102, 0
-  %sext = shl i64 %107, 32
-  %108 = ashr exact i64 %sext, 32
-  store i64 %108, ptr %3, align 8
+105:                                              ; preds = %99
+  %106 = extractvalue { i64, i1 } %101, 0
+  %sext = shl i64 %106, 32
+  %107 = ashr exact i64 %sext, 32
+  store i64 %107, ptr %3, align 8
   br label %.thread87
 
-109:                                              ; preds = %51
-  %110 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #7
+108:                                              ; preds = %52
+  %109 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #7
   br label %.thread87
 
-.thread87:                                        ; preds = %98, %104, %75, %80, %59, %65, %40, %49, %17, %22, %31, %55, %85, %94, %67, %.thread104, %106, %89, %11, %109
-  %.150 = phi i1 [ %110, %109 ], [ %90, %89 ], [ %12, %11 ], [ true, %106 ], [ true, %.thread104 ], [ true, %67 ], [ true, %94 ], [ true, %85 ], [ true, %55 ], [ %18, %17 ], [ %23, %22 ], [ %32, %31 ], [ %41, %40 ], [ %50, %49 ], [ %60, %59 ], [ %66, %65 ], [ %76, %75 ], [ %81, %80 ], [ %99, %98 ], [ %105, %104 ]
+.thread87:                                        ; preds = %97, %103, %75, %80, %59, %65, %41, %50, %17, %22, %31, %56, %85, %94, %67, %.thread104, %105, %89, %11, %108
+  %.150 = phi i1 [ %109, %108 ], [ %90, %89 ], [ %12, %11 ], [ true, %105 ], [ true, %.thread104 ], [ true, %67 ], [ true, %94 ], [ true, %85 ], [ true, %56 ], [ %18, %17 ], [ %23, %22 ], [ %32, %31 ], [ %42, %41 ], [ %51, %50 ], [ %60, %59 ], [ %66, %65 ], [ %76, %75 ], [ %81, %80 ], [ %98, %97 ], [ %104, %103 ]
   ret i1 %.150
 }
 

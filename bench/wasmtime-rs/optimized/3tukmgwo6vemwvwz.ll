@@ -12744,6 +12744,7 @@ define void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo14variant_st
 
 ._crit_edge.loopexit:                             ; preds = %58
   %10 = trunc nuw i8 %.sroa.0.1 to i1
+  %11 = call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %.sroa.4.1, i8 1)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
@@ -12752,41 +12753,40 @@ define void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo14variant_st
   %.024.lcssa = phi i32 [ 0, %8 ], [ %.125, %._crit_edge.loopexit ]
   %.022.lcssa = phi i32 [ %9, %8 ], [ %.123, %._crit_edge.loopexit ]
   %.021.lcssa = phi i32 [ 0, %8 ], [ %.1, %._crit_edge.loopexit ]
-  %.sroa.4.0.lcssa = phi i8 [ 0, %8 ], [ %.sroa.4.1, %._crit_edge.loopexit ]
-  %11 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.022.lcssa)
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit30, label %13
+  %.sroa.4.0.lcssa = phi { i8, i1 } [ { i8 1, i1 false }, %8 ], [ %11, %._crit_edge.loopexit ]
+  %12 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.022.lcssa)
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit30, label %14
 
-13:                                               ; preds = %._crit_edge
+14:                                               ; preds = %._crit_edge
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #23
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit30: ; preds = %._crit_edge
-  %14 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.026.lcssa)
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32, label %16
+  %15 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.026.lcssa)
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32, label %17
 
-16:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit30
+17:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit30
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #23
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit30
-  br i1 %.sroa.0.0.lcssa, label %17, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
+  br i1 %.sroa.0.0.lcssa, label %18, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-17:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32
-  %18 = call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %.sroa.4.0.lcssa, i8 1)
-  %19 = extractvalue { i8, i1 } %18, 1
+18:                                               ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32
+  %19 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 1
   br i1 %19, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %20
 
-20:                                               ; preds = %17
-  %21 = extractvalue { i8, i1 } %18, 0
+20:                                               ; preds = %18
+  %21 = extractvalue { i8, i1 } %.sroa.4.0.lcssa, 0
   %22 = icmp ult i8 %21, 17
   %23 = zext i1 %22 to i8
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
-_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32, %17, %20
-  %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ 0, %17 ], [ %23, %20 ]
-  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ undef, %17 ], [ %21, %20 ]
+_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32, %18, %20
+  %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ 0, %18 ], [ %23, %20 ]
+  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ undef, %18 ], [ %21, %20 ]
   %24 = add i32 %9, -1
   %25 = add i32 %.026.lcssa, %24
   %26 = sub i32 0, %.026.lcssa

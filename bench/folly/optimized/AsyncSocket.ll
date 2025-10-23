@@ -21559,241 +21559,242 @@ define linkonce_odr void @_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverCo
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %0, align 8, !tbaa !203
-  %.not.i.i = icmp sgt i64 %11, -1
+  %.not.i.i = icmp slt i64 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
-  %.0.i.i = select i1 %.not.i.i, i64 2, i64 %13
-  %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0.i.i, i64 3)
+  %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
   %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i, label %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit, !prof !184
+  %16 = select i1 %.not.i.i, i1 %15, i1 false
+  br i1 %16, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i, label %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit, !prof !184
 
 _ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i:     ; preds = %10
   tail call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.25) #21
   unreachable
 
 _ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit: ; preds = %10
-  %16 = extractvalue { i64, i1 } %14, 0
-  %17 = lshr i64 %16, 1
-  %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 4611686018427387902)
-  %.sroa.speculated.i = add nuw nsw i64 %18, 1
+  %17 = extractvalue { i64, i1 } %14, 0
+  %18 = lshr i64 %17, 1
+  %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 4611686018427387902)
+  %20 = add nuw nsw i64 %19, 1
+  %.sroa.speculated.i = select i1 %.not.i.i, i64 %20, i64 4
   %.sroa.speculated34 = tail call i64 @llvm.umax.i64(i64 %1, i64 %.sroa.speculated.i)
-  %19 = icmp samesign ugt i64 %.sroa.speculated34, 1152921504606846975
-  br i1 %19, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit, label %20, !prof !184
+  %21 = icmp samesign ugt i64 %.sroa.speculated34, 1152921504606846975
+  br i1 %21, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit, label %22, !prof !184
 
 _ZN5folly11checked_mulImvEEbPT_S1_S1_.exit:       ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
   tail call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.25) #21
   unreachable
 
-20:                                               ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
-  %21 = shl nuw i64 %.sroa.speculated34, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %_ZN5folly10canNallocxEv.exit.i, !prof !636
+22:                                               ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
+  %23 = shl nuw i64 %.sroa.speculated34, 4
+  %24 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %_ZN5folly10canNallocxEv.exit.i, !prof !636
 
-24:                                               ; preds = %20
-  %25 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
-  %.not.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %26
+26:                                               ; preds = %22
+  %27 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
+  %.not.i.i.i.i = icmp eq i32 %27, 0
+  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %28
 
-26:                                               ; preds = %24
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %27 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %29 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
-  %29 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %30 = zext i1 %29 to i8
+  store i8 %30, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
+  %31 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
   br label %_ZN5folly10canNallocxEv.exit.i
 
-_ZN5folly10canNallocxEv.exit.i:                   ; preds = %26, %24, %20
-  %30 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %_ZN5folly14goodMallocSizeEm.exit
+_ZN5folly10canNallocxEv.exit.i:                   ; preds = %28, %26, %22
+  %32 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %_ZN5folly14goodMallocSizeEm.exit
 
-32:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
-  %33 = call i64 @nallocx(i64 noundef %21, i32 noundef 0) #55
-  %.not.i = icmp eq i64 %33, 0
-  %34 = lshr i64 %33, 4
-  %35 = select i1 %.not.i, i64 %.sroa.speculated34, i64 %34
-  %.pre47 = shl nuw i64 %35, 4
+34:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
+  %35 = call i64 @nallocx(i64 noundef %23, i32 noundef 0) #55
+  %.not.i = icmp eq i64 %35, 0
+  %36 = lshr i64 %35, 4
+  %37 = select i1 %.not.i, i64 %.sroa.speculated34, i64 %36
+  %.pre47 = shl nuw i64 %37, 4
   br label %_ZN5folly14goodMallocSizeEm.exit
 
-_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %32
-  %.pre-phi = phi i64 [ %21, %_ZN5folly10canNallocxEv.exit.i ], [ %.pre47, %32 ]
-  %.0.i14 = phi i64 [ %.sroa.speculated34, %_ZN5folly10canNallocxEv.exit.i ], [ %35, %32 ]
-  %36 = call noalias ptr @malloc(i64 noundef %.pre-phi) #54
-  %.not.i16 = icmp eq ptr %36, null
-  br i1 %.not.i16, label %37, label %_ZN5folly13checkedMallocEm.exit
+_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %34
+  %.pre-phi = phi i64 [ %23, %_ZN5folly10canNallocxEv.exit.i ], [ %.pre47, %34 ]
+  %.0.i14 = phi i64 [ %.sroa.speculated34, %_ZN5folly10canNallocxEv.exit.i ], [ %37, %34 ]
+  %38 = call noalias ptr @malloc(i64 noundef %.pre-phi) #54
+  %.not.i16 = icmp eq ptr %38, null
+  br i1 %.not.i16, label %39, label %_ZN5folly13checkedMallocEm.exit
 
-37:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
+39:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
   call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #21
   unreachable
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
-  %38 = load i64, ptr %0, align 8, !tbaa !203
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not1.i.i = icmp slt i64 %38, 0
-  %41 = select i1 %.not1.i.i, ptr %40, ptr %39
-  br i1 %2, label %42, label %71
+  %40 = load i64, ptr %0, align 8, !tbaa !203
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not1.i.i = icmp slt i64 %40, 0
+  %43 = select i1 %.not1.i.i, ptr %42, ptr %41
+  br i1 %2, label %44, label %73
 
-42:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
-  %43 = and i64 %38, 4611686018427387903
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %41, i64 %43
-  %45 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %4
-  %46 = load ptr, ptr %3, align 8, !tbaa !651
-  %47 = load ptr, ptr %46, align 8, !tbaa !333
-  store ptr %47, ptr %45, align 8, !tbaa !333
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !179
-  store ptr null, ptr %49, align 8, !tbaa !179
-  store ptr %50, ptr %48, align 8, !tbaa !179
-  store ptr null, ptr %46, align 8, !tbaa !333
-  %.not.i18 = icmp eq ptr %41, null
-  br i1 %.not.i18, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %51
+44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
+  %45 = and i64 %40, 4611686018427387903
+  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %43, i64 %45
+  %47 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %38, i64 %4
+  %48 = load ptr, ptr %3, align 8, !tbaa !651
+  %49 = load ptr, ptr %48, align 8, !tbaa !333
+  store ptr %49, ptr %47, align 8, !tbaa !333
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !179
+  store ptr null, ptr %51, align 8, !tbaa !179
+  store ptr %52, ptr %50, align 8, !tbaa !179
+  store ptr null, ptr %48, align 8, !tbaa !333
+  %.not.i18 = icmp eq ptr %43, null
+  br i1 %.not.i18, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %53
 
-51:                                               ; preds = %42
+53:                                               ; preds = %44
   %.idx.i = shl nuw nsw i64 %4, 4
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
   %.not10.i.i = icmp eq i64 %4, 0
   br i1 %.not10.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.i.i
-  %.012.i.i = phi ptr [ %58, %.lr.ph.i.i ], [ %41, %51 ]
-  %.0911.i.i = phi i64 [ %59, %.lr.ph.i.i ], [ 0, %51 ]
-  %53 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %.0911.i.i
-  %54 = load ptr, ptr %.012.i.i, align 8, !tbaa !333
-  store ptr %54, ptr %53, align 8, !tbaa !333
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !179
-  store ptr null, ptr %56, align 8, !tbaa !179
-  store ptr %57, ptr %55, align 8, !tbaa !179
+.lr.ph.i.i:                                       ; preds = %53, %.lr.ph.i.i
+  %.012.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %43, %53 ]
+  %.0911.i.i = phi i64 [ %61, %.lr.ph.i.i ], [ 0, %53 ]
+  %55 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %38, i64 %.0911.i.i
+  %56 = load ptr, ptr %.012.i.i, align 8, !tbaa !333
+  store ptr %56, ptr %55, align 8, !tbaa !333
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !179
+  store ptr null, ptr %58, align 8, !tbaa !179
+  store ptr %59, ptr %57, align 8, !tbaa !179
   store ptr null, ptr %.012.i.i, align 8, !tbaa !333
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  %59 = add nuw nsw i64 %.0911.i.i, 1
-  %.not.i.i19 = icmp eq ptr %58, %52
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
+  %61 = add nuw nsw i64 %.0911.i.i, 1
+  %.not.i.i19 = icmp eq ptr %60, %54
   br i1 %.not.i.i19, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !653
 
-_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i: ; preds = %.lr.ph.i.i, %51, %42
-  %60 = icmp samesign ult i64 %4, %43
-  br i1 %60, label %61, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
+_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i: ; preds = %.lr.ph.i.i, %53, %44
+  %62 = icmp samesign ult i64 %4, %45
+  br i1 %62, label %63, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
-61:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i
-  %62 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %41, i64 %4
-  %63 = getelementptr inbounds nuw i8, ptr %45, i64 16
+63:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i
+  %64 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %43, i64 %4
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 16
   br label %.lr.ph.i12.i
 
-.lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i, %61
-  %.012.i13.i = phi ptr [ %69, %.lr.ph.i12.i ], [ %62, %61 ]
-  %.0911.i14.i = phi i64 [ %70, %.lr.ph.i12.i ], [ 0, %61 ]
-  %64 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %63, i64 %.0911.i14.i
-  %65 = load ptr, ptr %.012.i13.i, align 8, !tbaa !333
-  store ptr %65, ptr %64, align 8, !tbaa !333
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr null, ptr %66, align 8, !tbaa !179
-  %67 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !179
-  store ptr null, ptr %67, align 8, !tbaa !179
-  store ptr %68, ptr %66, align 8, !tbaa !179
+.lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i, %63
+  %.012.i13.i = phi ptr [ %71, %.lr.ph.i12.i ], [ %64, %63 ]
+  %.0911.i14.i = phi i64 [ %72, %.lr.ph.i12.i ], [ 0, %63 ]
+  %66 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %65, i64 %.0911.i14.i
+  %67 = load ptr, ptr %.012.i13.i, align 8, !tbaa !333
+  store ptr %67, ptr %66, align 8, !tbaa !333
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr null, ptr %68, align 8, !tbaa !179
+  %69 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !179
+  store ptr null, ptr %69, align 8, !tbaa !179
+  store ptr %70, ptr %68, align 8, !tbaa !179
   store ptr null, ptr %.012.i13.i, align 8, !tbaa !333
-  %69 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 16
-  %70 = add nuw nsw i64 %.0911.i14.i, 1
-  %.not.i15.i = icmp eq ptr %69, %44
+  %71 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 16
+  %72 = add nuw nsw i64 %.0911.i14.i, 1
+  %.not.i15.i = icmp eq ptr %71, %46
   br i1 %.not.i15.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %.lr.ph.i12.i, !llvm.loop !653
 
-71:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %72
+73:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %74
 
-72:                                               ; preds = %71
-  %73 = shl i64 %38, 4
-  %74 = getelementptr inbounds nuw i8, ptr %41, i64 %73
-  %.not10.i = icmp samesign eq i64 %73, 0
+74:                                               ; preds = %73
+  %75 = shl i64 %40, 4
+  %76 = getelementptr inbounds nuw i8, ptr %43, i64 %75
+  %.not10.i = icmp samesign eq i64 %75, 0
   br i1 %.not10.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %72, %.lr.ph.i
-  %.012.i = phi ptr [ %80, %.lr.ph.i ], [ %41, %72 ]
-  %.0911.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %72 ]
-  %75 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %.0911.i
-  %76 = load ptr, ptr %.012.i, align 8, !tbaa !333
-  store ptr %76, ptr %75, align 8, !tbaa !333
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !179
-  store ptr null, ptr %78, align 8, !tbaa !179
-  store ptr %79, ptr %77, align 8, !tbaa !179
+.lr.ph.i:                                         ; preds = %74, %.lr.ph.i
+  %.012.i = phi ptr [ %82, %.lr.ph.i ], [ %43, %74 ]
+  %.0911.i = phi i64 [ %83, %.lr.ph.i ], [ 0, %74 ]
+  %77 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %38, i64 %.0911.i
+  %78 = load ptr, ptr %.012.i, align 8, !tbaa !333
+  store ptr %78, ptr %77, align 8, !tbaa !333
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !179
+  store ptr null, ptr %80, align 8, !tbaa !179
+  store ptr %81, ptr %79, align 8, !tbaa !179
   store ptr null, ptr %.012.i, align 8, !tbaa !333
-  %80 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
-  %81 = add nuw nsw i64 %.0911.i, 1
-  %.not.i22 = icmp eq ptr %80, %74
+  %82 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
+  %83 = add nuw nsw i64 %.0911.i, 1
+  %.not.i22 = icmp eq ptr %82, %76
   br i1 %.not.i22, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %.lr.ph.i, !llvm.loop !653
 
-_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %.lr.ph.i, %.lr.ph.i12.i, %71, %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i, %72
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %.not1.i.i23 = icmp slt i64 %38, 0
-  %84 = select i1 %.not1.i.i23, ptr %83, ptr %82
-  %85 = shl i64 %38, 4
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %85
-  %.not4.i.i.i = icmp samesign eq i64 %85, 0
+_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %.lr.ph.i, %.lr.ph.i12.i, %73, %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE12emplace_backIJSE_EEERSE_DpOT_EUlPvE_EEvPT_SP_SP_mOT0_EUlvE_Lb1EED2Ev.exit.i, %74
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %.not1.i.i23 = icmp slt i64 %40, 0
+  %86 = select i1 %.not1.i.i23, ptr %85, ptr %84
+  %87 = shl i64 %40, 4
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  %.not4.i.i.i = icmp samesign eq i64 %87, 0
   br i1 %.not4.i.i.i, label %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %110, %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i ], [ %84, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
-  %87 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !179
-  %.not.i.i.i.i.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, label %89
+  %.05.i.i.i = phi ptr [ %112, %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i ], [ %86, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
+  %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !179
+  %.not.i.i.i.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, label %91
 
-89:                                               ; preds = %.lr.ph.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %91 = load atomic i64, ptr %90 acquire, align 8
-  %92 = icmp eq i64 %91, 4294967297
-  %93 = trunc i64 %91 to i32
-  br i1 %92, label %94, label %102
+91:                                               ; preds = %.lr.ph.i.i.i
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %93 = load atomic i64, ptr %92 acquire, align 8
+  %94 = icmp eq i64 %93, 4294967297
+  %95 = trunc i64 %93 to i32
+  br i1 %94, label %96, label %104
 
-94:                                               ; preds = %89
-  store i32 0, ptr %90, align 8, !tbaa !180
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  store i32 0, ptr %95, align 4, !tbaa !182
-  %96 = load ptr, ptr %88, align 8, !tbaa !7
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(16) %88) #48
-  %99 = load ptr, ptr %88, align 8, !tbaa !7
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = load ptr, ptr %100, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(16) %88) #48
+96:                                               ; preds = %91
+  store i32 0, ptr %92, align 8, !tbaa !180
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  store i32 0, ptr %97, align 4, !tbaa !182
+  %98 = load ptr, ptr %90, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable(16) %90) #48
+  %101 = load ptr, ptr %90, align 8, !tbaa !7
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(16) %90) #48
   br label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
 
-102:                                              ; preds = %89
-  %103 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !183
-  %.not.i.i.i.i.i.i.i25 = icmp eq i8 %103, 0
-  br i1 %.not.i.i.i.i.i.i.i25, label %106, label %104
+104:                                              ; preds = %91
+  %105 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !183
+  %.not.i.i.i.i.i.i.i25 = icmp eq i8 %105, 0
+  br i1 %.not.i.i.i.i.i.i.i25, label %108, label %106
 
-104:                                              ; preds = %102
-  %105 = add nsw i32 %93, -1
-  store i32 %105, ptr %90, align 4, !tbaa !17
+106:                                              ; preds = %104
+  %107 = add nsw i32 %95, -1
+  store i32 %107, ptr %92, align 4, !tbaa !17
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-106:                                              ; preds = %102
-  %107 = atomicrmw volatile add ptr %90, i32 -1 acq_rel, align 4
+108:                                              ; preds = %104
+  %109 = atomicrmw volatile add ptr %92, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %106, %104
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %93, %104 ], [ %107, %106 ]
-  %108 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %108, label %109, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, !prof !184
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %108, %106
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %95, %106 ], [ %109, %108 ]
+  %110 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %110, label %111, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, !prof !184
 
-109:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #48
+111:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #48
   br label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i: ; preds = %109, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %94, %.lr.ph.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %110, %86
+_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i: ; preds = %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %96, %.lr.ph.i.i.i
+  %112 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %112, %88
   br i1 %.not.i.i.i, label %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !640
 
 _ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit: ; preds = %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
@@ -21801,55 +21802,55 @@ _ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObs
   br label %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit
 
 _ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit: ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %111 = phi i64 [ %.pre, %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit ], [ %38, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
-  %.not.i26 = icmp sgt i64 %111, -1
-  br i1 %.not.i26, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %112
+  %113 = phi i64 [ %.pre, %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit ], [ %40, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_12emplace_backIJSC_EEERSC_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
+  %.not.i26 = icmp sgt i64 %113, -1
+  br i1 %.not.i26, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %114
 
-112:                                              ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit
-  %113 = load ptr, ptr %82, align 8, !tbaa !183
-  %.not6.i = icmp eq ptr %113, null
-  br i1 %.not6.i, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %114
+114:                                              ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit
+  %115 = load ptr, ptr %84, align 8, !tbaa !183
+  %.not6.i = icmp eq ptr %115, null
+  br i1 %.not6.i, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %116
 
-114:                                              ; preds = %112
-  %115 = load i64, ptr %12, align 8, !tbaa !641
-  %116 = shl i64 %115, 4
-  %117 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %118 = icmp eq i8 %117, 0
-  br i1 %118, label %119, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !636
+116:                                              ; preds = %114
+  %117 = load i64, ptr %12, align 8, !tbaa !641
+  %118 = shl i64 %117, 4
+  %119 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %120 = icmp eq i8 %119, 0
+  br i1 %120, label %121, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !636
 
-119:                                              ; preds = %114
-  %120 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
-  %.not.i.i.i.i.i = icmp eq i32 %120, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %121
+121:                                              ; preds = %116
+  %122 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
+  %.not.i.i.i.i.i = icmp eq i32 %122, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %123
 
-121:                                              ; preds = %119
+123:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %122 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %124 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %123 = zext i1 %122 to i8
-  store i8 %123, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
-  %124 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %125 = zext i1 %124 to i8
+  store i8 %125, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
+  %126 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
-_ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %121, %119, %114
-  %125 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
-  %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %127, label %128
+_ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %123, %121, %116
+  %127 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
+  %128 = trunc nuw i8 %127 to i1
+  br i1 %128, label %129, label %130
 
-127:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
-  call void @sdallocx(ptr noundef nonnull %113, i64 noundef %116, i32 noundef 0) #48
+129:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
+  call void @sdallocx(ptr noundef nonnull %115, i64 noundef %118, i32 noundef 0) #48
   br label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit
 
-128:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
-  call void @free(ptr noundef nonnull %113) #48
+130:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
+  call void @free(ptr noundef nonnull %115) #48
   br label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit
 
-_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit: ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit, %112, %127, %128
-  store ptr %36, ptr %82, align 8, !tbaa !183
-  %129 = load i64, ptr %0, align 8
-  %130 = and i64 %129, 4611686018427387903
-  %storemerge.i28 = or disjoint i64 %130, -9223372036854775808
+_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit: ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit, %114, %129, %130
+  store ptr %38, ptr %84, align 8, !tbaa !183
+  %131 = load i64, ptr %0, align 8
+  %132 = and i64 %131, 4611686018427387903
+  %storemerge.i28 = or disjoint i64 %132, -9223372036854775808
   store i64 %storemerge.i28, ptr %0, align 8, !tbaa !203
   store i64 %.0.i14, ptr %12, align 8, !tbaa !641
   ret void
@@ -21868,241 +21869,242 @@ define linkonce_odr void @_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverCo
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %0, align 8, !tbaa !203
-  %.not.i.i = icmp sgt i64 %11, -1
+  %.not.i.i = icmp slt i64 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
-  %.0.i.i = select i1 %.not.i.i, i64 2, i64 %13
-  %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0.i.i, i64 3)
+  %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
   %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i, label %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit, !prof !184
+  %16 = select i1 %.not.i.i, i1 %15, i1 false
+  br i1 %16, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i, label %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit, !prof !184
 
 _ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i:     ; preds = %10
   tail call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.25) #21
   unreachable
 
 _ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit: ; preds = %10
-  %16 = extractvalue { i64, i1 } %14, 0
-  %17 = lshr i64 %16, 1
-  %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 4611686018427387902)
-  %.sroa.speculated.i = add nuw nsw i64 %18, 1
+  %17 = extractvalue { i64, i1 } %14, 0
+  %18 = lshr i64 %17, 1
+  %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 4611686018427387902)
+  %20 = add nuw nsw i64 %19, 1
+  %.sroa.speculated.i = select i1 %.not.i.i, i64 %20, i64 4
   %.sroa.speculated34 = tail call i64 @llvm.umax.i64(i64 %1, i64 %.sroa.speculated.i)
-  %19 = icmp samesign ugt i64 %.sroa.speculated34, 1152921504606846975
-  br i1 %19, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit, label %20, !prof !184
+  %21 = icmp samesign ugt i64 %.sroa.speculated34, 1152921504606846975
+  br i1 %21, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit, label %22, !prof !184
 
 _ZN5folly11checked_mulImvEEbPT_S1_S1_.exit:       ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
   tail call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.25) #21
   unreachable
 
-20:                                               ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
-  %21 = shl nuw i64 %.sroa.speculated34, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %_ZN5folly10canNallocxEv.exit.i, !prof !636
+22:                                               ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
+  %23 = shl nuw i64 %.sroa.speculated34, 4
+  %24 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %_ZN5folly10canNallocxEv.exit.i, !prof !636
 
-24:                                               ; preds = %20
-  %25 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
-  %.not.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %26
+26:                                               ; preds = %22
+  %27 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
+  %.not.i.i.i.i = icmp eq i32 %27, 0
+  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %28
 
-26:                                               ; preds = %24
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %27 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %29 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
-  %29 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %30 = zext i1 %29 to i8
+  store i8 %30, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
+  %31 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
   br label %_ZN5folly10canNallocxEv.exit.i
 
-_ZN5folly10canNallocxEv.exit.i:                   ; preds = %26, %24, %20
-  %30 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %_ZN5folly14goodMallocSizeEm.exit
+_ZN5folly10canNallocxEv.exit.i:                   ; preds = %28, %26, %22
+  %32 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %_ZN5folly14goodMallocSizeEm.exit
 
-32:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
-  %33 = call i64 @nallocx(i64 noundef %21, i32 noundef 0) #55
-  %.not.i = icmp eq i64 %33, 0
-  %34 = lshr i64 %33, 4
-  %35 = select i1 %.not.i, i64 %.sroa.speculated34, i64 %34
-  %.pre47 = shl nuw i64 %35, 4
+34:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
+  %35 = call i64 @nallocx(i64 noundef %23, i32 noundef 0) #55
+  %.not.i = icmp eq i64 %35, 0
+  %36 = lshr i64 %35, 4
+  %37 = select i1 %.not.i, i64 %.sroa.speculated34, i64 %36
+  %.pre47 = shl nuw i64 %37, 4
   br label %_ZN5folly14goodMallocSizeEm.exit
 
-_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %32
-  %.pre-phi = phi i64 [ %21, %_ZN5folly10canNallocxEv.exit.i ], [ %.pre47, %32 ]
-  %.0.i14 = phi i64 [ %.sroa.speculated34, %_ZN5folly10canNallocxEv.exit.i ], [ %35, %32 ]
-  %36 = call noalias ptr @malloc(i64 noundef %.pre-phi) #54
-  %.not.i16 = icmp eq ptr %36, null
-  br i1 %.not.i16, label %37, label %_ZN5folly13checkedMallocEm.exit
+_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %34
+  %.pre-phi = phi i64 [ %23, %_ZN5folly10canNallocxEv.exit.i ], [ %.pre47, %34 ]
+  %.0.i14 = phi i64 [ %.sroa.speculated34, %_ZN5folly10canNallocxEv.exit.i ], [ %37, %34 ]
+  %38 = call noalias ptr @malloc(i64 noundef %.pre-phi) #54
+  %.not.i16 = icmp eq ptr %38, null
+  br i1 %.not.i16, label %39, label %_ZN5folly13checkedMallocEm.exit
 
-37:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
+39:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
   call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #21
   unreachable
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
-  %38 = load i64, ptr %0, align 8, !tbaa !203
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not1.i.i = icmp slt i64 %38, 0
-  %41 = select i1 %.not1.i.i, ptr %40, ptr %39
-  br i1 %2, label %42, label %71
+  %40 = load i64, ptr %0, align 8, !tbaa !203
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not1.i.i = icmp slt i64 %40, 0
+  %43 = select i1 %.not1.i.i, ptr %42, ptr %41
+  br i1 %2, label %44, label %73
 
-42:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
-  %43 = and i64 %38, 4611686018427387903
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %41, i64 %43
-  %45 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %4
-  %46 = load ptr, ptr %3, align 8, !tbaa !654
-  %47 = load ptr, ptr %46, align 8, !tbaa !333
-  store ptr %47, ptr %45, align 8, !tbaa !333
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !179
-  store ptr null, ptr %49, align 8, !tbaa !179
-  store ptr %50, ptr %48, align 8, !tbaa !179
-  store ptr null, ptr %46, align 8, !tbaa !333
-  %.not.i18 = icmp eq ptr %41, null
-  br i1 %.not.i18, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %51
+44:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
+  %45 = and i64 %40, 4611686018427387903
+  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %43, i64 %45
+  %47 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %38, i64 %4
+  %48 = load ptr, ptr %3, align 8, !tbaa !654
+  %49 = load ptr, ptr %48, align 8, !tbaa !333
+  store ptr %49, ptr %47, align 8, !tbaa !333
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !179
+  store ptr null, ptr %51, align 8, !tbaa !179
+  store ptr %52, ptr %50, align 8, !tbaa !179
+  store ptr null, ptr %48, align 8, !tbaa !333
+  %.not.i18 = icmp eq ptr %43, null
+  br i1 %.not.i18, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %53
 
-51:                                               ; preds = %42
+53:                                               ; preds = %44
   %.idx.i = shl nuw nsw i64 %4, 4
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
   %.not10.i.i = icmp eq i64 %4, 0
   br i1 %.not10.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.i.i
-  %.012.i.i = phi ptr [ %58, %.lr.ph.i.i ], [ %41, %51 ]
-  %.0911.i.i = phi i64 [ %59, %.lr.ph.i.i ], [ 0, %51 ]
-  %53 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %.0911.i.i
-  %54 = load ptr, ptr %.012.i.i, align 8, !tbaa !333
-  store ptr %54, ptr %53, align 8, !tbaa !333
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !179
-  store ptr null, ptr %56, align 8, !tbaa !179
-  store ptr %57, ptr %55, align 8, !tbaa !179
+.lr.ph.i.i:                                       ; preds = %53, %.lr.ph.i.i
+  %.012.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %43, %53 ]
+  %.0911.i.i = phi i64 [ %61, %.lr.ph.i.i ], [ 0, %53 ]
+  %55 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %38, i64 %.0911.i.i
+  %56 = load ptr, ptr %.012.i.i, align 8, !tbaa !333
+  store ptr %56, ptr %55, align 8, !tbaa !333
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !179
+  store ptr null, ptr %58, align 8, !tbaa !179
+  store ptr %59, ptr %57, align 8, !tbaa !179
   store ptr null, ptr %.012.i.i, align 8, !tbaa !333
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  %59 = add nuw nsw i64 %.0911.i.i, 1
-  %.not.i.i19 = icmp eq ptr %58, %52
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
+  %61 = add nuw nsw i64 %.0911.i.i, 1
+  %.not.i.i19 = icmp eq ptr %60, %54
   br i1 %.not.i.i19, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !653
 
-_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i: ; preds = %.lr.ph.i.i, %51, %42
-  %60 = icmp samesign ult i64 %4, %43
-  br i1 %60, label %61, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
+_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i: ; preds = %.lr.ph.i.i, %53, %44
+  %62 = icmp samesign ult i64 %4, %45
+  br i1 %62, label %63, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
-61:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i
-  %62 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %41, i64 %4
-  %63 = getelementptr inbounds nuw i8, ptr %45, i64 16
+63:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i
+  %64 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %43, i64 %4
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 16
   br label %.lr.ph.i12.i
 
-.lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i, %61
-  %.012.i13.i = phi ptr [ %69, %.lr.ph.i12.i ], [ %62, %61 ]
-  %.0911.i14.i = phi i64 [ %70, %.lr.ph.i12.i ], [ 0, %61 ]
-  %64 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %63, i64 %.0911.i14.i
-  %65 = load ptr, ptr %.012.i13.i, align 8, !tbaa !333
-  store ptr %65, ptr %64, align 8, !tbaa !333
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr null, ptr %66, align 8, !tbaa !179
-  %67 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !179
-  store ptr null, ptr %67, align 8, !tbaa !179
-  store ptr %68, ptr %66, align 8, !tbaa !179
+.lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i, %63
+  %.012.i13.i = phi ptr [ %71, %.lr.ph.i12.i ], [ %64, %63 ]
+  %.0911.i14.i = phi i64 [ %72, %.lr.ph.i12.i ], [ 0, %63 ]
+  %66 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %65, i64 %.0911.i14.i
+  %67 = load ptr, ptr %.012.i13.i, align 8, !tbaa !333
+  store ptr %67, ptr %66, align 8, !tbaa !333
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr null, ptr %68, align 8, !tbaa !179
+  %69 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !179
+  store ptr null, ptr %69, align 8, !tbaa !179
+  store ptr %70, ptr %68, align 8, !tbaa !179
   store ptr null, ptr %.012.i13.i, align 8, !tbaa !333
-  %69 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 16
-  %70 = add nuw nsw i64 %.0911.i14.i, 1
-  %.not.i15.i = icmp eq ptr %69, %44
+  %71 = getelementptr inbounds nuw i8, ptr %.012.i13.i, i64 16
+  %72 = add nuw nsw i64 %.0911.i14.i, 1
+  %.not.i15.i = icmp eq ptr %71, %46
   br i1 %.not.i15.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %.lr.ph.i12.i, !llvm.loop !653
 
-71:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %72
+73:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %74
 
-72:                                               ; preds = %71
-  %73 = shl i64 %38, 4
-  %74 = getelementptr inbounds nuw i8, ptr %41, i64 %73
-  %.not10.i = icmp samesign eq i64 %73, 0
+74:                                               ; preds = %73
+  %75 = shl i64 %40, 4
+  %76 = getelementptr inbounds nuw i8, ptr %43, i64 %75
+  %.not10.i = icmp samesign eq i64 %75, 0
   br i1 %.not10.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %72, %.lr.ph.i
-  %.012.i = phi ptr [ %80, %.lr.ph.i ], [ %41, %72 ]
-  %.0911.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %72 ]
-  %75 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %.0911.i
-  %76 = load ptr, ptr %.012.i, align 8, !tbaa !333
-  store ptr %76, ptr %75, align 8, !tbaa !333
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !179
-  store ptr null, ptr %78, align 8, !tbaa !179
-  store ptr %79, ptr %77, align 8, !tbaa !179
+.lr.ph.i:                                         ; preds = %74, %.lr.ph.i
+  %.012.i = phi ptr [ %82, %.lr.ph.i ], [ %43, %74 ]
+  %.0911.i = phi i64 [ %83, %.lr.ph.i ], [ 0, %74 ]
+  %77 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %38, i64 %.0911.i
+  %78 = load ptr, ptr %.012.i, align 8, !tbaa !333
+  store ptr %78, ptr %77, align 8, !tbaa !333
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !179
+  store ptr null, ptr %80, align 8, !tbaa !179
+  store ptr %81, ptr %79, align 8, !tbaa !179
   store ptr null, ptr %.012.i, align 8, !tbaa !333
-  %80 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
-  %81 = add nuw nsw i64 %.0911.i, 1
-  %.not.i22 = icmp eq ptr %80, %74
+  %82 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
+  %83 = add nuw nsw i64 %.0911.i, 1
+  %.not.i22 = icmp eq ptr %82, %76
   br i1 %.not.i22, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %.lr.ph.i, !llvm.loop !653
 
-_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %.lr.ph.i, %.lr.ph.i12.i, %71, %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i, %72
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %.not1.i.i23 = icmp slt i64 %38, 0
-  %84 = select i1 %.not1.i.i23, ptr %83, ptr %82
-  %85 = shl i64 %38, 4
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %85
-  %.not4.i.i.i = icmp samesign eq i64 %85, 0
+_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %.lr.ph.i, %.lr.ph.i12.i, %73, %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS7_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISE_Lm2EvE6insertEPKSE_OSE_EUlPvE_EEvPT_SN_SN_mOT0_EUlvE_Lb1EED2Ev.exit.i, %74
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %.not1.i.i23 = icmp slt i64 %40, 0
+  %86 = select i1 %.not1.i.i23, ptr %85, ptr %84
+  %87 = shl i64 %40, 4
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  %.not4.i.i.i = icmp samesign eq i64 %87, 0
   br i1 %.not4.i.i.i, label %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %110, %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i ], [ %84, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
-  %87 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !179
-  %.not.i.i.i.i.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, label %89
+  %.05.i.i.i = phi ptr [ %112, %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i ], [ %86, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
+  %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !179
+  %.not.i.i.i.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, label %91
 
-89:                                               ; preds = %.lr.ph.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %91 = load atomic i64, ptr %90 acquire, align 8
-  %92 = icmp eq i64 %91, 4294967297
-  %93 = trunc i64 %91 to i32
-  br i1 %92, label %94, label %102
+91:                                               ; preds = %.lr.ph.i.i.i
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %93 = load atomic i64, ptr %92 acquire, align 8
+  %94 = icmp eq i64 %93, 4294967297
+  %95 = trunc i64 %93 to i32
+  br i1 %94, label %96, label %104
 
-94:                                               ; preds = %89
-  store i32 0, ptr %90, align 8, !tbaa !180
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  store i32 0, ptr %95, align 4, !tbaa !182
-  %96 = load ptr, ptr %88, align 8, !tbaa !7
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(16) %88) #48
-  %99 = load ptr, ptr %88, align 8, !tbaa !7
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = load ptr, ptr %100, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(16) %88) #48
+96:                                               ; preds = %91
+  store i32 0, ptr %92, align 8, !tbaa !180
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  store i32 0, ptr %97, align 4, !tbaa !182
+  %98 = load ptr, ptr %90, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable(16) %90) #48
+  %101 = load ptr, ptr %90, align 8, !tbaa !7
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(16) %90) #48
   br label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
 
-102:                                              ; preds = %89
-  %103 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !183
-  %.not.i.i.i.i.i.i.i25 = icmp eq i8 %103, 0
-  br i1 %.not.i.i.i.i.i.i.i25, label %106, label %104
+104:                                              ; preds = %91
+  %105 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !183
+  %.not.i.i.i.i.i.i.i25 = icmp eq i8 %105, 0
+  br i1 %.not.i.i.i.i.i.i.i25, label %108, label %106
 
-104:                                              ; preds = %102
-  %105 = add nsw i32 %93, -1
-  store i32 %105, ptr %90, align 4, !tbaa !17
+106:                                              ; preds = %104
+  %107 = add nsw i32 %95, -1
+  store i32 %107, ptr %92, align 4, !tbaa !17
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-106:                                              ; preds = %102
-  %107 = atomicrmw volatile add ptr %90, i32 -1 acq_rel, align 4
+108:                                              ; preds = %104
+  %109 = atomicrmw volatile add ptr %92, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %106, %104
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %93, %104 ], [ %107, %106 ]
-  %108 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %108, label %109, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, !prof !184
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %108, %106
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %95, %106 ], [ %109, %108 ]
+  %110 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %110, label %111, label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i, !prof !184
 
-109:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #48
+111:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #48
   br label %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i: ; preds = %109, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %94, %.lr.ph.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %110, %86
+_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i: ; preds = %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %96, %.lr.ph.i.i.i
+  %112 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %112, %88
   br i1 %.not.i.i.i, label %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !640
 
 _ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit: ; preds = %_ZSt8_DestroyISt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvPT_.exit.i.i.i
@@ -22110,55 +22112,55 @@ _ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObs
   br label %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit
 
 _ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit: ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %111 = phi i64 [ %.pre, %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit ], [ %38, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
-  %.not.i26 = icmp sgt i64 %111, -1
-  br i1 %.not.i26, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %112
+  %113 = phi i64 [ %.pre, %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit.loopexit ], [ %40, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSD_6insertEPKSC_OSC_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit ]
+  %.not.i26 = icmp sgt i64 %113, -1
+  br i1 %.not.i26, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %114
 
-112:                                              ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit
-  %113 = load ptr, ptr %82, align 8, !tbaa !183
-  %.not6.i = icmp eq ptr %113, null
-  br i1 %.not6.i, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %114
+114:                                              ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit
+  %115 = load ptr, ptr %84, align 8, !tbaa !183
+  %.not6.i = icmp eq ptr %115, null
+  br i1 %.not6.i, label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit, label %116
 
-114:                                              ; preds = %112
-  %115 = load i64, ptr %12, align 8, !tbaa !641
-  %116 = shl i64 %115, 4
-  %117 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %118 = icmp eq i8 %117, 0
-  br i1 %118, label %119, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !636
+116:                                              ; preds = %114
+  %117 = load i64, ptr %12, align 8, !tbaa !641
+  %118 = shl i64 %117, 4
+  %119 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %120 = icmp eq i8 %119, 0
+  br i1 %120, label %121, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !636
 
-119:                                              ; preds = %114
-  %120 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
-  %.not.i.i.i.i.i = icmp eq i32 %120, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %121
+121:                                              ; preds = %116
+  %122 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
+  %.not.i.i.i.i.i = icmp eq i32 %122, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %123
 
-121:                                              ; preds = %119
+123:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %122 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %124 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %123 = zext i1 %122 to i8
-  store i8 %123, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
-  %124 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %125 = zext i1 %124 to i8
+  store i8 %125, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637
+  %126 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #48
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
-_ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %121, %119, %114
-  %125 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
-  %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %127, label %128
+_ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %123, %121, %116
+  %127 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !637, !range !20, !noundef !232
+  %128 = trunc nuw i8 %127 to i1
+  br i1 %128, label %129, label %130
 
-127:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
-  call void @sdallocx(ptr noundef nonnull %113, i64 noundef %116, i32 noundef 0) #48
+129:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
+  call void @sdallocx(ptr noundef nonnull %115, i64 noundef %118, i32 noundef 0) #48
   br label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit
 
-128:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
-  call void @free(ptr noundef nonnull %113) #48
+130:                                              ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
+  call void @free(ptr noundef nonnull %115) #48
   br label %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit
 
-_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit: ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit, %112, %127, %128
-  store ptr %36, ptr %82, align 8, !tbaa !183
-  %129 = load i64, ptr %0, align 8
-  %130 = and i64 %129, 4611686018427387903
-  %storemerge.i28 = or disjoint i64 %130, -9223372036854775808
+_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE8freeHeapEv.exit: ; preds = %_ZSt7destroyIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEvT_SC_.exit, %114, %129, %130
+  store ptr %38, ptr %84, align 8, !tbaa !183
+  %131 = load i64, ptr %0, align 8
+  %132 = and i64 %131, 4611686018427387903
+  %storemerge.i28 = or disjoint i64 %132, -9223372036854775808
   store i64 %storemerge.i28, ptr %0, align 8, !tbaa !203
   store i64 %.0.i14, ptr %12, align 8, !tbaa !641
   ret void

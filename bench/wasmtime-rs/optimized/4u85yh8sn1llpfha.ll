@@ -4060,7 +4060,7 @@ define hidden void @_ZN16wasmtime_runtime6memory10MmapMemory3new17heaf0bbb1cba0c
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %44, label %50, label %49
 
-.thread:                                          ; preds = %37, %33, %22
+.thread:                                          ; preds = %33, %22, %37
   %47 = call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory10MmapMemory3new28_$u7b$$u7b$closure$u7d$$u7d$17h1948b74fea1cec8dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %10)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %47, ptr %48, align 8

@@ -1114,10 +1114,10 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %11 = load i64, ptr %10, align 8, !range !129, !alias.scope !383, !noalias !392, !noundef !13
   %trunc45.i.i.i.i.i.i = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %.val.i71.i.i.i.i.i.i = load i64, ptr %12, align 8, !alias.scope !383, !noalias !392
+  %.val.i68.i.i.i.i.i.i = load i64, ptr %12, align 8, !alias.scope !383, !noalias !392
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %.val3.i72.i.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !383, !noalias !392
-  %14 = sub nuw i64 %.val3.i72.i.i.i.i.i.i, %.val.i71.i.i.i.i.i.i
+  %.val3.i69.i.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !383, !noalias !392
+  %14 = sub nuw i64 %.val3.i69.i.i.i.i.i.i, %.val.i68.i.i.i.i.i.i
   %.sroa.8.0.i.i.i.i.i.i = select i1 %trunc45.i.i.i.i.i.i, i64 %14, i64 0
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %16 = load ptr, ptr %15, align 8, !alias.scope !383, !noalias !392, !noundef !13
@@ -1128,8 +1128,8 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val.i.i.i.i.i.i = load ptr, ptr %19, align 8, !alias.scope !383, !noalias !392, !nonnull !13, !noundef !13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %.val70.i.i.i.i.i.i = load ptr, ptr %20, align 8, !alias.scope !383, !noalias !392, !nonnull !13, !noundef !13
-  %21 = ptrtoint ptr %.val70.i.i.i.i.i.i to i64
+  %.val67.i.i.i.i.i.i = load ptr, ptr %20, align 8, !alias.scope !383, !noalias !392, !nonnull !13, !noundef !13
+  %21 = ptrtoint ptr %.val67.i.i.i.i.i.i to i64
   %22 = ptrtoint ptr %.val.i.i.i.i.i.i to i64
   %23 = sub nuw i64 %21, %22
   %24 = udiv exact i64 %23, 24
@@ -1137,14 +1137,14 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %26
 
 26:                                               ; preds = %18, %6
-  %.sroa.082.0.i.i.i.i.i.i = phi i64 [ %25, %18 ], [ 0, %6 ]
+  %.sroa.079.0.i.i.i.i.i.i = phi i64 [ %25, %18 ], [ 0, %6 ]
   %27 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i.i.i, i64 %.sroa.8.0.i.i.i.i.i.i)
   %28 = extractvalue { i64, i1 } %27, 1
   br i1 %28, label %_ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i, label %29
 
 29:                                               ; preds = %26
   %30 = extractvalue { i64, i1 } %27, 0
-  %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %.sroa.082.0.i.i.i.i.i.i)
+  %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %.sroa.079.0.i.i.i.i.i.i)
   %32 = extractvalue { i64, i1 } %31, 1
   %33 = extractvalue { i64, i1 } %31, 0
   %34 = xor i1 %32, true
@@ -1154,7 +1154,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i: ; preds =
   %.sroa.10.2.i.i.i.i.i.i = phi i64 [ %33, %29 ], [ undef, %26 ]
   %.sroa.018.2.i.i.i.i.i.i = phi i1 [ %34, %29 ], [ false, %26 ]
   %35 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i.i.i.i.i, i64 %.sroa.8.0.i.i.i.i.i.i)
-  %36 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i.i.i, i64 %35)
+  %36 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i.i.i, i64 %35)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h52c0b698d775df3cE.exit.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h52c0b698d775df3cE.exit.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i, %2
@@ -1178,10 +1178,10 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i: ; preds =
   %45 = load i64, ptr %44, align 8, !range !129, !alias.scope !398, !noalias !407, !noundef !13
   %trunc45.i.i.i.i49.i.i = trunc nuw i64 %45 to i1
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %.val.i71.i.i.i.i50.i.i = load i64, ptr %46, align 8, !alias.scope !398, !noalias !407
+  %.val.i68.i.i.i.i50.i.i = load i64, ptr %46, align 8, !alias.scope !398, !noalias !407
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %.val3.i72.i.i.i.i51.i.i = load i64, ptr %47, align 8, !alias.scope !398, !noalias !407
-  %48 = sub nuw i64 %.val3.i72.i.i.i.i51.i.i, %.val.i71.i.i.i.i50.i.i
+  %.val3.i69.i.i.i.i51.i.i = load i64, ptr %47, align 8, !alias.scope !398, !noalias !407
+  %48 = sub nuw i64 %.val3.i69.i.i.i.i51.i.i, %.val.i68.i.i.i.i50.i.i
   %.sroa.8.0.i.i.i.i52.i.i = select i1 %trunc45.i.i.i.i49.i.i, i64 %48, i64 0
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %50 = load ptr, ptr %49, align 8, !alias.scope !398, !noalias !407, !noundef !13
@@ -1192,8 +1192,8 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i: ; preds =
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %.val.i.i.i.i53.i.i = load ptr, ptr %53, align 8, !alias.scope !398, !noalias !407, !nonnull !13, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %.val70.i.i.i.i54.i.i = load ptr, ptr %54, align 8, !alias.scope !398, !noalias !407, !nonnull !13, !noundef !13
-  %55 = ptrtoint ptr %.val70.i.i.i.i54.i.i to i64
+  %.val67.i.i.i.i54.i.i = load ptr, ptr %54, align 8, !alias.scope !398, !noalias !407, !nonnull !13, !noundef !13
+  %55 = ptrtoint ptr %.val67.i.i.i.i54.i.i to i64
   %56 = ptrtoint ptr %.val.i.i.i.i53.i.i to i64
   %57 = sub nuw i64 %55, %56
   %58 = udiv exact i64 %57, 24
@@ -1201,14 +1201,14 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i: ; preds =
   br label %60
 
 60:                                               ; preds = %52, %40
-  %.sroa.082.0.i.i.i.i55.i.i = phi i64 [ %59, %52 ], [ 0, %40 ]
+  %.sroa.079.0.i.i.i.i55.i.i = phi i64 [ %59, %52 ], [ 0, %40 ]
   %61 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i48.i.i, i64 %.sroa.8.0.i.i.i.i52.i.i)
   %62 = extractvalue { i64, i1 } %61, 1
   br i1 %62, label %_ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i57.i.i, label %63
 
 63:                                               ; preds = %60
   %64 = extractvalue { i64, i1 } %61, 0
-  %65 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %64, i64 %.sroa.082.0.i.i.i.i55.i.i)
+  %65 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %64, i64 %.sroa.079.0.i.i.i.i55.i.i)
   %66 = extractvalue { i64, i1 } %65, 1
   %67 = extractvalue { i64, i1 } %65, 0
   %68 = xor i1 %66, true
@@ -1218,7 +1218,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i57.i.i: ; preds
   %.sroa.10.2.i.i.i.i58.i.i = phi i64 [ %67, %63 ], [ undef, %60 ]
   %.sroa.018.2.i.i.i.i59.i.i = phi i1 [ %68, %63 ], [ false, %60 ]
   %69 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i.i.i48.i.i, i64 %.sroa.8.0.i.i.i.i52.i.i)
-  %70 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i55.i.i, i64 %69)
+  %70 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i55.i.i, i64 %69)
   %71 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.i.i, i64 %70)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h52c0b698d775df3cE.exit60.i.i"
 
@@ -1328,10 +1328,10 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %11 = load i64, ptr %10, align 8, !range !129, !alias.scope !451, !noalias !460, !noundef !13
   %trunc45.i.i.i.i.i.i = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.val.i71.i.i.i.i.i.i = load i64, ptr %12, align 8, !alias.scope !451, !noalias !460
+  %.val.i68.i.i.i.i.i.i = load i64, ptr %12, align 8, !alias.scope !451, !noalias !460
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %.val3.i72.i.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !451, !noalias !460
-  %14 = sub nuw i64 %.val3.i72.i.i.i.i.i.i, %.val.i71.i.i.i.i.i.i
+  %.val3.i69.i.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !451, !noalias !460
+  %14 = sub nuw i64 %.val3.i69.i.i.i.i.i.i, %.val.i68.i.i.i.i.i.i
   %.sroa.8.0.i.i.i.i.i.i = select i1 %trunc45.i.i.i.i.i.i, i64 %14, i64 0
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %16 = load ptr, ptr %15, align 8, !alias.scope !451, !noalias !460, !noundef !13
@@ -1342,8 +1342,8 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %.val.i.i.i.i.i.i = load ptr, ptr %19, align 8, !alias.scope !451, !noalias !460, !nonnull !13, !noundef !13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %.val70.i.i.i.i.i.i = load ptr, ptr %20, align 8, !alias.scope !451, !noalias !460, !nonnull !13, !noundef !13
-  %21 = ptrtoint ptr %.val70.i.i.i.i.i.i to i64
+  %.val67.i.i.i.i.i.i = load ptr, ptr %20, align 8, !alias.scope !451, !noalias !460, !nonnull !13, !noundef !13
+  %21 = ptrtoint ptr %.val67.i.i.i.i.i.i to i64
   %22 = ptrtoint ptr %.val.i.i.i.i.i.i to i64
   %23 = sub nuw i64 %21, %22
   %24 = udiv exact i64 %23, 24
@@ -1351,14 +1351,14 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %26
 
 26:                                               ; preds = %18, %6
-  %.sroa.082.0.i.i.i.i.i.i = phi i64 [ %25, %18 ], [ 0, %6 ]
+  %.sroa.079.0.i.i.i.i.i.i = phi i64 [ %25, %18 ], [ 0, %6 ]
   %27 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i.i.i, i64 %.sroa.8.0.i.i.i.i.i.i)
   %28 = extractvalue { i64, i1 } %27, 1
   br i1 %28, label %_ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i, label %29
 
 29:                                               ; preds = %26
   %30 = extractvalue { i64, i1 } %27, 0
-  %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %.sroa.082.0.i.i.i.i.i.i)
+  %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %.sroa.079.0.i.i.i.i.i.i)
   %32 = extractvalue { i64, i1 } %31, 1
   %33 = extractvalue { i64, i1 } %31, 0
   %34 = xor i1 %32, true
@@ -1368,7 +1368,7 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i: ; preds =
   %.sroa.10.2.i.i.i.i.i.i = phi i64 [ %33, %29 ], [ undef, %26 ]
   %.sroa.018.2.i.i.i.i.i.i = phi i1 [ %34, %29 ], [ false, %26 ]
   %35 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i.i.i.i.i, i64 %.sroa.8.0.i.i.i.i.i.i)
-  %36 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i.i.i, i64 %35)
+  %36 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i.i.i, i64 %35)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h302842d5cac6a5d8E.exit.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h302842d5cac6a5d8E.exit.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i, %2
@@ -1392,10 +1392,10 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i: ; preds =
   %45 = load i64, ptr %44, align 8, !range !129, !alias.scope !466, !noalias !475, !noundef !13
   %trunc45.i.i.i.i49.i.i = trunc nuw i64 %45 to i1
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %.val.i71.i.i.i.i50.i.i = load i64, ptr %46, align 8, !alias.scope !466, !noalias !475
+  %.val.i68.i.i.i.i50.i.i = load i64, ptr %46, align 8, !alias.scope !466, !noalias !475
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %.val3.i72.i.i.i.i51.i.i = load i64, ptr %47, align 8, !alias.scope !466, !noalias !475
-  %48 = sub nuw i64 %.val3.i72.i.i.i.i51.i.i, %.val.i71.i.i.i.i50.i.i
+  %.val3.i69.i.i.i.i51.i.i = load i64, ptr %47, align 8, !alias.scope !466, !noalias !475
+  %48 = sub nuw i64 %.val3.i69.i.i.i.i51.i.i, %.val.i68.i.i.i.i50.i.i
   %.sroa.8.0.i.i.i.i52.i.i = select i1 %trunc45.i.i.i.i49.i.i, i64 %48, i64 0
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %50 = load ptr, ptr %49, align 8, !alias.scope !466, !noalias !475, !noundef !13
@@ -1406,8 +1406,8 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i: ; preds =
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %.val.i.i.i.i53.i.i = load ptr, ptr %53, align 8, !alias.scope !466, !noalias !475, !nonnull !13, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  %.val70.i.i.i.i54.i.i = load ptr, ptr %54, align 8, !alias.scope !466, !noalias !475, !nonnull !13, !noundef !13
-  %55 = ptrtoint ptr %.val70.i.i.i.i54.i.i to i64
+  %.val67.i.i.i.i54.i.i = load ptr, ptr %54, align 8, !alias.scope !466, !noalias !475, !nonnull !13, !noundef !13
+  %55 = ptrtoint ptr %.val67.i.i.i.i54.i.i to i64
   %56 = ptrtoint ptr %.val.i.i.i.i53.i.i to i64
   %57 = sub nuw i64 %55, %56
   %58 = udiv exact i64 %57, 24
@@ -1415,14 +1415,14 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i: ; preds =
   br label %60
 
 60:                                               ; preds = %52, %40
-  %.sroa.082.0.i.i.i.i55.i.i = phi i64 [ %59, %52 ], [ 0, %40 ]
+  %.sroa.079.0.i.i.i.i55.i.i = phi i64 [ %59, %52 ], [ 0, %40 ]
   %61 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i48.i.i, i64 %.sroa.8.0.i.i.i.i52.i.i)
   %62 = extractvalue { i64, i1 } %61, 1
   br i1 %62, label %_ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i57.i.i, label %63
 
 63:                                               ; preds = %60
   %64 = extractvalue { i64, i1 } %61, 0
-  %65 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %64, i64 %.sroa.082.0.i.i.i.i55.i.i)
+  %65 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %64, i64 %.sroa.079.0.i.i.i.i55.i.i)
   %66 = extractvalue { i64, i1 } %65, 1
   %67 = extractvalue { i64, i1 } %65, 0
   %68 = xor i1 %66, true
@@ -1432,7 +1432,7 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i57.i.i: ; preds
   %.sroa.10.2.i.i.i.i58.i.i = phi i64 [ %67, %63 ], [ undef, %60 ]
   %.sroa.018.2.i.i.i.i59.i.i = phi i1 [ %68, %63 ], [ false, %60 ]
   %69 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i.i.i48.i.i, i64 %.sroa.8.0.i.i.i.i52.i.i)
-  %70 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i55.i.i, i64 %69)
+  %70 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i55.i.i, i64 %69)
   %71 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.i.i, i64 %70)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h302842d5cac6a5d8E.exit60.i.i"
 
@@ -13576,9 +13576,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %61 = sub nuw i64 %.val3.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i.i.i
   %62 = load i64, ptr %32, align 8, !range !129, !alias.scope !4182, !noalias !4191, !noundef !13
   %trunc45.i.i.i.i.i.i.i = trunc nuw i64 %62 to i1
-  %.val.i71.i.i.i.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !4182, !noalias !4191
-  %.val3.i72.i.i.i.i.i.i.i = load i64, ptr %34, align 8, !alias.scope !4182, !noalias !4191
-  %63 = sub nuw i64 %.val3.i72.i.i.i.i.i.i.i, %.val.i71.i.i.i.i.i.i.i
+  %.val.i68.i.i.i.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !4182, !noalias !4191
+  %.val3.i69.i.i.i.i.i.i.i = load i64, ptr %34, align 8, !alias.scope !4182, !noalias !4191
+  %63 = sub nuw i64 %.val3.i69.i.i.i.i.i.i.i, %.val.i68.i.i.i.i.i.i.i
   %.sroa.8.0.i.i.i.i.i.i.i = select i1 %trunc45.i.i.i.i.i.i.i, i64 %63, i64 0
   %64 = load ptr, ptr %35, align 8, !alias.scope !4182, !noalias !4191, !noundef !13
   %65 = icmp eq ptr %64, null
@@ -13586,8 +13586,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 66:                                               ; preds = %60
   %.val.i.i.i.i.i.i.i = load ptr, ptr %36, align 8, !alias.scope !4182, !noalias !4191, !nonnull !13, !noundef !13
-  %.val70.i.i.i.i.i.i.i = load ptr, ptr %37, align 8, !alias.scope !4182, !noalias !4191, !nonnull !13, !noundef !13
-  %67 = ptrtoint ptr %.val70.i.i.i.i.i.i.i to i64
+  %.val67.i.i.i.i.i.i.i = load ptr, ptr %37, align 8, !alias.scope !4182, !noalias !4191, !nonnull !13, !noundef !13
+  %67 = ptrtoint ptr %.val67.i.i.i.i.i.i.i to i64
   %68 = ptrtoint ptr %.val.i.i.i.i.i.i.i to i64
   %69 = sub nuw i64 %67, %68
   %70 = udiv exact i64 %69, 24
@@ -13595,10 +13595,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %_ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i.i: ; preds = %66, %60
-  %.sroa.082.0.i.i.i.i.i.i.i = phi i64 [ %71, %66 ], [ 0, %60 ]
+  %.sroa.079.0.i.i.i.i.i.i.i = phi i64 [ %71, %66 ], [ 0, %60 ]
   %72 = call i64 @llvm.uadd.sat.i64(i64 %61, i64 %.sroa.8.0.i.i.i.i.i.i.i)
   %73 = select i1 %trunc.i.i.i.i.i.i.i, i64 %72, i64 %.sroa.8.0.i.i.i.i.i.i.i
-  %74 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i.i.i.i, i64 %73)
+  %74 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i.i.i.i, i64 %73)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h302842d5cac6a5d8E.exit.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h302842d5cac6a5d8E.exit.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i.i, %57
@@ -13614,9 +13614,9 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i.i: ; preds
   %78 = sub nuw i64 %.val3.i.i.i.i.i47.i.i.i, %.val.i.i.i.i.i46.i.i.i
   %79 = load i64, ptr %41, align 8, !range !129, !alias.scope !4197, !noalias !4206, !noundef !13
   %trunc45.i.i.i.i49.i.i.i = trunc nuw i64 %79 to i1
-  %.val.i71.i.i.i.i50.i.i.i = load i64, ptr %42, align 8, !alias.scope !4197, !noalias !4206
-  %.val3.i72.i.i.i.i51.i.i.i = load i64, ptr %43, align 8, !alias.scope !4197, !noalias !4206
-  %80 = sub nuw i64 %.val3.i72.i.i.i.i51.i.i.i, %.val.i71.i.i.i.i50.i.i.i
+  %.val.i68.i.i.i.i50.i.i.i = load i64, ptr %42, align 8, !alias.scope !4197, !noalias !4206
+  %.val3.i69.i.i.i.i51.i.i.i = load i64, ptr %43, align 8, !alias.scope !4197, !noalias !4206
+  %80 = sub nuw i64 %.val3.i69.i.i.i.i51.i.i.i, %.val.i68.i.i.i.i50.i.i.i
   %.sroa.8.0.i.i.i.i52.i.i.i = select i1 %trunc45.i.i.i.i49.i.i.i, i64 %80, i64 0
   %81 = load ptr, ptr %44, align 8, !alias.scope !4197, !noalias !4206, !noundef !13
   %82 = icmp eq ptr %81, null
@@ -13624,8 +13624,8 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i.i: ; preds
 
 83:                                               ; preds = %77
   %.val.i.i.i.i53.i.i.i = load ptr, ptr %45, align 8, !alias.scope !4197, !noalias !4206, !nonnull !13, !noundef !13
-  %.val70.i.i.i.i54.i.i.i = load ptr, ptr %46, align 8, !alias.scope !4197, !noalias !4206, !nonnull !13, !noundef !13
-  %84 = ptrtoint ptr %.val70.i.i.i.i54.i.i.i to i64
+  %.val67.i.i.i.i54.i.i.i = load ptr, ptr %46, align 8, !alias.scope !4197, !noalias !4206, !nonnull !13, !noundef !13
+  %84 = ptrtoint ptr %.val67.i.i.i.i54.i.i.i to i64
   %85 = ptrtoint ptr %.val.i.i.i.i53.i.i.i to i64
   %86 = sub nuw i64 %84, %85
   %87 = udiv exact i64 %86, 24
@@ -13633,10 +13633,10 @@ _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i.i.i.i: ; preds
   br label %_ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i57.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hef13f46978de9159E.exit.i57.i.i.i: ; preds = %83, %77
-  %.sroa.082.0.i.i.i.i55.i.i.i = phi i64 [ %88, %83 ], [ 0, %77 ]
+  %.sroa.079.0.i.i.i.i55.i.i.i = phi i64 [ %88, %83 ], [ 0, %77 ]
   %89 = call i64 @llvm.uadd.sat.i64(i64 %78, i64 %.sroa.8.0.i.i.i.i52.i.i.i)
   %90 = select i1 %trunc.i.i.i.i45.i.i.i, i64 %89, i64 %.sroa.8.0.i.i.i.i52.i.i.i
-  %91 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i55.i.i.i, i64 %90)
+  %91 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i55.i.i.i, i64 %90)
   %92 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.i.i.i, i64 %91)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h311e7e117c615c03E.exit"
 
@@ -15268,9 +15268,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %61 = sub nuw i64 %.val3.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i.i.i
   %62 = load i64, ptr %32, align 8, !range !129, !alias.scope !4697, !noalias !4706, !noundef !13
   %trunc45.i.i.i.i.i.i.i = trunc nuw i64 %62 to i1
-  %.val.i71.i.i.i.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !4697, !noalias !4706
-  %.val3.i72.i.i.i.i.i.i.i = load i64, ptr %34, align 8, !alias.scope !4697, !noalias !4706
-  %63 = sub nuw i64 %.val3.i72.i.i.i.i.i.i.i, %.val.i71.i.i.i.i.i.i.i
+  %.val.i68.i.i.i.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !4697, !noalias !4706
+  %.val3.i69.i.i.i.i.i.i.i = load i64, ptr %34, align 8, !alias.scope !4697, !noalias !4706
+  %63 = sub nuw i64 %.val3.i69.i.i.i.i.i.i.i, %.val.i68.i.i.i.i.i.i.i
   %.sroa.8.0.i.i.i.i.i.i.i = select i1 %trunc45.i.i.i.i.i.i.i, i64 %63, i64 0
   %64 = load ptr, ptr %35, align 8, !alias.scope !4697, !noalias !4706, !noundef !13
   %65 = icmp eq ptr %64, null
@@ -15278,8 +15278,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 66:                                               ; preds = %60
   %.val.i.i.i.i.i.i.i = load ptr, ptr %36, align 8, !alias.scope !4697, !noalias !4706, !nonnull !13, !noundef !13
-  %.val70.i.i.i.i.i.i.i = load ptr, ptr %37, align 8, !alias.scope !4697, !noalias !4706, !nonnull !13, !noundef !13
-  %67 = ptrtoint ptr %.val70.i.i.i.i.i.i.i to i64
+  %.val67.i.i.i.i.i.i.i = load ptr, ptr %37, align 8, !alias.scope !4697, !noalias !4706, !nonnull !13, !noundef !13
+  %67 = ptrtoint ptr %.val67.i.i.i.i.i.i.i to i64
   %68 = ptrtoint ptr %.val.i.i.i.i.i.i.i to i64
   %69 = sub nuw i64 %67, %68
   %70 = udiv exact i64 %69, 24
@@ -15287,10 +15287,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %_ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i.i: ; preds = %66, %60
-  %.sroa.082.0.i.i.i.i.i.i.i = phi i64 [ %71, %66 ], [ 0, %60 ]
+  %.sroa.079.0.i.i.i.i.i.i.i = phi i64 [ %71, %66 ], [ 0, %60 ]
   %72 = call i64 @llvm.uadd.sat.i64(i64 %61, i64 %.sroa.8.0.i.i.i.i.i.i.i)
   %73 = select i1 %trunc.i.i.i.i.i.i.i, i64 %72, i64 %.sroa.8.0.i.i.i.i.i.i.i
-  %74 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i.i.i.i, i64 %73)
+  %74 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i.i.i.i, i64 %73)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h52c0b698d775df3cE.exit.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h52c0b698d775df3cE.exit.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i.i, %57
@@ -15306,9 +15306,9 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i.i: ; preds
   %78 = sub nuw i64 %.val3.i.i.i.i.i47.i.i.i, %.val.i.i.i.i.i46.i.i.i
   %79 = load i64, ptr %41, align 8, !range !129, !alias.scope !4712, !noalias !4721, !noundef !13
   %trunc45.i.i.i.i49.i.i.i = trunc nuw i64 %79 to i1
-  %.val.i71.i.i.i.i50.i.i.i = load i64, ptr %42, align 8, !alias.scope !4712, !noalias !4721
-  %.val3.i72.i.i.i.i51.i.i.i = load i64, ptr %43, align 8, !alias.scope !4712, !noalias !4721
-  %80 = sub nuw i64 %.val3.i72.i.i.i.i51.i.i.i, %.val.i71.i.i.i.i50.i.i.i
+  %.val.i68.i.i.i.i50.i.i.i = load i64, ptr %42, align 8, !alias.scope !4712, !noalias !4721
+  %.val3.i69.i.i.i.i51.i.i.i = load i64, ptr %43, align 8, !alias.scope !4712, !noalias !4721
+  %80 = sub nuw i64 %.val3.i69.i.i.i.i51.i.i.i, %.val.i68.i.i.i.i50.i.i.i
   %.sroa.8.0.i.i.i.i52.i.i.i = select i1 %trunc45.i.i.i.i49.i.i.i, i64 %80, i64 0
   %81 = load ptr, ptr %44, align 8, !alias.scope !4712, !noalias !4721, !noundef !13
   %82 = icmp eq ptr %81, null
@@ -15316,8 +15316,8 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i.i: ; preds
 
 83:                                               ; preds = %77
   %.val.i.i.i.i53.i.i.i = load ptr, ptr %45, align 8, !alias.scope !4712, !noalias !4721, !nonnull !13, !noundef !13
-  %.val70.i.i.i.i54.i.i.i = load ptr, ptr %46, align 8, !alias.scope !4712, !noalias !4721, !nonnull !13, !noundef !13
-  %84 = ptrtoint ptr %.val70.i.i.i.i54.i.i.i to i64
+  %.val67.i.i.i.i54.i.i.i = load ptr, ptr %46, align 8, !alias.scope !4712, !noalias !4721, !nonnull !13, !noundef !13
+  %84 = ptrtoint ptr %.val67.i.i.i.i54.i.i.i to i64
   %85 = ptrtoint ptr %.val.i.i.i.i53.i.i.i to i64
   %86 = sub nuw i64 %84, %85
   %87 = udiv exact i64 %86, 24
@@ -15325,10 +15325,10 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i.i.i.i: ; preds
   br label %_ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i57.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h1c6bb3126fe35f11E.exit.i57.i.i.i: ; preds = %83, %77
-  %.sroa.082.0.i.i.i.i55.i.i.i = phi i64 [ %88, %83 ], [ 0, %77 ]
+  %.sroa.079.0.i.i.i.i55.i.i.i = phi i64 [ %88, %83 ], [ 0, %77 ]
   %89 = call i64 @llvm.uadd.sat.i64(i64 %78, i64 %.sroa.8.0.i.i.i.i52.i.i.i)
   %90 = select i1 %trunc.i.i.i.i45.i.i.i, i64 %89, i64 %.sroa.8.0.i.i.i.i52.i.i.i
-  %91 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.082.0.i.i.i.i55.i.i.i, i64 %90)
+  %91 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.079.0.i.i.i.i55.i.i.i, i64 %90)
   %92 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.i.i.i, i64 %91)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h29dd18f47117bff9E.exit"
 

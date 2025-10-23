@@ -339,39 +339,39 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit9
   %149 = load i16, ptr %148, align 2, !tbaa !30
   %.sroa.speculated = call i16 @llvm.umin.i16(i16 %145, i16 %149)
   %.not206 = icmp ugt i16 %145, %149
-  br i1 %.not206, label %153, label %150
+  br i1 %.not206, label %154, label %150
 
 150:                                              ; preds = %140
   %151 = load i64, ptr %143, align 8, !tbaa !24
   %152 = add nuw i32 %.067166, 1
-  br label %153
+  %153 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %151, i64 %135)
+  br label %154
 
-153:                                              ; preds = %150, %140
+154:                                              ; preds = %150, %140
   %.168 = phi i32 [ %152, %150 ], [ %.067166, %140 ]
-  %.060 = phi i64 [ %151, %150 ], [ 0, %140 ]
-  %154 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.060, i64 %135)
-  %155 = extractvalue { i64, i1 } %154, 1
-  %156 = extractvalue { i64, i1 } %154, 0
+  %.060 = phi { i64, i1 } [ %153, %150 ], [ zeroinitializer, %140 ]
+  %155 = extractvalue { i64, i1 } %.060, 1
+  %156 = extractvalue { i64, i1 } %.060, 0
   br i1 %155, label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread, label %157
 
-157:                                              ; preds = %153
+157:                                              ; preds = %154
   %.not207 = icmp ugt i16 %149, %145
-  br i1 %.not207, label %161, label %158
+  br i1 %.not207, label %162, label %158
 
 158:                                              ; preds = %157
   %159 = load i64, ptr %147, align 8, !tbaa !24
   %160 = add nuw i32 %.064167, 1
-  br label %161
+  %161 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %159, i64 %.0141)
+  br label %162
 
-161:                                              ; preds = %158, %157
+162:                                              ; preds = %158, %157
   %.266 = phi i32 [ %160, %158 ], [ %.064167, %157 ]
-  %.0 = phi i64 [ %159, %158 ], [ 0, %157 ]
-  %162 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.0, i64 %.0141)
-  %163 = extractvalue { i64, i1 } %162, 1
+  %.0 = phi { i64, i1 } [ %161, %158 ], [ zeroinitializer, %157 ]
+  %163 = extractvalue { i64, i1 } %.0, 1
   br i1 %163, label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread, label %164
 
-164:                                              ; preds = %161
-  %165 = extractvalue { i64, i1 } %162, 0
+164:                                              ; preds = %162
+  %165 = extractvalue { i64, i1 } %.0, 0
   %166 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %156, i64 %165)
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
@@ -484,8 +484,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %. = zext i1 %216 to i32
   br label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread
 
-_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread: ; preds = %164, %161, %153, %127, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104, %._crit_edge170
-  %.474 = phi i32 [ 9, %._crit_edge170 ], [ %., %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104 ], [ 9, %127 ], [ 1, %153 ], [ 1, %161 ], [ 1, %164 ]
+_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread: ; preds = %164, %162, %154, %127, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104, %._crit_edge170
+  %.474 = phi i32 [ 9, %._crit_edge170 ], [ %., %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104 ], [ 9, %127 ], [ 1, %154 ], [ 1, %162 ], [ 1, %164 ]
   %217 = load ptr, ptr %3, align 8, !tbaa !18
   %218 = icmp eq ptr %217, %15
   br i1 %218, label %220, label %219

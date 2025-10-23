@@ -8085,10 +8085,10 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %18 = load i64, ptr %17, align 8, !range !83, !alias.scope !2344, !noalias !2349, !noundef !11
   %trunc45.i.i.i = trunc nuw i64 %18 to i1
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %.val.i71.i.i.i = load i64, ptr %19, align 8, !alias.scope !2344, !noalias !2349
+  %.val.i68.i.i.i = load i64, ptr %19, align 8, !alias.scope !2344, !noalias !2349
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  %.val3.i72.i.i.i = load i64, ptr %20, align 8, !alias.scope !2344, !noalias !2349
-  %21 = sub nuw i64 %.val3.i72.i.i.i, %.val.i71.i.i.i
+  %.val3.i69.i.i.i = load i64, ptr %20, align 8, !alias.scope !2344, !noalias !2349
+  %21 = sub nuw i64 %.val3.i69.i.i.i, %.val.i68.i.i.i
   %.sroa.8.0.i.i.i = select i1 %trunc45.i.i.i, i64 %21, i64 0
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %23 = load ptr, ptr %22, align 8, !alias.scope !2344, !noalias !2349, !noundef !11
@@ -8099,8 +8099,8 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %.val.i.i.i = load ptr, ptr %26, align 8, !alias.scope !2344, !noalias !2349, !nonnull !11, !noundef !11
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %.val70.i.i.i = load ptr, ptr %27, align 8, !alias.scope !2344, !noalias !2349, !nonnull !11, !noundef !11
-  %28 = ptrtoint ptr %.val70.i.i.i to i64
+  %.val67.i.i.i = load ptr, ptr %27, align 8, !alias.scope !2344, !noalias !2349, !nonnull !11, !noundef !11
+  %28 = ptrtoint ptr %.val67.i.i.i to i64
   %29 = ptrtoint ptr %.val.i.i.i to i64
   %30 = sub nuw i64 %28, %29
   %31 = udiv exact i64 %30, 24
@@ -8108,14 +8108,14 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %33
 
 33:                                               ; preds = %25, %2
-  %.sroa.082.0.i.i.i = phi i64 [ %32, %25 ], [ 0, %2 ]
+  %.sroa.079.0.i.i.i = phi i64 [ %32, %25 ], [ 0, %2 ]
   %34 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i, i64 %.sroa.8.0.i.i.i)
   %35 = extractvalue { i64, i1 } %34, 1
   br i1 %35, label %.thread6.i, label %36
 
 36:                                               ; preds = %33
   %37 = extractvalue { i64, i1 } %34, 0
-  %38 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %37, i64 %.sroa.082.0.i.i.i)
+  %38 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %37, i64 %.sroa.079.0.i.i.i)
   %39 = extractvalue { i64, i1 } %38, 1
   br i1 %39, label %.thread6.i, label %40
 
@@ -8164,10 +8164,10 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %57 = load i64, ptr %56, align 8, !range !83, !alias.scope !2362, !noalias !2367, !noundef !11
   %trunc45.i.i.i.i.i = trunc nuw i64 %57 to i1
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %.val.i71.i.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !2362, !noalias !2367
+  %.val.i68.i.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !2362, !noalias !2367
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  %.val3.i72.i.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !2362, !noalias !2367
-  %60 = sub nuw i64 %.val3.i72.i.i.i.i.i, %.val.i71.i.i.i.i.i
+  %.val3.i69.i.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !2362, !noalias !2367
+  %60 = sub nuw i64 %.val3.i69.i.i.i.i.i, %.val.i68.i.i.i.i.i
   %.sroa.8.0.i.i.i.i.i = select i1 %trunc45.i.i.i.i.i, i64 %60, i64 0
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %62 = load ptr, ptr %61, align 8, !alias.scope !2362, !noalias !2367, !noundef !11
@@ -8178,8 +8178,8 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %.val.i.i.i.i.i = load ptr, ptr %65, align 8, !alias.scope !2362, !noalias !2367, !nonnull !11, !noundef !11
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  %.val70.i.i.i.i.i = load ptr, ptr %66, align 8, !alias.scope !2362, !noalias !2367, !nonnull !11, !noundef !11
-  %67 = ptrtoint ptr %.val70.i.i.i.i.i to i64
+  %.val67.i.i.i.i.i = load ptr, ptr %66, align 8, !alias.scope !2362, !noalias !2367, !nonnull !11, !noundef !11
+  %67 = ptrtoint ptr %.val67.i.i.i.i.i to i64
   %68 = ptrtoint ptr %.val.i.i.i.i.i to i64
   %69 = sub nuw i64 %67, %68
   %70 = udiv exact i64 %69, 24
@@ -8187,14 +8187,14 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %72
 
 72:                                               ; preds = %64, %47
-  %.sroa.082.0.i.i.i.i.i = phi i64 [ %71, %64 ], [ 0, %47 ]
+  %.sroa.079.0.i.i.i.i.i = phi i64 [ %71, %64 ], [ 0, %47 ]
   %73 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i.i, i64 %.sroa.8.0.i.i.i.i.i)
   %74 = extractvalue { i64, i1 } %73, 1
   br i1 %74, label %.thread.i.i.i, label %75
 
 75:                                               ; preds = %72
   %76 = extractvalue { i64, i1 } %73, 0
-  %77 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %76, i64 %.sroa.082.0.i.i.i.i.i)
+  %77 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %76, i64 %.sroa.079.0.i.i.i.i.i)
   %78 = extractvalue { i64, i1 } %77, 1
   %79 = extractvalue { i64, i1 } %77, 0
   br i1 %78, label %.thread.i.i.i, label %80

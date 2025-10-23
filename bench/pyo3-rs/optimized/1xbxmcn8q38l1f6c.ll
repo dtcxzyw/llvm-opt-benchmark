@@ -934,7 +934,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %2
-  br i1 %33, label %39, label %36
+  br i1 %33, label %41, label %36
 
 35:                                               ; preds = %2
   br i1 %33, label %73, label %67
@@ -947,53 +947,53 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8
-  %38 = icmp eq i64 %.pre59, 0
-  br label %39
+  %38 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.pre57, i64 %30)
+  %39 = icmp eq i64 %.pre59, 0
+  %40 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %30, i64 %.pre61)
+  br label %41
 
-39:                                               ; preds = %34, %36
-  %40 = phi i64 [ %.pre61, %36 ], [ 0, %34 ]
-  %41 = phi i1 [ %38, %36 ], [ false, %34 ]
-  %42 = phi i64 [ %.pre57, %36 ], [ 0, %34 ]
-  %43 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %42, i64 %30)
-  %44 = extractvalue { i64, i1 } %43, 1
-  br i1 %44, label %48, label %45
+41:                                               ; preds = %34, %36
+  %42 = phi { i64, i1 } [ %40, %36 ], [ zeroinitializer, %34 ]
+  %43 = phi i1 [ %39, %36 ], [ false, %34 ]
+  %44 = phi { i64, i1 } [ %38, %36 ], [ zeroinitializer, %34 ]
+  %45 = extractvalue { i64, i1 } %44, 1
+  br i1 %45, label %49, label %46
 
-45:                                               ; preds = %39
-  %46 = extractvalue { i64, i1 } %43, 0
-  %47 = call i64 @llvm.uadd.sat.i64(i64 %46, i64 %27)
-  br label %48
+46:                                               ; preds = %41
+  %47 = extractvalue { i64, i1 } %44, 0
+  %48 = call i64 @llvm.uadd.sat.i64(i64 %47, i64 %27)
+  br label %49
 
-48:                                               ; preds = %39, %45
-  %.sroa.020.0 = phi i64 [ %47, %45 ], [ -1, %39 ]
-  %49 = icmp eq i64 %16, 0
-  %50 = icmp eq i64 %24, 0
-  %or.cond50 = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond50, label %63, label %51
+49:                                               ; preds = %41, %46
+  %.sroa.020.0 = phi i64 [ %48, %46 ], [ -1, %41 ]
+  %50 = icmp eq i64 %16, 0
+  %51 = icmp eq i64 %24, 0
+  %or.cond50 = select i1 %50, i1 true, i1 %51
+  br i1 %or.cond50, label %63, label %52
 
-51:                                               ; preds = %48
-  %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %26)
-  %53 = extractvalue { i64, i1 } %52, 0
-  %54 = extractvalue { i64, i1 } %52, 1
-  %or.cond51 = select i1 %54, i1 true, i1 %41
-  br i1 %or.cond51, label %63, label %55
+52:                                               ; preds = %49
+  %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %26)
+  %54 = extractvalue { i64, i1 } %53, 0
+  %55 = extractvalue { i64, i1 } %53, 1
+  %or.cond51 = select i1 %55, i1 true, i1 %43
+  br i1 %or.cond51, label %63, label %56
 
-55:                                               ; preds = %51
-  %56 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %30, i64 %40)
-  %57 = extractvalue { i64, i1 } %56, 1
+56:                                               ; preds = %52
+  %57 = extractvalue { i64, i1 } %42, 1
   br i1 %57, label %63, label %58
 
-58:                                               ; preds = %55
-  %59 = extractvalue { i64, i1 } %56, 0
-  %60 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %53, i64 %59)
+58:                                               ; preds = %56
+  %59 = extractvalue { i64, i1 } %42, 0
+  %60 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %59)
   %61 = extractvalue { i64, i1 } %60, 1
   %62 = extractvalue { i64, i1 } %60, 0
   %not.53 = xor i1 %61, true
   %spec.select52 = zext i1 %not.53 to i64
   br label %63
 
-63:                                               ; preds = %58, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %62, %58 ]
-  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %58 ]
+63:                                               ; preds = %58, %56, %52, %49
+  %.sroa.8.0 = phi i64 [ undef, %49 ], [ undef, %52 ], [ undef, %56 ], [ %62, %58 ]
+  %.sroa.021.0 = phi i64 [ 0, %49 ], [ 0, %52 ], [ 0, %56 ], [ %spec.select52, %58 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %64, align 8
@@ -1090,7 +1090,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %30, label %34, label %35
 
 34:                                               ; preds = %2
-  br i1 %33, label %38, label %36
+  br i1 %33, label %40, label %36
 
 35:                                               ; preds = %2
   br i1 %33, label %71, label %66
@@ -1102,53 +1102,53 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8
-  %37 = icmp eq i64 %.pre59, 0
-  br label %38
+  %37 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.pre57, i64 %29)
+  %38 = icmp eq i64 %.pre59, 0
+  %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %.pre61)
+  br label %40
 
-38:                                               ; preds = %34, %36
-  %39 = phi i64 [ %.pre61, %36 ], [ 0, %34 ]
-  %40 = phi i1 [ %37, %36 ], [ false, %34 ]
-  %41 = phi i64 [ %.pre57, %36 ], [ 0, %34 ]
-  %42 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %41, i64 %29)
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %47, label %44
+40:                                               ; preds = %34, %36
+  %41 = phi { i64, i1 } [ %39, %36 ], [ zeroinitializer, %34 ]
+  %42 = phi i1 [ %38, %36 ], [ false, %34 ]
+  %43 = phi { i64, i1 } [ %37, %36 ], [ zeroinitializer, %34 ]
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %48, label %45
 
-44:                                               ; preds = %38
-  %45 = extractvalue { i64, i1 } %42, 0
-  %46 = call i64 @llvm.uadd.sat.i64(i64 %45, i64 %26)
-  br label %47
+45:                                               ; preds = %40
+  %46 = extractvalue { i64, i1 } %43, 0
+  %47 = call i64 @llvm.uadd.sat.i64(i64 %46, i64 %26)
+  br label %48
 
-47:                                               ; preds = %38, %44
-  %.sroa.020.0 = phi i64 [ %46, %44 ], [ -1, %38 ]
-  %48 = icmp eq i64 %15, 0
-  %49 = icmp eq i64 %23, 0
-  %or.cond50 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond50, label %62, label %50
+48:                                               ; preds = %40, %45
+  %.sroa.020.0 = phi i64 [ %47, %45 ], [ -1, %40 ]
+  %49 = icmp eq i64 %15, 0
+  %50 = icmp eq i64 %23, 0
+  %or.cond50 = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond50, label %62, label %51
 
-50:                                               ; preds = %47
-  %51 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
-  %52 = extractvalue { i64, i1 } %51, 0
-  %53 = extractvalue { i64, i1 } %51, 1
-  %or.cond51 = select i1 %53, i1 true, i1 %40
-  br i1 %or.cond51, label %62, label %54
+51:                                               ; preds = %48
+  %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
+  %53 = extractvalue { i64, i1 } %52, 0
+  %54 = extractvalue { i64, i1 } %52, 1
+  %or.cond51 = select i1 %54, i1 true, i1 %42
+  br i1 %or.cond51, label %62, label %55
 
-54:                                               ; preds = %50
-  %55 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %39)
-  %56 = extractvalue { i64, i1 } %55, 1
+55:                                               ; preds = %51
+  %56 = extractvalue { i64, i1 } %41, 1
   br i1 %56, label %62, label %57
 
-57:                                               ; preds = %54
-  %58 = extractvalue { i64, i1 } %55, 0
-  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %58)
+57:                                               ; preds = %55
+  %58 = extractvalue { i64, i1 } %41, 0
+  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %53, i64 %58)
   %60 = extractvalue { i64, i1 } %59, 1
   %61 = extractvalue { i64, i1 } %59, 0
   %not.53 = xor i1 %60, true
   %spec.select52 = zext i1 %not.53 to i64
   br label %62
 
-62:                                               ; preds = %57, %54, %50, %47
-  %.sroa.8.0 = phi i64 [ undef, %47 ], [ undef, %50 ], [ undef, %54 ], [ %61, %57 ]
-  %.sroa.021.0 = phi i64 [ 0, %47 ], [ 0, %50 ], [ 0, %54 ], [ %spec.select52, %57 ]
+62:                                               ; preds = %57, %55, %51, %48
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1244,7 +1244,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %2
-  br i1 %33, label %38, label %36
+  br i1 %33, label %40, label %36
 
 35:                                               ; preds = %2
   br i1 %33, label %71, label %66
@@ -1256,53 +1256,53 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8
-  %37 = icmp eq i64 %.pre59, 0
-  br label %38
+  %37 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.pre57, i64 %30)
+  %38 = icmp eq i64 %.pre59, 0
+  %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %30, i64 %.pre61)
+  br label %40
 
-38:                                               ; preds = %34, %36
-  %39 = phi i64 [ %.pre61, %36 ], [ 0, %34 ]
-  %40 = phi i1 [ %37, %36 ], [ false, %34 ]
-  %41 = phi i64 [ %.pre57, %36 ], [ 0, %34 ]
-  %42 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %41, i64 %30)
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %47, label %44
+40:                                               ; preds = %34, %36
+  %41 = phi { i64, i1 } [ %39, %36 ], [ zeroinitializer, %34 ]
+  %42 = phi i1 [ %38, %36 ], [ false, %34 ]
+  %43 = phi { i64, i1 } [ %37, %36 ], [ zeroinitializer, %34 ]
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %48, label %45
 
-44:                                               ; preds = %38
-  %45 = extractvalue { i64, i1 } %42, 0
-  %46 = call i64 @llvm.uadd.sat.i64(i64 %45, i64 %27)
-  br label %47
+45:                                               ; preds = %40
+  %46 = extractvalue { i64, i1 } %43, 0
+  %47 = call i64 @llvm.uadd.sat.i64(i64 %46, i64 %27)
+  br label %48
 
-47:                                               ; preds = %38, %44
-  %.sroa.020.0 = phi i64 [ %46, %44 ], [ -1, %38 ]
-  %48 = icmp eq i64 %16, 0
-  %49 = icmp eq i64 %24, 0
-  %or.cond50 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond50, label %62, label %50
+48:                                               ; preds = %40, %45
+  %.sroa.020.0 = phi i64 [ %47, %45 ], [ -1, %40 ]
+  %49 = icmp eq i64 %16, 0
+  %50 = icmp eq i64 %24, 0
+  %or.cond50 = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond50, label %62, label %51
 
-50:                                               ; preds = %47
-  %51 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %26)
-  %52 = extractvalue { i64, i1 } %51, 0
-  %53 = extractvalue { i64, i1 } %51, 1
-  %or.cond51 = select i1 %53, i1 true, i1 %40
-  br i1 %or.cond51, label %62, label %54
+51:                                               ; preds = %48
+  %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %26)
+  %53 = extractvalue { i64, i1 } %52, 0
+  %54 = extractvalue { i64, i1 } %52, 1
+  %or.cond51 = select i1 %54, i1 true, i1 %42
+  br i1 %or.cond51, label %62, label %55
 
-54:                                               ; preds = %50
-  %55 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %30, i64 %39)
-  %56 = extractvalue { i64, i1 } %55, 1
+55:                                               ; preds = %51
+  %56 = extractvalue { i64, i1 } %41, 1
   br i1 %56, label %62, label %57
 
-57:                                               ; preds = %54
-  %58 = extractvalue { i64, i1 } %55, 0
-  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %58)
+57:                                               ; preds = %55
+  %58 = extractvalue { i64, i1 } %41, 0
+  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %53, i64 %58)
   %60 = extractvalue { i64, i1 } %59, 1
   %61 = extractvalue { i64, i1 } %59, 0
   %not.53 = xor i1 %60, true
   %spec.select52 = zext i1 %not.53 to i64
   br label %62
 
-62:                                               ; preds = %57, %54, %50, %47
-  %.sroa.8.0 = phi i64 [ undef, %47 ], [ undef, %50 ], [ undef, %54 ], [ %61, %57 ]
-  %.sroa.021.0 = phi i64 [ 0, %47 ], [ 0, %50 ], [ 0, %54 ], [ %spec.select52, %57 ]
+62:                                               ; preds = %57, %55, %51, %48
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1398,7 +1398,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %30, label %34, label %35
 
 34:                                               ; preds = %2
-  br i1 %33, label %38, label %36
+  br i1 %33, label %40, label %36
 
 35:                                               ; preds = %2
   br i1 %33, label %71, label %66
@@ -1410,53 +1410,53 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8
-  %37 = icmp eq i64 %.pre59, 0
-  br label %38
+  %37 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.pre57, i64 %29)
+  %38 = icmp eq i64 %.pre59, 0
+  %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %.pre61)
+  br label %40
 
-38:                                               ; preds = %34, %36
-  %39 = phi i64 [ %.pre61, %36 ], [ 0, %34 ]
-  %40 = phi i1 [ %37, %36 ], [ false, %34 ]
-  %41 = phi i64 [ %.pre57, %36 ], [ 0, %34 ]
-  %42 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %41, i64 %29)
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %47, label %44
+40:                                               ; preds = %34, %36
+  %41 = phi { i64, i1 } [ %39, %36 ], [ zeroinitializer, %34 ]
+  %42 = phi i1 [ %38, %36 ], [ false, %34 ]
+  %43 = phi { i64, i1 } [ %37, %36 ], [ zeroinitializer, %34 ]
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %48, label %45
 
-44:                                               ; preds = %38
-  %45 = extractvalue { i64, i1 } %42, 0
-  %46 = call i64 @llvm.uadd.sat.i64(i64 %45, i64 %26)
-  br label %47
+45:                                               ; preds = %40
+  %46 = extractvalue { i64, i1 } %43, 0
+  %47 = call i64 @llvm.uadd.sat.i64(i64 %46, i64 %26)
+  br label %48
 
-47:                                               ; preds = %38, %44
-  %.sroa.020.0 = phi i64 [ %46, %44 ], [ -1, %38 ]
-  %48 = icmp eq i64 %15, 0
-  %49 = icmp eq i64 %23, 0
-  %or.cond50 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond50, label %62, label %50
+48:                                               ; preds = %40, %45
+  %.sroa.020.0 = phi i64 [ %47, %45 ], [ -1, %40 ]
+  %49 = icmp eq i64 %15, 0
+  %50 = icmp eq i64 %23, 0
+  %or.cond50 = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond50, label %62, label %51
 
-50:                                               ; preds = %47
-  %51 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
-  %52 = extractvalue { i64, i1 } %51, 0
-  %53 = extractvalue { i64, i1 } %51, 1
-  %or.cond51 = select i1 %53, i1 true, i1 %40
-  br i1 %or.cond51, label %62, label %54
+51:                                               ; preds = %48
+  %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
+  %53 = extractvalue { i64, i1 } %52, 0
+  %54 = extractvalue { i64, i1 } %52, 1
+  %or.cond51 = select i1 %54, i1 true, i1 %42
+  br i1 %or.cond51, label %62, label %55
 
-54:                                               ; preds = %50
-  %55 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %39)
-  %56 = extractvalue { i64, i1 } %55, 1
+55:                                               ; preds = %51
+  %56 = extractvalue { i64, i1 } %41, 1
   br i1 %56, label %62, label %57
 
-57:                                               ; preds = %54
-  %58 = extractvalue { i64, i1 } %55, 0
-  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %58)
+57:                                               ; preds = %55
+  %58 = extractvalue { i64, i1 } %41, 0
+  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %53, i64 %58)
   %60 = extractvalue { i64, i1 } %59, 1
   %61 = extractvalue { i64, i1 } %59, 0
   %not.53 = xor i1 %60, true
   %spec.select52 = zext i1 %not.53 to i64
   br label %62
 
-62:                                               ; preds = %57, %54, %50, %47
-  %.sroa.8.0 = phi i64 [ undef, %47 ], [ undef, %50 ], [ undef, %54 ], [ %61, %57 ]
-  %.sroa.021.0 = phi i64 [ 0, %47 ], [ 0, %50 ], [ 0, %54 ], [ %spec.select52, %57 ]
+62:                                               ; preds = %57, %55, %51, %48
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1552,7 +1552,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %30, label %34, label %35
 
 34:                                               ; preds = %2
-  br i1 %33, label %38, label %36
+  br i1 %33, label %40, label %36
 
 35:                                               ; preds = %2
   br i1 %33, label %71, label %66
@@ -1564,53 +1564,53 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8
-  %37 = icmp eq i64 %.pre59, 0
-  br label %38
+  %37 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.pre57, i64 %29)
+  %38 = icmp eq i64 %.pre59, 0
+  %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %.pre61)
+  br label %40
 
-38:                                               ; preds = %34, %36
-  %39 = phi i64 [ %.pre61, %36 ], [ 0, %34 ]
-  %40 = phi i1 [ %37, %36 ], [ false, %34 ]
-  %41 = phi i64 [ %.pre57, %36 ], [ 0, %34 ]
-  %42 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %41, i64 %29)
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %47, label %44
+40:                                               ; preds = %34, %36
+  %41 = phi { i64, i1 } [ %39, %36 ], [ zeroinitializer, %34 ]
+  %42 = phi i1 [ %38, %36 ], [ false, %34 ]
+  %43 = phi { i64, i1 } [ %37, %36 ], [ zeroinitializer, %34 ]
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %48, label %45
 
-44:                                               ; preds = %38
-  %45 = extractvalue { i64, i1 } %42, 0
-  %46 = call i64 @llvm.uadd.sat.i64(i64 %45, i64 %26)
-  br label %47
+45:                                               ; preds = %40
+  %46 = extractvalue { i64, i1 } %43, 0
+  %47 = call i64 @llvm.uadd.sat.i64(i64 %46, i64 %26)
+  br label %48
 
-47:                                               ; preds = %38, %44
-  %.sroa.020.0 = phi i64 [ %46, %44 ], [ -1, %38 ]
-  %48 = icmp eq i64 %15, 0
-  %49 = icmp eq i64 %23, 0
-  %or.cond50 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond50, label %62, label %50
+48:                                               ; preds = %40, %45
+  %.sroa.020.0 = phi i64 [ %47, %45 ], [ -1, %40 ]
+  %49 = icmp eq i64 %15, 0
+  %50 = icmp eq i64 %23, 0
+  %or.cond50 = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond50, label %62, label %51
 
-50:                                               ; preds = %47
-  %51 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
-  %52 = extractvalue { i64, i1 } %51, 0
-  %53 = extractvalue { i64, i1 } %51, 1
-  %or.cond51 = select i1 %53, i1 true, i1 %40
-  br i1 %or.cond51, label %62, label %54
+51:                                               ; preds = %48
+  %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
+  %53 = extractvalue { i64, i1 } %52, 0
+  %54 = extractvalue { i64, i1 } %52, 1
+  %or.cond51 = select i1 %54, i1 true, i1 %42
+  br i1 %or.cond51, label %62, label %55
 
-54:                                               ; preds = %50
-  %55 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %39)
-  %56 = extractvalue { i64, i1 } %55, 1
+55:                                               ; preds = %51
+  %56 = extractvalue { i64, i1 } %41, 1
   br i1 %56, label %62, label %57
 
-57:                                               ; preds = %54
-  %58 = extractvalue { i64, i1 } %55, 0
-  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %58)
+57:                                               ; preds = %55
+  %58 = extractvalue { i64, i1 } %41, 0
+  %59 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %53, i64 %58)
   %60 = extractvalue { i64, i1 } %59, 1
   %61 = extractvalue { i64, i1 } %59, 0
   %not.53 = xor i1 %60, true
   %spec.select52 = zext i1 %not.53 to i64
   br label %62
 
-62:                                               ; preds = %57, %54, %50, %47
-  %.sroa.8.0 = phi i64 [ undef, %47 ], [ undef, %50 ], [ undef, %54 ], [ %61, %57 ]
-  %.sroa.021.0 = phi i64 [ 0, %47 ], [ 0, %50 ], [ 0, %54 ], [ %spec.select52, %57 ]
+62:                                               ; preds = %57, %55, %51, %48
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1708,7 +1708,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %32, label %36, label %37
 
 36:                                               ; preds = %2
-  br i1 %35, label %40, label %38
+  br i1 %35, label %42, label %38
 
 37:                                               ; preds = %2
   br i1 %35, label %73, label %68
@@ -1720,53 +1720,53 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8
-  %39 = icmp eq i64 %.pre59, 0
-  br label %40
+  %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.pre57, i64 %31)
+  %40 = icmp eq i64 %.pre59, 0
+  %41 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %31, i64 %.pre61)
+  br label %42
 
-40:                                               ; preds = %36, %38
-  %41 = phi i64 [ %.pre61, %38 ], [ 0, %36 ]
-  %42 = phi i1 [ %39, %38 ], [ false, %36 ]
-  %43 = phi i64 [ %.pre57, %38 ], [ 0, %36 ]
-  %44 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %43, i64 %31)
-  %45 = extractvalue { i64, i1 } %44, 1
-  br i1 %45, label %49, label %46
+42:                                               ; preds = %36, %38
+  %43 = phi { i64, i1 } [ %41, %38 ], [ zeroinitializer, %36 ]
+  %44 = phi i1 [ %40, %38 ], [ false, %36 ]
+  %45 = phi { i64, i1 } [ %39, %38 ], [ zeroinitializer, %36 ]
+  %46 = extractvalue { i64, i1 } %45, 1
+  br i1 %46, label %50, label %47
 
-46:                                               ; preds = %40
-  %47 = extractvalue { i64, i1 } %44, 0
-  %48 = call i64 @llvm.uadd.sat.i64(i64 %47, i64 %28)
-  br label %49
+47:                                               ; preds = %42
+  %48 = extractvalue { i64, i1 } %45, 0
+  %49 = call i64 @llvm.uadd.sat.i64(i64 %48, i64 %28)
+  br label %50
 
-49:                                               ; preds = %40, %46
-  %.sroa.020.0 = phi i64 [ %48, %46 ], [ -1, %40 ]
-  %50 = icmp eq i64 %16, 0
-  %51 = icmp eq i64 %25, 0
-  %or.cond50 = select i1 %50, i1 true, i1 %51
-  br i1 %or.cond50, label %64, label %52
+50:                                               ; preds = %42, %47
+  %.sroa.020.0 = phi i64 [ %49, %47 ], [ -1, %42 ]
+  %51 = icmp eq i64 %16, 0
+  %52 = icmp eq i64 %25, 0
+  %or.cond50 = select i1 %51, i1 true, i1 %52
+  br i1 %or.cond50, label %64, label %53
 
-52:                                               ; preds = %49
-  %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %27)
-  %54 = extractvalue { i64, i1 } %53, 0
-  %55 = extractvalue { i64, i1 } %53, 1
-  %or.cond51 = select i1 %55, i1 true, i1 %42
-  br i1 %or.cond51, label %64, label %56
+53:                                               ; preds = %50
+  %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %27)
+  %55 = extractvalue { i64, i1 } %54, 0
+  %56 = extractvalue { i64, i1 } %54, 1
+  %or.cond51 = select i1 %56, i1 true, i1 %44
+  br i1 %or.cond51, label %64, label %57
 
-56:                                               ; preds = %52
-  %57 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %31, i64 %41)
-  %58 = extractvalue { i64, i1 } %57, 1
+57:                                               ; preds = %53
+  %58 = extractvalue { i64, i1 } %43, 1
   br i1 %58, label %64, label %59
 
-59:                                               ; preds = %56
-  %60 = extractvalue { i64, i1 } %57, 0
-  %61 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %60)
+59:                                               ; preds = %57
+  %60 = extractvalue { i64, i1 } %43, 0
+  %61 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %60)
   %62 = extractvalue { i64, i1 } %61, 1
   %63 = extractvalue { i64, i1 } %61, 0
   %not.53 = xor i1 %62, true
   %spec.select52 = zext i1 %not.53 to i64
   br label %64
 
-64:                                               ; preds = %59, %56, %52, %49
-  %.sroa.8.0 = phi i64 [ undef, %49 ], [ undef, %52 ], [ undef, %56 ], [ %63, %59 ]
-  %.sroa.021.0 = phi i64 [ 0, %49 ], [ 0, %52 ], [ 0, %56 ], [ %spec.select52, %59 ]
+64:                                               ; preds = %59, %57, %53, %50
+  %.sroa.8.0 = phi i64 [ undef, %50 ], [ undef, %53 ], [ undef, %57 ], [ %63, %59 ]
+  %.sroa.021.0 = phi i64 [ 0, %50 ], [ 0, %53 ], [ 0, %57 ], [ %spec.select52, %59 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %65, align 8

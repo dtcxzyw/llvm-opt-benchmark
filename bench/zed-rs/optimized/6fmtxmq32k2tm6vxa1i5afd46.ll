@@ -1771,9 +1771,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre25 = load i64, ptr %.phi.trans.insert, align 8, !range !313, !alias.scope !565, !noalias !570
   %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.val.i65.i.i.pre = load i64, ptr %.phi.trans.insert26, align 8, !alias.scope !565, !noalias !570
+  %.val.i63.i.i.pre = load i64, ptr %.phi.trans.insert26, align 8, !alias.scope !565, !noalias !570
   %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.val4.i66.i.i.pre = load i64, ptr %.phi.trans.insert28, align 8, !alias.scope !565, !noalias !570
+  %.val4.i64.i.i.pre = load i64, ptr %.phi.trans.insert28, align 8, !alias.scope !565, !noalias !570
   %.pre30 = load i8, ptr %11, align 8, !range !543, !alias.scope !565, !noalias !570
   %.pre25.fr = freeze i64 %.pre25
   %56 = trunc i64 %.pre25.fr to i1
@@ -1786,7 +1786,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %56, label %59, label %63
 
 59:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb56ce3e0ac3252ddE.exit"
-  %60 = sub nuw i64 %.val4.i66.i.i.pre, %.val.i65.i.i.pre
+  %60 = sub nuw i64 %.val4.i64.i.i.pre, %.val.i63.i.i.pre
   %61 = tail call i64 @llvm.uadd.sat.i64(i64 %58, i64 %60)
   %62 = select i1 %trunc.i.i, i64 %61, i64 %60
   br i1 %57, label %.thread.i.i, label %66
@@ -1989,12 +1989,12 @@ _ZN4core3ops8function6FnOnce9call_once17h60c5dc47fe60db9cE.exit.i10.i.i.i.i: ; p
   %131 = sub nuw i64 %.val4.i.i.i.i.i, %.val.i.i.i.i.i
   %132 = load i64, ptr %90, align 8, !range !313, !alias.scope !641, !noalias !642, !noundef !4
   %trunc40.i.i.i.i = trunc nuw i64 %132 to i1
-  %.val.i65.i.i.i.i = load i64, ptr %91, align 8, !alias.scope !641, !noalias !642
-  %.val4.i66.i.i.i.i = load i64, ptr %92, align 8, !alias.scope !641, !noalias !642
-  %133 = sub nuw i64 %.val4.i66.i.i.i.i, %.val.i65.i.i.i.i
-  %.sroa.074.0.i.i.i.i = select i1 %trunc40.i.i.i.i, i64 %133, i64 0
-  %134 = call i64 @llvm.uadd.sat.i64(i64 %131, i64 %.sroa.074.0.i.i.i.i)
-  %135 = select i1 %trunc.i.i.i.i, i64 %134, i64 %.sroa.074.0.i.i.i.i
+  %.val.i63.i.i.i.i = load i64, ptr %91, align 8, !alias.scope !641, !noalias !642
+  %.val4.i64.i.i.i.i = load i64, ptr %92, align 8, !alias.scope !641, !noalias !642
+  %133 = sub nuw i64 %.val4.i64.i.i.i.i, %.val.i63.i.i.i.i
+  %.sroa.072.0.i.i.i.i = select i1 %trunc40.i.i.i.i, i64 %133, i64 0
+  %134 = call i64 @llvm.uadd.sat.i64(i64 %131, i64 %.sroa.072.0.i.i.i.i)
+  %135 = select i1 %trunc.i.i.i.i, i64 %134, i64 %.sroa.072.0.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !645
   %136 = load i8, ptr %89, align 8, !range !543, !alias.scope !641, !noalias !642, !noundef !4
   %137 = icmp eq i8 %136, 2
