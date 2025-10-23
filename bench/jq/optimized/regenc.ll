@@ -394,28 +394,32 @@ define dso_local ptr @onigenc_step_back(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  br label %6
+  %6 = icmp sgt i32 %3, 0
+  br i1 %6, label %.lr.ph22, label %.critedge
 
-6:                                                ; preds = %.lr.ph, %10
-  %.014 = phi i32 [ %3, %.lr.ph ], [ %7, %10 ]
-  %.0813 = phi ptr [ %2, %.lr.ph ], [ %13, %10 ]
-  %7 = add nsw i32 %.014, -1
-  %8 = icmp sgt i32 %.014, 0
-  br i1 %8, label %9, label %.critedge
+7:                                                ; preds = %10
+  %8 = add nsw i32 %.in, -1
+  %9 = icmp sgt i32 %.in, 1
+  br i1 %9, label %.lr.ph22, label %.critedge, !llvm.loop !28
 
-9:                                                ; preds = %6
-  %.not11 = icmp ugt ptr %.0813, %1
+.lr.ph22:                                         ; preds = %.lr.ph, %7
+  %.in = phi i32 [ %8, %7 ], [ %3, %.lr.ph ]
+  %.081321 = phi ptr [ %13, %7 ], [ %2, %.lr.ph ]
+  %.not11 = icmp ugt ptr %.081321, %1
   br i1 %.not11, label %10, label %.critedge
 
-10:                                               ; preds = %9
+10:                                               ; preds = %.lr.ph22
   %11 = load ptr, ptr %5, align 8, !tbaa !25
-  %12 = getelementptr inbounds i8, ptr %.0813, i64 -1
+  %12 = getelementptr inbounds i8, ptr %.081321, i64 -1
   %13 = tail call ptr %11(ptr noundef %1, ptr noundef nonnull %12) #16
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %.critedge, label %6, !llvm.loop !28
+  br i1 %.not, label %..critedge.loopexit_crit_edge23, label %7, !llvm.loop !28
 
-.critedge:                                        ; preds = %9, %10, %6, %4
-  %.09 = phi ptr [ null, %4 ], [ %.0813, %6 ], [ null, %10 ], [ null, %9 ]
+..critedge.loopexit_crit_edge23:                  ; preds = %10
+  br label %.critedge, !llvm.loop !28
+
+.critedge:                                        ; preds = %7, %.lr.ph22, %.lr.ph, %..critedge.loopexit_crit_edge23, %4
+  %.09 = phi ptr [ null, %4 ], [ null, %..critedge.loopexit_crit_edge23 ], [ %2, %.lr.ph ], [ null, %.lr.ph22 ], [ %13, %7 ]
   ret ptr %.09
 }
 

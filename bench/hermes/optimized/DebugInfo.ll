@@ -413,25 +413,38 @@ for.body.lr.ph.i:                                 ; preds = %while.end
   %wide.trip.count.i = zext nneg i32 %7 to i64
   %9 = load i32, ptr %8, align 1
   %cmp5.not.i24 = icmp ugt i32 %9, %lastLocationOffset.0.lcssa
-  br i1 %cmp5.not.i24, label %if.end13, label %if.then.i
+  br i1 %cmp5.not.i24, label %if.end13, label %if.then.i.preheader
 
-for.body.i:                                       ; preds = %if.then.i
-  %arrayidx.i13.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.next.i
+if.then.i.preheader:                              ; preds = %for.body.lr.ph.i
+  %exitcond.not.i41 = icmp eq i32 %7, 1
+  br i1 %exitcond.not.i41, label %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge, label %for.body.i.lr.ph, !llvm.loop !9
+
+for.body.i.lr.ph:                                 ; preds = %if.then.i.preheader
+  br label %for.body.i, !llvm.loop !9
+
+for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.then.i
+  %indvars.iv.next.i43 = phi i64 [ 1, %for.body.i.lr.ph ], [ %indvars.iv.next.i, %if.then.i ]
+  %indvars.iv.i2542 = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next.i43, %if.then.i ]
+  %arrayidx.i13.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.next.i43
   %10 = load i32, ptr %arrayidx.i13.i, align 1
   %cmp5.not.i = icmp ugt i32 %10, %lastLocationOffset.0.lcssa
   br i1 %cmp5.not.i, label %if.then10, label %if.then.i, !llvm.loop !9
 
-if.then.i:                                        ; preds = %for.body.lr.ph.i, %for.body.i
-  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i25, 1
+if.then.i:                                        ; preds = %for.body.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i43, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge, label %for.body.i, !llvm.loop !9
 
-if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; preds = %if.then.i
+if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge: ; preds = %if.then.i
+  br label %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge, !llvm.loop !9
+
+if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; preds = %if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge, %if.then.i.preheader
+  %indvars.iv.i25.lcssa = phi i64 [ %indvars.iv.next.i43, %if.then.i.if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge_crit_edge ], [ 0, %if.then.i.preheader ]
   br label %if.then10, !llvm.loop !9
 
 if.then10:                                        ; preds = %for.body.i, %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge
-  %arrayidx.i13.i26.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i25
+  %indvars.iv.i2540 = phi i64 [ %indvars.iv.i25.lcssa, %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge ], [ %indvars.iv.i2542, %for.body.i ]
+  %arrayidx.i13.i26.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i2540
   %filenameId.i.le35 = getelementptr inbounds nuw i8, ptr %arrayidx.i13.i26.le, i64 4
   %11 = load i32, ptr %filenameId.i.le35, align 4
   store i32 %offsetInFunction, ptr %agg.result, align 4

@@ -15400,20 +15400,21 @@ for.cond74.preheader:                             ; preds = %if.end72
   %schemdata = getelementptr inbounds nuw i8, ptr %schem.0256, i64 176
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call.i204, i64 8
   %wide.trip.count = zext i32 %mul26 to i64
-  br label %for.cond74
+  %exitcond.not6 = icmp eq i32 %mul26, 0
+  br i1 %exitcond.not6, label %for.cond.cleanup76, label %for.body77
 
-for.cond74:                                       ; preds = %if.end117, %for.cond74.preheader
-  %indvars.iv = phi i64 [ 0, %for.cond74.preheader ], [ %indvars.iv.next, %if.end117 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond.cleanup76, label %for.body77
+for.cond74:                                       ; preds = %if.end117
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.cond.cleanup76, label %for.body77, !llvm.loop !353
 
-for.cond.cleanup76:                               ; preds = %for.cond74
+for.cond.cleanup76:                               ; preds = %for.cond74, %for.cond74.preheader
   invoke void @lua_setfield(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.47)
           to label %invoke.cont128 unwind label %lpad31
 
-for.body77:                                       ; preds = %for.cond74
+for.body77:                                       ; preds = %for.cond74.preheader, %for.cond74
+  %indvars.iv7 = phi i64 [ %indvars.iv.next, %for.cond74 ], [ 0, %for.cond74.preheader ]
   %31 = load ptr, ptr %schemdata, align 8, !tbaa !42
-  %arrayidx79 = getelementptr inbounds nuw %struct.MapNode, ptr %31, i64 %indvars.iv
+  %arrayidx79 = getelementptr inbounds nuw %struct.MapNode, ptr %31, i64 %indvars.iv7
   %32 = load i32, ptr %arrayidx79, align 4, !tbaa.struct !69
   %node.sroa.6.0.extract.shift = lshr i32 %32, 16
   %node.sroa.6.0.extract.trunc = trunc i32 %node.sroa.6.0.extract.shift to i8
@@ -15424,8 +15425,8 @@ for.body77:                                       ; preds = %for.cond74
   br i1 %tobool.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %for.body77
-  %33 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !353
-  %34 = load ptr, ptr %call.i204, align 8, !tbaa !355
+  %33 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !354
+  %34 = load ptr, ptr %call.i204, align 8, !tbaa !356
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -15505,10 +15506,10 @@ lpad100:                                          ; preds = %if.end117, %invoke.
   br label %ehcleanup135
 
 if.end117:                                        ; preds = %invoke.cont115, %invoke.cont112
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
   %40 = trunc i64 %indvars.iv.next to i32
   invoke void @lua_rawseti(ptr noundef %L, i32 noundef 2, i32 noundef %40)
-          to label %for.cond74 unwind label %lpad100, !llvm.loop !356
+          to label %for.cond74 unwind label %lpad100, !llvm.loop !353
 
 invoke.cont128:                                   ; preds = %for.cond.cleanup76
   br i1 %tobool.not, label %delete.notnull, label %cleanup
@@ -19392,10 +19393,10 @@ attributes #33 = { nounwind willreturn memory(read) }
 !350 = !{!43, !41, i64 168}
 !351 = !{!46, !53, i64 72}
 !352 = distinct !{!352, !39}
-!353 = !{!354, !6, i64 8}
-!354 = !{!"_ZTSNSt12_Vector_baseI15ContentFeaturesSaIS0_EE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
-!355 = !{!354, !6, i64 0}
-!356 = distinct !{!356, !39}
+!353 = distinct !{!353, !39}
+!354 = !{!355, !6, i64 8}
+!355 = !{!"_ZTSNSt12_Vector_baseI15ContentFeaturesSaIS0_EE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
+!356 = !{!355, !6, i64 0}
 !357 = !{!114, !6, i64 192}
 !358 = !{!205, !41, i64 24}
 !359 = !{!167, !45, i64 12}

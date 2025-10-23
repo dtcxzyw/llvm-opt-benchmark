@@ -1091,8 +1091,8 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
   br label %.loopexit
 
 17:                                               ; preds = %14
-  %.4..4..4..sroa_idx79 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx79, align 4, !tbaa !57
+  %.4..4..4..sroa_idx88 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx88, align 4, !tbaa !57
   %18 = tail call i32 @llvm.bswap.i32(i32 %.4..4..4.55)
   br label %19
 
@@ -1117,28 +1117,32 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
 
 26:                                               ; preds = %23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49, i32 noundef %20) #8
-  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.8..8..8..sroa_idx77 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.12..12..12..sroa_idx78 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  br label %27
+  %.not69 = icmp eq i32 %20, 0
+  br i1 %.not69, label %.loopexit, label %.lr.ph
 
-27:                                               ; preds = %62, %26
-  %.022 = phi i32 [ 0, %26 ], [ %49, %62 ]
-  %.0 = phi i64 [ 8, %26 ], [ %44, %62 ]
-  %exitcond.not = icmp eq i32 %.022, %20
+.lr.ph:                                           ; preds = %26
+  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.8..8..8..sroa_idx86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.12..12..12..sroa_idx87 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br label %28
+
+27:                                               ; preds = %62
+  %exitcond.not = icmp eq i32 %49, %20
   br i1 %exitcond.not, label %.loopexit, label %28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %.lr.ph, %27
+  %.066 = phi i64 [ 8, %.lr.ph ], [ %44, %27 ]
+  %.02265 = phi i32 [ 0, %.lr.ph ], [ %49, %27 ]
   %29 = load i64, ptr %6, align 8, !tbaa !31
-  %or.cond.not = icmp ult i64 %.0, %29
+  %or.cond.not = icmp ult i64 %.066, %29
   br i1 %or.cond.not, label %30, label %fmap_readn.exit39.thread
 
 30:                                               ; preds = %28
-  %31 = sub nuw i64 %29, %.0
+  %31 = sub nuw i64 %29, %.066
   %spec.select.i36 = tail call i64 @llvm.umin.i64(i64 %31, i64 20)
   %32 = load ptr, ptr %9, align 8, !tbaa !33
-  %33 = tail call ptr %32(ptr noundef nonnull %5, i64 noundef %.0, i64 noundef %spec.select.i36, i32 noundef 0) #8
+  %33 = tail call ptr %32(ptr noundef nonnull %5, i64 noundef %.066, i64 noundef %spec.select.i36, i32 noundef 0) #8
   %.not26.i37 = icmp eq ptr %33, null
   br i1 %.not26.i37, label %fmap_readn.exit39.thread, label %fmap_readn.exit39
 
@@ -1166,16 +1170,16 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
   br label %.loopexit
 
 43:                                               ; preds = %fmap_readn.exit39
-  %44 = add nuw nsw i64 %.0, 20
+  %44 = add nuw nsw i64 %.066, 20
   %.8..8..8.41 = load i32, ptr %.8..8..8..sroa_idx, align 4
   %45 = tail call i32 @llvm.bswap.i32(i32 %.8..8..8.41)
   %46 = select i1 %13, i32 %.8..8..8.41, i32 %45
-  store i32 %46, ptr %.8..8..8..sroa_idx77, align 4, !tbaa !58
+  store i32 %46, ptr %.8..8..8..sroa_idx86, align 4, !tbaa !58
   %.12..12..12.48 = load i32, ptr %.12..12..12..sroa_idx, align 4
   %47 = tail call i32 @llvm.bswap.i32(i32 %.12..12..12.48)
   %48 = select i1 %13, i32 %.12..12..12.48, i32 %47
-  store i32 %48, ptr %.12..12..12..sroa_idx78, align 4, !tbaa !60
-  %49 = add nuw nsw i32 %.022, 1
+  store i32 %48, ptr %.12..12..12..sroa_idx87, align 4, !tbaa !60
+  %49 = add nuw nsw i32 %.02265, 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.51, i32 noundef %49, i32 noundef %20) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52, i32 noundef %46) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, i32 noundef %48) #8
@@ -1207,8 +1211,8 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
   %.not32 = icmp eq i32 %64, 0
   br i1 %.not32, label %27, label %.loopexit
 
-.loopexit:                                        ; preds = %27, %62, %58, %39, %19, %61, %42, %25, %16, %fmap_readn.exit.thread
-  %.020 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %25 ], [ 26, %42 ], [ 26, %61 ], [ 26, %16 ], [ 0, %19 ], [ 1, %39 ], [ 1, %58 ], [ 0, %27 ], [ %64, %62 ]
+.loopexit:                                        ; preds = %62, %27, %26, %58, %39, %19, %61, %42, %25, %16, %fmap_readn.exit.thread
+  %.020 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %25 ], [ 26, %42 ], [ 26, %61 ], [ 26, %16 ], [ 0, %19 ], [ 1, %39 ], [ 1, %58 ], [ 0, %26 ], [ %64, %62 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.020

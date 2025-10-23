@@ -194,20 +194,20 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end.
 do.cond.i:                                        ; preds = %do.body.i
   %dec.i = add i32 %start.0.i, -1
   %cmp6.not.i = icmp eq i32 %start.0.i, %l.addr.0.lcssa
-  br i1 %cmp6.not.i, label %while.cond.preheader.i, label %do.body.i, !llvm.loop !8
+  br i1 %cmp6.not.i, label %while.body.preheader.i, label %do.body.i, !llvm.loop !8
 
-while.cond.preheader.i:                           ; preds = %do.cond.i
+while.body.preheader.i:                           ; preds = %do.cond.i
   %conv.i.i = zext i32 %l.addr.0.lcssa to i64
-  br label %while.cond.i
+  br label %while.body.i
 
-while.cond.i:                                     ; preds = %if.end13.i, %while.cond.preheader.i
-  %end.addr.0.i = phi i32 [ %dec9.i, %if.end13.i ], [ %add, %while.cond.preheader.i ]
-  %sub7.i = sub i32 %end.addr.0.i, %l.addr.0.lcssa
+while.cond.i:                                     ; preds = %if.end13.i
+  %sub7.i = sub i32 %dec9.i, %l.addr.0.lcssa
   %cmp8.i = icmp ugt i32 %sub7.i, 1
-  br i1 %cmp8.i, label %while.body.i, label %return
+  br i1 %cmp8.i, label %while.body.i, label %return, !llvm.loop !9
 
-while.body.i:                                     ; preds = %while.cond.i
-  %dec9.i = add i32 %end.addr.0.i, -1
+while.body.i:                                     ; preds = %while.cond.i, %while.body.preheader.i
+  %end.addr.026.i = phi i32 [ %dec9.i, %while.cond.i ], [ %add, %while.body.preheader.i ]
+  %dec9.i = add i32 %end.addr.026.i, -1
   %vtable.i.i = load ptr, ptr %sm, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   %call.i.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i) #10
@@ -225,7 +225,10 @@ if.end13.i:                                       ; preds = %while.body.i
   store i32 %2, ptr %add.ptr.i4.i.i, align 4
   %call14.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef nonnull %sm, ptr noundef nonnull readonly align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i)
   %cmp15.i = icmp eq i32 %call14.i, 0
-  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !9
+  br i1 %cmp15.i, label %if.end13.return.loopexit_crit_edge.i, label %while.cond.i, !llvm.loop !9
+
+if.end13.return.loopexit_crit_edge.i:             ; preds = %if.end13.i
+  br label %return, !llvm.loop !9
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then71
   %limit.addr.0389 = phi i32 [ %limit.addr.0.ph396, %if.end.lr.ph ], [ %dec, %if.then71 ]
@@ -843,8 +846,8 @@ for.inc16.i303:                                   ; preds = %cond.true.i.i299, %
   %cmp1.not.i305 = icmp eq i32 %i.0.i304, %retval.sroa.6.0.i
   br i1 %cmp1.not.i305, label %return, label %for.cond2.preheader.i287, !llvm.loop !7
 
-return:                                           ; preds = %if.then83, %if.end33, %if.end19, %if.end6, %if.then31.i, %if.then41, %if.then27, %if.then13, %if.end, %if.then58, %if.end22.i, %for.body4.i249, %if.end10.i266, %for.body.i, %for.body9.i, %for.body4.i, %if.end10.i, %for.inc16.i221, %for.body4.i208, %if.end10.i225, %for.inc16.i303, %for.body4.i290, %if.end10.i307, %do.body.i, %if.end13.i, %while.body.i, %while.cond.i, %if.else73, %if.else102, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %if.else102 ], [ 1, %if.else73 ], [ 0, %if.end13.i ], [ 1, %while.cond.i ], [ 0, %while.body.i ], [ 0, %do.body.i ], [ 0, %if.end10.i307 ], [ 0, %for.body4.i290 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i225 ], [ 0, %for.body4.i208 ], [ 1, %for.inc16.i221 ], [ 0, %if.end10.i ], [ 0, %for.body4.i ], [ 0, %for.body9.i ], [ 0, %for.body.i ], [ 0, %if.end10.i266 ], [ 0, %for.body4.i249 ], [ 0, %if.end22.i ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.end33 ], [ 0, %if.then83 ]
+return:                                           ; preds = %if.then83, %if.end33, %if.end19, %if.end6, %if.then31.i, %if.then41, %if.then27, %if.then13, %if.end, %if.then58, %if.end22.i, %for.body4.i249, %if.end10.i266, %for.body.i, %for.body9.i, %for.body4.i, %if.end10.i, %for.inc16.i221, %for.body4.i208, %if.end10.i225, %for.inc16.i303, %for.body4.i290, %if.end10.i307, %do.body.i, %while.body.i, %while.cond.i, %if.else73, %if.else102, %if.end13.return.loopexit_crit_edge.i, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.end13.return.loopexit_crit_edge.i ], [ 1, %if.else102 ], [ 1, %if.else73 ], [ 0, %while.body.i ], [ 1, %while.cond.i ], [ 0, %do.body.i ], [ 0, %if.end10.i307 ], [ 0, %for.body4.i290 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i225 ], [ 0, %for.body4.i208 ], [ 1, %for.inc16.i221 ], [ 0, %if.end10.i ], [ 0, %for.body4.i ], [ 0, %for.body9.i ], [ 0, %for.body.i ], [ 0, %if.end10.i266 ], [ 0, %for.body4.i249 ], [ 0, %if.end22.i ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.end33 ], [ 0, %if.then83 ]
   ret i32 %retval.0
 }
 

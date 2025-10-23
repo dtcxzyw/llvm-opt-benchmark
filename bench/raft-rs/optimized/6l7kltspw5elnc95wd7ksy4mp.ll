@@ -1317,30 +1317,35 @@ define hidden noundef ptr @"_ZN66_$LT$slog_envlogger..EnvLogger$LT$T$GT$$u20$as$
   %.val = load ptr, ptr %20, align 8, !nonnull !12, !noundef !12
   %21 = getelementptr i8, ptr %0, i64 16
   %.val7 = load i64, ptr %21, align 8, !noundef !12
-  %22 = getelementptr inbounds nuw { { i64, [2 x i64] }, i8, [7 x i8] }, ptr %.val, i64 %.val7
-  br label %23
+  %22 = icmp eq i64 %.val7, 0
+  br i1 %22, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread", label %.lr.ph.preheader.i
 
-23:                                               ; preds = %28, %3
-  %.sroa.5.0.i = phi ptr [ %22, %3 ], [ %26, %28 ]
-  %24 = icmp eq ptr %.val, %.sroa.5.0.i
-  br i1 %24, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread", label %25
+.lr.ph.preheader.i:                               ; preds = %3
+  %.idx.i = shl nuw nsw i64 %.val7, 5
+  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
+  br label %.lr.ph.i
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -32
+24:                                               ; preds = %28
+  %25 = icmp eq ptr %.val, %26
+  br i1 %25, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread", label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
+  %.sroa.5.05.i = phi ptr [ %26, %24 ], [ %23, %.lr.ph.preheader.i ]
+  %26 = getelementptr inbounds i8, ptr %.sroa.5.05.i, i64 -32
   %27 = load i64, ptr %26, align 8, !range !41, !noalias !119, !noundef !12
   %.not5.i = icmp eq i64 %27, -9223372036854775808
   br i1 %.not5.i, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit", label %28
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -24
+28:                                               ; preds = %.lr.ph.i
+  %29 = getelementptr inbounds i8, ptr %.sroa.5.05.i, i64 -24
   %30 = load ptr, ptr %29, align 8, !noalias !119, !nonnull !12, !noundef !12
-  %31 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
+  %31 = getelementptr inbounds i8, ptr %.sroa.5.05.i, i64 -16
   %32 = load i64, ptr %31, align 8, !noalias !119, !noundef !12
   %33 = tail call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h23561a96f53ada5bE"(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %32)
-  br i1 %33, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit", label %23
+  br i1 %33, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit", label %24
 
-"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit": ; preds = %25, %28
-  %34 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -8
+"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit": ; preds = %.lr.ph.i, %28
+  %34 = getelementptr inbounds i8, ptr %.sroa.5.05.i, i64 -8
   %35 = load i8, ptr %34, align 8, !range !122, !noalias !119, !noundef !12
   %36 = icmp samesign ult i8 %14, %35
   br i1 %36, label %37, label %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread"
@@ -1351,8 +1356,8 @@ define hidden noundef ptr @"_ZN66_$LT$slog_envlogger..EnvLogger$LT$T$GT$$u20$as$
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %48, label %40
 
-"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread": ; preds = %23, %54, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit", %48
-  %.sroa.0.0 = phi ptr [ %51, %48 ], [ null, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit" ], [ null, %54 ], [ null, %23 ]
+"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread": ; preds = %24, %54, %3, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit", %48
+  %.sroa.0.0 = phi ptr [ %51, %48 ], [ null, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit" ], [ null, %3 ], [ null, %54 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 40:                                               ; preds = %37

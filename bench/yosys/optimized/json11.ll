@@ -3607,18 +3607,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
     i8 42, label %86
   ]
 
-.preheader.i:                                     ; preds = %79, %83
-  %storemerge.in69.i = phi i64 [ %storemerge.i, %83 ], [ %38, %79 ]
-  %storemerge.i = add i64 %storemerge.in69.i, 1
-  store i64 %storemerge.i, ptr %11, align 8, !tbaa !95
-  %82 = icmp ult i64 %storemerge.i, %40
-  br i1 %82, label %83, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
+.preheader.i:                                     ; preds = %79
+  %storemerge70.i = add i64 %34, 2
+  store i64 %storemerge70.i, ptr %11, align 8, !tbaa !95
+  %82 = icmp ult i64 %storemerge70.i, %40
+  br i1 %82, label %.lr.ph.i, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-83:                                               ; preds = %.preheader.i
-  %84 = getelementptr inbounds nuw i8, ptr %33, i64 %storemerge.i
+83:                                               ; preds = %.lr.ph.i
+  %storemerge.i = add nuw i64 %storemerge71.i, 1
+  store i64 %storemerge.i, ptr %11, align 8, !tbaa !95
+  %exitcond.not.i = icmp eq i64 %storemerge.i, %40
+  br i1 %exitcond.not.i, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %.lr.ph.i, !llvm.loop !138
+
+.lr.ph.i:                                         ; preds = %.preheader.i, %83
+  %storemerge71.i = phi i64 [ %storemerge.i, %83 ], [ %storemerge70.i, %.preheader.i ]
+  %84 = getelementptr inbounds nuw i8, ptr %33, i64 %storemerge71.i
   %85 = load i8, ptr %84, align 1, !tbaa !18
   %.not.i = icmp eq i8 %85, 10
-  br i1 %.not.i, label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %.preheader.i, !llvm.loop !138
+  br i1 %.not.i, label %..critedge.loopexit_crit_edge.i, label %83, !llvm.loop !138
 
 86:                                               ; preds = %79
   %87 = add i64 %34, 2
@@ -4000,8 +4006,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %.preheader.i, %83, %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i
-  %.06.i = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i ], [ true, %173 ], [ false, %31 ], [ true, %83 ], [ true, %.preheader.i ]
+..critedge.loopexit_crit_edge.i:                  ; preds = %.lr.ph.i
+  br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, !llvm.loop !138
+
+_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %83, %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i, %..critedge.loopexit_crit_edge.i
+  %.06.i = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i ], [ true, %173 ], [ false, %31 ], [ true, %..critedge.loopexit_crit_edge.i ], [ true, %.preheader.i ], [ true, %83 ]
   %213 = load i8, ptr %23, align 8, !tbaa !99, !range !101, !noundef !102
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %.loopexit, label %215

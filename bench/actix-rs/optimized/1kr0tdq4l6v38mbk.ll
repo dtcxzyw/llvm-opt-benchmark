@@ -5504,7 +5504,7 @@ define void @_ZN9actix_web7request15HttpRequestPool5clear17h05fc4c2a5dccbeffE(pt
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   invoke void @"_ZN4core3ptr57drop_in_place$LT$actix_web..request..HttpRequestInner$GT$17h4ae6078b2d45952eE.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(224) %17)
-          to label %.noexc.i unwind label %26, !noalias !984
+          to label %.noexc.i unwind label %27, !noalias !984
 
 .noexc.i:                                         ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -5522,23 +5522,24 @@ define void @_ZN9actix_web7request15HttpRequestPool5clear17h05fc4c2a5dccbeffE(pt
   %23 = icmp eq i64 %11, %8
   br i1 %23, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$alloc..rc..Rc$LT$actix_web..request..HttpRequestInner$GT$$u5d$$GT$17hbf08865e40507a4aE.exit.loopexit", label %.lr.ph.i
 
-24:                                               ; preds = %28, %26
-  %.1.i = phi i64 [ %11, %26 ], [ %30, %28 ]
-  %25 = icmp eq i64 %.1.i, %8
-  br i1 %25, label %36, label %28
+24:                                               ; preds = %.lr.ph10.i
+  %25 = add i64 %.18.i, 1
+  %26 = icmp eq i64 %25, %8
+  br i1 %26, label %.loopexit, label %.lr.ph10.i
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %24
+  %29 = icmp eq i64 %11, %8
+  br i1 %29, label %.loopexit, label %.lr.ph10.i
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds ptr, ptr %6, i64 %.1.i
-  %30 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..rc..Rc$LT$actix_web..request..HttpRequestInner$GT$$GT$17h04a2a33fc96f09d7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #31
+.lr.ph10.i:                                       ; preds = %27, %24
+  %.18.i = phi i64 [ %25, %24 ], [ %11, %27 ]
+  %30 = getelementptr inbounds ptr, ptr %6, i64 %.18.i
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..rc..Rc$LT$actix_web..request..HttpRequestInner$GT$$GT$17h04a2a33fc96f09d7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30) #31
           to label %24 unwind label %31
 
-31:                                               ; preds = %28
+31:                                               ; preds = %.lr.ph10.i
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
@@ -5558,11 +5559,11 @@ define void @_ZN9actix_web7request15HttpRequestPool5clear17h05fc4c2a5dccbeffE(pt
   store i64 %35, ptr %0, align 8, !noalias !994
   ret void
 
-36:                                               ; preds = %24
-  %37 = load i64, ptr %0, align 8, !noalias !1001, !noundef !4
-  %38 = add i64 %37, 1
-  store i64 %38, ptr %0, align 8, !noalias !1001
-  resume { ptr, i32 } %27
+.loopexit:                                        ; preds = %24, %27
+  %36 = load i64, ptr %0, align 8, !noalias !1001, !noundef !4
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %0, align 8, !noalias !1001
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -292,27 +292,37 @@ define noundef nonnull ptr @Extra_FileInTheSameDir(ptr noundef readonly captures
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @Extra_FileInTheSameDir.pBuffer, ptr nonnull align 1 %0, i64 %3, i1 false)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %5 = getelementptr inbounds nuw i8, ptr @Extra_FileInTheSameDir.pBuffer, i64 %4
-  br label %6
+  %.not14 = icmp slt i64 %4, 1
+  br i1 %.not14, label %._crit_edge19, label %.lr.ph.preheader
 
-6:                                                ; preds = %7, %2
-  %.pn = phi ptr [ %5, %2 ], [ %.0, %7 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 -1
+.lr.ph.preheader:                                 ; preds = %2
+  %.013 = getelementptr inbounds i8, ptr %5, i64 -1
+  br label %.lr.ph
+
+6:                                                ; preds = %.lr.ph
+  %.0 = getelementptr inbounds i8, ptr %.016, i64 -1
   %.not = icmp ult ptr %.0, @Extra_FileInTheSameDir.pBuffer
-  br i1 %.not, label %9, label %7
+  br i1 %.not, label %._crit_edge19, label %.lr.ph, !llvm.loop !11
 
-7:                                                ; preds = %6
-  %8 = load i8, ptr %.0, align 1, !tbaa !3
-  switch i8 %8, label %6 [
-    i8 92, label %9
-    i8 47, label %9
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %6
+  %.016 = phi ptr [ %.0, %6 ], [ %.013, %.lr.ph.preheader ]
+  %.pn15 = phi ptr [ %.016, %6 ], [ %5, %.lr.ph.preheader ]
+  %7 = load i8, ptr %.016, align 1, !tbaa !3
+  switch i8 %7, label %6 [
+    i8 92, label %._crit_edge
+    i8 47, label %._crit_edge
   ], !llvm.loop !11
 
-9:                                                ; preds = %7, %7, %6
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn, ptr nonnull align 1 %1, i64 %10, i1 false)
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
-  %12 = getelementptr inbounds nuw i8, ptr %.pn, i64 %11
-  store i8 0, ptr %12, align 1, !tbaa !3
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph
+  br label %._crit_edge19, !llvm.loop !11
+
+._crit_edge19:                                    ; preds = %6, %._crit_edge, %2
+  %.pn.lcssa = phi ptr [ %.pn15, %._crit_edge ], [ %5, %2 ], [ %.016, %6 ]
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn.lcssa, ptr nonnull align 1 %1, i64 %8, i1 false)
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
+  %10 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 %9
+  store i8 0, ptr %10, align 1, !tbaa !3
   ret ptr @Extra_FileInTheSameDir.pBuffer
 }
 

@@ -9887,7 +9887,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %20 = load ptr, ptr %3, align 8, !tbaa !38, !noalias !291
   %21 = load i64, ptr %8, align 8, !tbaa !41, !noalias !291
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %.idx.i.i = shl nuw nsw i64 %21, 2
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %23, ptr %6, align 8, !tbaa !10, !alias.scope !295
@@ -9895,16 +9896,20 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   store i64 0, ptr %24, align 8, !tbaa !17, !alias.scope !295
   store i8 0, ptr %23, align 8, !tbaa !16, !alias.scope !295
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %21)
-          to label %.preheader.i.i.i unwind label %30
+          to label %.preheader.i.preheader.i.i unwind label %30
 
-.preheader.i.i.i:                                 ; preds = %19, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
-  %.0.i.i.i = phi ptr [ %25, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i ], [ %20, %19 ]
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i, %22
-  br i1 %.not.i.i.i, label %_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
+.preheader.i.preheader.i.i:                       ; preds = %19
+  %.not.i3.i.i = icmp eq i64 %21, 0
+  br i1 %.not.i3.i.i, label %_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
 
-_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i: ; preds = %.preheader.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  %26 = load i32, ptr %.0.i.i.i, align 4, !tbaa !135, !noalias !292
+.preheader.i.i.i:                                 ; preds = %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i4.i.i, i64 4
+  %.not.i.i.i = icmp eq ptr %25, %22
+  br i1 %.not.i.i.i, label %_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i, !llvm.loop !296
+
+_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i: ; preds = %.preheader.i.preheader.i.i, %.preheader.i.i.i
+  %.0.i4.i.i = phi ptr [ %25, %.preheader.i.i.i ], [ %20, %.preheader.i.preheader.i.i ]
+  %26 = load i32, ptr %.0.i4.i.i, align 4, !tbaa !135, !noalias !292
   %27 = icmp ugt i32 %26, 1114111
   %28 = and i32 %26, 2095104
   %or.cond.i.i.i.i.i = icmp eq i32 %28, 55296
@@ -9935,7 +9940,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %38) #31
   br label %.body
 
-_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit: ; preds = %.preheader.i.i.i
+_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit: ; preds = %.preheader.i.i.i, %.preheader.i.preheader.i.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %39, ptr %5, align 8, !tbaa !10
   %40 = load ptr, ptr %6, align 8, !tbaa !14
@@ -11410,7 +11415,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
   %20 = load ptr, ptr %3, align 8, !tbaa !38, !noalias !335
   %21 = load i64, ptr %8, align 8, !tbaa !41, !noalias !335
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %.idx.i.i = shl nuw nsw i64 %21, 2
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %23, ptr %6, align 8, !tbaa !10, !alias.scope !339
@@ -11418,16 +11424,20 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   store i64 0, ptr %24, align 8, !tbaa !17, !alias.scope !339
   store i8 0, ptr %23, align 8, !tbaa !16, !alias.scope !339
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %21)
-          to label %.preheader.i.i.i unwind label %30
+          to label %.preheader.i.preheader.i.i unwind label %30
 
-.preheader.i.i.i:                                 ; preds = %19, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
-  %.0.i.i.i = phi ptr [ %25, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i ], [ %20, %19 ]
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i, %22
-  br i1 %.not.i.i.i, label %_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
+.preheader.i.preheader.i.i:                       ; preds = %19
+  %.not.i3.i.i = icmp eq i64 %21, 0
+  br i1 %.not.i3.i.i, label %_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
 
-_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i: ; preds = %.preheader.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  %26 = load i32, ptr %.0.i.i.i, align 4, !tbaa !135, !noalias !336
+.preheader.i.i.i:                                 ; preds = %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i4.i.i, i64 4
+  %.not.i.i.i = icmp eq ptr %25, %22
+  br i1 %.not.i.i.i, label %_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i, !llvm.loop !296
+
+_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i: ; preds = %.preheader.i.preheader.i.i, %.preheader.i.i.i
+  %.0.i4.i.i = phi ptr [ %25, %.preheader.i.i.i ], [ %20, %.preheader.i.preheader.i.i ]
+  %26 = load i32, ptr %.0.i4.i.i, align 4, !tbaa !135, !noalias !336
   %27 = icmp ugt i32 %26, 1114111
   %28 = and i32 %26, 2095104
   %or.cond.i.i.i.i.i = icmp eq i32 %28, 55296
@@ -11452,7 +11462,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i.i: ; preds 
   %36 = icmp eq ptr %35, %23
   br i1 %36, label %.body, label %.body.sink.split
 
-_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit: ; preds = %.preheader.i.i.i
+_ZN5boost6nowide6detail20maybe_convert_stringIcwvEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEERKNS4_IT0_S6_ISA_ESaISA_EEE.exit: ; preds = %.preheader.i.i.i, %.preheader.i.preheader.i.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %37, ptr %5, align 8, !tbaa !10
   %38 = load ptr, ptr %6, align 8, !tbaa !14

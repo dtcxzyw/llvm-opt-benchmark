@@ -2111,23 +2111,28 @@ invoke.cont:
   %it.sroa.0.0.in10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %it.sroa.0.011 = load ptr, ptr %it.sroa.0.0.in10, align 8
   %cmp.i.not12 = icmp eq ptr %1, %it.sroa.0.011
-  br i1 %cmp.i.not12, label %cleanup, label %for.body
+  br i1 %cmp.i.not12, label %cleanup, label %for.body.preheader
 
-invoke.cont5:                                     ; preds = %for.body
-  %inc = add nuw nsw i32 %i.013, 1
-  %it.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %it.sroa.0.014, i64 16
+for.body.preheader:                               ; preds = %invoke.cont
+  %cmp18 = icmp eq i32 %index, 0
+  br i1 %cmp18, label %invoke.cont7, label %invoke.cont5
+
+invoke.cont5:                                     ; preds = %for.body.preheader, %for.body
+  %i.01320 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %it.sroa.0.01419 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.011, %for.body.preheader ]
+  %it.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %it.sroa.0.01419, i64 16
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %1, %it.sroa.0.0
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
-for.body:                                         ; preds = %invoke.cont, %invoke.cont5
-  %it.sroa.0.014 = phi ptr [ %it.sroa.0.0, %invoke.cont5 ], [ %it.sroa.0.011, %invoke.cont ]
-  %i.013 = phi i32 [ %inc, %invoke.cont5 ], [ 0, %invoke.cont ]
-  %cmp = icmp eq i32 %i.013, %index
+for.body:                                         ; preds = %invoke.cont5
+  %inc = add nuw nsw i32 %i.01320, 1
+  %cmp = icmp eq i32 %inc, %index
   br i1 %cmp, label %invoke.cont7, label %invoke.cont5
 
-invoke.cont7:                                     ; preds = %for.body
-  %2 = load ptr, ptr %it.sroa.0.014, align 8
+invoke.cont7:                                     ; preds = %for.body, %for.body.preheader
+  %it.sroa.0.014.lcssa = phi ptr [ %it.sroa.0.011, %for.body.preheader ], [ %it.sroa.0.0, %for.body ]
+  %2 = load ptr, ptr %it.sroa.0.014.lcssa, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont5, %invoke.cont, %invoke.cont7

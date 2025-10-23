@@ -3997,8 +3997,8 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   br i1 %34, label %._crit_edge.thread, label %68
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.lcssa51 = phi i32 [ %33, %._crit_edge ], [ %11, %2 ]
-  %.lcssa2750 = phi i64 [ %32, %._crit_edge ], [ %10, %2 ]
+  %.lcssa57 = phi i32 [ %33, %._crit_edge ], [ %11, %2 ]
+  %.lcssa2756 = phi i64 [ %32, %._crit_edge ], [ %10, %2 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
@@ -4014,7 +4014,7 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   %42 = getelementptr inbounds i8, ptr %38, i64 -2
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
-  %45 = icmp eq i32 %.lcssa51, %44
+  %45 = icmp eq i32 %.lcssa57, %44
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %41
@@ -4045,7 +4045,7 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   br label %77
 
 .thread:                                          ; preds = %._crit_edge.thread, %41
-  %64 = trunc i64 %.lcssa2750 to i16
+  %64 = trunc i64 %.lcssa2756 to i16
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 100, i16 noundef zeroext %64, i32 noundef %66, i1 noundef zeroext false)
@@ -4072,29 +4072,36 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
   %80 = ptrtoint ptr %78 to i64
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %80, %81
-  %83 = lshr i64 %82, 3
-  %84 = and i64 %83, 4294967295
-  br label %85
+  %83 = lshr exact i64 %82, 3
+  %84 = trunc i64 %83 to i32
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph40.preheader, label %.loopexit
 
-85:                                               ; preds = %88, %77
-  %indvars.iv42 = phi i64 [ %89, %88 ], [ %84, %77 ]
-  %86 = trunc nuw i64 %indvars.iv42 to i32
-  %87 = icmp slt i32 %86, 1
-  br i1 %87, label %.loopexit, label %88
+.lr.ph40.preheader:                               ; preds = %77
+  %86 = and i64 %83, 2147483647
+  br label %.lr.ph40
 
-88:                                               ; preds = %85
-  %89 = add nsw i64 %indvars.iv42, -1
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds nuw %"class.pkpy::unique_ptr_128", ptr %90, i64 %89
+87:                                               ; preds = %.lr.ph40
+  %88 = icmp samesign ugt i64 %indvars.iv48, 1
+  br i1 %88, label %.lr.ph40, label %.loopexit, !llvm.loop !32
+
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %87
+  %indvars.iv48 = phi i64 [ %86, %.lr.ph40.preheader ], [ %indvars.iv.next49, %87 ]
+  %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds nuw %"class.pkpy::unique_ptr_128", ptr %89, i64 %indvars.iv.next49
+  %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 88
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(12) %92, ptr noundef %1)
-  br i1 %96, label %85, label %.loopexit, !llvm.loop !32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 88
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(12) %91, ptr noundef %1)
+  br i1 %95, label %87, label %..loopexit_crit_edge, !llvm.loop !32
 
-.loopexit:                                        ; preds = %21, %85, %88, %68
-  %.0 = phi i1 [ false, %68 ], [ %87, %88 ], [ %87, %85 ], [ false, %21 ]
+..loopexit_crit_edge:                             ; preds = %.lr.ph40
+  br label %.loopexit, !llvm.loop !32
+
+.loopexit:                                        ; preds = %21, %87, %77, %..loopexit_crit_edge, %68
+  %.0 = phi i1 [ false, %68 ], [ false, %..loopexit_crit_edge ], [ true, %77 ], [ true, %87 ], [ false, %21 ]
   ret i1 %.0
 }
 

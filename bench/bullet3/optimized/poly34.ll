@@ -925,11 +925,11 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %36 = fcmp olt float %35, 0x3E80000000000000
   br i1 %36, label %.loopexit, label %.preheader131
 
-.preheader:                                       ; preds = %49
+.lr.ph:                                           ; preds = %49
   %37 = fmul float %0, 4.000000e+00
   %38 = fmul float %1, 3.000000e+00
   %39 = fmul float %2, 2.000000e+00
-  br label %52
+  br label %55
 
 .preheader131:                                    ; preds = %34, %49
   %.1112139 = phi float [ %..1112, %49 ], [ %.0111, %34 ]
@@ -952,54 +952,57 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   %..1112 = select i1 %50, float %41, float %.1112139
   %51 = add nuw nsw i32 %.0126137, 1
   %exitcond.not = icmp eq i32 %51, 10
-  br i1 %exitcond.not, label %.preheader, label %.preheader131, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph, label %.preheader131, !llvm.loop !13
 
-52:                                               ; preds = %.preheader, %66
-  %.1127 = phi i32 [ %53, %66 ], [ 10, %.preheader ]
-  %.3120 = phi float [ %.3120..4, %66 ], [ %.1118., %.preheader ]
-  %.3114 = phi float [ %.4..3114, %66 ], [ %..1112, %.preheader ]
-  %.2 = phi float [ %.5, %66 ], [ %41, %.preheader ]
-  %.0 = phi float [ %.1, %66 ], [ 0.000000e+00, %.preheader ]
-  %53 = add nuw nsw i32 %.1127, 1
-  %exitcond143 = icmp eq i32 %.1127, 51
-  br i1 %exitcond143, label %.loopexit, label %54
+52:                                               ; preds = %68
+  %53 = fcmp ogt float %65, 0.000000e+00
+  %.4..3114 = select i1 %53, float %.4, float %.3114141
+  %.3120..4 = select i1 %53, float %.3120140, float %.4
+  %54 = add nuw nsw i32 %56, 1
+  %exitcond151 = icmp eq i32 %54, 52
+  br i1 %exitcond151, label %.loopexit, label %55, !llvm.loop !14
 
-54:                                               ; preds = %52
-  %55 = fcmp ugt float %.2, %.3120
-  %56 = fcmp ult float %.2, %.3114
-  %or.cond = select i1 %55, i1 %56, i1 false
-  %57 = fadd float %.3120, %.3114
-  %58 = fmul float %57, 5.000000e-01
-  %.4 = select i1 %or.cond, float %.2, float %58
-  %59 = fadd float %0, %.4
-  %60 = tail call float @llvm.fmuladd.f32(float %59, float %.4, float %1)
-  %61 = tail call float @llvm.fmuladd.f32(float %60, float %.4, float %2)
-  %62 = tail call float @llvm.fmuladd.f32(float %61, float %.4, float %3)
-  %63 = tail call float @llvm.fmuladd.f32(float %62, float %.4, float %4)
-  %64 = tail call noundef float @llvm.fabs.f32(float %63)
-  %65 = fcmp olt float %64, 0x3E80000000000000
-  br i1 %65, label %.loopexit, label %66
+55:                                               ; preds = %.lr.ph, %52
+  %56 = phi i32 [ 11, %.lr.ph ], [ %54, %52 ]
+  %.0143 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %52 ]
+  %.2142 = phi float [ %41, %.lr.ph ], [ %.5, %52 ]
+  %.3114141 = phi float [ %..1112, %.lr.ph ], [ %.4..3114, %52 ]
+  %.3120140 = phi float [ %.1118., %.lr.ph ], [ %.3120..4, %52 ]
+  %57 = fcmp ugt float %.2142, %.3120140
+  %58 = fcmp ult float %.2142, %.3114141
+  %or.cond = select i1 %57, i1 %58, i1 false
+  %59 = fadd float %.3120140, %.3114141
+  %60 = fmul float %59, 5.000000e-01
+  %.4 = select i1 %or.cond, float %.2142, float %60
+  %61 = fadd float %0, %.4
+  %62 = tail call float @llvm.fmuladd.f32(float %61, float %.4, float %1)
+  %63 = tail call float @llvm.fmuladd.f32(float %62, float %.4, float %2)
+  %64 = tail call float @llvm.fmuladd.f32(float %63, float %.4, float %3)
+  %65 = tail call float @llvm.fmuladd.f32(float %64, float %.4, float %4)
+  %66 = tail call noundef float @llvm.fabs.f32(float %65)
+  %67 = fcmp olt float %66, 0x3E80000000000000
+  br i1 %67, label %.loopexit, label %68
 
-66:                                               ; preds = %54
-  %67 = fcmp ogt float %63, 0.000000e+00
-  %.3120..4 = select i1 %67, float %.3120, float %.4
-  %.4..3114 = select i1 %67, float %.4, float %.3114
-  %68 = tail call float @llvm.fmuladd.f32(float %.4, float 5.000000e+00, float %37)
-  %69 = tail call float @llvm.fmuladd.f32(float %68, float %.4, float %38)
-  %70 = tail call float @llvm.fmuladd.f32(float %69, float %.4, float %39)
-  %71 = tail call float @llvm.fmuladd.f32(float %70, float %.4, float %3)
-  %72 = tail call noundef float @llvm.fabs.f32(float %71)
-  %73 = fcmp olt float %72, 0x3E80000000000000
-  %74 = fdiv float %63, %71
-  %75 = fsub float %.4, %74
-  %.5 = select i1 %73, float 0x7FF0000000000000, float %75
-  %.1 = select i1 %73, float %.0, float %74
-  %76 = tail call noundef float @llvm.fabs.f32(float %.1)
-  %77 = fcmp ogt float %76, 0x3E80000000000000
-  br i1 %77, label %52, label %.loopexit, !llvm.loop !14
+68:                                               ; preds = %55
+  %69 = tail call float @llvm.fmuladd.f32(float %.4, float 5.000000e+00, float %37)
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float %.4, float %38)
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %.4, float %39)
+  %72 = tail call float @llvm.fmuladd.f32(float %71, float %.4, float %3)
+  %73 = tail call noundef float @llvm.fabs.f32(float %72)
+  %74 = fcmp olt float %73, 0x3E80000000000000
+  %75 = fdiv float %65, %72
+  %76 = fsub float %.4, %75
+  %.5 = select i1 %74, float 0x7FF0000000000000, float %76
+  %.1 = select i1 %74, float %.0143, float %75
+  %77 = tail call noundef float @llvm.fabs.f32(float %.1)
+  %78 = fcmp ogt float %77, 0x3E80000000000000
+  br i1 %78, label %52, label %..loopexit_crit_edge, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.preheader131, %54, %52, %66, %32, %34, %5
-  %.0106 = phi float [ 0.000000e+00, %5 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.5, %66 ], [ %.2, %52 ], [ %.4, %54 ], [ %41, %.preheader131 ]
+..loopexit_crit_edge:                             ; preds = %68
+  br label %.loopexit, !llvm.loop !14
+
+.loopexit:                                        ; preds = %.preheader131, %52, %55, %..loopexit_crit_edge, %32, %34, %5
+  %.0106 = phi float [ 0.000000e+00, %5 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.5, %..loopexit_crit_edge ], [ %.5, %52 ], [ %.4, %55 ], [ %41, %.preheader131 ]
   ret float %.0106
 }
 

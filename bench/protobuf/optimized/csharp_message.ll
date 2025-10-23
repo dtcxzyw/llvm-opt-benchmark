@@ -10661,22 +10661,27 @@ entry:
   %sub.ptr.lhs.cast.i4 = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.sub.i5 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i
   %cmp6 = icmp sgt i64 %sub.ptr.sub.i5, 128
-  br i1 %cmp6, label %while.body, label %while.end
+  br i1 %cmp6, label %while.body.preheader, label %while.end
 
-while.body:                                       ; preds = %entry, %if.end
-  %__depth_limit.addr.08 = phi i64 [ %dec, %if.end ], [ %__depth_limit, %entry ]
-  %storemerge7 = phi ptr [ %call17, %if.end ], [ %__last.coerce, %entry ]
-  %cmp3 = icmp eq i64 %__depth_limit.addr.08, 0
-  br i1 %cmp3, label %if.then, label %if.end
+while.body.preheader:                             ; preds = %entry
+  %cmp312 = icmp eq i64 %__depth_limit, 0
+  br i1 %cmp312, label %if.then, label %if.end
 
-if.then:                                          ; preds = %while.body
-  tail call void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_T0_(ptr %__first.coerce, ptr %storemerge7, ptr %storemerge7, ptr %__comp.coerce)
+while.body:                                       ; preds = %if.end
+  %cmp3 = icmp eq i64 %dec, 0
+  br i1 %cmp3, label %if.then, label %if.end, !llvm.loop !328
+
+if.then:                                          ; preds = %while.body, %while.body.preheader
+  %storemerge7.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %call17, %while.body ]
+  tail call void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_T0_(ptr %__first.coerce, ptr %storemerge7.lcssa, ptr %storemerge7.lcssa, ptr %__comp.coerce)
   br label %while.end
 
-if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.08, -1
-  %call17 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEET_SH_SH_T0_(ptr %__first.coerce, ptr %storemerge7, ptr %__comp.coerce)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr %call17, ptr %storemerge7, i64 noundef %dec, ptr %__comp.coerce)
+if.end:                                           ; preds = %while.body.preheader, %while.body
+  %storemerge714 = phi ptr [ %call17, %while.body ], [ %__last.coerce, %while.body.preheader ]
+  %__depth_limit.addr.0813 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.preheader ]
+  %dec = add nsw i64 %__depth_limit.addr.0813, -1
+  %call17 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEET_SH_SH_T0_(ptr %__first.coerce, ptr %storemerge714, ptr %__comp.coerce)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr %call17, ptr %storemerge714, i64 noundef %dec, ptr %__comp.coerce)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 128

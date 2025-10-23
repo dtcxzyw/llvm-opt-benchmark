@@ -895,21 +895,25 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %.051.lcssa98 = phi i64 [ 0, %.preheader.thread ], [ %72, %.preheader ]
   %37 = and i64 %.050.lcssa99, %.049.lcssa100
   %38 = icmp eq i64 %37, %.051.lcssa98
-  br i1 %38, label %.loopexit, label %.lr.ph73
+  br i1 %38, label %.loopexit, label %.lr.ph73.preheader
 
-.lr.ph73:                                         ; preds = %.preheader.split.us, %61
-  %.0.us72 = phi i64 [ %62, %61 ], [ %1, %.preheader.split.us ]
-  %.1.us71 = phi i64 [ %56, %61 ], [ %.050.lcssa99, %.preheader.split.us ]
-  %39 = icmp eq i64 %.0.us72, %36
-  br i1 %39, label %.loopexit, label %40
+.lr.ph73.preheader:                               ; preds = %.preheader.split.us
+  %39 = icmp eq i64 %1, %36
+  br i1 %39, label %.loopexit, label %.lr.ph111
 
-40:                                               ; preds = %.lr.ph73
-  %41 = shl i64 %.1.us71, 8
+.lr.ph73:                                         ; preds = %61
+  %40 = icmp eq i64 %62, %36
+  br i1 %40, label %.loopexit, label %.lr.ph111
+
+.lr.ph111:                                        ; preds = %.lr.ph73.preheader, %.lr.ph73
+  %.1.us71110 = phi i64 [ %56, %.lr.ph73 ], [ %.050.lcssa99, %.lr.ph73.preheader ]
+  %.0.us72109 = phi i64 [ %62, %.lr.ph73 ], [ %1, %.lr.ph73.preheader ]
+  %41 = shl i64 %.1.us71110, 8
   %42 = load i64, ptr %35, align 16, !tbaa !17
   %.not60.us = icmp eq i64 %42, 0
   br i1 %.not60.us, label %50, label %43
 
-43:                                               ; preds = %40
+43:                                               ; preds = %.lr.ph111
   %44 = load ptr, ptr %34, align 16, !tbaa !19
   %45 = load i64, ptr %4, align 16, !tbaa !18
   %46 = load i64, ptr %33, align 8, !tbaa !20
@@ -918,7 +922,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %49 = load i8, ptr %48, align 1, !tbaa !8
   br label %52
 
-50:                                               ; preds = %40
+50:                                               ; preds = %.lr.ph111
   %51 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
   %.pre83 = load i64, ptr %4, align 16, !tbaa !18
   %.pre84 = load i64, ptr %35, align 16, !tbaa !17
@@ -943,7 +947,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %61
 
 61:                                               ; preds = %60, %59
-  %62 = add i64 %.0.us72, 1
+  %62 = add i64 %.0.us72109, 1
   %63 = and i64 %56, %.049.lcssa100
   %64 = icmp eq i64 %63, %.051.lcssa98
   br i1 %64, label %.loopexit, label %.lr.ph73
@@ -1063,8 +1067,8 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %125 = add i64 %.0, 1
   br label %.preheader.split
 
-.loopexit:                                        ; preds = %101, %97, %.lr.ph73, %61, %.preheader.split.us, %15, %3
-  %.054 = phi i64 [ %1, %3 ], [ -1, %15 ], [ %1, %.preheader.split.us ], [ %62, %61 ], [ -1, %.lr.ph73 ], [ %.0, %97 ], [ -1, %101 ]
+.loopexit:                                        ; preds = %101, %97, %61, %.lr.ph73, %.lr.ph73.preheader, %.preheader.split.us, %15, %3
+  %.054 = phi i64 [ %1, %3 ], [ -1, %15 ], [ %1, %.preheader.split.us ], [ -1, %.lr.ph73.preheader ], [ -1, %.lr.ph73 ], [ %62, %61 ], [ %.0, %97 ], [ -1, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.054
 }

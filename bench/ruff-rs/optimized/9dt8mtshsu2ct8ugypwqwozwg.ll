@@ -281,6 +281,10 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   %14 = icmp samesign eq i64 %2, 0
   br i1 %14, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread, label %15
 
+_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; preds = %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
+  br label %56
+
 15:                                               ; preds = %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
   %16 = getelementptr inbounds i8, ptr %10, i64 -1
   store ptr %16, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !58, !noalias !61
@@ -348,27 +352,25 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   %.sroa.4.1.i.ph.i.i.i = phi i32 [ %26, %25 ], [ %37, %33 ]
   %53 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i, 1114112
   tail call void @llvm.assume(i1 %53)
-  br label %.preheader.i.i.i.i
+  br label %54
 
-.preheader.i.i.i.i:                               ; preds = %54, %52
-  %.idx.i.i.i.i = phi i64 [ %.add.i.i.i.i, %54 ], [ 0, %52 ]
-  %.not.not.not.i.not.not.i.not.not.not.i.not.i.not.not.i = icmp eq i64 %.idx.i.i.i.i, 8
-  br i1 %.not.not.not.i.not.not.i.not.not.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread, label %54
-
-54:                                               ; preds = %.preheader.i.i.i.i
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i
-  %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 4
+54:                                               ; preds = %54, %52
+  %.idx12.i.i.i.i = phi i64 [ 0, %52 ], [ %.add.i.i.i.i, %54 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx12.i.i.i.i
   %.val4.i.i.i.i.i = load i32, ptr %.ptr.i.i.i.i, align 4, !range !73, !alias.scope !74, !noalias !79, !noundef !25
   %55 = icmp eq i32 %.val4.i.i.i.i.i, %.sroa.4.1.i.ph.i.i.i
-  br i1 %55, label %.split12, label %.preheader.i.i.i.i
+  %.add.i.i.i.i = add nuw nsw i64 %.idx12.i.i.i.i, 4
+  %.not.not.not.i.not.i.i.i.i = icmp eq i64 %.add.i.i.i.i, 8
+  %or.cond.i.i.i.i = select i1 %55, i1 true, i1 %.not.not.not.i.not.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit, label %54
 
-_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; preds = %.preheader.i.i.i.i, %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
+_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit: ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
-  br label %56
+  br i1 %55, label %.split12, label %56
 
-56:                                               ; preds = %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread, %.split12
-  %.sroa.5.sroa.4.0 = phi i32 [ %60, %.split12 ], [ undef, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread ]
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %.split12 ], [ null, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread ]
+56:                                               ; preds = %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit, %.split12
+  %.sroa.5.sroa.4.0 = phi i32 [ %60, %.split12 ], [ undef, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit ], [ undef, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %.split12 ], [ null, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit ], [ null, %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread ]
   %57 = add i32 %9, %3
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.0.0, ptr %58, align 8
@@ -385,8 +387,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; pr
   store i32 %57, ptr %.sroa.6.0..sroa_idx, align 4
   ret void
 
-.split12:                                         ; preds = %54
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
+.split12:                                         ; preds = %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit
   %59 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %8)
   %60 = add i32 %59, %3
   br label %56

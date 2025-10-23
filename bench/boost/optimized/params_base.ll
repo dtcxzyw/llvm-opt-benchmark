@@ -990,25 +990,29 @@ _ZN5boost4urls7grammar6detail11ci_is_equalINS_4core17basic_string_viewIcEENS0_11
   %49 = load i64, ptr %48, align 8, !tbaa !97
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 %49
   %51 = icmp samesign eq i64 %46, 0
-  br i1 %51, label %._crit_edge.i12, label %.lr.ph.i5
+  br i1 %51, label %._crit_edge.i12, label %.lr.ph.i5.preheader
+
+.lr.ph.i5.preheader:                              ; preds = %38
+  %52 = icmp samesign eq i64 %49, 0
+  br i1 %52, label %_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit, label %.lr.ph
 
 ._crit_edge.i12:                                  ; preds = %63, %38
   %.011.lcssa.i = phi ptr [ %44, %38 ], [ %66, %63 ]
-  %52 = icmp eq ptr %.011.lcssa.i, %50
+  %53 = icmp eq ptr %.011.lcssa.i, %50
   br label %_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit
 
-.lr.ph.i5:                                        ; preds = %38, %63
-  %.01114.i = phi ptr [ %66, %63 ], [ %44, %38 ]
-  %53 = icmp eq ptr %.01114.i, %50
-  br i1 %53, label %_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit, label %54
+.lr.ph.i5:                                        ; preds = %63
+  %54 = icmp eq ptr %66, %50
+  br i1 %54, label %_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit, label %.lr.ph, !llvm.loop !109
 
-54:                                               ; preds = %.lr.ph.i5
+.lr.ph:                                           ; preds = %.lr.ph.i5.preheader, %.lr.ph.i5
+  %.01114.i13 = phi ptr [ %66, %.lr.ph.i5 ], [ %44, %.lr.ph.i5.preheader ]
   %55 = call noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #15
   %56 = add i8 %55, -65
   %or.cond.i.i6 = icmp ult i8 %56, 26
   %57 = add nuw nsw i8 %55, 32
   %58 = select i1 %or.cond.i.i6, i8 %57, i8 %55
-  %59 = load i8, ptr %.01114.i, align 1, !tbaa !30
+  %59 = load i8, ptr %.01114.i13, align 1, !tbaa !30
   %60 = add i8 %59, -65
   %or.cond.i12.i = icmp ult i8 %60, 26
   %61 = add nuw nsw i8 %59, 32
@@ -1016,19 +1020,19 @@ _ZN5boost4urls7grammar6detail11ci_is_equalINS_4core17basic_string_viewIcEENS0_11
   %.not.i7 = icmp eq i8 %58, %62
   br i1 %.not.i7, label %63, label %_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit
 
-63:                                               ; preds = %54
+63:                                               ; preds = %.lr.ph
   %64 = load ptr, ptr %42, align 8, !tbaa !95
   %65 = load i8, ptr %64, align 1, !tbaa !30
   %.not.i.i9 = icmp eq i8 %65, 37
   %storemerge.v.i.i10 = select i1 %.not.i.i9, i64 3, i64 1
   %storemerge.i.i11 = getelementptr inbounds nuw i8, ptr %64, i64 %storemerge.v.i.i10
   store ptr %storemerge.i.i11, ptr %42, align 8, !tbaa !95
-  %66 = getelementptr inbounds nuw i8, ptr %.01114.i, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.01114.i13, i64 1
   %67 = icmp eq ptr %storemerge.i.i11, %47
   br i1 %67, label %._crit_edge.i12, label %.lr.ph.i5, !llvm.loop !109
 
-_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit: ; preds = %.lr.ph.i5, %54, %._crit_edge.i12
-  %.0.i8 = phi i1 [ %52, %._crit_edge.i12 ], [ false, %54 ], [ false, %.lr.ph.i5 ]
+_ZN5boost4urls7grammar6detail11ci_is_equalINS0_11decode_viewENS_4core17basic_string_viewIcEEEENSt9enable_ifIXoontsr3std14is_convertibleIT_S7_EE5valuentsr3std14is_convertibleIT0_S7_EE5valueEbE4typeERKS9_RKSA_.exit: ; preds = %.lr.ph, %.lr.ph.i5, %.lr.ph.i5.preheader, %._crit_edge.i12
+  %.0.i8 = phi i1 [ %53, %._crit_edge.i12 ], [ false, %.lr.ph.i5.preheader ], [ false, %.lr.ph.i5 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 

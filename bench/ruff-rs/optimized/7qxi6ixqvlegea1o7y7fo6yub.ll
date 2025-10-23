@@ -4703,22 +4703,24 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not = icmp eq i64 %1, %3
   br i1 %.not, label %.preheader.split, label %.loopexit
 
-.preheader.split:                                 ; preds = %4, %5
-  %.sroa.01.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
-  %exitcond.not = icmp eq i64 %.sroa.01.0, %1
-  br i1 %exitcond.not, label %.loopexit, label %5
+.preheader.split:                                 ; preds = %4
+  %.not11 = icmp eq i64 %1, 0
+  br i1 %.not11, label %.loopexit, label %.lr.ph
 
-5:                                                ; preds = %.preheader.split
-  %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.0
-  %.val = load i32, ptr %7, align 4, !noundef !3
-  %.val5 = load i32, ptr %8, align 4, !noundef !3
+.lr.ph:                                           ; preds = %.preheader.split, %.lr.ph
+  %.sroa.01.08 = phi i64 [ %7, %.lr.ph ], [ 0, %.preheader.split ]
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.01.08
+  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.08
+  %.val = load i32, ptr %5, align 4, !noundef !3
+  %.val5 = load i32, ptr %6, align 4, !noundef !3
   %.not6 = icmp eq i32 %.val, %.val5
-  br i1 %.not6, label %.preheader.split, label %.loopexit
+  %7 = add nuw i64 %.sroa.01.08, 1
+  %exitcond.not = icmp ne i64 %7, %1
+  %or.cond.not = select i1 %.not6, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %5, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %5 ]
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ %.not6, %.lr.ph ]
   ret i1 %.sroa.0.0
 }
 

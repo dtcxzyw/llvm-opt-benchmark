@@ -681,31 +681,18 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm3EEcvPjEv(ptr noundef no
 define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__icoP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_top___024root(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19216
-  br label %3
+  %3 = load i64, ptr %2, align 8
+  %4 = and i64 %3, 1
+  %.not.i5.not = icmp eq i64 %4, 0
+  br i1 %.not.i5.not, label %_Z31Vmycpu_top___024root___eval_icoP20Vmycpu_top___024root.exit, label %5
 
-3:                                                ; preds = %5, %1
-  %4 = phi i1 [ true, %1 ], [ false, %5 ]
-  %.0.i = phi i64 [ 0, %1 ], [ 1, %5 ]
-  br i1 %4, label %5, label %_ZNK12VlTriggerVecILm1EE3anyEv.exit
-
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %.0.i
-  %7 = load i64, ptr %6, align 8
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %3, label %8, !llvm.loop !5
-
-8:                                                ; preds = %5
-  %9 = load i64, ptr %2, align 8
-  %10 = and i64 %9, 1
-  %.not.i5 = icmp eq i64 %10, 0
-  br i1 %.not.i5, label %_ZNK12VlTriggerVecILm1EE3anyEv.exit, label %11
-
-11:                                               ; preds = %8
+5:                                                ; preds = %1
   tail call void @_Z42Vmycpu_top___024root___ico_sequent__TOP__0P20Vmycpu_top___024root(ptr noundef nonnull %0)
-  br label %_ZNK12VlTriggerVecILm1EE3anyEv.exit
+  br label %_Z31Vmycpu_top___024root___eval_icoP20Vmycpu_top___024root.exit
 
-_ZNK12VlTriggerVecILm1EE3anyEv.exit:              ; preds = %3, %11, %8
-  ret i1 %4
+_Z31Vmycpu_top___024root___eval_icoP20Vmycpu_top___024root.exit: ; preds = %5, %1
+  %.not.i = icmp ne i64 %3, 0
+  ret i1 %.not.i
 }
 
 declare void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #3
@@ -881,7 +868,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 78:                                               ; preds = %73
   %79 = add nsw i32 %storemerge562725, -1
   %80 = icmp eq i32 %storemerge562725, 0
-  br i1 %80, label %.loopexit719, label %73, !llvm.loop !7
+  br i1 %80, label %.loopexit719, label %73, !llvm.loop !5
 
 81:                                               ; preds = %66
   br i1 %.not558, label %322, label %82
@@ -909,7 +896,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 91:                                               ; preds = %86
   %92 = add nsw i32 %storemerge727, -1
   %93 = icmp eq i32 %storemerge727, 0
-  br i1 %93, label %.loopexit718, label %86, !llvm.loop !8
+  br i1 %93, label %.loopexit718, label %86, !llvm.loop !7
 
 94:                                               ; preds = %31
   %95 = and i32 %20, 2097152
@@ -1501,7 +1488,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 382:                                              ; preds = %377
   %383 = add nsw i32 %storemerge649729, -1
   %384 = icmp eq i32 %storemerge649729, 0
-  br i1 %384, label %.loopexit717, label %377, !llvm.loop !9
+  br i1 %384, label %.loopexit717, label %377, !llvm.loop !8
 
 385:                                              ; preds = %370
   br i1 %.not644, label %626, label %386
@@ -1527,7 +1514,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 395:                                              ; preds = %390
   %396 = add nsw i32 %storemerge645731, -1
   %397 = icmp eq i32 %storemerge645731, 0
-  br i1 %397, label %.loopexit, label %390, !llvm.loop !10
+  br i1 %397, label %.loopexit, label %390, !llvm.loop !9
 
 398:                                              ; preds = %337
   br i1 %.not583, label %436, label %399
@@ -12406,4 +12393,3 @@ attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

@@ -521,35 +521,36 @@ define internal i32 @do_generic_cmd(ptr noundef %0, ptr noundef %1) #0 {
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.28) #15
   unreachable
 
-.preheader:                                       ; preds = %6, %10
-  %.07.i = phi ptr [ %12, %10 ], [ %0, %6 ]
-  %.06.idx.i = phi i64 [ %.06.add.i, %10 ], [ 0, %6 ]
-  %exitcond.i = icmp eq i64 %.06.idx.i, 4
-  br i1 %exitcond.i, label %15, label %10
-
 10:                                               ; preds = %.preheader
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.06.idx.i
-  %11 = load i8, ptr %.06.ptr.i, align 1, !tbaa !9
-  %12 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  %13 = load i8, ptr %.07.i, align 1, !tbaa !9
-  %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %14 = icmp eq i8 %13, %11
-  br i1 %14, label %.preheader, label %skip_prefix.exit, !llvm.loop !22
+  %.065.add.i = add nuw nsw i64 %.065.idx.i, 1
+  %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.065.add.i
+  %11 = getelementptr inbounds nuw i8, ptr %.074.i, i64 1
+  %12 = load i8, ptr %.ptr.i, align 1, !tbaa !9
+  %exitcond.i = icmp eq i64 %.065.add.i, 4
+  br i1 %exitcond.i, label %16, label %.preheader, !llvm.loop !22
 
-skip_prefix.exit:                                 ; preds = %10
+.preheader:                                       ; preds = %6, %10
+  %13 = phi i8 [ %12, %10 ], [ 103, %6 ]
+  %.065.idx.i = phi i64 [ %.065.add.i, %10 ], [ 0, %6 ]
+  %.074.i = phi ptr [ %11, %10 ], [ %0, %6 ]
+  %14 = load i8, ptr %.074.i, align 1, !tbaa !9
+  %15 = icmp eq i8 %14, %13
+  br i1 %15, label %10, label %skip_prefix.exit, !llvm.loop !22
+
+skip_prefix.exit:                                 ; preds = %.preheader
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30) #15
   unreachable
 
-15:                                               ; preds = %.preheader
+16:                                               ; preds = %10
   %scevgep.i = getelementptr i8, ptr %0, i64 4
   store ptr %scevgep.i, ptr %3, align 16, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %5, ptr %16, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %17, align 16, !tbaa !4
-  %18 = call i32 @execv_git_cmd(ptr noundef nonnull %3) #14
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %5, ptr %17, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %18, align 16, !tbaa !4
+  %19 = call i32 @execv_git_cmd(ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %18
+  ret i32 %19
 }
 
 declare void @setup_path() local_unnamed_addr #5

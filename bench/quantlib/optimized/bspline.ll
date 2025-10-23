@@ -572,7 +572,12 @@ do.body113:                                       ; preds = %do.body70
 
 for.cond.preheader:                               ; preds = %do.body113
   %sub = add nsw i64 %sub.ptr.div.i, -1
-  br label %for.cond
+  %cmp159270.not = icmp eq i64 %sub, 0
+  br i1 %cmp159270.not, label %for.cond.cleanup, label %do.body160.preheader
+
+do.body160.preheader:                             ; preds = %for.cond.preheader
+  %.pre = load double, ptr %2, align 8, !tbaa !24
+  br label %do.body160
 
 if.then117:                                       ; preds = %do.body113
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream118)
@@ -717,18 +722,17 @@ ehcleanup154:                                     ; preds = %ehcleanup153, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream118)
   br label %ehcleanup207
 
-for.cond:                                         ; preds = %for.cond.preheader, %do.body160
-  %i.0 = phi i64 [ %add162, %do.body160 ], [ 0, %for.cond.preheader ]
-  %exitcond.not = icmp eq i64 %i.0, %sub
-  br i1 %exitcond.not, label %for.cond.cleanup, label %do.body160
+for.cond:                                         ; preds = %do.body160
+  %exitcond.not = icmp eq i64 %add162, %sub
+  br i1 %exitcond.not, label %for.cond.cleanup, label %do.body160, !llvm.loop !26
 
-for.cond.cleanup:                                 ; preds = %for.cond
+for.cond.cleanup:                                 ; preds = %for.cond, %for.cond.preheader
   ret void
 
-do.body160:                                       ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %2, i64 %i.0
-  %77 = load double, ptr %add.ptr.i, align 8, !tbaa !24
-  %add162 = add i64 %i.0, 1
+do.body160:                                       ; preds = %do.body160.preheader, %for.cond
+  %77 = phi double [ %78, %for.cond ], [ %.pre, %do.body160.preheader ]
+  %i.0271 = phi i64 [ %add162, %for.cond ], [ 0, %do.body160.preheader ]
+  %add162 = add nuw i64 %i.0271, 1
   %add.ptr.i148 = getelementptr inbounds nuw double, ptr %2, i64 %add162
   %78 = load double, ptr %add.ptr.i148, align 8, !tbaa !24
   %cmp164 = fcmp ugt double %77, %78

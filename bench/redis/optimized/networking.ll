@@ -14705,39 +14705,38 @@ define dso_local void @processEventsWhileBlocked() local_unnamed_addr #0 {
   %3 = load i32, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2392), align 8, !tbaa !276
   br label %5
 
-5:                                                ; preds = %6, %0
-  %.06 = phi i32 [ 4, %0 ], [ %7, %6 ]
-  %.not = icmp eq i32 %.06, 0
-  br i1 %.not, label %14, label %6
+5:                                                ; preds = %5, %0
+  %6 = phi i64 [ %.pre, %0 ], [ %11, %5 ]
+  %.068 = phi i32 [ 4, %0 ], [ %12, %5 ]
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8, !tbaa !277
+  %8 = tail call i32 @aeProcessEvents(ptr noundef %7, i32 noundef 29) #26
+  %9 = sext i32 %8 to i64
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2392), align 8, !tbaa !276
+  %11 = add nsw i64 %10, %9
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2392), align 8, !tbaa !276
+  %.not7 = icmp eq i64 %11, %6
+  %12 = add nsw i32 %.068, -1
+  %.not = icmp eq i32 %12, 0
+  %or.cond = select i1 %.not7, i1 true, i1 %.not
+  br i1 %or.cond, label %13, label %5
 
-6:                                                ; preds = %5
-  %7 = add nsw i32 %.06, -1
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2392), align 8, !tbaa !276
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8, !tbaa !277
-  %10 = tail call i32 @aeProcessEvents(ptr noundef %9, i32 noundef 29) #26
-  %11 = sext i32 %10 to i64
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2392), align 8, !tbaa !276
-  %13 = add nsw i64 %12, %11
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2392), align 8, !tbaa !276
-  %.not7 = icmp eq i64 %13, %8
-  br i1 %.not7, label %14, label %5
-
-14:                                               ; preds = %6, %5
+13:                                               ; preds = %5
   tail call void @whileBlockedCron() #26
-  %15 = load i32, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
-  %16 = add nsw i32 %15, -1
-  store i32 %16, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
-  %17 = icmp sgt i32 %15, 0
-  br i1 %17, label %19, label %18, !prof !5
+  %14 = load i32, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
+  %15 = add nsw i32 %14, -1
+  store i32 %15, ptr @ProcessingEventsWhileBlocked, align 4, !tbaa !15
+  %16 = icmp sgt i32 %14, 0
+  br i1 %16, label %18, label %17, !prof !5
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   tail call void @_serverAssert(ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.1, i32 noundef 4492) #26
   tail call void @abort() #27
   unreachable
 
-19:                                               ; preds = %14
+18:                                               ; preds = %13
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7824), align 8, !tbaa !275
   ret void
 }

@@ -6797,27 +6797,29 @@ define internal noundef zeroext i1 @_ZN5bytes5bytes16static_is_unique17h27d008ef
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_vectored17h03e14a812d5dccd6E(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readnone align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %2, i64 %3
-  br label %6
+  %.idx = shl nuw nsw i64 %3, 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %6 = icmp eq i64 %3, 0
+  br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8cf7ae636100ae5dE.exit", label %.lr.ph
 
-6:                                                ; preds = %9, %4
-  %7 = phi ptr [ %10, %9 ], [ %2, %4 ]
-  %8 = icmp eq ptr %7, %5
-  br i1 %8, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8cf7ae636100ae5dE.exit", label %9
+7:                                                ; preds = %.lr.ph
+  %8 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %9 = icmp eq ptr %8, %5
+  br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8cf7ae636100ae5dE.exit", label %.lr.ph
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = getelementptr i8, ptr %7, i64 8
+.lr.ph:                                           ; preds = %4, %7
+  %10 = phi ptr [ %8, %7 ], [ %2, %4 ]
+  %11 = getelementptr i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !448, !noundef !8
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %6, label %13
+  br i1 %.not.i, label %7, label %13
 
-13:                                               ; preds = %9
+13:                                               ; preds = %.lr.ph
   %14 = inttoptr i64 %12 to ptr
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8cf7ae636100ae5dE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h8cf7ae636100ae5dE.exit": ; preds = %6, %13
-  %.sroa.3.0.i = phi ptr [ %14, %13 ], [ null, %6 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h8cf7ae636100ae5dE.exit": ; preds = %7, %4, %13
+  %.sroa.3.0.i = phi ptr [ %14, %13 ], [ null, %4 ], [ null, %7 ]
   %15 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.3.0.i, 1
   ret { i64, ptr } %15
 }

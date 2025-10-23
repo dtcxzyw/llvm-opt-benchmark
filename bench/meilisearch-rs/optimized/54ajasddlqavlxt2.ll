@@ -2275,7 +2275,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..in_pla
   %13 = add nuw i64 %.sroa.0.07.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !253
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
-          to label %.noexc.i.i unwind label %24, !noalias !250
+          to label %.noexc.i.i unwind label %25, !noalias !250
 
 .noexc.i.i:                                       ; preds = %11
   %14 = load i64, ptr %9, align 8, !range !98, !noalias !253, !noundef !4
@@ -2297,29 +2297,30 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..in_pla
   %21 = icmp eq i64 %13, %7
   br i1 %21, label %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h23ec8b681ee2b602E.exit.i", label %11
 
-22:                                               ; preds = %26, %24
-  %.sroa.0.1.i.i = phi i64 [ %13, %24 ], [ %28, %26 ]
-  %23 = icmp eq i64 %.sroa.0.1.i.i, %7
-  br i1 %23, label %.body.i, label %26
+22:                                               ; preds = %.lr.ph10.i.i
+  %23 = add i64 %.sroa.0.18.i.i, 1
+  %24 = icmp eq i64 %23, %7
+  br i1 %24, label %.body.i, label %.lr.ph10.i.i
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %11
+  %26 = landingpad { ptr, i32 }
           cleanup
-  br label %22
+  %27 = icmp eq i64 %13, %7
+  br i1 %27, label %.body.i, label %.lr.ph10.i.i
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.1.i.i
-  %28 = add i64 %.sroa.0.1.i.i, 1
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #24
+.lr.ph10.i.i:                                     ; preds = %25, %22
+  %.sroa.0.18.i.i = phi i64 [ %23, %22 ], [ %13, %25 ]
+  %28 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.18.i.i
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #24
           to label %22 unwind label %29, !noalias !250
 
-29:                                               ; preds = %26
+29:                                               ; preds = %.lr.ph10.i.i
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #25, !noalias !250
   unreachable
 
-.body.i:                                          ; preds = %22
+.body.i:                                          ; preds = %22, %25
   %31 = icmp eq i64 %5, 0
   br i1 %31, label %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..string..String$GT$$GT$17hc86612f60ea115c0E.exit.i", label %32
 
@@ -2338,7 +2339,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..in_pla
   br label %"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h29e10dfd413a4181E.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..string..String$GT$$GT$17hc86612f60ea115c0E.exit.i": ; preds = %32, %.body.i
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %26
 
 "_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h29e10dfd413a4181E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h23ec8b681ee2b602E.exit.i", %35
   ret void

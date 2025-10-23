@@ -8463,8 +8463,8 @@ define linkonce_odr void @_ZN7rocksdb11TableReader8MultiGetERKNS_11ReadOptionsEP
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
   %storemerge.lcssa.i.i = phi i64 [ %8, %5 ], [ %storemerge3.i.i, %21 ]
-  %.not17 = icmp eq i64 %storemerge.lcssa.i.i, %11
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i64 %storemerge.lcssa.i.i, %11
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 3584
@@ -8478,13 +8478,13 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %35
 
-._crit_edge:                                      ; preds = %24, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
+._crit_edge:                                      ; preds = %24, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %73, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
   ret void
 
 35:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
-  %.sroa.8.018 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %.sroa.8.019 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.018
+  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.019
   %37 = load ptr, ptr %36, align 8, !tbaa !476
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 160
@@ -8547,32 +8547,37 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = load i64, ptr %10, align 8, !tbaa !463
-  %64 = add i64 %.sroa.8.018, 1
-  %umax.i = call i64 @llvm.umax.i64(i64 %63, i64 %64)
-  %65 = add i64 %umax.i, -1
-  br label %66
+  %64 = add i64 %.sroa.8.019, 1
+  %65 = icmp ult i64 %64, %63
+  br i1 %65, label %.lr.ph.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
 
-66:                                               ; preds = %68, %_ZN7rocksdb6StatusD2Ev.exit
-  %67 = phi i64 [ %69, %68 ], [ %.sroa.8.018, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %exitcond.not = icmp eq i64 %67, %65
-  br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %68
+.lr.ph.i:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit
+  %66 = load ptr, ptr %2, align 8, !tbaa !462
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 3848
+  %68 = load i64, ptr %67, align 8, !tbaa !464
+  %69 = load i64, ptr %33, align 8, !tbaa !473
+  %70 = or i64 %69, %68
+  %71 = load i64, ptr %34, align 8, !tbaa !474
+  %72 = or i64 %70, %71
+  br label %75
 
-68:                                               ; preds = %66
-  %69 = add i64 %67, 1
-  %70 = shl nuw i64 1, %69
-  %71 = load ptr, ptr %2, align 8, !tbaa !462
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 3848
-  %73 = load i64, ptr %72, align 8, !tbaa !464
-  %74 = load i64, ptr %33, align 8, !tbaa !473
-  %75 = or i64 %74, %73
-  %76 = load i64, ptr %34, align 8, !tbaa !474
-  %77 = or i64 %75, %76
-  %78 = and i64 %77, %70
+73:                                               ; preds = %75
+  %74 = add nuw i64 %76, 1
+  %exitcond.not.i = icmp eq i64 %74, %63
+  br i1 %exitcond.not.i, label %._crit_edge, label %75, !llvm.loop !502
+
+75:                                               ; preds = %73, %.lr.ph.i
+  %76 = phi i64 [ %64, %.lr.ph.i ], [ %74, %73 ]
+  %77 = shl nuw i64 1, %76
+  %78 = and i64 %77, %72
   %.not.i6 = icmp eq i64 %78, 0
-  br i1 %.not.i6, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %66, !llvm.loop !502
+  br i1 %.not.i6, label %..critedge_crit_edge1.i, label %73, !llvm.loop !502
 
-_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %66, %68
-  %.lcssa.i = phi i64 [ %umax.i, %66 ], [ %69, %68 ]
+..critedge_crit_edge1.i:                          ; preds = %75
+  br label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, !llvm.loop !502
+
+_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %..critedge_crit_edge1.i
+  %.lcssa.i = phi i64 [ %76, %..critedge_crit_edge1.i ], [ %64, %_ZN7rocksdb6StatusD2Ev.exit ]
   %.not = icmp eq i64 %.lcssa.i, %63
   br i1 %.not, label %._crit_edge, label %35, !llvm.loop !503
 }
@@ -13984,9 +13989,6 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #30
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #30
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -13994,6 +13996,9 @@ declare i64 @llvm.smax.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #30
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { inlinehint uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

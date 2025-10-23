@@ -264,68 +264,72 @@ _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__
   %phi.call3037 = getelementptr inbounds nuw i64, ptr %52, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq i64 %50, 0
   br label %.split
 
 .split.loopexit:                                  ; preds = %.lr.ph47, %._crit_edge40
   br label %.split, !llvm.loop !16
 
 .split:                                           ; preds = %.split.loopexit, %42
-  %.1 = phi i64 [ 0, %42 ], [ %59, %.split.loopexit ]
-  %55 = load i64, ptr %51, align 8, !tbaa !10
-  %56 = add i64 %55, 1
-  store i64 %56, ptr %51, align 8, !tbaa !10
-  %57 = load i64, ptr %phi.call3037, align 8, !tbaa !10
-  %58 = icmp ult i64 %56, %57
-  br i1 %58, label %._crit_edge40, label %.lr.ph39
+  %.1 = phi i64 [ 0, %42 ], [ %60, %.split.loopexit ]
+  %56 = load i64, ptr %51, align 8, !tbaa !10
+  %57 = add i64 %56, 1
+  store i64 %57, ptr %51, align 8, !tbaa !10
+  %58 = load i64, ptr %phi.call3037, align 8, !tbaa !10
+  %59 = icmp ult i64 %57, %58
+  br i1 %59, label %._crit_edge40, label %.lr.ph39.preheader
+
+.lr.ph39.preheader:                               ; preds = %.split
+  br i1 %55, label %.thread, label %.split29
 
 ._crit_edge40:                                    ; preds = %.split29, %.split
-  %.025.lcssa = phi i64 [ %50, %.split ], [ %74, %.split29 ]
-  %59 = add i64 %.1, 1
-  %60 = getelementptr inbounds nuw i64, ptr %40, i64 %.1
-  %61 = load i64, ptr %60, align 8, !tbaa !10
-  %62 = getelementptr inbounds nuw i64, ptr %54, i64 %.025.lcssa
-  %63 = load i64, ptr %62, align 8, !tbaa !10
-  %64 = add i64 %63, %61
-  %65 = getelementptr inbounds nuw i64, ptr %40, i64 %59
-  store i64 %64, ptr %65, align 8, !tbaa !10
+  %.025.lcssa = phi i64 [ %50, %.split ], [ %75, %.split29 ]
+  %60 = add i64 %.1, 1
+  %61 = getelementptr inbounds nuw i64, ptr %40, i64 %.1
+  %62 = load i64, ptr %61, align 8, !tbaa !10
+  %63 = getelementptr inbounds nuw i64, ptr %54, i64 %.025.lcssa
+  %64 = load i64, ptr %63, align 8, !tbaa !10
+  %65 = add i64 %64, %62
+  %66 = getelementptr inbounds nuw i64, ptr %40, i64 %60
+  store i64 %65, ptr %66, align 8, !tbaa !10
   %.02442 = add i64 %.025.lcssa, 1
   %.not3143 = icmp eq i64 %.02442, %49
   br i1 %.not3143, label %.split.loopexit, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %._crit_edge40, %.lr.ph47
   %.02445 = phi i64 [ %.024, %.lr.ph47 ], [ %.02442, %._crit_edge40 ]
-  %storemerge44 = phi i64 [ %72, %.lr.ph47 ], [ %64, %._crit_edge40 ]
-  %66 = getelementptr inbounds nuw i64, ptr %54, i64 %.02445
-  %67 = load i64, ptr %66, align 8, !tbaa !10
-  %68 = getelementptr inbounds nuw i64, ptr %52, i64 %.02445
-  %69 = load i64, ptr %68, align 8, !tbaa !10
-  %70 = add i64 %69, -1
-  %71 = mul i64 %70, %67
-  %72 = sub i64 %storemerge44, %71
-  store i64 %72, ptr %65, align 8, !tbaa !10
+  %storemerge44 = phi i64 [ %73, %.lr.ph47 ], [ %65, %._crit_edge40 ]
+  %67 = getelementptr inbounds nuw i64, ptr %54, i64 %.02445
+  %68 = load i64, ptr %67, align 8, !tbaa !10
+  %69 = getelementptr inbounds nuw i64, ptr %52, i64 %.02445
+  %70 = load i64, ptr %69, align 8, !tbaa !10
+  %71 = add i64 %70, -1
+  %72 = mul i64 %71, %68
+  %73 = sub i64 %storemerge44, %72
+  store i64 %73, ptr %66, align 8, !tbaa !10
   %.024 = add i64 %.02445, 1
   %.not31 = icmp eq i64 %.024, %49
   br i1 %.not31, label %.split.loopexit, label %.lr.ph47, !llvm.loop !17
 
-.lr.ph39:                                         ; preds = %.split, %.split29
-  %.02538 = phi i64 [ %74, %.split29 ], [ %50, %.split ]
-  %73 = icmp eq i64 %.02538, 0
-  br i1 %73, label %.thread, label %.split29
+.lr.ph39:                                         ; preds = %.split29
+  %74 = icmp eq i64 %75, 0
+  br i1 %74, label %.thread, label %.split29, !llvm.loop !18
 
-.split29:                                         ; preds = %.lr.ph39
-  %74 = add i64 %.02538, -1
-  %75 = getelementptr inbounds nuw i64, ptr %45, i64 %.02538
-  store i64 0, ptr %75, align 8, !tbaa !10
-  %76 = getelementptr inbounds nuw i64, ptr %45, i64 %74
-  %77 = load i64, ptr %76, align 8, !tbaa !10
-  %78 = add i64 %77, 1
-  store i64 %78, ptr %76, align 8, !tbaa !10
-  %phi.call30 = getelementptr inbounds nuw i64, ptr %52, i64 %74
-  %79 = load i64, ptr %phi.call30, align 8, !tbaa !10
-  %80 = icmp ult i64 %78, %79
-  br i1 %80, label %._crit_edge40, label %.lr.ph39, !llvm.loop !18
+.split29:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
+  %.0253857 = phi i64 [ %75, %.lr.ph39 ], [ %50, %.lr.ph39.preheader ]
+  %75 = add i64 %.0253857, -1
+  %76 = getelementptr inbounds nuw i64, ptr %45, i64 %.0253857
+  store i64 0, ptr %76, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw i64, ptr %45, i64 %75
+  %78 = load i64, ptr %77, align 8, !tbaa !10
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %77, align 8, !tbaa !10
+  %phi.call30 = getelementptr inbounds nuw i64, ptr %52, i64 %75
+  %80 = load i64, ptr %phi.call30, align 8, !tbaa !10
+  %81 = icmp ult i64 %79, %80
+  br i1 %81, label %._crit_edge40, label %.lr.ph39, !llvm.loop !18
 
-.thread:                                          ; preds = %.lr.ph39, %_ZNSt3__18valarrayImE6resizeEmm.exit
+.thread:                                          ; preds = %.lr.ph39.preheader, %.lr.ph39, %_ZNSt3__18valarrayImE6resizeEmm.exit
   call void @_ZNSt3__18valarrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

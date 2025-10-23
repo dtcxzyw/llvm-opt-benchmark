@@ -1077,21 +1077,22 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0443a2c9cf08ba78E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %1, i64 %2
-  br label %5
+  %.idx = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.not.not.not.i3.not = icmp eq i64 %2, 0
+  br i1 %.not.not.not.i3.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit", label %.lr.ph
 
-5:                                                ; preds = %7, %3
-  %6 = phi ptr [ %8, %7 ], [ %1, %3 ]
-  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.not.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit"
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %5 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
+  %6 = tail call noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h745857070c73a145E.llvm.14531926216617506853"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !213
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.not.not.not.i.not = icmp eq ptr %7, %4
+  %or.cond = select i1 %6, i1 true, i1 %.not.not.not.i.not
+  br i1 %or.cond, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit", label %.lr.ph
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %9 = tail call noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h745857070c73a145E.llvm.14531926216617506853"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !213
-  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit", label %5
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit": ; preds = %5, %7
-  ret i1 %.not.not.not.i.not.not.not.not.not
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e47f5b69ef4f655E.llvm.14531926216617506853.exit": ; preds = %.lr.ph, %3
+  %.not.not.not.i.lcssa = phi i1 [ false, %3 ], [ %6, %.lr.ph ]
+  ret i1 %.not.not.not.i.lcssa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -227,39 +227,46 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17hab4d9df25472426eE(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
-  br label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i"
+  %6 = icmp eq ptr %0, %1
+  br i1 %6, label %.loopexit.i, label %.lr.ph.i.i.i.i
 
-"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i": ; preds = %10, %4
-  %.sroa.06.0.i = phi ptr [ %2, %4 ], [ %12, %10 ]
-  %6 = phi ptr [ %0, %4 ], [ %11, %10 ]
-  %7 = icmp eq ptr %6, %1
-  br i1 %7, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb65e72d48d4af297E.exit.i, label %8
+.lr.ph.i.i.i.i:                                   ; preds = %4
+  %7 = icmp ne ptr %3, null
+  tail call void @llvm.assume(i1 %7)
+  br label %10
 
-8:                                                ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i"
-  %9 = icmp eq ptr %.sroa.06.0.i, %3
-  br i1 %9, label %_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit, label %10
+"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i": ; preds = %14
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 24
+  %9 = icmp eq ptr %12, %1
+  br i1 %9, label %.loopexit.i, label %10
 
-10:                                               ; preds = %8
-  %.val8.i.i.i.i = load i8, ptr %6, align 1, !range !3, !noalias !32, !noundef !7
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 24
-  %13 = tail call noundef range(i8 0, 7) i8 @"_ZN71_$LT$wasmi..value..Val$u20$as$u20$wasmi..func..ty..DynamicallyTyped$GT$2ty17h41fa0523649a52cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.06.0.i), !noalias !42
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %.val8.i.i.i.i, %13
+10:                                               ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i", %.lr.ph.i.i.i.i
+  %.sroa.06.0.i = phi ptr [ %2, %.lr.ph.i.i.i.i ], [ %8, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i" ]
+  %11 = phi ptr [ %0, %.lr.ph.i.i.i.i ], [ %12, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i" ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %13 = icmp eq ptr %.sroa.06.0.i, %3
+  br i1 %13, label %_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit, label %14
+
+14:                                               ; preds = %10
+  %.val8.i.i.i.i = load i8, ptr %11, align 1, !range !3, !noalias !32, !noundef !7
+  %15 = tail call noundef range(i8 0, 7) i8 @"_ZN71_$LT$wasmi..value..Val$u20$as$u20$wasmi..func..ty..DynamicallyTyped$GT$2ty17h41fa0523649a52cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.06.0.i), !noalias !42
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %.val8.i.i.i.i, %15
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i", label %_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb65e72d48d4af297E.exit.i: ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i"
-  %14 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = icmp eq ptr %.sroa.06.0.i, %3
-  br i1 %15, label %_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i"
+.loopexit.i:                                      ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i", %4
+  %.sroa.06.1.ph.i = phi ptr [ %2, %4 ], [ %8, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76e21895ae3b2a48E.exit.i.i.i.i" ]
+  %16 = icmp ne ptr %3, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = icmp eq ptr %.sroa.06.1.ph.i, %3
+  br i1 %17, label %_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb65e72d48d4af297E.exit.i
-  %16 = tail call noundef range(i8 0, 7) i8 @"_ZN71_$LT$wasmi..value..Val$u20$as$u20$wasmi..func..ty..DynamicallyTyped$GT$2ty17h41fa0523649a52cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.06.0.i), !noalias !45
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i": ; preds = %.loopexit.i
+  %18 = tail call noundef range(i8 0, 7) i8 @"_ZN71_$LT$wasmi..value..Val$u20$as$u20$wasmi..func..ty..DynamicallyTyped$GT$2ty17h41fa0523649a52cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.06.1.ph.i), !noalias !45
   br label %_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit
 
-_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit: ; preds = %8, %10, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb65e72d48d4af297E.exit.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i"
-  %17 = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i" ], [ true, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb65e72d48d4af297E.exit.i ], [ false, %10 ], [ false, %8 ]
-  ret i1 %17
+_ZN4core4iter6traits8iterator12iter_compare17h73d26c46702cb7bbE.exit: ; preds = %10, %14, %.loopexit.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i"
+  %19 = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6c49aa998df10ceE.exit.i" ], [ true, %.loopexit.i ], [ false, %14 ], [ false, %10 ]
+  ret i1 %19
 }
 
 ; Function Attrs: nonlazybind uwtable

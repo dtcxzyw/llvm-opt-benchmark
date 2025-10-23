@@ -985,35 +985,41 @@ addbyter.exit50:                                  ; preds = %32, %28
   %389 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 326, ptr noundef nonnull %10, double noundef %388) #12
   %390 = load i8, ptr %9, align 16, !tbaa !14
   %.not24.i457 = icmp eq i8 %390, 0
-  br i1 %.not24.i457, label %addbyter.exit.thread323, label %.lr.ph463
+  br i1 %.not24.i457, label %addbyter.exit.thread323, label %.lr.ph463.preheader
 
-addbyter.exit.thread323:                          ; preds = %393, %386
-  %.sroa.51.6.lcssa = phi i64 [ %.sroa.51.4, %386 ], [ %395, %393 ]
-  %.sroa.0.6.lcssa = phi ptr [ %.sroa.0.4, %386 ], [ %394, %393 ]
-  %.30.i.lcssa = phi i32 [ %.1357.i, %386 ], [ %396, %393 ]
+.lr.ph463.preheader:                              ; preds = %386
+  %391 = icmp ult i64 %.sroa.51.4, %1
+  br i1 %391, label %.lr.ph1026, label %addbyter.exit
+
+addbyter.exit.thread323:                          ; preds = %.lr.ph1026, %386
+  %.sroa.51.6.lcssa = phi i64 [ %.sroa.51.4, %386 ], [ %395, %.lr.ph1026 ]
+  %.sroa.0.6.lcssa = phi ptr [ %.sroa.0.4, %386 ], [ %394, %.lr.ph1026 ]
+  %.30.i.lcssa = phi i32 [ %.1357.i, %386 ], [ %396, %.lr.ph1026 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %addbyter.exit48.thread338
 
-.lr.ph463:                                        ; preds = %386, %393
-  %391 = phi i8 [ %398, %393 ], [ %390, %386 ]
-  %.8337.i461 = phi ptr [ %397, %393 ], [ %9, %386 ]
-  %.30.i460 = phi i32 [ %396, %393 ], [ %.1357.i, %386 ]
-  %.sroa.0.6459 = phi ptr [ %394, %393 ], [ %.sroa.0.4, %386 ]
-  %.sroa.51.6458 = phi i64 [ %395, %393 ], [ %.sroa.51.4, %386 ]
-  %392 = icmp ult i64 %.sroa.51.6458, %1
-  br i1 %392, label %393, label %addbyter.exit
+.lr.ph463:                                        ; preds = %.lr.ph1026
+  %392 = icmp ult i64 %395, %1
+  br i1 %392, label %.lr.ph1026, label %addbyter.exit, !llvm.loop !37
 
-393:                                              ; preds = %.lr.ph463
-  %394 = getelementptr inbounds nuw i8, ptr %.sroa.0.6459, i64 1
-  store i8 %391, ptr %.sroa.0.6459, align 1, !tbaa !14
-  %395 = add nuw i64 %.sroa.51.6458, 1
-  %396 = add nsw i32 %.30.i460, 1
-  %397 = getelementptr inbounds nuw i8, ptr %.8337.i461, i64 1
+.lr.ph1026:                                       ; preds = %.lr.ph463.preheader, %.lr.ph463
+  %.sroa.51.64581025 = phi i64 [ %395, %.lr.ph463 ], [ %.sroa.51.4, %.lr.ph463.preheader ]
+  %.sroa.0.64591024 = phi ptr [ %394, %.lr.ph463 ], [ %.sroa.0.4, %.lr.ph463.preheader ]
+  %.30.i4601023 = phi i32 [ %396, %.lr.ph463 ], [ %.1357.i, %.lr.ph463.preheader ]
+  %.8337.i4611022 = phi ptr [ %397, %.lr.ph463 ], [ %9, %.lr.ph463.preheader ]
+  %393 = phi i8 [ %398, %.lr.ph463 ], [ %390, %.lr.ph463.preheader ]
+  %394 = getelementptr inbounds nuw i8, ptr %.sroa.0.64591024, i64 1
+  store i8 %393, ptr %.sroa.0.64591024, align 1, !tbaa !14
+  %395 = add nuw i64 %.sroa.51.64581025, 1
+  %396 = add nsw i32 %.30.i4601023, 1
+  %397 = getelementptr inbounds nuw i8, ptr %.8337.i4611022, i64 1
   %398 = load i8, ptr %397, align 1, !tbaa !14
   %.not24.i = icmp eq i8 %398, 0
   br i1 %.not24.i, label %addbyter.exit.thread323, label %.lr.ph463, !llvm.loop !37
 
-addbyter.exit:                                    ; preds = %.lr.ph463
+addbyter.exit:                                    ; preds = %.lr.ph463.preheader, %.lr.ph463
+  %.30.i460.lcssa = phi i32 [ %396, %.lr.ph463 ], [ %.1357.i, %.lr.ph463.preheader ]
+  %.sroa.0.6459.lcssa = phi ptr [ %394, %.lr.ph463 ], [ %.sroa.0.4, %.lr.ph463.preheader ]
   %umax736.le = call i64 @llvm.umax.i64(i64 %.sroa.51.4, i64 %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %formatf.specialized.1.exit
@@ -1096,8 +1102,8 @@ formatf.specialized.1.exit.loopexit799:           ; preds = %30
 
 formatf.specialized.1.exit:                       ; preds = %addbyter.exit48.thread338, %.loopexit373, %175, %178, %181, %187, %242, %281, %.lr.ph470, %307, %.lr.ph482, %.lr.ph489, %.lr.ph512, %.lr.ph519, %.lr.ph549, %.lr.ph557, %.lr.ph569, %.lr.ph577, %formatf.specialized.1.exit.loopexit799, %formatf.specialized.1.exit.loopexit793, %addbyter.exit, %4
   %.sroa.51.31 = phi i64 [ 0, %4 ], [ %umax736.le, %addbyter.exit ], [ %umax737.le, %formatf.specialized.1.exit.loopexit793 ], [ %umax.le, %formatf.specialized.1.exit.loopexit799 ], [ %.sroa.51.14574, %.lr.ph577 ], [ %.sroa.51.13564, %.lr.ph569 ], [ %.sroa.51.11554, %.lr.ph557 ], [ %.sroa.51.15546, %.lr.ph549 ], [ %.sroa.51.30516, %.lr.ph519 ], [ %.sroa.51.25509, %.lr.ph512 ], [ %.sroa.51.27486, %.lr.ph489 ], [ %.sroa.51.20479, %.lr.ph482 ], [ %.sroa.51.18475, %307 ], [ %.sroa.51.16467, %.lr.ph470 ], [ %.sroa.51.3345, %addbyter.exit48.thread338 ], [ %.sroa.51.28, %.loopexit373 ], [ %.sroa.51.8, %175 ], [ %.sroa.51.8, %178 ], [ %.sroa.51.8, %181 ], [ %.sroa.51.9, %187 ], [ %.sroa.51.4, %242 ], [ %.sroa.51.26, %281 ]
-  %.sroa.0.31 = phi ptr [ %0, %4 ], [ %.sroa.0.6459, %addbyter.exit ], [ %.sroa.0.24496, %formatf.specialized.1.exit.loopexit793 ], [ %.sroa.0.1451, %formatf.specialized.1.exit.loopexit799 ], [ %.sroa.0.14575, %.lr.ph577 ], [ %.sroa.0.13565, %.lr.ph569 ], [ %.sroa.0.11555, %.lr.ph557 ], [ %.sroa.0.15547, %.lr.ph549 ], [ %.sroa.0.30517, %.lr.ph519 ], [ %.sroa.0.25510, %.lr.ph512 ], [ %.sroa.0.27487, %.lr.ph489 ], [ %.sroa.0.20480, %.lr.ph482 ], [ %.sroa.0.18476, %307 ], [ %.sroa.0.16468, %.lr.ph470 ], [ %.sroa.0.3346, %addbyter.exit48.thread338 ], [ %.sroa.0.28, %.loopexit373 ], [ %.sroa.0.8, %175 ], [ %.sroa.0.8, %178 ], [ %.sroa.0.8, %181 ], [ %.sroa.0.9, %187 ], [ %.sroa.0.4, %242 ], [ %.sroa.0.26, %281 ]
-  %.0322.i = phi i32 [ 0, %4 ], [ %.30.i460, %addbyter.exit ], [ %.20.i497, %formatf.specialized.1.exit.loopexit793 ], [ %.2358.i452, %formatf.specialized.1.exit.loopexit799 ], [ %.15.i576, %.lr.ph577 ], [ %.14.i566, %.lr.ph569 ], [ %.13.i556, %.lr.ph557 ], [ %.9.i548, %.lr.ph549 ], [ %.4360.i518, %.lr.ph519 ], [ %.22.i511, %.lr.ph512 ], [ %.19.i488, %.lr.ph489 ], [ %.29.i481, %.lr.ph482 ], [ %.27.i477, %307 ], [ %.25.i469, %.lr.ph470 ], [ %.3359.i347, %addbyter.exit48.thread338 ], [ %.5361.i, %.loopexit373 ], [ %.8364.i, %175 ], [ %.8364.i, %178 ], [ %.8364.i, %181 ], [ %.10.i, %187 ], [ %.1357.i, %242 ], [ %.21.i, %281 ]
+  %.sroa.0.31 = phi ptr [ %0, %4 ], [ %.sroa.0.6459.lcssa, %addbyter.exit ], [ %.sroa.0.24496, %formatf.specialized.1.exit.loopexit793 ], [ %.sroa.0.1451, %formatf.specialized.1.exit.loopexit799 ], [ %.sroa.0.14575, %.lr.ph577 ], [ %.sroa.0.13565, %.lr.ph569 ], [ %.sroa.0.11555, %.lr.ph557 ], [ %.sroa.0.15547, %.lr.ph549 ], [ %.sroa.0.30517, %.lr.ph519 ], [ %.sroa.0.25510, %.lr.ph512 ], [ %.sroa.0.27487, %.lr.ph489 ], [ %.sroa.0.20480, %.lr.ph482 ], [ %.sroa.0.18476, %307 ], [ %.sroa.0.16468, %.lr.ph470 ], [ %.sroa.0.3346, %addbyter.exit48.thread338 ], [ %.sroa.0.28, %.loopexit373 ], [ %.sroa.0.8, %175 ], [ %.sroa.0.8, %178 ], [ %.sroa.0.8, %181 ], [ %.sroa.0.9, %187 ], [ %.sroa.0.4, %242 ], [ %.sroa.0.26, %281 ]
+  %.0322.i = phi i32 [ 0, %4 ], [ %.30.i460.lcssa, %addbyter.exit ], [ %.20.i497, %formatf.specialized.1.exit.loopexit793 ], [ %.2358.i452, %formatf.specialized.1.exit.loopexit799 ], [ %.15.i576, %.lr.ph577 ], [ %.14.i566, %.lr.ph569 ], [ %.13.i556, %.lr.ph557 ], [ %.9.i548, %.lr.ph549 ], [ %.4360.i518, %.lr.ph519 ], [ %.22.i511, %.lr.ph512 ], [ %.19.i488, %.lr.ph489 ], [ %.29.i481, %.lr.ph482 ], [ %.27.i477, %307 ], [ %.25.i469, %.lr.ph470 ], [ %.3359.i347, %addbyter.exit48.thread338 ], [ %.5361.i, %.loopexit373 ], [ %.8364.i, %175 ], [ %.8364.i, %178 ], [ %.8364.i, %181 ], [ %.10.i, %187 ], [ %.1357.i, %242 ], [ %.21.i, %281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

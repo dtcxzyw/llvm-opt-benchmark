@@ -369,33 +369,53 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %26
 define void @_ZN3gmx12AtomsBuilder21discardCurrentResidueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = load i32, ptr %2, align 8, !tbaa !13
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8
-  %smin = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
-  %7 = add i32 %smin, -1
-  br label %8
+  %.04 = add i32 %3, -1
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %.lr.ph, label %..critedge_crit_edge
 
-8:                                                ; preds = %10, %1
-  %.0.in = phi i32 [ %3, %1 ], [ %.0, %10 ]
-  %9 = icmp sgt i32 %.0.in, 1
-  br i1 %9, label %10, label %.critedge
+..critedge_crit_edge:                             ; preds = %1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !25
+  br label %.critedge
 
-10:                                               ; preds = %8
-  %.0 = add nsw i32 %.0.in, -1
-  %11 = load ptr, ptr %4, align 8, !tbaa !38
-  %12 = zext nneg i32 %.0.in to i64
-  %13 = getelementptr %struct.t_atom, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -48
-  %15 = load i32, ptr %14, align 4, !tbaa !50
-  %16 = icmp eq i32 %15, %6
-  br i1 %16, label %8, label %.critedge, !llvm.loop !58
+.lr.ph:                                           ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !25
+  %9 = zext nneg i32 %.04 to i64
+  br label %13
 
-.critedge:                                        ; preds = %8, %10
-  %.0.lcssa = phi i32 [ %7, %8 ], [ %.0, %10 ]
+10:                                               ; preds = %13
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %11 = icmp sgt i64 %indvars.iv, 1
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %11, label %13, label %.critedge.loopexit, !llvm.loop !58
+
+13:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %.0.in5 = phi i32 [ %3, %.lr.ph ], [ %12, %10 ]
+  %14 = zext nneg i32 %.0.in5 to i64
+  %15 = getelementptr %struct.t_atom, ptr %6, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -48
+  %17 = load i32, ptr %16, align 4, !tbaa !50
+  %18 = icmp eq i32 %17, %8
+  br i1 %18, label %10, label %..critedge_crit_edge7, !llvm.loop !58
+
+..critedge_crit_edge7:                            ; preds = %13
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge, !llvm.loop !58
+
+.critedge.loopexit:                               ; preds = %10
+  %20 = trunc nsw i64 %indvars.iv.next to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %..critedge_crit_edge, %.critedge.loopexit, %..critedge_crit_edge7
+  %21 = phi i32 [ %8, %..critedge_crit_edge7 ], [ %.pre, %..critedge_crit_edge ], [ %8, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ %19, %..critedge_crit_edge7 ], [ %.04, %..critedge_crit_edge ], [ %20, %.critedge.loopexit ]
   store i32 %.0.lcssa, ptr %2, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %6, ptr %17, align 8, !tbaa !23
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %21, ptr %22, align 8, !tbaa !23
   ret void
 }
 
@@ -1470,9 +1490,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

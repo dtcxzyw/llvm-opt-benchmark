@@ -1687,17 +1687,25 @@ for.body.preheader:                               ; preds = %entry
   %3 = and i64 %sub.ptr.div.i.i, 4294967295
   %4 = load ptr, ptr %1, align 8, !tbaa !27
   %cmp422 = icmp eq ptr %4, %archive
-  br i1 %cmp422, label %if.then, label %for.inc
+  br i1 %cmp422, label %if.then, label %for.inc.preheader
 
-for.body:                                         ; preds = %for.inc
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+for.inc.preheader:                                ; preds = %for.body.preheader
+  %exitcond.not2 = icmp eq i64 %3, 1
+  br i1 %exitcond.not2, label %cleanup, label %for.body.lr.ph, !llvm.loop !56
+
+for.body.lr.ph:                                   ; preds = %for.inc.preheader
+  br label %for.body, !llvm.loop !56
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv.next3 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next3
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !27
   %cmp4 = icmp eq ptr %5, %archive
   br i1 %cmp4, label %for.body.if.then_crit_edge, label %for.inc, !llvm.loop !56
 
 for.body.if.then_crit_edge:                       ; preds = %for.body
-  %cmp.not.le = icmp samesign ult i64 %indvars.iv.next, %3
-  %6 = trunc i64 %indvars.iv.next to i32
+  %cmp.not.le = icmp samesign ult i64 %indvars.iv.next3, %3
+  %6 = trunc i64 %indvars.iv.next3 to i32
   br label %if.then
 
 if.then:                                          ; preds = %for.body.if.then_crit_edge, %for.body.preheader
@@ -1709,15 +1717,17 @@ if.then:                                          ; preds = %for.body.if.then_cr
   %call5 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %indvars.iv.lcssa) #23
   br label %cleanup
 
-for.inc:                                          ; preds = %for.body.preheader, %for.body
-  %indvars.iv23 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv23, 1
+for.inc:                                          ; preds = %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv.next3, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !56
+  br i1 %exitcond.not, label %for.inc.cleanup.loopexit_crit_edge, label %for.body, !llvm.loop !56
 
-cleanup:                                          ; preds = %for.inc, %if.then, %entry
-  %cmp.not11 = phi i1 [ %cmp.not15.lcssa, %if.then ], [ false, %entry ], [ false, %for.inc ]
-  %retval.0 = phi i1 [ %call5, %if.then ], [ undef, %entry ], [ undef, %for.inc ]
+for.inc.cleanup.loopexit_crit_edge:               ; preds = %for.inc
+  br label %cleanup, !llvm.loop !56
+
+cleanup:                                          ; preds = %for.inc.preheader, %for.inc.cleanup.loopexit_crit_edge, %if.then, %entry
+  %cmp.not11 = phi i1 [ %cmp.not15.lcssa, %if.then ], [ false, %entry ], [ false, %for.inc.cleanup.loopexit_crit_edge ], [ false, %for.inc.preheader ]
+  %retval.0 = phi i1 [ %call5, %if.then ], [ undef, %entry ], [ undef, %for.inc.cleanup.loopexit_crit_edge ], [ undef, %for.inc.preheader ]
   %spec.select = and i1 %cmp.not11, %retval.0
   ret i1 %spec.select
 }

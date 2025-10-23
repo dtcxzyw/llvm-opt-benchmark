@@ -2137,49 +2137,51 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %11
+  %11 = icmp eq i64 %2, 0
+  br i1 %11, label %._crit_edge, label %.lr.ph21
 
-11:                                               ; preds = %.lr.ph, %19
-  %12 = phi i64 [ %8, %.lr.ph ], [ %26, %19 ]
-  %.014 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
-  %storemerge13 = phi ptr [ %1, %.lr.ph ], [ %24, %19 ]
-  %13 = icmp eq i64 %.014, 0
-  br i1 %13, label %14, label %19
+12:                                               ; preds = %.lr.ph21
+  %13 = icmp eq i64 %19, 0
+  br i1 %13, label %._crit_edge, label %.lr.ph21, !llvm.loop !121
 
-14:                                               ; preds = %11
+._crit_edge:                                      ; preds = %12, %.lr.ph
+  %storemerge13.lcssa = phi ptr [ %1, %.lr.ph ], [ %23, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_(ptr %0, ptr %storemerge13, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_(ptr %0, ptr %storemerge13.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph.i8.i
 
-.lr.ph.i8.i:                                      ; preds = %14, %.lr.ph.i8.i
-  %.sroa.0.05.i.i = phi ptr [ %15, %.lr.ph.i8.i ], [ %storemerge13, %14 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -80
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_(ptr %0, ptr nonnull %15, ptr nonnull %15, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  %16 = ptrtoint ptr %15 to i64
-  %17 = sub i64 %16, %6
-  %18 = icmp sgt i64 %17, 80
-  br i1 %18, label %.lr.ph.i8.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !121
+.lr.ph.i8.i:                                      ; preds = %._crit_edge, %.lr.ph.i8.i
+  %.sroa.0.05.i.i = phi ptr [ %14, %.lr.ph.i8.i ], [ %storemerge13.lcssa, %._crit_edge ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -80
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_(ptr %0, ptr nonnull %14, ptr nonnull %14, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %15 = ptrtoint ptr %14 to i64
+  %16 = sub i64 %15, %6
+  %17 = icmp sgt i64 %16, 80
+  br i1 %17, label %.lr.ph.i8.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !122
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit: ; preds = %.lr.ph.i8.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-19:                                               ; preds = %11
-  %20 = add nsw i64 %.014, -1
-  %21 = udiv i64 %12, 160
-  %22 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %storemerge13, i64 -80
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
-  %24 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_SD_T0_(ptr nonnull %10, ptr %storemerge13, ptr %0)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr %24, ptr %storemerge13, i64 noundef %20)
-  %25 = ptrtoint ptr %24 to i64
-  %26 = sub i64 %25, %6
-  %27 = icmp sgt i64 %26, 1280
-  br i1 %27, label %11, label %.loopexit, !llvm.loop !122
+.lr.ph21:                                         ; preds = %.lr.ph, %12
+  %storemerge1320 = phi ptr [ %23, %12 ], [ %1, %.lr.ph ]
+  %.01419 = phi i64 [ %19, %12 ], [ %2, %.lr.ph ]
+  %18 = phi i64 [ %25, %12 ], [ %8, %.lr.ph ]
+  %19 = add nsw i64 %.01419, -1
+  %20 = udiv i64 %18, 160
+  %21 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %0, i64 %20
+  %22 = getelementptr inbounds i8, ptr %storemerge1320, i64 -80
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_(ptr %0, ptr nonnull %10, ptr %21, ptr nonnull %22)
+  %23 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_SD_T0_(ptr nonnull %10, ptr %storemerge1320, ptr %0)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr %23, ptr %storemerge1320, i64 noundef %19)
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %24, %6
+  %26 = icmp sgt i64 %25, 1280
+  br i1 %26, label %12, label %.loopexit, !llvm.loop !121
 
-.loopexit:                                        ; preds = %19, %3, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit
+.loopexit:                                        ; preds = %.lr.ph21, %3, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5folly7dynamicES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit
   ret void
 }
 

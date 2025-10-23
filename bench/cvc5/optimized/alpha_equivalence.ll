@@ -17082,46 +17082,51 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %8, %7
   %10 = icmp sgt i64 %9, 128
-  br i1 %10, label %.lr.ph, label %.loopexit
+  br i1 %10, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %17
-  %.018 = phi i64 [ %18, %17 ], [ %2, %4 ]
-  %storemerge17 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %11 = icmp eq i64 %.018, 0
-  br i1 %11, label %12, label %17
+.lr.ph.preheader:                                 ; preds = %4
+  %11 = icmp eq i64 %2, 0
+  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph24
 
-12:                                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph24
+  %12 = icmp eq i64 %17, 0
+  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph24, !llvm.loop !344
+
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
+  %storemerge17.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_RT0_(ptr %0, ptr %storemerge17.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %12, %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17, %12 ]
+.lr.ph.i9.i:                                      ; preds = %.lr.ph._crit_edge, %.lr.ph.i9.i
+  %.sroa.0.05.i.i = phi ptr [ %13, %.lr.ph.i9.i ], [ %storemerge17.lcssa, %.lr.ph._crit_edge ]
   %13 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_RT0_(ptr %0, ptr nonnull %13, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %7
   %16 = icmp sgt i64 %15, 8
-  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_T0_.exit, !llvm.loop !344
+  br i1 %16, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_T0_.exit, !llvm.loop !345
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_T0_.exit: ; preds = %.lr.ph.i9.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i64 %.018, -1
-  %19 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEET_SG_SG_T0_(ptr %0, ptr %storemerge17, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_T0_T1_(ptr %19, ptr %storemerge17, i64 noundef %18, ptr %3)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %20, %7
-  %22 = icmp sgt i64 %21, 128
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !345
+.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %storemerge1723 = phi ptr [ %18, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01822 = phi i64 [ %17, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %17 = add nsw i64 %.01822, -1
+  %18 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEET_SG_SG_T0_(ptr %0, ptr %storemerge1723, ptr %3)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_T0_T1_(ptr %18, ptr %storemerge1723, i64 noundef %17, ptr %3)
+  %19 = ptrtoint ptr %18 to i64
+  %20 = sub i64 %19, %7
+  %21 = icmp sgt i64 %20, 128
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !344
 
-.loopexit:                                        ; preds = %17, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_T0_.exit
+.loopexit:                                        ; preds = %.lr.ph24, %4, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_6theory11quantifiers13sortTypeOrderEEEEvT_SG_SG_T0_.exit
   ret void
 }
 

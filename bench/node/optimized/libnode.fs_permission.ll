@@ -812,24 +812,25 @@ if.end11:                                         ; preds = %if.end
   %call12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #13
   %call1436 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   %cmp1537.not = icmp eq i64 %call1436, 0
-  br i1 %cmp1537.not, label %for.end, label %for.body
+  br i1 %cmp1537.not, label %for.end, label %lor.lhs.false
 
-for.body:                                         ; preds = %if.end11, %for.inc
-  %i.038 = phi i64 [ %inc, %for.inc ], [ 0, %if.end11 ]
-  %cmp16 = icmp ugt i64 %i.038, %call12
-  br i1 %cmp16, label %if.then22, label %lor.lhs.false
+for.body:                                         ; preds = %for.inc
+  %cmp16.not = icmp ult i64 %i.03842, %call12
+  br i1 %cmp16.not, label %lor.lhs.false, label %if.then22, !llvm.loop !18
 
-lor.lhs.false:                                    ; preds = %for.body
-  %call17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %prefix, i64 noundef %i.038) #13
+lor.lhs.false:                                    ; preds = %if.end11, %for.body
+  %i.03842 = phi i64 [ %inc, %for.body ], [ 0, %if.end11 ]
+  %call17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %prefix, i64 noundef %i.03842) #13
   %4 = load i8, ptr %call17, align 1
-  %call19 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %i.038) #13
+  %call19 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %i.03842) #13
   %5 = load i8, ptr %call19, align 1
   %cmp21.not = icmp eq i8 %4, %5
   br i1 %cmp21.not, label %for.inc, label %if.then22
 
 if.then22:                                        ; preds = %lor.lhs.false, %for.body
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %parent_prefix, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %i.038) #13
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %child_prefix, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %i.038, i64 noundef -1) #13
+  %i.038.lcssa = phi i64 [ %i.03842, %lor.lhs.false ], [ %inc, %for.body ]
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %parent_prefix, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %i.038.lcssa) #13
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %child_prefix, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %i.038.lcssa, i64 noundef -1) #13
   %call26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %child_prefix) #13
   %call27 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(97) %call27, ptr noundef nonnull align 8 dereferenceable(32) %parent_prefix) #13
@@ -850,7 +851,7 @@ if.then22:                                        ; preds = %lor.lhs.false, %for
   %call32 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %parent_prefix, i64 noundef 0) #13
   %call.i34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS9_ENS_10_Select1stESt8equal_toIcESt4hashIcENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %children, ptr noundef nonnull align 1 dereferenceable(1) %call32)
   store ptr %call27, ptr %call.i34, align 8
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i64 noundef %i.038, i64 noundef -1) #13
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i64 noundef %i.038.lcssa, i64 noundef -1) #13
   %call34 = call noundef ptr @_ZN4node10permission12FSPermission9RadixTree4Node11CreateChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %call27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %child_prefix) #13
@@ -858,7 +859,7 @@ if.then22:                                        ; preds = %lor.lhs.false, %for
   br label %return
 
 for.inc:                                          ; preds = %lor.lhs.false
-  %inc = add nuw i64 %i.038, 1
+  %inc = add nuw i64 %i.03842, 1
   %call14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   %cmp15 = icmp ult i64 %inc, %call14
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !18

@@ -2659,28 +2659,32 @@ define i64 @rindexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) loc
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %5) #25
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %._crit_edge, label %.lr.ph.preheader
 
-._crit_edge:                                      ; preds = %18, %9
-  %.018.lcssa = phi ptr [ %11, %9 ], [ %19, %18 ]
-  %14 = ptrtoint ptr %.018.lcssa to i64
-  %15 = ptrtoint ptr %0 to i64
-  %16 = sub i64 %14, %15
+.lr.ph.preheader:                                 ; preds = %9
+  %14 = icmp eq i64 %4, %5
+  br i1 %14, label %.loopexit, label %.lr.ph26
+
+._crit_edge:                                      ; preds = %.lr.ph26, %9
+  %.018.lcssa = phi ptr [ %11, %9 ], [ %19, %.lr.ph26 ]
+  %15 = ptrtoint ptr %.018.lcssa to i64
+  %16 = ptrtoint ptr %0 to i64
+  %17 = sub i64 %15, %16
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %9, %18
-  %.01822 = phi ptr [ %19, %18 ], [ %11, %9 ]
-  %17 = icmp eq ptr %.01822, %0
-  br i1 %17, label %.loopexit, label %18
+.lr.ph:                                           ; preds = %.lr.ph26
+  %18 = icmp eq ptr %19, %0
+  br i1 %18, label %.loopexit, label %.lr.ph26
 
-18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.01822, i64 -1
+.lr.ph26:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0182225 = phi ptr [ %19, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %19 = getelementptr inbounds i8, ptr %.0182225, i64 -1
   %20 = tail call i32 @strncmp(ptr noundef nonnull %19, ptr noundef nonnull %1, i64 noundef %5) #25
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %7, %2, %._crit_edge
-  %.0 = phi i64 [ %16, %._crit_edge ], [ %4, %2 ], [ -1, %7 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %7, %2, %._crit_edge
+  %.0 = phi i64 [ %17, %._crit_edge ], [ %4, %2 ], [ -1, %7 ], [ -1, %.lr.ph.preheader ], [ -1, %.lr.ph ]
   ret i64 %.0
 }
 

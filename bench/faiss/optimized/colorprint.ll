@@ -373,29 +373,27 @@ define hidden noundef zeroext i1 @_ZN9benchmark15IsColorTerminalEv() local_unnam
 .split:                                           ; preds = %0
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.2) #17
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.split21.us, label %.lr.ph
+  br i1 %3, label %.split21.us, label %.lr.ph.preheader
 
-4:                                                ; preds = %.lr.ph
-  %.011.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN9benchmark15IsColorTerminalEv.SUPPORTED_TERM_VALUES, i64 %.011.add
-  %5 = load ptr, ptr %.011.ptr, align 8, !tbaa !19
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #17
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.split21.us, label %.lr.ph
+.lr.ph.preheader:                                 ; preds = %.split, %.lr.ph.preheader
+  %.011.add26 = phi i64 [ %.011.add, %.lr.ph.preheader ], [ 8, %.split ]
+  %.011.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN9benchmark15IsColorTerminalEv.SUPPORTED_TERM_VALUES, i64 %.011.add26
+  %4 = load ptr, ptr %.011.ptr, align 8, !tbaa !19
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #17
+  %6 = icmp eq i32 %5, 0
+  %.011.add = add nuw nsw i64 %.011.add26, 8
+  %.not.not.not = icmp eq i64 %.011.add, 128
+  %or.cond = select i1 %6, i1 true, i1 %.not.not.not
+  br i1 %or.cond, label %.split21.us, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.split, %4
-  %.011.idx1722 = phi i64 [ %.011.add, %4 ], [ 0, %.split ]
-  %.011.add = add nuw nsw i64 %.011.idx1722, 8
-  %.not.not.not.not = icmp ne i64 %.011.add, 128
-  br i1 %.not.not.not.not, label %4, label %.split21.us
-
-.split21.us:                                      ; preds = %4, %.lr.ph, %0, %.split
-  %.us-phi = phi i1 [ true, %.split ], [ false, %0 ], [ %.not.not.not.not, %.lr.ph ], [ %.not.not.not.not, %4 ]
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %9 = tail call i32 @fileno(ptr noundef %8) #14
-  %10 = tail call i32 @isatty(i32 noundef %9) #14
-  %11 = icmp ne i32 %10, 0
-  %12 = and i1 %.us-phi, %11
-  ret i1 %12
+.split21.us:                                      ; preds = %.lr.ph.preheader, %0, %.split
+  %.us-phi = phi i1 [ true, %.split ], [ false, %0 ], [ %6, %.lr.ph.preheader ]
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %8 = tail call i32 @fileno(ptr noundef %7) #14
+  %9 = tail call i32 @isatty(i32 noundef %8) #14
+  %10 = icmp ne i32 %9, 0
+  %11 = and i1 %.us-phi, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

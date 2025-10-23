@@ -512,16 +512,22 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %41 = add i64 %40, %37
   %42 = sub i64 0, %40
   %43 = and i64 %41, %42
-  br label %44
+  %.not37.us107191 = icmp eq i32 %.val41, 1
+  br i1 %.not37.us107191, label %.thread.i, label %.lr.ph194
 
-44:                                               ; preds = %.preheader.us112.lr.ph, %45
-  %.129.pn.us105 = phi ptr [ %.230.us106, %45 ], [ %7, %.preheader.us112.lr.ph ]
-  %.230.us106 = getelementptr inbounds i8, ptr %.129.pn.us105, i64 -24
+.lr.ph194:                                        ; preds = %.preheader.us112.lr.ph
+  %.230.us106190 = getelementptr inbounds i8, ptr %7, i64 -24
+  br label %45
+
+44:                                               ; preds = %45
+  %.230.us106 = getelementptr inbounds i8, ptr %.230.us106193, i64 -24
   %.not37.us107 = icmp eq ptr %.230.us106, %.val
-  br i1 %.not37.us107, label %.thread.i, label %45
+  br i1 %.not37.us107, label %.thread.i, label %45, !llvm.loop !46
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.129.pn.us105, i64 -32
+45:                                               ; preds = %.lr.ph194, %44
+  %.230.us106193 = phi ptr [ %.230.us106190, %.lr.ph194 ], [ %.230.us106, %44 ]
+  %.129.pn.us105192 = phi ptr [ %7, %.lr.ph194 ], [ %.230.us106193, %44 ]
+  %46 = getelementptr inbounds i8, ptr %.129.pn.us105192, i64 -32
   %.sroa.0.0.copyload.us108 = load i8, ptr %46, align 8, !tbaa !10
   %47 = zext nneg i8 %.sroa.0.0.copyload.us108 to i64
   %48 = shl nuw i64 1, %47
@@ -529,12 +535,15 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %50 = sub i64 0, %48
   %51 = and i64 %49, %50
   %52 = icmp eq i64 %43, %51
-  br i1 %52, label %44, label %.thread.i, !llvm.loop !46
+  br i1 %52, label %44, label %..thread.i.loopexit181_crit_edge195, !llvm.loop !46
 
-.thread.i:                                        ; preds = %45, %44, %.lr.ph60.us, %34, %.split
-  %.us-phi = phi i64 [ %.pre160, %.split ], [ %.031.us, %34 ], [ %.031.us, %.lr.ph60.us ], [ %43, %44 ], [ %43, %45 ]
-  %.us-phi62 = phi ptr [ %.028.lcssa, %.split ], [ %36, %34 ], [ %.129.us, %.lr.ph60.us ], [ %.230.us106, %45 ], [ %.val, %44 ]
-  %.us-phi64 = phi i64 [ -1, %.split ], [ %32, %34 ], [ %32, %.lr.ph60.us ], [ -1, %44 ], [ -1, %45 ]
+..thread.i.loopexit181_crit_edge195:              ; preds = %45
+  br label %.thread.i, !llvm.loop !46
+
+.thread.i:                                        ; preds = %44, %.lr.ph60.us, %34, %.preheader.us112.lr.ph, %..thread.i.loopexit181_crit_edge195, %.split
+  %.us-phi = phi i64 [ %.pre160, %.split ], [ %43, %..thread.i.loopexit181_crit_edge195 ], [ %43, %.preheader.us112.lr.ph ], [ %.031.us, %34 ], [ %.031.us, %.lr.ph60.us ], [ %43, %44 ]
+  %.us-phi62 = phi ptr [ %.028.lcssa, %.split ], [ %.230.us106193, %..thread.i.loopexit181_crit_edge195 ], [ %.val, %.preheader.us112.lr.ph ], [ %36, %34 ], [ %.129.us, %.lr.ph60.us ], [ %.val, %44 ]
+  %.us-phi64 = phi i64 [ -1, %.split ], [ -1, %..thread.i.loopexit181_crit_edge195 ], [ -1, %.preheader.us112.lr.ph ], [ %32, %34 ], [ %32, %.lr.ph60.us ], [ -1, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !49
   %.val42.le = load ptr, ptr %54, align 8

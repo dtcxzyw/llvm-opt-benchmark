@@ -1163,55 +1163,56 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   %.not201 = icmp eq i32 %narrow, 0
   br i1 %.not201, label %.preheader165, label %.lr.ph185
 
-.preheader165:                                    ; preds = %74, %70
-  %.0133.lcssa = phi i64 [ 1, %70 ], [ %89, %74 ]
+.preheader165:                                    ; preds = %75, %70
+  %.0133.lcssa = phi i64 [ 1, %70 ], [ %90, %75 ]
   %72 = load i64, ptr %61, align 8, !tbaa !33
   %.not202 = icmp eq i64 %72, 0
   br i1 %.not202, label %.loopexit, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %.preheader165
   %73 = getelementptr inbounds nuw i8, ptr %.0123180, i64 40
-  br label %92
+  %74 = icmp samesign ugt i64 %.0133.lcssa, 253
+  br i1 %74, label %.loopexit164, label %.lr.ph273
 
-.lr.ph185:                                        ; preds = %70, %74
-  %.0127183 = phi i64 [ %91, %74 ], [ 0, %70 ]
-  %.0133182 = phi i64 [ %89, %74 ], [ 1, %70 ]
+.lr.ph185:                                        ; preds = %70, %75
+  %.0127183 = phi i64 [ %92, %75 ], [ 0, %70 ]
+  %.0133182 = phi i64 [ %90, %75 ], [ 1, %70 ]
   %exitcond = icmp eq i64 %.0127183, 127
-  br i1 %exitcond, label %.loopexit164, label %74
+  br i1 %exitcond, label %.loopexit164, label %75
 
-74:                                               ; preds = %.lr.ph185
+75:                                               ; preds = %.lr.ph185
   %reass.sub = sub nsw i64 %.0127183, %71
-  %75 = getelementptr i8, ptr %4, i64 %reass.sub
-  %76 = getelementptr i8, ptr %75, i64 6
-  %77 = load i8, ptr %76, align 1, !tbaa !8
-  %78 = and i8 %77, 15
-  %79 = lshr i8 %77, 4
-  %80 = icmp ult i8 %77, -96
-  %81 = or disjoint i8 %79, 48
-  %82 = add nuw nsw i8 %79, 55
-  %83 = select i1 %80, i8 %81, i8 %82
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 %.0133182
-  store i8 %83, ptr %84, align 1, !tbaa !8
-  %85 = icmp samesign ult i8 %78, 10
-  %86 = or disjoint i8 %78, 48
-  %87 = add nuw nsw i8 %78, 55
-  %88 = select i1 %85, i8 %86, i8 %87
-  %89 = add nuw nsw i64 %.0133182, 2
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  store i8 %88, ptr %90, align 1, !tbaa !8
-  %91 = add nuw nsw i64 %.0127183, 1
-  %exitcond219.not = icmp eq i64 %91, %71
+  %76 = getelementptr i8, ptr %4, i64 %reass.sub
+  %77 = getelementptr i8, ptr %76, i64 6
+  %78 = load i8, ptr %77, align 1, !tbaa !8
+  %79 = and i8 %78, 15
+  %80 = lshr i8 %78, 4
+  %81 = icmp ult i8 %78, -96
+  %82 = or disjoint i8 %80, 48
+  %83 = add nuw nsw i8 %80, 55
+  %84 = select i1 %81, i8 %82, i8 %83
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 %.0133182
+  store i8 %84, ptr %85, align 1, !tbaa !8
+  %86 = icmp samesign ult i8 %79, 10
+  %87 = or disjoint i8 %79, 48
+  %88 = add nuw nsw i8 %79, 55
+  %89 = select i1 %86, i8 %87, i8 %88
+  %90 = add nuw nsw i64 %.0133182, 2
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 1
+  store i8 %89, ptr %91, align 1, !tbaa !8
+  %92 = add nuw nsw i64 %.0127183, 1
+  %exitcond219.not = icmp eq i64 %92, %71
   br i1 %exitcond219.not, label %.preheader165, label %.lr.ph185, !llvm.loop !34
 
-92:                                               ; preds = %.lr.ph189, %94
-  %.1128188 = phi i64 [ 0, %.lr.ph189 ], [ %111, %94 ]
-  %.1134187 = phi i64 [ %.0133.lcssa, %.lr.ph189 ], [ %109, %94 ]
-  %93 = icmp samesign ugt i64 %.1134187, 253
-  br i1 %93, label %.loopexit164, label %94
+93:                                               ; preds = %.lr.ph273
+  %94 = icmp ugt i64 %.1134187272, 251
+  br i1 %94, label %.loopexit164, label %.lr.ph273, !llvm.loop !35
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %73, align 8, !tbaa !35
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.1128188
+.lr.ph273:                                        ; preds = %.lr.ph189, %93
+  %.1134187272 = phi i64 [ %109, %93 ], [ %.0133.lcssa, %.lr.ph189 ]
+  %.1128188271 = phi i64 [ %111, %93 ], [ 0, %.lr.ph189 ]
+  %95 = load ptr, ptr %73, align 8, !tbaa !36
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.1128188271
   %97 = load i8, ptr %96, align 1, !tbaa !8
   %98 = and i8 %97, 15
   %99 = lshr i8 %97, 4
@@ -1219,19 +1220,19 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   %101 = or disjoint i8 %99, 48
   %102 = add nuw nsw i8 %99, 55
   %103 = select i1 %100, i8 %101, i8 %102
-  %104 = getelementptr inbounds nuw i8, ptr %7, i64 %.1134187
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 %.1134187272
   store i8 %103, ptr %104, align 1, !tbaa !8
   %105 = icmp samesign ult i8 %98, 10
   %106 = or disjoint i8 %98, 48
   %107 = add nuw nsw i8 %98, 55
   %108 = select i1 %105, i8 %106, i8 %107
-  %109 = add nuw nsw i64 %.1134187, 2
+  %109 = add nuw nsw i64 %.1134187272, 2
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 1
   store i8 %108, ptr %110, align 1, !tbaa !8
-  %111 = add nuw nsw i64 %.1128188, 1
+  %111 = add nuw nsw i64 %.1128188271, 1
   %112 = load i64, ptr %61, align 8, !tbaa !33
   %113 = icmp ult i64 %111, %112
-  br i1 %113, label %92, label %.loopexit, !llvm.loop !36
+  br i1 %113, label %93, label %.loopexit, !llvm.loop !35
 
 114:                                              ; preds = %.lr.ph193, %158
   %115 = phi i64 [ %58, %.lr.ph193 ], [ %162, %158 ]
@@ -1241,7 +1242,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %116, label %.loopexit164, label %117
 
 117:                                              ; preds = %114
-  %118 = load ptr, ptr %59, align 8, !tbaa !35
+  %118 = load ptr, ptr %59, align 8, !tbaa !36
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 %.2129192
   %120 = load i8, ptr %119, align 1, !tbaa !8
   %121 = icmp eq i8 %120, 0
@@ -1323,8 +1324,8 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   %163 = icmp ult i64 %160, %162
   br i1 %163, label %114, label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %94, %158, %.preheader165, %.preheader
-  %.2135 = phi i64 [ 0, %.preheader ], [ %.0133.lcssa, %.preheader165 ], [ %161, %158 ], [ %109, %94 ]
+.loopexit:                                        ; preds = %.lr.ph273, %158, %.preheader165, %.preheader
+  %.2135 = phi i64 [ 0, %.preheader ], [ %.0133.lcssa, %.preheader165 ], [ %161, %158 ], [ %109, %.lr.ph273 ]
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 %.2135
   store i8 0, ptr %164, align 1, !tbaa !8
   %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %56, i64 noundef %55, ptr noundef nonnull @.str.9, ptr noundef nonnull %7) #13
@@ -1352,8 +1353,8 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   %176 = trunc i64 %175 to i32
   br label %.loopexit164
 
-.loopexit164:                                     ; preds = %.loopexit, %167, %65, %60, %50, %52, %46, %16, %20, %.lr.ph185, %92, %141, %134, %117, %114, %.outer._crit_edge
-  %.0125 = phi i32 [ %176, %.outer._crit_edge ], [ -10624, %141 ], [ -10624, %134 ], [ -9088, %117 ], [ -10624, %114 ], [ -10624, %92 ], [ -10624, %.lr.ph185 ], [ -10624, %.loopexit ], [ -10624, %167 ], [ -110, %65 ], [ -110, %60 ], [ -10624, %50 ], [ -10624, %52 ], [ -10624, %46 ], [ -10624, %16 ], [ -10624, %20 ]
+.loopexit164:                                     ; preds = %.loopexit, %167, %65, %60, %50, %52, %46, %16, %20, %.lr.ph189, %.lr.ph185, %93, %141, %134, %117, %114, %.outer._crit_edge
+  %.0125 = phi i32 [ %176, %.outer._crit_edge ], [ -10624, %141 ], [ -10624, %134 ], [ -9088, %117 ], [ -10624, %114 ], [ -10624, %93 ], [ -10624, %.lr.ph185 ], [ -10624, %.loopexit ], [ -10624, %167 ], [ -110, %65 ], [ -110, %60 ], [ -10624, %50 ], [ -10624, %52 ], [ -10624, %46 ], [ -10624, %16 ], [ -10624, %20 ], [ -10624, %.lr.ph189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3228,8 +3229,8 @@ attributes #14 = { nounwind allocsize(0,1) }
 !32 = !{!18, !11, i64 24}
 !33 = !{!18, !12, i64 32}
 !34 = distinct !{!34, !31}
-!35 = !{!18, !4, i64 40}
-!36 = distinct !{!36, !31}
+!35 = distinct !{!35, !31}
+!36 = !{!18, !4, i64 40}
 !37 = distinct !{!37, !31}
 !38 = distinct !{!38, !31}
 !39 = !{!40, !11, i64 0}

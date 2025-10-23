@@ -506,7 +506,7 @@ define hidden range(i32 -2, 1) i32 @sfparse_parser_inner_list(ptr noundef captur
     i32 0, label %6
     i32 1, label %.preheader
     i32 3, label %parser_skip_params.exit.thread
-    i32 2, label %18
+    i32 2, label %20
   ]
 
 6:                                                ; preds = %2
@@ -551,26 +551,35 @@ parser_skip_params.exit.thread:                   ; preds = %.preheader, %2
 14:                                               ; preds = %parser_skip_params.exit.thread
   %15 = load i8, ptr %.val26, align 1, !tbaa !12
   switch i8 %15, label %parser_skip_params.exit [
-    i8 32, label %.lr.ph.i33.preheader
+    i8 32, label %.lr.ph.i33.preheader.preheader
     i8 41, label %parser_discard_sp.exit36.thread50
   ]
 
-.lr.ph.i33thread-pre-split:                       ; preds = %.lr.ph.i33.preheader
-  %.pr = load i8, ptr %17, align 1, !tbaa !12
-  %16 = icmp eq i8 %.pr, 32
-  br i1 %16, label %.lr.ph.i33.preheader, label %parser_discard_sp.exit36
+.lr.ph.i33.preheader.preheader:                   ; preds = %14
+  %16 = getelementptr inbounds nuw i8, ptr %.val26, i64 1
+  store ptr %16, ptr %0, align 8, !tbaa !10
+  %.not.i3557 = icmp eq ptr %16, %.val27
+  br i1 %.not.i3557, label %parser_skip_params.exit, label %.lr.ph.i33thread-pre-split.lr.ph, !llvm.loop !13
 
-.lr.ph.i33.preheader:                             ; preds = %14, %.lr.ph.i33thread-pre-split
-  %.val46.i3442 = phi ptr [ %17, %.lr.ph.i33thread-pre-split ], [ %.val26, %14 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.val46.i3442, i64 1
-  store ptr %17, ptr %0, align 8, !tbaa !10
-  %.not.i35 = icmp eq ptr %17, %.val27
-  br i1 %.not.i35, label %parser_skip_params.exit, label %.lr.ph.i33thread-pre-split, !llvm.loop !13
+.lr.ph.i33thread-pre-split.lr.ph:                 ; preds = %.lr.ph.i33.preheader.preheader
+  br label %.lr.ph.i33thread-pre-split, !llvm.loop !13
+
+.lr.ph.i33thread-pre-split:                       ; preds = %.lr.ph.i33thread-pre-split.lr.ph, %.lr.ph.i33.preheader
+  %17 = phi ptr [ %16, %.lr.ph.i33thread-pre-split.lr.ph ], [ %19, %.lr.ph.i33.preheader ]
+  %.pr = load i8, ptr %17, align 1, !tbaa !12
+  %18 = icmp eq i8 %.pr, 32
+  br i1 %18, label %.lr.ph.i33.preheader, label %parser_discard_sp.exit36
+
+.lr.ph.i33.preheader:                             ; preds = %.lr.ph.i33thread-pre-split
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  store ptr %19, ptr %0, align 8, !tbaa !10
+  %.not.i35 = icmp eq ptr %19, %.val27
+  br i1 %.not.i35, label %.lr.ph.i33.preheader.parser_skip_params.exit.loopexit_crit_edge, label %.lr.ph.i33thread-pre-split, !llvm.loop !13
 
 default.unreachable48:                            ; preds = %.preheader, %2
   unreachable
 
-18:                                               ; preds = %2
+20:                                               ; preds = %2
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1329, ptr noundef nonnull @__PRETTY_FUNCTION__.sfparse_parser_inner_list) #8
   unreachable
 
@@ -579,33 +588,36 @@ parser_discard_sp.exit36thread-pre-split:         ; preds = %parser_discard_sp.e
   br label %parser_discard_sp.exit36
 
 parser_discard_sp.exit36:                         ; preds = %.lr.ph.i33thread-pre-split, %parser_discard_sp.exit36thread-pre-split
-  %19 = phi i8 [ %.pr49, %parser_discard_sp.exit36thread-pre-split ], [ %.pr, %.lr.ph.i33thread-pre-split ]
-  %20 = phi ptr [ %.val28, %parser_discard_sp.exit36thread-pre-split ], [ %17, %.lr.ph.i33thread-pre-split ]
-  %21 = icmp eq i8 %19, 41
-  br i1 %21, label %parser_discard_sp.exit36.thread50, label %24
+  %21 = phi i8 [ %.pr49, %parser_discard_sp.exit36thread-pre-split ], [ %.pr, %.lr.ph.i33thread-pre-split ]
+  %22 = phi ptr [ %.val28, %parser_discard_sp.exit36thread-pre-split ], [ %17, %.lr.ph.i33thread-pre-split ]
+  %23 = icmp eq i8 %21, 41
+  br i1 %23, label %parser_discard_sp.exit36.thread50, label %26
 
 parser_discard_sp.exit36.thread50:                ; preds = %14, %parser_discard_sp.exit36
-  %22 = phi ptr [ %20, %parser_discard_sp.exit36 ], [ %.val26, %14 ]
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %23, ptr %0, align 8, !tbaa !10
+  %24 = phi ptr [ %22, %parser_discard_sp.exit36 ], [ %.val26, %14 ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  store ptr %25, ptr %0, align 8, !tbaa !10
   br label %parser_skip_params.exit.sink.split
 
-24:                                               ; preds = %parser_discard_sp.exit36
-  %25 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %1)
-  %.not24 = icmp eq i32 %25, 0
+26:                                               ; preds = %parser_discard_sp.exit36
+  %27 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %1)
+  %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %parser_skip_params.exit.sink.split, label %parser_skip_params.exit
 
-parser_skip_params.exit.sink.split:               ; preds = %24, %parser_discard_sp.exit36.thread50
-  %.sink54 = phi i32 [ -8, %parser_discard_sp.exit36.thread50 ], [ -4, %24 ]
-  %.0.ph = phi i32 [ -2, %parser_discard_sp.exit36.thread50 ], [ 0, %24 ]
-  %26 = load i32, ptr %3, align 8, !tbaa !3
-  %27 = and i32 %26, %.sink54
-  %28 = or disjoint i32 %27, 1
-  store i32 %28, ptr %3, align 8, !tbaa !3
+parser_skip_params.exit.sink.split:               ; preds = %26, %parser_discard_sp.exit36.thread50
+  %.sink54 = phi i32 [ -8, %parser_discard_sp.exit36.thread50 ], [ -4, %26 ]
+  %.0.ph = phi i32 [ -2, %parser_discard_sp.exit36.thread50 ], [ 0, %26 ]
+  %28 = load i32, ptr %3, align 8, !tbaa !3
+  %29 = and i32 %28, %.sink54
+  %30 = or disjoint i32 %29, 1
+  store i32 %30, ptr %3, align 8, !tbaa !3
   br label %parser_skip_params.exit
 
-parser_skip_params.exit:                          ; preds = %.preheader, %.lr.ph.i33.preheader, %parser_skip_params.exit.sink.split, %24, %14, %parser_skip_params.exit.thread, %parser_discard_sp.exit
-  %.0 = phi i32 [ -1, %parser_discard_sp.exit ], [ -1, %parser_skip_params.exit.thread ], [ -1, %14 ], [ -1, %24 ], [ %.0.ph, %parser_skip_params.exit.sink.split ], [ -1, %.lr.ph.i33.preheader ], [ %12, %.preheader ]
+.lr.ph.i33.preheader.parser_skip_params.exit.loopexit_crit_edge: ; preds = %.lr.ph.i33.preheader
+  br label %parser_skip_params.exit, !llvm.loop !13
+
+parser_skip_params.exit:                          ; preds = %.preheader, %.lr.ph.i33.preheader.preheader, %.lr.ph.i33.preheader.parser_skip_params.exit.loopexit_crit_edge, %parser_skip_params.exit.sink.split, %26, %14, %parser_skip_params.exit.thread, %parser_discard_sp.exit
+  %.0 = phi i32 [ -1, %parser_discard_sp.exit ], [ -1, %parser_skip_params.exit.thread ], [ -1, %14 ], [ -1, %26 ], [ %.0.ph, %parser_skip_params.exit.sink.split ], [ -1, %.lr.ph.i33.preheader.parser_skip_params.exit.loopexit_crit_edge ], [ -1, %.lr.ph.i33.preheader.preheader ], [ %12, %.preheader ]
   ret i32 %.0
 }
 

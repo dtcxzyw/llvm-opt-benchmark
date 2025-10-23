@@ -58,18 +58,22 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
-  %22 = sext i32 %.03865 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.03865, i32 %11)
   %wide.trip.count = sext i32 %smax to i64
-  br label %.lr.ph
+  %exitcond.not133.not = icmp slt i32 %.03865, %11
+  br i1 %exitcond.not133.not, label %.lr.ph135, label %.loopexit50
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit50, label %23
+.lr.ph135:                                        ; preds = %.lr.ph.preheader
+  %22 = sext i32 %.03865 to i64
+  br label %23
 
-23:                                               ; preds = %.lr.ph
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+.lr.ph:                                           ; preds = %23
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit50, label %23, !llvm.loop !19
+
+23:                                               ; preds = %.lr.ph135, %.lr.ph
+  %indvars.iv134 = phi i64 [ %22, %.lr.ph135 ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv134, 1
   %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !7
   %26 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
@@ -145,9 +149,9 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   store i8 %51, ptr %3, align 4, !tbaa !4
   br label %.loopexit50
 
-.loopexit50:                                      ; preds = %.lr.ph, %._crit_edge89
-  %.sroa.0.0 = phi ptr [ %.1.lcssa, %._crit_edge89 ], [ null, %.lr.ph ]
-  %.sroa.3.0 = phi i64 [ %.142.lcssa, %._crit_edge89 ], [ %16, %.lr.ph ]
+.loopexit50:                                      ; preds = %.lr.ph.preheader, %.lr.ph, %._crit_edge89
+  %.sroa.0.0 = phi ptr [ %.1.lcssa, %._crit_edge89 ], [ null, %.lr.ph ], [ null, %.lr.ph.preheader ]
+  %.sroa.3.0 = phi i64 [ %.142.lcssa, %._crit_edge89 ], [ %16, %.lr.ph ], [ %16, %.lr.ph.preheader ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert

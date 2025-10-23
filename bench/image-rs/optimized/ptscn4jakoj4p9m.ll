@@ -8318,7 +8318,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..in_pla
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2646
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) %12)
-          to label %.noexc.i.i unwind label %26, !noalias !2636
+          to label %.noexc.i.i unwind label %27, !noalias !2636
 
 .noexc.i.i:                                       ; preds = %16
   %17 = load i64, ptr %9, align 8, !range !195, !noalias !2646, !noundef !24
@@ -8343,29 +8343,30 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..in_pla
   %23 = icmp eq i64 %13, %7
   br i1 %23, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$u5d$$GT$17h974a40a44948b633E.exit.i", label %11
 
-24:                                               ; preds = %28, %26
-  %.1.i.i = phi i64 [ %13, %26 ], [ %30, %28 ]
-  %25 = icmp eq i64 %.1.i.i, %7
-  br i1 %25, label %.body.i, label %28
+24:                                               ; preds = %.lr.ph10.i.i
+  %25 = add i64 %.18.i.i, 1
+  %26 = icmp eq i64 %25, %7
+  br i1 %26, label %.body.i, label %.lr.ph10.i.i
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %24
+  %29 = icmp eq i64 %13, %7
+  br i1 %29, label %.body.i, label %.lr.ph10.i.i
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds { i64, [211 x i64] }, ptr %3, i64 %.1.i.i
-  %30 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$GT$17h101ce017190f621aE"(ptr noalias noundef align 8 dereferenceable(1696) %29) #36
+.lr.ph10.i.i:                                     ; preds = %27, %24
+  %.18.i.i = phi i64 [ %25, %24 ], [ %13, %27 ]
+  %30 = getelementptr inbounds { i64, [211 x i64] }, ptr %3, i64 %.18.i.i
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$GT$17h101ce017190f621aE"(ptr noalias noundef align 8 dereferenceable(1696) %30) #36
           to label %24 unwind label %31, !noalias !2636
 
-31:                                               ; preds = %28
+31:                                               ; preds = %.lr.ph10.i.i
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38, !noalias !2636
   unreachable
 
-.body.i:                                          ; preds = %24
+.body.i:                                          ; preds = %24, %27
   %33 = icmp eq i64 %5, 0
   br i1 %33, label %"_ZN4core3ptr114drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$GT$$GT$17hf7eb6ff8abf4c226E.exit.i", label %34
 
@@ -8384,7 +8385,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..in_pla
   br label %"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3792507d0b422f15E.exit"
 
 "_ZN4core3ptr114drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$GT$$GT$17hf7eb6ff8abf4c226E.exit.i": ; preds = %34, %.body.i
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %28
 
 "_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3792507d0b422f15E.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$u5d$$GT$17h974a40a44948b633E.exit.i", %37
   ret void
@@ -17020,7 +17021,7 @@ define internal fastcc void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32fo
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4633
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) %15)
-          to label %.noexc.i unwind label %29
+          to label %.noexc.i unwind label %30
 
 .noexc.i:                                         ; preds = %19
   %20 = load i64, ptr %12, align 8, !range !195, !noalias !4633, !noundef !24
@@ -17045,27 +17046,28 @@ define internal fastcc void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32fo
   %26 = icmp eq i64 %16, %9
   br i1 %26, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$u5d$$GT$17h974a40a44948b633E.exit", label %14
 
-27:                                               ; preds = %31, %29
-  %.1.i = phi i64 [ %16, %29 ], [ %33, %31 ]
-  %28 = icmp eq i64 %.1.i, %9
-  br i1 %28, label %34, label %31
+27:                                               ; preds = %.lr.ph10.i
+  %28 = add i64 %.18.i, 1
+  %29 = icmp eq i64 %28, %9
+  br i1 %29, label %._crit_edge11.i, label %.lr.ph10.i
 
-29:                                               ; preds = %19
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  %32 = icmp eq i64 %16, %9
+  br i1 %32, label %._crit_edge11.i, label %.lr.ph10.i
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds { i64, [211 x i64] }, ptr %3, i64 %.1.i
-  %33 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$GT$17h101ce017190f621aE"(ptr noalias noundef align 8 dereferenceable(1696) %32) #36
-          to label %27 unwind label %35
+.lr.ph10.i:                                       ; preds = %30, %27
+  %.18.i = phi i64 [ %28, %27 ], [ %16, %30 ]
+  %33 = getelementptr inbounds { i64, [211 x i64] }, ptr %3, i64 %.18.i
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$jpeg_decoder..huffman..HuffmanTable$GT$$GT$17h101ce017190f621aE"(ptr noalias noundef align 8 dereferenceable(1696) %33) #36
+          to label %27 unwind label %34
 
-34:                                               ; preds = %27
-  resume { ptr, i32 } %30
+._crit_edge11.i:                                  ; preds = %27, %30
+  resume { ptr, i32 } %31
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.lr.ph10.i
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable

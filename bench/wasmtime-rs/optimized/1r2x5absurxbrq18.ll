@@ -18431,20 +18431,25 @@ define hidden void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAd
   %5 = load i32, ptr %4, align 8, !noundef !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h21f601848d5677f6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 1, i32 noundef %5)
-  br i1 %7, label %._crit_edge, label %.lr.ph
+  br i1 %7, label %._crit_edge, label %.lr.ph.preheader
 
-8:                                                ; preds = %.lr.ph
-  %9 = add i32 %.05, -1
+.lr.ph.preheader:                                 ; preds = %3
+  tail call void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules8instance17h10c84ff7c2cb4e5cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(640) %1, i32 noundef %5)
+  %8 = icmp eq i32 %5, 0
+  br i1 %8, label %._crit_edge, label %.lr.ph8
+
+.lr.ph8:                                          ; preds = %.lr.ph.preheader, %.lr.ph
+  %.057 = phi i32 [ %9, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %9 = add i32 %.057, -1
   %10 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h21f601848d5677f6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 1, i32 noundef %9)
   br i1 %10, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %8
-  %.05 = phi i32 [ %9, %8 ], [ %5, %3 ]
-  tail call void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules8instance17h10c84ff7c2cb4e5cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(640) %1, i32 noundef %.05)
-  %11 = icmp eq i32 %.05, 0
-  br i1 %11, label %._crit_edge, label %8
+.lr.ph:                                           ; preds = %.lr.ph8
+  tail call void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules8instance17h10c84ff7c2cb4e5cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(640) %1, i32 noundef %9)
+  %11 = icmp eq i32 %9, 0
+  br i1 %11, label %._crit_edge, label %.lr.ph8
 
-._crit_edge:                                      ; preds = %.lr.ph, %8, %3
+._crit_edge:                                      ; preds = %.lr.ph8, %.lr.ph, %.lr.ph.preheader, %3
   ret void
 }
 
@@ -18454,20 +18459,25 @@ define hidden void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAd
   %5 = load i32, ptr %4, align 8, !noundef !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h21f601848d5677f6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 1, i32 noundef %5)
-  br i1 %7, label %._crit_edge, label %.lr.ph
+  br i1 %7, label %._crit_edge, label %.lr.ph.preheader
 
-8:                                                ; preds = %.lr.ph
-  %9 = add i32 %.05, -1
+.lr.ph.preheader:                                 ; preds = %3
+  tail call void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules8instance17h10c84ff7c2cb4e5cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(640) %1, i32 noundef %5)
+  %8 = icmp eq i32 %5, 0
+  br i1 %8, label %._crit_edge, label %.lr.ph8
+
+.lr.ph8:                                          ; preds = %.lr.ph.preheader, %.lr.ph
+  %.057 = phi i32 [ %9, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %9 = add i32 %.057, -1
   %10 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h21f601848d5677f6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 1, i32 noundef %9)
   br i1 %10, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %8
-  %.05 = phi i32 [ %9, %8 ], [ %5, %3 ]
-  tail call void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules8instance17h10c84ff7c2cb4e5cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(640) %1, i32 noundef %.05)
-  %11 = icmp eq i32 %.05, 0
-  br i1 %11, label %._crit_edge, label %8
+.lr.ph:                                           ; preds = %.lr.ph8
+  tail call void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules8instance17h10c84ff7c2cb4e5cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(640) %1, i32 noundef %9)
+  %11 = icmp eq i32 %9, 0
+  br i1 %11, label %._crit_edge, label %.lr.ph8
 
-._crit_edge:                                      ; preds = %.lr.ph, %8, %3
+._crit_edge:                                      ; preds = %.lr.ph8, %.lr.ph, %.lr.ph.preheader, %3
   ret void
 }
 

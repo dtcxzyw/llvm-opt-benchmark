@@ -244,11 +244,19 @@ for.cond107.preheader:                            ; preds = %land.lhs.true
   %conv112137148 = zext i8 %19 to i32
   %and113138 = and i32 %conv112137148, 192
   %cmp114139 = icmp eq i32 %and113138, 128
-  br i1 %cmp114139, label %if.then115, label %if.else126
+  br i1 %cmp114139, label %if.then115.preheader, label %if.else126
 
-for.cond107:                                      ; preds = %if.then115
-  %dec = add i64 %i105.0140, -1
-  %inc110 = add nuw nsw i8 %inc110141, 1
+if.then115.preheader:                             ; preds = %for.cond107.preheader
+  %cmp119156 = icmp ugt i8 %inc110135, 3
+  %cmp121157 = icmp eq i64 %sub100, 0
+  %or.cond158 = or i1 %cmp121157, %cmp119156
+  br i1 %or.cond158, label %if.then122, label %for.cond107
+
+for.cond107:                                      ; preds = %if.then115.preheader, %if.then115
+  %i105.0140160 = phi i64 [ %dec, %if.then115 ], [ %sub100, %if.then115.preheader ]
+  %inc110141159 = phi i8 [ %inc110, %if.then115 ], [ %inc110135, %if.then115.preheader ]
+  %dec = add i64 %i105.0140160, -1
+  %inc110 = add nuw nsw i8 %inc110141159, 1
   store i8 %inc110, ptr %arrayidx109, align 1
   %arrayidx111 = getelementptr inbounds i8, ptr %data.addr.0, i64 %dec
   %20 = load i8, ptr %arrayidx111, align 1
@@ -257,15 +265,13 @@ for.cond107:                                      ; preds = %if.then115
   %cmp114 = icmp eq i32 %and113, 128
   br i1 %cmp114, label %if.then115, label %if.else126, !llvm.loop !7
 
-if.then115:                                       ; preds = %for.cond107.preheader, %for.cond107
-  %inc110141 = phi i8 [ %inc110, %for.cond107 ], [ %inc110135, %for.cond107.preheader ]
-  %i105.0140 = phi i64 [ %dec, %for.cond107 ], [ %sub100, %for.cond107.preheader ]
-  %cmp119 = icmp ugt i8 %inc110141, 3
-  %cmp121 = icmp eq i64 %i105.0140, 0
+if.then115:                                       ; preds = %for.cond107
+  %cmp119 = icmp ugt i8 %inc110141159, 2
+  %cmp121 = icmp eq i64 %dec, 0
   %or.cond = or i1 %cmp121, %cmp119
-  br i1 %or.cond, label %if.then122, label %for.cond107
+  br i1 %or.cond, label %if.then122, label %for.cond107, !llvm.loop !7
 
-if.then122:                                       ; preds = %if.then115
+if.then122:                                       ; preds = %if.then115, %if.then115.preheader
   store i8 0, ptr %arrayidx109, align 1
   br label %if.end223
 

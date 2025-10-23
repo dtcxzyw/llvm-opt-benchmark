@@ -390,15 +390,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add nsw i32 %0, %count
-  br label %while.cond
+  %cmp35 = icmp sgt i32 %count, 0
+  br i1 %cmp35, label %while.body, label %return
 
-while.cond:                                       ; preds = %while.body, %if.end
-  %count.addr.0 = phi i32 [ %count, %if.end ], [ %dec, %while.body ]
-  %cmp3 = icmp sgt i32 %count.addr.0, 0
-  br i1 %cmp3, label %while.body, label %return
+while.cond:                                       ; preds = %while.body
+  %dec = add nsw i32 %count.addr.06, -1
+  %cmp3 = icmp sgt i32 %count.addr.06, 1
+  br i1 %cmp3, label %while.body, label %return, !llvm.loop !9
 
-while.body:                                       ; preds = %while.cond
-  %dec = add nsw i32 %count.addr.0, -1
+while.body:                                       ; preds = %if.end, %while.cond
+  %count.addr.06 = phi i32 [ %dec, %while.cond ], [ %count, %if.end ]
   %2 = atomicrmw add ptr %mnCount, i32 1 seq_cst, align 4
   %call8 = tail call i32 @sem_post(ptr noundef nonnull %this) #13
   %cmp9 = icmp eq i32 %call8, -1
@@ -408,8 +409,8 @@ if.then10:                                        ; preds = %while.body
   %3 = atomicrmw sub ptr %mnCount, i32 1 seq_cst, align 4
   br label %return
 
-return:                                           ; preds = %while.cond, %entry, %if.then10
-  %retval.0 = phi i32 [ -1, %if.then10 ], [ -1, %entry ], [ %add, %while.cond ]
+return:                                           ; preds = %while.cond, %if.end, %entry, %if.then10
+  %retval.0 = phi i32 [ -1, %if.then10 ], [ -1, %entry ], [ %add, %if.end ], [ %add, %while.cond ]
   ret i32 %retval.0
 }
 

@@ -1040,18 +1040,22 @@ cs_wclear.exit832:                                ; preds = %406
 .lr.ph963:                                        ; preds = %455
   %459 = load i32, ptr %458, align 4, !tbaa !13
   %460 = add i32 %436, %459
-  %461 = sext i32 %459 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %459, i32 %460)
   %wide.trip.count1079 = sext i32 %smax to i64
-  br label %462
+  %exitcond1080.not1236.not = icmp slt i32 %459, %460
+  br i1 %exitcond1080.not1236.not, label %select.unfold.lr.ph, label %.critedge9
 
-462:                                              ; preds = %.lr.ph963, %select.unfold
-  %indvars.iv1076 = phi i64 [ %461, %.lr.ph963 ], [ %indvars.iv.next1077, %select.unfold ]
-  %exitcond1080.not = icmp eq i64 %indvars.iv1076, %wide.trip.count1079
+select.unfold.lr.ph:                              ; preds = %.lr.ph963
+  %461 = sext i32 %459 to i64
+  br label %select.unfold
+
+462:                                              ; preds = %select.unfold
+  %exitcond1080.not = icmp eq i64 %indvars.iv.next1077, %wide.trip.count1079
   br i1 %exitcond1080.not, label %.critedge9, label %select.unfold
 
-select.unfold:                                    ; preds = %462
-  %indvars.iv.next1077 = add nsw i64 %indvars.iv1076, 1
+select.unfold:                                    ; preds = %select.unfold.lr.ph, %462
+  %indvars.iv10761237 = phi i64 [ %461, %select.unfold.lr.ph ], [ %indvars.iv.next1077, %462 ]
+  %indvars.iv.next1077 = add nsw i64 %indvars.iv10761237, 1
   %463 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv.next1077
   %464 = load i32, ptr %463, align 4, !tbaa !13
   %465 = sext i32 %464 to i64
@@ -1060,7 +1064,7 @@ select.unfold:                                    ; preds = %462
   %.not799.not = icmp eq i32 %467, %.3724971
   br i1 %.not799.not, label %462, label %.critedge812
 
-.critedge9:                                       ; preds = %462
+.critedge9:                                       ; preds = %462, %.lr.ph963
   store i32 %448, ptr %458, align 4, !tbaa !13
   %468 = getelementptr inbounds i32, ptr %85, i64 %451
   %469 = load i32, ptr %468, align 4, !tbaa !13

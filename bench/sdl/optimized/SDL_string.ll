@@ -759,43 +759,46 @@ define hidden range(i32 0, 1966080) i32 @SDL_StepBackUTF8_REAL(ptr noundef readn
   %3 = ptrtoint ptr %0 to i64
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %22, label %5
+  br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
   %7 = ptrtoint ptr %6 to i64
   %.not11 = icmp ugt ptr %6, %0
-  br i1 %.not11, label %8, label %22
+  br i1 %.not11, label %.lr.ph.preheader, label %19
 
-8:                                                ; preds = %5
+.lr.ph.preheader:                                 ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %9 = sub i64 %3, %7
-  %scevgep = getelementptr i8, ptr %6, i64 %9
-  br label %10
+  %8 = sub i64 %3, %7
+  %scevgep = getelementptr i8, ptr %6, i64 %8
+  br label %.lr.ph
 
-10:                                               ; preds = %13, %8
-  %11 = phi ptr [ %14, %13 ], [ %6, %8 ]
-  %12 = icmp eq ptr %11, %0
-  br i1 %12, label %17, label %13
+9:                                                ; preds = %.lr.ph
+  %10 = icmp eq ptr %12, %0
+  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 -1
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp slt i8 %15, -64
-  br i1 %16, label %10, label %17, !llvm.loop !8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %11 = phi ptr [ %12, %9 ], [ %6, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 -1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp slt i8 %13, -64
+  br i1 %14, label %9, label %._crit_edge12, !llvm.loop !8
 
-17:                                               ; preds = %10, %13
-  %18 = phi ptr [ %scevgep, %10 ], [ %14, %13 ]
-  store ptr %18, ptr %4, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = sub i64 %7, %19
-  store ptr %18, ptr %1, align 8
-  %21 = call fastcc i32 @StepUTF8(ptr noundef nonnull %4, i64 noundef %20)
+._crit_edge12:                                    ; preds = %.lr.ph
+  br label %._crit_edge, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %9, %._crit_edge12
+  %15 = phi ptr [ %12, %._crit_edge12 ], [ %scevgep, %9 ]
+  store ptr %15, ptr %4, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %17 = sub i64 %7, %16
+  store ptr %15, ptr %1, align 8
+  %18 = call fastcc i32 @StepUTF8(ptr noundef nonnull %4, i64 noundef %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %22
+  br label %19
 
-22:                                               ; preds = %2, %5, %17
-  %.0 = phi i32 [ %21, %17 ], [ 0, %5 ], [ 0, %2 ]
+19:                                               ; preds = %2, %5, %._crit_edge
+  %.0 = phi i32 [ %18, %._crit_edge ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 

@@ -3450,26 +3450,28 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as
   %.not.i.i10.i = icmp eq i64 %.val7.i, %.val9.i
   br i1 %.not.i.i10.i, label %.preheader.split.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
-.preheader.split.i.i.i:                           ; preds = %14, %19
-  %.sroa.01.0.i.i.i = phi i64 [ %20, %19 ], [ 0, %14 ]
-  %exitcond.not.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i, %.val7.i
-  br i1 %exitcond.not.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit", label %19
+.preheader.split.i.i.i:                           ; preds = %14
+  %.not12.i.i.i = icmp eq i64 %.val7.i, 0
+  br i1 %.not12.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit", label %.lr.ph.i.i.i
 
-19:                                               ; preds = %.preheader.split.i.i.i
-  %20 = add i64 %.sroa.01.0.i.i.i, 1
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6.i, i64 %.sroa.01.0.i.i.i
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8.i, i64 %.sroa.01.0.i.i.i
-  %23 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h5101c8de422f1c19E.llvm.3646540950948783737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !455
-  br i1 %23, label %.preheader.split.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
+.lr.ph.i.i.i:                                     ; preds = %.preheader.split.i.i.i, %.lr.ph.i.i.i
+  %.sroa.01.09.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ 0, %.preheader.split.i.i.i ]
+  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6.i, i64 %.sroa.01.09.i.i.i
+  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8.i, i64 %.sroa.01.09.i.i.i
+  %21 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h5101c8de422f1c19E.llvm.3646540950948783737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !455
+  %22 = add nuw i64 %.sroa.01.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp ne i64 %22, %.val7.i
+  %or.cond.not = select i1 %21, i1 %exitcond.not.i.i.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
-"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit": ; preds = %.preheader.split.i.i.i, %19, %2, %7, %10, %14
-  %.0.shrunk.i = phi i1 [ false, %2 ], [ %13, %10 ], [ false, %7 ], [ false, %14 ], [ %exitcond.not.i.i.i, %19 ], [ %exitcond.not.i.i.i, %.preheader.split.i.i.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 146
-  %25 = load i8, ptr %24, align 2, !range !115
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 146
-  %27 = load i8, ptr %26, align 2, !range !115
-  %28 = icmp eq i8 %25, %27
-  %.0 = select i1 %.0.shrunk.i, i1 %28, i1 false
+"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit": ; preds = %.lr.ph.i.i.i, %2, %7, %10, %14, %.preheader.split.i.i.i
+  %.0.shrunk.i = phi i1 [ false, %2 ], [ %13, %10 ], [ false, %7 ], [ false, %14 ], [ true, %.preheader.split.i.i.i ], [ %21, %.lr.ph.i.i.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 146
+  %24 = load i8, ptr %23, align 2, !range !115
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 146
+  %26 = load i8, ptr %25, align 2, !range !115
+  %27 = icmp eq i8 %24, %26
+  %.0 = select i1 %.0.shrunk.i, i1 %27, i1 false
   ret i1 %.0
 }
 

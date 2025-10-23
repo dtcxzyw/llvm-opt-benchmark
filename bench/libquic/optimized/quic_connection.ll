@@ -3181,28 +3181,35 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 .critedge.us83.preheader:                         ; preds = %.lr.ph.split.split.us71
   %80 = add nsw i64 %11, -1
-  br label %.critedge.us83
+  %exitcond.not156 = icmp eq i64 %80, 0
+  br i1 %exitcond.not156, label %.critedge16, label %._crit_edge.i.i.i.i.us72.lr.ph, !llvm.loop !303
 
-._crit_edge.i.i.i.i.us72:                         ; preds = %.critedge.us83
-  %81 = add nuw i64 %.01430.us7494, 1
+._crit_edge.i.i.i.i.us72.lr.ph:                   ; preds = %.critedge.us83.preheader
+  br label %._crit_edge.i.i.i.i.us72, !llvm.loop !303
+
+._crit_edge.i.i.i.i.us72:                         ; preds = %._crit_edge.i.i.i.i.us72.lr.ph, %.critedge.us83
+  %.01430.us7494157 = phi i64 [ 0, %._crit_edge.i.i.i.i.us72.lr.ph ], [ %81, %.critedge.us83 ]
+  %81 = add nuw i64 %.01430.us7494157, 1
   %82 = getelementptr inbounds nuw i32, ptr %7, i64 %81
   %.pre58.i.i.i.i.us76 = load i32, ptr %82, align 4, !tbaa !301
   %83 = icmp ne i32 %78, %.pre58.i.i.i.i.us76
   %.not18.us82 = or i1 %83, %.not18.us829397
   br i1 %.not18.us82, label %.critedge.us83, label %.split.us, !llvm.loop !303
 
-.critedge.us83:                                   ; preds = %.critedge.us83.preheader, %._crit_edge.i.i.i.i.us72
-  %.01430.us7494 = phi i64 [ %81, %._crit_edge.i.i.i.i.us72 ], [ 0, %.critedge.us83.preheader ]
-  %exitcond.not = icmp eq i64 %.01430.us7494, %80
-  br i1 %exitcond.not, label %.critedge16, label %._crit_edge.i.i.i.i.us72, !llvm.loop !303
+.critedge.us83:                                   ; preds = %._crit_edge.i.i.i.i.us72
+  %exitcond.not = icmp eq i64 %81, %80
+  br i1 %exitcond.not, label %.critedge.us83..critedge16.loopexit146_crit_edge, label %._crit_edge.i.i.i.i.us72, !llvm.loop !303
 
 .split.us:                                        ; preds = %._crit_edge.i.i.i.i.us72, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, %.lr.ph.split.split.us71
   %84 = phi i32 [ %78, %.lr.ph.split.split.us71 ], [ %24, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us ], [ %62, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40 ], [ %.pre.i.i.i.i.us56, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60 ], [ %78, %._crit_edge.i.i.i.i.us72 ]
   tail call void @_ZN3net10QuicFramer11set_versionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(408) %3, i32 noundef %84)
   br label %.critedge16
 
-.critedge16:                                      ; preds = %.critedge.us83, %.critedge.us63, %.critedge.us43, %.critedge.us, %.lr.ph.split, %2, %.split.us
-  %.not20 = phi i1 [ true, %.split.us ], [ false, %2 ], [ false, %.lr.ph.split ], [ false, %.critedge.us ], [ false, %.critedge.us43 ], [ false, %.critedge.us63 ], [ false, %.critedge.us83 ]
+.critedge.us83..critedge16.loopexit146_crit_edge: ; preds = %.critedge.us83
+  br label %.critedge16, !llvm.loop !303
+
+.critedge16:                                      ; preds = %.critedge.us63, %.critedge.us43, %.critedge.us, %.critedge.us83.preheader, %.critedge.us83..critedge16.loopexit146_crit_edge, %.lr.ph.split, %2, %.split.us
+  %.not20 = phi i1 [ true, %.split.us ], [ false, %2 ], [ false, %.lr.ph.split ], [ false, %.critedge.us83..critedge16.loopexit146_crit_edge ], [ false, %.critedge.us83.preheader ], [ false, %.critedge.us ], [ false, %.critedge.us43 ], [ false, %.critedge.us63 ]
   ret i1 %.not20
 }
 

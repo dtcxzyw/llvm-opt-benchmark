@@ -1029,28 +1029,30 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %.not.i.i = icmp eq i64 %.val2, %.val4
   br i1 %.not.i.i, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit"
 
-.preheader.split.i.i:                             ; preds = %2, %7
-  %.sroa.01.0.i.i = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %exitcond.not.i.i = icmp eq i64 %.sroa.01.0.i.i, %.val2
-  br i1 %exitcond.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit", label %7
+.preheader.split.i.i:                             ; preds = %2
+  %.not12.i.i = icmp eq i64 %.val2, 0
+  br i1 %.not12.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit", label %.lr.ph.i.i
 
-7:                                                ; preds = %.preheader.split.i.i
-  %8 = add i64 %.sroa.01.0.i.i, 1
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.01.0.i.i
-  %10 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val3, i64 %.sroa.01.0.i.i
-  %11 = getelementptr i8, ptr %9, i64 8
-  %.val.i.i = load ptr, ptr %11, align 8, !alias.scope !119, !noalias !122, !nonnull !6, !noundef !6
-  %12 = getelementptr i8, ptr %9, i64 16
-  %.val5.i.i = load i64, ptr %12, align 8, !alias.scope !119, !noalias !122, !noundef !6
-  %13 = getelementptr i8, ptr %10, i64 8
-  %.val6.i.i = load ptr, ptr %13, align 8, !alias.scope !122, !noalias !119, !nonnull !6, !noundef !6
-  %14 = getelementptr i8, ptr %10, i64 16
-  %.val7.i.i = load i64, ptr %14, align 8, !alias.scope !122, !noalias !119, !noundef !6
-  %15 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val5.i.i, ptr noalias noundef nonnull readonly align 1 %.val6.i.i, i64 noundef %.val7.i.i), !noalias !124
-  br i1 %15, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit"
+.lr.ph.i.i:                                       ; preds = %.preheader.split.i.i, %.lr.ph.i.i
+  %.sroa.01.09.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ 0, %.preheader.split.i.i ]
+  %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.01.09.i.i
+  %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val3, i64 %.sroa.01.09.i.i
+  %9 = getelementptr i8, ptr %7, i64 8
+  %.val.i.i = load ptr, ptr %9, align 8, !alias.scope !119, !noalias !122, !nonnull !6, !noundef !6
+  %10 = getelementptr i8, ptr %7, i64 16
+  %.val5.i.i = load i64, ptr %10, align 8, !alias.scope !119, !noalias !122, !noundef !6
+  %11 = getelementptr i8, ptr %8, i64 8
+  %.val6.i.i = load ptr, ptr %11, align 8, !alias.scope !122, !noalias !119, !nonnull !6, !noundef !6
+  %12 = getelementptr i8, ptr %8, i64 16
+  %.val7.i.i = load i64, ptr %12, align 8, !alias.scope !122, !noalias !119, !noundef !6
+  %13 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val5.i.i, ptr noalias noundef nonnull readonly align 1 %.val6.i.i, i64 noundef %.val7.i.i), !noalias !124
+  %14 = add nuw i64 %.sroa.01.09.i.i, 1
+  %exitcond.not.i.i = icmp ne i64 %14, %.val2
+  %or.cond.not = select i1 %13, i1 %exitcond.not.i.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit": ; preds = %.preheader.split.i.i, %7, %2
-  %.sroa.0.0.i.i = phi i1 [ false, %2 ], [ %exitcond.not.i.i, %7 ], [ %exitcond.not.i.i, %.preheader.split.i.i ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha37a08304dc542c8E.exit": ; preds = %.lr.ph.i.i, %2, %.preheader.split.i.i
+  %.sroa.0.0.i.i = phi i1 [ false, %2 ], [ true, %.preheader.split.i.i ], [ %13, %.lr.ph.i.i ]
   ret i1 %.sroa.0.0.i.i
 }
 

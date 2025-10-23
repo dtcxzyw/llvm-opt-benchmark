@@ -1951,11 +1951,11 @@ invoke.cont7.i:                                   ; preds = %if.end12
   br i1 %cmp.not3.i.i, label %invoke.cont19, label %invoke.cont7.i.for.body.preheader.i.i_crit_edge
 
 invoke.cont7.i.for.body.preheader.i.i_crit_edge:  ; preds = %invoke.cont7.i
-  %.pre31 = shl nuw nsw i64 %conv, 4
+  %.pre35 = shl nuw nsw i64 %conv, 4
   br label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %invoke.cont7.i.for.body.preheader.i.i_crit_edge, %invoke.cont7.thread.i
-  %add.ptr.i.idx.i.pre-phi = phi i64 [ %.pre31, %invoke.cont7.i.for.body.preheader.i.i_crit_edge ], [ %mul.i.i.i.i.i, %invoke.cont7.thread.i ]
+  %add.ptr.i.idx.i.pre-phi = phi i64 [ %.pre35, %invoke.cont7.i.for.body.preheader.i.i_crit_edge ], [ %mul.i.i.i.i.i, %invoke.cont7.thread.i ]
   %retval.0.i.i8.i = phi ptr [ %vec_storage, %invoke.cont7.i.for.body.preheader.i.i_crit_edge ], [ %call5.i.i.i2.i.i18, %invoke.cont7.thread.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i.i8.i, i8 0, i64 %add.ptr.i.idx.i.pre-phi, i1 false)
   %data_.i.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vec_storage, i64 280
@@ -2008,20 +2008,20 @@ if.then29:                                        ; preds = %if.end27
 
 if.end36:                                         ; preds = %if.then29, %if.end27
   %cmp38 = icmp eq ptr %args, null
-  %or.cond1 = or i1 %cmp38, %cmp13
-  br i1 %or.cond1, label %cleanup, label %for.cond.preheader
+  %cmp4130 = icmp slt i32 %n, 1
+  %or.cond33.not = or i1 %cmp38, %cmp4130
+  br i1 %or.cond33.not, label %cleanup, label %for.body.preheader
 
-for.cond.preheader:                               ; preds = %if.end36
-  %smax = call i32 @llvm.smax.i32(i32 %n, i32 0)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %for.cond
+for.body.preheader:                               ; preds = %if.end36
+  %wide.trip.count = zext nneg i32 %n to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.cond.preheader, %invoke.cont48
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %invoke.cont48 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %cleanup, label %for.body
+for.cond:                                         ; preds = %invoke.cont48
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !18
 
-for.body:                                         ; preds = %for.cond
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx43 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %5, i64 %indvars.iv.next
   %s.sroa.0.0.copyload = load ptr, ptr %arrayidx43, align 8
@@ -2036,10 +2036,13 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont48 unwind label %lpad20.loopexit
 
 invoke.cont48:                                    ; preds = %for.body
-  br i1 %call.i22, label %for.cond, label %cleanup, !llvm.loop !18
+  br i1 %call.i22, label %for.cond, label %invoke.cont48.cleanup.loopexit_crit_edge, !llvm.loop !18
 
-cleanup:                                          ; preds = %for.cond, %invoke.cont48, %if.end36, %invoke.cont24
-  %retval.1 = phi i1 [ false, %invoke.cont24 ], [ true, %if.end36 ], [ %exitcond.not, %invoke.cont48 ], [ %exitcond.not, %for.cond ]
+invoke.cont48.cleanup.loopexit_crit_edge:         ; preds = %invoke.cont48
+  br label %cleanup, !llvm.loop !18
+
+cleanup:                                          ; preds = %for.cond, %invoke.cont48.cleanup.loopexit_crit_edge, %if.end36, %invoke.cont24
+  %retval.1 = phi i1 [ false, %invoke.cont24 ], [ true, %if.end36 ], [ false, %invoke.cont48.cleanup.loopexit_crit_edge ], [ true, %for.cond ]
   %11 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i24 = icmp ult i64 %11, 18
   br i1 %cmp.i.i.i24, label %return, label %invoke.cont11.i.i25

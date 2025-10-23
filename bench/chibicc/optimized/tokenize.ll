@@ -176,56 +176,67 @@ define dso_local void @error_at(ptr noundef %0, ptr noundef readonly captures(no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @verror_at(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull %5) unnamed_addr #5 {
-  br label %7
+  %7 = ptrtoint ptr %3 to i64
+  %8 = icmp ult ptr %1, %3
+  br i1 %8, label %.lr.ph.preheader, label %.critedge
 
-7:                                                ; preds = %9, %6
-  %.0 = phi ptr [ %3, %6 ], [ %10, %9 ]
-  %8 = icmp ult ptr %1, %.0
-  br i1 %8, label %9, label %.critedge.preheader
+.lr.ph.preheader:                                 ; preds = %6
+  %9 = ptrtoint ptr %1 to i64
+  %10 = sub i64 %9, %7
+  %scevgep = getelementptr i8, ptr %3, i64 %10
+  br label %.lr.ph
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !18
-  %.not = icmp eq i8 %11, 10
-  br i1 %.not, label %.critedge.preheader, label %7, !llvm.loop !21
+11:                                               ; preds = %.lr.ph
+  %12 = icmp ult ptr %1, %13
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !21
 
-.critedge.preheader:                              ; preds = %7, %9
-  br label %.critedge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %.026 = phi ptr [ %13, %11 ], [ %3, %.lr.ph.preheader ]
+  %13 = getelementptr inbounds i8, ptr %.026, i64 -1
+  %14 = load i8, ptr %13, align 1, !tbaa !18
+  %.not = icmp eq i8 %14, 10
+  br i1 %.not, label %..critedge_crit_edge27, label %11, !llvm.loop !21
 
-.critedge:                                        ; preds = %.critedge.preheader, %13
-  %.022 = phi ptr [ %14, %13 ], [ %3, %.critedge.preheader ]
-  %12 = load i8, ptr %.022, align 1, !tbaa !18
-  switch i8 %12, label %13 [
+..critedge_crit_edge27:                           ; preds = %.lr.ph
+  br label %.critedge, !llvm.loop !21
+
+.critedge:                                        ; preds = %11, %..critedge_crit_edge27, %6
+  %.0.lcssa = phi ptr [ %.026, %..critedge_crit_edge27 ], [ %3, %6 ], [ %scevgep, %11 ]
+  br label %15
+
+15:                                               ; preds = %17, %.critedge
+  %.022 = phi ptr [ %3, %.critedge ], [ %18, %17 ]
+  %16 = load i8, ptr %.022, align 1, !tbaa !18
+  switch i8 %16, label %17 [
     i8 0, label %.critedge2
     i8 10, label %.critedge2
   ]
 
-13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds nuw i8, ptr %.022, i64 1
-  br label %.critedge, !llvm.loop !22
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %.022, i64 1
+  br label %15, !llvm.loop !22
 
-.critedge2:                                       ; preds = %.critedge, %.critedge
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.17, ptr noundef %0, i32 noundef %2) #25
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %18 = ptrtoint ptr %.022 to i64
-  %19 = ptrtoint ptr %.0 to i64
-  %20 = sub i64 %18, %19
-  %21 = trunc i64 %20 to i32
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.18, i32 noundef %21, ptr noundef %.0) #25
-  %23 = ptrtoint ptr %3 to i64
-  %24 = sub i64 %23, %19
+.critedge2:                                       ; preds = %15, %15
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.17, ptr noundef %0, i32 noundef %2) #25
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %22 = ptrtoint ptr %.022 to i64
+  %23 = ptrtoint ptr %.0.lcssa to i64
+  %24 = sub i64 %22, %23
   %25 = trunc i64 %24 to i32
-  %26 = tail call i32 @display_width(ptr noundef %.0, i32 noundef %25) #27
-  %27 = add nsw i32 %26, %16
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.19, i32 noundef %27, ptr noundef nonnull @.str.20) #25
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 2, i64 1, ptr %30) #28
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %33 = tail call i32 @vfprintf(ptr noundef %32, ptr noundef %4, ptr noundef nonnull %5) #25
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %fputc = tail call i32 @fputc(i32 10, ptr %34)
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.18, i32 noundef %25, ptr noundef %.0.lcssa) #25
+  %27 = sub i64 %7, %23
+  %28 = trunc i64 %27 to i32
+  %29 = tail call i32 @display_width(ptr noundef %.0.lcssa, i32 noundef %28) #27
+  %30 = add nsw i32 %29, %20
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.19, i32 noundef %30, ptr noundef nonnull @.str.20) #25
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 2, i64 1, ptr %33) #28
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %36 = tail call i32 @vfprintf(ptr noundef %35, ptr noundef %4, ptr noundef nonnull %5) #25
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %fputc = tail call i32 @fputc(i32 10, ptr %37)
   ret void
 }
 

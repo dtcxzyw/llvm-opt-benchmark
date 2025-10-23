@@ -6408,8 +6408,8 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, i64 %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
-  %.not4 = icmp eq i64 %.8.val, 0
-  br i1 %.not4, label %.critedge, label %.lr.ph
+  %.not9 = icmp eq i64 %.8.val, 0
+  br i1 %.not9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
   %.0161 = phi i64 [ %8, %7 ], [ 0, %1 ]
@@ -6423,43 +6423,47 @@ define internal fastcc void @_ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_trait
 7:                                                ; preds = %.lr.ph
   %8 = add nuw i64 %.0161, 1
   %exitcond.not = icmp eq i64 %8, %.8.val
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, label %.lr.ph, !llvm.loop !62
 
-.critedge:                                        ; preds = %.lr.ph, %7, %1
-  %.016.lcssa = phi i64 [ 0, %1 ], [ %.8.val, %7 ], [ %.0161, %.lr.ph ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %.016.lcssa, i64 %.8.val)
-  br label %9
+.critedge:                                        ; preds = %.lr.ph
+  %9 = icmp ugt i64 %.8.val, %.0161
+  br i1 %9, label %.lr.ph5, label %.critedge2
 
-9:                                                ; preds = %11, %.critedge
-  %.0 = phi i64 [ %.8.val, %.critedge ], [ %12, %11 ]
-  %10 = icmp ugt i64 %.0, %.016.lcssa
-  br i1 %10, label %11, label %.critedge2
+10:                                               ; preds = %.lr.ph5
+  %11 = icmp ugt i64 %12, %.0161
+  br i1 %11, label %.lr.ph5, label %.critedge2, !llvm.loop !63
 
-11:                                               ; preds = %9
-  %12 = add i64 %.0, -1
+.lr.ph5:                                          ; preds = %.critedge, %10
+  %.04 = phi i64 [ %12, %10 ], [ %.8.val, %.critedge ]
+  %12 = add i64 %.04, -1
   %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !44
   %15 = sext i8 %14 to i32
   %16 = tail call i32 @isspace(i32 noundef %15) #26
   %.not17 = icmp eq i32 %16, 0
-  br i1 %.not17, label %.critedge2, label %9, !llvm.loop !63
+  br i1 %.not17, label %..critedge2_crit_edge7, label %10, !llvm.loop !63
 
-.critedge2:                                       ; preds = %9, %11
-  %.0.lcssa = phi i64 [ %umin, %9 ], [ %.0, %11 ]
+..critedge2_crit_edge7:                           ; preds = %.lr.ph5
+  br label %.critedge2, !llvm.loop !63
+
+.critedge2:                                       ; preds = %10, %..critedge2_crit_edge7, %.critedge
+  %.0.lcssa = phi i64 [ %.04, %..critedge2_crit_edge7 ], [ %.8.val, %.critedge ], [ %.0161, %10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %17 = icmp ugt i64 %.016.lcssa, %.8.val
+  %17 = icmp ugt i64 %.0161, %.8.val
   br i1 %17, label %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
 
 18:                                               ; preds = %.critedge2
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.146, i64 noundef %.016.lcssa, i64 noundef %.8.val) #24, !noalias !64
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.146, i64 noundef %.0161, i64 noundef %.8.val) #24, !noalias !64
   unreachable
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %.critedge2
-  %19 = sub i64 %.0.lcssa, %.016.lcssa
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %7, %1, %.critedge2
+  %.0.lcssa18 = phi i64 [ %.0.lcssa, %.critedge2 ], [ %.8.val, %1 ], [ %.8.val, %7 ]
+  %.016.lcssa1417 = phi i64 [ %.0161, %.critedge2 ], [ %.8.val, %1 ], [ %.8.val, %7 ]
+  %19 = sub i64 %.0.lcssa18, %.016.lcssa1417
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !42, !alias.scope !64
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.016.lcssa
-  %22 = sub nuw i64 %.8.val, %.016.lcssa
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.016.lcssa1417
+  %22 = sub nuw i64 %.8.val, %.016.lcssa1417
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %19, i64 %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !64
   store i64 %spec.select.i.i.i, ptr %2, align 8, !tbaa !43, !noalias !64

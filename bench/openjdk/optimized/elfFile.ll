@@ -4227,22 +4227,24 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
 
 .lr.ph:                                           ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %25
+  %25 = icmp eq i32 %1, 1
+  br i1 %25, label %._crit_edge, label %.lr.ph42
 
-25:                                               ; preds = %.lr.ph, %85
-  %26 = phi i64 [ %22, %.lr.ph ], [ %89, %85 ]
-  %.028 = phi i32 [ 1, %.lr.ph ], [ %86, %85 ]
-  %27 = icmp eq i32 %.028, %1
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %85
+  %27 = add i32 %.02841, 1
+  %28 = icmp eq i32 %27, %1
+  br i1 %28, label %._crit_edge, label %.lr.ph42, !llvm.loop !22
 
-28:                                               ; preds = %25
+._crit_edge:                                      ; preds = %26, %.lr.ph
   %29 = tail call noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenameEPcm(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %2, i64 noundef %3)
   br label %.loopexit
 
-30:                                               ; preds = %25
+.lr.ph42:                                         ; preds = %.lr.ph, %26
+  %.02841 = phi i32 [ %27, %26 ], [ 1, %.lr.ph ]
+  %30 = phi i64 [ %88, %26 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %31 = add nsw i64 %26, 1
+  %31 = add nsw i64 %30, 1
   store i64 %31, ptr %19, align 8
   %32 = load ptr, ptr %24, align 8
   %33 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef 1, ptr noundef %32)
@@ -4252,7 +4254,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   %or.cond.i = select i1 %34, i1 %36, i1 false
   br i1 %or.cond.i, label %.split.us.i, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread
 
-.split.us.i:                                      ; preds = %30, %46
+.split.us.i:                                      ; preds = %.lr.ph42, %46
   %37 = load i64, ptr %18, align 8
   %38 = icmp ne i64 %37, -1
   %39 = load i64, ptr %19, align 8
@@ -4273,7 +4275,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %.split.us.i, !llvm.loop !18
 
-_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %30, %.split.us.i, %41
+_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.lr.ph42, %.split.us.i, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
@@ -4362,16 +4364,15 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread: ; pre
 
 85:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %86 = add i32 %.028, 1
-  %87 = load i64, ptr %18, align 8
-  %88 = icmp ne i64 %87, -1
-  %89 = load i64, ptr %19, align 8
-  %90 = icmp slt i64 %89, %87
-  %.0.i7 = select i1 %88, i1 %90, i1 false
-  br i1 %.0.i7, label %25, label %.loopexit, !llvm.loop !22
+  %86 = load i64, ptr %18, align 8
+  %87 = icmp ne i64 %86, -1
+  %88 = load i64, ptr %19, align 8
+  %89 = icmp slt i64 %88, %86
+  %.0.i7 = select i1 %87, i1 %89, i1 false
+  br i1 %.0.i7, label %26, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %85, %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread, %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread, %28
-  %.06 = phi i1 [ %29, %28 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit ], [ false, %85 ]
+.loopexit:                                        ; preds = %85, %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread, %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread, %._crit_edge
+  %.06 = phi i1 [ %29, %._crit_edge ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit ], [ false, %85 ]
   ret i1 %.06
 }
 

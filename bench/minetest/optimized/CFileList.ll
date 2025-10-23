@@ -3032,47 +3032,49 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i28.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 80
-  br label %while.body
+  %cmp22 = icmp eq i64 %__depth_limit, 0
+  br i1 %cmp22, label %if.then, label %if.end
 
-while.body:                                       ; preds = %if.end, %while.body.lr.ph
-  %sub.ptr.sub.i31 = phi i64 [ %sub.ptr.sub.i27, %while.body.lr.ph ], [ %sub.ptr.sub.i, %if.end ]
-  %__depth_limit.addr.030 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %if.end ]
-  %storemerge29 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %call25.i, %if.end ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.030, 0
-  br i1 %cmp2, label %if.then, label %if.end
+while.body:                                       ; preds = %if.end
+  %cmp2 = icmp eq i64 %dec, 0
+  br i1 %cmp2, label %if.then, label %if.end, !llvm.loop !71
 
-if.then:                                          ; preds = %while.body
+if.then:                                          ; preds = %while.body, %while.body.lr.ph
+  %storemerge29.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %call25.i, %while.body ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i23)
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %__first.coerce, ptr %storemerge29, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i23)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %__first.coerce, ptr %storemerge29.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i23)
   call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i23)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.then
-  %__last.sroa.0.012.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %storemerge29, %if.then ]
+  %__last.sroa.0.012.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %storemerge29.lcssa, %if.then ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -80
   call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_(ptr %__first.coerce, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %incdec.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 80
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !71
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !72
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit: ; preds = %while.body.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.end
 
-if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.030, -1
-  %div.i = udiv i64 %sub.ptr.sub.i31, 160
+if.end:                                           ; preds = %while.body.lr.ph, %while.body
+  %storemerge295 = phi ptr [ %call25.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
+  %__depth_limit.addr.0304 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
+  %sub.ptr.sub.i313 = phi i64 [ %sub.ptr.sub.i, %while.body ], [ %sub.ptr.sub.i27, %while.body.lr.ph ]
+  %dec = add nsw i64 %__depth_limit.addr.0304, -1
+  %div.i = udiv i64 %sub.ptr.sub.i313, 160
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %div.i
-  %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge29, i64 -80
+  %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge295, i64 -80
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
-  %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr nonnull %add.ptr.i28.i, ptr %storemerge29, ptr %__first.coerce)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %call25.i, ptr %storemerge29, i64 noundef %dec)
+  %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr nonnull %add.ptr.i28.i, ptr %storemerge295, ptr %__first.coerce)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %call25.i, ptr %storemerge295, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call25.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 1280
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !72
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !71
 
 while.end:                                        ; preds = %if.end, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, %entry
   ret void

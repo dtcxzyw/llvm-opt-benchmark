@@ -30230,30 +30230,32 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
   %40 = load ptr, ptr %39, align 8, !alias.scope !8189, !noalias !8194, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i64, ptr %41, align 8, !alias.scope !8189, !noalias !8194, !noundef !4
-  %43 = getelementptr inbounds { i64, [5 x i64] }, ptr %40, i64 %42
-  br label %44
+  %.idx = mul nsw i64 %42, 48
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx
+  %44 = icmp eq i64 %42, 0
+  br i1 %44, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %.lr.ph
 
-44:                                               ; preds = %46, %38
-  %.sroa.0.0 = phi ptr [ %40, %38 ], [ %47, %46 ]
-  %45 = icmp eq ptr %.sroa.0.0, %43
-  br i1 %45, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %46
+45:                                               ; preds = %.lr.ph
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 48
+  %47 = icmp eq ptr %46, %43
+  br i1 %47, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %.lr.ph
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 48
-  %48 = tail call { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h3dc2169f03a01c15E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+.lr.ph:                                           ; preds = %38, %45
+  %.sroa.0.07 = phi ptr [ %46, %45 ], [ %40, %38 ]
+  %48 = tail call { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h3dc2169f03a01c15E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.07, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   %49 = extractvalue { ptr, ptr } %48, 0
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %44, label %51
+  br i1 %50, label %45, label %51
 
-51:                                               ; preds = %46
+51:                                               ; preds = %.lr.ph
   %52 = extractvalue { ptr, ptr } %48, 1
   %53 = icmp ne ptr %52, null
   tail call void @llvm.assume(i1 %53)
   br label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit"
 
-"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit": ; preds = %44, %51
-  %.sroa.3.0.i = phi ptr [ %52, %51 ], [ undef, %44 ]
-  %.sroa.0.0.i = phi ptr [ %49, %51 ], [ null, %44 ]
+"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit": ; preds = %45, %38, %51
+  %.sroa.3.0.i = phi ptr [ %52, %51 ], [ undef, %38 ], [ undef, %45 ]
+  %.sroa.0.0.i = phi ptr [ %49, %51 ], [ null, %38 ], [ null, %45 ]
   %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.3.0.i, 1
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"

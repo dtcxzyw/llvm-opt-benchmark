@@ -9851,16 +9851,20 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
 
 25:                                               ; preds = %23
   %26 = load i64, ptr %.val, align 8, !tbaa !37, !noalias !320
+  %.not.not3.i.i.i = icmp eq i64 %26, 0
+  br i1 %.not.not3.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %29, %25
-  %.013.i.i.i = phi i64 [ %26, %25 ], [ %30, %29 ]
-  %.not.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
-  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %29
+28:                                               ; preds = %29
+  %.not.not.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %29, !llvm.loop !325
 
-29:                                               ; preds = %28
-  %30 = add i64 %.013.i.i.i, -1
+29:                                               ; preds = %28, %.lr.ph.i.i.i
+  %.0134.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i ], [ %30, %28 ]
+  %30 = add i64 %.0134.i.i.i, -1
   %31 = load ptr, ptr %27, align 8, !tbaa !3, !noalias !320
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = getelementptr inbounds nuw %"class.lean::expr", ptr %32, i64 %30
@@ -9876,14 +9880,14 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   %40 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !43, !noalias !320
   %42 = load i64, ptr %.val, align 8, !tbaa !37, !noalias !320
-  %43 = sub i64 %42, %.013.i.i.i
+  %43 = sub i64 %42, %.0134.i.i.i
   %44 = getelementptr inbounds nuw %"class.lean::expr", ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4lean16lift_loose_bvarsERKNS_4exprEj(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %45, ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %.val4)
   store i8 1, ptr %0, align 8, !tbaa !205, !alias.scope !326
   br label %"_ZSt10__invoke_rIN4lean8optionalINS0_4exprEEERZNS0_13replace_fvarsERKS2_RKNS0_9array_refIS2_EEPS4_E3$_0JS5_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESE_E4typeEOT0_DpOT1_.exit"
 
-.thread.i.i.i:                                    ; preds = %28, %23
+.thread.i.i.i:                                    ; preds = %28, %25, %23
   store i8 0, ptr %0, align 8, !tbaa !205, !alias.scope !329
   br label %"_ZSt10__invoke_rIN4lean8optionalINS0_4exprEEERZNS0_13replace_fvarsERKS2_RKNS0_9array_refIS2_EEPS4_E3$_0JS5_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESE_E4typeEOT0_DpOT1_.exit"
 

@@ -1394,41 +1394,43 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %13
+  %13 = icmp eq i64 %2, 0
+  br i1 %13, label %._crit_edge, label %.lr.ph24
 
-13:                                               ; preds = %.lr.ph, %17
-  %14 = phi i64 [ %10, %.lr.ph ], [ %25, %17 ]
-  %.017 = phi i64 [ %2, %.lr.ph ], [ %18, %17 ]
-  %storemerge16 = phi ptr [ %1, %.lr.ph ], [ %22, %17 ]
-  %15 = icmp eq i64 %.017, 0
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %.lr.ph24
+  %15 = icmp eq i64 %17, 0
+  br i1 %15, label %._crit_edge, label %.lr.ph24, !llvm.loop !131
 
-16:                                               ; preds = %13
+._crit_edge:                                      ; preds = %14, %.lr.ph
+  %storemerge16.lcssa = phi ptr [ %1, %.lr.ph ], [ %21, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_RT0_(ptr %0, ptr %storemerge16, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_RT0_(ptr %0, ptr %storemerge16.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_RT0_(ptr %0, ptr %storemerge16, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_RT0_(ptr %0, ptr %storemerge16.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-17:                                               ; preds = %13
-  %18 = add nsw i64 %.017, -1
-  %19 = lshr i64 %14, 1
-  %20 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %0, i64 %19
-  %21 = getelementptr inbounds i8, ptr %storemerge16, i64 -4
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %12, ptr %20, ptr nonnull %21, ptr %3)
-  %22 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEET_SG_SG_SG_T0_(ptr nonnull %12, ptr %storemerge16, ptr %0, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_T0_T1_(ptr %22, ptr %storemerge16, i64 noundef %18, ptr %3)
-  %23 = ptrtoint ptr %22 to i64
-  %24 = sub i64 %23, %7
-  %25 = ashr exact i64 %24, 2
-  %26 = icmp sgt i64 %25, 16
-  br i1 %26, label %13, label %.loopexit, !llvm.loop !131
+.lr.ph24:                                         ; preds = %.lr.ph, %14
+  %storemerge1623 = phi ptr [ %21, %14 ], [ %1, %.lr.ph ]
+  %.01722 = phi i64 [ %17, %14 ], [ %2, %.lr.ph ]
+  %16 = phi i64 [ %24, %14 ], [ %10, %.lr.ph ]
+  %17 = add nsw i64 %.01722, -1
+  %18 = lshr i64 %16, 1
+  %19 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %0, i64 %18
+  %20 = getelementptr inbounds i8, ptr %storemerge1623, i64 -4
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %12, ptr %19, ptr nonnull %20, ptr %3)
+  %21 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEET_SG_SG_SG_T0_(ptr nonnull %12, ptr %storemerge1623, ptr %0, ptr %3)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19FaceIndex_tag_type_EEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterINS2_17MeshAreEquivalent13FaceIndexLessEEEEvT_SG_T0_T1_(ptr %21, ptr %storemerge1623, i64 noundef %17, ptr %3)
+  %22 = ptrtoint ptr %21 to i64
+  %23 = sub i64 %22, %7
+  %24 = ashr exact i64 %23, 2
+  %25 = icmp sgt i64 %24, 16
+  br i1 %25, label %14, label %.loopexit, !llvm.loop !131
 
-.loopexit:                                        ; preds = %17, %4, %16
+.loopexit:                                        ; preds = %.lr.ph24, %4, %._crit_edge
   ret void
 }
 

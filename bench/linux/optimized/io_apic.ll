@@ -5274,18 +5274,19 @@ define internal fastcc void @delay_with_tsc() unnamed_addr #7 section ".init.tex
 define internal fastcc void @delay_without_tsc() unnamed_addr #7 section ".init.text" align 16 {
   %1 = load volatile i64, ptr @jiffies, align 64
   %2 = add i64 %1, 4
-  br label %3
+  tail call void @__delay(i64 noundef 20000) #25
+  br label %8
 
-3:                                                ; preds = %8, %0
-  %4 = phi i64 [ %9, %8 ], [ 1, %0 ]
-  %5 = shl nuw i64 10000000, %4
+3:                                                ; preds = %8
+  %4 = add nuw nsw i64 %9, 1
+  %5 = shl nuw i64 20000000, %9
   %6 = udiv i64 %5, 1000
   tail call void @__delay(i64 noundef %6) #25
   %7 = icmp eq i64 %4, 11
-  br i1 %7, label %13, label %8
+  br i1 %7, label %13, label %8, !llvm.loop !102
 
-8:                                                ; preds = %3
-  %9 = add nuw nsw i64 %4, 1
+8:                                                ; preds = %0, %3
+  %9 = phi i64 [ 1, %0 ], [ %4, %3 ]
   %10 = load volatile i64, ptr @jiffies, align 64
   %11 = sub i64 %2, %10
   %12 = icmp sgt i64 %11, -1

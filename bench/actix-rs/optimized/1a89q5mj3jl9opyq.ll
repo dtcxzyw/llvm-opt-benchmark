@@ -677,14 +677,11 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..in_pla
   %16 = icmp ult i64 %15, -9223372036854775807
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i64 %13, 0
-  br i1 %17, label %.body.i.i.preheader, label %18
-
-.body.i.i.preheader:                              ; preds = %18, %10
-  br label %.body.i.i
+  br i1 %17, label %.body.i.i, label %18
 
 18:                                               ; preds = %10
   tail call void @__rust_dealloc(ptr noundef nonnull %.val8.i.i, i64 noundef range(i64 1, -9223372036854775808) %13, i64 noundef range(i64 1, -9223372036854775807) %15) #24, !noalias !276
-  br label %.body.i.i.preheader
+  br label %.body.i.i
 
 19:                                               ; preds = %.lr.ph.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.val9.i.i, i64 8
@@ -704,24 +701,28 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..in_pla
   %27 = icmp eq i64 %7, %4
   br i1 %27, label %"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h199f6b020ba2db4fE.exit", label %.lr.ph.i.i
 
-.body.i.i:                                        ; preds = %.body.i.i.preheader, %29
-  %.1.i.i = phi i64 [ %31, %29 ], [ %7, %.body.i.i.preheader ]
-  %28 = icmp eq i64 %.1.i.i, %4
-  br i1 %28, label %33, label %29
+28:                                               ; preds = %.lr.ph12.i.i
+  %29 = add i64 %.111.i.i, 1
+  %30 = icmp eq i64 %29, %4
+  br i1 %30, label %._crit_edge13.i.i, label %.lr.ph12.i.i
 
-29:                                               ; preds = %.body.i.i
-  %30 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.0.val, i64 %.1.i.i
-  %31 = add i64 %.1.i.i, 1
-  %.val.i.i = load ptr, ptr %30, align 8, !alias.scope !276, !noundef !7
-  %32 = getelementptr i8, ptr %30, i64 8
-  %.val7.i.i = load ptr, ptr %32, align 8, !alias.scope !276, !nonnull !7, !align !22, !noundef !7
+.body.i.i:                                        ; preds = %18, %10
+  %31 = icmp eq i64 %7, %4
+  br i1 %31, label %._crit_edge13.i.i, label %.lr.ph12.i.i
+
+.lr.ph12.i.i:                                     ; preds = %.body.i.i, %28
+  %.111.i.i = phi i64 [ %29, %28 ], [ %7, %.body.i.i ]
+  %32 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.0.val, i64 %.111.i.i
+  %.val.i.i = load ptr, ptr %32, align 8, !alias.scope !276, !noundef !7
+  %33 = getelementptr i8, ptr %32, i64 8
+  %.val7.i.i = load ptr, ptr %33, align 8, !alias.scope !276, !nonnull !7, !align !22, !noundef !7
   invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$17ha6966e6e168ed420E"(ptr %.val.i.i, ptr nonnull %.val7.i.i) #27
-          to label %.body.i.i unwind label %34, !noalias !276
+          to label %28 unwind label %34, !noalias !276
 
-33:                                               ; preds = %.body.i.i
+._crit_edge13.i.i:                                ; preds = %28, %.body.i.i
   resume { ptr, i32 } %11
 
-34:                                               ; preds = %29
+34:                                               ; preds = %.lr.ph12.i.i
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26, !noalias !276

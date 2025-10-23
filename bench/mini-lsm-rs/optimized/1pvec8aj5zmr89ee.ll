@@ -12534,8 +12534,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit", label %48
 
-.body:                                            ; preds = %37, %.thread, %68, %27, %127, %122
-  %.pn13.pn = phi { ptr, i32 } [ %.pn, %127 ], [ %.pn, %122 ], [ %28, %27 ], [ %eh.lpad-body.i, %68 ], [ %123, %.thread ], [ %40, %37 ]
+.body:                                            ; preds = %37, %.thread, %68, %40, %27, %127, %122
+  %.pn13.pn = phi { ptr, i32 } [ %.pn, %127 ], [ %.pn, %122 ], [ %28, %27 ], [ %41, %40 ], [ %eh.lpad-body.i, %68 ], [ %123, %.thread ], [ %41, %37 ]
   %25 = cmpxchg ptr %1, i8 1, i8 0 release monotonic, align 1, !noalias !1750
   %.sroa.18.0.in.i.i.i.i = extractvalue { i8, i1 } %25, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr236drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$17h4b85d64a2a20c00fE.llvm.3998950267652723875.exit", label %26
@@ -12553,42 +12553,44 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   %30 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
   %31 = load i64, ptr %21, align 8, !noundef !9
   store i64 0, ptr %21, align 8
-  br label %32
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit", label %.lr.ph.i
 
-32:                                               ; preds = %34, %29
-  %.0.i = phi i64 [ 0, %29 ], [ %36, %34 ]
-  %33 = icmp eq i64 %.0.i, %31
-  br i1 %33, label %"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit", label %34
+33:                                               ; preds = %.lr.ph.i
+  %34 = icmp eq i64 %36, %31
+  br i1 %34, label %"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit", label %.lr.ph.i
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %30, i64 %.0.i
-  %36 = add i64 %.0.i, 1
+.lr.ph.i:                                         ; preds = %29, %33
+  %.07.i = phi i64 [ %36, %33 ], [ 0, %29 ]
+  %35 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %30, i64 %.07.i
+  %36 = add nuw i64 %.07.i, 1
   invoke void @"_ZN4core3ptr143drop_in_place$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$17h117a180a4e25ab7cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %35)
-          to label %32 unwind label %39
+          to label %33 unwind label %40
 
-37:                                               ; preds = %41, %39
-  %.1.i = phi i64 [ %36, %39 ], [ %43, %41 ]
-  %38 = icmp eq i64 %.1.i, %31
-  br i1 %38, label %.body, label %41
+37:                                               ; preds = %.lr.ph10.i
+  %38 = add i64 %.18.i, 1
+  %39 = icmp eq i64 %38, %31
+  br i1 %39, label %.body, label %.lr.ph10.i
 
-39:                                               ; preds = %34
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %.lr.ph.i
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  %42 = icmp eq i64 %36, %31
+  br i1 %42, label %.body, label %.lr.ph10.i
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %30, i64 %.1.i
-  %43 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr143drop_in_place$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$17h117a180a4e25ab7cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %42) #36
+.lr.ph10.i:                                       ; preds = %40, %37
+  %.18.i = phi i64 [ %38, %37 ], [ %36, %40 ]
+  %43 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %30, i64 %.18.i
+  invoke void @"_ZN4core3ptr143drop_in_place$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$17h117a180a4e25ab7cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %43) #36
           to label %37 unwind label %44
 
-44:                                               ; preds = %41
+44:                                               ; preds = %.lr.ph10.i
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
 
-"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit": ; preds = %32, %124, %23
+"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit": ; preds = %33, %29, %124, %23
   %46 = cmpxchg ptr %1, i8 1, i8 0 release monotonic, align 1, !noalias !1755
   %.sroa.18.0.in.i.i.i.i16 = extractvalue { i8, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i.i.i16, label %"_ZN4core3ptr236drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$17h4b85d64a2a20c00fE.llvm.3998950267652723875.exit17", label %47

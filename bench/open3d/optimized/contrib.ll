@@ -21161,55 +21161,59 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %1, align 8, !tbaa !112
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit, label %6
+  br i1 %.not.i.i.i, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread, label %6
+
+_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread: ; preds = %2
+  store ptr null, ptr %3, align 8, !alias.scope !785
+  br label %.split.us
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %5, align 8, !tbaa !111
   %8 = add i32 %7, 1
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit, label %10
+  br i1 %9, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread46, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit
 
-10:                                               ; preds = %6
+_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread46: ; preds = %6
+  store ptr %5, ptr %3, align 8, !alias.scope !785
+  br label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split
+
+_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit: ; preds = %6
   store i32 %8, ptr %5, align 8, !tbaa !111
   %.sroa.01.0.copyload.pre.i = load ptr, ptr %1, align 8
-  br label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit
+  store ptr %.sroa.01.0.copyload.pre.i, ptr %3, align 8, !alias.scope !785
+  %.not32 = icmp eq ptr %.sroa.01.0.copyload.pre.i, null
+  br i1 %.not32, label %.split.us, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split, !llvm.loop !788
 
-_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit: ; preds = %2, %6, %10
-  %.sroa.01.0.copyload.i = phi ptr [ null, %2 ], [ %5, %6 ], [ %.sroa.01.0.copyload.pre.i, %10 ]
-  %.sroa.01.0.copyload.i.fr = freeze ptr %.sroa.01.0.copyload.i
-  store ptr %.sroa.01.0.copyload.i.fr, ptr %3, align 8, !alias.scope !785
-  %.not32 = icmp eq ptr %.sroa.01.0.copyload.i.fr, null
-  br i1 %.not32, label %.split35.us, label %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split.preheader, !llvm.loop !788
+.noexc:                                           ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split
+  store ptr %15, ptr %0, align 8
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %10, label %_ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit
 
-_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split.preheader: ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit
-  %11 = invoke ptr @PyTuple_New(i64 noundef 1)
-          to label %.noexc unwind label %28
-
-.noexc:                                           ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split.preheader
-  store ptr %11, ptr %0, align 8
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %12, label %_ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit
-
-12:                                               ; preds = %.noexc
+10:                                               ; preds = %.noexc
   invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef nonnull @.str.90) #30
-          to label %13 unwind label %14
+          to label %11 unwind label %12
 
-13:                                               ; preds = %12
+11:                                               ; preds = %10
   unreachable
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
   br label %.body
 
-.split35.us:                                      ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit
+_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split: ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread46, %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit
+  %14 = phi ptr [ %5, %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread46 ], [ %.sroa.01.0.copyload.pre.i, %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit ]
+  %15 = invoke ptr @PyTuple_New(i64 noundef 1)
+          to label %.noexc unwind label %28
+
+.split.us:                                        ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.thread, %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit
   %16 = tail call ptr @__cxa_allocate_exception(i64 16) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i64 noundef 0)
           to label %17 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
-17:                                               ; preds = %.split35.us
+17:                                               ; preds = %.split.us
   invoke void @_ZN8pybind1137cast_error_unable_to_convert_call_argERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.pybind11::cast_error") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %18 unwind label %20
 
@@ -21217,7 +21221,7 @@ _ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_po
   invoke void @__cxa_throw(ptr %16, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #30
           to label %31 unwind label %20
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %.split35.us
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %.split.us
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -21248,19 +21252,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20
   call void @__cxa_free_exception(ptr %16) #29
   br label %.body
 
-28:                                               ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split.preheader
+28:                                               ; preds = %_ZN8pybind116detail15pyobject_casterINS_6handleEE4castERKS2_NS_19return_value_policyES2_.exit.split
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit:     ; preds = %.noexc
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %.sroa.01.0.copyload.i.fr, ptr %30, align 8, !tbaa !156
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr %14, ptr %30, align 8, !tbaa !156
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-.body:                                            ; preds = %28, %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %27
-  %.pn.pn = phi { ptr, i32 } [ %.pn31, %27 ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %29, %28 ], [ %15, %14 ]
+.body:                                            ; preds = %28, %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %27
+  %.pn.pn = phi { ptr, i32 } [ %.pn31, %27 ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %29, %28 ], [ %13, %12 ]
   call void @_ZNSt5arrayIN8pybind116objectELm1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn

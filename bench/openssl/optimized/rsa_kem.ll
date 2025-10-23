@@ -354,20 +354,20 @@ ossl_param_is_empty.exit:                         ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %ossl_param_is_empty.exit.thread, label %.preheader.i.i
+  br i1 %15, label %ossl_param_is_empty.exit.thread, label %rsakem_opname2id.exit
 
-.preheader.i.i:                                   ; preds = %12
+rsakem_opname2id.exit:                            ; preds = %12
   %16 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #5
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %rsakem_opname2id.exit, label %ossl_param_is_empty.exit.thread, !llvm.loop !24
+  %.not17 = icmp eq i32 %16, 0
+  br i1 %.not17, label %17, label %ossl_param_is_empty.exit.thread
 
-rsakem_opname2id.exit:                            ; preds = %.preheader.i.i
+17:                                               ; preds = %rsakem_opname2id.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %18, align 8, !tbaa !11
   br label %ossl_param_is_empty.exit.thread
 
-ossl_param_is_empty.exit.thread:                  ; preds = %.preheader.i.i, %12, %4, %7, %rsakem_opname2id.exit, %9, %ossl_param_is_empty.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %9 ], [ 1, %rsakem_opname2id.exit ], [ 1, %7 ], [ 1, %4 ], [ 0, %12 ], [ 0, %.preheader.i.i ]
+ossl_param_is_empty.exit.thread:                  ; preds = %12, %4, %7, %17, %rsakem_opname2id.exit, %9, %ossl_param_is_empty.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %9 ], [ 0, %rsakem_opname2id.exit ], [ 1, %17 ], [ 1, %7 ], [ 1, %4 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -435,20 +435,20 @@ ossl_param_is_empty.exit.i:                       ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %rsakem_set_ctx_params.exit, label %.preheader.i.i.i
+  br i1 %27, label %rsakem_set_ctx_params.exit, label %rsakem_opname2id.exit.i
 
-.preheader.i.i.i:                                 ; preds = %24
+rsakem_opname2id.exit.i:                          ; preds = %24
   %28 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull @.str.4, ptr noundef nonnull %26) #5
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %rsakem_opname2id.exit.i, label %rsakem_set_ctx_params.exit, !llvm.loop !24
+  %.not17.i = icmp eq i32 %28, 0
+  br i1 %.not17.i, label %29, label %rsakem_set_ctx_params.exit
 
-rsakem_opname2id.exit.i:                          ; preds = %.preheader.i.i.i
+29:                                               ; preds = %rsakem_opname2id.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %30, align 8, !tbaa !11
   br label %rsakem_set_ctx_params.exit
 
-rsakem_set_ctx_params.exit:                       ; preds = %.preheader.i.i.i, %14, %19, %rsakem_opname2id.exit.i, %ossl_param_is_empty.exit.i, %24, %21, %12, %10, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %24 ], [ 0, %21 ], [ 1, %ossl_param_is_empty.exit.i ], [ 1, %rsakem_opname2id.exit.i ], [ 1, %19 ], [ 1, %14 ], [ 0, %.preheader.i.i.i ]
+rsakem_set_ctx_params.exit:                       ; preds = %14, %19, %29, %ossl_param_is_empty.exit.i, %rsakem_opname2id.exit.i, %24, %21, %12, %10, %7, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %rsakem_opname2id.exit.i ], [ 0, %24 ], [ 0, %21 ], [ 1, %ossl_param_is_empty.exit.i ], [ 1, %29 ], [ 1, %19 ], [ 1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -545,5 +545,3 @@ attributes #5 = { nounwind }
 !21 = !{!"p1 omnipotent char", !6, i64 0}
 !22 = !{!20, !10, i64 8}
 !23 = !{!20, !6, i64 16}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.mustprogress"}

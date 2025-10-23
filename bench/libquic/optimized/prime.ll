@@ -879,29 +879,37 @@ define internal fastcc range(i32 -1, 2) i32 @witness(ptr noundef nonnull %0, ptr
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %11, %19
-  %.018 = phi i32 [ %14, %19 ], [ %4, %11 ]
-  %14 = add nsw i32 %.018, -1
-  %.not21 = icmp eq i32 %14, 0
-  br i1 %.not21, label %.loopexit, label %15
+.preheader:                                       ; preds = %11
+  %14 = add nsw i32 %4, -1
+  %.not2124 = icmp eq i32 %14, 0
+  br i1 %.not2124, label %.loopexit, label %.lr.ph
 
-15:                                               ; preds = %.preheader
-  %16 = tail call i32 @BN_mod_mul(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5) #5
-  %.not22 = icmp eq i32 %16, 0
-  br i1 %.not22, label %.loopexit, label %17
+15:                                               ; preds = %21
+  %16 = add nsw i32 %17, -1
+  %.not21 = icmp eq i32 %16, 0
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
-17:                                               ; preds = %15
-  %18 = tail call i32 @BN_is_one(ptr noundef nonnull %0) #5
-  %.not23 = icmp eq i32 %18, 0
-  br i1 %.not23, label %19, label %.loopexit
+.lr.ph:                                           ; preds = %.preheader, %15
+  %17 = phi i32 [ %16, %15 ], [ %14, %.preheader ]
+  %18 = tail call i32 @BN_mod_mul(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5) #5
+  %.not22 = icmp eq i32 %18, 0
+  br i1 %.not22, label %.loopexit, label %19
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @BN_cmp(ptr noundef nonnull %0, ptr noundef %2) #5
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !33
+19:                                               ; preds = %.lr.ph
+  %20 = tail call i32 @BN_is_one(ptr noundef nonnull %0) #5
+  %.not23 = icmp eq i32 %20, 0
+  br i1 %.not23, label %21, label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %19, %17, %15, %11, %9, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %9 ], [ 0, %11 ], [ 1, %.preheader ], [ 0, %19 ], [ 1, %17 ], [ -1, %15 ]
+21:                                               ; preds = %19
+  %22 = tail call i32 @BN_cmp(ptr noundef nonnull %0, ptr noundef %2) #5
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %..loopexit_crit_edge27, label %15, !llvm.loop !33
+
+..loopexit_crit_edge27:                           ; preds = %21
+  br label %.loopexit, !llvm.loop !33
+
+.loopexit:                                        ; preds = %.lr.ph, %19, %15, %.preheader, %..loopexit_crit_edge27, %11, %9, %7
+  %.0 = phi i32 [ -1, %7 ], [ 0, %9 ], [ 0, %11 ], [ 0, %..loopexit_crit_edge27 ], [ 1, %.preheader ], [ -1, %.lr.ph ], [ 1, %19 ], [ 1, %15 ]
   ret i32 %.0
 }
 

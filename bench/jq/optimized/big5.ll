@@ -81,48 +81,57 @@ declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @big5_left_adjust_char_head(ptr noundef readnone captures(address) %0, ptr noundef %1) #2 {
+  %3 = ptrtoint ptr %1 to i64
+  %4 = ptrtoint ptr %0 to i64
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %3, label %25
+  br i1 %.not, label %5, label %27
 
-3:                                                ; preds = %2
-  %4 = load i8, ptr %1, align 1, !tbaa !4
-  %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !4
-  %.not24 = icmp eq i8 %7, 0
-  br i1 %.not24, label %.loopexit, label %.preheader
+5:                                                ; preds = %2
+  %6 = load i8, ptr %1, align 1, !tbaa !4
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr inbounds nuw i8, ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !4
+  %.not24.not = icmp eq i8 %9, 0
+  br i1 %.not24.not, label %.loopexit, label %.lr.ph.preheader
 
-.preheader:                                       ; preds = %3, %9
-  %.1 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %8 = icmp ugt ptr %.1, %0
-  br i1 %8, label %9, label %.loopexit
+.lr.ph.preheader:                                 ; preds = %5
+  %10 = sub i64 %4, %3
+  %scevgep = getelementptr i8, ptr %1, i64 %10
+  br label %.lr.ph
 
-9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.1, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !4
-  %12 = add i8 %11, 95
-  %13 = icmp ult i8 %12, 94
-  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !9
+11:                                               ; preds = %.lr.ph
+  %12 = icmp ugt ptr %13, %0
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %9, %.preheader, %3
-  %.019 = phi ptr [ %1, %3 ], [ %.1, %.preheader ], [ %.1, %9 ]
-  %14 = load ptr, ptr @OnigEncodingBIG5, align 8, !tbaa !11
-  %15 = tail call i32 %14(ptr noundef nonnull %.019) #5
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %.019, i64 %16
-  %18 = icmp ugt ptr %17, %1
-  br i1 %18, label %25, label %19
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %.125 = phi ptr [ %13, %11 ], [ %1, %.lr.ph.preheader ]
+  %13 = getelementptr inbounds i8, ptr %.125, i64 -1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
+  %15 = add i8 %14, 95
+  %16 = icmp ult i8 %15, 94
+  br i1 %16, label %11, label %..loopexit_crit_edge26, !llvm.loop !9
 
-19:                                               ; preds = %.loopexit
-  %20 = ptrtoint ptr %1 to i64
-  %21 = ptrtoint ptr %17 to i64
-  %22 = sub i64 %20, %21
-  %23 = and i64 %22, -2
-  %24 = getelementptr inbounds i8, ptr %17, i64 %23
-  br label %25
+..loopexit_crit_edge26:                           ; preds = %.lr.ph
+  br label %.loopexit, !llvm.loop !9
 
-25:                                               ; preds = %.loopexit, %2, %19
-  %.0 = phi ptr [ %24, %19 ], [ %1, %2 ], [ %.019, %.loopexit ]
+.loopexit:                                        ; preds = %11, %..loopexit_crit_edge26, %5
+  %.019 = phi ptr [ %1, %5 ], [ %.125, %..loopexit_crit_edge26 ], [ %scevgep, %11 ]
+  %17 = load ptr, ptr @OnigEncodingBIG5, align 8, !tbaa !11
+  %18 = tail call i32 %17(ptr noundef nonnull %.019) #5
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %.019, i64 %19
+  %21 = icmp ugt ptr %20, %1
+  br i1 %21, label %27, label %22
+
+22:                                               ; preds = %.loopexit
+  %23 = ptrtoint ptr %20 to i64
+  %24 = sub i64 %3, %23
+  %25 = and i64 %24, -2
+  %26 = getelementptr inbounds i8, ptr %20, i64 %25
+  br label %27
+
+27:                                               ; preds = %.loopexit, %2, %22
+  %.0 = phi ptr [ %26, %22 ], [ %1, %2 ], [ %.019, %.loopexit ]
   ret ptr %.0
 }
 

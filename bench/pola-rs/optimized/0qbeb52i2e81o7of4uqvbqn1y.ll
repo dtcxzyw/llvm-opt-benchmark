@@ -75544,39 +75544,47 @@ define hidden void @"_ZN93_$LT$slotmap..basic..Drain$LT$K$C$V$GT$$u20$as$u20$cor
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i64, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %9
+  %8 = icmp ult i64 %.promoted, %5
+  br i1 %8, label %.lr.ph, label %12
 
-9:                                                ; preds = %13, %2
-  %10 = phi i64 [ %14, %13 ], [ %.promoted, %2 ]
-  %11 = icmp ult i64 %10, %5
-  br i1 %11, label %13, label %12
+.lr.ph:                                           ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !7, !noundef !7
+  br label %13
 
-12:                                               ; preds = %9
+11:                                               ; preds = %13
+  %exitcond.not = icmp eq i64 %15, %5
+  br i1 %exitcond.not, label %._crit_edge, label %13
+
+._crit_edge:                                      ; preds = %11
+  store i64 %5, ptr %7, align 8
+  br label %12
+
+12:                                               ; preds = %._crit_edge, %2
   store i32 0, ptr %0, align 8
   br label %20
 
-13:                                               ; preds = %9
-  %14 = add nuw nsw i64 %10, 1
-  store i64 %14, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %15, i64 %10
+13:                                               ; preds = %.lr.ph, %11
+  %14 = phi i64 [ %.promoted, %.lr.ph ], [ %15, %11 ]
+  %15 = add i64 %14, 1
+  %16 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %10, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !noundef !7
   %19 = and i32 %18, 1
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %9, label %21
+  br i1 %.not, label %11, label %21
 
 20:                                               ; preds = %21, %12
   ret void
 
 21:                                               ; preds = %13
-  %22 = trunc i64 %10 to i32
+  store i64 %15, ptr %7, align 8
+  %22 = trunc i64 %14 to i32
   %23 = tail call { i32, i32 } @"_ZN102_$LT$polars_stream..async_executor..TaskKey$u20$as$u20$core..convert..From$LT$slotmap..KeyData$GT$$GT$4from17h94b95924699d4b99E"(i32 noundef %18, i32 noundef %22)
   %24 = extractvalue { i32, i32 } %23, 0
   %25 = extractvalue { i32, i32 } %23, 1
-  %26 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %27 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %26, i64 %10
+  %26 = load ptr, ptr %9, align 8, !nonnull !7, !noundef !7
+  %27 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %26, i64 %14
   %28 = load ptr, ptr %27, align 8, !nonnull !7, !noundef !7
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !7, !align !740, !noundef !7

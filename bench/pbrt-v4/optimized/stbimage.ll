@@ -17281,27 +17281,40 @@ define internal fastcc void @_ZL18stbi__out_gif_codeP9stbi__gift(ptr noundef non
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 34916
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 34896
   %.promoted46 = load i32, ptr %59, align 8, !tbaa !292
-  br label %63
+  %63 = icmp sgt i32 %.promoted46, 0
+  br i1 %63, label %.lr.ph50.preheader, label %.critedge
 
-63:                                               ; preds = %.lr.ph, %66
-  %64 = phi i32 [ %.promoted46, %.lr.ph ], [ %72, %66 ]
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %.critedge
+.lr.ph50.preheader:                               ; preds = %.lr.ph
+  %64 = load i32, ptr %61, align 4, !tbaa !284
+  %65 = load i32, ptr %62, align 8, !tbaa !286
+  br label %.lr.ph50
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %61, align 4, !tbaa !284
-  %68 = shl i32 %67, %64
-  store i32 %68, ptr %55, align 4, !tbaa !291
-  %69 = load i32, ptr %62, align 8, !tbaa !286
-  %70 = ashr i32 %68, 1
-  %71 = add nsw i32 %69, %70
-  store i32 %71, ptr %10, align 8, !tbaa !309
-  %72 = add nsw i32 %64, -1
-  store i32 %72, ptr %59, align 8, !tbaa !292
+66:                                               ; preds = %.lr.ph50
+  %67 = icmp sgt i32 %68, 1
+  br i1 %67, label %.lr.ph50, label %.critedge.loopexit, !llvm.loop !310
+
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %66
+  %68 = phi i32 [ %72, %66 ], [ %.promoted46, %.lr.ph50.preheader ]
+  %69 = shl i32 %64, %68
+  %70 = ashr i32 %69, 1
+  %71 = add nsw i32 %65, %70
+  %72 = add nsw i32 %68, -1
   %.not43 = icmp slt i32 %71, %60
-  br i1 %.not43, label %.critedge, label %63, !llvm.loop !310
+  br i1 %.not43, label %..critedge.loopexit_crit_edge, label %66, !llvm.loop !310
 
-.critedge:                                        ; preds = %63, %66, %52, %47, %9
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph50
+  store i32 %69, ptr %55, align 4, !tbaa !291
+  store i32 %71, ptr %10, align 8, !tbaa !309
+  store i32 %72, ptr %59, align 8, !tbaa !292
+  br label %.critedge, !llvm.loop !310
+
+.critedge.loopexit:                               ; preds = %66
+  store i32 %69, ptr %55, align 4, !tbaa !291
+  store i32 %71, ptr %10, align 8, !tbaa !309
+  store i32 %72, ptr %59, align 8, !tbaa !292
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %..critedge.loopexit_crit_edge, %52, %47, %9
   ret void
 }
 

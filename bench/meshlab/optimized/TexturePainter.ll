@@ -13937,32 +13937,35 @@ define linkonce_odr void @_ZN7QVectorI5PatchE7reallocEi6QFlagsIN10QArrayData16Al
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %8, i64 %26
+  %.not2737 = icmp eq i32 %22, 0
   br i1 %6, label %.preheader, label %.preheader32
 
 .preheader32:                                     ; preds = %12
-  %.not2634 = icmp eq i32 %22, 0
-  br i1 %.not2634, label %.loopexit, label %.lr.ph
+  br i1 %.not2737, label %.loopexit, label %.lr.ph
 
-.preheader:                                       ; preds = %12, %28
-  %.023 = phi ptr [ %30, %28 ], [ %20, %12 ]
-  %.0 = phi ptr [ %29, %28 ], [ %27, %12 ]
-  %.not27 = icmp eq ptr %.023, %24
-  br i1 %.not27, label %.loopexit, label %28
+.preheader:                                       ; preds = %12
+  br i1 %.not2737, label %.loopexit, label %.lr.ph40
 
-28:                                               ; preds = %.preheader
-  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 168
-  %30 = getelementptr inbounds nuw i8, ptr %.023, i64 168
-  invoke void @_ZN5PatchC2ERKS_(ptr noundef nonnull align 8 dereferenceable(161) %.0, ptr noundef nonnull align 8 dereferenceable(161) %.023)
-          to label %.preheader unwind label %31, !llvm.loop !104
+28:                                               ; preds = %.lr.ph40
+  %29 = getelementptr inbounds nuw i8, ptr %.02338, i64 168
+  %.not27 = icmp eq ptr %29, %24
+  br i1 %.not27, label %.loopexit, label %.lr.ph40, !llvm.loop !104
 
-31:                                               ; preds = %28
+.lr.ph40:                                         ; preds = %.preheader, %28
+  %.039 = phi ptr [ %30, %28 ], [ %27, %.preheader ]
+  %.02338 = phi ptr [ %29, %28 ], [ %20, %.preheader ]
+  %30 = getelementptr inbounds nuw i8, ptr %.039, i64 168
+  invoke void @_ZN5PatchC2ERKS_(ptr noundef nonnull align 8 dereferenceable(161) %.039, ptr noundef nonnull align 8 dereferenceable(161) %.02338)
+          to label %28 unwind label %31, !llvm.loop !104
+
+31:                                               ; preds = %.lr.ph40
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = tail call ptr @__cxa_begin_catch(ptr %33) #22
   %35 = load i64, ptr %25, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 %35
-  tail call void @_ZN7QVectorI5PatchE8destructEPS0_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %36, ptr noundef nonnull %29)
+  tail call void @_ZN7QVectorI5PatchE8destructEPS0_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %36, ptr noundef nonnull %30)
   invoke void @__cxa_rethrow() #27
           to label %108 unwind label %69
 
@@ -14038,7 +14041,7 @@ define linkonce_odr void @_ZN7QVectorI5PatchE7reallocEi6QFlagsIN10QArrayData16Al
   invoke void @__cxa_end_catch()
           to label %104 unwind label %105
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %.preheader32
+.loopexit:                                        ; preds = %.lr.ph, %28, %.preheader32, %.preheader
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8

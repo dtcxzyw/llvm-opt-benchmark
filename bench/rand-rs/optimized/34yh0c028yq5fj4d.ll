@@ -20,7 +20,7 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   br i1 %trunc30, label %10, label %9
 
 8:                                                ; preds = %2
-  br i1 %trunc30, label %28, label %27
+  br i1 %trunc30, label %26, label %25
 
 9:                                                ; preds = %7
   br i1 %.not.i44, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
@@ -28,19 +28,19 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
 10:                                               ; preds = %7
   br i1 %.not.i44, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split": ; preds = %9, %28
-  %.sink73 = phi i64 [ 3, %28 ], [ 2, %9 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split": ; preds = %9, %26
+  %.sink77 = phi i64 [ 3, %26 ], [ 2, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val39 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val41 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %13 = shl nsw i64 %.val42, %.sink73
+  %13 = shl nsw i64 %.val42, %.sink77
   %bcmp.i46 = tail call i32 @bcmp(ptr nonnull readonly align 4 %.val41, ptr nonnull readonly align 4 %.val39, i64 %13)
   %14 = icmp eq i32 %bcmp.i46, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit": ; preds = %22, %20, %36, %34, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", %28, %9, %27, %10
-  %.0.shrunk = phi i1 [ false, %10 ], [ false, %27 ], [ false, %9 ], [ false, %28 ], [ %14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split" ], [ %exitcond67.not, %34 ], [ %exitcond67.not, %36 ], [ %exitcond.not, %20 ], [ %exitcond.not, %22 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit": ; preds = %.lr.ph.i, %.lr.ph.i50, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", %27, %15, %26, %9, %25, %10
+  %.0.shrunk = phi i1 [ false, %10 ], [ false, %25 ], [ false, %9 ], [ false, %26 ], [ true, %15 ], [ true, %27 ], [ %14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split" ], [ %.not.i55.not, %.lr.ph.i50 ], [ %.not.i43.not, %.lr.ph.i ]
   ret i1 %.0.shrunk
 
 15:                                               ; preds = %10
@@ -48,50 +48,48 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
-  br label %20
+  %.not67 = icmp eq i64 %.val42, 0
+  br i1 %.not67, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %.lr.ph.i
 
-20:                                               ; preds = %22, %15
-  %21 = phi i64 [ %23, %22 ], [ 0, %15 ]
-  %exitcond.not = icmp eq i64 %21, %.val42
-  br i1 %exitcond.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %22
+.lr.ph.i:                                         ; preds = %15, %.lr.ph.i
+  %20 = phi i64 [ %24, %.lr.ph.i ], [ 0, %15 ]
+  %21 = getelementptr inbounds i32, ptr %17, i64 %20
+  %22 = getelementptr inbounds i64, ptr %19, i64 %20
+  %.fca.0.extract.val.i = load i32, ptr %21, align 4, !noalias !6, !noundef !5
+  %.fca.1.extract.val.i = load i64, ptr %22, align 8, !noalias !6, !noundef !5
+  %23 = zext i32 %.fca.0.extract.val.i to i64
+  %.not.i43.not = icmp eq i64 %.fca.1.extract.val.i, %23
+  %24 = add nuw i64 %20, 1
+  %exitcond.not.i = icmp ne i64 %24, %.val42
+  %or.cond.not = select i1 %.not.i43.not, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-22:                                               ; preds = %20
-  %23 = add i64 %21, 1
-  %24 = getelementptr inbounds i32, ptr %17, i64 %21
-  %25 = getelementptr inbounds i64, ptr %19, i64 %21
-  %.fca.0.extract.val.i = load i32, ptr %24, align 4, !noalias !6, !noundef !5
-  %.fca.1.extract.val.i = load i64, ptr %25, align 8, !noalias !6, !noundef !5
-  %26 = zext i32 %.fca.0.extract.val.i to i64
-  %.not.i43 = icmp eq i64 %.fca.1.extract.val.i, %26
-  br i1 %.not.i43, label %20, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+25:                                               ; preds = %8
+  br i1 %.not.i44, label %27, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-27:                                               ; preds = %8
-  br i1 %.not.i44, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
-
-28:                                               ; preds = %8
+26:                                               ; preds = %8
   br i1 %.not.i44, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit.sink.split", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
-  br label %34
+  %.not = icmp eq i64 %.val42, 0
+  br i1 %.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %.lr.ph.i50
 
-34:                                               ; preds = %36, %29
-  %35 = phi i64 [ %37, %36 ], [ 0, %29 ]
-  %exitcond67.not = icmp eq i64 %35, %.val42
-  br i1 %exitcond67.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", label %36
-
-36:                                               ; preds = %34
-  %37 = add i64 %35, 1
-  %38 = getelementptr inbounds i64, ptr %31, i64 %35
-  %39 = getelementptr inbounds i32, ptr %33, i64 %35
-  %.fca.0.extract.val.i51 = load i64, ptr %38, align 8, !noalias !9, !noundef !5
-  %.fca.1.extract.val.i52 = load i32, ptr %39, align 4, !noalias !9, !noundef !5
-  %40 = zext i32 %.fca.1.extract.val.i52 to i64
-  %.not.i53 = icmp eq i64 %.fca.0.extract.val.i51, %40
-  br i1 %.not.i53, label %34, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+.lr.ph.i50:                                       ; preds = %27, %.lr.ph.i50
+  %32 = phi i64 [ %36, %.lr.ph.i50 ], [ 0, %27 ]
+  %33 = getelementptr inbounds i64, ptr %29, i64 %32
+  %34 = getelementptr inbounds i32, ptr %31, i64 %32
+  %.fca.0.extract.val.i53 = load i64, ptr %33, align 8, !noalias !9, !noundef !5
+  %.fca.1.extract.val.i54 = load i32, ptr %34, align 4, !noalias !9, !noundef !5
+  %35 = zext i32 %.fca.1.extract.val.i54 to i64
+  %.not.i55.not = icmp eq i64 %.fca.0.extract.val.i53, %35
+  %36 = add nuw i64 %32, 1
+  %exitcond.not.i56 = icmp ne i64 %36, %.val42
+  %or.cond80.not = select i1 %.not.i55.not, i1 %exitcond.not.i56, i1 false
+  br i1 %or.cond80.not, label %.lr.ph.i50, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

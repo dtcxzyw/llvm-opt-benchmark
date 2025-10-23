@@ -15162,33 +15162,38 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %7, %6
   %9 = icmp sgt i64 %8, 192
-  br i1 %9, label %.lr.ph, label %.loopexit
+  br i1 %9, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %3, %12
-  %.013 = phi i64 [ %13, %12 ], [ %2, %3 ]
-  %storemerge12 = phi ptr [ %14, %12 ], [ %1, %3 ]
-  %10 = icmp eq i64 %.013, 0
-  br i1 %10, label %11, label %12
+.lr.ph.preheader:                                 ; preds = %3
+  %10 = icmp eq i64 %2, 0
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph19
 
-11:                                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph19
+  %11 = icmp eq i64 %12, 0
+  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph19, !llvm.loop !472
+
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
+  %storemerge12.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %0, ptr %storemerge12, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %0, ptr %storemerge12.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %0, ptr %storemerge12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %0, ptr %storemerge12.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-12:                                               ; preds = %.lr.ph
-  %13 = add nsw i64 %.013, -1
-  %14 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_(ptr %0, ptr %storemerge12)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %14, ptr %storemerge12, i64 noundef %13)
-  %15 = ptrtoint ptr %14 to i64
-  %16 = sub i64 %15, %6
-  %17 = icmp sgt i64 %16, 192
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !472
+.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %storemerge1218 = phi ptr [ %13, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01317 = phi i64 [ %12, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %12 = add nsw i64 %.01317, -1
+  %13 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_(ptr %0, ptr %storemerge1218)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %13, ptr %storemerge1218, i64 noundef %12)
+  %14 = ptrtoint ptr %13 to i64
+  %15 = sub i64 %14, %6
+  %16 = icmp sgt i64 %15, 192
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !472
 
-.loopexit:                                        ; preds = %12, %3, %11
+.loopexit:                                        ; preds = %.lr.ph19, %3, %.lr.ph._crit_edge
   ret void
 }
 

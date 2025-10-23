@@ -261,24 +261,31 @@ define hidden noundef i64 @_ZNK10duckdb_re211StringPiece5rfindEcm(ptr noundef no
 
 7:                                                ; preds = %3
   %8 = add i64 %2, 1
+  %.not12 = icmp eq i64 %8, 0
+  br i1 %.not12, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %7
   %spec.select = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
-  %9 = load ptr, ptr %0, align 8
-  br label %select.unfold
+  %9 = load ptr, ptr %0, align 8, !tbaa !10
+  br label %10
 
-select.unfold:                                    ; preds = %7, %10
-  %.07 = phi i64 [ %11, %10 ], [ %spec.select, %7 ]
-  %.not = icmp eq i64 %.07, 0
-  br i1 %.not, label %.loopexit, label %10
+select.unfold:                                    ; preds = %10
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !16
 
-10:                                               ; preds = %select.unfold
-  %11 = add i64 %.07, -1
+10:                                               ; preds = %.lr.ph, %select.unfold
+  %.0713 = phi i64 [ %spec.select, %.lr.ph ], [ %11, %select.unfold ]
+  %11 = add i64 %.0713, -1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = icmp eq i8 %13, %1
-  br i1 %14, label %.loopexit, label %select.unfold, !llvm.loop !16
+  br i1 %14, label %..loopexit_crit_edge, label %select.unfold, !llvm.loop !16
 
-.loopexit:                                        ; preds = %10, %select.unfold, %3
-  %.08 = phi i64 [ -1, %3 ], [ -1, %select.unfold ], [ %11, %10 ]
+..loopexit_crit_edge:                             ; preds = %10
+  br label %.loopexit, !llvm.loop !16
+
+.loopexit:                                        ; preds = %select.unfold, %7, %..loopexit_crit_edge, %3
+  %.08 = phi i64 [ -1, %3 ], [ %11, %..loopexit_crit_edge ], [ -1, %7 ], [ -1, %select.unfold ]
   ret i64 %.08
 }
 

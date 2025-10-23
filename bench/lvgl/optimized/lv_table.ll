@@ -283,26 +283,33 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 .lr.ph162:                                        ; preds = %.lr.ph.i
   %62 = zext i32 %57 to i64
   %63 = add nsw i64 %62, -1
-  br label %64
+  %exitcond188.not208 = icmp eq i64 %63, 0
+  br i1 %exitcond188.not208, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph210, !llvm.loop !38
 
-64:                                               ; preds = %.lr.ph162, %66
-  %65 = phi i32 [ %60, %.lr.ph162 ], [ %69, %66 ]
-  %indvars.iv.i161 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next.i, %66 ]
-  %exitcond188.not = icmp eq i64 %indvars.iv.i161, %63
-  br i1 %exitcond188.not, label %.._crit_edge.i.loopexit_crit_edge, label %66, !llvm.loop !38
+.lr.ph210:                                        ; preds = %.lr.ph162
+  br label %65, !llvm.loop !38
 
-66:                                               ; preds = %64
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i161, 1
+64:                                               ; preds = %65
+  %exitcond188.not = icmp eq i64 %indvars.iv.next.i, %63
+  br i1 %exitcond188.not, label %..._crit_edge.i.loopexit_crit_edge_crit_edge, label %65, !llvm.loop !38
+
+65:                                               ; preds = %.lr.ph210, %64
+  %indvars.iv.i161209 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next.i, %64 ]
+  %66 = phi i32 [ %60, %.lr.ph210 ], [ %69, %64 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i161209, 1
   %67 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.next.i
   %68 = load i32, ptr %67, align 4, !tbaa !21
-  %69 = add nsw i32 %68, %65
+  %69 = add nsw i32 %68, %66
   %70 = icmp slt i32 %55, %69
   br i1 %70, label %._crit_edge.i.loopexit, label %64, !llvm.loop !38
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %64
+..._crit_edge.i.loopexit_crit_edge_crit_edge:     ; preds = %64
+  br label %.._crit_edge.i.loopexit_crit_edge, !llvm.loop !38
+
+.._crit_edge.i.loopexit_crit_edge:                ; preds = %..._crit_edge.i.loopexit_crit_edge_crit_edge, %.lr.ph162
   br label %._crit_edge.i, !llvm.loop !38
 
-._crit_edge.i.loopexit:                           ; preds = %66
+._crit_edge.i.loopexit:                           ; preds = %65
   %71 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
@@ -335,26 +342,33 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 .lr.ph169:                                        ; preds = %.lr.ph80.i
   %87 = zext i32 %82 to i64
   %88 = add nsw i64 %87, -1
-  br label %89
+  %exitcond189.not211 = icmp eq i64 %88, 0
+  br i1 %exitcond189.not211, label %.get_pressed_cell.exit.loopexit_crit_edge172, label %.lr.ph213, !llvm.loop !40
 
-89:                                               ; preds = %.lr.ph169, %91
-  %90 = phi i32 [ %85, %.lr.ph169 ], [ %94, %91 ]
-  %indvars.iv87.i168 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next88.i, %91 ]
-  %exitcond189.not = icmp eq i64 %indvars.iv87.i168, %88
-  br i1 %exitcond189.not, label %.get_pressed_cell.exit.loopexit_crit_edge172, label %91, !llvm.loop !40
+.lr.ph213:                                        ; preds = %.lr.ph169
+  br label %90, !llvm.loop !40
 
-91:                                               ; preds = %89
-  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i168, 1
+89:                                               ; preds = %90
+  %exitcond189.not = icmp eq i64 %indvars.iv.next88.i, %88
+  br i1 %exitcond189.not, label %..get_pressed_cell.exit.loopexit_crit_edge172_crit_edge, label %90, !llvm.loop !40
+
+90:                                               ; preds = %.lr.ph213, %89
+  %indvars.iv87.i168212 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next88.i, %89 ]
+  %91 = phi i32 [ %85, %.lr.ph213 ], [ %94, %89 ]
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i168212, 1
   %92 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.next88.i
   %93 = load i32, ptr %92, align 4, !tbaa !21
-  %94 = add nsw i32 %93, %90
+  %94 = add nsw i32 %93, %91
   %95 = icmp slt i32 %80, %94
   br i1 %95, label %get_pressed_cell.exit.loopexit, label %89, !llvm.loop !40
 
-.get_pressed_cell.exit.loopexit_crit_edge172:     ; preds = %89
+..get_pressed_cell.exit.loopexit_crit_edge172_crit_edge: ; preds = %89
+  br label %.get_pressed_cell.exit.loopexit_crit_edge172, !llvm.loop !40
+
+.get_pressed_cell.exit.loopexit_crit_edge172:     ; preds = %..get_pressed_cell.exit.loopexit_crit_edge172_crit_edge, %.lr.ph169
   br label %get_pressed_cell.exit, !llvm.loop !40
 
-get_pressed_cell.exit.loopexit:                   ; preds = %91
+get_pressed_cell.exit.loopexit:                   ; preds = %90
   %96 = trunc nuw i64 %indvars.iv.next88.i to i32
   br label %get_pressed_cell.exit
 

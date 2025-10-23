@@ -688,22 +688,27 @@ define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UCo
 46:                                               ; preds = %41, %.thread
   %.073 = phi ptr [ %9, %.thread ], [ %spec.select, %41 ]
   %47 = icmp ult ptr %.074, %.073
-  br i1 %47, label %.lr.ph, label %.loopexit
+  br i1 %47, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %46, %63
-  %.198 = phi i32 [ %.2, %63 ], [ %.069, %46 ]
-  %.17197 = phi ptr [ %.272, %63 ], [ %.070, %46 ]
-  %.17596 = phi ptr [ %.276, %63 ], [ %.074, %46 ]
-  %48 = icmp sgt i32 %.198, 0
-  br i1 %48, label %49, label %.loopexit.thread
+.lr.ph.preheader:                                 ; preds = %46
+  %48 = icmp sgt i32 %.069, 0
+  br i1 %48, label %.lr.ph126, label %.loopexit.thread
 
-49:                                               ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %.17596, i64 1
-  %51 = load i8, ptr %.17596, align 1, !tbaa !19
+.lr.ph:                                           ; preds = %63
+  %.2 = add nsw i32 %.198123, -1
+  %49 = icmp sgt i32 %.198123, 1
+  br i1 %49, label %.lr.ph126, label %.loopexit.thread, !llvm.loop !52
+
+.lr.ph126:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.17596125 = phi ptr [ %.276, %.lr.ph ], [ %.074, %.lr.ph.preheader ]
+  %.17197124 = phi ptr [ %.272, %.lr.ph ], [ %.070, %.lr.ph.preheader ]
+  %.198123 = phi i32 [ %.2, %.lr.ph ], [ %.069, %.lr.ph.preheader ]
+  %50 = getelementptr inbounds nuw i8, ptr %.17596125, i64 1
+  %51 = load i8, ptr %.17596125, align 1, !tbaa !19
   %52 = icmp sgt i8 %51, -1
   br i1 %52, label %63, label %53
 
-53:                                               ; preds = %49
+53:                                               ; preds = %.lr.ph126
   %54 = and i8 %51, -2
   %or.cond4 = icmp eq i8 %54, -62
   br i1 %or.cond4, label %55, label %62
@@ -714,27 +719,28 @@ define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UCo
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %.17596, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.17596125, i64 2
   %60 = shl i8 %51, 6
   %61 = or i8 %56, %60
   br label %63
 
 62:                                               ; preds = %55, %53
-  store ptr %.17596, ptr %6, align 8, !tbaa !3
-  store ptr %.17197, ptr %10, align 8, !tbaa !33
+  store ptr %.17596125, ptr %6, align 8, !tbaa !3
+  store ptr %.17197124, ptr %10, align 8, !tbaa !33
   store i32 -127, ptr %2, align 4, !tbaa !17
   br label %89
 
-.loopexit.thread:                                 ; preds = %.lr.ph
+.loopexit.thread:                                 ; preds = %.lr.ph, %.lr.ph.preheader
+  %.17197.lcssa = phi ptr [ %.070, %.lr.ph.preheader ], [ %.272, %.lr.ph ]
+  %.17596.lcssa = phi ptr [ %.074, %.lr.ph.preheader ], [ %.276, %.lr.ph ]
   store i32 15, ptr %2, align 4, !tbaa !17
   br label %88
 
-63:                                               ; preds = %49, %58
-  %storemerge = phi i8 [ %61, %58 ], [ %51, %49 ]
-  %.276 = phi ptr [ %59, %58 ], [ %50, %49 ]
-  store i8 %storemerge, ptr %.17197, align 1, !tbaa !19
-  %.2 = add nsw i32 %.198, -1
-  %.272 = getelementptr inbounds nuw i8, ptr %.17197, i64 1
+63:                                               ; preds = %.lr.ph126, %58
+  %storemerge = phi i8 [ %61, %58 ], [ %51, %.lr.ph126 ]
+  %.276 = phi ptr [ %59, %58 ], [ %50, %.lr.ph126 ]
+  store i8 %storemerge, ptr %.17197124, align 1, !tbaa !19
+  %.272 = getelementptr inbounds nuw i8, ptr %.17197124, i64 1
   %64 = icmp ult ptr %.276, %.073
   br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
@@ -782,8 +788,8 @@ define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UCo
   br label %88
 
 88:                                               ; preds = %.loopexit.thread, %85, %66, %.loopexit
-  %.17192114 = phi ptr [ %.17192.ph, %85 ], [ %.17192.ph, %66 ], [ %.17192.ph, %.loopexit ], [ %.17197, %.loopexit.thread ]
-  %.3 = phi ptr [ %70, %85 ], [ %.17595.ph, %66 ], [ %.17595.ph, %.loopexit ], [ %.17596, %.loopexit.thread ]
+  %.17192114 = phi ptr [ %.17192.ph, %85 ], [ %.17192.ph, %66 ], [ %.17192.ph, %.loopexit ], [ %.17197.lcssa, %.loopexit.thread ]
+  %.3 = phi ptr [ %70, %85 ], [ %.17595.ph, %66 ], [ %.17595.ph, %.loopexit ], [ %.17596.lcssa, %.loopexit.thread ]
   store ptr %.3, ptr %6, align 8, !tbaa !3
   store ptr %.17192114, ptr %10, align 8, !tbaa !33
   br label %89

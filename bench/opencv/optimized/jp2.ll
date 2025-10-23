@@ -515,15 +515,19 @@ opj_jp2_free_pclr.exit:                           ; preds = %131, %142
   %159 = zext i8 %151 to i64
   %160 = add nuw nsw i64 %159, 65535
   %wide.trip.count = and i64 %160, 65535
-  br label %.lr.ph
+  %exitcond.not150 = icmp eq i8 %151, 1
+  br i1 %exitcond.not150, label %._crit_edge.i27, label %.lr.ph152, !llvm.loop !58
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %161
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %161 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.i27, label %161, !llvm.loop !58
+.lr.ph152:                                        ; preds = %.lr.ph.preheader
+  br label %161, !llvm.loop !58
 
-161:                                              ; preds = %.lr.ph
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+.lr.ph:                                           ; preds = %161
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.lr.ph.._crit_edge.i27_crit_edge, label %161, !llvm.loop !58
+
+161:                                              ; preds = %.lr.ph152, %.lr.ph
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv151, 1
   %162 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %130, i64 %indvars.iv.next
   %163 = load i16, ptr %162, align 2, !tbaa !41
   %164 = zext i16 %163 to i64
@@ -542,7 +546,10 @@ opj_jp2_free_pclr.exit:                           ; preds = %131, %142
   %170 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %.lcssa) #6
   br label %opj_jp2_check_color.exit.thread
 
-._crit_edge.i27:                                  ; preds = %.lr.ph
+.lr.ph.._crit_edge.i27_crit_edge:                 ; preds = %.lr.ph
+  br label %._crit_edge.i27, !llvm.loop !58
+
+._crit_edge.i27:                                  ; preds = %.lr.ph.._crit_edge.i27_crit_edge, %.lr.ph.preheader
   %171 = zext i8 %151 to i64
   %172 = shl nuw nsw i64 %171, 6
   %173 = tail call ptr @opj_malloc(i64 noundef %172) #6

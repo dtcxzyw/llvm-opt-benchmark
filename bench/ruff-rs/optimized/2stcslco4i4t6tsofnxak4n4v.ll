@@ -957,7 +957,12 @@ define noundef zeroext i1 @"_ZN66_$LT$ty_ide..hover..DisplayHover$u20$as$u20$cor
   %8 = load ptr, ptr %7, align 8, !nonnull !11, !noundef !11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !11
-  %11 = getelementptr inbounds nuw { { i8, [15 x i8] } }, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i8, ptr %12, align 8, !range !153
   %14 = trunc nuw i8 %13 to i1
@@ -968,17 +973,17 @@ define noundef zeroext i1 @"_ZN66_$LT$ty_ide..hover..DisplayHover$u20$as$u20$cor
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %22
+  br label %23
 
-22:                                               ; preds = %29, %2
-  %.sroa.02.0 = phi i1 [ true, %2 ], [ false, %29 ]
-  %.sroa.03.0 = phi ptr [ %8, %2 ], [ %24, %29 ]
-  %.not.not.not.not.not = icmp ne ptr %.sroa.03.0, %11
-  br i1 %.not.not.not.not.not, label %23, label %.loopexit
+22:                                               ; preds = %29
+  %.not9 = icmp eq ptr %24, %11
+  br i1 %.not9, label %.loopexit, label %23
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.03.0, i64 16
-  br i1 %.sroa.02.0, label %29, label %25
+23:                                               ; preds = %.lr.ph, %22
+  %.sroa.03.06 = phi ptr [ %8, %.lr.ph ], [ %24, %22 ]
+  %.sroa.02.05 = phi i1 [ true, %.lr.ph ], [ false, %22 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.03.06, i64 16
+  br i1 %.sroa.02.05, label %29, label %25
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -995,7 +1000,7 @@ define noundef zeroext i1 @"_ZN66_$LT$ty_ide..hover..DisplayHover$u20$as$u20$cor
   %31 = call { ptr, ptr } %30(ptr noundef nonnull align 1 %15), !noalias !154
   %32 = extractvalue { ptr, ptr } %31, 0
   %33 = extractvalue { ptr, ptr } %31, 1
-  call void @"_ZN18ty_python_semantic5types7display49_$LT$impl$u20$ty_python_semantic..types..Type$GT$7display17h348b5b09c21d8e14E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.03.0, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(224) %33), !noalias !154
+  call void @"_ZN18ty_python_semantic5types7display49_$LT$impl$u20$ty_python_semantic..types..Type$GT$7display17h348b5b09c21d8e14E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.03.06, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(224) %33), !noalias !154
   store ptr @anon.19defe271c17600efb7d4e3e4ec768e2.26, ptr %3, align 8, !noalias !154
   store i64 4, ptr %20, align 8, !noalias !154
   store i8 %13, ptr %21, align 8, !noalias !154
@@ -1003,8 +1008,9 @@ define noundef zeroext i1 @"_ZN66_$LT$ty_ide..hover..DisplayHover$u20$as$u20$cor
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !154
   br i1 %34, label %.loopexit, label %22
 
-.loopexit:                                        ; preds = %29, %22, %25
-  ret i1 %.not.not.not.not.not
+.loopexit:                                        ; preds = %22, %29, %25, %2
+  %35 = phi i1 [ false, %2 ], [ true, %25 ], [ false, %22 ], [ true, %29 ]
+  ret i1 %35
 }
 
 ; Function Attrs: nonlazybind uwtable

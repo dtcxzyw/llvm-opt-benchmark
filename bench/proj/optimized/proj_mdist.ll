@@ -156,21 +156,21 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   %9 = load double, ptr %8, align 8, !tbaa !13
   %10 = fneg double %5
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %12
+  br label %13
 
-12:                                               ; preds = %_Z10proj_mdistdddPKv.exit, %3
-  %.022 = phi double [ %1, %3 ], [ %41, %_Z10proj_mdistdddPKv.exit ]
-  %.0 = phi i32 [ 20, %3 ], [ %14, %_Z10proj_mdistdddPKv.exit ]
-  %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %44, label %13
+12:                                               ; preds = %_Z10proj_mdistdddPKv.exit
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %44, label %13, !llvm.loop !17
 
-13:                                               ; preds = %12
-  %14 = add nsw i32 %.0, -1
-  %15 = tail call double @sin(double noundef %.022) #10, !tbaa !15
+13:                                               ; preds = %3, %12
+  %.026 = phi i32 [ 20, %3 ], [ %14, %12 ]
+  %.02225 = phi double [ %1, %3 ], [ %41, %12 ]
+  %14 = add nsw i32 %.026, -1
+  %15 = tail call double @sin(double noundef %.02225) #10, !tbaa !15
   %16 = fneg double %15
   %17 = fmul double %5, %16
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %15, double 1.000000e+00)
-  %19 = tail call double @cos(double noundef %.022) #10, !tbaa !15
+  %19 = tail call double @cos(double noundef %.02225) #10, !tbaa !15
   %20 = fmul double %15, %15
   %21 = tail call double @llvm.fmuladd.f64(double %10, double %20, double 1.000000e+00)
   %22 = tail call double @sqrt(double noundef %21) #10, !tbaa !15
@@ -197,14 +197,14 @@ _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %13
   %31 = fneg double %30
   %32 = fmul double %5, %31
   %33 = fdiv double %32, %22
-  %34 = tail call double @llvm.fmuladd.f64(double %.022, double %9, double %33)
+  %34 = tail call double @llvm.fmuladd.f64(double %.02225, double %9, double %33)
   %35 = tail call noundef double @llvm.fmuladd.f64(double %30, double %.020.lcssa.i, double %34)
   %36 = fsub double %35, %1
   %37 = tail call double @sqrt(double noundef %18) #10, !tbaa !15
   %38 = fmul double %18, %37
   %39 = fmul double %36, %38
   %40 = fmul double %7, %39
-  %41 = fsub double %.022, %40
+  %41 = fsub double %.02225, %40
   %42 = tail call double @llvm.fabs.f64(double %40)
   %43 = fcmp olt double %42, 0x3D06849B86A12B9B
   br i1 %43, label %.loopexit, label %12, !llvm.loop !17
@@ -214,8 +214,7 @@ _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_Z10proj_mdistdddPKv.exit, %44
-  %.021 = phi double [ %.022, %44 ], [ %41, %_Z10proj_mdistdddPKv.exit ]
-  ret double %.021
+  ret double %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)

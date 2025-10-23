@@ -11736,28 +11736,30 @@ define internal noundef zeroext i1 @_ZN5tokio2io11async_write10AsyncWrite17is_wr
 
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_vectored17h391dd509303a8d76E(ptr noalias noundef align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %2, i64 %3
-  br label %6
+  %.idx = shl nuw nsw i64 %3, 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %6 = icmp eq i64 %3, 0
+  br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit", label %.lr.ph
 
-6:                                                ; preds = %9, %4
-  %7 = phi ptr [ %10, %9 ], [ %2, %4 ]
-  %8 = icmp eq ptr %7, %5
-  br i1 %8, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit", label %9
+7:                                                ; preds = %.lr.ph
+  %8 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %9 = icmp eq ptr %8, %5
+  br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit", label %.lr.ph
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = getelementptr i8, ptr %7, i64 8
+.lr.ph:                                           ; preds = %4, %7
+  %10 = phi ptr [ %8, %7 ], [ %2, %4 ]
+  %11 = getelementptr i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !714, !noundef !4
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %6, label %13
+  br i1 %.not.i, label %7, label %13
 
-13:                                               ; preds = %9
-  %.val.i = load ptr, ptr %7, align 8, !alias.scope !717, !noundef !4
+13:                                               ; preds = %.lr.ph
+  %.val.i = load ptr, ptr %10, align 8, !alias.scope !717, !noundef !4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit": ; preds = %6, %13
-  %.sroa.3.0.i = phi i64 [ %12, %13 ], [ 0, %6 ]
-  %.sroa.02.0.i = phi ptr [ %.val.i, %13 ], [ inttoptr (i64 1 to ptr), %6 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h9720b8cc9e07f1e6E.exit": ; preds = %7, %4, %13
+  %.sroa.3.0.i = phi i64 [ %12, %13 ], [ 0, %4 ], [ 0, %7 ]
+  %.sroa.02.0.i = phi ptr [ %.val.i, %13 ], [ inttoptr (i64 1 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %7 ]
   %14 = icmp ne ptr %.sroa.02.0.i, null
   tail call void @llvm.assume(i1 %14)
   %15 = tail call { i64, ptr } @"_ZN92_$LT$hyper..proto..h2..H2Upgraded$LT$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17h8576ecc4841d3de1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)

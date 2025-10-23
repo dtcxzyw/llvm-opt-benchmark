@@ -11523,31 +11523,35 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717DateFormatSymbols12arrayCo
   %4 = icmp ne ptr %0, %1
   %5 = icmp sgt i32 %2, 0
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %.lr.ph, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread
+  br i1 %or.cond, label %.lr.ph.preheader, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread
 
-.lr.ph:                                           ; preds = %3
+.lr.ph.preheader:                                 ; preds = %3
   %6 = zext nneg i32 %2 to i64
-  br label %7
+  br label %.lr.ph
 
-7:                                                ; preds = %.lr.ph, %.preheader.backedge
-  %indvars.iv14 = phi i64 [ %6, %.lr.ph ], [ %8, %.preheader.backedge ]
-  %8 = add nsw i64 %indvars.iv14, -1
-  %9 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %0, i64 %8
-  %10 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1, i64 %8
+7:                                                ; preds = %14, %_ZNK6icu_7713UnicodeStringneERKS0_.exit
+  %8 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %8, label %.lr.ph, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread, !llvm.loop !156
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+  %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %9 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %0, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1, i64 %indvars.iv.next
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i16, ptr %11, align 8, !tbaa !23
   %13 = and i16 %12, 1
   %.not.i.i = icmp eq i16 %13, 0
   br i1 %.not.i.i, label %18, label %14
 
-14:                                               ; preds = %7
+14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i16, ptr %15, align 8, !tbaa !23
   %17 = and i16 %16, 1
   %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread, label %.preheader.backedge
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit._ZNK6icu_7713UnicodeStringneERKS0_.exit.thread.loopexit_crit_edge, label %7, !llvm.loop !156
 
-18:                                               ; preds = %7
+18:                                               ; preds = %.lr.ph
   %19 = icmp slt i16 %12, 0
   %20 = ashr i16 %12, 5
   %21 = sext i16 %20 to i32
@@ -11576,16 +11580,14 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %18
   %38 = load ptr, ptr %37, align 8
   %39 = select i1 %.not.i.i.i.i, ptr %38, ptr %36
   %40 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %39, i32 noundef %24)
-  %.not13 = icmp eq i8 %40, 0
-  br i1 %.not13, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread, label %.preheader.backedge
+  %.not18 = icmp eq i8 %40, 0
+  br i1 %.not18, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit._ZNK6icu_7713UnicodeStringneERKS0_.exit.thread.loopexit_crit_edge, label %7, !llvm.loop !156
 
-.preheader.backedge:                              ; preds = %_ZNK6icu_7713UnicodeStringneERKS0_.exit, %14
-  %41 = trunc nuw i64 %8 to i32
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %7, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread, !llvm.loop !156
+_ZNK6icu_7713UnicodeStringneERKS0_.exit._ZNK6icu_7713UnicodeStringneERKS0_.exit.thread.loopexit_crit_edge: ; preds = %14, %_ZNK6icu_7713UnicodeStringneERKS0_.exit
+  br label %_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread, !llvm.loop !156
 
-_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread:   ; preds = %14, %_ZNK6icu_7713UnicodeStringneERKS0_.exit, %.preheader.backedge, %18, %3
-  %.08 = phi i8 [ 1, %3 ], [ 0, %18 ], [ 1, %.preheader.backedge ], [ 0, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ 0, %14 ]
+_ZNK6icu_7713UnicodeStringneERKS0_.exit.thread:   ; preds = %7, %18, %_ZNK6icu_7713UnicodeStringneERKS0_.exit._ZNK6icu_7713UnicodeStringneERKS0_.exit.thread.loopexit_crit_edge, %3
+  %.08 = phi i8 [ 1, %3 ], [ 0, %_ZNK6icu_7713UnicodeStringneERKS0_.exit._ZNK6icu_7713UnicodeStringneERKS0_.exit.thread.loopexit_crit_edge ], [ 1, %7 ], [ 0, %18 ]
   ret i8 %.08
 }
 

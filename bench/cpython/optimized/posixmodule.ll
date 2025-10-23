@@ -21700,17 +21700,17 @@ declare noundef ptr @ctermid(ptr noundef captures(none)) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @posix_getcwd(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = tail call ptr @PyEval_SaveThread() #19
-  br label %3
+  br label %4
 
-3:                                                ; preds = %10, %1
-  %.031 = phi ptr [ null, %1 ], [ %6, %10 ]
-  %.027 = phi i64 [ 0, %1 ], [ %5, %10 ]
-  %.not54 = icmp eq i64 %.027, 9223372036854774784
-  br i1 %.not54, label %.thread, label %4
+3:                                                ; preds = %10
+  %.not54 = icmp eq i64 %5, 9223372036854774784
+  br i1 %.not54, label %.thread, label %4, !llvm.loop !314
 
-4:                                                ; preds = %3
-  %5 = add nuw nsw i64 %.027, 1024
-  %6 = tail call ptr @PyMem_RawRealloc(ptr noundef %.031, i64 noundef %5) #19
+4:                                                ; preds = %1, %3
+  %.02760 = phi i64 [ 0, %1 ], [ %5, %3 ]
+  %.03159 = phi ptr [ null, %1 ], [ %6, %3 ]
+  %5 = add nuw nsw i64 %.02760, 1024
+  %6 = tail call ptr @PyMem_RawRealloc(ptr noundef %.03159, i64 noundef %5) #19
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
 
@@ -21733,7 +21733,8 @@ define internal fastcc ptr @posix_getcwd(i32 noundef range(i32 0, 2) %0) unnamed
   br label %30
 
 .thread:                                          ; preds = %3, %4
-  tail call void @PyMem_RawFree(ptr noundef %.031) #19
+  %.031.lcssa = phi ptr [ %6, %3 ], [ %.03159, %4 ]
+  tail call void @PyMem_RawFree(ptr noundef %.031.lcssa) #19
   tail call void @PyEval_RestoreThread(ptr noundef %2) #19
   %16 = tail call ptr @PyErr_NoMemory() #19
   br label %30

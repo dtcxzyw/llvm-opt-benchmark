@@ -454,45 +454,47 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h9ec1ef132d96
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %24, i64 %1
   store i64 %1, ptr %4, align 8
-  br label %26
+  %26 = icmp eq i64 %5, %1
+  br i1 %26, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$u5d$$GT$17he9272eb733861d96E.exit", label %.lr.ph.i
 
-26:                                               ; preds = %28, %21
-  %.sroa.0.0.i = phi i64 [ 0, %21 ], [ %30, %28 ]
-  %27 = icmp eq i64 %.sroa.0.0.i, %22
-  br i1 %27, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$u5d$$GT$17he9272eb733861d96E.exit", label %28
+27:                                               ; preds = %.lr.ph.i
+  %28 = icmp eq i64 %30, %22
+  br i1 %28, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$u5d$$GT$17he9272eb733861d96E.exit", label %.lr.ph.i
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %25, i64 %.sroa.0.0.i
-  %30 = add i64 %.sroa.0.0.i, 1
+.lr.ph.i:                                         ; preds = %21, %27
+  %.sroa.0.07.i = phi i64 [ %30, %27 ], [ 0, %21 ]
+  %29 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %25, i64 %.sroa.0.07.i
+  %30 = add nuw i64 %.sroa.0.07.i, 1
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
-          to label %26 unwind label %33
+          to label %27 unwind label %34
 
-31:                                               ; preds = %35, %33
-  %.sroa.0.1.i = phi i64 [ %30, %33 ], [ %37, %35 ]
-  %32 = icmp eq i64 %.sroa.0.1.i, %22
-  br i1 %32, label %38, label %35
+31:                                               ; preds = %.lr.ph10.i
+  %32 = add i64 %.sroa.0.18.i, 1
+  %33 = icmp eq i64 %32, %22
+  br i1 %33, label %._crit_edge11.i, label %.lr.ph10.i
 
-33:                                               ; preds = %28
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %.lr.ph.i
+  %35 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  %36 = icmp eq i64 %30, %22
+  br i1 %36, label %._crit_edge11.i, label %.lr.ph10.i
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %25, i64 %.sroa.0.1.i
-  %37 = add i64 %.sroa.0.1.i, 1
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #14
-          to label %31 unwind label %39
+.lr.ph10.i:                                       ; preds = %34, %31
+  %.sroa.0.18.i = phi i64 [ %32, %31 ], [ %30, %34 ]
+  %37 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %25, i64 %.sroa.0.18.i
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37) #14
+          to label %31 unwind label %38
 
-38:                                               ; preds = %31
-  resume { ptr, i32 } %34
+._crit_edge11.i:                                  ; preds = %31, %34
+  resume { ptr, i32 } %35
 
-39:                                               ; preds = %35
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %.lr.ph10.i
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-"_ZN4core3ptr83drop_in_place$LT$$u5b$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$u5d$$GT$17he9272eb733861d96E.exit": ; preds = %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha90d52c797e78adcE.exit"
+"_ZN4core3ptr83drop_in_place$LT$$u5b$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$u5d$$GT$17he9272eb733861d96E.exit": ; preds = %27, %21, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha90d52c797e78adcE.exit"
   ret void
 }
 

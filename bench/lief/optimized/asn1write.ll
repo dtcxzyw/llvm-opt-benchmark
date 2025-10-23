@@ -1172,38 +1172,43 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr noundef captures(none)
   %16 = trunc nuw i32 %15 to i8
   %17 = and i8 %16, 1
   %.not2627 = icmp eq i8 %17, 0
-  br i1 %.not2627, label %.lr.ph, label %.loopexit
+  br i1 %.not2627, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %5, %27
-  %.in = phi i8 [ %.119, %27 ], [ %16, %5 ]
-  %.129 = phi i64 [ %18, %27 ], [ %3, %5 ]
-  %.02028 = phi ptr [ %.121, %27 ], [ %11, %5 ]
-  %18 = add i64 %.129, -1
+.lr.ph.preheader:                                 ; preds = %5
+  %18 = add i64 %3, -1
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.loopexit, label %20
+  br i1 %19, label %.loopexit, label %.lr.ph36
 
-20:                                               ; preds = %.lr.ph
-  %21 = lshr i8 %.in, 1
-  %22 = and i64 %18, 7
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %27
+.lr.ph:                                           ; preds = %29
+  %20 = add i64 %22, -1
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %.loopexit, label %.lr.ph36
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.02028, i64 -1
-  %26 = load i8, ptr %25, align 1, !tbaa !10
-  br label %27
+.lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %22 = phi i64 [ %20, %.lr.ph ], [ %18, %.lr.ph.preheader ]
+  %.0202835 = phi ptr [ %.121, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.in34 = phi i8 [ %.119, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+  %23 = lshr i8 %.in34, 1
+  %24 = and i64 %22, 7
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %29
 
-27:                                               ; preds = %24, %20
-  %.121 = phi ptr [ %25, %24 ], [ %.02028, %20 ]
-  %.119 = phi i8 [ %26, %24 ], [ %21, %20 ]
-  %28 = and i8 %.119, 1
-  %.not26 = icmp eq i8 %28, 0
+26:                                               ; preds = %.lr.ph36
+  %27 = getelementptr inbounds i8, ptr %.0202835, i64 -1
+  %28 = load i8, ptr %27, align 1, !tbaa !10
+  br label %29
+
+29:                                               ; preds = %26, %.lr.ph36
+  %.121 = phi ptr [ %27, %26 ], [ %.0202835, %.lr.ph36 ]
+  %.119 = phi i8 [ %28, %26 ], [ %23, %.lr.ph36 ]
+  %30 = and i8 %.119, 1
+  %.not26 = icmp eq i8 %30, 0
   br i1 %.not26, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %27, %5, %4
-  %.0 = phi i64 [ 0, %4 ], [ %3, %5 ], [ 0, %.lr.ph ], [ %18, %27 ]
-  %29 = tail call i32 @mbedtls_asn1_write_bitstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.0)
-  ret i32 %29
+.loopexit:                                        ; preds = %29, %.lr.ph, %.lr.ph.preheader, %5, %4
+  %.0 = phi i64 [ 0, %4 ], [ %3, %5 ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ %22, %29 ]
+  %31 = tail call i32 @mbedtls_asn1_write_bitstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.0)
+  ret i32 %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

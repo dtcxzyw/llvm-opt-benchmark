@@ -550,35 +550,37 @@ define hidden noundef align 2 dereferenceable_or_null(98) ptr @_ZN12clap_builder
   %5 = load ptr, ptr %4, align 8, !alias.scope !37, !noalias !40, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !37, !noalias !40, !noundef !3
-  %8 = getelementptr inbounds { { { i64, i64 } } }, ptr %5, i64 %7
-  br label %9
+  %.idx.i = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread", label %.lr.ph.i
 
-9:                                                ; preds = %11, %1
-  %.sroa.8.0.i = phi i64 [ 0, %1 ], [ %13, %11 ]
-  %.sroa.0.06.i = phi ptr [ %5, %1 ], [ %12, %11 ]
-  %10 = icmp eq ptr %.sroa.0.06.i, %8
-  br i1 %10, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread", label %11
+10:                                               ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0613.i, i64 16
+  %12 = add nuw nsw i64 %.sroa.8.012.i, 1
+  %13 = icmp eq ptr %11, %8
+  br i1 %13, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread", label %.lr.ph.i
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 16
-  %13 = add nuw nsw i64 %.sroa.8.0.i, 1
-  %14 = call noundef zeroext i1 @"_ZN82_$LT$clap_builder..util..any_value..AnyValueId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd07ecf55208d1f1dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.06.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !noalias !37
-  br i1 %14, label %15, label %9
+.lr.ph.i:                                         ; preds = %1, %10
+  %.sroa.0.0613.i = phi ptr [ %11, %10 ], [ %5, %1 ]
+  %.sroa.8.012.i = phi i64 [ %12, %10 ], [ 0, %1 ]
+  %14 = call noundef zeroext i1 @"_ZN82_$LT$clap_builder..util..any_value..AnyValueId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd07ecf55208d1f1dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0613.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !noalias !37
+  br i1 %14, label %15, label %10
 
-15:                                               ; preds = %11
+15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !alias.scope !37, !noalias !40, !noundef !3
-  %18 = icmp ult i64 %.sroa.8.0.i, %17
+  %18 = icmp ult i64 %.sroa.8.012.i, %17
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
-  call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %.sroa.8.0.i, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.7.llvm.14345549290412151827) #25, !noalias !37
+  call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %.sroa.8.012.i, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.7.llvm.14345549290412151827) #25, !noalias !37
   unreachable
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !alias.scope !37, !noalias !40, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} }, { { { i64, i64 } } } }, ptr %22, i64 %.sroa.8.0.i
+  %23 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} }, { { { i64, i64 } } } }, ptr %22, i64 %.sroa.8.012.i
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !align !42, !noundef !3
@@ -599,8 +601,8 @@ define hidden noundef align 2 dereferenceable_or_null(98) ptr @_ZN12clap_builder
   %.sroa.0.0.i4 = select i1 %37, i1 %39, i1 false
   br i1 %.sroa.0.0.i4, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread", label %40, !prof !47
 
-"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread": ; preds = %9, %20
-  %.sroa.0.0 = phi ptr [ %32, %20 ], [ null, %9 ]
+"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h504d0dbc23efe221E.exit.thread": ; preds = %10, %1, %20
+  %.sroa.0.0 = phi ptr [ %32, %20 ], [ null, %1 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0
 

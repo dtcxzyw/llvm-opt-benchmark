@@ -998,21 +998,21 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge: ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
   %.pre = load ptr, ptr %10, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -24
-  %.pre22 = load i8, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert23 = getelementptr inbounds i8, ptr %.pre, i64 -16
-  %.pre24 = load i64, ptr %.phi.trans.insert23, align 8
-  %.pre25 = and i8 %.pre22, 1
-  %.pre26 = lshr i8 %.pre22, 1
-  %.pre28 = zext nneg i8 %.pre26 to i64
+  %.pre24 = load i8, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %.pre, i64 -16
+  %.pre26 = load i64, ptr %.phi.trans.insert25, align 8
+  %.pre27 = and i8 %.pre24, 1
+  %.pre28 = lshr i8 %.pre24, 1
+  %.pre30 = zext nneg i8 %.pre28 to i64
   br label %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread
 
 _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread: ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge, %13
-  %.pre-phi29 = phi i64 [ %.pre28, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %20, %13 ]
-  %.pre-phi = phi i8 [ %.pre25, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %16, %13 ]
-  %28 = phi i64 [ %.pre24, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %18, %13 ]
+  %.pre-phi31 = phi i64 [ %.pre30, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %20, %13 ]
+  %.pre-phi = phi i8 [ %.pre27, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %16, %13 ]
+  %28 = phi i64 [ %.pre26, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %18, %13 ]
   %29 = phi ptr [ %.pre, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %11, %13 ]
   %.not.i.i9 = icmp eq i8 %.pre-phi, 0
-  %30 = select i1 %.not.i.i9, i64 %.pre-phi29, i64 %28
+  %30 = select i1 %.not.i.i9, i64 %.pre-phi31, i64 %28
   %.not.i10 = icmp eq i64 %30, 2
   br i1 %.not.i10, label %31, label %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit12.thread
 
@@ -1120,16 +1120,20 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %_ZNK7mitsuba10files
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = select i1 %.not.i.i.i13, i64 %60, i64 %62
+  %.not2123.i.i = icmp eq i64 %63, 0
+  br i1 %.not2123.i.i, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i
+
+_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i: ; preds = %_ZN7mitsuba10filesystem4pathD2Ev.exit
   %64 = getelementptr inbounds i8, ptr %58, i64 %63
-  br label %65
+  br label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i
 
-65:                                               ; preds = %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i, %_ZN7mitsuba10filesystem4pathD2Ev.exit
-  %.015.i.i = phi ptr [ %64, %_ZN7mitsuba10filesystem4pathD2Ev.exit ], [ %66, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i ]
-  %.not21.i.i = icmp eq ptr %.015.i.i, %58
-  br i1 %.not21.i.i, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i
+65:                                               ; preds = %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i
+  %.not21.i.i = icmp eq ptr %66, %58
+  br i1 %.not21.i.i, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i, !llvm.loop !28
 
-_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i: ; preds = %65
-  %66 = getelementptr inbounds i8, ptr %.015.i.i, i64 -1
+_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i: ; preds = %65, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i
+  %.01524.i.i = phi ptr [ %66, %65 ], [ %64, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i ]
+  %66 = getelementptr inbounds i8, ptr %.01524.i.i, i64 -1
   %67 = load i8, ptr %66, align 1
   %memchr.char0cmp.not = icmp eq i8 %67, 46
   br i1 %memchr.char0cmp.not, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit, label %65, !llvm.loop !28
@@ -1141,7 +1145,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8
   %71 = icmp eq i64 %70, -1
   br i1 %71, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %79
 
-_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread: ; preds = %65, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit
+_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread: ; preds = %65, %_ZN7mitsuba10filesystem4pathD2Ev.exit, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str.7, i64 noundef 0)
@@ -1351,21 +1355,21 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge: ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -24
-  %.pre35 = load i8, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert36 = getelementptr inbounds i8, ptr %.pre, i64 -16
-  %.pre37 = load i64, ptr %.phi.trans.insert36, align 8
-  %.pre38 = and i8 %.pre35, 1
-  %.pre39 = lshr i8 %.pre35, 1
-  %.pre41 = zext nneg i8 %.pre39 to i64
+  %.pre37 = load i8, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert38 = getelementptr inbounds i8, ptr %.pre, i64 -16
+  %.pre39 = load i64, ptr %.phi.trans.insert38, align 8
+  %.pre40 = and i8 %.pre37, 1
+  %.pre41 = lshr i8 %.pre37, 1
+  %.pre43 = zext nneg i8 %.pre41 to i64
   br label %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread
 
 _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread: ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge, %14
-  %.pre-phi42 = phi i64 [ %.pre41, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %21, %14 ]
-  %.pre-phi = phi i8 [ %.pre38, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %17, %14 ]
-  %29 = phi i64 [ %.pre37, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %19, %14 ]
+  %.pre-phi44 = phi i64 [ %.pre43, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %21, %14 ]
+  %.pre-phi = phi i8 [ %.pre40, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %17, %14 ]
+  %29 = phi i64 [ %.pre39, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %19, %14 ]
   %30 = phi ptr [ %.pre, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit._ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread_crit_edge ], [ %12, %14 ]
   %.not.i.i16 = icmp eq i8 %.pre-phi, 0
-  %31 = select i1 %.not.i.i16, i64 %.pre-phi42, i64 %29
+  %31 = select i1 %.not.i.i16, i64 %.pre-phi44, i64 %29
   %.not.i17 = icmp eq i64 %31, 2
   br i1 %.not.i17, label %32, label %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit19.thread
 
@@ -1438,16 +1442,20 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %_ZNK7mitsuba10files
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = select i1 %.not.i.i.i20, i64 %55, i64 %57
+  %.not2123.i.i = icmp eq i64 %58, 0
+  br i1 %.not2123.i.i, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i
+
+_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i: ; preds = %_ZN7mitsuba10filesystem4pathD2Ev.exit
   %59 = getelementptr inbounds i8, ptr %53, i64 %58
-  br label %60
+  br label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i
 
-60:                                               ; preds = %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i, %_ZN7mitsuba10filesystem4pathD2Ev.exit
-  %.015.i.i = phi ptr [ %59, %_ZN7mitsuba10filesystem4pathD2Ev.exit ], [ %61, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i ]
-  %.not21.i.i = icmp eq ptr %.015.i.i, %53
-  br i1 %.not21.i.i, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i
+60:                                               ; preds = %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i
+  %.not21.i.i = icmp eq ptr %61, %53
+  br i1 %.not21.i.i, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread, label %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i, !llvm.loop !28
 
-_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i: ; preds = %60
-  %61 = getelementptr inbounds i8, ptr %.015.i.i, i64 -1
+_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.i.i: ; preds = %60, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i
+  %.01524.i.i = phi ptr [ %61, %60 ], [ %59, %_ZNSt3__111char_traitsIcE4findB8ne190000EPKcmRS2_.exit.preheader.i.i ]
+  %61 = getelementptr inbounds i8, ptr %.01524.i.i, i64 -1
   %62 = load i8, ptr %61, align 1
   %memchr.char0cmp.not = icmp eq i8 %62, 46
   br i1 %memchr.char0cmp.not, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit, label %60, !llvm.loop !28
@@ -1489,7 +1497,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
           cleanup
   br label %169
 
-_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread: ; preds = %60, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit
+_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit.thread: ; preds = %60, %_ZN7mitsuba10filesystem4pathD2Ev.exit, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE12find_last_ofB8ne190000EPKcm.exit
   invoke void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(25) %1)
           to label %_ZNK7mitsuba10filesystem4pathcvNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEEv.exit21 unwind label %75
 

@@ -9410,33 +9410,37 @@ define internal fastcc void @propagate_total_memory(ptr noundef captures(none) i
   %30 = load ptr, ptr %20, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !53
+  %.not2940 = icmp eq i32 %32, 0
+  br i1 %.not2940, label %._crit_edge45, label %.lr.ph43
+
+.lr.ph43:                                         ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %34 = zext i32 %32 to i64
-  br label %35
+  %34 = load ptr, ptr %33, align 8, !tbaa !53
+  %35 = zext i32 %32 to i64
+  br label %37
 
-35:                                               ; preds = %36, %26
-  %indvars.iv = phi i64 [ %38, %36 ], [ %34, %26 ]
-  %.not29 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not29, label %.split.loop.exit42, label %36
+36:                                               ; preds = %37
+  %.not29.wide = icmp eq i64 %38, 0
+  br i1 %.not29.wide, label %._crit_edge45, label %37, !llvm.loop !221
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %33, align 8, !tbaa !53
+37:                                               ; preds = %.lr.ph43, %36
+  %indvars.iv = phi i64 [ %35, %.lr.ph43 ], [ %38, %36 ]
   %38 = add nsw i64 %indvars.iv, -1
-  %39 = getelementptr inbounds nuw %struct.hwloc_memory_page_type_s, ptr %37, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !221
+  %39 = getelementptr inbounds nuw %struct.hwloc_memory_page_type_s, ptr %34, i64 %38
+  %40 = load i64, ptr %39, align 8, !tbaa !222
   %.not30 = icmp eq i64 %40, 0
-  br i1 %.not30, label %35, label %.split.loop.exit, !llvm.loop !223
+  br i1 %.not30, label %36, label %._crit_edge44, !llvm.loop !221
 
-.split.loop.exit:                                 ; preds = %36
+._crit_edge44:                                    ; preds = %37
   %41 = trunc nuw i64 %indvars.iv to i32
-  br label %.split.loop.exit42
+  br label %._crit_edge45, !llvm.loop !221
 
-.split.loop.exit42:                               ; preds = %35, %.split.loop.exit
-  %.0.lcssa = phi i32 [ %41, %.split.loop.exit ], [ 0, %35 ]
+._crit_edge45:                                    ; preds = %36, %._crit_edge44, %26
+  %.0.lcssa = phi i32 [ %41, %._crit_edge44 ], [ 0, %26 ], [ 0, %36 ]
   store i32 %.0.lcssa, ptr %31, align 8, !tbaa !53
   br label %42
 
-42:                                               ; preds = %19, %.split.loop.exit42, %._crit_edge39
+42:                                               ; preds = %19, %._crit_edge45, %._crit_edge39
   ret void
 }
 
@@ -11317,12 +11321,12 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @hwloc_memory_page_type_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
-  %3 = load i64, ptr %1, align 8, !tbaa !221
+  %3 = load i64, ptr %1, align 8, !tbaa !222
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr %0, align 8, !tbaa !221
+  %5 = load i64, ptr %0, align 8, !tbaa !222
   %6 = icmp eq i64 %3, %5
   br i1 %6, label %10, label %7
 
@@ -11616,9 +11620,9 @@ attributes #40 = { cold }
 !218 = distinct !{!218, !47}
 !219 = distinct !{!219, !47}
 !220 = distinct !{!220, !47}
-!221 = !{!222, !11, i64 0}
-!222 = !{!"hwloc_memory_page_type_s", !11, i64 0, !11, i64 8}
-!223 = distinct !{!223, !47}
+!221 = distinct !{!221, !47}
+!222 = !{!223, !11, i64 0}
+!223 = !{!"hwloc_memory_page_type_s", !11, i64 0, !11, i64 8}
 !224 = !{!37, !37, i64 0}
 !225 = distinct !{!225, !47}
 !226 = distinct !{!226, !47}

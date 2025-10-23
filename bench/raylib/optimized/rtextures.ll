@@ -38895,27 +38895,32 @@ define internal fastcc void @stbi__out_gif_code(ptr noundef nonnull captures(non
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 34916
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 34896
   %.promoted46 = load i32, ptr %59, align 8
-  br label %63
+  %63 = icmp sgt i32 %.promoted46, 0
+  br i1 %63, label %.lr.ph50.preheader, label %.critedge
 
-63:                                               ; preds = %.lr.ph, %66
-  %64 = phi i32 [ %.promoted46, %.lr.ph ], [ %72, %66 ]
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %.critedge
+.lr.ph50.preheader:                               ; preds = %.lr.ph
+  %64 = load i32, ptr %61, align 4
+  %65 = load i32, ptr %62, align 8
+  br label %.lr.ph50
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %61, align 4
-  %68 = shl i32 %67, %64
-  store i32 %68, ptr %55, align 4
-  %69 = load i32, ptr %62, align 8
-  %70 = ashr i32 %68, 1
-  %71 = add nsw i32 %69, %70
-  store i32 %71, ptr %10, align 8
-  %72 = add nsw i32 %64, -1
-  store i32 %72, ptr %59, align 8
-  %.not43 = icmp slt i32 %71, %60
-  br i1 %.not43, label %.critedge, label %63
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
+  %66 = phi i32 [ %70, %.lr.ph50 ], [ %.promoted46, %.lr.ph50.preheader ]
+  %67 = shl i32 %64, %66
+  %68 = ashr i32 %67, 1
+  %69 = add nsw i32 %65, %68
+  %70 = add nsw i32 %66, -1
+  %.not43 = icmp sge i32 %69, %60
+  %71 = icmp sgt i32 %66, 1
+  %or.cond = and i1 %.not43, %71
+  br i1 %or.cond, label %.lr.ph50, label %.critedge.loopexit
 
-.critedge:                                        ; preds = %63, %66, %52, %47, %9
+.critedge.loopexit:                               ; preds = %.lr.ph50
+  store i32 %67, ptr %55, align 4
+  store i32 %69, ptr %10, align 8
+  store i32 %70, ptr %59, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %52, %47, %9
   ret void
 }
 
@@ -41353,24 +41358,27 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %9 = sext i32 %.06073 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.06073, i32 256)
   %10 = sub i32 %smax, %.06073
-  br label %11
+  %11 = getelementptr inbounds i8, ptr %3, i64 %9
+  store i8 %8, ptr %11, align 1
+  %exitcond114 = icmp sgt i32 %.06073, 255
+  br i1 %exitcond114, label %.loopexit65.sink.split, label %.lr.ph117
 
-11:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.05572 = phi i32 [ 0, %.lr.ph ], [ %14, %13 ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
-  store i8 %8, ptr %12, align 1
-  %exitcond = icmp eq i32 %.05572, %10
-  br i1 %exitcond, label %.loopexit65.sink.split, label %13
+12:                                               ; preds = %.lr.ph117
+  %13 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
+  store i8 %8, ptr %13, align 1
+  %exitcond = icmp eq i32 %14, %10
+  br i1 %exitcond, label %.loopexit65.sink.split, label %.lr.ph117
 
-13:                                               ; preds = %11
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %14 = add nuw nsw i32 %.05572, 1
+.lr.ph117:                                        ; preds = %.lr.ph, %12
+  %.05572116 = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
+  %indvars.iv115 = phi i64 [ %indvars.iv.next, %12 ], [ %9, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv115, 1
+  %14 = add nuw nsw i32 %.05572116, 1
   %15 = load i32, ptr %4, align 4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %11, label %._crit_edge.loopexit
+  br i1 %16, label %12, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %13
+._crit_edge.loopexit:                             ; preds = %.lr.ph117
   %17 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
@@ -41482,8 +41490,8 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
   br i1 %exitcond110.not, label %.loopexit65, label %50
 
-.loopexit65.sink.split:                           ; preds = %11, %._crit_edge78
-  %.str.142.sink = phi ptr [ @.str.142, %._crit_edge78 ], [ @.str.141, %11 ]
+.loopexit65.sink.split:                           ; preds = %.lr.ph, %12, %._crit_edge78
+  %.str.142.sink = phi ptr [ @.str.142, %._crit_edge78 ], [ @.str.141, %12 ], [ @.str.141, %.lr.ph ]
   store ptr %.str.142.sink, ptr @stbi__g_failure_reason, align 8
   br label %.loopexit65
 

@@ -370,16 +370,25 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %102 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.ph.i
   %103 = load i16, ptr %102, align 2
   %104 = icmp slt i16 %103, 1
-  br i1 %104, label %.thread.i, label %._crit_edge
+  br i1 %104, label %.thread.i.preheader, label %._crit_edge
 
-105:                                              ; preds = %.thread.i
-  %106 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.next60.i
+.thread.i.preheader:                              ; preds = %.outer.i
+  %indvars.iv.next60.i142 = add nuw nsw i64 %indvars.iv.ph.i, 1
+  %.not61.i143 = icmp slt i64 %indvars.iv.next60.i142, %101
+  br i1 %.not61.i143, label %.lr.ph145, label %.thread.i.preheader.._crit_edge.thread.i.loopexit_crit_edge, !llvm.loop !9
+
+.lr.ph145:                                        ; preds = %.thread.i.preheader
+  br label %105, !llvm.loop !9
+
+105:                                              ; preds = %.lr.ph145, %.thread.i
+  %indvars.iv.next60.i144 = phi i64 [ %indvars.iv.next60.i142, %.lr.ph145 ], [ %indvars.iv.next60.i, %.thread.i ]
+  %106 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.next60.i144
   %107 = load i16, ptr %106, align 2
   %108 = icmp slt i16 %107, 1
   br i1 %108, label %.thread.i, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %105, %.outer.i
-  %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next60.i, %105 ]
+  %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next60.i144, %105 ]
   %.03952.i.lcssa = phi i1 [ %.03952.ph.i, %.outer.i ], [ true, %105 ]
   %.lcssa = phi i16 [ %103, %.outer.i ], [ %107, %105 ]
   %narrow.i = add nuw i16 %.lcssa, 7
@@ -403,11 +412,10 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %.not.i = icmp slt i64 %indvars.iv.next.i, %115
   br i1 %.not.i, label %.outer.i, label %._crit_edge.i, !llvm.loop !9
 
-.thread.i:                                        ; preds = %.outer.i, %105
-  %indvars.iv.i111 = phi i64 [ %indvars.iv.next60.i, %105 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv.i111, 1
+.thread.i:                                        ; preds = %105
+  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv.next60.i144, 1
   %.not61.i = icmp slt i64 %indvars.iv.next60.i, %101
-  br i1 %.not61.i, label %105, label %._crit_edge.thread.i, !llvm.loop !9
+  br i1 %.not61.i, label %105, label %.thread.i.._crit_edge.thread.i.loopexit_crit_edge, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %114
   br i1 %.03952.i.lcssa, label %._crit_edge.thread.i, label %.critedge.i
@@ -417,7 +425,13 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   store i8 1, ptr %116, align 4
   br label %index_unchanged_by_update.exit
 
-._crit_edge.thread.i:                             ; preds = %.thread.i, %._crit_edge.i
+.thread.i.preheader.._crit_edge.thread.i.loopexit_crit_edge: ; preds = %.thread.i.preheader
+  br label %._crit_edge.thread.i, !llvm.loop !9
+
+.thread.i.._crit_edge.thread.i.loopexit_crit_edge: ; preds = %.thread.i
+  br label %._crit_edge.thread.i, !llvm.loop !9
+
+._crit_edge.thread.i:                             ; preds = %.thread.i.preheader.._crit_edge.thread.i.loopexit_crit_edge, %.thread.i.._crit_edge.thread.i.loopexit_crit_edge, %._crit_edge.i
   %.not44.i = icmp eq ptr %97, null
   br i1 %.not44.i, label %119, label %117
 

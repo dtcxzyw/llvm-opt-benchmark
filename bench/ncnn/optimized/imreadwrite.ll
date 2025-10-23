@@ -13453,24 +13453,27 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
   %9 = sext i32 %.06073 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.06073, i32 256)
   %10 = sub i32 %smax, %.06073
-  br label %11
+  %11 = getelementptr inbounds i8, ptr %3, i64 %9
+  store i8 %8, ptr %11, align 1, !tbaa !23
+  %exitcond114 = icmp sgt i32 %.06073, 255
+  br i1 %exitcond114, label %.loopexit65.sink.split, label %.lr.ph117
 
-11:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.05572 = phi i32 [ 0, %.lr.ph ], [ %14, %13 ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
-  store i8 %8, ptr %12, align 1, !tbaa !23
-  %exitcond = icmp eq i32 %.05572, %10
-  br i1 %exitcond, label %.loopexit65.sink.split, label %13
+12:                                               ; preds = %.lr.ph117
+  %13 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
+  store i8 %8, ptr %13, align 1, !tbaa !23
+  %exitcond = icmp eq i32 %14, %10
+  br i1 %exitcond, label %.loopexit65.sink.split, label %.lr.ph117, !llvm.loop !269
 
-13:                                               ; preds = %11
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %14 = add nuw nsw i32 %.05572, 1
+.lr.ph117:                                        ; preds = %.lr.ph, %12
+  %.05572116 = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
+  %indvars.iv115 = phi i64 [ %indvars.iv.next, %12 ], [ %9, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv115, 1
+  %14 = add nuw nsw i32 %.05572116, 1
   %15 = load i32, ptr %4, align 4, !tbaa !10
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %11, label %._crit_edge.loopexit, !llvm.loop !269
+  br i1 %16, label %12, label %._crit_edge.loopexit, !llvm.loop !269
 
-._crit_edge.loopexit:                             ; preds = %13
+._crit_edge.loopexit:                             ; preds = %.lr.ph117
   %17 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
@@ -13582,8 +13585,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
   br i1 %exitcond110.not, label %.loopexit65, label %50, !llvm.loop !274
 
-.loopexit65.sink.split:                           ; preds = %11, %._crit_edge78
-  %.str.51.sink = phi ptr [ @.str.51, %._crit_edge78 ], [ @.str.50, %11 ]
+.loopexit65.sink.split:                           ; preds = %.lr.ph, %12, %._crit_edge78
+  %.str.51.sink = phi ptr [ @.str.51, %._crit_edge78 ], [ @.str.50, %12 ], [ @.str.50, %.lr.ph ]
   store ptr %.str.51.sink, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.loopexit65
 

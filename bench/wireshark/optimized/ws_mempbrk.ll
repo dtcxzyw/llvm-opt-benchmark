@@ -115,23 +115,24 @@ declare ptr @ws_mempbrk_sse42_exec(ptr noundef, i64 noundef, ptr noundef, ptr no
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 %1
-  br label %6
+  %6 = icmp ugt ptr %5, %0
+  br i1 %6, label %.lr.ph, label %.loopexit
 
-6:                                                ; preds = %8, %4
-  %.0 = phi ptr [ %5, %4 ], [ %9, %8 ]
-  %7 = icmp ugt ptr %.0, %0
-  br i1 %7, label %8, label %.loopexit
+7:                                                ; preds = %.lr.ph
+  %8 = icmp ugt ptr %9, %0
+  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
-8:                                                ; preds = %6
-  %9 = getelementptr i8, ptr %.0, i64 -1
+.lr.ph:                                           ; preds = %4, %7
+  %.014 = phi ptr [ %9, %7 ], [ %5, %4 ]
+  %9 = getelementptr i8, ptr %.014, i64 -1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %2, i64 %11
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %6, label %14, !llvm.loop !11
+  br i1 %.not, label %7, label %14, !llvm.loop !11
 
-14:                                               ; preds = %8
+14:                                               ; preds = %.lr.ph
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %.loopexit, label %15
 
@@ -139,8 +140,8 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   store i8 %10, ptr %3, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %6, %14, %15
-  %.010 = phi ptr [ %9, %15 ], [ %9, %14 ], [ null, %6 ]
+.loopexit:                                        ; preds = %7, %4, %14, %15
+  %.010 = phi ptr [ %9, %15 ], [ %9, %14 ], [ null, %4 ], [ null, %7 ]
   ret ptr %.010
 }
 

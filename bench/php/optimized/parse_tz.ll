@@ -2280,12 +2280,12 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
   br label %20
 
 20:                                               ; preds = %17, %6
-  %.sink29 = phi i32 [ 0, %17 ], [ %15, %6 ]
+  %.sink31 = phi i32 [ 0, %17 ], [ %15, %6 ]
   %.sink = phi i64 [ 0, %17 ], [ %16, %6 ]
   %.021 = phi ptr [ %19, %17 ], [ %13, %6 ]
   %.0 = phi i32 [ 0, %17 ], [ %7, %6 ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink29, ptr %21, align 8, !tbaa !84
+  store i32 %.sink31, ptr %21, align 8, !tbaa !84
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sink, ptr %22, align 8, !tbaa !86
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2296,39 +2296,42 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %27 = load ptr, ptr %26, align 8, !tbaa !58
-  %.not12.i = icmp eq ptr %27, null
-  br i1 %.not12.i, label %fetch_leaptime_offset.exit.thread, label %.preheader
+  %.not12.i = icmp ne ptr %27, null
+  %28 = trunc i64 %24 to i32
+  %.013.i = add i32 %28, -1
+  %29 = icmp sgt i32 %.013.i, 0
+  %or.cond.i = and i1 %29, %.not12.i
+  br i1 %or.cond.i, label %.lr.ph.i, label %fetch_leaptime_offset.exit.thread
 
-.preheader:                                       ; preds = %25, %29
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ %24, %25 ]
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
-  %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %28 = icmp sgt i32 %indvars.i, 0
-  br i1 %28, label %29, label %fetch_leaptime_offset.exit.thread
+30:                                               ; preds = %.lr.ph.i
+  %.0.i = add nsw i32 %.014.i, -1
+  %31 = icmp sgt i32 %.014.i, 1
+  br i1 %31, label %.lr.ph.i, label %fetch_leaptime_offset.exit.thread
 
-29:                                               ; preds = %.preheader
-  %30 = and i64 %indvars.iv.next.i, 2147483647
-  %31 = getelementptr inbounds nuw %struct._tlinfo, ptr %27, i64 %30
-  %32 = load i64, ptr %31, align 8, !tbaa !59
-  %33 = icmp sgt i64 %0, %32
-  br i1 %33, label %fetch_leaptime_offset.exit, label %.preheader
+.lr.ph.i:                                         ; preds = %25, %30
+  %.014.i = phi i32 [ %.0.i, %30 ], [ %.013.i, %25 ]
+  %32 = zext nneg i32 %.014.i to i64
+  %33 = getelementptr inbounds nuw %struct._tlinfo, ptr %27, i64 %32
+  %34 = load i64, ptr %33, align 8, !tbaa !59
+  %35 = icmp sgt i64 %0, %34
+  br i1 %35, label %fetch_leaptime_offset.exit, label %30
 
-fetch_leaptime_offset.exit:                       ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !61
-  %36 = sub i32 0, %35
+fetch_leaptime_offset.exit:                       ; preds = %.lr.ph.i
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !61
+  %38 = sub i32 0, %37
   br label %fetch_leaptime_offset.exit.thread
 
-fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %20, %25, %fetch_leaptime_offset.exit
-  %.022 = phi i32 [ %36, %fetch_leaptime_offset.exit ], [ 0, %25 ], [ 0, %20 ], [ 0, %.preheader ]
+fetch_leaptime_offset.exit.thread:                ; preds = %30, %20, %25, %fetch_leaptime_offset.exit
+  %.022 = phi i32 [ %38, %fetch_leaptime_offset.exit ], [ 0, %25 ], [ 0, %20 ], [ 0, %30 ]
   store i32 %.0, ptr %4, align 8, !tbaa !87
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.022, ptr %37, align 4, !tbaa !88
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %.022, ptr %39, align 4, !tbaa !88
   %.not26 = icmp eq ptr %.021, null
   %.str.493..021 = select i1 %.not26, ptr @.str.493, ptr %.021
-  %38 = call noalias ptr @_estrdup(ptr noundef nonnull %.str.493..021) #17
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %38, ptr %39, align 8, !tbaa !89
+  %40 = call noalias ptr @_estrdup(ptr noundef nonnull %.str.493..021) #17
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %40, ptr %41, align 8, !tbaa !89
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }

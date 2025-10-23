@@ -1308,15 +1308,18 @@ define hidden range(i64 1, 0) i64 @_mi_os_numa_node_count_get() local_unnamed_ad
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  br label %8
+  br label %9
 
-8:                                                ; preds = %9, %7
-  %.0.i = phi i32 [ 0, %7 ], [ %10, %9 ]
-  %exitcond.not.i = icmp eq i32 %.0.i, 256
-  br i1 %exitcond.not.i, label %mi_os_numa_node_countx.exit, label %9
+8:                                                ; preds = %9
+  %exitcond.not.i = icmp eq i32 %10, 256
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %9, !llvm.loop !23
 
-9:                                                ; preds = %8
-  %10 = add nuw nsw i32 %.0.i, 1
+._crit_edge.i:                                    ; preds = %8
+  br label %mi_os_numa_node_countx.exit, !llvm.loop !23
+
+9:                                                ; preds = %8, %7
+  %.04.i = phi i32 [ 0, %7 ], [ %10, %8 ]
+  %10 = add nuw nsw i32 %.04.i, 1
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 127, ptr noundef nonnull @.str.14, i32 noundef %10) #10
   %12 = call i32 @access(ptr noundef nonnull %1, i32 noundef 4) #10
   %.not.i = icmp eq i32 %12, 0
@@ -1326,8 +1329,8 @@ split.i:                                          ; preds = %9
   %13 = zext nneg i32 %10 to i64
   br label %mi_os_numa_node_countx.exit
 
-mi_os_numa_node_countx.exit:                      ; preds = %8, %split.i
-  %.0.lcssa.i = phi i64 [ %13, %split.i ], [ 257, %8 ]
+mi_os_numa_node_countx.exit:                      ; preds = %._crit_edge.i, %split.i
+  %.0.lcssa.i = phi i64 [ 257, %._crit_edge.i ], [ %13, %split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %14
 

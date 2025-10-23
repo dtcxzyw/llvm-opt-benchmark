@@ -1203,23 +1203,31 @@ define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr noundef captures
   %.not9 = icmp eq ptr %12, null
   %.not101114 = icmp eq ptr %12, %10
   %.not1011 = select i1 %.not9, i1 true, i1 %.not101114
-  br i1 %.not1011, label %._crit_edge, label %.lr.ph
+  br i1 %.not1011, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %8, %16
-  %13 = phi i32 [ %14, %16 ], [ 0, %8 ]
-  %.sroa.0.012 = phi ptr [ %18, %16 ], [ %12, %8 ]
-  %14 = add i32 %13, 1
+.lr.ph.preheader:                                 ; preds = %8
+  store i32 1, ptr %1, align 4
+  %13 = icmp eq i32 %0, 1
+  br i1 %13, label %._crit_edge, label %.lr.ph19
+
+.lr.ph:                                           ; preds = %.lr.ph19
+  %14 = add i32 %16, 1
   store i32 %14, ptr %1, align 4
   %15 = icmp eq i32 %14, %0
-  br i1 %15, label %._crit_edge, label %16
+  br i1 %15, label %._crit_edge, label %.lr.ph19, !llvm.loop !19
 
-16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 8
+.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %16 = phi i32 [ %14, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.sroa.0.01218 = phi ptr [ %18, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.01218, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not10 = icmp eq ptr %18, %10
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not10, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %16, %8
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph19
+  br label %._crit_edge, !llvm.loop !19
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
   %19 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %19, align 1

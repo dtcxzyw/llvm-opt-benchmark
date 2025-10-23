@@ -140,28 +140,35 @@ define internal range(i32 0, 256) i32 @tt_cmap0_char_next(ptr noundef readonly c
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  br label %7
+  %7 = add i32 %5, 1
+  %8 = icmp ult i32 %7, 256
+  br i1 %8, label %.lr.ph.preheader, label %.loopexit
 
-7:                                                ; preds = %10, %2
-  %.012 = phi i32 [ %5, %2 ], [ %8, %10 ]
-  %8 = add i32 %.012, 1
-  %9 = icmp ult i32 %8, 256
-  br i1 %9, label %10, label %.loopexit
+.lr.ph.preheader:                                 ; preds = %2
+  %9 = zext nneg i32 %7 to i64
+  br label %.lr.ph
 
-10:                                               ; preds = %7
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+10:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %11 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %11, 256
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
+  %indvars.iv = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !15
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %7, label %14, !llvm.loop !17
+  br i1 %.not, label %10, label %14, !llvm.loop !17
 
-14:                                               ; preds = %10
-  %15 = zext i8 %13 to i32
+14:                                               ; preds = %.lr.ph
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  %16 = zext i8 %13 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %7, %14
-  %.011 = phi i32 [ %8, %14 ], [ 0, %7 ]
-  %.1 = phi i32 [ %15, %14 ], [ 0, %7 ]
+.loopexit:                                        ; preds = %10, %2, %14
+  %.011 = phi i32 [ %15, %14 ], [ 0, %2 ], [ 0, %10 ]
+  %.1 = phi i32 [ %16, %14 ], [ 0, %2 ], [ 0, %10 ]
   store i32 %.011, ptr %1, align 4, !tbaa !16
   ret i32 %.1
 }

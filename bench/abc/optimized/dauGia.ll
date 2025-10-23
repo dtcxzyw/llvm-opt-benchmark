@@ -17,46 +17,51 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  switch i64 %1, label %tailrecurse.preheader [
+  switch i64 %1, label %.split [
     i64 0, label %.loopexit
     i64 -1, label %40
   ]
 
-tailrecurse.preheader:                            ; preds = %4
-  %5 = sext i32 %3 to i64
-  br label %tailrecurse
+.split:                                           ; preds = %4
+  %5 = add nsw i32 %3, -1
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph.preheader
 
-tailrecurse:                                      ; preds = %tailrecurse.preheader, %12
-  %indvars.iv = phi i64 [ %5, %tailrecurse.preheader ], [ %indvars.iv.next, %12 ]
+.lr.ph.preheader:                                 ; preds = %.split
+  %7 = sext i32 %5 to i64
+  br label %.lr.ph
+
+tailrecurse:                                      ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %6, label %7, label %12
+  %8 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %8, label %tailrecurse._crit_edge, label %.lr.ph
 
-7:                                                ; preds = %tailrecurse
-  %8 = load i32, ptr %2, align 4, !tbaa !3
-  %9 = icmp eq i64 %1, 6148914691236517205
-  %10 = zext i1 %9 to i32
-  %11 = xor i32 %8, %10
+tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.split
+  %9 = load i32, ptr %2, align 4, !tbaa !3
+  %10 = icmp eq i64 %1, 6148914691236517205
+  %11 = zext i1 %10 to i32
+  %12 = xor i32 %9, %11
   br label %40
 
-12:                                               ; preds = %tailrecurse
-  %13 = trunc nsw i64 %indvars.iv.next to i32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
+  %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %tailrecurse ]
+  %13 = trunc nsw i64 %indvars.iv to i32
   %14 = shl nuw i32 1, %13
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 %1, %15
-  %17 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %indvars.iv.next
+  %17 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !7
   %19 = xor i64 %16, %1
   %20 = and i64 %18, %19
   %.not35 = icmp eq i64 %20, 0
   br i1 %.not35, label %tailrecurse, label %21
 
-21:                                               ; preds = %12
+21:                                               ; preds = %.lr.ph
   %22 = and i64 %18, %1
   %23 = shl i64 %22, %15
   %24 = or i64 %23, %22
   %25 = tail call i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %24, ptr noundef %2, i32 noundef %13)
-  %26 = getelementptr inbounds i64, ptr @s_Truths6, i64 %indvars.iv.next
+  %26 = getelementptr inbounds i64, ptr @s_Truths6, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !7
   %28 = and i64 %27, %1
   %29 = lshr i64 %28, %15
@@ -65,7 +70,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %.not34 = icmp eq ptr %33, null
-  %34 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %34 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !3
   br i1 %.not34, label %38, label %36
 
@@ -80,8 +85,8 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 .loopexit:                                        ; preds = %4
   br label %40
 
-40:                                               ; preds = %4, %.loopexit, %38, %36, %7
-  %.0 = phi i32 [ %11, %7 ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
+40:                                               ; preds = %4, %.loopexit, %38, %36, %tailrecurse._crit_edge
+  %.0 = phi i32 [ %12, %tailrecurse._crit_edge ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
   ret i32 %.0
 }
 

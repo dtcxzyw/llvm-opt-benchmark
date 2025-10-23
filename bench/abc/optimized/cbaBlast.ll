@@ -1620,35 +1620,41 @@ declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define i32 @Cba_BlastLess2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = zext i32 %3 to i64
-  br label %6
+  %5 = icmp sgt i32 %3, 0
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge25
 
-6:                                                ; preds = %9, %4
-  %indvars.iv = phi i64 [ %10, %9 ], [ %5, %4 ]
-  %.019 = phi i32 [ %21, %9 ], [ 0, %4 ]
-  %.0 = phi i32 [ %17, %9 ], [ 0, %4 ]
-  %7 = trunc nuw i64 %indvars.iv to i32
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %9, label %23
+.lr.ph.preheader:                                 ; preds = %4
+  %6 = zext nneg i32 %3 to i64
+  br label %.lr.ph
 
-9:                                                ; preds = %6
-  %10 = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !11
-  %13 = xor i32 %12, 1
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %10
-  %15 = load i32, ptr %14, align 4, !tbaa !11
-  %16 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %13, i32 noundef %15) #21
-  %17 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.019, i32 noundef %.0, i32 noundef %16) #21
-  %18 = load i32, ptr %11, align 4, !tbaa !11
-  %19 = load i32, ptr %14, align 4, !tbaa !11
-  %20 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %18, i32 noundef %19) #21
-  %21 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.019, i32 noundef %20) #21
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %6, !llvm.loop !54
+7:                                                ; preds = %.lr.ph
+  %8 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %8, label %.lr.ph, label %._crit_edge25, !llvm.loop !54
 
-23:                                               ; preds = %9, %6
-  %.1 = phi i32 [ %17, %9 ], [ %.0, %6 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+  %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
+  %.024 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %7 ]
+  %.01923 = phi i32 [ 0, %.lr.ph.preheader ], [ %19, %7 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %11 = xor i32 %10, 1
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %14 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %11, i32 noundef %13) #21
+  %15 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.01923, i32 noundef %.024, i32 noundef %14) #21
+  %16 = load i32, ptr %9, align 4, !tbaa !11
+  %17 = load i32, ptr %12, align 4, !tbaa !11
+  %18 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %16, i32 noundef %17) #21
+  %19 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.01923, i32 noundef %18) #21
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %._crit_edge, label %7, !llvm.loop !54
+
+._crit_edge:                                      ; preds = %.lr.ph
+  br label %._crit_edge25, !llvm.loop !54
+
+._crit_edge25:                                    ; preds = %7, %._crit_edge, %4
+  %.1 = phi i32 [ %15, %._crit_edge ], [ 0, %4 ], [ %15, %7 ]
   ret i32 %.1
 }
 

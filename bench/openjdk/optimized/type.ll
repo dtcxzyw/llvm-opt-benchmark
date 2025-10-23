@@ -15331,27 +15331,34 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(
 .critedge4.us.preheader:                          ; preds = %.lr.ph.split.us
   %28 = sext i32 %16 to i64
   %29 = add nsw i64 %28, -1
-  br label %.critedge4.us
+  %exitcond.not.not94 = icmp eq i64 %29, %24
+  br i1 %exitcond.not.not94, label %.critedge2, label %.lr.ph96, !llvm.loop !28
 
-30:                                               ; preds = %.critedge4.us
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+.lr.ph96:                                         ; preds = %.critedge4.us.preheader
+  br label %30, !llvm.loop !28
+
+30:                                               ; preds = %.lr.ph96, %.critedge4.us
+  %indvars.iv95 = phi i64 [ %24, %.lr.ph96 ], [ %indvars.iv.next, %.critedge4.us ]
+  %indvars.iv.next = add nsw i64 %indvars.iv95, 1
   %31 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.next
   %32 = load ptr, ptr %31, align 8
   %33 = icmp slt ptr %32, %23
   br i1 %33, label %.critedge4.us, label %.critedge2.loopexit.split.loop.exit, !llvm.loop !28
 
-.critedge4.us:                                    ; preds = %.critedge4.us.preheader, %30
-  %indvars.iv = phi i64 [ %24, %.critedge4.us.preheader ], [ %indvars.iv.next, %30 ]
-  %exitcond.not.not = icmp eq i64 %indvars.iv, %29
-  br i1 %exitcond.not.not, label %.critedge2, label %30, !llvm.loop !28
+.critedge4.us:                                    ; preds = %30
+  %exitcond.not.not = icmp eq i64 %indvars.iv.next, %29
+  br i1 %exitcond.not.not, label %.critedge4.us..critedge2.loopexit_crit_edge, label %30, !llvm.loop !28
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %30
   %34 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge4.us, %.critedge2.loopexit.split.loop.exit, %.lr.ph, %18
-  %.1.lcssa = phi i32 [ %.0, %18 ], [ %16, %.lr.ph ], [ %34, %.critedge2.loopexit.split.loop.exit ], [ %16, %.critedge4.us ]
-  %.lcssa = phi i1 [ false, %18 ], [ false, %.lr.ph ], [ true, %.critedge2.loopexit.split.loop.exit ], [ false, %.critedge4.us ]
+.critedge4.us..critedge2.loopexit_crit_edge:      ; preds = %.critedge4.us
+  br label %.critedge2, !llvm.loop !28
+
+.critedge2:                                       ; preds = %.critedge4.us.preheader, %.critedge4.us..critedge2.loopexit_crit_edge, %.critedge2.loopexit.split.loop.exit, %.lr.ph, %18
+  %.1.lcssa = phi i32 [ %.0, %18 ], [ %16, %.lr.ph ], [ %34, %.critedge2.loopexit.split.loop.exit ], [ %16, %.critedge4.us..critedge2.loopexit_crit_edge ], [ %16, %.critedge4.us.preheader ]
+  %.lcssa = phi i1 [ false, %18 ], [ false, %.lr.ph ], [ true, %.critedge2.loopexit.split.loop.exit ], [ false, %.critedge4.us..critedge2.loopexit_crit_edge ], [ false, %.critedge4.us.preheader ]
   %35 = icmp slt i32 %.035, %.pre.pre
   br i1 %35, label %.lr.ph61, label %.critedge6
 

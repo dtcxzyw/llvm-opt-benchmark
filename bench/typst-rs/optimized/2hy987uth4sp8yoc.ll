@@ -15976,7 +15976,7 @@ define hidden void @_ZN12typst_syntax6parser6Parser11trim_errors17h9325fdc1dcc1b
   switch i8 %trunc.i.i, label %default.unreachable [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
     i8 1, label %21
-    i8 2, label %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit
+    i8 2, label %.lr.ph
   ]
 
 default.unreachable:                              ; preds = %16, %42
@@ -15990,7 +15990,7 @@ default.unreachable:                              ; preds = %16, %42
 
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i: ; preds = %21, %16
   %.0.i.i = phi i8 [ %24, %21 ], [ %20, %16 ]
-  switch i8 %.0.i.i, label %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit [
+  switch i8 %.0.i.i, label %.lr.ph [
     i8 2, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i
     i8 4, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i
     i8 126, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i
@@ -15999,34 +15999,41 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i: ; preds = %2
 
 _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i: ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
   %.old1.not.i = icmp eq i64 %17, 0
-  br i1 %.old1.not.i, label %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit, label %16
+  br i1 %.old1.not.i, label %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge, label %16
 
-_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit: ; preds = %16, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i, %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i, %1, %7
-  %.0.i = phi i64 [ %4, %7 ], [ %4, %1 ], [ 0, %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i ], [ %.1.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i ], [ %.1.i, %16 ]
+_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit: ; preds = %1, %7
+  %.not26 = icmp eq i64 %4, 0
+  br i1 %.not26, label %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge, label %.lr.ph
+
+_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge: ; preds = %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.i, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !3745, !noalias !3748
+  br label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge
+
+.lr.ph:                                           ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i, %16, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit
+  %.0.i40 = phi i64 [ %4, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit ], [ %.1.i, %16 ], [ %.1.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %26
+  br label %27
 
-26:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit
-  %.0 = phi i64 [ %.0.i, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit ], [ %28, %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit ]
-  %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %._crit_edge, label %27
+26:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %26
-  %.pre = load ptr, ptr %25, align 8, !alias.scope !3745, !noalias !3748
-  br label %split
-
-27:                                               ; preds = %26
-  %28 = add i64 %.0, -1
+27:                                               ; preds = %.lr.ph, %26
+  %.027 = phi i64 [ %.0.i40, %.lr.ph ], [ %28, %26 ]
+  %28 = add i64 %.027, -1
   %29 = icmp ult i64 %28, %4
   br i1 %29, label %42, label %55, !prof !1710
 
-split:                                            ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit, %._crit_edge
-  %30 = phi ptr [ %.pre, %._crit_edge ], [ %43, %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit ], [ %43, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit ]
+_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge: ; preds = %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit, %26, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge
+  %.0.i39 = phi i64 [ 0, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge ], [ %.0.i40, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit ], [ %.0.i40, %26 ], [ %.0.i40, %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit ]
+  %30 = phi ptr [ %.pre, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge ], [ %43, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit ], [ %43, %26 ], [ %43, %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit ]
+  %.0.lcssa = phi i64 [ 0, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit._ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge_crit_edge ], [ %.027, %_ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit ], [ 0, %26 ], [ %.027, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3748)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3745)
-  %32 = tail call { i64, i64 } @_ZN4core5slice5index5range17hcd550d7dfb1dd288E(i64 noundef %.0, i64 noundef %.0.i, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab2de7f43314cdaa70b1332ba871678.29.llvm.13506474886552808233), !noalias !3750
+  %32 = tail call { i64, i64 } @_ZN4core5slice5index5range17hcd550d7dfb1dd288E(i64 noundef %.0.lcssa, i64 noundef %.0.i39, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab2de7f43314cdaa70b1332ba871678.29.llvm.13506474886552808233), !noalias !3750
   %33 = extractvalue { i64, i64 } %32, 0
   %34 = extractvalue { i64, i64 } %32, 1
   store i64 %33, ptr %3, align 8, !alias.scope !3745, !noalias !3748
@@ -16074,7 +16081,7 @@ split:                                            ; preds = %_ZN12typst_syntax4n
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %42, %47
   %.0.i16 = phi i8 [ %50, %47 ], [ %46, %42 ]
   %54 = icmp eq i8 %.0.i16, -128
-  br i1 %54, label %56, label %split
+  br i1 %54, label %56, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge
 
 55:                                               ; preds = %27
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %28, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cbbb257abe6dee889b44eb762842009f.160) #23
@@ -16100,7 +16107,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %42,
 _ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit: ; preds = %58, %61, %.thread
   %.0.i.i18 = phi i64 [ %60, %58 ], [ %64, %61 ], [ %53, %.thread ]
   %65 = icmp eq i64 %.0.i.i18, 0
-  br i1 %65, label %26, label %split
+  br i1 %65, label %26, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable

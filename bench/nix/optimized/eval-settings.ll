@@ -1882,26 +1882,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i34.i
   %508 = load ptr, ptr %78, align 8, !noalias !6
   %509 = load i64, ptr %421, align 8, !noalias !6
   %510 = getelementptr inbounds i8, ptr %508, i64 %509
-  br label %511
+  %.sroa.068.4.i403 = getelementptr inbounds nuw i8, ptr %.sroa.068.1106.i, i64 1
+  %511 = icmp eq ptr %.sroa.068.4.i403, %510
+  br i1 %511, label %.critedge2.i, label %.lr.ph
 
-511:                                              ; preds = %513, %507
-  %.sroa.068.1.pn.i = phi ptr [ %.sroa.068.1106.i, %507 ], [ %.sroa.068.4.i, %513 ]
-  %.sroa.068.4.i = getelementptr inbounds nuw i8, ptr %.sroa.068.1.pn.i, i64 1
-  %512 = icmp eq ptr %.sroa.068.4.i, %510
-  br i1 %512, label %.critedge2.i, label %513
+512:                                              ; preds = %.lr.ph
+  %.sroa.068.4.i = getelementptr inbounds nuw i8, ptr %.sroa.068.4.i404, i64 1
+  %513 = icmp eq ptr %.sroa.068.4.i, %510
+  br i1 %513, label %.critedge2.i, label %.lr.ph, !llvm.loop !10
 
-513:                                              ; preds = %511
-  %514 = load i8, ptr %.sroa.068.4.i, align 1
+.lr.ph:                                           ; preds = %507, %512
+  %.sroa.068.4.i404 = phi ptr [ %.sroa.068.4.i, %512 ], [ %.sroa.068.4.i403, %507 ]
+  %514 = load i8, ptr %.sroa.068.4.i404, align 1
   %.not27.i = icmp eq i8 %514, 58
-  br i1 %.not27.i, label %.critedge2.i, label %511, !llvm.loop !10
+  br i1 %.not27.i, label %..critedge2.i.loopexit_crit_edge405, label %512, !llvm.loop !10
 
 515:                                              ; preds = %502, %496
   %516 = landingpad { ptr, i32 }
           cleanup
   br label %560
 
-.critedge2.i:                                     ; preds = %513, %511, %506
-  %.sroa.068.3.i = phi ptr [ %.sroa.068.1106.i, %506 ], [ %.sroa.068.4.i, %511 ], [ %.sroa.068.4.i, %513 ]
+..critedge2.i.loopexit_crit_edge405:              ; preds = %.lr.ph
+  br label %.critedge2.i, !llvm.loop !10
+
+.critedge2.i:                                     ; preds = %512, %507, %..critedge2.i.loopexit_crit_edge405, %506
+  %.sroa.068.3.i = phi ptr [ %.sroa.068.1106.i, %506 ], [ %.sroa.068.4.i404, %..critedge2.i.loopexit_crit_edge405 ], [ %.sroa.068.4.i403, %507 ], [ %.sroa.068.4.i, %512 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   store ptr %428, ptr %6, align 8, !noalias !6

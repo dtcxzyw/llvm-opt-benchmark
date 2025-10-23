@@ -10054,58 +10054,59 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
 
 12:                                               ; preds = %8
   %.not46 = icmp eq i64 %7, 0
-  br i1 %.not46, label %14, label %.preheader
+  br i1 %.not46, label %15, label %.preheader
 
 .preheader:                                       ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  br label %15
+  %14 = icmp eq i32 %10, %4
+  br i1 %14, label %._crit_edge, label %.lr.ph
 
-14:                                               ; preds = %12
+15:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef %0, ptr noundef nonnull @.str.85)
   br label %.thread
 
-15:                                               ; preds = %.preheader, %25
-  %.03759 = phi i64 [ %6, %.preheader ], [ %29, %25 ]
-  %.03858 = phi i64 [ %7, %.preheader ], [ %28, %25 ]
-  %.14257 = phi i32 [ %10, %.preheader ], [ %30, %25 ]
-  %16 = icmp eq i32 %.14257, %4
-  br i1 %16, label %17, label %18
+16:                                               ; preds = %25
+  %17 = add i64 %21, %.0375969
+  %18 = icmp eq i32 %29, %4
+  br i1 %18, label %._crit_edge, label %.lr.ph
 
-17:                                               ; preds = %15
+._crit_edge:                                      ; preds = %16, %.preheader
   call void (ptr, ptr, ...) @virtio_error(ptr noundef %0, ptr noundef nonnull @.str.86)
   br label %.thread
 
-18:                                               ; preds = %15
+.lr.ph:                                           ; preds = %.preheader, %16
+  %.1425771 = phi i32 [ %29, %16 ], [ %10, %.preheader ]
+  %.0385870 = phi i64 [ %28, %16 ], [ %7, %.preheader ]
+  %.0375969 = phi i64 [ %17, %16 ], [ %6, %.preheader ]
   %19 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %.03858, ptr %9, align 8
-  %20 = call ptr @address_space_map(ptr noundef %19, i64 noundef %.03759, ptr noundef nonnull %9, i1 noundef zeroext %5, i64 4294967296) #24
+  store i64 %.0385870, ptr %9, align 8
+  %20 = call ptr @address_space_map(ptr noundef %19, i64 noundef %.0375969, ptr noundef nonnull %9, i1 noundef zeroext %5, i64 4294967296) #24
   %21 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %22 = zext i32 %.14257 to i64
+  %22 = zext i32 %.1425771 to i64
   %23 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %22
   store ptr %20, ptr %23, align 8
   %.not48 = icmp eq ptr %20, null
   br i1 %.not48, label %24, label %25
 
-24:                                               ; preds = %18
+24:                                               ; preds = %.lr.ph
   call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.87)
   br label %.thread
 
-25:                                               ; preds = %18
+25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %21, ptr %26, align 8
   %27 = getelementptr inbounds nuw i64, ptr %2, i64 %22
-  store i64 %.03759, ptr %27, align 8
-  %28 = sub i64 %.03858, %21
-  %29 = add i64 %21, %.03759
-  %30 = add i32 %.14257, 1
+  store i64 %.0375969, ptr %27, align 8
+  %28 = sub i64 %.0385870, %21
+  %29 = add i32 %.1425771, 1
   %.not47 = icmp eq i64 %28, 0
-  br i1 %.not47, label %.thread, label %15
+  br i1 %.not47, label %.thread, label %16
 
-.thread:                                          ; preds = %25, %24, %17, %14
-  %.041 = phi i32 [ %10, %14 ], [ %4, %17 ], [ %.14257, %24 ], [ %30, %25 ]
-  %.040 = phi i1 [ false, %14 ], [ false, %17 ], [ false, %24 ], [ true, %25 ]
+.thread:                                          ; preds = %25, %24, %._crit_edge, %15
+  %.041 = phi i32 [ %10, %15 ], [ %4, %._crit_edge ], [ %.1425771, %24 ], [ %29, %25 ]
+  %.040 = phi i1 [ false, %15 ], [ false, %._crit_edge ], [ false, %24 ], [ true, %25 ]
   store i32 %.041, ptr %1, align 4
   ret i1 %.040
 }

@@ -464,15 +464,18 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
 define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unnamed_addr #0 {
   %1 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  br label %2
+  br label %3
 
-2:                                                ; preds = %3, %0
-  %.0 = phi i32 [ 0, %0 ], [ %4, %3 ]
-  %exitcond.not = icmp eq i32 %.0, 256
-  br i1 %exitcond.not, label %._crit_edge, label %3
+2:                                                ; preds = %3
+  %exitcond.not = icmp eq i32 %4, 256
+  br i1 %exitcond.not, label %._crit_edge, label %3, !llvm.loop !23
 
-3:                                                ; preds = %2
-  %4 = add nuw nsw i32 %.0, 1
+._crit_edge:                                      ; preds = %2
+  br label %10, !llvm.loop !23
+
+3:                                                ; preds = %0, %2
+  %.04 = phi i32 [ 0, %0 ], [ %4, %2 ]
+  %4 = add nuw nsw i32 %.04, 1
   %5 = call i32 (ptr, i64, ptr, ...) @_mi_snprintf(ptr noundef nonnull %1, i64 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %4) #10
   %6 = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %1, i32 noundef 4) #10
   %7 = and i64 %6, 4294967295
@@ -480,12 +483,12 @@ define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unn
   br i1 %.not, label %2, label %split, !llvm.loop !23
 
 split:                                            ; preds = %3
-  %8 = add nuw nsw i32 %.0, 1
+  %8 = add nuw nsw i32 %.04, 1
   %9 = zext nneg i32 %8 to i64
-  br label %._crit_edge
+  br label %10
 
-._crit_edge:                                      ; preds = %2, %split
-  %.0.lcssa = phi i64 [ %9, %split ], [ 257, %2 ]
+10:                                               ; preds = %split, %._crit_edge
+  %.0.lcssa = phi i64 [ 257, %._crit_edge ], [ %9, %split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0.lcssa
 }

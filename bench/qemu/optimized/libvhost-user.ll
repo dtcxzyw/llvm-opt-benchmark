@@ -5833,35 +5833,37 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
 
 9:                                                ; preds = %6
   %.not35 = icmp eq i64 %5, 0
-  br i1 %.not35, label %12, label %.preheader
+  br i1 %.not35, label %13, label %.preheader
 
 .preheader:                                       ; preds = %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %13
+  %12 = icmp eq i32 %7, %3
+  br i1 %12, label %._crit_edge, label %.lr.ph
 
-12:                                               ; preds = %9
+13:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.106)
   br label %.critedge
 
-13:                                               ; preds = %.preheader, %49
-  %.02552 = phi i32 [ %7, %.preheader ], [ %54, %49 ]
-  %.02651 = phi i64 [ %5, %.preheader ], [ %55, %49 ]
-  %.02850 = phi i64 [ %4, %.preheader ], [ %56, %49 ]
-  %14 = icmp eq i32 %.02552, %3
-  br i1 %14, label %15, label %16
+14:                                               ; preds = %49
+  %15 = add i64 %spec.select, %.0285013
+  %16 = icmp eq i32 %54, %3
+  br i1 %16, label %._crit_edge, label %.lr.ph
 
-15:                                               ; preds = %13
+._crit_edge:                                      ; preds = %14, %.preheader
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.107)
   br label %.critedge
 
-16:                                               ; preds = %13
+.lr.ph:                                           ; preds = %.preheader, %14
+  %.0285013 = phi i64 [ %15, %14 ], [ %4, %.preheader ]
+  %.0265112 = phi i64 [ %55, %14 ], [ %5, %.preheader ]
+  %.0255211 = phi i32 [ %54, %14 ], [ %7, %.preheader ]
   %17 = load i32, ptr %10, align 4
   %18 = add i32 %17, -1
   %.not37.i.i = icmp slt i32 %18, 0
   br i1 %.not37.i.i, label %vu_gpa_to_va.exit.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %16
+.lr.ph.i.i:                                       ; preds = %.lr.ph
   %19 = load ptr, ptr %11, align 8
   br label %20
 
@@ -5875,12 +5877,12 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %25 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %19, i64 %24
   %26 = load i64, ptr %25, align 8
   %.fr.i.i = freeze i64 %26
-  %.not31.i.i = icmp ult i64 %.02850, %.fr.i.i
+  %.not31.i.i = icmp ult i64 %.0285013, %.fr.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.pre.fr.i.i = freeze i64 %.pre.i.i
   %.pre42.i.i = add i64 %.pre.fr.i.i, %.fr.i.i
-  %27 = icmp ult i64 %.02850, %.pre42.i.i
+  %27 = icmp ult i64 %.0285013, %.pre42.i.i
   br i1 %.not31.i.i, label %30, label %28
 
 28:                                               ; preds = %20
@@ -5903,7 +5905,7 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %20
 
 vu_gpa_to_mem_region.exit.i:                      ; preds = %28
-  %35 = inttoptr i64 %.02850 to ptr
+  %35 = inttoptr i64 %.0285013 to ptr
   %36 = sub i64 0, %.fr.i.i
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -5912,14 +5914,14 @@ vu_gpa_to_mem_region.exit.i:                      ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
-  %44 = zext i32 %.02552 to i64
+  %44 = zext i32 %.0255211 to i64
   %45 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %44
   store ptr %43, ptr %45, align 8
-  %46 = icmp eq i64 %.02850, 0
+  %46 = icmp eq i64 %.0285013, 0
   br i1 %46, label %.loopexit, label %49
 
-vu_gpa_to_va.exit.thread:                         ; preds = %16, %32
-  %47 = zext i32 %.02552 to i64
+vu_gpa_to_va.exit.thread:                         ; preds = %.lr.ph, %32
+  %47 = zext i32 %.0255211 to i64
   %48 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %47
   store ptr null, ptr %48, align 8
   br label %.loopexit
@@ -5929,24 +5931,23 @@ vu_gpa_to_va.exit.thread:                         ; preds = %16, %32
   br label %.critedge
 
 49:                                               ; preds = %vu_gpa_to_mem_region.exit.i
-  %50 = add i64 %.02651, %.02850
+  %50 = add i64 %.0265112, %.0285013
   %51 = icmp ugt i64 %50, %.pre42.i.i
-  %52 = sub nuw i64 %.pre42.i.i, %.02850
-  %spec.select = select i1 %51, i64 %52, i64 %.02651
+  %52 = sub nuw i64 %.pre42.i.i, %.0285013
+  %spec.select = select i1 %51, i64 %52, i64 %.0265112
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %spec.select, ptr %53, align 8
-  %54 = add i32 %.02552, 1
-  %55 = sub i64 %.02651, %spec.select
-  %56 = add i64 %spec.select, %.02850
+  %54 = add i32 %.0255211, 1
+  %55 = sub i64 %.0265112, %spec.select
   %.not36 = icmp eq i64 %55, 0
-  br i1 %.not36, label %57, label %13
+  br i1 %.not36, label %56, label %14
 
-57:                                               ; preds = %49
+56:                                               ; preds = %49
   store i32 %54, ptr %1, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %.loopexit, %57, %12
-  %.030 = phi i1 [ true, %57 ], [ false, %12 ], [ false, %.loopexit ], [ false, %15 ]
+.critedge:                                        ; preds = %._crit_edge, %.loopexit, %56, %13
+  %.030 = phi i1 [ true, %56 ], [ false, %13 ], [ false, %.loopexit ], [ false, %._crit_edge ]
   ret i1 %.030
 }
 

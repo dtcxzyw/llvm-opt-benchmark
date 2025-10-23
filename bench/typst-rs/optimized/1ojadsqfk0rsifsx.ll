@@ -2247,17 +2247,21 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   store double %31, ptr %8, align 8
   %.val = load ptr, ptr %12, align 8, !nonnull !37, !noundef !37
   %.val28 = load i64, ptr %13, align 8, !noundef !37
-  %32 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %.val, i64 %.val28
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  br label %35
+  %.idx39 = mul nsw i64 %.val28, 96
+  %32 = getelementptr inbounds i8, ptr %.val, i64 %.idx39
+  %33 = icmp eq i64 %.val28, 0
+  br i1 %33, label %._crit_edge, label %.lr.ph
 
-35:                                               ; preds = %52, %30
-  %.sroa.0.0 = phi ptr [ %.val, %30 ], [ %39, %52 ]
-  %36 = icmp eq ptr %.sroa.0.0, %32
-  br i1 %36, label %37, label %38
+.lr.ph:                                           ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  br label %38
 
-37:                                               ; preds = %35
+36:                                               ; preds = %52
+  %37 = icmp eq ptr %39, %32
+  br i1 %37, label %._crit_edge, label %38
+
+._crit_edge:                                      ; preds = %36, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 8 dereferenceable(616) %9, i64 616, i1 false)
   call fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(616) %4)
@@ -2266,14 +2270,15 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 96
+38:                                               ; preds = %.lr.ph, %36
+  %.sroa.0.038 = phi ptr [ %.val, %.lr.ph ], [ %39, %36 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 96
   %40 = load double, ptr %8, align 8, !noundef !37
   invoke void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias noundef nonnull sret({ double, double, double, double, double, double }) align 8 captures(none) dereferenceable(48) %7, double noundef %31, double noundef %40)
           to label %41 unwind label %.loopexit
 
 41:                                               ; preds = %38
-  %42 = invoke { double, double } @_ZN5typst6layout5frame5Frame4size17hc0c2fe724df65569E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0)
+  %42 = invoke { double, double } @_ZN5typst6layout5frame5Frame4size17hc0c2fe724df65569E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.038)
           to label %43 unwind label %.loopexit
 
 43:                                               ; preds = %41
@@ -2286,14 +2291,14 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   %46 = extractvalue { double, double } %42, 0
   call void @llvm.experimental.noalias.scope.decl(metadata !399)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false), !alias.scope !402
-  store double %46, ptr %33, align 8, !alias.scope !404, !noalias !399
-  store double %45, ptr %34, align 8, !alias.scope !404, !noalias !399
+  store double %46, ptr %34, align 8, !alias.scope !404, !noalias !399
+  store double %45, ptr %35, align 8, !alias.scope !404, !noalias !399
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %9, ptr noalias noundef align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0.0)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %9, ptr noalias noundef align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0.038)
           to label %47 unwind label %.loopexit
 
 47:                                               ; preds = %44
-  %48 = invoke noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0)
+  %48 = invoke noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.038)
           to label %49 unwind label %.loopexit
 
 49:                                               ; preds = %47
@@ -2303,7 +2308,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
 
 52:                                               ; preds = %49
   invoke void @"_ZN71_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17h777cfa6a43af3738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, double noundef %51)
-          to label %35 unwind label %.loopexit
+          to label %36 unwind label %.loopexit
 
 53:                                               ; preds = %54
   resume { ptr, i32 } %lpad.phi
