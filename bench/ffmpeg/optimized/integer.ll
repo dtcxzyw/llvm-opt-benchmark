@@ -297,48 +297,45 @@ define i32 @av_cmp_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   store i64 %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %8, align 8
-  %9 = lshr i64 %1, 48
-  %10 = lshr i64 %3, 48
-  %.not = icmp eq i64 %9, %10
-  br i1 %.not, label %.preheader, label %11
+  %.not.unshifted = xor i64 %1, %3
+  %.not = icmp ult i64 %.not.unshifted, 281474976710656
+  br i1 %.not, label %.preheader, label %9
 
-11:                                               ; preds = %4
-  %12 = trunc nuw nsw i64 %10 to i32
-  %13 = trunc nuw nsw i64 %9 to i32
-  %sext = shl nuw i32 %12, 16
-  %14 = ashr exact i32 %sext, 16
-  %sext28 = shl nuw i32 %13, 16
-  %15 = ashr exact i32 %sext28, 16
-  %16 = sub nsw i32 %15, %14
-  %17 = ashr i32 %16, 16
-  %18 = or i32 %17, 1
+9:                                                ; preds = %4
+  %10 = ashr i64 %3, 48
+  %11 = trunc nsw i64 %10 to i32
+  %12 = ashr i64 %1, 48
+  %13 = trunc nsw i64 %12 to i32
+  %14 = sub nsw i32 %13, %11
+  %15 = ashr i32 %14, 16
+  %16 = or i32 %15, 1
   br label %.loopexit
 
-19:                                               ; preds = %.preheader
-  %20 = add nsw i32 %.01120, -1
-  %.not29 = icmp eq i32 %.01120, 0
-  br i1 %.not29, label %.loopexit, label %.preheader, !llvm.loop !15
+17:                                               ; preds = %.preheader
+  %18 = add nsw i32 %.01120, -1
+  %.not28 = icmp eq i32 %.01120, 0
+  br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.preheader:                                       ; preds = %4, %19
-  %.01120 = phi i32 [ %20, %19 ], [ 6, %4 ]
-  %21 = zext nneg i32 %.01120 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %5, i64 %21
+.preheader:                                       ; preds = %4, %17
+  %.01120 = phi i32 [ %18, %17 ], [ 6, %4 ]
+  %19 = zext nneg i32 %.01120 to i64
+  %20 = getelementptr inbounds nuw i16, ptr %5, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !4
+  %22 = getelementptr inbounds nuw i16, ptr %6, i64 %19
   %23 = load i16, ptr %22, align 2, !tbaa !4
-  %24 = getelementptr inbounds nuw i16, ptr %6, i64 %21
-  %25 = load i16, ptr %24, align 2, !tbaa !4
-  %.not14 = icmp eq i16 %23, %25
-  br i1 %.not14, label %19, label %.loopexit.split.loop.exit
+  %.not14 = icmp eq i16 %21, %23
+  br i1 %.not14, label %17, label %.loopexit.split.loop.exit
 
 .loopexit.split.loop.exit:                        ; preds = %.preheader
-  %26 = zext i16 %25 to i32
-  %27 = zext i16 %23 to i32
-  %28 = sub nsw i32 %27, %26
-  %29 = ashr i32 %28, 16
-  %30 = or i32 %29, 1
+  %24 = zext i16 %23 to i32
+  %25 = zext i16 %21 to i32
+  %26 = sub nsw i32 %25, %24
+  %27 = ashr i32 %26, 16
+  %28 = or i32 %27, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %.loopexit.split.loop.exit, %11
-  %.0 = phi i32 [ %18, %11 ], [ %30, %.loopexit.split.loop.exit ], [ 0, %19 ]
+.loopexit:                                        ; preds = %17, %.loopexit.split.loop.exit, %9
+  %.0 = phi i32 [ %16, %9 ], [ %28, %.loopexit.split.loop.exit ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -744,133 +741,130 @@ av_shr_i.exit86:                                  ; preds = %157
   store i64 %.sroa.937.0129, ptr %137, align 8
   store i64 %.sroa.021.1126, ptr %11, align 8
   store i64 %.sroa.9.1127, ptr %138, align 8
-  %162 = lshr i64 %.sroa.937.0129, 48
-  %163 = lshr i64 %.sroa.9.1127, 48
-  %.not.i87 = icmp eq i64 %162, %163
-  %164 = trunc i64 %.fca.0.load.i81 to i16
-  br i1 %.not.i87, label %.preheader.i, label %165
+  %.not.unshifted.i = xor i64 %.sroa.937.0129, %.sroa.9.1127
+  %.not.i87 = icmp ult i64 %.not.unshifted.i, 281474976710656
+  %162 = trunc i64 %.fca.0.load.i81 to i16
+  br i1 %.not.i87, label %.preheader.i, label %163
 
-165:                                              ; preds = %av_shr_i.exit86
-  %166 = trunc nuw nsw i64 %163 to i32
-  %167 = trunc nuw nsw i64 %162 to i32
-  %sext.i = shl nuw i32 %166, 16
-  %168 = ashr exact i32 %sext.i, 16
-  %sext28.i = shl nuw i32 %167, 16
-  %169 = ashr exact i32 %sext28.i, 16
-  %170 = sub nsw i32 %169, %168
+163:                                              ; preds = %av_shr_i.exit86
+  %164 = ashr i64 %.sroa.9.1127, 48
+  %165 = trunc nsw i64 %164 to i32
+  %166 = ashr i64 %.sroa.937.0129, 48
+  %167 = trunc nsw i64 %166 to i32
+  %168 = sub nsw i32 %167, %165
   br label %av_cmp_i.exit
 
-171:                                              ; preds = %.preheader.i
-  %172 = add nsw i32 %.01120.i, -1
-  %.not29.i = icmp eq i32 %.01120.i, 0
-  br i1 %.not29.i, label %av_cmp_i.exit.thread, label %.preheader.i, !llvm.loop !15
+169:                                              ; preds = %.preheader.i
+  %170 = add nsw i32 %.01120.i, -1
+  %.not28.i = icmp eq i32 %.01120.i, 0
+  br i1 %.not28.i, label %av_cmp_i.exit.thread, label %.preheader.i, !llvm.loop !15
 
-av_cmp_i.exit.thread:                             ; preds = %171
+av_cmp_i.exit.thread:                             ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %182
+  br label %180
 
-.preheader.i:                                     ; preds = %av_shr_i.exit86, %171
-  %.01120.i = phi i32 [ %172, %171 ], [ 6, %av_shr_i.exit86 ]
-  %173 = zext nneg i32 %.01120.i to i64
-  %174 = getelementptr inbounds nuw i16, ptr %10, i64 %173
+.preheader.i:                                     ; preds = %av_shr_i.exit86, %169
+  %.01120.i = phi i32 [ %170, %169 ], [ 6, %av_shr_i.exit86 ]
+  %171 = zext nneg i32 %.01120.i to i64
+  %172 = getelementptr inbounds nuw i16, ptr %10, i64 %171
+  %173 = load i16, ptr %172, align 2, !tbaa !4
+  %174 = getelementptr inbounds nuw i16, ptr %11, i64 %171
   %175 = load i16, ptr %174, align 2, !tbaa !4
-  %176 = getelementptr inbounds nuw i16, ptr %11, i64 %173
-  %177 = load i16, ptr %176, align 2, !tbaa !4
-  %.not14.i = icmp eq i16 %175, %177
-  br i1 %.not14.i, label %171, label %.loopexit.split.loop.exit.i
+  %.not14.i = icmp eq i16 %173, %175
+  br i1 %.not14.i, label %169, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %178 = zext i16 %177 to i32
-  %179 = zext i16 %175 to i32
-  %180 = sub nsw i32 %179, %178
+  %176 = zext i16 %175 to i32
+  %177 = zext i16 %173 to i32
+  %178 = sub nsw i32 %177, %176
   br label %av_cmp_i.exit
 
-av_cmp_i.exit:                                    ; preds = %165, %.loopexit.split.loop.exit.i
-  %.0.i88.in.in = phi i32 [ %170, %165 ], [ %180, %.loopexit.split.loop.exit.i ]
+av_cmp_i.exit:                                    ; preds = %163, %.loopexit.split.loop.exit.i
+  %.0.i88.in.in = phi i32 [ %168, %163 ], [ %178, %.loopexit.split.loop.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %181 = icmp sgt i32 %.0.i88.in.in, -1
-  br i1 %181, label %182, label %195
+  %179 = icmp sgt i32 %.0.i88.in.in, -1
+  br i1 %179, label %180, label %193
 
-182:                                              ; preds = %av_cmp_i.exit.thread, %av_cmp_i.exit
+180:                                              ; preds = %av_cmp_i.exit.thread, %av_cmp_i.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %.sroa.032.0128, ptr %8, align 8
   store i64 %.sroa.937.0129, ptr %139, align 8
   store i64 %.sroa.021.1126, ptr %9, align 8
   store i64 %.sroa.9.1127, ptr %140, align 8
-  br label %183
+  br label %181
 
-183:                                              ; preds = %183, %182
-  %indvars.iv.i89 = phi i64 [ 0, %182 ], [ %indvars.iv.next.i91, %183 ]
-  %.09.i90 = phi i32 [ 0, %182 ], [ %192, %183 ]
-  %184 = ashr i32 %.09.i90, 16
-  %185 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i89
-  %186 = load i16, ptr %185, align 2, !tbaa !4
-  %187 = zext i16 %186 to i32
-  %188 = add nsw i32 %184, %187
-  %189 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i89
-  %190 = load i16, ptr %189, align 2, !tbaa !4
-  %191 = zext i16 %190 to i32
-  %192 = sub nsw i32 %188, %191
-  %193 = trunc i32 %192 to i16
-  store i16 %193, ptr %185, align 2, !tbaa !4
+181:                                              ; preds = %181, %180
+  %indvars.iv.i89 = phi i64 [ 0, %180 ], [ %indvars.iv.next.i91, %181 ]
+  %.09.i90 = phi i32 [ 0, %180 ], [ %190, %181 ]
+  %182 = ashr i32 %.09.i90, 16
+  %183 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i89
+  %184 = load i16, ptr %183, align 2, !tbaa !4
+  %185 = zext i16 %184 to i32
+  %186 = add nsw i32 %182, %185
+  %187 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i89
+  %188 = load i16, ptr %187, align 2, !tbaa !4
+  %189 = zext i16 %188 to i32
+  %190 = sub nsw i32 %186, %189
+  %191 = trunc i32 %190 to i16
+  store i16 %191, ptr %183, align 2, !tbaa !4
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, 8
-  br i1 %exitcond.not.i92, label %av_sub_i.exit97, label %183, !llvm.loop !11
+  br i1 %exitcond.not.i92, label %av_sub_i.exit97, label %181, !llvm.loop !11
 
-av_sub_i.exit97:                                  ; preds = %183
+av_sub_i.exit97:                                  ; preds = %181
   %.sroa.0.0.copyload.i93 = load i64, ptr %8, align 8
   %.sroa.2.0.copyload.i94 = load i64, ptr %139, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %194 = add i16 %164, 1
-  store i16 %194, ptr %spec.store.select, align 2, !tbaa !4
-  br label %195
+  %192 = add i16 %162, 1
+  store i16 %192, ptr %spec.store.select, align 2, !tbaa !4
+  br label %193
 
-195:                                              ; preds = %av_sub_i.exit97, %av_cmp_i.exit
+193:                                              ; preds = %av_sub_i.exit97, %av_cmp_i.exit
   %.sroa.032.1 = phi i64 [ %.sroa.0.0.copyload.i93, %av_sub_i.exit97 ], [ %.sroa.032.0128, %av_cmp_i.exit ]
   %.sroa.937.1 = phi i64 [ %.sroa.2.0.copyload.i94, %av_sub_i.exit97 ], [ %.sroa.937.0129, %av_cmp_i.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.021.1126, ptr %7, align 8
   store i64 %.sroa.9.1127, ptr %141, align 8
-  br label %196
+  br label %194
 
-196:                                              ; preds = %204, %195
-  %indvars.iv.i98 = phi i64 [ 0, %195 ], [ %197, %204 ]
-  %197 = add nuw nsw i64 %indvars.iv.i98, 1
-  %198 = icmp samesign ult i64 %indvars.iv.i98, 7
-  br i1 %198, label %199, label %204
+194:                                              ; preds = %202, %193
+  %indvars.iv.i98 = phi i64 [ 0, %193 ], [ %195, %202 ]
+  %195 = add nuw nsw i64 %indvars.iv.i98, 1
+  %196 = icmp samesign ult i64 %indvars.iv.i98, 7
+  br i1 %196, label %197, label %202
 
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds nuw i16, ptr %7, i64 %197
-  %201 = load i16, ptr %200, align 2, !tbaa !4
-  %202 = zext i16 %201 to i32
-  %203 = shl nuw i32 %202, 16
-  br label %204
+197:                                              ; preds = %194
+  %198 = getelementptr inbounds nuw i16, ptr %7, i64 %195
+  %199 = load i16, ptr %198, align 2, !tbaa !4
+  %200 = zext i16 %199 to i32
+  %201 = shl nuw i32 %200, 16
+  br label %202
 
-204:                                              ; preds = %199, %196
-  %.0.i99 = phi i32 [ %203, %199 ], [ 0, %196 ]
-  %205 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i98
-  %206 = load i16, ptr %205, align 2, !tbaa !4
-  %207 = zext i16 %206 to i32
-  %208 = or disjoint i32 %.0.i99, %207
-  %209 = lshr i32 %208, 1
-  %210 = trunc i32 %209 to i16
-  %211 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i98
-  store i16 %210, ptr %211, align 2, !tbaa !4
-  %exitcond.not.i102 = icmp eq i64 %197, 8
-  br i1 %exitcond.not.i102, label %av_shr_i.exit108, label %196, !llvm.loop !16
+202:                                              ; preds = %197, %194
+  %.0.i99 = phi i32 [ %201, %197 ], [ 0, %194 ]
+  %203 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i98
+  %204 = load i16, ptr %203, align 2, !tbaa !4
+  %205 = zext i16 %204 to i32
+  %206 = or disjoint i32 %.0.i99, %205
+  %207 = lshr i32 %206, 1
+  %208 = trunc i32 %207 to i16
+  %209 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i98
+  store i16 %208, ptr %209, align 2, !tbaa !4
+  %exitcond.not.i102 = icmp eq i64 %195, 8
+  br i1 %exitcond.not.i102, label %av_shr_i.exit108, label %194, !llvm.loop !16
 
-av_shr_i.exit108:                                 ; preds = %204
+av_shr_i.exit108:                                 ; preds = %202
   %.fca.0.load.i103 = load i64, ptr %6, align 8
   %.fca.1.load.i106 = load i64, ptr %.fca.1.gep.i105, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %212 = icmp sgt i32 %.in, 0
-  br i1 %212, label %142, label %..loopexit_crit_edge, !llvm.loop !17
+  %210 = icmp sgt i32 %.in, 0
+  br i1 %210, label %142, label %..loopexit_crit_edge, !llvm.loop !17
 
 ..loopexit_crit_edge:                             ; preds = %av_shr_i.exit108
   store i64 %.fca.1.load.i84, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 2

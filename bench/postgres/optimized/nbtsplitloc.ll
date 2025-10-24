@@ -80,12 +80,12 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
 .lr.ph:                                           ; preds = %40
   %54 = getelementptr i8, ptr %1, i64 20
   %55 = trunc i16 %44 to i1
-  %.neg81.i126 = select i1 %55, i64 4294967288, i64 0
-  %.pn.in.neg.i127 = sub i64 %.neg81.i126, %42
-  %.pn.neg82.i128 = trunc i64 %.pn.in.neg.i127 to i32
+  %.neg76.i126 = select i1 %55, i64 4294967288, i64 0
+  %.pn.in.neg.i127 = sub i64 %.neg76.i126, %42
+  %.pn.neg77.i128 = trunc i64 %.pn.in.neg.i127 to i32
   %56 = trunc i64 %42 to i32
   %57 = add i32 %33, %56
-  %invariant.op502 = add i32 %20, %.pn.neg82.i128
+  %invariant.op502 = add i32 %20, %.pn.neg77.i128
   %58 = add i32 %56, 65524
   %59 = select i1 %55, i32 0, i32 %58
   %invariant.op503 = sub i32 %59, %57
@@ -135,28 +135,28 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %71
   %82 = and i16 %76, 8191
   %83 = zext nneg i16 %82 to i32
   %84 = getelementptr i8, ptr %74, i64 2
-  %.val76.i = load i16, ptr %84, align 2
-  %85 = zext i16 %.val76.i to i32
-  %.neg68.neg.i = add nsw i32 %83, -8
-  %.neg80.i = sub nsw i32 %.neg68.neg.i, %85
+  %.val71.i = load i16, ptr %84, align 2
+  %85 = zext i16 %.val71.i to i32
+  %.neg67.neg.i = add nsw i32 %83, -8
+  %.neg75.i = sub nsw i32 %.neg67.neg.i, %85
   br label %BTreeTupleIsPosting.exit.thread.i
 
 BTreeTupleIsPosting.exit.thread.i:                ; preds = %81, %BTreeTupleIsPosting.exit.i, %71, %69
   %86 = phi i8 [ %45, %69 ], [ 1, %81 ], [ 1, %BTreeTupleIsPosting.exit.i ], [ 1, %71 ]
-  %.062.neg.neg.i = phi i32 [ -8, %69 ], [ %.neg80.i, %81 ], [ -8, %BTreeTupleIsPosting.exit.i ], [ -8, %71 ]
+  %.062.neg.neg.i = phi i32 [ -8, %69 ], [ %.neg75.i, %81 ], [ -8, %BTreeTupleIsPosting.exit.i ], [ -8, %71 ]
   %87 = trunc i8 %86 to i1
-  %.neg81.i = select i1 %87, i32 %.062.neg.neg.i, i32 0
+  %.neg76.i = select i1 %87, i32 %.062.neg.neg.i, i32 0
   %.neg488 = add i32 %.080.neg500, %20
   %88 = sub i32 %.neg488, %66
-  %.1.in.i = add i32 %88, %.neg81.i
+  %.1.in.i = add i32 %88, %.neg76.i
   %89 = add nuw nsw i32 %65, 65528
   %90 = select i1 %87, i32 0, i32 %89
   %.059.in.i = add i32 %.reass, %.080499
   %.160.in.i = add i32 %.059.in.i, %90
   %sext.mask.i = and i32 %.1.in.i, 32768
   %91 = icmp eq i32 %sext.mask.i, 0
-  %sext.mask73.i = and i32 %.160.in.i, 32768
-  %92 = icmp eq i32 %sext.mask73.i, 0
+  %sext.mask68.i = and i32 %.160.in.i, 32768
+  %92 = icmp eq i32 %sext.mask68.i, 0
   %or.cond4.i = select i1 %91, i1 %92, i1 false
   br i1 %or.cond4.i, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
@@ -190,29 +190,29 @@ BTreeTupleIsPosting.exit.i114:                    ; preds = %97
   %108 = and i16 %102, 8191
   %109 = zext nneg i16 %108 to i32
   %110 = getelementptr i8, ptr %100, i64 2
-  %.val76.i117 = load i16, ptr %110, align 2
-  %111 = zext i16 %.val76.i117 to i32
-  %.neg68.neg.i118 = add nsw i32 %109, -8
-  %.neg80.i119 = sub nsw i32 %.neg68.neg.i118, %111
+  %.val71.i117 = load i16, ptr %110, align 2
+  %111 = zext i16 %.val71.i117 to i32
+  %.neg67.neg.i118 = add nsw i32 %109, -8
+  %.neg75.i119 = sub nsw i32 %.neg67.neg.i118, %111
   br label %BTreeTupleIsPosting.exit.thread.i97
 
 BTreeTupleIsPosting.exit.thread.i97:              ; preds = %107, %BTreeTupleIsPosting.exit.i114, %97, %95
   %112 = phi i8 [ %45, %95 ], [ 1, %107 ], [ 1, %BTreeTupleIsPosting.exit.i114 ], [ 1, %97 ]
-  %.062.neg.neg.i98 = phi i32 [ -8, %95 ], [ %.neg80.i119, %107 ], [ -8, %BTreeTupleIsPosting.exit.i114 ], [ -8, %97 ]
+  %.062.neg.neg.i98 = phi i32 [ -8, %95 ], [ %.neg75.i119, %107 ], [ -8, %BTreeTupleIsPosting.exit.i114 ], [ -8, %97 ]
   %113 = trunc i8 %112 to i1
-  %.neg81.i100 = select i1 %113, i32 %.062.neg.neg.i98, i32 0
+  %.neg76.i100 = select i1 %113, i32 %.062.neg.neg.i98, i32 0
   %114 = add i32 %20, %.080.neg500
   %115 = add i32 %66, %56
   %116 = sub i32 %114, %115
-  %.1.in.i104 = add i32 %116, %.neg81.i100
+  %.1.in.i104 = add i32 %116, %.neg76.i100
   %117 = add nuw nsw i32 %65, 65528
   %118 = select i1 %113, i32 0, i32 %117
   %.059.in.i103 = add i32 %.080499, %32
   %.160.in.i105 = add i32 %.059.in.i103, %118
   %sext.mask.i106 = and i32 %.1.in.i104, 32768
   %119 = icmp eq i32 %sext.mask.i106, 0
-  %sext.mask73.i107 = and i32 %.160.in.i105, 32768
-  %120 = icmp eq i32 %sext.mask73.i107, 0
+  %sext.mask68.i107 = and i32 %.160.in.i105, 32768
+  %120 = icmp eq i32 %sext.mask68.i107, 0
   %or.cond4.i108 = select i1 %119, i1 %120, i1 false
   br i1 %or.cond4.i108, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
@@ -222,8 +222,8 @@ BTreeTupleIsPosting.exit.thread.i123:             ; preds = %93
   %.160.in.i131.reass = add i32 %121, %invariant.op503
   %sext.mask.i132 = and i32 %.1.in.i130.reass, 32768
   %122 = icmp eq i32 %sext.mask.i132, 0
-  %sext.mask73.i133 = and i32 %.160.in.i131.reass, 32768
-  %123 = icmp eq i32 %sext.mask73.i133, 0
+  %sext.mask68.i133 = and i32 %.160.in.i131.reass, 32768
+  %123 = icmp eq i32 %sext.mask68.i133, 0
   %or.cond4.i134 = select i1 %122, i1 %123, i1 false
   br i1 %or.cond4.i134, label %124, label %_bt_recsplitloc.exit146
 
@@ -274,29 +274,29 @@ BTreeTupleIsPosting.exit.i166:                    ; preds = %133
   %144 = and i16 %138, 8191
   %145 = zext nneg i16 %144 to i32
   %146 = getelementptr i8, ptr %136, i64 2
-  %.val76.i169 = load i16, ptr %146, align 2
-  %147 = zext i16 %.val76.i169 to i32
-  %.neg68.neg.i170 = add nsw i32 %145, -8
-  %.neg80.i171 = sub nsw i32 %.neg68.neg.i170, %147
+  %.val71.i169 = load i16, ptr %146, align 2
+  %147 = zext i16 %.val71.i169 to i32
+  %.neg67.neg.i170 = add nsw i32 %145, -8
+  %.neg75.i171 = sub nsw i32 %.neg67.neg.i170, %147
   br label %BTreeTupleIsPosting.exit.thread.i149
 
 BTreeTupleIsPosting.exit.thread.i149:             ; preds = %143, %BTreeTupleIsPosting.exit.i166, %133, %_bt_recsplitloc.exit146
   %148 = phi i8 [ %45, %_bt_recsplitloc.exit146 ], [ 1, %143 ], [ 1, %BTreeTupleIsPosting.exit.i166 ], [ 1, %133 ]
-  %.062.neg.neg.i150 = phi i32 [ -8, %_bt_recsplitloc.exit146 ], [ %.neg80.i171, %143 ], [ -8, %BTreeTupleIsPosting.exit.i166 ], [ -8, %133 ]
+  %.062.neg.neg.i150 = phi i32 [ -8, %_bt_recsplitloc.exit146 ], [ %.neg75.i171, %143 ], [ -8, %BTreeTupleIsPosting.exit.i166 ], [ -8, %133 ]
   %149 = trunc i8 %148 to i1
-  %.neg81.i152 = select i1 %149, i32 %.062.neg.neg.i150, i32 0
+  %.neg76.i152 = select i1 %149, i32 %.062.neg.neg.i150, i32 0
   %.059.in.i155 = sub i32 %121, %33
   %150 = add i32 %20, %.080.neg500
   %151 = add i32 %66, %56
   %152 = sub i32 %150, %151
-  %.1.in.i156 = add i32 %152, %.neg81.i152
+  %.1.in.i156 = add i32 %152, %.neg76.i152
   %153 = add nuw nsw i32 %65, 65528
   %154 = select i1 %149, i32 0, i32 %153
   %.160.in.i157 = add i32 %154, %.059.in.i155
   %sext.mask.i158 = and i32 %.1.in.i156, 32768
   %155 = icmp eq i32 %sext.mask.i158, 0
-  %sext.mask73.i159 = and i32 %.160.in.i157, 32768
-  %156 = icmp eq i32 %sext.mask73.i159, 0
+  %sext.mask68.i159 = and i32 %.160.in.i157, 32768
+  %156 = icmp eq i32 %sext.mask68.i159, 0
   %or.cond4.i160 = select i1 %155, i1 %156, i1 false
   br i1 %or.cond4.i160, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
@@ -340,20 +340,20 @@ _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exi
 
 BTreeTupleIsPosting.exit.thread.i175:             ; preds = %._crit_edge
   %167 = trunc i16 %44 to i1
-  %.neg81.i178 = select i1 %167, i64 4294967288, i64 0
-  %.pn.in.neg.i179 = sub i64 %.neg81.i178, %42
-  %.pn.neg82.i180 = trunc i64 %.pn.in.neg.i179 to i32
+  %.neg76.i178 = select i1 %167, i64 4294967288, i64 0
+  %.pn.in.neg.i179 = sub i64 %.neg76.i178, %42
+  %.pn.neg77.i180 = trunc i64 %.pn.in.neg.i179 to i32
   %168 = trunc i64 %42 to i32
   %.059.in.i181 = sub i32 %.079, %168
   %169 = sub i32 %20, %33
-  %.1.in.i182 = add i32 %169, %.pn.neg82.i180
+  %.1.in.i182 = add i32 %169, %.pn.neg77.i180
   %170 = add i32 %168, 65524
   %171 = select i1 %167, i32 0, i32 %170
   %.160.in.i183 = add i32 %171, %.059.in.i181
   %sext.mask.i184 = and i32 %.1.in.i182, 32768
   %172 = icmp eq i32 %sext.mask.i184, 0
-  %sext.mask73.i185 = and i32 %.160.in.i183, 32768
-  %173 = icmp eq i32 %sext.mask73.i185, 0
+  %sext.mask68.i185 = and i32 %.160.in.i183, 32768
+  %173 = icmp eq i32 %sext.mask68.i185, 0
   %or.cond4.i186 = select i1 %172, i1 %173, i1 false
   br i1 %or.cond4.i186, label %174, label %_bt_recsplitloc.exit198
 

@@ -5712,7 +5712,7 @@ define internal noundef ptr @_curses_resizeterm(ptr noundef %0, ptr noundef read
   br label %_curses_resizeterm_impl.exit
 
 .thread31:                                        ; preds = %10, %16
-  %20 = trunc nsw i64 %8 to i32
+  %20 = trunc nsw i64 %8 to i16
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = tail call i64 @PyLong_AsLong(ptr noundef %22) #9
@@ -5753,39 +5753,41 @@ _PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread36
   br label %_curses_resizeterm_impl.exit
 
 _PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread36
-  %38 = trunc nsw i64 %23 to i32
-  %39 = tail call i32 @resizeterm(i32 noundef %20, i32 noundef %38) #9
-  %.not.i12.i = icmp eq i32 %39, -1
+  %38 = trunc nsw i64 %23 to i16
+  %39 = sext i16 %20 to i32
+  %40 = sext i16 %38 to i32
+  %41 = tail call i32 @resizeterm(i32 noundef %39, i32 noundef %40) #9
+  %.not.i12.i = icmp eq i32 %41, -1
   br i1 %.not.i12.i, label %PyCursesCheckERR.exit.thread.i, label %PyCursesCheckERR.exit.i
 
 PyCursesCheckERR.exit.thread.i:                   ; preds = %_PyCursesStatefulCheckFunction.exit.i
-  %40 = tail call ptr @PyModule_GetState(ptr noundef %0) #9
-  %41 = load ptr, ptr %40, align 8, !tbaa !3
-  %42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.57) #9
+  %42 = tail call ptr @PyModule_GetState(ptr noundef %0) #9
+  %43 = load ptr, ptr %42, align 8, !tbaa !3
+  %44 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.57) #9
   br label %_curses_resizeterm_impl.exit
 
 PyCursesCheckERR.exit.i:                          ; preds = %_PyCursesStatefulCheckFunction.exit.i
-  %43 = tail call fastcc i32 @update_lines_cols(ptr noundef %0)
-  %.not10.i = icmp eq i32 %43, 0
-  br i1 %.not10.i, label %44, label %_curses_resizeterm_impl.exit
+  %45 = tail call fastcc i32 @update_lines_cols(ptr noundef %0)
+  %.not10.i = icmp eq i32 %45, 0
+  br i1 %.not10.i, label %46, label %_curses_resizeterm_impl.exit
 
-44:                                               ; preds = %PyCursesCheckERR.exit.i
-  %45 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !12
-  %.not.i.i = icmp sgt i32 %45, -1
-  br i1 %.not.i.i, label %46, label %_curses_resizeterm_impl.exit
+46:                                               ; preds = %PyCursesCheckERR.exit.i
+  %47 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !12
+  %.not.i.i = icmp sgt i32 %47, -1
+  br i1 %.not.i.i, label %48, label %_curses_resizeterm_impl.exit
 
-46:                                               ; preds = %44
-  %47 = add nsw i32 %45, -1
-  store i32 %47, ptr @_Py_NoneStruct, align 8, !tbaa !12
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %_curses_resizeterm_impl.exit
+48:                                               ; preds = %46
+  %49 = add nsw i32 %47, -1
+  store i32 %49, ptr @_Py_NoneStruct, align 8, !tbaa !12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %_curses_resizeterm_impl.exit
 
-49:                                               ; preds = %46
+51:                                               ; preds = %48
   tail call void @_Py_Dealloc(ptr noundef nonnull @_Py_NoneStruct) #9
   br label %_curses_resizeterm_impl.exit
 
-_curses_resizeterm_impl.exit:                     ; preds = %25, %33, %29, %10, %18, %14, %49, %46, %44, %PyCursesCheckERR.exit.i, %PyCursesCheckERR.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.thread.i, %4
-  %.021 = phi ptr [ null, %4 ], [ @_Py_NoneStruct, %PyCursesCheckERR.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ null, %PyCursesCheckERR.exit.thread.i ], [ null, %44 ], [ null, %46 ], [ null, %49 ], [ null, %14 ], [ null, %18 ], [ null, %10 ], [ null, %29 ], [ null, %33 ], [ null, %25 ]
+_curses_resizeterm_impl.exit:                     ; preds = %25, %33, %29, %10, %18, %14, %51, %48, %46, %PyCursesCheckERR.exit.i, %PyCursesCheckERR.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.thread.i, %4
+  %.021 = phi ptr [ null, %4 ], [ @_Py_NoneStruct, %PyCursesCheckERR.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ null, %PyCursesCheckERR.exit.thread.i ], [ null, %46 ], [ null, %48 ], [ null, %51 ], [ null, %14 ], [ null, %18 ], [ null, %10 ], [ null, %29 ], [ null, %33 ], [ null, %25 ]
   ret ptr %.021
 }
 
@@ -5829,7 +5831,7 @@ define internal noundef ptr @_curses_resize_term(ptr noundef %0, ptr noundef rea
   br label %_curses_resize_term_impl.exit
 
 .thread31:                                        ; preds = %10, %16
-  %20 = trunc nsw i64 %8 to i32
+  %20 = trunc nsw i64 %8 to i16
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = tail call i64 @PyLong_AsLong(ptr noundef %22) #9
@@ -5870,39 +5872,41 @@ _PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread36
   br label %_curses_resize_term_impl.exit
 
 _PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread36
-  %38 = trunc nsw i64 %23 to i32
-  %39 = tail call i32 @resize_term(i32 noundef %20, i32 noundef %38) #9
-  %.not.i12.i = icmp eq i32 %39, -1
+  %38 = trunc nsw i64 %23 to i16
+  %39 = sext i16 %20 to i32
+  %40 = sext i16 %38 to i32
+  %41 = tail call i32 @resize_term(i32 noundef %39, i32 noundef %40) #9
+  %.not.i12.i = icmp eq i32 %41, -1
   br i1 %.not.i12.i, label %PyCursesCheckERR.exit.thread.i, label %PyCursesCheckERR.exit.i
 
 PyCursesCheckERR.exit.thread.i:                   ; preds = %_PyCursesStatefulCheckFunction.exit.i
-  %40 = tail call ptr @PyModule_GetState(ptr noundef %0) #9
-  %41 = load ptr, ptr %40, align 8, !tbaa !3
-  %42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.58) #9
+  %42 = tail call ptr @PyModule_GetState(ptr noundef %0) #9
+  %43 = load ptr, ptr %42, align 8, !tbaa !3
+  %44 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.58) #9
   br label %_curses_resize_term_impl.exit
 
 PyCursesCheckERR.exit.i:                          ; preds = %_PyCursesStatefulCheckFunction.exit.i
-  %43 = tail call fastcc i32 @update_lines_cols(ptr noundef %0)
-  %.not10.i = icmp eq i32 %43, 0
-  br i1 %.not10.i, label %44, label %_curses_resize_term_impl.exit
+  %45 = tail call fastcc i32 @update_lines_cols(ptr noundef %0)
+  %.not10.i = icmp eq i32 %45, 0
+  br i1 %.not10.i, label %46, label %_curses_resize_term_impl.exit
 
-44:                                               ; preds = %PyCursesCheckERR.exit.i
-  %45 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !12
-  %.not.i.i = icmp sgt i32 %45, -1
-  br i1 %.not.i.i, label %46, label %_curses_resize_term_impl.exit
+46:                                               ; preds = %PyCursesCheckERR.exit.i
+  %47 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !12
+  %.not.i.i = icmp sgt i32 %47, -1
+  br i1 %.not.i.i, label %48, label %_curses_resize_term_impl.exit
 
-46:                                               ; preds = %44
-  %47 = add nsw i32 %45, -1
-  store i32 %47, ptr @_Py_NoneStruct, align 8, !tbaa !12
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %_curses_resize_term_impl.exit
+48:                                               ; preds = %46
+  %49 = add nsw i32 %47, -1
+  store i32 %49, ptr @_Py_NoneStruct, align 8, !tbaa !12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %_curses_resize_term_impl.exit
 
-49:                                               ; preds = %46
+51:                                               ; preds = %48
   tail call void @_Py_Dealloc(ptr noundef nonnull @_Py_NoneStruct) #9
   br label %_curses_resize_term_impl.exit
 
-_curses_resize_term_impl.exit:                    ; preds = %25, %33, %29, %10, %18, %14, %49, %46, %44, %PyCursesCheckERR.exit.i, %PyCursesCheckERR.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.thread.i, %4
-  %.021 = phi ptr [ null, %4 ], [ @_Py_NoneStruct, %PyCursesCheckERR.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ null, %PyCursesCheckERR.exit.thread.i ], [ null, %44 ], [ null, %46 ], [ null, %49 ], [ null, %14 ], [ null, %18 ], [ null, %10 ], [ null, %29 ], [ null, %33 ], [ null, %25 ]
+_curses_resize_term_impl.exit:                    ; preds = %25, %33, %29, %10, %18, %14, %51, %48, %46, %PyCursesCheckERR.exit.i, %PyCursesCheckERR.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.thread.i, %4
+  %.021 = phi ptr [ null, %4 ], [ @_Py_NoneStruct, %PyCursesCheckERR.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ null, %PyCursesCheckERR.exit.thread.i ], [ null, %46 ], [ null, %48 ], [ null, %51 ], [ null, %14 ], [ null, %18 ], [ null, %10 ], [ null, %29 ], [ null, %33 ], [ null, %25 ]
   ret ptr %.021
 }
 

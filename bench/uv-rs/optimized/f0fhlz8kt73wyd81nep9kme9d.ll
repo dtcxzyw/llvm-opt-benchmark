@@ -1694,7 +1694,7 @@ define noundef range(i8 -1, 2) i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f23
   %.sroa.04.0 = phi i64 [ %25, %22 ], [ 0, %18 ]
   %27 = tail call i8 @llvm.ucmp.i8.i64(i64 %.sroa.03.0, i64 %.sroa.04.0)
   %28 = icmp eq i64 %.sroa.03.0, %.sroa.04.0
-  br i1 %28, label %29, label %167
+  br i1 %28, label %29, label %166
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1990,7 +1990,7 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit17.thread: ; preds
 _ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit: ; preds = %.loopexit.i.i, %136
   %.sroa.0.0.i22 = phi i8 [ %137, %136 ], [ %114, %.loopexit.i.i ]
   %138 = icmp eq i8 %.sroa.0.0.i22, 0
-  br i1 %138, label %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread, label %166
+  br i1 %138, label %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread, label %165
 
 _ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread: ; preds = %122, %113, %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2026,55 +2026,53 @@ _ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread: ; preds 
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val20.i = load i64, ptr %150, align 8, !alias.scope !325, !noalias !322
   %trunc.i.i = trunc nuw i64 %.val17.i to i1
-  br i1 %trunc.i.i, label %153, label %151
+  %trunc1.i.i = trunc nuw i64 %.val19.i to i1
+  br i1 %trunc.i.i, label %152, label %151
 
 151:                                              ; preds = %148
-  %trunc2.i.i = trunc i64 %.val19.i to i8
-  %152 = and i8 %trunc2.i.i, 1
-  %..i.i = sub nsw i8 0, %152
+  %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i"
 
-153:                                              ; preds = %148
-  %trunc1.i.i = trunc nuw i64 %.val19.i to i1
-  br i1 %trunc1.i.i, label %154, label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
+152:                                              ; preds = %148
+  br i1 %trunc1.i.i, label %153, label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
 
-154:                                              ; preds = %153
-  %155 = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val18.i, i64 %.val20.i)
+153:                                              ; preds = %152
+  %154 = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val18.i, i64 %.val20.i)
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i"
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i": ; preds = %154, %151
-  %.sroa.0.0.i.i = phi i8 [ %155, %154 ], [ %..i.i, %151 ]
-  %156 = icmp eq i8 %.sroa.0.0.i.i, 0
-  br i1 %156, label %157, label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i": ; preds = %153, %151
+  %.sroa.0.0.i.i = phi i8 [ %154, %153 ], [ %..i.i, %151 ]
+  %155 = icmp eq i8 %.sroa.0.0.i.i, 0
+  br i1 %155, label %156, label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
 
-157:                                              ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i"
-  %158 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %159 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.val.i = load i64, ptr %158, align 8, !alias.scope !322, !noalias !325, !noundef !3
-  %.val12.i = load i64, ptr %159, align 8, !alias.scope !325, !noalias !322, !noundef !3
-  %160 = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val.i, i64 %.val12.i)
-  %161 = icmp eq i64 %.val.i, %.val12.i
-  br i1 %161, label %162, label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
+156:                                              ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i"
+  %157 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.val.i = load i64, ptr %157, align 8, !alias.scope !322, !noalias !325, !noundef !3
+  %.val12.i = load i64, ptr %158, align 8, !alias.scope !325, !noalias !322, !noundef !3
+  %159 = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val.i, i64 %.val12.i)
+  %160 = icmp eq i64 %.val.i, %.val12.i
+  br i1 %160, label %161, label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
 
-162:                                              ; preds = %157
-  %163 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %164 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %165 = call noundef i8 @"_ZN72_$LT$uv_pep440..version..LocalVersionSlice$u20$as$u20$core..cmp..Ord$GT$3cmp17he969eaab8a66e05eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %164)
+161:                                              ; preds = %156
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %164 = call noundef i8 @"_ZN72_$LT$uv_pep440..version..LocalVersionSlice$u20$as$u20$core..cmp..Ord$GT$3cmp17he969eaab8a66e05eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163)
   br label %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
 
-"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit": ; preds = %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread, %143, %153, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i", %157, %162
-  %.sroa.0.0.i23 = phi i8 [ %165, %162 ], [ %141, %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread ], [ %146, %143 ], [ %.sroa.0.0.i.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i" ], [ %160, %157 ], [ 1, %153 ]
+"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit": ; preds = %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread, %143, %152, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i", %156, %161
+  %.sroa.0.0.i23 = phi i8 [ %164, %161 ], [ %141, %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit.thread ], [ %146, %143 ], [ %.sroa.0.0.i.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h71f9b697540bd5f1E.exit.i" ], [ %159, %156 ], [ 1, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %167
+  br label %166
 
-166:                                              ; preds = %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit
+165:                                              ; preds = %_ZN9uv_pep4407version15compare_release17h56ab312ae83a00b2E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %167
+  br label %166
 
-167:                                              ; preds = %26, %166, %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0.i22, %166 ], [ %.sroa.0.0.i23, %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit" ], [ %27, %26 ]
+166:                                              ; preds = %26, %165, %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit"
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0.i22, %165 ], [ %.sroa.0.0.i23, %"_ZN4core5tuple70_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$X$C$W$C$V$C$U$C$T$RP$$GT$3cmp17h1a85fadd8fafc1d0E.exit" ], [ %27, %26 ]
   ret i8 %.sroa.0.1
 }
 

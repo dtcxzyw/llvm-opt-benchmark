@@ -5363,9 +5363,8 @@ _ZN5arrow6StatusD2Ev.exit42:                      ; preds = %_ZN5arrow6StatusD2E
   %.sroa.0.0.copyload.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.pre, %._crit_edge ], [ %.sroa.0.0.insert.ext.i.i, %.thread ]
   %52 = and i64 %.sroa.0.0.copyload.i.i, 256
   %.not55 = icmp eq i64 %52, 0
-  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %sext = shl i32 %.sroa.0.0.extract.trunc, 24
-  %53 = ashr exact i32 %sext, 24
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i8
+  %53 = sext i8 %.sroa.0.0.extract.trunc to i32
   %.sink = select i1 %.not55, i32 1, i32 %53
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %.sink, ptr %54, align 8, !tbaa !506
@@ -5796,9 +5795,8 @@ _ZN5arrow6StatusD2Ev.exit50:                      ; preds = %_ZN5arrow6StatusD2E
   %.sroa.0.0.copyload.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.pre, %._crit_edge ], [ %.sroa.0.0.insert.ext.i.i, %.thread ]
   %63 = and i64 %.sroa.0.0.copyload.i.i, 256
   %.not68 = icmp eq i64 %63, 0
-  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %sext = shl i32 %.sroa.0.0.extract.trunc, 24
-  %64 = ashr exact i32 %sext, 24
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i8
+  %64 = sext i8 %.sroa.0.0.extract.trunc to i32
   %.sink = select i1 %.not68, i32 1, i32 %64
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %.sink, ptr %65, align 8, !tbaa !506

@@ -1582,246 +1582,247 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
 
 14:                                               ; preds = %4
   %.not = icmp ult i64 %1, 4294967296
-  br i1 %.not, label %18, label %15
+  br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %14
-  %16 = add i32 %.sroa.10.0.extract.trunc, 128
-  %17 = icmp ult i32 %16, 256
-  %. = select i1 %17, i32 1, i32 2
-  br label %21
+  %16 = trunc i64 %.sroa.10.0.extract.shift to i8
+  %17 = sext i8 %16 to i32
+  %18 = icmp eq i32 %17, %.sroa.10.0.extract.trunc
+  %. = select i1 %18, i32 1, i32 2
+  br label %22
 
-18:                                               ; preds = %14
-  %19 = and i8 %.sroa.4.0.extract.trunc, 56
-  %20 = icmp ne i8 %19, 40
-  %not. = xor i1 %20, true
+19:                                               ; preds = %14
+  %20 = and i8 %.sroa.4.0.extract.trunc, 56
+  %21 = icmp ne i8 %20, 40
+  %not. = xor i1 %21, true
   %spec.select37 = zext i1 %not. to i32
-  br label %21
+  br label %22
 
-21:                                               ; preds = %18, %15
-  %.not32 = phi i1 [ false, %15 ], [ %20, %18 ]
-  %.0 = phi i32 [ %., %15 ], [ %spec.select37, %18 ]
+22:                                               ; preds = %19, %15
+  %.not32 = phi i1 [ false, %15 ], [ %21, %19 ]
+  %.0 = phi i32 [ %., %15 ], [ %spec.select37, %19 ]
   %.not53 = icmp eq i8 %.sroa.3.0.extract.trunc, -128
-  br i1 %.not53, label %74, label %22
-
-22:                                               ; preds = %21
-  %.not54 = icmp eq i8 %.sroa.4.0.extract.trunc, -128
-  br i1 %.not54, label %54, label %23
+  br i1 %.not53, label %75, label %23
 
 23:                                               ; preds = %22
-  %24 = shl i8 %2, 3
-  %25 = and i8 %24, 56
+  %.not54 = icmp eq i8 %.sroa.4.0.extract.trunc, -128
+  br i1 %.not54, label %55, label %24
+
+24:                                               ; preds = %23
+  %25 = shl i8 %2, 3
+  %26 = and i8 %25, 56
   %.0.tr35 = trunc nuw nsw i32 %.0 to i8
-  %26 = shl nuw i8 %.0.tr35, 6
-  %27 = or disjoint i8 %26, %25
-  %28 = or disjoint i8 %27, 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %30 = load ptr, ptr %29, align 8, !tbaa !51
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store ptr %31, ptr %29, align 8, !tbaa !51
-  store i8 %28, ptr %30, align 1, !tbaa !13
-  %32 = lshr i64 %1, 28
-  %33 = and i64 %32, 15
-  %34 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !13
-  %36 = shl i8 %35, 6
-  %37 = and i8 %.sroa.3.0.extract.trunc, 56
-  %38 = or disjoint i8 %36, %37
-  %39 = lshr i8 %.sroa.4.0.extract.trunc, 3
-  %40 = and i8 %39, 7
-  %41 = or disjoint i8 %38, %40
-  %42 = load ptr, ptr %29, align 8, !tbaa !51
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store ptr %43, ptr %29, align 8, !tbaa !51
-  store i8 %41, ptr %42, align 1, !tbaa !13
-  br i1 %.not32, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit, label %44
+  %27 = shl nuw i8 %.0.tr35, 6
+  %28 = or disjoint i8 %27, %26
+  %29 = or disjoint i8 %28, 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %31 = load ptr, ptr %30, align 8, !tbaa !51
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store ptr %32, ptr %30, align 8, !tbaa !51
+  store i8 %29, ptr %31, align 1, !tbaa !13
+  %33 = lshr i64 %1, 28
+  %34 = and i64 %33, 15
+  %35 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !13
+  %37 = shl i8 %36, 6
+  %38 = and i8 %.sroa.3.0.extract.trunc, 56
+  %39 = or disjoint i8 %37, %38
+  %40 = lshr i8 %.sroa.4.0.extract.trunc, 3
+  %41 = and i8 %40, 7
+  %42 = or disjoint i8 %39, %41
+  %43 = load ptr, ptr %30, align 8, !tbaa !51
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  store ptr %44, ptr %30, align 8, !tbaa !51
+  store i8 %42, ptr %43, align 1, !tbaa !13
+  br i1 %.not32, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit, label %45
 
-44:                                               ; preds = %23
-  %45 = add i32 %.sroa.10.0.extract.trunc, 128
-  %46 = icmp ult i32 %45, 256
-  br i1 %46, label %47, label %51
+45:                                               ; preds = %24
+  %46 = add i32 %.sroa.10.0.extract.trunc, 128
+  %47 = icmp ult i32 %46, 256
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %44
-  %48 = trunc i64 %.sroa.10.0.extract.shift to i8
-  %49 = load ptr, ptr %29, align 8, !tbaa !51
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  store ptr %50, ptr %29, align 8, !tbaa !51
-  store i8 %48, ptr %49, align 1, !tbaa !13
+48:                                               ; preds = %45
+  %49 = trunc i64 %.sroa.10.0.extract.shift to i8
+  %50 = load ptr, ptr %30, align 8, !tbaa !51
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  store ptr %51, ptr %30, align 8, !tbaa !51
+  store i8 %49, ptr %50, align 1, !tbaa !13
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %29, align 8, !tbaa !51
-  store i32 %.sroa.10.0.extract.trunc, ptr %52, align 1
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store ptr %53, ptr %29, align 8, !tbaa !51
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %30, align 8, !tbaa !51
+  store i32 %.sroa.10.0.extract.trunc, ptr %53, align 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store ptr %54, ptr %30, align 8, !tbaa !51
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-54:                                               ; preds = %22
-  %55 = and i64 %1, 4026531840
-  %.not31 = icmp eq i64 %55, 268435456
-  br i1 %.not31, label %.thread52, label %56
+55:                                               ; preds = %23
+  %56 = and i64 %1, 4026531840
+  %.not31 = icmp eq i64 %56, 268435456
+  br i1 %.not31, label %.thread52, label %57
 
-56:                                               ; preds = %54
+57:                                               ; preds = %55
   %sum.shift = lshr i64 %1, 28
-  %57 = shl i8 %2, 3
-  %58 = and i8 %57, 56
-  %59 = or disjoint i8 %58, 4
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %61 = load ptr, ptr %60, align 8, !tbaa !51
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store ptr %62, ptr %60, align 8, !tbaa !51
-  store i8 %59, ptr %61, align 1, !tbaa !13
-  %63 = and i64 %sum.shift, 15
-  %64 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !13
-  %66 = shl i8 %65, 6
-  %67 = and i8 %.sroa.3.0.extract.trunc, 56
-  %68 = or disjoint i8 %66, %67
-  %69 = or disjoint i8 %68, 5
-  %70 = load ptr, ptr %60, align 8, !tbaa !51
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  store ptr %71, ptr %60, align 8, !tbaa !51
-  store i8 %69, ptr %70, align 1, !tbaa !13
-  %72 = load ptr, ptr %60, align 8, !tbaa !51
-  store i32 %.sroa.10.0.extract.trunc, ptr %72, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store ptr %73, ptr %60, align 8, !tbaa !51
+  %58 = shl i8 %2, 3
+  %59 = and i8 %58, 56
+  %60 = or disjoint i8 %59, 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %62 = load ptr, ptr %61, align 8, !tbaa !51
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store ptr %63, ptr %61, align 8, !tbaa !51
+  store i8 %60, ptr %62, align 1, !tbaa !13
+  %64 = and i64 %sum.shift, 15
+  %65 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !13
+  %67 = shl i8 %66, 6
+  %68 = and i8 %.sroa.3.0.extract.trunc, 56
+  %69 = or disjoint i8 %67, %68
+  %70 = or disjoint i8 %69, 5
+  %71 = load ptr, ptr %61, align 8, !tbaa !51
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  store ptr %72, ptr %61, align 8, !tbaa !51
+  store i8 %70, ptr %71, align 1, !tbaa !13
+  %73 = load ptr, ptr %61, align 8, !tbaa !51
+  store i32 %.sroa.10.0.extract.trunc, ptr %73, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store ptr %74, ptr %61, align 8, !tbaa !51
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-74:                                               ; preds = %21
-  %75 = and i8 %.sroa.4.0.extract.trunc, 56
-  %76 = icmp eq i8 %75, 32
-  br i1 %76, label %77, label %104
+75:                                               ; preds = %22
+  %76 = and i8 %.sroa.4.0.extract.trunc, 56
+  %77 = icmp eq i8 %76, 32
+  br i1 %77, label %78, label %105
 
-77:                                               ; preds = %74
-  %78 = shl i8 %2, 3
-  %79 = and i8 %78, 56
+78:                                               ; preds = %75
+  %79 = shl i8 %2, 3
+  %80 = and i8 %79, 56
   %.0.tr34 = trunc nuw nsw i32 %.0 to i8
-  %80 = shl nuw i8 %.0.tr34, 6
-  %81 = or disjoint i8 %80, %79
-  %82 = or disjoint i8 %81, 4
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %84 = load ptr, ptr %83, align 8, !tbaa !51
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  store ptr %85, ptr %83, align 8, !tbaa !51
-  store i8 %82, ptr %84, align 1, !tbaa !13
-  %86 = lshr i64 %1, 28
-  %87 = and i64 %86, 15
-  %88 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !13
-  %90 = shl i8 %89, 6
-  %91 = or disjoint i8 %90, 36
-  %92 = load ptr, ptr %83, align 8, !tbaa !51
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  store ptr %93, ptr %83, align 8, !tbaa !51
-  store i8 %91, ptr %92, align 1, !tbaa !13
-  br i1 %.not, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit, label %94
+  %81 = shl nuw i8 %.0.tr34, 6
+  %82 = or disjoint i8 %81, %80
+  %83 = or disjoint i8 %82, 4
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %85 = load ptr, ptr %84, align 8, !tbaa !51
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
+  store ptr %86, ptr %84, align 8, !tbaa !51
+  store i8 %83, ptr %85, align 1, !tbaa !13
+  %87 = lshr i64 %1, 28
+  %88 = and i64 %87, 15
+  %89 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !13
+  %91 = shl i8 %90, 6
+  %92 = or disjoint i8 %91, 36
+  %93 = load ptr, ptr %84, align 8, !tbaa !51
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %94, ptr %84, align 8, !tbaa !51
+  store i8 %92, ptr %93, align 1, !tbaa !13
+  br i1 %.not, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit, label %95
 
-94:                                               ; preds = %77
-  %95 = add i32 %.sroa.10.0.extract.trunc, 128
-  %96 = icmp ult i32 %95, 256
-  br i1 %96, label %97, label %101
+95:                                               ; preds = %78
+  %96 = add i32 %.sroa.10.0.extract.trunc, 128
+  %97 = icmp ult i32 %96, 256
+  br i1 %97, label %98, label %102
 
-97:                                               ; preds = %94
-  %98 = trunc i64 %.sroa.10.0.extract.shift to i8
-  %99 = load ptr, ptr %83, align 8, !tbaa !51
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  store ptr %100, ptr %83, align 8, !tbaa !51
-  store i8 %98, ptr %99, align 1, !tbaa !13
+98:                                               ; preds = %95
+  %99 = trunc i64 %.sroa.10.0.extract.shift to i8
+  %100 = load ptr, ptr %84, align 8, !tbaa !51
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  store ptr %101, ptr %84, align 8, !tbaa !51
+  store i8 %99, ptr %100, align 1, !tbaa !13
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-101:                                              ; preds = %94
-  %102 = load ptr, ptr %83, align 8, !tbaa !51
-  store i32 %.sroa.10.0.extract.trunc, ptr %102, align 1
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store ptr %103, ptr %83, align 8, !tbaa !51
+102:                                              ; preds = %95
+  %103 = load ptr, ptr %84, align 8, !tbaa !51
+  store i32 %.sroa.10.0.extract.trunc, ptr %103, align 1
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  store ptr %104, ptr %84, align 8, !tbaa !51
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-104:                                              ; preds = %74
-  switch i8 %.sroa.4.0.extract.trunc, label %119 [
-    i8 0, label %105
+105:                                              ; preds = %75
+  switch i8 %.sroa.4.0.extract.trunc, label %120 [
+    i8 0, label %106
     i8 -128, label %.thread52
   ]
 
-105:                                              ; preds = %104
-  %106 = shl i8 %2, 3
-  %107 = and i8 %106, 56
-  %108 = or disjoint i8 %107, 5
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %110 = load ptr, ptr %109, align 8, !tbaa !51
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store ptr %111, ptr %109, align 8, !tbaa !51
-  store i8 %108, ptr %110, align 1, !tbaa !13
-  %112 = load ptr, ptr %109, align 8, !tbaa !51
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !49
-  %115 = ptrtoint ptr %112 to i64
-  %116 = ptrtoint ptr %114 to i64
-  %.neg57 = sub i64 %116, %115
+106:                                              ; preds = %105
+  %107 = shl i8 %2, 3
+  %108 = and i8 %107, 56
+  %109 = or disjoint i8 %108, 5
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %111 = load ptr, ptr %110, align 8, !tbaa !51
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  store ptr %112, ptr %110, align 8, !tbaa !51
+  store i8 %109, ptr %111, align 1, !tbaa !13
+  %113 = load ptr, ptr %110, align 8, !tbaa !51
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %115 = load ptr, ptr %114, align 8, !tbaa !49
+  %116 = ptrtoint ptr %113 to i64
+  %117 = ptrtoint ptr %115 to i64
+  %.neg57 = sub i64 %117, %116
   %.neg58 = trunc i64 %.neg57 to i32
   %reass.sub59 = sub i32 %.sroa.10.0.extract.trunc, %3
   %reass.sub = add i32 %reass.sub59, -4
-  %117 = add i32 %reass.sub, %.neg58
-  store i32 %117, ptr %112, align 1
-  %118 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  store ptr %118, ptr %109, align 8, !tbaa !51
+  %118 = add i32 %reass.sub, %.neg58
+  store i32 %118, ptr %113, align 1
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  store ptr %119, ptr %110, align 8, !tbaa !51
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-119:                                              ; preds = %104
-  %120 = shl i8 %2, 3
-  %121 = and i8 %120, 56
-  %122 = lshr i8 %.sroa.4.0.extract.trunc, 3
-  %123 = and i8 %122, 7
+120:                                              ; preds = %105
+  %121 = shl i8 %2, 3
+  %122 = and i8 %121, 56
+  %123 = lshr i8 %.sroa.4.0.extract.trunc, 3
+  %124 = and i8 %123, 7
   %.0.tr = trunc nuw nsw i32 %.0 to i8
-  %124 = shl nuw i8 %.0.tr, 6
-  %125 = or disjoint i8 %124, %121
-  %126 = or disjoint i8 %125, %123
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %128 = load ptr, ptr %127, align 8, !tbaa !51
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
-  store ptr %129, ptr %127, align 8, !tbaa !51
-  store i8 %126, ptr %128, align 1, !tbaa !13
-  br i1 %.not32, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit, label %130
+  %125 = shl nuw i8 %.0.tr, 6
+  %126 = or disjoint i8 %125, %122
+  %127 = or disjoint i8 %126, %124
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %129 = load ptr, ptr %128, align 8, !tbaa !51
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
+  store ptr %130, ptr %128, align 8, !tbaa !51
+  store i8 %127, ptr %129, align 1, !tbaa !13
+  br i1 %.not32, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit, label %131
 
-130:                                              ; preds = %119
-  %131 = add i32 %.sroa.10.0.extract.trunc, 128
-  %132 = icmp ult i32 %131, 256
-  br i1 %132, label %133, label %137
+131:                                              ; preds = %120
+  %132 = add i32 %.sroa.10.0.extract.trunc, 128
+  %133 = icmp ult i32 %132, 256
+  br i1 %133, label %134, label %138
 
-133:                                              ; preds = %130
-  %134 = trunc i64 %.sroa.10.0.extract.shift to i8
-  %135 = load ptr, ptr %127, align 8, !tbaa !51
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
-  store ptr %136, ptr %127, align 8, !tbaa !51
-  store i8 %134, ptr %135, align 1, !tbaa !13
+134:                                              ; preds = %131
+  %135 = trunc i64 %.sroa.10.0.extract.shift to i8
+  %136 = load ptr, ptr %128, align 8, !tbaa !51
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 1
+  store ptr %137, ptr %128, align 8, !tbaa !51
+  store i8 %135, ptr %136, align 1, !tbaa !13
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-137:                                              ; preds = %130
-  %138 = load ptr, ptr %127, align 8, !tbaa !51
-  store i32 %.sroa.10.0.extract.trunc, ptr %138, align 1
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  store ptr %139, ptr %127, align 8, !tbaa !51
+138:                                              ; preds = %131
+  %139 = load ptr, ptr %128, align 8, !tbaa !51
+  store i32 %.sroa.10.0.extract.trunc, ptr %139, align 1
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  store ptr %140, ptr %128, align 8, !tbaa !51
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-.thread52:                                        ; preds = %104, %54
-  %140 = shl i8 %2, 3
-  %141 = and i8 %140, 56
-  %142 = or disjoint i8 %141, 4
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %144 = load ptr, ptr %143, align 8, !tbaa !51
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1
-  store ptr %145, ptr %143, align 8, !tbaa !51
-  store i8 %142, ptr %144, align 1, !tbaa !13
-  %146 = load ptr, ptr %143, align 8, !tbaa !51
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1
-  store ptr %147, ptr %143, align 8, !tbaa !51
-  store i8 37, ptr %146, align 1, !tbaa !13
-  %148 = load ptr, ptr %143, align 8, !tbaa !51
-  store i32 %.sroa.10.0.extract.trunc, ptr %148, align 1
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  store ptr %149, ptr %143, align 8, !tbaa !51
+.thread52:                                        ; preds = %105, %55
+  %141 = shl i8 %2, 3
+  %142 = and i8 %141, 56
+  %143 = or disjoint i8 %142, 4
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %145 = load ptr, ptr %144, align 8, !tbaa !51
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 1
+  store ptr %146, ptr %144, align 8, !tbaa !51
+  store i8 %143, ptr %145, align 1, !tbaa !13
+  %147 = load ptr, ptr %144, align 8, !tbaa !51
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 1
+  store ptr %148, ptr %144, align 8, !tbaa !51
+  store i8 37, ptr %147, align 1, !tbaa !13
+  %149 = load ptr, ptr %144, align 8, !tbaa !51
+  store i32 %.sroa.10.0.extract.trunc, ptr %149, align 1
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  store ptr %150, ptr %144, align 8, !tbaa !51
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
-_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit: ; preds = %23, %77, %.thread52, %119, %105, %56, %47, %51, %97, %101, %133, %137, %4, %5
+_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit: ; preds = %24, %78, %.thread52, %120, %106, %57, %48, %52, %98, %102, %134, %138, %4, %5
   ret void
 }
 
@@ -6924,36 +6925,36 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX648placeRexENS1_10OperandX64E.exit: ; pred
   br label %62
 
 49:                                               ; preds = %_ZN4Luau7CodeGen3X6418AssemblyBuilderX648placeRexENS1_10OperandX64E.exit
-  %50 = add i32 %.sroa.1.0.extract.trunc, -128
-  %51 = icmp ult i32 %50, -256
+  %50 = trunc i64 %.sroa.1.0.extract.shift to i8
+  %51 = sext i8 %50 to i32
+  %52 = icmp ne i32 %51, %.sroa.1.0.extract.trunc
   %.not = icmp eq i8 %4, %5
-  %or.cond = or i1 %51, %.not
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %53 = load ptr, ptr %52, align 8, !tbaa !51
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  store ptr %54, ptr %52, align 8, !tbaa !51
-  br i1 %or.cond, label %59, label %55
+  %or.cond = or i1 %52, %.not
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %54 = load ptr, ptr %53, align 8, !tbaa !51
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  store ptr %55, ptr %53, align 8, !tbaa !51
+  br i1 %or.cond, label %59, label %56
 
-55:                                               ; preds = %49
-  store i8 %5, ptr %53, align 1, !tbaa !13
+56:                                               ; preds = %49
+  store i8 %5, ptr %54, align 1, !tbaa !13
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemENS1_10OperandX64Ehi(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %1, i8 noundef zeroext %6, i32 noundef 1)
-  %56 = trunc i64 %.sroa.1.0.extract.shift to i8
-  %57 = load ptr, ptr %52, align 8, !tbaa !51
+  %57 = load ptr, ptr %53, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  store ptr %58, ptr %52, align 8, !tbaa !51
-  store i8 %56, ptr %57, align 1, !tbaa !13
+  store ptr %58, ptr %53, align 8, !tbaa !51
+  store i8 %50, ptr %57, align 1, !tbaa !13
   br label %62
 
 59:                                               ; preds = %49
-  store i8 %4, ptr %53, align 1, !tbaa !13
+  store i8 %4, ptr %54, align 1, !tbaa !13
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemENS1_10OperandX64Ehi(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %1, i8 noundef zeroext %6, i32 noundef 4)
-  %60 = load ptr, ptr %52, align 8, !tbaa !51
+  %60 = load ptr, ptr %53, align 8, !tbaa !51
   store i32 %.sroa.1.0.extract.trunc, ptr %60, align 1
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store ptr %61, ptr %52, align 8, !tbaa !51
+  store ptr %61, ptr %53, align 8, !tbaa !51
   br label %62
 
-62:                                               ; preds = %55, %59, %42
+62:                                               ; preds = %56, %59, %42
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %64 = load i32, ptr %63, align 8, !tbaa !63
   %65 = add i32 %64, 1

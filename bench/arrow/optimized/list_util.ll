@@ -2038,10 +2038,10 @@ define linkonce_odr void @_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll(
   br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %4
-  %17 = trunc nsw i64 %13 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %19 = trunc i64 %3 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %17, i32 %19)
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %18 = trunc i64 %3 to i32
+  %19 = trunc nsw i64 %13 to i32
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %19, i32 %18)
   store i32 %.sroa.speculated, ptr %9, align 8, !tbaa !116
   %20 = sub nsw i64 8, %13
   %21 = sext i32 %.sroa.speculated to i64
@@ -2053,7 +2053,7 @@ define linkonce_odr void @_ZN5arrow8internal19BaseSetBitRunReaderILb1EEC2EPKhll(
   %25 = zext i1 %24 to i64
   %26 = add nsw i64 %22, %25
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds i8, ptr %18, i64 %27
+  %28 = getelementptr inbounds i8, ptr %17, i64 %27
   store ptr %28, ptr %0, align 8, !tbaa !117
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %27

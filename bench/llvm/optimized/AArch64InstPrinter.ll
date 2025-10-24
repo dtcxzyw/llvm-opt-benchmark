@@ -8981,9 +8981,8 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %37, %38
   br label %46
 
 41:                                               ; preds = %5
-  %42 = trunc i64 %13 to i32
-  %sext = shl i32 %42, 24
-  %43 = ashr exact i32 %sext, 24
+  %42 = trunc i64 %13 to i8
+  %43 = sext i8 %42 to i32
   %44 = shl i32 %43, %22
   %45 = trunc i32 %44 to i16
   tail call void @_ZN4llvm18AArch64InstPrinter11printImmSVEIsEEvT_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, i16 noundef signext %45, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -10361,9 +10360,8 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %37, %38
   br label %46
 
 41:                                               ; preds = %5
-  %42 = trunc i64 %13 to i32
-  %sext = shl i32 %42, 24
-  %43 = ashr exact i32 %sext, 24
+  %42 = trunc i64 %13 to i8
+  %43 = sext i8 %42 to i32
   %44 = shl i32 %43, %22
   %45 = sext i32 %44 to i64
   tail call void @_ZN4llvm18AArch64InstPrinter11printImmSVEIlEEvT_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %45, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -10443,9 +10441,8 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %37, %38
   br label %45
 
 41:                                               ; preds = %5
-  %42 = trunc i64 %13 to i32
-  %sext = shl i32 %42, 24
-  %43 = ashr exact i32 %sext, 24
+  %42 = trunc i64 %13 to i8
+  %43 = sext i8 %42 to i32
   %44 = shl i32 %43, %22
   tail call void @_ZN4llvm18AArch64InstPrinter11printImmSVEIiEEvT_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %45
@@ -16666,56 +16663,57 @@ define linkonce_odr void @_ZN4llvm18AArch64InstPrinter18printSVELogicalImmIiEEvP
 _ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit: ; preds = %.lr.ph30.i, %.preheader.i
   %.1.lcssa.i = phi i64 [ %.023.lcssa.i, %.preheader.i ], [ %38, %.lr.ph30.i ]
   %40 = trunc i64 %.1.lcssa.i to i32
-  %41 = add i32 %40, 32768
-  %42 = icmp ult i32 %41, 65536
-  br i1 %42, label %43, label %44
-
-43:                                               ; preds = %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit
-  tail call void @_ZN4llvm18AArch64InstPrinter11printImmSVEIiEEvT_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(48) %4)
-  br label %61
+  %41 = trunc i64 %.1.lcssa.i to i16
+  %42 = sext i16 %41 to i32
+  %43 = icmp eq i32 %42, %40
+  br i1 %43, label %44, label %45
 
 44:                                               ; preds = %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit
-  %45 = icmp ult i32 %40, 65536
-  br i1 %45, label %46, label %47
+  tail call void @_ZN4llvm18AArch64InstPrinter11printImmSVEIiEEvT_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  br label %62
 
-46:                                               ; preds = %44
+45:                                               ; preds = %_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj.exit
+  %46 = icmp ult i32 %40, 65536
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %45
   tail call void @_ZN4llvm18AArch64InstPrinter11printImmSVEIjEEvT_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(48) %4)
-  br label %61
+  br label %62
 
-47:                                               ; preds = %44
+48:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 0) #23
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !44
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !25
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !20
-  %.not.i.i = icmp ult ptr %51, %53
-  br i1 %.not.i.i, label %56, label %54
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !44
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %52 = load ptr, ptr %51, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !20
+  %.not.i.i = icmp ult ptr %52, %54
+  br i1 %.not.i.i, label %57, label %55
 
-54:                                               ; preds = %47
-  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %49, i8 noundef zeroext 35) #23
+55:                                               ; preds = %48
+  %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %50, i8 noundef zeroext 35) #23
   br label %_ZN4llvm13MCInstPrinter10WithMarkuplsIcEERS1_RKT_.exit
 
-56:                                               ; preds = %47
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %57, ptr %50, align 8, !tbaa !25
-  store i8 35, ptr %51, align 1, !tbaa !30
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %58, ptr %51, align 8, !tbaa !25
+  store i8 35, ptr %52, align 1, !tbaa !30
   br label %_ZN4llvm13MCInstPrinter10WithMarkuplsIcEERS1_RKT_.exit
 
-_ZN4llvm13MCInstPrinter10WithMarkuplsIcEERS1_RKT_.exit: ; preds = %54, %56
+_ZN4llvm13MCInstPrinter10WithMarkuplsIcEERS1_RKT_.exit: ; preds = %55, %57
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %58 = and i64 %.1.lcssa.i, 4294967295
-  call void @_ZNK4llvm13MCInstPrinter9formatHexEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object.25") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %58) #23
-  %59 = load ptr, ptr %48, align 8, !tbaa !44
-  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(24) %7) #23
+  %59 = and i64 %.1.lcssa.i, 4294967295
+  call void @_ZNK4llvm13MCInstPrinter9formatHexEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object.25") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %59) #23
+  %60 = load ptr, ptr %49, align 8, !tbaa !44
+  %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4llvm13MCInstPrinter10WithMarkupD1Ev(ptr noundef nonnull align 8 dereferenceable(18) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %46, %_ZN4llvm13MCInstPrinter10WithMarkuplsIcEERS1_RKT_.exit, %43
+62:                                               ; preds = %47, %_ZN4llvm13MCInstPrinter10WithMarkuplsIcEERS1_RKT_.exit, %44
   ret void
 }
 
@@ -27805,8 +27803,8 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit:    ; preds = %8
   br i1 %.not14.i, label %22, label %19
 
 19:                                               ; preds = %18
-  %20 = add i32 %.sroa.023.0.extract.trunc, 128
-  %21 = icmp ult i32 %20, 256
+  %20 = add nsw i64 %16, 128
+  %21 = icmp ult i64 %20, 256
   br i1 %21, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
 
 22:                                               ; preds = %18
@@ -27815,8 +27813,8 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit:    ; preds = %8
   br i1 %.not15.i5, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = add i32 %.sroa.023.0.extract.trunc, 32768
-  %26 = icmp ult i32 %25, 65536
+  %25 = add nsw i64 %16, 32768
+  %26 = icmp ult i64 %25, 65536
   br i1 %26, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
 
 _ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit:    ; preds = %22
@@ -27844,95 +27842,94 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread: ; preds = %15, %24, %19, %
   br i1 %.not14.i, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, label %33
 
 33:                                               ; preds = %32
-  %34 = trunc nsw i64 %30 to i32
-  %35 = add nsw i32 %34, 128
-  %36 = icmp ult i32 %35, 256
-  br i1 %36, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
+  %34 = add nsw i64 %30, 128
+  %35 = icmp ult i64 %34, 256
+  br i1 %35, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
 
 _ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit:    ; preds = %32
-  %37 = and i64 %0, 65280
-  %.not15.i10 = icmp ne i64 %37, 0
-  %38 = icmp eq i64 %sext35, 0
-  %spec.select.i = or i1 %38, %.not15.i10
+  %36 = and i64 %0, 65280
+  %.not15.i10 = icmp ne i64 %36, 0
+  %37 = icmp eq i64 %sext35, 0
+  %spec.select.i = or i1 %37, %.not15.i10
   br i1 %spec.select.i, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
 
 _ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread: ; preds = %29, %33, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %0, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %bcmp.i.i.i.i.i.i11 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %39, ptr noundef nonnull align 1 dereferenceable(8) %2, i64 7)
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %bcmp.i.i.i.i.i.i11 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %38, ptr noundef nonnull align 1 dereferenceable(8) %2, i64 7)
   %.not9.i.i.i.i.i.i12 = icmp eq i32 %bcmp.i.i.i.i.i.i11, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not9.i.i.i.i.i.i12, label %40, label %.preheader.i.i.preheader
+  br i1 %.not9.i.i.i.i.i.i12, label %39, label %.preheader.i.i.preheader
 
-40:                                               ; preds = %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
+39:                                               ; preds = %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
   %sext36 = shl i64 %0, 56
-  %41 = ashr exact i64 %sext36, 56
-  %42 = and i64 %41, -256
-  %.off.i13 = add nsw i64 %42, -1
+  %40 = ashr exact i64 %sext36, 56
+  %41 = and i64 %40, -256
+  %.off.i13 = add nsw i64 %41, -1
   %switch.i14 = icmp ult i64 %.off.i13, -257
   br i1 %switch.i14, label %.preheader.i.i.preheader, label %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit
 
-_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit:    ; preds = %40
+_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit:    ; preds = %39
   %.not14.i15 = icmp ne i64 %4, 0
-  %43 = icmp eq i64 %sext36, 0
-  %spec.select.i16 = or i1 %43, %.not14.i15
+  %42 = icmp eq i64 %sext36, 0
+  %spec.select.i16 = or i1 %42, %.not14.i15
   br i1 %spec.select.i16, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %.preheader.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %40, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
+.preheader.i.i.preheader:                         ; preds = %39, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
   %.045.i.i = phi i32 [ %.146.i.i, %.preheader.i.i ], [ 64, %.preheader.i.i.preheader ]
-  %44 = lshr i32 %.045.i.i, 1
-  %45 = zext nneg i32 %44 to i64
-  %notmask.i.i = shl nsw i64 -1, %45
-  %46 = xor i64 %notmask.i.i, -1
-  %47 = lshr i64 %0, %45
-  %48 = xor i64 %47, %0
-  %49 = and i64 %48, %46
-  %.not.i.i18 = icmp eq i64 %49, 0
-  %50 = and i32 %.045.i.i, -2
-  %.146.i.i = select i1 %.not.i.i18, i32 %44, i32 %50
-  %51 = icmp ugt i32 %.146.i.i, 2
-  %or.cond52.i.i = and i1 %.not.i.i18, %51
-  br i1 %or.cond52.i.i, label %.preheader.i.i, label %52, !llvm.loop !403
+  %43 = lshr i32 %.045.i.i, 1
+  %44 = zext nneg i32 %43 to i64
+  %notmask.i.i = shl nsw i64 -1, %44
+  %45 = xor i64 %notmask.i.i, -1
+  %46 = lshr i64 %0, %44
+  %47 = xor i64 %46, %0
+  %48 = and i64 %47, %45
+  %.not.i.i18 = icmp eq i64 %48, 0
+  %49 = and i32 %.045.i.i, -2
+  %.146.i.i = select i1 %.not.i.i18, i32 %43, i32 %49
+  %50 = icmp ugt i32 %.146.i.i, 2
+  %or.cond52.i.i = and i1 %.not.i.i18, %50
+  br i1 %or.cond52.i.i, label %.preheader.i.i, label %51, !llvm.loop !403
 
-52:                                               ; preds = %.preheader.i.i
-  %53 = sub i32 64, %.146.i.i
-  %54 = zext nneg i32 %53 to i64
-  %55 = lshr i64 -1, %54
-  %56 = and i64 %55, %0
-  %.not.i.i.i = icmp eq i64 %56, 0
+51:                                               ; preds = %.preheader.i.i
+  %52 = sub i32 64, %.146.i.i
+  %53 = zext nneg i32 %52 to i64
+  %54 = lshr i64 -1, %53
+  %55 = and i64 %54, %0
+  %.not.i.i.i = icmp eq i64 %55, 0
   br i1 %.not.i.i.i, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i, label %_ZN4llvm16isShiftedMask_64Em.exit.i.i
 
-_ZN4llvm16isShiftedMask_64Em.exit.i.i:            ; preds = %52
-  %57 = add i64 %56, -1
-  %58 = or i64 %57, %56
-  %59 = add i64 %58, 1
-  %60 = and i64 %59, %58
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %68, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i
+_ZN4llvm16isShiftedMask_64Em.exit.i.i:            ; preds = %51
+  %56 = add i64 %55, -1
+  %57 = or i64 %56, %55
+  %58 = add i64 %57, 1
+  %59 = and i64 %58, %57
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %67, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i
 
-_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i:     ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i, %52
+_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i:     ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i, %51
   %.not55.i.i = xor i64 %0, -1
-  %62 = and i64 %55, %.not55.i.i
-  %.not.i53.i.i = icmp eq i64 %62, 0
+  %61 = and i64 %54, %.not55.i.i
+  %.not.i53.i.i = icmp eq i64 %61, 0
   br i1 %.not.i53.i.i, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm16isShiftedMask_64Em.exit54.i.i
 
 _ZN4llvm16isShiftedMask_64Em.exit54.i.i:          ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i
-  %63 = add i64 %62, -1
-  %64 = or i64 %63, %62
-  %65 = add i64 %64, 1
-  %66 = and i64 %65, %64
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %68, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit
+  %62 = add i64 %61, -1
+  %63 = or i64 %62, %61
+  %64 = add i64 %63, 1
+  %65 = and i64 %64, %63
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit
 
-68:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit54.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.i.i
+67:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit54.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.i.i
   br label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit
 
-_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit: ; preds = %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit, %19, %24, %33, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i, %_ZN4llvm16isShiftedMask_64Em.exit54.i.i, %68, %10, %5, %_ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit
-  %.0 = phi i1 [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit ], [ false, %5 ], [ false, %10 ], [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit ], [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit ], [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit ], [ false, %19 ], [ false, %24 ], [ false, %33 ], [ true, %68 ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit54.i.i ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i ]
+_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit: ; preds = %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit, %19, %24, %33, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i, %_ZN4llvm16isShiftedMask_64Em.exit54.i.i, %67, %10, %5, %_ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit
+  %.0 = phi i1 [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit ], [ false, %5 ], [ false, %10 ], [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit ], [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit ], [ false, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit ], [ false, %19 ], [ false, %24 ], [ false, %33 ], [ true, %67 ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit54.i.i ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i ]
   ret i1 %.0
 }
 

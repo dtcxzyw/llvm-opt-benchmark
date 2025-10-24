@@ -12554,8 +12554,8 @@ define noundef ptr @LoadImageColors(ptr noundef readonly byval(%struct.Image) al
   %57 = and i8 %56, -8
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store i8 %57, ptr %58, align 1
-  %59 = and i8 %.tr179, 1
-  %60 = sub nsw i8 0, %59
+  %59 = trunc i16 %47 to i1
+  %60 = sext i1 %59 to i8
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 3
   store i8 %60, ptr %61, align 1
   br label %429
@@ -21949,8 +21949,8 @@ define i32 @GetImageColor(ptr noundef readonly byval(%struct.Image) align 8 capt
   %.tr86 = trunc i16 %39 to i8
   %46 = shl i8 %.tr86, 2
   %47 = and i8 %46, -8
-  %48 = and i8 %.tr86, 1
-  %49 = sub nsw i8 0, %48
+  %48 = trunc i16 %39 to i1
+  %49 = sext i1 %48 to i8
   br label %310
 
 50:                                               ; preds = %13

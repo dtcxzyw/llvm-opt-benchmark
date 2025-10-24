@@ -8986,24 +8986,24 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit: ; preds = %3,
 8:                                                ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.3.0.insert.insert.i
   %10 = load i8, ptr %9, align 1, !tbaa !381
-  switch i8 %10, label %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit18 [
+  switch i8 %10, label %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit17 [
     i8 92, label %11
     i8 63, label %11
   ]
 
 11:                                               ; preds = %8, %8
   %12 = tail call i64 @_ZN5clang5Lexer24getCharAndSizeSlowNoWarnEPKcRKNS_11LangOptionsE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(849) %2)
-  %.sroa.0.0.extract.trunc.i13 = trunc i64 %12 to i8
-  br label %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit18
+  %.sroa.0.0.extract.trunc.i12 = trunc i64 %12 to i8
+  br label %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit17
 
-_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit18: ; preds = %8, %11
-  %.sroa.0.0.i14 = phi i8 [ %.sroa.0.0.extract.trunc.i13, %11 ], [ %10, %8 ]
-  %13 = and i8 %.sroa.0.0.i14, -33
+_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit17: ; preds = %8, %11
+  %.sroa.0.0.i13 = phi i8 [ %.sroa.0.0.extract.trunc.i12, %11 ], [ %10, %8 ]
+  %13 = and i8 %.sroa.0.0.i13, -33
   %14 = icmp eq i8 %13, 88
   br label %15
 
-15:                                               ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit18
-  %.0 = phi i1 [ %14, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit18 ], [ false, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit ]
+15:                                               ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit17
+  %.0 = phi i1 [ %14, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit17 ], [ false, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit ]
   ret i1 %.0
 }
 
@@ -9162,12 +9162,12 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit.i: ; preds = %
 
 54:                                               ; preds = %51, %51
   %55 = tail call i64 @_ZN5clang5Lexer24getCharAndSizeSlowNoWarnEPKcRKNS_11LangOptionsE(ptr noundef nonnull readonly %52, ptr noundef nonnull readonly align 8 dereferenceable(849) %42)
-  %.sroa.0.0.extract.trunc.i13.i = trunc i64 %55 to i8
+  %.sroa.0.0.extract.trunc.i12.i = trunc i64 %55 to i8
   br label %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit
 
 _ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit: ; preds = %51, %54
-  %.sroa.0.0.i14.i = phi i8 [ %.sroa.0.0.extract.trunc.i13.i, %54 ], [ %53, %51 ]
-  %56 = and i8 %.sroa.0.0.i14.i, -33
+  %.sroa.0.0.i13.i = phi i8 [ %.sroa.0.0.extract.trunc.i12.i, %54 ], [ %53, %51 ]
+  %56 = and i8 %.sroa.0.0.i13.i, -33
   %57 = icmp eq i8 %56, 88
   br i1 %57, label %62, label %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit.thread
 
@@ -9232,12 +9232,12 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit.i80: ; preds =
 
 77:                                               ; preds = %74, %74
   %78 = tail call i64 @_ZN5clang5Lexer24getCharAndSizeSlowNoWarnEPKcRKNS_11LangOptionsE(ptr noundef nonnull readonly %75, ptr noundef nonnull readonly align 8 dereferenceable(849) %65)
-  %.sroa.0.0.extract.trunc.i13.i85 = trunc i64 %78 to i8
+  %.sroa.0.0.extract.trunc.i12.i85 = trunc i64 %78 to i8
   br label %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88
 
 _ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88: ; preds = %74, %77
-  %.sroa.0.0.i14.i87 = phi i8 [ %.sroa.0.0.extract.trunc.i13.i85, %77 ], [ %76, %74 ]
-  %79 = and i8 %.sroa.0.0.i14.i87, -33
+  %.sroa.0.0.i13.i87 = phi i8 [ %.sroa.0.0.extract.trunc.i12.i85, %77 ], [ %76, %74 ]
+  %79 = and i8 %.sroa.0.0.i13.i87, -33
   %80 = icmp eq i8 %79, 88
   br i1 %80, label %81, label %.critedge66.thread
 
