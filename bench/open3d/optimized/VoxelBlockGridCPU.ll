@@ -43327,139 +43327,130 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %18 = srem i32 %17, %14
   %19 = add nsw i32 %14, %6
   %20 = srem i32 %19, %14
-  %21 = sub nsw i32 %4, %16
-  %.lobit.i = ashr i32 %21, 31
-  %.inv.i = icmp slt i32 %21, 1
-  %22 = select i1 %.inv.i, i32 %.lobit.i, i32 1
-  %23 = sub nsw i32 %5, %18
-  %.lobit.i40 = ashr i32 %23, 31
-  %.inv.i41 = icmp slt i32 %23, 1
-  %24 = select i1 %.inv.i41, i32 %.lobit.i40, i32 1
-  %25 = sub nsw i32 %6, %20
-  %.lobit.i42 = ashr i32 %25, 31
-  %.inv.i43 = icmp slt i32 %25, 1
-  %26 = select i1 %.inv.i43, i32 %.lobit.i42, i32 1
-  %27 = or i32 %24, %22
-  %28 = or i32 %27, %26
-  %or.cond3 = icmp eq i32 %28, 0
-  br i1 %or.cond3, label %29, label %42
+  %21 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %16)
+  %22 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %18)
+  %23 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 %20)
+  %24 = or i32 %22, %21
+  %25 = or i32 %24, %23
+  %or.cond3 = icmp eq i32 %25, 0
+  br i1 %or.cond3, label %26, label %39
 
-29:                                               ; preds = %9
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !932
-  %32 = load i32, ptr %31, align 4, !tbaa !19
-  %33 = mul i32 %32, %7
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !933
-  %36 = load i32, ptr %35, align 4, !tbaa !19
-  %37 = mul nsw i32 %36, %6
-  %38 = mul nsw i32 %14, %5
-  %39 = add i32 %38, %4
-  %40 = add i32 %39, %33
-  %41 = add i32 %40, %37
-  br label %113
+26:                                               ; preds = %9
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !932
+  %29 = load i32, ptr %28, align 4, !tbaa !19
+  %30 = mul i32 %29, %7
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !933
+  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %34 = mul nsw i32 %33, %6
+  %35 = mul nsw i32 %14, %5
+  %36 = add i32 %35, %4
+  %37 = add i32 %36, %30
+  %38 = add i32 %37, %34
+  br label %110
 
-42:                                               ; preds = %9
+39:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %43 = add nsw i32 %22, %1
-  %44 = add nsw i32 %24, %2
-  %45 = add nsw i32 %26, %3
-  store i32 %43, ptr %12, align 4, !tbaa !19
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %44, ptr %46, align 4, !tbaa !19
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %45, ptr %47, align 4, !tbaa !19
-  %48 = load i32, ptr %8, align 4, !tbaa !911
-  %49 = icmp ne i32 %43, %48
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %40 = add nsw i32 %21, %1
+  %41 = add nsw i32 %22, %2
+  %42 = add nsw i32 %23, %3
+  store i32 %40, ptr %12, align 4, !tbaa !19
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %41, ptr %43, align 4, !tbaa !19
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %42, ptr %44, align 4, !tbaa !19
+  %45 = load i32, ptr %8, align 4, !tbaa !911
+  %46 = icmp ne i32 %40, %45
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp ne i32 %41, %48
+  %or.cond.i.not45 = select i1 %46, i1 true, i1 %49
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = icmp ne i32 %44, %51
-  %or.cond.i.not49 = select i1 %49, i1 true, i1 %52
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %52 = icmp ne i32 %42, %51
+  %or.cond7.i.not = select i1 %or.cond.i.not45, i1 true, i1 %52
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = icmp ne i32 %45, %54
-  %or.cond7.i.not = select i1 %or.cond.i.not49, i1 true, i1 %55
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp slt i32 %57, 0
-  %59 = select i1 %or.cond7.i.not, i1 true, i1 %58
-  br i1 %59, label %60, label %99
+  %55 = icmp slt i32 %54, 0
+  %56 = select i1 %or.cond7.i.not, i1 true, i1 %55
+  br i1 %56, label %57, label %96
 
-60:                                               ; preds = %42
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !934
-  br label %63
+57:                                               ; preds = %39
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !934
+  br label %60
 
-63:                                               ; preds = %63, %60
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i.i.i, %63 ]
-  %.067.i.i.i.i = phi i64 [ -3750763034362895579, %60 ], [ %68, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
-  %65 = load i32, ptr %64, align 4, !tbaa !19
-  %66 = sext i32 %65 to i64
-  %67 = xor i64 %.067.i.i.i.i, %66
-  %68 = mul i64 %67, 1099511628211
+60:                                               ; preds = %60, %57
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i.i.i, %60 ]
+  %.067.i.i.i.i = phi i64 [ -3750763034362895579, %57 ], [ %65, %60 ]
+  %61 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
+  %62 = load i32, ptr %61, align 4, !tbaa !19
+  %63 = sext i32 %62 to i64
+  %64 = xor i64 %.067.i.i.i.i, %63
+  %65 = mul i64 %64, 1099511628211
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i, label %63, !llvm.loop !913
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i, label %60, !llvm.loop !913
 
-_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i: ; preds = %63
+_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i: ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i64 %68, ptr %10, align 8, !tbaa !12
+  store i64 %65, ptr %10, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %69
+  br label %66
 
-69:                                               ; preds = %69, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ 7, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i ], [ %indvars.iv.next.i.i.i.i.i, %69 ]
-  %70 = sub nuw nsw i64 7, %indvars.iv.i.i.i.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 %70
+66:                                               ; preds = %66, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ 7, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i ], [ %indvars.iv.next.i.i.i.i.i, %66 ]
+  %67 = sub nuw nsw i64 7, %indvars.iv.i.i.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 %67
+  %69 = load i8, ptr %68, align 1, !tbaa !35
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN3tbb6detail2d07reverseIhE10byte_tableE, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !35
-  %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr @_ZN3tbb6detail2d07reverseIhE10byte_tableE, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !35
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i.i.i.i
-  store i8 %75, ptr %76, align 1, !tbaa !35
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i.i.i.i
+  store i8 %72, ptr %73, align 1, !tbaa !35
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, -1
   %.not.i.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, label %69, !llvm.loop !907
+  br i1 %.not.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, label %66, !llvm.loop !907
 
-_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %69
-  %77 = load i64, ptr %11, align 8, !tbaa !12
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %66
+  %74 = load i64, ptr %11, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %78 = or i64 %77, 1
-  %79 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %80 = load atomic i64, ptr %79 acquire, align 8
-  %81 = urem i64 %68, %80
-  %82 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %62, i64 noundef %81)
-  %.not21.i.i = icmp eq ptr %82, null
+  %75 = or i64 %74, 1
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %77 = load atomic i64, ptr %76 acquire, align 8
+  %78 = urem i64 %65, %77
+  %79 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %59, i64 noundef %78)
+  %.not21.i.i = icmp eq ptr %79, null
   br i1 %.not21.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
-  %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %82, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
-  %84 = load i64, ptr %83, align 8, !tbaa !893
-  %85 = icmp ugt i64 %84, %78
-  br i1 %85, label %.critedge, label %86
+  %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %79, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
+  %80 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
+  %81 = load i64, ptr %80, align 8, !tbaa !893
+  %82 = icmp ugt i64 %81, %75
+  br i1 %82, label %.critedge, label %83
 
-86:                                               ; preds = %.lr.ph.i.i
-  %87 = icmp eq i64 %84, %78
-  br i1 %87, label %88, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+83:                                               ; preds = %.lr.ph.i.i
+  %84 = icmp eq i64 %81, %75
+  br i1 %84, label %85, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %88
-  %indvars.iv.i.i15.i.i = phi i64 [ 0, %88 ], [ %indvars.iv.i.i15.i.i.be, %.backedge.i.i.backedge ]
-  %.078.i.i.i.i = phi i1 [ true, %88 ], [ %.078.i.i.i.i.be, %.backedge.i.i.backedge ]
-  br i1 %.078.i.i.i.i, label %90, label %.thread.i.i
+.backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %85
+  %indvars.iv.i.i15.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.i.i15.i.i.be, %.backedge.i.i.backedge ]
+  %.078.i.i.i.i = phi i1 [ true, %85 ], [ %.078.i.i.i.i.be, %.backedge.i.i.backedge ]
+  br i1 %.078.i.i.i.i, label %87, label %.thread.i.i
 
-90:                                               ; preds = %.backedge.i.i
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i.i15.i.i
-  %92 = load i32, ptr %91, align 4, !tbaa !19
-  %93 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i15.i.i
-  %94 = load i32, ptr %93, align 4, !tbaa !19
-  %95 = icmp eq i32 %92, %94
+87:                                               ; preds = %.backedge.i.i
+  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i.i15.i.i
+  %89 = load i32, ptr %88, align 4, !tbaa !19
+  %90 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i15.i.i
+  %91 = load i32, ptr %90, align 4, !tbaa !19
+  %92 = icmp eq i32 %89, %91
   %indvars.iv.next.i.i16.i.i = add nuw nsw i64 %indvars.iv.i.i15.i.i, 1
   %exitcond.not.i.i17.i.i = icmp eq i64 %indvars.iv.next.i.i16.i.i, 3
   br i1 %exitcond.not.i.i17.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, label %.backedge.i.i.backedge
@@ -43469,55 +43460,55 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %exitcond.not.i.i1719.i.i = icmp eq i64 %indvars.iv.next.i.i1618.i.i, 3
   br i1 %exitcond.not.i.i1719.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, label %.backedge.i.i.backedge
 
-.backedge.i.i.backedge:                           ; preds = %.thread.i.i, %90
-  %indvars.iv.i.i15.i.i.be = phi i64 [ %indvars.iv.next.i.i16.i.i, %90 ], [ %indvars.iv.next.i.i1618.i.i, %.thread.i.i ]
-  %.078.i.i.i.i.be = phi i1 [ %95, %90 ], [ false, %.thread.i.i ]
+.backedge.i.i.backedge:                           ; preds = %.thread.i.i, %87
+  %indvars.iv.i.i15.i.i.be = phi i64 [ %indvars.iv.next.i.i16.i.i, %87 ], [ %indvars.iv.next.i.i1618.i.i, %.thread.i.i ]
+  %.078.i.i.i.i.be = phi i1 [ %92, %87 ], [ false, %.thread.i.i ]
   br label %.backedge.i.i, !llvm.loop !914
 
-_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %90
-  br i1 %95, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %87
+  br i1 %92, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
-_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %86
-  %96 = load atomic i64, ptr %.022.i.i acquire, align 8
-  %.0.i.i.i.i.i = inttoptr i64 %96 to ptr
-  %.not.i.i = icmp eq i64 %96, 0
+_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %83
+  %93 = load atomic i64, ptr %.022.i.i acquire, align 8
+  %.0.i.i.i.i.i = inttoptr i64 %93 to ptr
+  %.not.i.i = icmp eq i64 %93, 0
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !915
 
 _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit: ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
-  %98 = load i32, ptr %97, align 4, !tbaa !916
-  store i32 %43, ptr %8, align 4, !tbaa !911
-  store i32 %44, ptr %50, align 4, !tbaa !919
-  store i32 %45, ptr %53, align 4, !tbaa !920
-  store i32 %98, ptr %56, align 4, !tbaa !921
+  %94 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
+  %95 = load i32, ptr %94, align 4, !tbaa !916
+  store i32 %40, ptr %8, align 4, !tbaa !911
+  store i32 %41, ptr %47, align 4, !tbaa !919
+  store i32 %42, ptr %50, align 4, !tbaa !920
+  store i32 %95, ptr %53, align 4, !tbaa !921
   %.pre = load ptr, ptr %0, align 8, !tbaa !930
-  %.pre54 = load i32, ptr %.pre, align 4, !tbaa !19
-  br label %99
+  %.pre50 = load i32, ptr %.pre, align 4, !tbaa !19
+  br label %96
 
-99:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %42
-  %100 = phi i32 [ %.pre54, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %14, %42 ]
-  %.0 = phi i32 [ %98, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %57, %42 ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !932
-  %103 = load i32, ptr %102, align 4, !tbaa !19
-  %104 = mul nsw i32 %103, %.0
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !933
-  %107 = load i32, ptr %106, align 4, !tbaa !19
-  %108 = mul nsw i32 %107, %20
-  %109 = mul nsw i32 %100, %18
-  %110 = add i32 %104, %16
-  %111 = add i32 %110, %108
-  %112 = add i32 %111, %109
+96:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %39
+  %97 = phi i32 [ %.pre50, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %14, %39 ]
+  %.0 = phi i32 [ %95, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %54, %39 ]
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !932
+  %100 = load i32, ptr %99, align 4, !tbaa !19
+  %101 = mul nsw i32 %100, %.0
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !933
+  %104 = load i32, ptr %103, align 4, !tbaa !19
+  %105 = mul nsw i32 %104, %20
+  %106 = mul nsw i32 %97, %18
+  %107 = add i32 %101, %16
+  %108 = add i32 %107, %105
+  %109 = add i32 %108, %106
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %99
-  %.2 = phi i32 [ %112, %99 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
+.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %96
+  %.2 = phi i32 [ %109, %96 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %113
+  br label %110
 
-113:                                              ; preds = %.critedge, %29
-  %.036 = phi i32 [ %41, %29 ], [ %.2, %.critedge ]
+110:                                              ; preds = %.critedge, %26
+  %.036 = phi i32 [ %38, %26 ], [ %.2, %.critedge ]
   ret i32 %.036
 }
 
@@ -47290,139 +47281,130 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %18 = srem i32 %17, %14
   %19 = add nsw i32 %14, %6
   %20 = srem i32 %19, %14
-  %21 = sub nsw i32 %4, %16
-  %.lobit.i = ashr i32 %21, 31
-  %.inv.i = icmp slt i32 %21, 1
-  %22 = select i1 %.inv.i, i32 %.lobit.i, i32 1
-  %23 = sub nsw i32 %5, %18
-  %.lobit.i40 = ashr i32 %23, 31
-  %.inv.i41 = icmp slt i32 %23, 1
-  %24 = select i1 %.inv.i41, i32 %.lobit.i40, i32 1
-  %25 = sub nsw i32 %6, %20
-  %.lobit.i42 = ashr i32 %25, 31
-  %.inv.i43 = icmp slt i32 %25, 1
-  %26 = select i1 %.inv.i43, i32 %.lobit.i42, i32 1
-  %27 = or i32 %24, %22
-  %28 = or i32 %27, %26
-  %or.cond3 = icmp eq i32 %28, 0
-  br i1 %or.cond3, label %29, label %42
+  %21 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %16)
+  %22 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %18)
+  %23 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 %20)
+  %24 = or i32 %22, %21
+  %25 = or i32 %24, %23
+  %or.cond3 = icmp eq i32 %25, 0
+  br i1 %or.cond3, label %26, label %39
 
-29:                                               ; preds = %9
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !972
-  %32 = load i32, ptr %31, align 4, !tbaa !19
-  %33 = mul i32 %32, %7
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !973
-  %36 = load i32, ptr %35, align 4, !tbaa !19
-  %37 = mul nsw i32 %36, %6
-  %38 = mul nsw i32 %14, %5
-  %39 = add i32 %38, %4
-  %40 = add i32 %39, %33
-  %41 = add i32 %40, %37
-  br label %113
+26:                                               ; preds = %9
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !972
+  %29 = load i32, ptr %28, align 4, !tbaa !19
+  %30 = mul i32 %29, %7
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !973
+  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %34 = mul nsw i32 %33, %6
+  %35 = mul nsw i32 %14, %5
+  %36 = add i32 %35, %4
+  %37 = add i32 %36, %30
+  %38 = add i32 %37, %34
+  br label %110
 
-42:                                               ; preds = %9
+39:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %43 = add nsw i32 %22, %1
-  %44 = add nsw i32 %24, %2
-  %45 = add nsw i32 %26, %3
-  store i32 %43, ptr %12, align 4, !tbaa !19
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %44, ptr %46, align 4, !tbaa !19
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %45, ptr %47, align 4, !tbaa !19
-  %48 = load i32, ptr %8, align 4, !tbaa !911
-  %49 = icmp ne i32 %43, %48
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %40 = add nsw i32 %21, %1
+  %41 = add nsw i32 %22, %2
+  %42 = add nsw i32 %23, %3
+  store i32 %40, ptr %12, align 4, !tbaa !19
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %41, ptr %43, align 4, !tbaa !19
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %42, ptr %44, align 4, !tbaa !19
+  %45 = load i32, ptr %8, align 4, !tbaa !911
+  %46 = icmp ne i32 %40, %45
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp ne i32 %41, %48
+  %or.cond.i.not45 = select i1 %46, i1 true, i1 %49
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = icmp ne i32 %44, %51
-  %or.cond.i.not49 = select i1 %49, i1 true, i1 %52
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %52 = icmp ne i32 %42, %51
+  %or.cond7.i.not = select i1 %or.cond.i.not45, i1 true, i1 %52
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = icmp ne i32 %45, %54
-  %or.cond7.i.not = select i1 %or.cond.i.not49, i1 true, i1 %55
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp slt i32 %57, 0
-  %59 = select i1 %or.cond7.i.not, i1 true, i1 %58
-  br i1 %59, label %60, label %99
+  %55 = icmp slt i32 %54, 0
+  %56 = select i1 %or.cond7.i.not, i1 true, i1 %55
+  br i1 %56, label %57, label %96
 
-60:                                               ; preds = %42
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !974
-  br label %63
+57:                                               ; preds = %39
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !974
+  br label %60
 
-63:                                               ; preds = %63, %60
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i.i.i, %63 ]
-  %.067.i.i.i.i = phi i64 [ -3750763034362895579, %60 ], [ %68, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
-  %65 = load i32, ptr %64, align 4, !tbaa !19
-  %66 = sext i32 %65 to i64
-  %67 = xor i64 %.067.i.i.i.i, %66
-  %68 = mul i64 %67, 1099511628211
+60:                                               ; preds = %60, %57
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i.i.i, %60 ]
+  %.067.i.i.i.i = phi i64 [ -3750763034362895579, %57 ], [ %65, %60 ]
+  %61 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
+  %62 = load i32, ptr %61, align 4, !tbaa !19
+  %63 = sext i32 %62 to i64
+  %64 = xor i64 %.067.i.i.i.i, %63
+  %65 = mul i64 %64, 1099511628211
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i, label %63, !llvm.loop !913
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i, label %60, !llvm.loop !913
 
-_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i: ; preds = %63
+_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i: ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i64 %68, ptr %10, align 8, !tbaa !12
+  store i64 %65, ptr %10, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %69
+  br label %66
 
-69:                                               ; preds = %69, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ 7, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i ], [ %indvars.iv.next.i.i.i.i.i, %69 ]
-  %70 = sub nuw nsw i64 7, %indvars.iv.i.i.i.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 %70
+66:                                               ; preds = %66, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ 7, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_.exit.i.i ], [ %indvars.iv.next.i.i.i.i.i, %66 ]
+  %67 = sub nuw nsw i64 7, %indvars.iv.i.i.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 %67
+  %69 = load i8, ptr %68, align 1, !tbaa !35
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN3tbb6detail2d07reverseIhE10byte_tableE, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !35
-  %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr @_ZN3tbb6detail2d07reverseIhE10byte_tableE, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !35
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i.i.i.i
-  store i8 %75, ptr %76, align 1, !tbaa !35
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i.i.i.i
+  store i8 %72, ptr %73, align 1, !tbaa !35
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, -1
   %.not.i.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, label %69, !llvm.loop !907
+  br i1 %.not.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, label %66, !llvm.loop !907
 
-_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %69
-  %77 = load i64, ptr %11, align 8, !tbaa !12
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %66
+  %74 = load i64, ptr %11, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %78 = or i64 %77, 1
-  %79 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %80 = load atomic i64, ptr %79 acquire, align 8
-  %81 = urem i64 %68, %80
-  %82 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %62, i64 noundef %81)
-  %.not21.i.i = icmp eq ptr %82, null
+  %75 = or i64 %74, 1
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %77 = load atomic i64, ptr %76 acquire, align 8
+  %78 = urem i64 %65, %77
+  %79 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %59, i64 noundef %78)
+  %.not21.i.i = icmp eq ptr %79, null
   br i1 %.not21.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
-  %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %82, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
-  %84 = load i64, ptr %83, align 8, !tbaa !893
-  %85 = icmp ugt i64 %84, %78
-  br i1 %85, label %.critedge, label %86
+  %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %79, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
+  %80 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
+  %81 = load i64, ptr %80, align 8, !tbaa !893
+  %82 = icmp ugt i64 %81, %75
+  br i1 %82, label %.critedge, label %83
 
-86:                                               ; preds = %.lr.ph.i.i
-  %87 = icmp eq i64 %84, %78
-  br i1 %87, label %88, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+83:                                               ; preds = %.lr.ph.i.i
+  %84 = icmp eq i64 %81, %75
+  br i1 %84, label %85, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %88
-  %indvars.iv.i.i15.i.i = phi i64 [ 0, %88 ], [ %indvars.iv.i.i15.i.i.be, %.backedge.i.i.backedge ]
-  %.078.i.i.i.i = phi i1 [ true, %88 ], [ %.078.i.i.i.i.be, %.backedge.i.i.backedge ]
-  br i1 %.078.i.i.i.i, label %90, label %.thread.i.i
+.backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %85
+  %indvars.iv.i.i15.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.i.i15.i.i.be, %.backedge.i.i.backedge ]
+  %.078.i.i.i.i = phi i1 [ true, %85 ], [ %.078.i.i.i.i.be, %.backedge.i.i.backedge ]
+  br i1 %.078.i.i.i.i, label %87, label %.thread.i.i
 
-90:                                               ; preds = %.backedge.i.i
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i.i15.i.i
-  %92 = load i32, ptr %91, align 4, !tbaa !19
-  %93 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i15.i.i
-  %94 = load i32, ptr %93, align 4, !tbaa !19
-  %95 = icmp eq i32 %92, %94
+87:                                               ; preds = %.backedge.i.i
+  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i.i15.i.i
+  %89 = load i32, ptr %88, align 4, !tbaa !19
+  %90 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i15.i.i
+  %91 = load i32, ptr %90, align 4, !tbaa !19
+  %92 = icmp eq i32 %89, %91
   %indvars.iv.next.i.i16.i.i = add nuw nsw i64 %indvars.iv.i.i15.i.i, 1
   %exitcond.not.i.i17.i.i = icmp eq i64 %indvars.iv.next.i.i16.i.i, 3
   br i1 %exitcond.not.i.i17.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, label %.backedge.i.i.backedge
@@ -47432,55 +47414,55 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %exitcond.not.i.i1719.i.i = icmp eq i64 %indvars.iv.next.i.i1618.i.i, 3
   br i1 %exitcond.not.i.i1719.i.i, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, label %.backedge.i.i.backedge
 
-.backedge.i.i.backedge:                           ; preds = %.thread.i.i, %90
-  %indvars.iv.i.i15.i.i.be = phi i64 [ %indvars.iv.next.i.i16.i.i, %90 ], [ %indvars.iv.next.i.i1618.i.i, %.thread.i.i ]
-  %.078.i.i.i.i.be = phi i1 [ %95, %90 ], [ false, %.thread.i.i ]
+.backedge.i.i.backedge:                           ; preds = %.thread.i.i, %87
+  %indvars.iv.i.i15.i.i.be = phi i64 [ %indvars.iv.next.i.i16.i.i, %87 ], [ %indvars.iv.next.i.i1618.i.i, %.thread.i.i ]
+  %.078.i.i.i.i.be = phi i1 [ %92, %87 ], [ false, %.thread.i.i ]
   br label %.backedge.i.i, !llvm.loop !914
 
-_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %90
-  br i1 %95, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %87
+  br i1 %92, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
-_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %86
-  %96 = load atomic i64, ptr %.022.i.i acquire, align 8
-  %.0.i.i.i.i.i = inttoptr i64 %96 to ptr
-  %.not.i.i = icmp eq i64 %96, 0
+_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %83
+  %93 = load atomic i64, ptr %.022.i.i acquire, align 8
+  %.0.i.i.i.i.i = inttoptr i64 %93 to ptr
+  %.not.i.i = icmp eq i64 %93, 0
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !915
 
 _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit: ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
-  %98 = load i32, ptr %97, align 4, !tbaa !916
-  store i32 %43, ptr %8, align 4, !tbaa !911
-  store i32 %44, ptr %50, align 4, !tbaa !919
-  store i32 %45, ptr %53, align 4, !tbaa !920
-  store i32 %98, ptr %56, align 4, !tbaa !921
+  %94 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
+  %95 = load i32, ptr %94, align 4, !tbaa !916
+  store i32 %40, ptr %8, align 4, !tbaa !911
+  store i32 %41, ptr %47, align 4, !tbaa !919
+  store i32 %42, ptr %50, align 4, !tbaa !920
+  store i32 %95, ptr %53, align 4, !tbaa !921
   %.pre = load ptr, ptr %0, align 8, !tbaa !970
-  %.pre54 = load i32, ptr %.pre, align 4, !tbaa !19
-  br label %99
+  %.pre50 = load i32, ptr %.pre, align 4, !tbaa !19
+  br label %96
 
-99:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %42
-  %100 = phi i32 [ %.pre54, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %14, %42 ]
-  %.0 = phi i32 [ %98, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %57, %42 ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !972
-  %103 = load i32, ptr %102, align 4, !tbaa !19
-  %104 = mul nsw i32 %103, %.0
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !973
-  %107 = load i32, ptr %106, align 4, !tbaa !19
-  %108 = mul nsw i32 %107, %20
-  %109 = mul nsw i32 %100, %18
-  %110 = add i32 %104, %16
-  %111 = add i32 %110, %108
-  %112 = add i32 %111, %109
+96:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %39
+  %97 = phi i32 [ %.pre50, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %14, %39 ]
+  %.0 = phi i32 [ %95, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %54, %39 ]
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !972
+  %100 = load i32, ptr %99, align 4, !tbaa !19
+  %101 = mul nsw i32 %100, %.0
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !973
+  %104 = load i32, ptr %103, align 4, !tbaa !19
+  %105 = mul nsw i32 %104, %20
+  %106 = mul nsw i32 %97, %18
+  %107 = add i32 %101, %16
+  %108 = add i32 %107, %105
+  %109 = add i32 %108, %106
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %99
-  %.2 = phi i32 [ %112, %99 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
+.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %96
+  %.2 = phi i32 [ %109, %96 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %113
+  br label %110
 
-113:                                              ; preds = %.critedge, %29
-  %.036 = phi i32 [ %41, %29 ], [ %.2, %.critedge ]
+110:                                              ; preds = %.critedge, %26
+  %.036 = phi i32 [ %38, %26 ], [ %.2, %.critedge ]
   ret i32 %.036
 }
 
@@ -48904,7 +48886,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   br label %42
 
 42:                                               ; preds = %.preheader, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
-  %.025 = phi i32 [ 0, %.preheader ], [ %113, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread ]
+  %.025 = phi i32 [ 0, %.preheader ], [ %110, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread ]
   %43 = icmp eq i32 %.025, 0
   %44 = zext i1 %43 to i32
   %45 = add nsw i32 %16, %44
@@ -48921,80 +48903,71 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   %56 = srem i32 %55, %52
   %57 = add nsw i32 %52, %51
   %58 = srem i32 %57, %52
-  %59 = sub nsw i32 %45, %54
-  %.lobit.i.i.i = ashr i32 %59, 31
-  %.inv.i.i.i = icmp slt i32 %59, 1
-  %60 = sub nsw i32 %48, %56
-  %.inv.i33.i.i = icmp slt i32 %60, 1
-  %61 = sub nsw i32 %51, %58
-  %.inv.i35.i.i = icmp slt i32 %61, 1
-  %isneg.i.i = icmp slt i32 %60, 0
-  %62 = select i1 %isneg.i.i, i32 -3, i32 0
-  %63 = select i1 %.inv.i33.i.i, i32 %62, i32 3
-  %isneg36.i.i = icmp slt i32 %61, 0
-  %64 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %65 = select i1 %.inv.i35.i.i, i32 %64, i32 9
-  %66 = add nsw i32 %.lobit.i.i.i, 13
-  %67 = select i1 %.inv.i.i.i, i32 %66, i32 14
-  %68 = add nsw i32 %63, %67
-  %69 = add nsw i32 %68, %65
-  %70 = load i32, ptr %37, align 4, !tbaa !19
-  %71 = mul nsw i32 %69, %70
-  %72 = add nsw i32 %71, %7
-  %73 = load ptr, ptr %3, align 8, !tbaa !25
-  %74 = load i32, ptr %38, align 8, !tbaa !24
-  %75 = mul nsw i32 %72, %74
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %73, i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !134, !range !215, !noundef !216
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+  %59 = tail call i32 @llvm.scmp.i32.i32(i32 %45, i32 %54)
+  %60 = tail call i32 @llvm.scmp.i32.i32(i32 %48, i32 %56)
+  %61 = tail call i32 @llvm.scmp.i32.i32(i32 %51, i32 %58)
+  %62 = mul nsw i32 %60, 3
+  %63 = mul nsw i32 %61, 9
+  %64 = add nsw i32 %59, 13
+  %65 = add nsw i32 %64, %62
+  %66 = add nsw i32 %65, %63
+  %67 = load i32, ptr %37, align 4, !tbaa !19
+  %68 = mul nsw i32 %66, %67
+  %69 = add nsw i32 %68, %7
+  %70 = load ptr, ptr %3, align 8, !tbaa !25
+  %71 = load i32, ptr %38, align 8, !tbaa !24
+  %72 = mul nsw i32 %69, %71
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %70, i64 %73
+  %75 = load i8, ptr %74, align 1, !tbaa !134, !range !215, !noundef !216
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit: ; preds = %42
-  %80 = load i32, ptr %39, align 4, !tbaa !19
-  %81 = mul nsw i32 %80, %69
-  %82 = add nsw i32 %81, %7
-  %83 = load ptr, ptr %4, align 8, !tbaa !25
-  %84 = load i32, ptr %40, align 8, !tbaa !24
-  %85 = mul nsw i32 %82, %84
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %83, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !19
-  %89 = mul nsw i32 %88, %52
-  %90 = add nsw i32 %89, %58
-  %91 = mul nsw i32 %90, %52
-  %92 = add nsw i32 %91, %56
-  %93 = mul nsw i32 %92, %52
-  %94 = add nsw i32 %93, %54
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %96
+  %77 = load i32, ptr %39, align 4, !tbaa !19
+  %78 = mul nsw i32 %77, %66
+  %79 = add nsw i32 %78, %7
+  %80 = load ptr, ptr %4, align 8, !tbaa !25
+  %81 = load i32, ptr %40, align 8, !tbaa !24
+  %82 = mul nsw i32 %79, %81
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %80, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !19
+  %86 = mul nsw i32 %85, %52
+  %87 = add nsw i32 %86, %58
+  %88 = mul nsw i32 %87, %52
+  %89 = add nsw i32 %88, %56
+  %90 = mul nsw i32 %89, %52
+  %91 = add nsw i32 %90, %54
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %93
 
-96:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %97 = zext nneg i32 %94 to i64
-  %98 = load ptr, ptr %29, align 8, !tbaa !980
-  %99 = getelementptr inbounds nuw i16, ptr %98, i64 %97
-  %100 = load i16, ptr %99, align 2, !tbaa !788
-  %101 = uitofp i16 %100 to float
-  %102 = load float, ptr %34, align 8, !tbaa !981
-  %103 = fcmp olt float %102, %101
-  br i1 %103, label %104, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+93:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %94 = zext nneg i32 %91 to i64
+  %95 = load ptr, ptr %29, align 8, !tbaa !980
+  %96 = getelementptr inbounds nuw i16, ptr %95, i64 %94
+  %97 = load i16, ptr %96, align 2, !tbaa !788
+  %98 = uitofp i16 %97 to float
+  %99 = load float, ptr %34, align 8, !tbaa !981
+  %100 = fcmp olt float %99, %98
+  br i1 %100, label %101, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %24, align 8, !tbaa !979
-  %106 = getelementptr inbounds nuw float, ptr %105, i64 %97
-  %107 = load float, ptr %106, align 4, !tbaa !662
-  %108 = fmul float %28, %107
-  %109 = fcmp olt float %108, 0.000000e+00
-  br i1 %109, label %110, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %24, align 8, !tbaa !979
+  %103 = getelementptr inbounds nuw float, ptr %102, i64 %94
+  %104 = load float, ptr %103, align 4, !tbaa !662
+  %105 = fmul float %28, %104
+  %106 = fcmp olt float %105, 0.000000e+00
+  br i1 %106, label %107, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-110:                                              ; preds = %104
-  %111 = load ptr, ptr %41, align 8, !tbaa !982
-  %112 = atomicrmw add ptr %111, i32 1 seq_cst, align 4
+107:                                              ; preds = %101
+  %108 = load ptr, ptr %41, align 8, !tbaa !982
+  %109 = atomicrmw add ptr %108, i32 1 seq_cst, align 4
   br label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %42, %96, %104, %110, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %113 = add nuw nsw i32 %.025, 1
-  %exitcond.not = icmp eq i32 %113, 3
+_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %42, %93, %101, %107, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %110 = add nuw nsw i32 %.025, 1
+  %exitcond.not = icmp eq i32 %110, 3
   br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !997
 
 .loopexit:                                        ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, %2
@@ -49150,7 +49123,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %37 = load float, ptr %36, align 8, !tbaa !989
   %38 = fcmp ult float %37, %35
-  br i1 %38, label %39, label %248
+  br i1 %38, label %39, label %245
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -49205,7 +49178,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   br label %84
 
 84:                                               ; preds = %39, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
-  %.0100125 = phi i32 [ 0, %39 ], [ %247, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread ]
+  %.0100125 = phi i32 [ 0, %39 ], [ %244, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread ]
   %85 = icmp eq i32 %.0100125, 0
   %86 = zext i1 %85 to i32
   %87 = add nsw i32 %19, %86
@@ -49222,199 +49195,190 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   %98 = srem i32 %97, %94
   %99 = add nsw i32 %94, %93
   %100 = srem i32 %99, %94
-  %101 = sub nsw i32 %87, %96
-  %.lobit.i.i.i = ashr i32 %101, 31
-  %.inv.i.i.i = icmp slt i32 %101, 1
-  %102 = sub nsw i32 %90, %98
-  %.inv.i33.i.i = icmp slt i32 %102, 1
-  %103 = sub nsw i32 %93, %100
-  %.inv.i35.i.i = icmp slt i32 %103, 1
-  %isneg.i.i = icmp slt i32 %102, 0
-  %104 = select i1 %isneg.i.i, i32 -3, i32 0
-  %105 = select i1 %.inv.i33.i.i, i32 %104, i32 3
-  %isneg36.i.i = icmp slt i32 %103, 0
-  %106 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %107 = select i1 %.inv.i35.i.i, i32 %106, i32 9
-  %108 = add nsw i32 %.lobit.i.i.i, 13
-  %109 = select i1 %.inv.i.i.i, i32 %108, i32 14
-  %110 = add nsw i32 %105, %109
-  %111 = add nsw i32 %110, %107
-  %112 = load i32, ptr %60, align 4, !tbaa !19
-  %113 = mul nsw i32 %111, %112
-  %114 = add nsw i32 %113, %10
-  %115 = load ptr, ptr %5, align 8, !tbaa !25
-  %116 = load i32, ptr %61, align 8, !tbaa !24
-  %117 = mul nsw i32 %114, %116
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %115, i64 %118
-  %120 = load i8, ptr %119, align 1, !tbaa !134, !range !215, !noundef !216
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
+  %101 = call i32 @llvm.scmp.i32.i32(i32 %87, i32 %96)
+  %102 = call i32 @llvm.scmp.i32.i32(i32 %90, i32 %98)
+  %103 = call i32 @llvm.scmp.i32.i32(i32 %93, i32 %100)
+  %104 = mul nsw i32 %102, 3
+  %105 = mul nsw i32 %103, 9
+  %106 = add nsw i32 %101, 13
+  %107 = add nsw i32 %106, %104
+  %108 = add nsw i32 %107, %105
+  %109 = load i32, ptr %60, align 4, !tbaa !19
+  %110 = mul nsw i32 %108, %109
+  %111 = add nsw i32 %110, %10
+  %112 = load ptr, ptr %5, align 8, !tbaa !25
+  %113 = load i32, ptr %61, align 8, !tbaa !24
+  %114 = mul nsw i32 %111, %113
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr %112, i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !134, !range !215, !noundef !216
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit: ; preds = %84
-  %122 = load i32, ptr %62, align 4, !tbaa !19
-  %123 = mul nsw i32 %122, %111
-  %124 = add nsw i32 %123, %10
-  %125 = load ptr, ptr %6, align 8, !tbaa !25
-  %126 = load i32, ptr %63, align 8, !tbaa !24
-  %127 = mul nsw i32 %124, %126
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %125, i64 %128
-  %130 = load i32, ptr %129, align 4, !tbaa !19
-  %131 = mul nsw i32 %130, %94
-  %132 = add nsw i32 %131, %100
-  %133 = mul nsw i32 %132, %94
-  %134 = add nsw i32 %133, %98
-  %135 = mul nsw i32 %134, %94
-  %136 = add nsw i32 %135, %96
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %138
+  %119 = load i32, ptr %62, align 4, !tbaa !19
+  %120 = mul nsw i32 %119, %108
+  %121 = add nsw i32 %120, %10
+  %122 = load ptr, ptr %6, align 8, !tbaa !25
+  %123 = load i32, ptr %63, align 8, !tbaa !24
+  %124 = mul nsw i32 %121, %123
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %122, i64 %125
+  %127 = load i32, ptr %126, align 4, !tbaa !19
+  %128 = mul nsw i32 %127, %94
+  %129 = add nsw i32 %128, %100
+  %130 = mul nsw i32 %129, %94
+  %131 = add nsw i32 %130, %98
+  %132 = mul nsw i32 %131, %94
+  %133 = add nsw i32 %132, %96
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %135
 
-138:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit
-  %139 = load ptr, ptr %7, align 8, !tbaa !985
-  %140 = zext nneg i32 %136 to i64
-  %141 = getelementptr inbounds nuw float, ptr %139, i64 %140
-  %142 = load float, ptr %141, align 4, !tbaa !662
-  %143 = load ptr, ptr %31, align 8, !tbaa !988
-  %144 = getelementptr inbounds nuw i16, ptr %143, i64 %140
-  %145 = load i16, ptr %144, align 2, !tbaa !788
-  %146 = uitofp i16 %145 to float
-  %147 = load float, ptr %36, align 8, !tbaa !989
-  %148 = fcmp olt float %147, %146
-  %149 = fmul float %30, %142
-  %150 = fcmp olt float %149, 0.000000e+00
-  %or.cond = select i1 %148, i1 %150, i1 false
-  br i1 %or.cond, label %151, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
+135:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit
+  %136 = load ptr, ptr %7, align 8, !tbaa !985
+  %137 = zext nneg i32 %133 to i64
+  %138 = getelementptr inbounds nuw float, ptr %136, i64 %137
+  %139 = load float, ptr %138, align 4, !tbaa !662
+  %140 = load ptr, ptr %31, align 8, !tbaa !988
+  %141 = getelementptr inbounds nuw i16, ptr %140, i64 %137
+  %142 = load i16, ptr %141, align 2, !tbaa !788
+  %143 = uitofp i16 %142 to float
+  %144 = load float, ptr %36, align 8, !tbaa !989
+  %145 = fcmp olt float %144, %143
+  %146 = fmul float %30, %139
+  %147 = fcmp olt float %146, 0.000000e+00
+  %or.cond = select i1 %145, i1 %147, i1 false
+  br i1 %or.cond, label %148, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
 
-151:                                              ; preds = %138
-  %152 = fsub float %142, %30
-  %153 = fdiv float %64, %152
-  %154 = load ptr, ptr %65, align 8, !tbaa !990
-  %155 = atomicrmw add ptr %154, i32 1 seq_cst, align 4
-  %156 = load i32, ptr %66, align 8, !tbaa !991
-  %.not = icmp slt i32 %155, %156
-  br i1 %.not, label %157, label %246
+148:                                              ; preds = %135
+  %149 = fsub float %139, %30
+  %150 = fdiv float %64, %149
+  %151 = load ptr, ptr %65, align 8, !tbaa !990
+  %152 = atomicrmw add ptr %151, i32 1 seq_cst, align 4
+  %153 = load i32, ptr %66, align 8, !tbaa !991
+  %.not = icmp slt i32 %152, %153
+  br i1 %.not, label %154, label %243
 
-157:                                              ; preds = %151
-  %158 = load ptr, ptr %67, align 8, !tbaa !25
-  %159 = load i32, ptr %68, align 8, !tbaa !24
-  %160 = mul nsw i32 %159, %155
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %158, i64 %161
-  %163 = load float, ptr %69, align 8, !tbaa !992
-  %164 = uitofp i1 %85 to float
-  %165 = call float @llvm.fmuladd.f32(float %153, float %164, float %70)
-  %166 = fmul float %165, %163
-  store float %166, ptr %162, align 4, !tbaa !662
-  %167 = load float, ptr %69, align 8, !tbaa !992
-  %168 = uitofp i1 %88 to float
-  %169 = call float @llvm.fmuladd.f32(float %153, float %168, float %71)
-  %170 = fmul float %169, %167
-  %171 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  store float %170, ptr %171, align 4, !tbaa !662
-  %172 = load float, ptr %69, align 8, !tbaa !992
-  %173 = uitofp i1 %91 to float
-  %174 = call float @llvm.fmuladd.f32(float %153, float %173, float %72)
-  %175 = fmul float %174, %172
-  %176 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store float %175, ptr %176, align 4, !tbaa !662
-  %177 = load ptr, ptr %73, align 8, !tbaa !25
-  %178 = load i32, ptr %74, align 8, !tbaa !24
-  %179 = mul nsw i32 %178, %155
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i8, ptr %177, i64 %180
-  %182 = load ptr, ptr %7, align 8, !tbaa !910
-  %183 = load i32, ptr %0, align 8, !tbaa !19
-  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %182, i32 noundef %87, i32 noundef %90, i32 noundef %93, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %183, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %184 = fsub float 1.000000e+00, %153
-  %185 = load float, ptr %3, align 4, !tbaa !662
-  %186 = load float, ptr %4, align 4, !tbaa !662
-  %187 = fmul float %153, %186
-  %188 = call float @llvm.fmuladd.f32(float %184, float %185, float %187)
-  %189 = load float, ptr %75, align 4, !tbaa !662
-  %190 = load float, ptr %76, align 4, !tbaa !662
-  %191 = fmul float %153, %190
-  %192 = call float @llvm.fmuladd.f32(float %184, float %189, float %191)
-  %193 = load float, ptr %77, align 4, !tbaa !662
-  %194 = load float, ptr %78, align 4, !tbaa !662
-  %195 = fmul float %153, %194
-  %196 = call float @llvm.fmuladd.f32(float %184, float %193, float %195)
-  %197 = fmul float %192, %192
-  %198 = call float @llvm.fmuladd.f32(float %188, float %188, float %197)
-  %199 = call float @llvm.fmuladd.f32(float %196, float %196, float %198)
-  %200 = fpext float %199 to double
-  %sqrt = call double @llvm.sqrt.f64(double %200)
-  %201 = fadd double %sqrt, 1.000000e-05
-  %202 = fptrunc double %201 to float
-  %203 = fdiv float %188, %202
-  store float %203, ptr %181, align 4, !tbaa !662
-  %204 = fdiv float %192, %202
-  %205 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  store float %204, ptr %205, align 4, !tbaa !662
-  %206 = fdiv float %196, %202
-  %207 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  store float %206, ptr %207, align 4, !tbaa !662
-  %208 = load ptr, ptr %79, align 8, !tbaa !993
-  %.not103 = icmp eq ptr %208, null
-  br i1 %.not103, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %209
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %67, align 8, !tbaa !25
+  %156 = load i32, ptr %68, align 8, !tbaa !24
+  %157 = mul nsw i32 %156, %152
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds i8, ptr %155, i64 %158
+  %160 = load float, ptr %69, align 8, !tbaa !992
+  %161 = uitofp i1 %85 to float
+  %162 = call float @llvm.fmuladd.f32(float %150, float %161, float %70)
+  %163 = fmul float %162, %160
+  store float %163, ptr %159, align 4, !tbaa !662
+  %164 = load float, ptr %69, align 8, !tbaa !992
+  %165 = uitofp i1 %88 to float
+  %166 = call float @llvm.fmuladd.f32(float %150, float %165, float %71)
+  %167 = fmul float %166, %164
+  %168 = getelementptr inbounds nuw i8, ptr %159, i64 4
+  store float %167, ptr %168, align 4, !tbaa !662
+  %169 = load float, ptr %69, align 8, !tbaa !992
+  %170 = uitofp i1 %91 to float
+  %171 = call float @llvm.fmuladd.f32(float %150, float %170, float %72)
+  %172 = fmul float %171, %169
+  %173 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store float %172, ptr %173, align 4, !tbaa !662
+  %174 = load ptr, ptr %73, align 8, !tbaa !25
+  %175 = load i32, ptr %74, align 8, !tbaa !24
+  %176 = mul nsw i32 %175, %152
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i8, ptr %174, i64 %177
+  %179 = load ptr, ptr %7, align 8, !tbaa !910
+  %180 = load i32, ptr %0, align 8, !tbaa !19
+  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %179, i32 noundef %87, i32 noundef %90, i32 noundef %93, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %181 = fsub float 1.000000e+00, %150
+  %182 = load float, ptr %3, align 4, !tbaa !662
+  %183 = load float, ptr %4, align 4, !tbaa !662
+  %184 = fmul float %150, %183
+  %185 = call float @llvm.fmuladd.f32(float %181, float %182, float %184)
+  %186 = load float, ptr %75, align 4, !tbaa !662
+  %187 = load float, ptr %76, align 4, !tbaa !662
+  %188 = fmul float %150, %187
+  %189 = call float @llvm.fmuladd.f32(float %181, float %186, float %188)
+  %190 = load float, ptr %77, align 4, !tbaa !662
+  %191 = load float, ptr %78, align 4, !tbaa !662
+  %192 = fmul float %150, %191
+  %193 = call float @llvm.fmuladd.f32(float %181, float %190, float %192)
+  %194 = fmul float %189, %189
+  %195 = call float @llvm.fmuladd.f32(float %185, float %185, float %194)
+  %196 = call float @llvm.fmuladd.f32(float %193, float %193, float %195)
+  %197 = fpext float %196 to double
+  %sqrt = call double @llvm.sqrt.f64(double %197)
+  %198 = fadd double %sqrt, 1.000000e-05
+  %199 = fptrunc double %198 to float
+  %200 = fdiv float %185, %199
+  store float %200, ptr %178, align 4, !tbaa !662
+  %201 = fdiv float %189, %199
+  %202 = getelementptr inbounds nuw i8, ptr %178, i64 4
+  store float %201, ptr %202, align 4, !tbaa !662
+  %203 = fdiv float %193, %199
+  %204 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store float %203, ptr %204, align 4, !tbaa !662
+  %205 = load ptr, ptr %79, align 8, !tbaa !993
+  %.not103 = icmp eq ptr %205, null
+  br i1 %.not103, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %206
 
-209:                                              ; preds = %157
-  %210 = load ptr, ptr %80, align 8, !tbaa !25
-  %211 = load i32, ptr %81, align 8, !tbaa !24
-  %212 = mul nsw i32 %211, %155
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i8, ptr %210, i64 %213
-  %215 = getelementptr inbounds i16, ptr %208, i64 %83
+206:                                              ; preds = %154
+  %207 = load ptr, ptr %80, align 8, !tbaa !25
+  %208 = load i32, ptr %81, align 8, !tbaa !24
+  %209 = mul nsw i32 %208, %152
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds i8, ptr %207, i64 %210
+  %212 = getelementptr inbounds i16, ptr %205, i64 %83
+  %213 = load i16, ptr %212, align 2, !tbaa !788
+  %214 = uitofp i16 %213 to float
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 2
   %216 = load i16, ptr %215, align 2, !tbaa !788
   %217 = uitofp i16 %216 to float
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 2
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %219 = load i16, ptr %218, align 2, !tbaa !788
   %220 = uitofp i16 %219 to float
-  %221 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  %222 = load i16, ptr %221, align 2, !tbaa !788
-  %223 = uitofp i16 %222 to float
-  %224 = mul nuw nsw i32 %136, 3
-  %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw i16, ptr %208, i64 %225
+  %221 = mul nuw nsw i32 %133, 3
+  %222 = zext nneg i32 %221 to i64
+  %223 = getelementptr inbounds nuw i16, ptr %205, i64 %222
+  %224 = load i16, ptr %223, align 2, !tbaa !788
+  %225 = uitofp i16 %224 to float
+  %226 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %227 = load i16, ptr %226, align 2, !tbaa !788
   %228 = uitofp i16 %227 to float
-  %229 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  %229 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %230 = load i16, ptr %229, align 2, !tbaa !788
   %231 = uitofp i16 %230 to float
-  %232 = getelementptr inbounds nuw i8, ptr %226, i64 4
-  %233 = load i16, ptr %232, align 2, !tbaa !788
-  %234 = uitofp i16 %233 to float
-  %235 = fmul float %153, %228
-  %236 = call float @llvm.fmuladd.f32(float %184, float %217, float %235)
+  %232 = fmul float %150, %225
+  %233 = call float @llvm.fmuladd.f32(float %181, float %214, float %232)
+  %234 = fdiv float %233, 2.550000e+02
+  store float %234, ptr %211, align 4, !tbaa !662
+  %235 = fmul float %150, %228
+  %236 = call float @llvm.fmuladd.f32(float %181, float %217, float %235)
   %237 = fdiv float %236, 2.550000e+02
-  store float %237, ptr %214, align 4, !tbaa !662
-  %238 = fmul float %153, %231
-  %239 = call float @llvm.fmuladd.f32(float %184, float %220, float %238)
-  %240 = fdiv float %239, 2.550000e+02
-  %241 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store float %240, ptr %241, align 4, !tbaa !662
-  %242 = fmul float %153, %234
-  %243 = call float @llvm.fmuladd.f32(float %184, float %223, float %242)
-  %244 = fdiv float %243, 2.550000e+02
-  %245 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  store float %244, ptr %245, align 4, !tbaa !662
+  %238 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  store float %237, ptr %238, align 4, !tbaa !662
+  %239 = fmul float %150, %231
+  %240 = call float @llvm.fmuladd.f32(float %181, float %220, float %239)
+  %241 = fdiv float %240, 2.550000e+02
+  %242 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store float %241, ptr %242, align 4, !tbaa !662
   br label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
 
-246:                                              ; preds = %151
+243:                                              ; preds = %148
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %.loopexit
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %209, %157, %84, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, %138
-  %247 = add nuw nsw i32 %.0100125, 1
-  %exitcond.not = icmp eq i32 %247, 3
+_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %206, %154, %84, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, %135
+  %244 = add nuw nsw i32 %.0100125, 1
+  %exitcond.not = icmp eq i32 %244, 3
   br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !998
 
-.loopexit:                                        ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, %246
+.loopexit:                                        ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfttEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, %243
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %248
+  br label %245
 
-248:                                              ; preds = %2, %.loopexit
+245:                                              ; preds = %2, %.loopexit
   ret void
 }
 
@@ -49427,318 +49391,291 @@ define linkonce_odr hidden void @_ZN6open3d1t8geometry6kernel10voxel_grid15Devic
   %14 = srem i32 %13, %6
   %15 = add nsw i32 %6, %3
   %16 = srem i32 %15, %6
-  %17 = sub nsw i32 %10, %12
-  %.lobit.i.i.i = ashr i32 %17, 31
-  %.inv.i.i.i = icmp slt i32 %17, 1
-  %18 = sub nsw i32 %2, %14
-  %.inv.i33.i.i = icmp slt i32 %18, 1
-  %19 = sub nsw i32 %3, %16
-  %.inv.i35.i.i = icmp slt i32 %19, 1
-  %isneg.i.i = icmp slt i32 %18, 0
-  %20 = select i1 %isneg.i.i, i32 -3, i32 0
-  %21 = select i1 %.inv.i33.i.i, i32 %20, i32 3
-  %isneg36.i.i = icmp slt i32 %19, 0
-  %22 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %23 = select i1 %.inv.i35.i.i, i32 %22, i32 9
-  %24 = add nsw i32 %.lobit.i.i.i, 13
-  %25 = select i1 %.inv.i.i.i, i32 %24, i32 14
-  %26 = add nsw i32 %23, %21
-  %27 = add nsw i32 %26, %25
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %29 = load i32, ptr %28, align 4, !tbaa !19
-  %30 = mul nsw i32 %27, %29
-  %31 = add nsw i32 %30, %4
-  %32 = load ptr, ptr %7, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !24
-  %35 = mul nsw i32 %31, %34
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %32, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !134, !range !215, !noundef !216
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit
+  %17 = tail call i32 @llvm.scmp.i32.i32(i32 %10, i32 %12)
+  %18 = tail call i32 @llvm.scmp.i32.i32(i32 %2, i32 %14)
+  %19 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %16)
+  %20 = mul nsw i32 %18, 3
+  %21 = mul nsw i32 %19, 9
+  %22 = add nsw i32 %20, 13
+  %23 = add nsw i32 %22, %17
+  %24 = add nsw i32 %23, %21
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %26 = load i32, ptr %25, align 4, !tbaa !19
+  %27 = mul nsw i32 %24, %26
+  %28 = add nsw i32 %27, %4
+  %29 = load ptr, ptr %7, align 8, !tbaa !25
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !24
+  %32 = mul nsw i32 %28, %31
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %29, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !134, !range !215, !noundef !216
+  %36 = trunc nuw i8 %35 to i1
+  br i1 %36, label %37, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit
 
-40:                                               ; preds = %9
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %42 = load i32, ptr %41, align 4, !tbaa !19
-  %43 = mul nsw i32 %42, %27
-  %44 = add nsw i32 %43, %4
-  %45 = load ptr, ptr %8, align 8, !tbaa !25
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !24
-  %48 = mul nsw i32 %44, %47
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !19
-  %52 = mul nsw i32 %51, %6
-  %53 = add nsw i32 %52, %16
-  %54 = mul nsw i32 %53, %6
-  %55 = add nsw i32 %54, %14
-  %56 = mul nsw i32 %55, %6
-  %57 = add nsw i32 %56, %12
+37:                                               ; preds = %9
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %39 = load i32, ptr %38, align 4, !tbaa !19
+  %40 = mul nsw i32 %39, %24
+  %41 = add nsw i32 %40, %4
+  %42 = load ptr, ptr %8, align 8, !tbaa !25
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %44 = load i32, ptr %43, align 8, !tbaa !24
+  %45 = mul nsw i32 %41, %44
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr %42, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !19
+  %49 = mul nsw i32 %48, %6
+  %50 = add nsw i32 %49, %16
+  %51 = mul nsw i32 %50, %6
+  %52 = add nsw i32 %51, %14
+  %53 = mul nsw i32 %52, %6
+  %54 = add nsw i32 %53, %12
   br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit
 
-_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit: ; preds = %9, %40
-  %.0.i.i = phi i32 [ %57, %40 ], [ -1, %9 ]
-  %58 = add nsw i32 %1, -1
-  %59 = add nsw i32 %6, %58
-  %60 = srem i32 %59, %6
-  %61 = sub nsw i32 %58, %60
-  %.lobit.i.i.i50 = ashr i32 %61, 31
-  %.inv.i.i.i51 = icmp slt i32 %61, 1
-  %62 = add nsw i32 %.lobit.i.i.i50, 13
-  %63 = select i1 %.inv.i.i.i51, i32 %62, i32 14
-  %64 = add nsw i32 %26, %63
-  %65 = mul nsw i32 %64, %29
-  %66 = add nsw i32 %65, %4
-  %67 = mul nsw i32 %66, %34
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %32, i64 %68
-  %70 = load i8, ptr %69, align 1, !tbaa !134, !range !215, !noundef !216
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57
+_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit: ; preds = %9, %37
+  %.0.i.i = phi i32 [ %54, %37 ], [ -1, %9 ]
+  %55 = add nsw i32 %1, -1
+  %56 = add nsw i32 %6, %55
+  %57 = srem i32 %56, %6
+  %58 = tail call i32 @llvm.scmp.i32.i32(i32 %55, i32 %57)
+  %59 = add nsw i32 %22, %21
+  %60 = add nsw i32 %59, %58
+  %61 = mul nsw i32 %60, %26
+  %62 = add nsw i32 %61, %4
+  %63 = mul nsw i32 %62, %31
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %29, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !134, !range !215, !noundef !216
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit51
 
-72:                                               ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %74 = load i32, ptr %73, align 4, !tbaa !19
-  %75 = mul nsw i32 %74, %64
-  %76 = add nsw i32 %75, %4
-  %77 = load ptr, ptr %8, align 8, !tbaa !25
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !24
-  %80 = mul nsw i32 %76, %79
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %77, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !19
+68:                                               ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %70 = load i32, ptr %69, align 4, !tbaa !19
+  %71 = mul nsw i32 %70, %60
+  %72 = add nsw i32 %71, %4
+  %73 = load ptr, ptr %8, align 8, !tbaa !25
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %75 = load i32, ptr %74, align 8, !tbaa !24
+  %76 = mul nsw i32 %72, %75
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %73, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !19
+  %80 = mul nsw i32 %79, %6
+  %81 = add nsw i32 %80, %16
+  %82 = mul nsw i32 %81, %6
+  %83 = add nsw i32 %82, %14
   %84 = mul nsw i32 %83, %6
-  %85 = add nsw i32 %84, %16
-  %86 = mul nsw i32 %85, %6
-  %87 = add nsw i32 %86, %14
-  %88 = mul nsw i32 %87, %6
-  %89 = add nsw i32 %88, %60
+  %85 = add nsw i32 %84, %57
+  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit51
+
+_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit51: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit, %68
+  %.0.i.i50 = phi i32 [ %85, %68 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit ]
+  %86 = add nsw i32 %2, 1
+  %87 = add nsw i32 %6, %1
+  %88 = srem i32 %87, %6
+  %89 = add nsw i32 %6, %86
+  %90 = srem i32 %89, %6
+  %91 = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 %88)
+  %92 = tail call i32 @llvm.scmp.i32.i32(i32 %86, i32 %90)
+  %93 = mul nsw i32 %92, 3
+  %94 = add nsw i32 %91, 13
+  %95 = add nsw i32 %94, %21
+  %96 = add nsw i32 %95, %93
+  %97 = mul nsw i32 %96, %26
+  %98 = add nsw i32 %97, %4
+  %99 = mul nsw i32 %98, %31
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr %29, i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !134, !range !215, !noundef !216
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit53
+
+104:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit51
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %107 = mul nsw i32 %106, %96
+  %108 = add nsw i32 %107, %4
+  %109 = load ptr, ptr %8, align 8, !tbaa !25
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %111 = load i32, ptr %110, align 8, !tbaa !24
+  %112 = mul nsw i32 %108, %111
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %109, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !19
+  %116 = mul nsw i32 %115, %6
+  %117 = add nsw i32 %116, %16
+  %118 = mul nsw i32 %117, %6
+  %119 = add nsw i32 %118, %90
+  %120 = mul nsw i32 %119, %6
+  %121 = add nsw i32 %120, %88
+  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit53
+
+_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit53: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit51, %104
+  %.0.i.i52 = phi i32 [ %121, %104 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit51 ]
+  %122 = add nsw i32 %2, -1
+  %123 = add nsw i32 %6, %122
+  %124 = srem i32 %123, %6
+  %125 = tail call i32 @llvm.scmp.i32.i32(i32 %122, i32 %124)
+  %126 = mul nsw i32 %125, 3
+  %127 = add nsw i32 %95, %126
+  %128 = mul nsw i32 %127, %26
+  %129 = add nsw i32 %128, %4
+  %130 = mul nsw i32 %129, %31
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %29, i64 %131
+  %133 = load i8, ptr %132, align 1, !tbaa !134, !range !215, !noundef !216
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit55
+
+135:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit53
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %137 = load i32, ptr %136, align 4, !tbaa !19
+  %138 = mul nsw i32 %137, %127
+  %139 = add nsw i32 %138, %4
+  %140 = load ptr, ptr %8, align 8, !tbaa !25
+  %141 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %142 = load i32, ptr %141, align 8, !tbaa !24
+  %143 = mul nsw i32 %139, %142
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds i8, ptr %140, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !19
+  %147 = mul nsw i32 %146, %6
+  %148 = add nsw i32 %147, %16
+  %149 = mul nsw i32 %148, %6
+  %150 = add nsw i32 %149, %124
+  %151 = mul nsw i32 %150, %6
+  %152 = add nsw i32 %151, %88
+  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit55
+
+_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit55: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit53, %135
+  %.0.i.i54 = phi i32 [ %152, %135 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit53 ]
+  %153 = add nsw i32 %3, 1
+  %154 = add nsw i32 %6, %153
+  %155 = srem i32 %154, %6
+  %156 = tail call i32 @llvm.scmp.i32.i32(i32 %153, i32 %155)
+  %157 = mul nsw i32 %156, 9
+  %158 = add nsw i32 %94, %20
+  %159 = add nsw i32 %157, %158
+  %160 = mul nsw i32 %159, %26
+  %161 = add nsw i32 %160, %4
+  %162 = mul nsw i32 %161, %31
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i8, ptr %29, i64 %163
+  %165 = load i8, ptr %164, align 1, !tbaa !134, !range !215, !noundef !216
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %167, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57
+
+167:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit55
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %169 = load i32, ptr %168, align 4, !tbaa !19
+  %170 = mul nsw i32 %169, %159
+  %171 = add nsw i32 %170, %4
+  %172 = load ptr, ptr %8, align 8, !tbaa !25
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %174 = load i32, ptr %173, align 8, !tbaa !24
+  %175 = mul nsw i32 %171, %174
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds i8, ptr %172, i64 %176
+  %178 = load i32, ptr %177, align 4, !tbaa !19
+  %179 = mul nsw i32 %178, %6
+  %180 = add nsw i32 %179, %155
+  %181 = mul nsw i32 %180, %6
+  %182 = add nsw i32 %181, %14
+  %183 = mul nsw i32 %182, %6
+  %184 = add nsw i32 %183, %88
   br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57
 
-_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit, %72
-  %.0.i.i56 = phi i32 [ %89, %72 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit ]
-  %90 = add nsw i32 %2, 1
-  %91 = add nsw i32 %6, %1
-  %92 = srem i32 %91, %6
-  %93 = add nsw i32 %6, %90
-  %94 = srem i32 %93, %6
-  %95 = sub nsw i32 %1, %92
-  %.lobit.i.i.i58 = ashr i32 %95, 31
-  %.inv.i.i.i59 = icmp slt i32 %95, 1
-  %96 = sub nsw i32 %90, %94
-  %.inv.i33.i.i60 = icmp slt i32 %96, 1
-  %isneg.i.i62 = icmp slt i32 %96, 0
-  %97 = select i1 %isneg.i.i62, i32 -3, i32 0
-  %98 = select i1 %.inv.i33.i.i60, i32 %97, i32 3
-  %99 = add nsw i32 %.lobit.i.i.i58, 13
-  %100 = select i1 %.inv.i.i.i59, i32 %99, i32 14
-  %101 = add nsw i32 %100, %23
-  %102 = add nsw i32 %101, %98
-  %103 = mul nsw i32 %102, %29
-  %104 = add nsw i32 %103, %4
-  %105 = mul nsw i32 %104, %34
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %32, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !134, !range !215, !noundef !216
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit65
+_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit55, %167
+  %.0.i.i56 = phi i32 [ %184, %167 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit55 ]
+  %185 = add nsw i32 %3, -1
+  %186 = add nsw i32 %6, %185
+  %187 = srem i32 %186, %6
+  %188 = tail call i32 @llvm.scmp.i32.i32(i32 %185, i32 %187)
+  %189 = mul nsw i32 %188, 9
+  %190 = add nsw i32 %189, %158
+  %191 = mul nsw i32 %190, %26
+  %192 = add nsw i32 %191, %4
+  %193 = mul nsw i32 %192, %31
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i8, ptr %29, i64 %194
+  %196 = load i8, ptr %195, align 1, !tbaa !134, !range !215, !noundef !216
+  %197 = trunc nuw i8 %196 to i1
+  br i1 %197, label %198, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit59
 
-110:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %112 = load i32, ptr %111, align 4, !tbaa !19
-  %113 = mul nsw i32 %112, %102
-  %114 = add nsw i32 %113, %4
-  %115 = load ptr, ptr %8, align 8, !tbaa !25
-  %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %117 = load i32, ptr %116, align 8, !tbaa !24
-  %118 = mul nsw i32 %114, %117
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %115, i64 %119
-  %121 = load i32, ptr %120, align 4, !tbaa !19
-  %122 = mul nsw i32 %121, %6
-  %123 = add nsw i32 %122, %16
-  %124 = mul nsw i32 %123, %6
-  %125 = add nsw i32 %124, %94
-  %126 = mul nsw i32 %125, %6
-  %127 = add nsw i32 %126, %92
-  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit65
-
-_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit65: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57, %110
-  %.0.i.i64 = phi i32 [ %127, %110 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57 ]
-  %128 = add nsw i32 %2, -1
-  %129 = add nsw i32 %6, %128
-  %130 = srem i32 %129, %6
-  %131 = sub nsw i32 %128, %130
-  %.inv.i33.i.i68 = icmp slt i32 %131, 1
-  %isneg.i.i70 = icmp slt i32 %131, 0
-  %132 = select i1 %isneg.i.i70, i32 -3, i32 0
-  %133 = select i1 %.inv.i33.i.i68, i32 %132, i32 3
-  %134 = add nsw i32 %101, %133
-  %135 = mul nsw i32 %134, %29
-  %136 = add nsw i32 %135, %4
-  %137 = mul nsw i32 %136, %34
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %32, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !134, !range !215, !noundef !216
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %142, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit73
-
-142:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit65
-  %143 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %144 = load i32, ptr %143, align 4, !tbaa !19
-  %145 = mul nsw i32 %144, %134
-  %146 = add nsw i32 %145, %4
-  %147 = load ptr, ptr %8, align 8, !tbaa !25
-  %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %149 = load i32, ptr %148, align 8, !tbaa !24
-  %150 = mul nsw i32 %146, %149
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i8, ptr %147, i64 %151
-  %153 = load i32, ptr %152, align 4, !tbaa !19
-  %154 = mul nsw i32 %153, %6
-  %155 = add nsw i32 %154, %16
-  %156 = mul nsw i32 %155, %6
-  %157 = add nsw i32 %156, %130
-  %158 = mul nsw i32 %157, %6
-  %159 = add nsw i32 %158, %92
-  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit73
-
-_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit73: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit65, %142
-  %.0.i.i72 = phi i32 [ %159, %142 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit65 ]
-  %160 = add nsw i32 %3, 1
-  %161 = add nsw i32 %6, %160
-  %162 = srem i32 %161, %6
-  %163 = sub nsw i32 %160, %162
-  %.inv.i35.i.i77 = icmp slt i32 %163, 1
-  %isneg36.i.i79 = icmp slt i32 %163, 0
-  %164 = select i1 %isneg36.i.i79, i32 -9, i32 0
-  %165 = select i1 %.inv.i35.i.i77, i32 %164, i32 9
-  %166 = add nsw i32 %100, %21
-  %167 = add nsw i32 %165, %166
-  %168 = mul nsw i32 %167, %29
-  %169 = add nsw i32 %168, %4
-  %170 = mul nsw i32 %169, %34
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %32, i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !134, !range !215, !noundef !216
-  %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %175, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit81
-
-175:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit73
-  %176 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %177 = load i32, ptr %176, align 4, !tbaa !19
-  %178 = mul nsw i32 %177, %167
-  %179 = add nsw i32 %178, %4
-  %180 = load ptr, ptr %8, align 8, !tbaa !25
-  %181 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %182 = load i32, ptr %181, align 8, !tbaa !24
-  %183 = mul nsw i32 %179, %182
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds i8, ptr %180, i64 %184
-  %186 = load i32, ptr %185, align 4, !tbaa !19
-  %187 = mul nsw i32 %186, %6
-  %188 = add nsw i32 %187, %162
-  %189 = mul nsw i32 %188, %6
-  %190 = add nsw i32 %189, %14
-  %191 = mul nsw i32 %190, %6
-  %192 = add nsw i32 %191, %92
-  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit81
-
-_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit81: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit73, %175
-  %.0.i.i80 = phi i32 [ %192, %175 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit73 ]
-  %193 = add nsw i32 %3, -1
-  %194 = add nsw i32 %6, %193
-  %195 = srem i32 %194, %6
-  %196 = sub nsw i32 %193, %195
-  %.inv.i35.i.i85 = icmp slt i32 %196, 1
-  %isneg36.i.i87 = icmp slt i32 %196, 0
-  %197 = select i1 %isneg36.i.i87, i32 -9, i32 0
-  %198 = select i1 %.inv.i35.i.i85, i32 %197, i32 9
-  %199 = add nsw i32 %198, %166
-  %200 = mul nsw i32 %199, %29
-  %201 = add nsw i32 %200, %4
-  %202 = mul nsw i32 %201, %34
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i8, ptr %32, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !134, !range !215, !noundef !216
-  %206 = trunc nuw i8 %205 to i1
-  br i1 %206, label %207, label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit89
-
-207:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit81
-  %208 = getelementptr inbounds nuw i8, ptr %8, i64 20
+198:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57
+  %199 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %200 = load i32, ptr %199, align 4, !tbaa !19
+  %201 = mul nsw i32 %200, %190
+  %202 = add nsw i32 %201, %4
+  %203 = load ptr, ptr %8, align 8, !tbaa !25
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %205 = load i32, ptr %204, align 8, !tbaa !24
+  %206 = mul nsw i32 %202, %205
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds i8, ptr %203, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !19
-  %210 = mul nsw i32 %209, %199
-  %211 = add nsw i32 %210, %4
-  %212 = load ptr, ptr %8, align 8, !tbaa !25
-  %213 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %214 = load i32, ptr %213, align 8, !tbaa !24
-  %215 = mul nsw i32 %211, %214
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds i8, ptr %212, i64 %216
-  %218 = load i32, ptr %217, align 4, !tbaa !19
-  %219 = mul nsw i32 %218, %6
-  %220 = add nsw i32 %219, %195
-  %221 = mul nsw i32 %220, %6
-  %222 = add nsw i32 %221, %14
-  %223 = mul nsw i32 %222, %6
-  %224 = add nsw i32 %223, %92
-  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit89
+  %210 = mul nsw i32 %209, %6
+  %211 = add nsw i32 %210, %187
+  %212 = mul nsw i32 %211, %6
+  %213 = add nsw i32 %212, %14
+  %214 = mul nsw i32 %213, %6
+  %215 = add nsw i32 %214, %88
+  br label %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit59
 
-_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit89: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit81, %207
-  %.0.i.i88 = phi i32 [ %224, %207 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit81 ]
-  %225 = or i32 %.0.i.i56, %.0.i.i
-  %or.cond = icmp sgt i32 %225, -1
-  br i1 %or.cond, label %226, label %234
+_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit59: ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57, %198
+  %.0.i.i58 = phi i32 [ %215, %198 ], [ -1, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit57 ]
+  %216 = or i32 %.0.i.i50, %.0.i.i
+  %or.cond = icmp sgt i32 %216, -1
+  br i1 %or.cond, label %217, label %225
 
-226:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit89
-  %227 = zext nneg i32 %.0.i.i to i64
-  %228 = getelementptr inbounds nuw float, ptr %0, i64 %227
-  %229 = load float, ptr %228, align 4, !tbaa !662
-  %230 = zext nneg i32 %.0.i.i56 to i64
-  %231 = getelementptr inbounds nuw float, ptr %0, i64 %230
-  %232 = load float, ptr %231, align 4, !tbaa !662
-  %233 = fsub float %229, %232
-  store float %233, ptr %5, align 4, !tbaa !662
-  br label %234
+217:                                              ; preds = %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit59
+  %218 = zext nneg i32 %.0.i.i to i64
+  %219 = getelementptr inbounds nuw float, ptr %0, i64 %218
+  %220 = load float, ptr %219, align 4, !tbaa !662
+  %221 = zext nneg i32 %.0.i.i50 to i64
+  %222 = getelementptr inbounds nuw float, ptr %0, i64 %221
+  %223 = load float, ptr %222, align 4, !tbaa !662
+  %224 = fsub float %220, %223
+  store float %224, ptr %5, align 4, !tbaa !662
+  br label %225
 
-234:                                              ; preds = %226, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit89
-  %235 = or i32 %.0.i.i72, %.0.i.i64
-  %or.cond3 = icmp sgt i32 %235, -1
-  br i1 %or.cond3, label %236, label %245
+225:                                              ; preds = %217, %_ZZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_ENKUliiiE_clEiii.exit59
+  %226 = or i32 %.0.i.i54, %.0.i.i52
+  %or.cond3 = icmp sgt i32 %226, -1
+  br i1 %or.cond3, label %227, label %236
 
-236:                                              ; preds = %234
-  %237 = zext nneg i32 %.0.i.i64 to i64
-  %238 = getelementptr inbounds nuw float, ptr %0, i64 %237
-  %239 = load float, ptr %238, align 4, !tbaa !662
-  %240 = zext nneg i32 %.0.i.i72 to i64
-  %241 = getelementptr inbounds nuw float, ptr %0, i64 %240
-  %242 = load float, ptr %241, align 4, !tbaa !662
-  %243 = fsub float %239, %242
-  %244 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %243, ptr %244, align 4, !tbaa !662
-  br label %245
+227:                                              ; preds = %225
+  %228 = zext nneg i32 %.0.i.i52 to i64
+  %229 = getelementptr inbounds nuw float, ptr %0, i64 %228
+  %230 = load float, ptr %229, align 4, !tbaa !662
+  %231 = zext nneg i32 %.0.i.i54 to i64
+  %232 = getelementptr inbounds nuw float, ptr %0, i64 %231
+  %233 = load float, ptr %232, align 4, !tbaa !662
+  %234 = fsub float %230, %233
+  %235 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float %234, ptr %235, align 4, !tbaa !662
+  br label %236
 
-245:                                              ; preds = %236, %234
-  %246 = or i32 %.0.i.i88, %.0.i.i80
-  %or.cond5 = icmp sgt i32 %246, -1
-  br i1 %or.cond5, label %247, label %256
+236:                                              ; preds = %227, %225
+  %237 = or i32 %.0.i.i58, %.0.i.i56
+  %or.cond5 = icmp sgt i32 %237, -1
+  br i1 %or.cond5, label %238, label %247
 
-247:                                              ; preds = %245
-  %248 = zext nneg i32 %.0.i.i80 to i64
-  %249 = getelementptr inbounds nuw float, ptr %0, i64 %248
-  %250 = load float, ptr %249, align 4, !tbaa !662
-  %251 = zext nneg i32 %.0.i.i88 to i64
-  %252 = getelementptr inbounds nuw float, ptr %0, i64 %251
-  %253 = load float, ptr %252, align 4, !tbaa !662
-  %254 = fsub float %250, %253
-  %255 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %254, ptr %255, align 4, !tbaa !662
-  br label %256
+238:                                              ; preds = %236
+  %239 = zext nneg i32 %.0.i.i56 to i64
+  %240 = getelementptr inbounds nuw float, ptr %0, i64 %239
+  %241 = load float, ptr %240, align 4, !tbaa !662
+  %242 = zext nneg i32 %.0.i.i58 to i64
+  %243 = getelementptr inbounds nuw float, ptr %0, i64 %242
+  %244 = load float, ptr %243, align 4, !tbaa !662
+  %245 = fsub float %241, %244
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store float %245, ptr %246, align 4, !tbaa !662
+  br label %247
 
-256:                                              ; preds = %247, %245
+247:                                              ; preds = %238, %236
   ret void
 }
 
@@ -51002,7 +50939,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   br label %41
 
 41:                                               ; preds = %.preheader, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
-  %.025 = phi i32 [ 0, %.preheader ], [ %111, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread ]
+  %.025 = phi i32 [ 0, %.preheader ], [ %108, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread ]
   %42 = icmp eq i32 %.025, 0
   %43 = zext i1 %42 to i32
   %44 = add nsw i32 %16, %43
@@ -51019,79 +50956,70 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   %55 = srem i32 %54, %51
   %56 = add nsw i32 %51, %50
   %57 = srem i32 %56, %51
-  %58 = sub nsw i32 %44, %53
-  %.lobit.i.i.i = ashr i32 %58, 31
-  %.inv.i.i.i = icmp slt i32 %58, 1
-  %59 = sub nsw i32 %47, %55
-  %.inv.i33.i.i = icmp slt i32 %59, 1
-  %60 = sub nsw i32 %50, %57
-  %.inv.i35.i.i = icmp slt i32 %60, 1
-  %isneg.i.i = icmp slt i32 %59, 0
-  %61 = select i1 %isneg.i.i, i32 -3, i32 0
-  %62 = select i1 %.inv.i33.i.i, i32 %61, i32 3
-  %isneg36.i.i = icmp slt i32 %60, 0
-  %63 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %64 = select i1 %.inv.i35.i.i, i32 %63, i32 9
-  %65 = add nsw i32 %.lobit.i.i.i, 13
-  %66 = select i1 %.inv.i.i.i, i32 %65, i32 14
-  %67 = add nsw i32 %62, %66
-  %68 = add nsw i32 %67, %64
-  %69 = load i32, ptr %36, align 4, !tbaa !19
-  %70 = mul nsw i32 %68, %69
-  %71 = add nsw i32 %70, %7
-  %72 = load ptr, ptr %3, align 8, !tbaa !25
-  %73 = load i32, ptr %37, align 8, !tbaa !24
-  %74 = mul nsw i32 %71, %73
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %72, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !134, !range !215, !noundef !216
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+  %58 = tail call i32 @llvm.scmp.i32.i32(i32 %44, i32 %53)
+  %59 = tail call i32 @llvm.scmp.i32.i32(i32 %47, i32 %55)
+  %60 = tail call i32 @llvm.scmp.i32.i32(i32 %50, i32 %57)
+  %61 = mul nsw i32 %59, 3
+  %62 = mul nsw i32 %60, 9
+  %63 = add nsw i32 %58, 13
+  %64 = add nsw i32 %63, %61
+  %65 = add nsw i32 %64, %62
+  %66 = load i32, ptr %36, align 4, !tbaa !19
+  %67 = mul nsw i32 %65, %66
+  %68 = add nsw i32 %67, %7
+  %69 = load ptr, ptr %3, align 8, !tbaa !25
+  %70 = load i32, ptr %37, align 8, !tbaa !24
+  %71 = mul nsw i32 %68, %70
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %69, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !134, !range !215, !noundef !216
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit: ; preds = %41
-  %79 = load i32, ptr %38, align 4, !tbaa !19
-  %80 = mul nsw i32 %79, %68
-  %81 = add nsw i32 %80, %7
-  %82 = load ptr, ptr %4, align 8, !tbaa !25
-  %83 = load i32, ptr %39, align 8, !tbaa !24
-  %84 = mul nsw i32 %81, %83
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %82, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !19
-  %88 = mul nsw i32 %87, %51
-  %89 = add nsw i32 %88, %57
-  %90 = mul nsw i32 %89, %51
-  %91 = add nsw i32 %90, %55
-  %92 = mul nsw i32 %91, %51
-  %93 = add nsw i32 %92, %53
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %95
+  %76 = load i32, ptr %38, align 4, !tbaa !19
+  %77 = mul nsw i32 %76, %65
+  %78 = add nsw i32 %77, %7
+  %79 = load ptr, ptr %4, align 8, !tbaa !25
+  %80 = load i32, ptr %39, align 8, !tbaa !24
+  %81 = mul nsw i32 %78, %80
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i8, ptr %79, i64 %82
+  %84 = load i32, ptr %83, align 4, !tbaa !19
+  %85 = mul nsw i32 %84, %51
+  %86 = add nsw i32 %85, %57
+  %87 = mul nsw i32 %86, %51
+  %88 = add nsw i32 %87, %55
+  %89 = mul nsw i32 %88, %51
+  %90 = add nsw i32 %89, %53
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %92
 
-95:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %96 = zext nneg i32 %93 to i64
-  %97 = load ptr, ptr %29, align 8, !tbaa !1004
-  %98 = getelementptr inbounds nuw float, ptr %97, i64 %96
-  %99 = load float, ptr %98, align 4, !tbaa !662
-  %100 = load float, ptr %33, align 8, !tbaa !1005
-  %101 = fcmp ogt float %99, %100
-  br i1 %101, label %102, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+92:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %93 = zext nneg i32 %90 to i64
+  %94 = load ptr, ptr %29, align 8, !tbaa !1004
+  %95 = getelementptr inbounds nuw float, ptr %94, i64 %93
+  %96 = load float, ptr %95, align 4, !tbaa !662
+  %97 = load float, ptr %33, align 8, !tbaa !1005
+  %98 = fcmp ogt float %96, %97
+  br i1 %98, label %99, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %24, align 8, !tbaa !1003
-  %104 = getelementptr inbounds nuw float, ptr %103, i64 %96
-  %105 = load float, ptr %104, align 4, !tbaa !662
-  %106 = fmul float %28, %105
-  %107 = fcmp olt float %106, 0.000000e+00
-  br i1 %107, label %108, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+99:                                               ; preds = %92
+  %100 = load ptr, ptr %24, align 8, !tbaa !1003
+  %101 = getelementptr inbounds nuw float, ptr %100, i64 %93
+  %102 = load float, ptr %101, align 4, !tbaa !662
+  %103 = fmul float %28, %102
+  %104 = fcmp olt float %103, 0.000000e+00
+  br i1 %104, label %105, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-108:                                              ; preds = %102
-  %109 = load ptr, ptr %40, align 8, !tbaa !1006
-  %110 = atomicrmw add ptr %109, i32 1 seq_cst, align 4
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %40, align 8, !tbaa !1006
+  %107 = atomicrmw add ptr %106, i32 1 seq_cst, align 4
   br label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %41, %95, %102, %108, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %111 = add nuw nsw i32 %.025, 1
-  %exitcond.not = icmp eq i32 %111, 3
+_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %41, %92, %99, %105, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %108 = add nuw nsw i32 %.025, 1
+  %exitcond.not = icmp eq i32 %108, 3
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !1018
 
 .loopexit:                                        ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, %2
@@ -51246,7 +51174,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load float, ptr %35, align 8, !tbaa !1013
   %37 = fcmp ugt float %34, %36
-  br i1 %37, label %38, label %240
+  br i1 %37, label %38, label %237
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -51301,7 +51229,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   br label %83
 
 83:                                               ; preds = %38, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
-  %.0100125 = phi i32 [ 0, %38 ], [ %239, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread ]
+  %.0100125 = phi i32 [ 0, %38 ], [ %236, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread ]
   %84 = icmp eq i32 %.0100125, 0
   %85 = zext i1 %84 to i32
   %86 = add nsw i32 %19, %85
@@ -51318,192 +51246,183 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid20Extr
   %97 = srem i32 %96, %93
   %98 = add nsw i32 %93, %92
   %99 = srem i32 %98, %93
-  %100 = sub nsw i32 %86, %95
-  %.lobit.i.i.i = ashr i32 %100, 31
-  %.inv.i.i.i = icmp slt i32 %100, 1
-  %101 = sub nsw i32 %89, %97
-  %.inv.i33.i.i = icmp slt i32 %101, 1
-  %102 = sub nsw i32 %92, %99
-  %.inv.i35.i.i = icmp slt i32 %102, 1
-  %isneg.i.i = icmp slt i32 %101, 0
-  %103 = select i1 %isneg.i.i, i32 -3, i32 0
-  %104 = select i1 %.inv.i33.i.i, i32 %103, i32 3
-  %isneg36.i.i = icmp slt i32 %102, 0
-  %105 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %106 = select i1 %.inv.i35.i.i, i32 %105, i32 9
-  %107 = add nsw i32 %.lobit.i.i.i, 13
-  %108 = select i1 %.inv.i.i.i, i32 %107, i32 14
-  %109 = add nsw i32 %104, %108
-  %110 = add nsw i32 %109, %106
-  %111 = load i32, ptr %59, align 4, !tbaa !19
-  %112 = mul nsw i32 %110, %111
-  %113 = add nsw i32 %112, %10
-  %114 = load ptr, ptr %5, align 8, !tbaa !25
-  %115 = load i32, ptr %60, align 8, !tbaa !24
-  %116 = mul nsw i32 %113, %115
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr %114, i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !134, !range !215, !noundef !216
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
+  %100 = call i32 @llvm.scmp.i32.i32(i32 %86, i32 %95)
+  %101 = call i32 @llvm.scmp.i32.i32(i32 %89, i32 %97)
+  %102 = call i32 @llvm.scmp.i32.i32(i32 %92, i32 %99)
+  %103 = mul nsw i32 %101, 3
+  %104 = mul nsw i32 %102, 9
+  %105 = add nsw i32 %100, 13
+  %106 = add nsw i32 %105, %103
+  %107 = add nsw i32 %106, %104
+  %108 = load i32, ptr %59, align 4, !tbaa !19
+  %109 = mul nsw i32 %107, %108
+  %110 = add nsw i32 %109, %10
+  %111 = load ptr, ptr %5, align 8, !tbaa !25
+  %112 = load i32, ptr %60, align 8, !tbaa !24
+  %113 = mul nsw i32 %110, %112
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr %111, i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !134, !range !215, !noundef !216
+  %117 = trunc nuw i8 %116 to i1
+  br i1 %117, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit: ; preds = %83
-  %121 = load i32, ptr %61, align 4, !tbaa !19
-  %122 = mul nsw i32 %121, %110
-  %123 = add nsw i32 %122, %10
-  %124 = load ptr, ptr %6, align 8, !tbaa !25
-  %125 = load i32, ptr %62, align 8, !tbaa !24
-  %126 = mul nsw i32 %123, %125
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr %124, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !19
-  %130 = mul nsw i32 %129, %93
-  %131 = add nsw i32 %130, %99
-  %132 = mul nsw i32 %131, %93
-  %133 = add nsw i32 %132, %97
-  %134 = mul nsw i32 %133, %93
-  %135 = add nsw i32 %134, %95
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %137
+  %118 = load i32, ptr %61, align 4, !tbaa !19
+  %119 = mul nsw i32 %118, %107
+  %120 = add nsw i32 %119, %10
+  %121 = load ptr, ptr %6, align 8, !tbaa !25
+  %122 = load i32, ptr %62, align 8, !tbaa !24
+  %123 = mul nsw i32 %120, %122
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr %121, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !19
+  %127 = mul nsw i32 %126, %93
+  %128 = add nsw i32 %127, %99
+  %129 = mul nsw i32 %128, %93
+  %130 = add nsw i32 %129, %97
+  %131 = mul nsw i32 %130, %93
+  %132 = add nsw i32 %131, %95
+  %133 = icmp slt i32 %132, 0
+  br i1 %133, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %134
 
-137:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit
-  %138 = load ptr, ptr %7, align 8, !tbaa !1009
-  %139 = zext nneg i32 %135 to i64
-  %140 = getelementptr inbounds nuw float, ptr %138, i64 %139
+134:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit
+  %135 = load ptr, ptr %7, align 8, !tbaa !1009
+  %136 = zext nneg i32 %132 to i64
+  %137 = getelementptr inbounds nuw float, ptr %135, i64 %136
+  %138 = load float, ptr %137, align 4, !tbaa !662
+  %139 = load ptr, ptr %31, align 8, !tbaa !1012
+  %140 = getelementptr inbounds nuw float, ptr %139, i64 %136
   %141 = load float, ptr %140, align 4, !tbaa !662
-  %142 = load ptr, ptr %31, align 8, !tbaa !1012
-  %143 = getelementptr inbounds nuw float, ptr %142, i64 %139
-  %144 = load float, ptr %143, align 4, !tbaa !662
-  %145 = load float, ptr %35, align 8, !tbaa !1013
-  %146 = fcmp ogt float %144, %145
-  %147 = fmul float %30, %141
-  %148 = fcmp olt float %147, 0.000000e+00
-  %or.cond = select i1 %146, i1 %148, i1 false
-  br i1 %or.cond, label %149, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
+  %142 = load float, ptr %35, align 8, !tbaa !1013
+  %143 = fcmp ogt float %141, %142
+  %144 = fmul float %30, %138
+  %145 = fcmp olt float %144, 0.000000e+00
+  %or.cond = select i1 %143, i1 %145, i1 false
+  br i1 %or.cond, label %146, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
 
-149:                                              ; preds = %137
-  %150 = fsub float %141, %30
-  %151 = fdiv float %63, %150
-  %152 = load ptr, ptr %64, align 8, !tbaa !1014
-  %153 = atomicrmw add ptr %152, i32 1 seq_cst, align 4
-  %154 = load i32, ptr %65, align 8, !tbaa !1015
-  %.not = icmp slt i32 %153, %154
-  br i1 %.not, label %155, label %238
+146:                                              ; preds = %134
+  %147 = fsub float %138, %30
+  %148 = fdiv float %63, %147
+  %149 = load ptr, ptr %64, align 8, !tbaa !1014
+  %150 = atomicrmw add ptr %149, i32 1 seq_cst, align 4
+  %151 = load i32, ptr %65, align 8, !tbaa !1015
+  %.not = icmp slt i32 %150, %151
+  br i1 %.not, label %152, label %235
 
-155:                                              ; preds = %149
-  %156 = load ptr, ptr %66, align 8, !tbaa !25
-  %157 = load i32, ptr %67, align 8, !tbaa !24
-  %158 = mul nsw i32 %157, %153
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i8, ptr %156, i64 %159
-  %161 = load float, ptr %68, align 8, !tbaa !1016
-  %162 = uitofp i1 %84 to float
-  %163 = call float @llvm.fmuladd.f32(float %151, float %162, float %69)
-  %164 = fmul float %163, %161
-  store float %164, ptr %160, align 4, !tbaa !662
-  %165 = load float, ptr %68, align 8, !tbaa !1016
-  %166 = uitofp i1 %87 to float
-  %167 = call float @llvm.fmuladd.f32(float %151, float %166, float %70)
-  %168 = fmul float %167, %165
-  %169 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  store float %168, ptr %169, align 4, !tbaa !662
-  %170 = load float, ptr %68, align 8, !tbaa !1016
-  %171 = uitofp i1 %90 to float
-  %172 = call float @llvm.fmuladd.f32(float %151, float %171, float %71)
-  %173 = fmul float %172, %170
-  %174 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store float %173, ptr %174, align 4, !tbaa !662
-  %175 = load ptr, ptr %72, align 8, !tbaa !25
-  %176 = load i32, ptr %73, align 8, !tbaa !24
-  %177 = mul nsw i32 %176, %153
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %175, i64 %178
-  %180 = load ptr, ptr %7, align 8, !tbaa !910
-  %181 = load i32, ptr %0, align 8, !tbaa !19
-  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %180, i32 noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %181, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %182 = fsub float 1.000000e+00, %151
-  %183 = load float, ptr %3, align 4, !tbaa !662
-  %184 = load float, ptr %4, align 4, !tbaa !662
-  %185 = fmul float %151, %184
-  %186 = call float @llvm.fmuladd.f32(float %182, float %183, float %185)
-  %187 = load float, ptr %74, align 4, !tbaa !662
-  %188 = load float, ptr %75, align 4, !tbaa !662
-  %189 = fmul float %151, %188
-  %190 = call float @llvm.fmuladd.f32(float %182, float %187, float %189)
-  %191 = load float, ptr %76, align 4, !tbaa !662
-  %192 = load float, ptr %77, align 4, !tbaa !662
-  %193 = fmul float %151, %192
-  %194 = call float @llvm.fmuladd.f32(float %182, float %191, float %193)
-  %195 = fmul float %190, %190
-  %196 = call float @llvm.fmuladd.f32(float %186, float %186, float %195)
-  %197 = call float @llvm.fmuladd.f32(float %194, float %194, float %196)
-  %198 = fpext float %197 to double
-  %sqrt = call double @llvm.sqrt.f64(double %198)
-  %199 = fadd double %sqrt, 1.000000e-05
-  %200 = fptrunc double %199 to float
-  %201 = fdiv float %186, %200
-  store float %201, ptr %179, align 4, !tbaa !662
-  %202 = fdiv float %190, %200
-  %203 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  store float %202, ptr %203, align 4, !tbaa !662
-  %204 = fdiv float %194, %200
-  %205 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store float %204, ptr %205, align 4, !tbaa !662
-  %206 = load ptr, ptr %78, align 8, !tbaa !1017
-  %.not103 = icmp eq ptr %206, null
-  br i1 %.not103, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %207
+152:                                              ; preds = %146
+  %153 = load ptr, ptr %66, align 8, !tbaa !25
+  %154 = load i32, ptr %67, align 8, !tbaa !24
+  %155 = mul nsw i32 %154, %150
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds i8, ptr %153, i64 %156
+  %158 = load float, ptr %68, align 8, !tbaa !1016
+  %159 = uitofp i1 %84 to float
+  %160 = call float @llvm.fmuladd.f32(float %148, float %159, float %69)
+  %161 = fmul float %160, %158
+  store float %161, ptr %157, align 4, !tbaa !662
+  %162 = load float, ptr %68, align 8, !tbaa !1016
+  %163 = uitofp i1 %87 to float
+  %164 = call float @llvm.fmuladd.f32(float %148, float %163, float %70)
+  %165 = fmul float %164, %162
+  %166 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  store float %165, ptr %166, align 4, !tbaa !662
+  %167 = load float, ptr %68, align 8, !tbaa !1016
+  %168 = uitofp i1 %90 to float
+  %169 = call float @llvm.fmuladd.f32(float %148, float %168, float %71)
+  %170 = fmul float %169, %167
+  %171 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store float %170, ptr %171, align 4, !tbaa !662
+  %172 = load ptr, ptr %72, align 8, !tbaa !25
+  %173 = load i32, ptr %73, align 8, !tbaa !24
+  %174 = mul nsw i32 %173, %150
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds i8, ptr %172, i64 %175
+  %177 = load ptr, ptr %7, align 8, !tbaa !910
+  %178 = load i32, ptr %0, align 8, !tbaa !19
+  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %177, i32 noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %178, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %179 = fsub float 1.000000e+00, %148
+  %180 = load float, ptr %3, align 4, !tbaa !662
+  %181 = load float, ptr %4, align 4, !tbaa !662
+  %182 = fmul float %148, %181
+  %183 = call float @llvm.fmuladd.f32(float %179, float %180, float %182)
+  %184 = load float, ptr %74, align 4, !tbaa !662
+  %185 = load float, ptr %75, align 4, !tbaa !662
+  %186 = fmul float %148, %185
+  %187 = call float @llvm.fmuladd.f32(float %179, float %184, float %186)
+  %188 = load float, ptr %76, align 4, !tbaa !662
+  %189 = load float, ptr %77, align 4, !tbaa !662
+  %190 = fmul float %148, %189
+  %191 = call float @llvm.fmuladd.f32(float %179, float %188, float %190)
+  %192 = fmul float %187, %187
+  %193 = call float @llvm.fmuladd.f32(float %183, float %183, float %192)
+  %194 = call float @llvm.fmuladd.f32(float %191, float %191, float %193)
+  %195 = fpext float %194 to double
+  %sqrt = call double @llvm.sqrt.f64(double %195)
+  %196 = fadd double %sqrt, 1.000000e-05
+  %197 = fptrunc double %196 to float
+  %198 = fdiv float %183, %197
+  store float %198, ptr %176, align 4, !tbaa !662
+  %199 = fdiv float %187, %197
+  %200 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  store float %199, ptr %200, align 4, !tbaa !662
+  %201 = fdiv float %191, %197
+  %202 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  store float %201, ptr %202, align 4, !tbaa !662
+  %203 = load ptr, ptr %78, align 8, !tbaa !1017
+  %.not103 = icmp eq ptr %203, null
+  br i1 %.not103, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, label %204
 
-207:                                              ; preds = %155
-  %208 = load ptr, ptr %79, align 8, !tbaa !25
-  %209 = load i32, ptr %80, align 8, !tbaa !24
-  %210 = mul nsw i32 %209, %153
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i8, ptr %208, i64 %211
-  %213 = getelementptr inbounds float, ptr %206, i64 %82
-  %214 = load float, ptr %213, align 4, !tbaa !662
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %216 = load float, ptr %215, align 4, !tbaa !662
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %218 = load float, ptr %217, align 4, !tbaa !662
-  %219 = mul nuw nsw i32 %135, 3
-  %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds nuw float, ptr %206, i64 %220
-  %222 = load float, ptr %221, align 4, !tbaa !662
-  %223 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  %224 = load float, ptr %223, align 4, !tbaa !662
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %226 = load float, ptr %225, align 4, !tbaa !662
-  %227 = fmul float %151, %222
-  %228 = call float @llvm.fmuladd.f32(float %182, float %214, float %227)
+204:                                              ; preds = %152
+  %205 = load ptr, ptr %79, align 8, !tbaa !25
+  %206 = load i32, ptr %80, align 8, !tbaa !24
+  %207 = mul nsw i32 %206, %150
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds i8, ptr %205, i64 %208
+  %210 = getelementptr inbounds float, ptr %203, i64 %82
+  %211 = load float, ptr %210, align 4, !tbaa !662
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 4
+  %213 = load float, ptr %212, align 4, !tbaa !662
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %215 = load float, ptr %214, align 4, !tbaa !662
+  %216 = mul nuw nsw i32 %132, 3
+  %217 = zext nneg i32 %216 to i64
+  %218 = getelementptr inbounds nuw float, ptr %203, i64 %217
+  %219 = load float, ptr %218, align 4, !tbaa !662
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
+  %221 = load float, ptr %220, align 4, !tbaa !662
+  %222 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %223 = load float, ptr %222, align 4, !tbaa !662
+  %224 = fmul float %148, %219
+  %225 = call float @llvm.fmuladd.f32(float %179, float %211, float %224)
+  %226 = fdiv float %225, 2.550000e+02
+  store float %226, ptr %209, align 4, !tbaa !662
+  %227 = fmul float %148, %221
+  %228 = call float @llvm.fmuladd.f32(float %179, float %213, float %227)
   %229 = fdiv float %228, 2.550000e+02
-  store float %229, ptr %212, align 4, !tbaa !662
-  %230 = fmul float %151, %224
-  %231 = call float @llvm.fmuladd.f32(float %182, float %216, float %230)
-  %232 = fdiv float %231, 2.550000e+02
-  %233 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store float %232, ptr %233, align 4, !tbaa !662
-  %234 = fmul float %151, %226
-  %235 = call float @llvm.fmuladd.f32(float %182, float %218, float %234)
-  %236 = fdiv float %235, 2.550000e+02
-  %237 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store float %236, ptr %237, align 4, !tbaa !662
+  %230 = getelementptr inbounds nuw i8, ptr %209, i64 4
+  store float %229, ptr %230, align 4, !tbaa !662
+  %231 = fmul float %148, %223
+  %232 = call float @llvm.fmuladd.f32(float %179, float %215, float %231)
+  %233 = fdiv float %232, 2.550000e+02
+  %234 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  store float %233, ptr %234, align 4, !tbaa !662
   br label %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread
 
-238:                                              ; preds = %149
+235:                                              ; preds = %146
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %.loopexit
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %207, %155, %83, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, %137
-  %239 = add nuw nsw i32 %.0100125, 1
-  %exitcond.not = icmp eq i32 %239, 3
+_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %204, %152, %83, %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit, %134
+  %236 = add nuw nsw i32 %.0100125, 1
+  %exitcond.not = icmp eq i32 %236, 3
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !1019
 
-.loopexit:                                        ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, %238
+.loopexit:                                        ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid20ExtractPointCloudCPUIfffEEvRKNS_4core6TensorES8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_iffRiENKUliE0_clEiENKUliiiiE_clEiiii.exit.thread, %235
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %240
+  br label %237
 
-240:                                              ; preds = %2, %.loopexit
+237:                                              ; preds = %2, %.loopexit
   ret void
 }
 
@@ -53565,9 +53484,9 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %33 = load ptr, ptr %32, align 8
   br label %34
 
-34:                                               ; preds = %2, %87
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %87 ]
-  %.074 = phi i32 [ 0, %2 ], [ %94, %87 ]
+34:                                               ; preds = %2, %84
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %84 ]
+  %.074 = phi i32 [ 0, %2 ], [ %91, %84 ]
   %35 = getelementptr inbounds nuw [3 x i32], ptr @_ZN12_GLOBAL__N_110vtx_shiftsE, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !19
   %37 = add nsw i32 %36, %11
@@ -53583,174 +53502,165 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %47 = srem i32 %46, %17
   %48 = add nsw i32 %17, %43
   %49 = srem i32 %48, %17
-  %50 = sub nsw i32 %37, %45
-  %.lobit.i.i.i = ashr i32 %50, 31
-  %.inv.i.i.i = icmp slt i32 %50, 1
-  %51 = sub nsw i32 %40, %47
-  %.inv.i33.i.i = icmp slt i32 %51, 1
-  %52 = sub nsw i32 %43, %49
-  %.inv.i35.i.i = icmp slt i32 %52, 1
-  %isneg.i.i = icmp slt i32 %51, 0
-  %53 = select i1 %isneg.i.i, i32 -3, i32 0
-  %54 = select i1 %.inv.i33.i.i, i32 %53, i32 3
-  %isneg36.i.i = icmp slt i32 %52, 0
-  %55 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %56 = select i1 %.inv.i35.i.i, i32 %55, i32 9
-  %57 = add nsw i32 %.lobit.i.i.i, 13
-  %58 = select i1 %.inv.i.i.i, i32 %57, i32 14
-  %59 = add nsw i32 %54, %58
-  %60 = add nsw i32 %59, %56
-  %61 = mul nsw i32 %60, %19
-  %62 = add nsw i32 %61, %7
-  %63 = mul nsw i32 %62, %22
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %20, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !134, !range !215, !noundef !216
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+  %50 = tail call i32 @llvm.scmp.i32.i32(i32 %37, i32 %45)
+  %51 = tail call i32 @llvm.scmp.i32.i32(i32 %40, i32 %47)
+  %52 = tail call i32 @llvm.scmp.i32.i32(i32 %43, i32 %49)
+  %53 = mul nsw i32 %51, 3
+  %54 = mul nsw i32 %52, 9
+  %55 = add nsw i32 %50, 13
+  %56 = add nsw i32 %55, %53
+  %57 = add nsw i32 %56, %54
+  %58 = mul nsw i32 %57, %19
+  %59 = add nsw i32 %58, %7
+  %60 = mul nsw i32 %59, %22
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %20, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !134, !range !215, !noundef !216
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit: ; preds = %34
-  %68 = mul nsw i32 %24, %60
-  %69 = add nsw i32 %68, %7
-  %70 = mul nsw i32 %69, %27
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %25, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !19
-  %74 = mul nsw i32 %73, %17
-  %75 = add nsw i32 %74, %49
-  %76 = mul nsw i32 %75, %17
-  %77 = add nsw i32 %76, %47
-  %78 = mul nsw i32 %77, %17
-  %79 = add nsw i32 %78, %45
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %81
+  %65 = mul nsw i32 %24, %57
+  %66 = add nsw i32 %65, %7
+  %67 = mul nsw i32 %66, %27
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %25, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !19
+  %71 = mul nsw i32 %70, %17
+  %72 = add nsw i32 %71, %49
+  %73 = mul nsw i32 %72, %17
+  %74 = add nsw i32 %73, %47
+  %75 = mul nsw i32 %74, %17
+  %76 = add nsw i32 %75, %45
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %78
 
-81:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %82 = zext nneg i32 %79 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %29, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !788
-  %85 = uitofp i16 %84 to float
-  %86 = fcmp ult float %31, %85
-  br i1 %86, label %87, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+78:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %79 = zext nneg i32 %76 to i64
+  %80 = getelementptr inbounds nuw i16, ptr %29, i64 %79
+  %81 = load i16, ptr %80, align 2, !tbaa !788
+  %82 = uitofp i16 %81 to float
+  %83 = fcmp ult float %31, %82
+  br i1 %83, label %84, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-87:                                               ; preds = %81
-  %88 = getelementptr inbounds nuw float, ptr %33, i64 %82
-  %89 = load float, ptr %88, align 4, !tbaa !662
-  %90 = fcmp olt float %89, 0.000000e+00
-  %91 = trunc nuw nsw i64 %indvars.iv to i32
-  %92 = shl nuw nsw i32 1, %91
-  %93 = select i1 %90, i32 %92, i32 0
-  %94 = or i32 %93, %.074
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw float, ptr %33, i64 %79
+  %86 = load float, ptr %85, align 4, !tbaa !662
+  %87 = fcmp olt float %86, 0.000000e+00
+  %88 = trunc nuw nsw i64 %indvars.iv to i32
+  %89 = shl nuw nsw i32 1, %88
+  %90 = select i1 %87, i32 %89, i32 0
+  %91 = or i32 %90, %.074
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %95, label %34, !llvm.loop !1049
+  br i1 %exitcond, label %92, label %34, !llvm.loop !1049
 
-95:                                               ; preds = %87
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %98 = load i32, ptr %97, align 4, !tbaa !19
-  %99 = mul nsw i32 %98, %7
-  %100 = add nsw i32 %99, %16
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %102 = load i32, ptr %101, align 8, !tbaa !19
-  %103 = mul nsw i32 %100, %102
-  %104 = add nsw i32 %103, %15
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %106 = load i32, ptr %105, align 4, !tbaa !19
-  %107 = mul nsw i32 %104, %106
-  %108 = add nsw i32 %107, %11
-  %109 = load ptr, ptr %96, align 8, !tbaa !25
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %111 = load i32, ptr %110, align 8, !tbaa !24
-  %112 = mul nsw i32 %108, %111
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %109, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  store i32 %94, ptr %115, align 4, !tbaa !19
-  switch i32 %94, label %116 [
+92:                                               ; preds = %84
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %95 = load i32, ptr %94, align 4, !tbaa !19
+  %96 = mul nsw i32 %95, %7
+  %97 = add nsw i32 %96, %16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %99 = load i32, ptr %98, align 8, !tbaa !19
+  %100 = mul nsw i32 %97, %99
+  %101 = add nsw i32 %100, %15
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %103 = load i32, ptr %102, align 4, !tbaa !19
+  %104 = mul nsw i32 %101, %103
+  %105 = add nsw i32 %104, %11
+  %106 = load ptr, ptr %93, align 8, !tbaa !25
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %108 = load i32, ptr %107, align 8, !tbaa !24
+  %109 = mul nsw i32 %105, %108
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %106, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 12
+  store i32 %91, ptr %112, align 4, !tbaa !19
+  switch i32 %91, label %113 [
     i32 255, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
     i32 0, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
   ]
 
-116:                                              ; preds = %95
-  %117 = zext nneg i32 %94 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !19
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %122 = load ptr, ptr %121, align 8
-  br label %123
+113:                                              ; preds = %92
+  %114 = zext nneg i32 %91 to i64
+  %115 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 %114
+  %116 = load i32, ptr %115, align 4, !tbaa !19
+  %117 = load ptr, ptr %4, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %119 = load ptr, ptr %118, align 8
+  br label %120
 
-123:                                              ; preds = %116, %177
-  %indvars.iv78 = phi i64 [ 0, %116 ], [ %indvars.iv.next79, %177 ]
-  %124 = trunc nuw nsw i64 %indvars.iv78 to i32
-  %125 = shl nuw nsw i32 1, %124
-  %126 = and i32 %125, %119
-  %.not = icmp eq i32 %126, 0
-  br i1 %.not, label %177, label %127
+120:                                              ; preds = %113, %174
+  %indvars.iv78 = phi i64 [ 0, %113 ], [ %indvars.iv.next79, %174 ]
+  %121 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %122 = shl nuw nsw i32 1, %121
+  %123 = and i32 %122, %116
+  %.not = icmp eq i32 %123, 0
+  br i1 %.not, label %174, label %124
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw [4 x i32], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 %indvars.iv78
-  %129 = load i32, ptr %128, align 16, !tbaa !19
-  %130 = add nsw i32 %129, %11
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %132 = load i32, ptr %131, align 4, !tbaa !19
-  %133 = add nsw i32 %132, %15
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %135 = load i32, ptr %134, align 8, !tbaa !19
-  %136 = add nsw i32 %135, %16
-  %137 = getelementptr inbounds nuw i8, ptr %128, i64 12
-  %138 = load i32, ptr %137, align 4, !tbaa !19
-  %139 = load i32, ptr %0, align 8, !tbaa !1020
-  %140 = sdiv i32 %130, %139
-  %141 = sdiv i32 %133, %139
-  %142 = sdiv i32 %136, %139
-  %143 = mul i32 %141, 3
-  %144 = mul i32 %142, 9
-  %145 = add i32 %140, 13
-  %146 = add i32 %145, %143
-  %147 = add i32 %146, %144
-  %148 = load i32, ptr %23, align 4, !tbaa !19
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds nuw [4 x i32], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 %indvars.iv78
+  %126 = load i32, ptr %125, align 16, !tbaa !19
+  %127 = add nsw i32 %126, %11
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %129 = load i32, ptr %128, align 4, !tbaa !19
+  %130 = add nsw i32 %129, %15
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %132 = load i32, ptr %131, align 8, !tbaa !19
+  %133 = add nsw i32 %132, %16
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 12
+  %135 = load i32, ptr %134, align 4, !tbaa !19
+  %136 = load i32, ptr %0, align 8, !tbaa !1020
+  %137 = sdiv i32 %127, %136
+  %138 = sdiv i32 %130, %136
+  %139 = sdiv i32 %133, %136
+  %140 = mul i32 %138, 3
+  %141 = mul i32 %139, 9
+  %142 = add i32 %137, 13
+  %143 = add i32 %142, %140
+  %144 = add i32 %143, %141
+  %145 = load i32, ptr %23, align 4, !tbaa !19
+  %146 = mul nsw i32 %144, %145
+  %147 = add nsw i32 %146, %7
+  %148 = load i32, ptr %26, align 8, !tbaa !24
   %149 = mul nsw i32 %147, %148
-  %150 = add nsw i32 %149, %7
-  %151 = load i32, ptr %26, align 8, !tbaa !24
-  %152 = mul nsw i32 %150, %151
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i8, ptr %120, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !19
-  %156 = mul nsw i32 %140, %139
-  %.recomposed = srem i32 %130, %139
-  %157 = mul nsw i32 %141, %139
-  %.recomposed85 = srem i32 %133, %139
-  %158 = mul nsw i32 %142, %139
-  %.recomposed86 = srem i32 %136, %139
-  %159 = sext i32 %155 to i64
-  %160 = getelementptr inbounds i32, ptr %122, i64 %159
-  %161 = load i32, ptr %160, align 4, !tbaa !19
-  %162 = load i32, ptr %97, align 4, !tbaa !19
-  %163 = mul nsw i32 %162, %161
-  %164 = add nsw i32 %.recomposed86, %163
-  %165 = load i32, ptr %101, align 8, !tbaa !19
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i8, ptr %117, i64 %150
+  %152 = load i32, ptr %151, align 4, !tbaa !19
+  %153 = mul nsw i32 %137, %136
+  %.recomposed = srem i32 %127, %136
+  %154 = mul nsw i32 %138, %136
+  %.recomposed85 = srem i32 %130, %136
+  %155 = mul nsw i32 %139, %136
+  %.recomposed86 = srem i32 %133, %136
+  %156 = sext i32 %152 to i64
+  %157 = getelementptr inbounds i32, ptr %119, i64 %156
+  %158 = load i32, ptr %157, align 4, !tbaa !19
+  %159 = load i32, ptr %94, align 4, !tbaa !19
+  %160 = mul nsw i32 %159, %158
+  %161 = add nsw i32 %.recomposed86, %160
+  %162 = load i32, ptr %98, align 8, !tbaa !19
+  %163 = mul nsw i32 %161, %162
+  %164 = add nsw i32 %.recomposed85, %163
+  %165 = load i32, ptr %102, align 4, !tbaa !19
   %166 = mul nsw i32 %164, %165
-  %167 = add nsw i32 %.recomposed85, %166
-  %168 = load i32, ptr %105, align 4, !tbaa !19
+  %167 = add nsw i32 %.recomposed, %166
+  %168 = load i32, ptr %107, align 8, !tbaa !24
   %169 = mul nsw i32 %167, %168
-  %170 = add nsw i32 %.recomposed, %169
-  %171 = load i32, ptr %110, align 8, !tbaa !24
-  %172 = mul nsw i32 %170, %171
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %109, i64 %173
-  %175 = sext i32 %138 to i64
-  %176 = getelementptr inbounds i32, ptr %174, i64 %175
-  store i32 -1, ptr %176, align 4, !tbaa !19
-  br label %177
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds i8, ptr %106, i64 %170
+  %172 = sext i32 %135 to i64
+  %173 = getelementptr inbounds i32, ptr %171, i64 %172
+  store i32 -1, ptr %173, align 4, !tbaa !19
+  br label %174
 
-177:                                              ; preds = %123, %127
+174:                                              ; preds = %120, %124
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 12
-  br i1 %exitcond81.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %123, !llvm.loop !1050
+  br i1 %exitcond81.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %120, !llvm.loop !1050
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %81, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %177, %95, %95
+_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %78, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %174, %92, %92
   ret void
 }
 
@@ -54117,7 +54027,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !19
   %.not100 = icmp eq i32 %69, -1
-  br i1 %.not100, label %70, label %258
+  br i1 %.not100, label %70, label %255
 
 70:                                               ; preds = %67, %64, %2
   %71 = mul nsw i32 %15, %9
@@ -54156,17 +54066,17 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %99 = sext i32 %98 to i64
   br label %101
 
-100:                                              ; preds = %257
+100:                                              ; preds = %254
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %258
+  br label %255
 
-101:                                              ; preds = %70, %257
-  %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %257 ]
+101:                                              ; preds = %70, %254
+  %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %254 ]
   %102 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !19
   %.not101 = icmp eq i32 %103, -1
-  br i1 %.not101, label %104, label %257
+  br i1 %.not101, label %104, label %254
 
 104:                                              ; preds = %101
   %105 = icmp eq i64 %indvars.iv, 0
@@ -54185,177 +54095,168 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %118 = srem i32 %117, %114
   %119 = add nsw i32 %114, %113
   %120 = srem i32 %119, %114
-  %121 = sub nsw i32 %107, %116
-  %.lobit.i.i.i = ashr i32 %121, 31
-  %.inv.i.i.i = icmp slt i32 %121, 1
-  %122 = sub nsw i32 %110, %118
-  %.inv.i33.i.i = icmp slt i32 %122, 1
-  %123 = sub nsw i32 %113, %120
-  %.inv.i35.i.i = icmp slt i32 %123, 1
-  %isneg.i.i = icmp slt i32 %122, 0
-  %124 = select i1 %isneg.i.i, i32 -3, i32 0
-  %125 = select i1 %.inv.i33.i.i, i32 %124, i32 3
-  %isneg36.i.i = icmp slt i32 %123, 0
-  %126 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %127 = select i1 %.inv.i35.i.i, i32 %126, i32 9
-  %128 = add nsw i32 %.lobit.i.i.i, 13
-  %129 = select i1 %.inv.i.i.i, i32 %128, i32 14
-  %130 = add nsw i32 %125, %129
-  %131 = add nsw i32 %130, %127
-  %132 = load i32, ptr %77, align 4, !tbaa !19
-  %133 = mul nsw i32 %131, %132
-  %134 = add nsw i32 %133, %10
-  %135 = load ptr, ptr %5, align 8, !tbaa !25
-  %136 = load i32, ptr %78, align 8, !tbaa !24
-  %137 = mul nsw i32 %134, %136
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %135, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !134, !range !215, !noundef !216
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %142, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
+  %121 = call i32 @llvm.scmp.i32.i32(i32 %107, i32 %116)
+  %122 = call i32 @llvm.scmp.i32.i32(i32 %110, i32 %118)
+  %123 = call i32 @llvm.scmp.i32.i32(i32 %113, i32 %120)
+  %124 = mul nsw i32 %122, 3
+  %125 = mul nsw i32 %123, 9
+  %126 = add nsw i32 %121, 13
+  %127 = add nsw i32 %126, %124
+  %128 = add nsw i32 %127, %125
+  %129 = load i32, ptr %77, align 4, !tbaa !19
+  %130 = mul nsw i32 %128, %129
+  %131 = add nsw i32 %130, %10
+  %132 = load ptr, ptr %5, align 8, !tbaa !25
+  %133 = load i32, ptr %78, align 8, !tbaa !24
+  %134 = mul nsw i32 %131, %133
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %132, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !134, !range !215, !noundef !216
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %139, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
 
-142:                                              ; preds = %104
-  %143 = load i32, ptr %79, align 4, !tbaa !19
-  %144 = mul nsw i32 %143, %131
-  %145 = add nsw i32 %144, %10
-  %146 = load ptr, ptr %6, align 8, !tbaa !25
-  %147 = load i32, ptr %80, align 8, !tbaa !24
-  %148 = mul nsw i32 %145, %147
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %146, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !19
-  %152 = mul nsw i32 %151, %114
-  %153 = add nsw i32 %152, %120
-  %154 = mul nsw i32 %153, %114
-  %155 = add nsw i32 %154, %118
-  %156 = mul nsw i32 %155, %114
-  %157 = add nsw i32 %156, %116
+139:                                              ; preds = %104
+  %140 = load i32, ptr %79, align 4, !tbaa !19
+  %141 = mul nsw i32 %140, %128
+  %142 = add nsw i32 %141, %10
+  %143 = load ptr, ptr %6, align 8, !tbaa !25
+  %144 = load i32, ptr %80, align 8, !tbaa !24
+  %145 = mul nsw i32 %142, %144
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds i8, ptr %143, i64 %146
+  %148 = load i32, ptr %147, align 4, !tbaa !19
+  %149 = mul nsw i32 %148, %114
+  %150 = add nsw i32 %149, %120
+  %151 = mul nsw i32 %150, %114
+  %152 = add nsw i32 %151, %118
+  %153 = mul nsw i32 %152, %114
+  %154 = add nsw i32 %153, %116
   br label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit: ; preds = %104, %142
-  %.0.i.i = phi i32 [ %157, %142 ], [ -1, %104 ]
-  %158 = load ptr, ptr %7, align 8, !tbaa !1032
-  %159 = sext i32 %.0.i.i to i64
-  %160 = getelementptr inbounds float, ptr %158, i64 %159
-  %161 = load float, ptr %160, align 4, !tbaa !662
-  %162 = fsub float %161, %76
-  %163 = fdiv float %81, %162
-  %164 = load ptr, ptr %82, align 8, !tbaa !1035
-  %165 = atomicrmw add ptr %164, i32 1 seq_cst, align 4
-  store i32 %165, ptr %102, align 4, !tbaa !19
-  %166 = uitofp i1 %105 to float
-  %167 = fmul float %163, %166
-  %168 = uitofp i1 %108 to float
-  %169 = fmul float %163, %168
-  %170 = uitofp i1 %111 to float
-  %171 = fmul float %163, %170
-  %172 = load ptr, ptr %83, align 8, !tbaa !25
-  %173 = load i32, ptr %84, align 8, !tbaa !24
-  %174 = mul nsw i32 %173, %165
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %172, i64 %175
+_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit: ; preds = %104, %139
+  %.0.i.i = phi i32 [ %154, %139 ], [ -1, %104 ]
+  %155 = load ptr, ptr %7, align 8, !tbaa !1032
+  %156 = sext i32 %.0.i.i to i64
+  %157 = getelementptr inbounds float, ptr %155, i64 %156
+  %158 = load float, ptr %157, align 4, !tbaa !662
+  %159 = fsub float %158, %76
+  %160 = fdiv float %81, %159
+  %161 = load ptr, ptr %82, align 8, !tbaa !1035
+  %162 = atomicrmw add ptr %161, i32 1 seq_cst, align 4
+  store i32 %162, ptr %102, align 4, !tbaa !19
+  %163 = uitofp i1 %105 to float
+  %164 = fmul float %160, %163
+  %165 = uitofp i1 %108 to float
+  %166 = fmul float %160, %165
+  %167 = uitofp i1 %111 to float
+  %168 = fmul float %160, %167
+  %169 = load ptr, ptr %83, align 8, !tbaa !25
+  %170 = load i32, ptr %84, align 8, !tbaa !24
+  %171 = mul nsw i32 %170, %162
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i8, ptr %169, i64 %172
+  %174 = load float, ptr %85, align 8, !tbaa !1036
+  %175 = fadd float %164, %86
+  %176 = fmul float %175, %174
+  store float %176, ptr %173, align 4, !tbaa !662
   %177 = load float, ptr %85, align 8, !tbaa !1036
-  %178 = fadd float %167, %86
+  %178 = fadd float %166, %87
   %179 = fmul float %178, %177
-  store float %179, ptr %176, align 4, !tbaa !662
-  %180 = load float, ptr %85, align 8, !tbaa !1036
-  %181 = fadd float %169, %87
-  %182 = fmul float %181, %180
-  %183 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  store float %182, ptr %183, align 4, !tbaa !662
-  %184 = load float, ptr %85, align 8, !tbaa !1036
-  %185 = fadd float %171, %88
-  %186 = fmul float %185, %184
-  %187 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store float %186, ptr %187, align 4, !tbaa !662
-  %188 = load ptr, ptr %89, align 8, !tbaa !25
-  %189 = load i32, ptr %90, align 8, !tbaa !24
-  %190 = mul nsw i32 %189, %165
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i8, ptr %188, i64 %191
-  %193 = load ptr, ptr %7, align 8, !tbaa !910
-  %194 = load i32, ptr %0, align 8, !tbaa !19
-  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %193, i32 noundef %107, i32 noundef %110, i32 noundef %113, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %194, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %195 = fsub float 1.000000e+00, %163
-  %196 = load float, ptr %3, align 4, !tbaa !662
-  %197 = load float, ptr %4, align 4, !tbaa !662
-  %198 = fmul float %163, %197
-  %199 = call float @llvm.fmuladd.f32(float %195, float %196, float %198)
-  %200 = load float, ptr %91, align 4, !tbaa !662
-  %201 = load float, ptr %92, align 4, !tbaa !662
-  %202 = fmul float %163, %201
-  %203 = call float @llvm.fmuladd.f32(float %195, float %200, float %202)
-  %204 = load float, ptr %93, align 4, !tbaa !662
-  %205 = load float, ptr %94, align 4, !tbaa !662
-  %206 = fmul float %163, %205
-  %207 = call float @llvm.fmuladd.f32(float %195, float %204, float %206)
-  %208 = fmul float %203, %203
-  %209 = call float @llvm.fmuladd.f32(float %199, float %199, float %208)
-  %210 = call float @llvm.fmuladd.f32(float %207, float %207, float %209)
-  %211 = fpext float %210 to double
-  %sqrt = call double @llvm.sqrt.f64(double %211)
-  %212 = fadd double %sqrt, 1.000000e-05
-  %213 = fptrunc double %212 to float
-  %214 = fdiv float %199, %213
-  store float %214, ptr %192, align 4, !tbaa !662
-  %215 = fdiv float %203, %213
-  %216 = getelementptr inbounds nuw i8, ptr %192, i64 4
-  store float %215, ptr %216, align 4, !tbaa !662
-  %217 = fdiv float %207, %213
-  %218 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store float %217, ptr %218, align 4, !tbaa !662
-  %219 = load ptr, ptr %95, align 8, !tbaa !1037
-  %.not102 = icmp eq ptr %219, null
-  br i1 %.not102, label %257, label %220
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 4
+  store float %179, ptr %180, align 4, !tbaa !662
+  %181 = load float, ptr %85, align 8, !tbaa !1036
+  %182 = fadd float %168, %88
+  %183 = fmul float %182, %181
+  %184 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store float %183, ptr %184, align 4, !tbaa !662
+  %185 = load ptr, ptr %89, align 8, !tbaa !25
+  %186 = load i32, ptr %90, align 8, !tbaa !24
+  %187 = mul nsw i32 %186, %162
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i8, ptr %185, i64 %188
+  %190 = load ptr, ptr %7, align 8, !tbaa !910
+  %191 = load i32, ptr %0, align 8, !tbaa !19
+  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %190, i32 noundef %107, i32 noundef %110, i32 noundef %113, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %191, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %192 = fsub float 1.000000e+00, %160
+  %193 = load float, ptr %3, align 4, !tbaa !662
+  %194 = load float, ptr %4, align 4, !tbaa !662
+  %195 = fmul float %160, %194
+  %196 = call float @llvm.fmuladd.f32(float %192, float %193, float %195)
+  %197 = load float, ptr %91, align 4, !tbaa !662
+  %198 = load float, ptr %92, align 4, !tbaa !662
+  %199 = fmul float %160, %198
+  %200 = call float @llvm.fmuladd.f32(float %192, float %197, float %199)
+  %201 = load float, ptr %93, align 4, !tbaa !662
+  %202 = load float, ptr %94, align 4, !tbaa !662
+  %203 = fmul float %160, %202
+  %204 = call float @llvm.fmuladd.f32(float %192, float %201, float %203)
+  %205 = fmul float %200, %200
+  %206 = call float @llvm.fmuladd.f32(float %196, float %196, float %205)
+  %207 = call float @llvm.fmuladd.f32(float %204, float %204, float %206)
+  %208 = fpext float %207 to double
+  %sqrt = call double @llvm.sqrt.f64(double %208)
+  %209 = fadd double %sqrt, 1.000000e-05
+  %210 = fptrunc double %209 to float
+  %211 = fdiv float %196, %210
+  store float %211, ptr %189, align 4, !tbaa !662
+  %212 = fdiv float %200, %210
+  %213 = getelementptr inbounds nuw i8, ptr %189, i64 4
+  store float %212, ptr %213, align 4, !tbaa !662
+  %214 = fdiv float %204, %210
+  %215 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store float %214, ptr %215, align 4, !tbaa !662
+  %216 = load ptr, ptr %95, align 8, !tbaa !1037
+  %.not102 = icmp eq ptr %216, null
+  br i1 %.not102, label %254, label %217
 
-220:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
-  %221 = load ptr, ptr %96, align 8, !tbaa !25
-  %222 = load i32, ptr %97, align 8, !tbaa !24
-  %223 = mul nsw i32 %222, %165
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i8, ptr %221, i64 %224
-  %226 = getelementptr inbounds i16, ptr %219, i64 %99
+217:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
+  %218 = load ptr, ptr %96, align 8, !tbaa !25
+  %219 = load i32, ptr %97, align 8, !tbaa !24
+  %220 = mul nsw i32 %219, %162
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i8, ptr %218, i64 %221
+  %223 = getelementptr inbounds i16, ptr %216, i64 %99
+  %224 = load i16, ptr %223, align 2, !tbaa !788
+  %225 = uitofp i16 %224 to float
+  %226 = getelementptr i8, ptr %223, i64 2
   %227 = load i16, ptr %226, align 2, !tbaa !788
   %228 = uitofp i16 %227 to float
-  %229 = getelementptr i8, ptr %226, i64 2
+  %229 = getelementptr i8, ptr %223, i64 4
   %230 = load i16, ptr %229, align 2, !tbaa !788
   %231 = uitofp i16 %230 to float
-  %232 = getelementptr i8, ptr %226, i64 4
-  %233 = load i16, ptr %232, align 2, !tbaa !788
-  %234 = uitofp i16 %233 to float
-  %235 = mul nsw i32 %.0.i.i, 3
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i16, ptr %219, i64 %236
+  %232 = mul nsw i32 %.0.i.i, 3
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds i16, ptr %216, i64 %233
+  %235 = load i16, ptr %234, align 2, !tbaa !788
+  %236 = uitofp i16 %235 to float
+  %237 = getelementptr i8, ptr %234, i64 2
   %238 = load i16, ptr %237, align 2, !tbaa !788
   %239 = uitofp i16 %238 to float
-  %240 = getelementptr i8, ptr %237, i64 2
+  %240 = getelementptr i8, ptr %234, i64 4
   %241 = load i16, ptr %240, align 2, !tbaa !788
   %242 = uitofp i16 %241 to float
-  %243 = getelementptr i8, ptr %237, i64 4
-  %244 = load i16, ptr %243, align 2, !tbaa !788
-  %245 = uitofp i16 %244 to float
-  %246 = fmul float %163, %239
-  %247 = call float @llvm.fmuladd.f32(float %195, float %228, float %246)
+  %243 = fmul float %160, %236
+  %244 = call float @llvm.fmuladd.f32(float %192, float %225, float %243)
+  %245 = fdiv float %244, 2.550000e+02
+  store float %245, ptr %222, align 4, !tbaa !662
+  %246 = fmul float %160, %239
+  %247 = call float @llvm.fmuladd.f32(float %192, float %228, float %246)
   %248 = fdiv float %247, 2.550000e+02
-  store float %248, ptr %225, align 4, !tbaa !662
-  %249 = fmul float %163, %242
-  %250 = call float @llvm.fmuladd.f32(float %195, float %231, float %249)
-  %251 = fdiv float %250, 2.550000e+02
-  %252 = getelementptr inbounds nuw i8, ptr %225, i64 4
-  store float %251, ptr %252, align 4, !tbaa !662
-  %253 = fmul float %163, %245
-  %254 = call float @llvm.fmuladd.f32(float %195, float %234, float %253)
-  %255 = fdiv float %254, 2.550000e+02
-  %256 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store float %255, ptr %256, align 4, !tbaa !662
-  br label %257
+  %249 = getelementptr inbounds nuw i8, ptr %222, i64 4
+  store float %248, ptr %249, align 4, !tbaa !662
+  %250 = fmul float %160, %242
+  %251 = call float @llvm.fmuladd.f32(float %192, float %231, float %250)
+  %252 = fdiv float %251, 2.550000e+02
+  %253 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  store float %252, ptr %253, align 4, !tbaa !662
+  br label %254
 
-257:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit, %220, %101
+254:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit, %217, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %100, label %101, !llvm.loop !1052
 
-258:                                              ; preds = %67, %100
+255:                                              ; preds = %67, %100
   ret void
 }
 
@@ -56623,9 +56524,9 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %33 = load ptr, ptr %32, align 8
   br label %34
 
-34:                                               ; preds = %2, %86
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %86 ]
-  %.074 = phi i32 [ 0, %2 ], [ %93, %86 ]
+34:                                               ; preds = %2, %83
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %83 ]
+  %.074 = phi i32 [ 0, %2 ], [ %90, %83 ]
   %35 = getelementptr inbounds nuw [3 x i32], ptr @_ZN12_GLOBAL__N_110vtx_shiftsE, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !19
   %37 = add nsw i32 %36, %11
@@ -56641,173 +56542,164 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %47 = srem i32 %46, %17
   %48 = add nsw i32 %17, %43
   %49 = srem i32 %48, %17
-  %50 = sub nsw i32 %37, %45
-  %.lobit.i.i.i = ashr i32 %50, 31
-  %.inv.i.i.i = icmp slt i32 %50, 1
-  %51 = sub nsw i32 %40, %47
-  %.inv.i33.i.i = icmp slt i32 %51, 1
-  %52 = sub nsw i32 %43, %49
-  %.inv.i35.i.i = icmp slt i32 %52, 1
-  %isneg.i.i = icmp slt i32 %51, 0
-  %53 = select i1 %isneg.i.i, i32 -3, i32 0
-  %54 = select i1 %.inv.i33.i.i, i32 %53, i32 3
-  %isneg36.i.i = icmp slt i32 %52, 0
-  %55 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %56 = select i1 %.inv.i35.i.i, i32 %55, i32 9
-  %57 = add nsw i32 %.lobit.i.i.i, 13
-  %58 = select i1 %.inv.i.i.i, i32 %57, i32 14
-  %59 = add nsw i32 %54, %58
-  %60 = add nsw i32 %59, %56
-  %61 = mul nsw i32 %60, %19
-  %62 = add nsw i32 %61, %7
-  %63 = mul nsw i32 %62, %22
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %20, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !134, !range !215, !noundef !216
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+  %50 = tail call i32 @llvm.scmp.i32.i32(i32 %37, i32 %45)
+  %51 = tail call i32 @llvm.scmp.i32.i32(i32 %40, i32 %47)
+  %52 = tail call i32 @llvm.scmp.i32.i32(i32 %43, i32 %49)
+  %53 = mul nsw i32 %51, 3
+  %54 = mul nsw i32 %52, 9
+  %55 = add nsw i32 %50, 13
+  %56 = add nsw i32 %55, %53
+  %57 = add nsw i32 %56, %54
+  %58 = mul nsw i32 %57, %19
+  %59 = add nsw i32 %58, %7
+  %60 = mul nsw i32 %59, %22
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %20, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !134, !range !215, !noundef !216
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit: ; preds = %34
-  %68 = mul nsw i32 %24, %60
-  %69 = add nsw i32 %68, %7
-  %70 = mul nsw i32 %69, %27
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %25, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !19
-  %74 = mul nsw i32 %73, %17
-  %75 = add nsw i32 %74, %49
-  %76 = mul nsw i32 %75, %17
-  %77 = add nsw i32 %76, %47
-  %78 = mul nsw i32 %77, %17
-  %79 = add nsw i32 %78, %45
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %81
+  %65 = mul nsw i32 %24, %57
+  %66 = add nsw i32 %65, %7
+  %67 = mul nsw i32 %66, %27
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %25, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !19
+  %71 = mul nsw i32 %70, %17
+  %72 = add nsw i32 %71, %49
+  %73 = mul nsw i32 %72, %17
+  %74 = add nsw i32 %73, %47
+  %75 = mul nsw i32 %74, %17
+  %76 = add nsw i32 %75, %45
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %78
 
-81:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %82 = zext nneg i32 %79 to i64
-  %83 = getelementptr inbounds nuw float, ptr %29, i64 %82
-  %84 = load float, ptr %83, align 4, !tbaa !662
-  %85 = fcmp ugt float %84, %31
-  br i1 %85, label %86, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+78:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %79 = zext nneg i32 %76 to i64
+  %80 = getelementptr inbounds nuw float, ptr %29, i64 %79
+  %81 = load float, ptr %80, align 4, !tbaa !662
+  %82 = fcmp ugt float %81, %31
+  br i1 %82, label %83, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw float, ptr %33, i64 %82
-  %88 = load float, ptr %87, align 4, !tbaa !662
-  %89 = fcmp olt float %88, 0.000000e+00
-  %90 = trunc nuw nsw i64 %indvars.iv to i32
-  %91 = shl nuw nsw i32 1, %90
-  %92 = select i1 %89, i32 %91, i32 0
-  %93 = or i32 %92, %.074
+83:                                               ; preds = %78
+  %84 = getelementptr inbounds nuw float, ptr %33, i64 %79
+  %85 = load float, ptr %84, align 4, !tbaa !662
+  %86 = fcmp olt float %85, 0.000000e+00
+  %87 = trunc nuw nsw i64 %indvars.iv to i32
+  %88 = shl nuw nsw i32 1, %87
+  %89 = select i1 %86, i32 %88, i32 0
+  %90 = or i32 %89, %.074
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %94, label %34, !llvm.loop !1078
+  br i1 %exitcond, label %91, label %34, !llvm.loop !1078
 
-94:                                               ; preds = %86
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %97 = load i32, ptr %96, align 4, !tbaa !19
-  %98 = mul nsw i32 %97, %7
-  %99 = add nsw i32 %98, %16
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %101 = load i32, ptr %100, align 8, !tbaa !19
-  %102 = mul nsw i32 %99, %101
-  %103 = add nsw i32 %102, %15
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %105 = load i32, ptr %104, align 4, !tbaa !19
-  %106 = mul nsw i32 %103, %105
-  %107 = add nsw i32 %106, %11
-  %108 = load ptr, ptr %95, align 8, !tbaa !25
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %110 = load i32, ptr %109, align 8, !tbaa !24
-  %111 = mul nsw i32 %107, %110
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %108, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
-  store i32 %93, ptr %114, align 4, !tbaa !19
-  switch i32 %93, label %115 [
+91:                                               ; preds = %83
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %94 = load i32, ptr %93, align 4, !tbaa !19
+  %95 = mul nsw i32 %94, %7
+  %96 = add nsw i32 %95, %16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %98 = load i32, ptr %97, align 8, !tbaa !19
+  %99 = mul nsw i32 %96, %98
+  %100 = add nsw i32 %99, %15
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %102 = load i32, ptr %101, align 4, !tbaa !19
+  %103 = mul nsw i32 %100, %102
+  %104 = add nsw i32 %103, %11
+  %105 = load ptr, ptr %92, align 8, !tbaa !25
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %107 = load i32, ptr %106, align 8, !tbaa !24
+  %108 = mul nsw i32 %104, %107
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr %105, i64 %109
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
+  store i32 %90, ptr %111, align 4, !tbaa !19
+  switch i32 %90, label %112 [
     i32 255, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
     i32 0, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
   ]
 
-115:                                              ; preds = %94
-  %116 = zext nneg i32 %93 to i64
-  %117 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !19
-  %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %121 = load ptr, ptr %120, align 8
-  br label %122
+112:                                              ; preds = %91
+  %113 = zext nneg i32 %90 to i64
+  %114 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !19
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %118 = load ptr, ptr %117, align 8
+  br label %119
 
-122:                                              ; preds = %115, %176
-  %indvars.iv78 = phi i64 [ 0, %115 ], [ %indvars.iv.next79, %176 ]
-  %123 = trunc nuw nsw i64 %indvars.iv78 to i32
-  %124 = shl nuw nsw i32 1, %123
-  %125 = and i32 %124, %118
-  %.not = icmp eq i32 %125, 0
-  br i1 %.not, label %176, label %126
+119:                                              ; preds = %112, %173
+  %indvars.iv78 = phi i64 [ 0, %112 ], [ %indvars.iv.next79, %173 ]
+  %120 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %121 = shl nuw nsw i32 1, %120
+  %122 = and i32 %121, %115
+  %.not = icmp eq i32 %122, 0
+  br i1 %.not, label %173, label %123
 
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw [4 x i32], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 %indvars.iv78
-  %128 = load i32, ptr %127, align 16, !tbaa !19
-  %129 = add nsw i32 %128, %11
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %131 = load i32, ptr %130, align 4, !tbaa !19
-  %132 = add nsw i32 %131, %15
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !19
-  %135 = add nsw i32 %134, %16
-  %136 = getelementptr inbounds nuw i8, ptr %127, i64 12
-  %137 = load i32, ptr %136, align 4, !tbaa !19
-  %138 = load i32, ptr %0, align 8, !tbaa !1055
-  %139 = sdiv i32 %129, %138
-  %140 = sdiv i32 %132, %138
-  %141 = sdiv i32 %135, %138
-  %142 = mul i32 %140, 3
-  %143 = mul i32 %141, 9
-  %144 = add i32 %139, 13
-  %145 = add i32 %144, %142
-  %146 = add i32 %145, %143
-  %147 = load i32, ptr %23, align 4, !tbaa !19
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw [4 x i32], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 %indvars.iv78
+  %125 = load i32, ptr %124, align 16, !tbaa !19
+  %126 = add nsw i32 %125, %11
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  %128 = load i32, ptr %127, align 4, !tbaa !19
+  %129 = add nsw i32 %128, %15
+  %130 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %131 = load i32, ptr %130, align 8, !tbaa !19
+  %132 = add nsw i32 %131, %16
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 12
+  %134 = load i32, ptr %133, align 4, !tbaa !19
+  %135 = load i32, ptr %0, align 8, !tbaa !1055
+  %136 = sdiv i32 %126, %135
+  %137 = sdiv i32 %129, %135
+  %138 = sdiv i32 %132, %135
+  %139 = mul i32 %137, 3
+  %140 = mul i32 %138, 9
+  %141 = add i32 %136, 13
+  %142 = add i32 %141, %139
+  %143 = add i32 %142, %140
+  %144 = load i32, ptr %23, align 4, !tbaa !19
+  %145 = mul nsw i32 %143, %144
+  %146 = add nsw i32 %145, %7
+  %147 = load i32, ptr %26, align 8, !tbaa !24
   %148 = mul nsw i32 %146, %147
-  %149 = add nsw i32 %148, %7
-  %150 = load i32, ptr %26, align 8, !tbaa !24
-  %151 = mul nsw i32 %149, %150
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i8, ptr %119, i64 %152
-  %154 = load i32, ptr %153, align 4, !tbaa !19
-  %155 = mul nsw i32 %139, %138
-  %.recomposed = srem i32 %129, %138
-  %156 = mul nsw i32 %140, %138
-  %.recomposed85 = srem i32 %132, %138
-  %157 = mul nsw i32 %141, %138
-  %.recomposed86 = srem i32 %135, %138
-  %158 = sext i32 %154 to i64
-  %159 = getelementptr inbounds i32, ptr %121, i64 %158
-  %160 = load i32, ptr %159, align 4, !tbaa !19
-  %161 = load i32, ptr %96, align 4, !tbaa !19
-  %162 = mul nsw i32 %161, %160
-  %163 = add nsw i32 %.recomposed86, %162
-  %164 = load i32, ptr %100, align 8, !tbaa !19
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds i8, ptr %116, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !19
+  %152 = mul nsw i32 %136, %135
+  %.recomposed = srem i32 %126, %135
+  %153 = mul nsw i32 %137, %135
+  %.recomposed85 = srem i32 %129, %135
+  %154 = mul nsw i32 %138, %135
+  %.recomposed86 = srem i32 %132, %135
+  %155 = sext i32 %151 to i64
+  %156 = getelementptr inbounds i32, ptr %118, i64 %155
+  %157 = load i32, ptr %156, align 4, !tbaa !19
+  %158 = load i32, ptr %93, align 4, !tbaa !19
+  %159 = mul nsw i32 %158, %157
+  %160 = add nsw i32 %.recomposed86, %159
+  %161 = load i32, ptr %97, align 8, !tbaa !19
+  %162 = mul nsw i32 %160, %161
+  %163 = add nsw i32 %.recomposed85, %162
+  %164 = load i32, ptr %101, align 4, !tbaa !19
   %165 = mul nsw i32 %163, %164
-  %166 = add nsw i32 %.recomposed85, %165
-  %167 = load i32, ptr %104, align 4, !tbaa !19
+  %166 = add nsw i32 %.recomposed, %165
+  %167 = load i32, ptr %106, align 8, !tbaa !24
   %168 = mul nsw i32 %166, %167
-  %169 = add nsw i32 %.recomposed, %168
-  %170 = load i32, ptr %109, align 8, !tbaa !24
-  %171 = mul nsw i32 %169, %170
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i8, ptr %108, i64 %172
-  %174 = sext i32 %137 to i64
-  %175 = getelementptr inbounds i32, ptr %173, i64 %174
-  store i32 -1, ptr %175, align 4, !tbaa !19
-  br label %176
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds i8, ptr %105, i64 %169
+  %171 = sext i32 %134 to i64
+  %172 = getelementptr inbounds i32, ptr %170, i64 %171
+  store i32 -1, ptr %172, align 4, !tbaa !19
+  br label %173
 
-176:                                              ; preds = %122, %126
+173:                                              ; preds = %119, %123
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 12
-  br i1 %exitcond81.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %122, !llvm.loop !1079
+  br i1 %exitcond81.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %119, !llvm.loop !1079
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %81, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %176, %94, %94
+_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %78, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %173, %91, %91
   ret void
 }
 
@@ -57174,7 +57066,7 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !19
   %.not100 = icmp eq i32 %69, -1
-  br i1 %.not100, label %70, label %252
+  br i1 %.not100, label %70, label %249
 
 70:                                               ; preds = %67, %64, %2
   %71 = mul nsw i32 %15, %9
@@ -57213,17 +57105,17 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %99 = sext i32 %98 to i64
   br label %101
 
-100:                                              ; preds = %251
+100:                                              ; preds = %248
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %252
+  br label %249
 
-101:                                              ; preds = %70, %251
-  %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %251 ]
+101:                                              ; preds = %70, %248
+  %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %248 ]
   %102 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !19
   %.not101 = icmp eq i32 %103, -1
-  br i1 %.not101, label %104, label %251
+  br i1 %.not101, label %104, label %248
 
 104:                                              ; preds = %101
   %105 = icmp eq i64 %indvars.iv, 0
@@ -57242,171 +57134,162 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %118 = srem i32 %117, %114
   %119 = add nsw i32 %114, %113
   %120 = srem i32 %119, %114
-  %121 = sub nsw i32 %107, %116
-  %.lobit.i.i.i = ashr i32 %121, 31
-  %.inv.i.i.i = icmp slt i32 %121, 1
-  %122 = sub nsw i32 %110, %118
-  %.inv.i33.i.i = icmp slt i32 %122, 1
-  %123 = sub nsw i32 %113, %120
-  %.inv.i35.i.i = icmp slt i32 %123, 1
-  %isneg.i.i = icmp slt i32 %122, 0
-  %124 = select i1 %isneg.i.i, i32 -3, i32 0
-  %125 = select i1 %.inv.i33.i.i, i32 %124, i32 3
-  %isneg36.i.i = icmp slt i32 %123, 0
-  %126 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %127 = select i1 %.inv.i35.i.i, i32 %126, i32 9
-  %128 = add nsw i32 %.lobit.i.i.i, 13
-  %129 = select i1 %.inv.i.i.i, i32 %128, i32 14
-  %130 = add nsw i32 %125, %129
-  %131 = add nsw i32 %130, %127
-  %132 = load i32, ptr %77, align 4, !tbaa !19
-  %133 = mul nsw i32 %131, %132
-  %134 = add nsw i32 %133, %10
-  %135 = load ptr, ptr %5, align 8, !tbaa !25
-  %136 = load i32, ptr %78, align 8, !tbaa !24
-  %137 = mul nsw i32 %134, %136
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %135, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !134, !range !215, !noundef !216
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %142, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
+  %121 = call i32 @llvm.scmp.i32.i32(i32 %107, i32 %116)
+  %122 = call i32 @llvm.scmp.i32.i32(i32 %110, i32 %118)
+  %123 = call i32 @llvm.scmp.i32.i32(i32 %113, i32 %120)
+  %124 = mul nsw i32 %122, 3
+  %125 = mul nsw i32 %123, 9
+  %126 = add nsw i32 %121, 13
+  %127 = add nsw i32 %126, %124
+  %128 = add nsw i32 %127, %125
+  %129 = load i32, ptr %77, align 4, !tbaa !19
+  %130 = mul nsw i32 %128, %129
+  %131 = add nsw i32 %130, %10
+  %132 = load ptr, ptr %5, align 8, !tbaa !25
+  %133 = load i32, ptr %78, align 8, !tbaa !24
+  %134 = mul nsw i32 %131, %133
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %132, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !134, !range !215, !noundef !216
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %139, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
 
-142:                                              ; preds = %104
-  %143 = load i32, ptr %79, align 4, !tbaa !19
-  %144 = mul nsw i32 %143, %131
-  %145 = add nsw i32 %144, %10
-  %146 = load ptr, ptr %6, align 8, !tbaa !25
-  %147 = load i32, ptr %80, align 8, !tbaa !24
-  %148 = mul nsw i32 %145, %147
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %146, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !19
-  %152 = mul nsw i32 %151, %114
-  %153 = add nsw i32 %152, %120
-  %154 = mul nsw i32 %153, %114
-  %155 = add nsw i32 %154, %118
-  %156 = mul nsw i32 %155, %114
-  %157 = add nsw i32 %156, %116
+139:                                              ; preds = %104
+  %140 = load i32, ptr %79, align 4, !tbaa !19
+  %141 = mul nsw i32 %140, %128
+  %142 = add nsw i32 %141, %10
+  %143 = load ptr, ptr %6, align 8, !tbaa !25
+  %144 = load i32, ptr %80, align 8, !tbaa !24
+  %145 = mul nsw i32 %142, %144
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds i8, ptr %143, i64 %146
+  %148 = load i32, ptr %147, align 4, !tbaa !19
+  %149 = mul nsw i32 %148, %114
+  %150 = add nsw i32 %149, %120
+  %151 = mul nsw i32 %150, %114
+  %152 = add nsw i32 %151, %118
+  %153 = mul nsw i32 %152, %114
+  %154 = add nsw i32 %153, %116
   br label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit: ; preds = %104, %142
-  %.0.i.i = phi i32 [ %157, %142 ], [ -1, %104 ]
-  %158 = load ptr, ptr %7, align 8, !tbaa !1067
-  %159 = sext i32 %.0.i.i to i64
-  %160 = getelementptr inbounds float, ptr %158, i64 %159
-  %161 = load float, ptr %160, align 4, !tbaa !662
-  %162 = fsub float %161, %76
-  %163 = fdiv float %81, %162
-  %164 = load ptr, ptr %82, align 8, !tbaa !1070
-  %165 = atomicrmw add ptr %164, i32 1 seq_cst, align 4
-  store i32 %165, ptr %102, align 4, !tbaa !19
-  %166 = uitofp i1 %105 to float
-  %167 = fmul float %163, %166
-  %168 = uitofp i1 %108 to float
-  %169 = fmul float %163, %168
-  %170 = uitofp i1 %111 to float
-  %171 = fmul float %163, %170
-  %172 = load ptr, ptr %83, align 8, !tbaa !25
-  %173 = load i32, ptr %84, align 8, !tbaa !24
-  %174 = mul nsw i32 %173, %165
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %172, i64 %175
+_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit: ; preds = %104, %139
+  %.0.i.i = phi i32 [ %154, %139 ], [ -1, %104 ]
+  %155 = load ptr, ptr %7, align 8, !tbaa !1067
+  %156 = sext i32 %.0.i.i to i64
+  %157 = getelementptr inbounds float, ptr %155, i64 %156
+  %158 = load float, ptr %157, align 4, !tbaa !662
+  %159 = fsub float %158, %76
+  %160 = fdiv float %81, %159
+  %161 = load ptr, ptr %82, align 8, !tbaa !1070
+  %162 = atomicrmw add ptr %161, i32 1 seq_cst, align 4
+  store i32 %162, ptr %102, align 4, !tbaa !19
+  %163 = uitofp i1 %105 to float
+  %164 = fmul float %160, %163
+  %165 = uitofp i1 %108 to float
+  %166 = fmul float %160, %165
+  %167 = uitofp i1 %111 to float
+  %168 = fmul float %160, %167
+  %169 = load ptr, ptr %83, align 8, !tbaa !25
+  %170 = load i32, ptr %84, align 8, !tbaa !24
+  %171 = mul nsw i32 %170, %162
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i8, ptr %169, i64 %172
+  %174 = load float, ptr %85, align 8, !tbaa !1071
+  %175 = fadd float %164, %86
+  %176 = fmul float %175, %174
+  store float %176, ptr %173, align 4, !tbaa !662
   %177 = load float, ptr %85, align 8, !tbaa !1071
-  %178 = fadd float %167, %86
+  %178 = fadd float %166, %87
   %179 = fmul float %178, %177
-  store float %179, ptr %176, align 4, !tbaa !662
-  %180 = load float, ptr %85, align 8, !tbaa !1071
-  %181 = fadd float %169, %87
-  %182 = fmul float %181, %180
-  %183 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  store float %182, ptr %183, align 4, !tbaa !662
-  %184 = load float, ptr %85, align 8, !tbaa !1071
-  %185 = fadd float %171, %88
-  %186 = fmul float %185, %184
-  %187 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store float %186, ptr %187, align 4, !tbaa !662
-  %188 = load ptr, ptr %89, align 8, !tbaa !25
-  %189 = load i32, ptr %90, align 8, !tbaa !24
-  %190 = mul nsw i32 %189, %165
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i8, ptr %188, i64 %191
-  %193 = load ptr, ptr %7, align 8, !tbaa !910
-  %194 = load i32, ptr %0, align 8, !tbaa !19
-  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %193, i32 noundef %107, i32 noundef %110, i32 noundef %113, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %194, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %195 = fsub float 1.000000e+00, %163
-  %196 = load float, ptr %3, align 4, !tbaa !662
-  %197 = load float, ptr %4, align 4, !tbaa !662
-  %198 = fmul float %163, %197
-  %199 = call float @llvm.fmuladd.f32(float %195, float %196, float %198)
-  %200 = load float, ptr %91, align 4, !tbaa !662
-  %201 = load float, ptr %92, align 4, !tbaa !662
-  %202 = fmul float %163, %201
-  %203 = call float @llvm.fmuladd.f32(float %195, float %200, float %202)
-  %204 = load float, ptr %93, align 4, !tbaa !662
-  %205 = load float, ptr %94, align 4, !tbaa !662
-  %206 = fmul float %163, %205
-  %207 = call float @llvm.fmuladd.f32(float %195, float %204, float %206)
-  %208 = fmul float %203, %203
-  %209 = call float @llvm.fmuladd.f32(float %199, float %199, float %208)
-  %210 = call float @llvm.fmuladd.f32(float %207, float %207, float %209)
-  %211 = fpext float %210 to double
-  %sqrt = call double @llvm.sqrt.f64(double %211)
-  %212 = fadd double %sqrt, 1.000000e-05
-  %213 = fptrunc double %212 to float
-  %214 = fdiv float %199, %213
-  store float %214, ptr %192, align 4, !tbaa !662
-  %215 = fdiv float %203, %213
-  %216 = getelementptr inbounds nuw i8, ptr %192, i64 4
-  store float %215, ptr %216, align 4, !tbaa !662
-  %217 = fdiv float %207, %213
-  %218 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store float %217, ptr %218, align 4, !tbaa !662
-  %219 = load ptr, ptr %95, align 8, !tbaa !1072
-  %.not102 = icmp eq ptr %219, null
-  br i1 %.not102, label %251, label %220
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 4
+  store float %179, ptr %180, align 4, !tbaa !662
+  %181 = load float, ptr %85, align 8, !tbaa !1071
+  %182 = fadd float %168, %88
+  %183 = fmul float %182, %181
+  %184 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store float %183, ptr %184, align 4, !tbaa !662
+  %185 = load ptr, ptr %89, align 8, !tbaa !25
+  %186 = load i32, ptr %90, align 8, !tbaa !24
+  %187 = mul nsw i32 %186, %162
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i8, ptr %185, i64 %188
+  %190 = load ptr, ptr %7, align 8, !tbaa !910
+  %191 = load i32, ptr %0, align 8, !tbaa !19
+  call void @_ZN6open3d1t8geometry6kernel10voxel_grid15DeviceGetNormalIfEEvPKT_iiiiPfiRKNS2_13TArrayIndexerIiEESC_(ptr noundef %190, i32 noundef %107, i32 noundef %110, i32 noundef %113, i32 noundef %10, ptr noundef nonnull %4, i32 noundef %191, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %192 = fsub float 1.000000e+00, %160
+  %193 = load float, ptr %3, align 4, !tbaa !662
+  %194 = load float, ptr %4, align 4, !tbaa !662
+  %195 = fmul float %160, %194
+  %196 = call float @llvm.fmuladd.f32(float %192, float %193, float %195)
+  %197 = load float, ptr %91, align 4, !tbaa !662
+  %198 = load float, ptr %92, align 4, !tbaa !662
+  %199 = fmul float %160, %198
+  %200 = call float @llvm.fmuladd.f32(float %192, float %197, float %199)
+  %201 = load float, ptr %93, align 4, !tbaa !662
+  %202 = load float, ptr %94, align 4, !tbaa !662
+  %203 = fmul float %160, %202
+  %204 = call float @llvm.fmuladd.f32(float %192, float %201, float %203)
+  %205 = fmul float %200, %200
+  %206 = call float @llvm.fmuladd.f32(float %196, float %196, float %205)
+  %207 = call float @llvm.fmuladd.f32(float %204, float %204, float %206)
+  %208 = fpext float %207 to double
+  %sqrt = call double @llvm.sqrt.f64(double %208)
+  %209 = fadd double %sqrt, 1.000000e-05
+  %210 = fptrunc double %209 to float
+  %211 = fdiv float %196, %210
+  store float %211, ptr %189, align 4, !tbaa !662
+  %212 = fdiv float %200, %210
+  %213 = getelementptr inbounds nuw i8, ptr %189, i64 4
+  store float %212, ptr %213, align 4, !tbaa !662
+  %214 = fdiv float %204, %210
+  %215 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store float %214, ptr %215, align 4, !tbaa !662
+  %216 = load ptr, ptr %95, align 8, !tbaa !1072
+  %.not102 = icmp eq ptr %216, null
+  br i1 %.not102, label %248, label %217
 
-220:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
-  %221 = load ptr, ptr %96, align 8, !tbaa !25
-  %222 = load i32, ptr %97, align 8, !tbaa !24
-  %223 = mul nsw i32 %222, %165
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i8, ptr %221, i64 %224
-  %226 = getelementptr inbounds float, ptr %219, i64 %99
-  %227 = load float, ptr %226, align 4, !tbaa !662
-  %228 = getelementptr i8, ptr %226, i64 4
-  %229 = load float, ptr %228, align 4, !tbaa !662
-  %230 = getelementptr i8, ptr %226, i64 8
-  %231 = load float, ptr %230, align 4, !tbaa !662
-  %232 = mul nsw i32 %.0.i.i, 3
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds float, ptr %219, i64 %233
-  %235 = load float, ptr %234, align 4, !tbaa !662
-  %236 = getelementptr i8, ptr %234, i64 4
-  %237 = load float, ptr %236, align 4, !tbaa !662
-  %238 = getelementptr i8, ptr %234, i64 8
-  %239 = load float, ptr %238, align 4, !tbaa !662
-  %240 = fmul float %163, %235
-  %241 = call float @llvm.fmuladd.f32(float %195, float %227, float %240)
+217:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit
+  %218 = load ptr, ptr %96, align 8, !tbaa !25
+  %219 = load i32, ptr %97, align 8, !tbaa !24
+  %220 = mul nsw i32 %219, %162
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i8, ptr %218, i64 %221
+  %223 = getelementptr inbounds float, ptr %216, i64 %99
+  %224 = load float, ptr %223, align 4, !tbaa !662
+  %225 = getelementptr i8, ptr %223, i64 4
+  %226 = load float, ptr %225, align 4, !tbaa !662
+  %227 = getelementptr i8, ptr %223, i64 8
+  %228 = load float, ptr %227, align 4, !tbaa !662
+  %229 = mul nsw i32 %.0.i.i, 3
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds float, ptr %216, i64 %230
+  %232 = load float, ptr %231, align 4, !tbaa !662
+  %233 = getelementptr i8, ptr %231, i64 4
+  %234 = load float, ptr %233, align 4, !tbaa !662
+  %235 = getelementptr i8, ptr %231, i64 8
+  %236 = load float, ptr %235, align 4, !tbaa !662
+  %237 = fmul float %160, %232
+  %238 = call float @llvm.fmuladd.f32(float %192, float %224, float %237)
+  %239 = fdiv float %238, 2.550000e+02
+  store float %239, ptr %222, align 4, !tbaa !662
+  %240 = fmul float %160, %234
+  %241 = call float @llvm.fmuladd.f32(float %192, float %226, float %240)
   %242 = fdiv float %241, 2.550000e+02
-  store float %242, ptr %225, align 4, !tbaa !662
-  %243 = fmul float %163, %237
-  %244 = call float @llvm.fmuladd.f32(float %195, float %229, float %243)
-  %245 = fdiv float %244, 2.550000e+02
-  %246 = getelementptr inbounds nuw i8, ptr %225, i64 4
-  store float %245, ptr %246, align 4, !tbaa !662
-  %247 = fmul float %163, %239
-  %248 = call float @llvm.fmuladd.f32(float %195, float %231, float %247)
-  %249 = fdiv float %248, 2.550000e+02
-  %250 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store float %249, ptr %250, align 4, !tbaa !662
-  br label %251
+  %243 = getelementptr inbounds nuw i8, ptr %222, i64 4
+  store float %242, ptr %243, align 4, !tbaa !662
+  %244 = fmul float %160, %236
+  %245 = call float @llvm.fmuladd.f32(float %192, float %228, float %244)
+  %246 = fdiv float %245, 2.550000e+02
+  %247 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  store float %246, ptr %247, align 4, !tbaa !662
+  br label %248
 
-251:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit, %220, %101
+248:                                              ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE1_clEiENKUliiiiE_clEiiii.exit, %217, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %100, label %101, !llvm.loop !1081
 
-252:                                              ; preds = %67, %100
+249:                                              ; preds = %67, %100
   ret void
 }
 
@@ -63665,6 +63548,9 @@ declare i64 @llvm.smin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #30
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #32
