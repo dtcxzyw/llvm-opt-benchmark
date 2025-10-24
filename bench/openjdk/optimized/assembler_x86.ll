@@ -103499,7 +103499,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %23, %35
   %49 = select i1 %2, i32 54664, i32 54536
   %50 = or disjoint i32 %48, %49
   %51 = or i32 %50, %39
-  br label %114
+  br label %115
 
 52:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -103588,20 +103588,20 @@ _ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i: ; preds = %93, %82
 _ZN9Assembler11get_prefixqE7Address8Registerb.exit: ; preds = %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i, %74
   %.0.i = phi i32 [ %108, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i ], [ %81, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %sext5 = shl i32 %.0.i, 24
-  br i1 %2, label %109, label %112
+  %109 = shl i32 %.0.i, 24
+  br i1 %2, label %110, label %113
 
-109:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
-  %110 = ashr exact i32 %sext5, 16
-  %111 = or disjoint i32 %110, 15
-  br label %114
+110:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
+  %111 = ashr exact i32 %109, 16
+  %112 = or disjoint i32 %111, 15
+  br label %115
 
-112:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
-  %113 = ashr exact i32 %sext5, 24
-  br label %114
+113:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
+  %114 = ashr exact i32 %109, 24
+  br label %115
 
-114:                                              ; preds = %109, %112, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
-  %.0 = phi i32 [ %51, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ], [ %111, %109 ], [ %113, %112 ]
+115:                                              ; preds = %110, %113, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
+  %.0 = phi i32 [ %51, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ], [ %112, %109 ], [ %114, %112 ]
   ret i32 %.0
 }
 

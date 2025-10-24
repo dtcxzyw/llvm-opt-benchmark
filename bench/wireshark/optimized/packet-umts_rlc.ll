@@ -3580,7 +3580,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   %279 = icmp eq i16 %5, %278
   br i1 %279, label %280, label %284
 
-280:                                              ; preds = %275
+280:; preds = %275
   %sext = shl i64 %277, 48
   %281 = ashr exact i64 %sext, 48
   %282 = add nsw i64 %281, -1
@@ -3588,171 +3588,171 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   store ptr %283, ptr %272, align 8
   br label %284
 
-284:                                              ; preds = %275, %280, %270
+284:; preds = %275, %280, %270
   %285 = load ptr, ptr %271, align 8
   br i1 %8, label %286, label %thread-pre-split
 
-286:                                              ; preds = %284
+286:; preds = %284
   %287 = inttoptr i64 %259 to ptr
   %288 = call ptr @g_list_append(ptr noundef %285, ptr noundef %287)
   store ptr %288, ptr %271, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %284, %286
-  %289 = phi ptr [ %288, %286 ], [ %285, %284 ]
-  %.not243 = icmp eq ptr %289, null
-  br i1 %.not243, label %.critedge269, label %290
+  %291 = phi ptr [ %288, %286 ], [ %285, %284 ]
+  %.not243 = icmp eq ptr %291, null
+  br i1 %.not243, label %.critedge269, label %292
 
-290:                                              ; preds = %thread-pre-split
-  %291 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %292 = load ptr, ptr %291, align 8
-  %.not244 = icmp eq ptr %292, null
-  %293 = load ptr, ptr %289, align 8
-  %294 = ptrtoint ptr %293 to i64
-  %295 = trunc i64 %294 to i32
-  %296 = add i32 %295, 1
-  %297 = srem i32 %296, %117
-  %298 = trunc nsw i32 %297 to i16
-  br i1 %.not244, label %372, label %299
+292:                                              ; preds = %thread-pre-split
+  %293 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %294 = load ptr, ptr %293, align 8
+  %.not244 = icmp eq ptr %294, null
+  %295 = load ptr, ptr %291, align 8
+  %296 = ptrtoint ptr %295 to i64
+  %297 = trunc i64 %296 to i32
+  %298 = add i32 %297, 1
+  %299 = srem i32 %298, %117
+  %300 = trunc nsw i32 %299 to i16
+  br i1 %.not244, label %374, label %301
 
-299:                                              ; preds = %290
-  %300 = load ptr, ptr %292, align 8
-  %301 = ptrtoint ptr %300 to i64
-  %302 = trunc i64 %301 to i16
-  %sext248 = shl i64 %301, 48
-  %303 = ashr exact i64 %sext248, 45
-  %304 = getelementptr i8, ptr %.0.i271, i64 %303
-  %305 = load ptr, ptr %304, align 8
-  %306 = icmp eq ptr %305, null
-  br i1 %306, label %307, label %309
+301:                                              ; preds = %292
+  %302 = load ptr, ptr %294, align 8
+  %303 = ptrtoint ptr %302 to i64
+  %304 = trunc i64 %303 to i16
+  %sext248 = shl i64 %303, 48
+  %305 = ashr exact i64 %sext248, 45
+  %306 = getelementptr i8, ptr %.0.i271, i64 %305
+  %307 = load ptr, ptr %306, align 8
+  %308 = icmp eq ptr %307, null
+  br i1 %308, label %309, label %311
 
-307:                                              ; preds = %299
-  %308 = load i32, ptr %63, align 4
-  store i32 %308, ptr %243, align 8
+309:                                              ; preds = %301
+  %310 = load i32, ptr %63, align 4
+  store i32 %310, ptr %243, align 8
   br label %.critedge269
 
-309:                                              ; preds = %299
-  %310 = sext i16 %302 to i32
-  %311 = icmp eq i32 %297, %310
-  br i1 %311, label %312, label %333
+311:                                              ; preds = %301
+  %312 = sext i16 %304 to i32
+  %313 = icmp eq i32 %299, %312
+  br i1 %313, label %314, label %335
 
-312:                                              ; preds = %309
-  %313 = sext i16 %298 to i64
-  %314 = getelementptr ptr, ptr %.0.i271, i64 %313
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  %317 = load i16, ptr %316, align 8
-  %318 = icmp eq i16 %317, 0
-  br i1 %318, label %319, label %333
+314:                                              ; preds = %311
+  %315 = sext i16 %300 to i64
+  %316 = getelementptr ptr, ptr %.0.i271, i64 %315
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
+  %319 = load i16, ptr %318, align 8
+  %320 = icmp eq i16 %319, 0
+  br i1 %320, label %321, label %335
 
-319:                                              ; preds = %312
-  %320 = call ptr @g_list_first(ptr noundef nonnull %289)
-  %.not251 = icmp eq ptr %320, null
-  br i1 %.not251, label %324, label %321
+321:                                              ; preds = %314
+  %322 = call ptr @g_list_first(ptr noundef nonnull %291)
+  %.not251 = icmp eq ptr %322, null
+  br i1 %.not251, label %326, label %323
 
-321:                                              ; preds = %319
-  %322 = load ptr, ptr %271, align 8
-  %323 = call ptr @g_list_remove_link(ptr noundef %322, ptr noundef nonnull %320)
-  store ptr %323, ptr %271, align 8
-  br label %324
+323:                                              ; preds = %321
+  %324 = load ptr, ptr %271, align 8
+  %325 = call ptr @g_list_remove_link(ptr noundef %324, ptr noundef nonnull %322)
+  store ptr %325, ptr %271, align 8
+  br label %326
 
-324:                                              ; preds = %321, %319
-  %325 = load ptr, ptr %314, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 48
-  %327 = load ptr, ptr %326, align 8
-  store ptr %327, ptr %314, align 8
-  %.not252 = icmp eq ptr %327, null
-  br i1 %.not252, label %.critedge269, label %328
+326:                                              ; preds = %323, %321
+  %327 = load ptr, ptr %316, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 48
+  %329 = load ptr, ptr %328, align 8
+  store ptr %329, ptr %316, align 8
+  %.not252 = icmp eq ptr %329, null
+  br i1 %.not252, label %.critedge269, label %330
 
-328:                                              ; preds = %324
-  %329 = add nsw i32 %297, -1
-  %330 = sext i32 %329 to i64
-  %331 = inttoptr i64 %330 to ptr
-  %332 = load ptr, ptr %271, align 8
-  store ptr %331, ptr %332, align 8
+330:                                              ; preds = %326
+  %331 = add nsw i32 %299, -1
+  %332 = sext i32 %331 to i64
+  %333 = inttoptr i64 %332 to ptr
+  %334 = load ptr, ptr %271, align 8
+  store ptr %333, ptr %334, align 8
   br label %.critedge269
 
-333:                                              ; preds = %312, %309
-  %334 = add nsw i16 %..i, -1
-  %335 = and i16 %334, %302
-  %336 = zext nneg i16 %335 to i32
-  %337 = sub nsw i32 1, %117
-  %338 = and i16 %334, %298
-  %.not.i274306 = icmp samesign ugt i16 %338, %335
-  %339 = select i1 %.not.i274306, i32 %117, i32 0
-  %340 = zext nneg i16 %338 to i32
-  %341 = add nuw nsw i32 %339, %336
-  %.0.i275309 = sub nsw i32 %340, %341
-  %342 = icmp ne i32 %.0.i275309, %337
-  %343 = icmp slt i32 %.0.i275309, 0
-  %344 = and i1 %342, %343
-  br i1 %344, label %.lr.ph311, label %._crit_edge
+335:                                              ; preds = %314, %311
+  %336 = add nsw i16 %..i, -1
+  %337 = and i16 %336, %304
+  %338 = zext nneg i16 %337 to i32
+  %339 = sub nsw i32 1, %117
+  %340 = and i16 %336, %300
+  %.not.i274306 = icmp samesign ugt i16 %340, %337
+  %341 = select i1 %.not.i274306, i32 %117, i32 0
+  %342 = zext nneg i16 %340 to i32
+  %343 = add nuw nsw i32 %341, %338
+  %.0.i275309 = sub nsw i32 %342, %343
+  %344 = icmp ne i32 %.0.i275309, %339
+  %345 = icmp slt i32 %.0.i275309, 0
+  %346 = and i1 %344, %345
+  br i1 %346, label %.lr.ph311, label %._crit_edge
 
-.lr.ph311:                                        ; preds = %333, %361
-  %.0210310 = phi i16 [ %364, %361 ], [ %298, %333 ]
-  %345 = sext i16 %.0210310 to i64
-  %346 = getelementptr ptr, ptr %.0.i271, i64 %345
-  %347 = load ptr, ptr %346, align 8
-  %348 = icmp eq ptr %347, null
-  %349 = sext i16 %.0210310 to i32
-  br i1 %348, label %350, label %361
+.lr.ph311:                                        ; preds = %335, %363
+  %.0210310 = phi i16 [ %366, %361 ], [ %300, %333 ]
+  %347 = sext i16 %.0210310 to i64
+  %348 = getelementptr ptr, ptr %.0.i271, i64 %347
+  %349 = load ptr, ptr %348, align 8
+  %350 = icmp eq ptr %349, null
+  %351 = sext i16 %.0210310 to i32
+  br i1 %350, label %352, label %363
 
-350:                                              ; preds = %.lr.ph311
-  %351 = zext nneg i16 %5 to i32
-  %352 = sub nsw i32 %117, %351
-  %353 = add nsw i32 %352, %349
-  %354 = srem i32 %353, %117
-  %355 = add nuw nsw i32 %117, %351
-  %356 = sub nsw i32 %355, %349
-  %357 = srem i32 %356, %117
-  %. = call i32 @llvm.smin.i32(i32 %354, i32 %357)
-  %358 = lshr exact i32 %117, 2
-  %.not250 = icmp slt i32 %., %358
-  br i1 %.not250, label %.critedge269, label %359
+352:                                              ; preds = %.lr.ph311
+  %353 = zext nneg i16 %5 to i32
+  %354 = sub nsw i32 %117, %353
+  %355 = add nsw i32 %354, %351
+  %356 = srem i32 %355, %117
+  %357 = add nuw nsw i32 %117, %353
+  %358 = sub nsw i32 %357, %351
+  %359 = srem i32 %358, %117
+  %. = call i32 @llvm.smin.i32(i32 %356, i32 %359)
+  %360 = lshr exact i32 %117, 2
+  %.not250 = icmp slt i32 %., %360
+  br i1 %.not250, label %.critedge269, label %361
 
-359:                                              ; preds = %350
-  %360 = load i32, ptr %63, align 4
-  store i32 %360, ptr %243, align 8
+361:                                              ; preds = %352
+  %362 = load i32, ptr %63, align 4
+  store i32 %362, ptr %243, align 8
   br label %.critedge269
 
-361:                                              ; preds = %.lr.ph311
-  %362 = add nsw i32 %349, 1
-  %363 = srem i32 %362, %117
-  %364 = trunc nsw i32 %363 to i16
-  %365 = and i16 %334, %364
-  %.not.i274 = icmp samesign ugt i16 %365, %335
-  %366 = select i1 %.not.i274, i32 %117, i32 0
-  %367 = zext nneg i16 %365 to i32
-  %368 = add nuw nsw i32 %366, %336
-  %.0.i275 = sub nsw i32 %367, %368
-  %369 = icmp ne i32 %.0.i275, %337
-  %370 = icmp slt i32 %.0.i275, 0
-  %371 = and i1 %369, %370
-  br i1 %371, label %.lr.ph311, label %._crit_edge, !llvm.loop !16
+363:                                              ; preds = %.lr.ph311
+  %364 = add nsw i32 %351, 1
+  %365 = srem i32 %364, %117
+  %366 = trunc nsw i32 %365 to i16
+  %367 = and i16 %336, %366
+  %.not.i274 = icmp samesign ugt i16 %367, %337
+  %368 = select i1 %.not.i274, i32 %117, i32 0
+  %369 = zext nneg i16 %367 to i32
+  %370 = add nuw nsw i32 %368, %338
+  %.0.i275 = sub nsw i32 %369, %370
+  %371 = icmp ne i32 %.0.i275, %339
+  %372 = icmp slt i32 %.0.i275, 0
+  %373 = and i1 %371, %372
+  br i1 %373, label %.lr.ph311, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %361, %333
-  call fastcc void @reassemble_sequence(ptr noundef %.0.i271, ptr noundef %154, ptr noundef nonnull %12, i16 noundef zeroext %298, i16 noundef zeroext %302)
+._crit_edge:                                      ; preds = %363, %335
+  call fastcc void @reassemble_sequence(ptr noundef %.0.i271, ptr noundef %154, ptr noundef nonnull %12, i16 noundef zeroext %300, i16 noundef zeroext %304)
   br label %.critedge269
 
-372:                                              ; preds = %290
-  %373 = sub nsw i16 %..i, %5
-  %.lhs.trunc = add nsw i16 %373, %298
-  %374 = srem i16 %.lhs.trunc, %..i
-  %375 = add nuw nsw i16 %..i, %5
-  %.lhs.trunc287 = sub nsw i16 %375, %298
-  %376 = srem i16 %.lhs.trunc287, %..i
-  %377 = call i16 @llvm.smin.i16(i16 %374, i16 %376)
-  %.267 = sext i16 %377 to i32
-  %378 = lshr exact i32 %117, 2
-  %.not247 = icmp sgt i32 %378, %.267
-  br i1 %.not247, label %.critedge269, label %379
+374:                                              ; preds = %292
+  %375 = sub nsw i16 %..i, %5
+  %.lhs.trunc = add nsw i16 %375, %300
+  %376 = srem i16 %.lhs.trunc, %..i
+  %377 = add nuw nsw i16 %..i, %5
+  %.lhs.trunc287 = sub nsw i16 %377, %300
+  %378 = srem i16 %.lhs.trunc287, %..i
+  %379 = call i16 @llvm.smin.i16(i16 %376, i16 %378)
+  %.267 = sext i16 %379 to i32
+  %380 = lshr exact i32 %117, 2
+  %.not247 = icmp sgt i32 %380, %.267
+  br i1 %.not247, label %.critedge269, label %381
 
-379:                                              ; preds = %372
-  %380 = load i32, ptr %63, align 4
-  store i32 %380, ptr %243, align 8
+381:                                              ; preds = %374
+  %382 = load i32, ptr %63, align 4
+  store i32 %382, ptr %243, align 8
   br label %.critedge269
 
-.critedge269:                                     ; preds = %350, %324, %328, %359, %307, %thread-pre-split, %35, %10, %372, %._crit_edge, %379, %242, %160, %240, %224, %212, %216, %.critedge, %238, %235, %120, %135, %130, %267
+.critedge269:                                     ; preds = %352, %326, %330, %361, %309, %thread-pre-split, %35, %10, %374, %._crit_edge, %381, %242, %160, %240, %224, %212, %216, %.critedge, %238, %235, %120, %135, %130, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

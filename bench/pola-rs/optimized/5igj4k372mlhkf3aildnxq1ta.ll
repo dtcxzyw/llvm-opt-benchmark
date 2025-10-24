@@ -26921,31 +26921,31 @@ define internal noundef range(i8 -1, 2) i8 @_ZN4core3ops8function2Fn4call17h1822
   %7 = trunc nuw i32 %6 to i1
   br i1 %5, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit"
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3316)
-  %13 = load float, ptr %11, align 4, !alias.scope !3318, !noalias !3319, !noundef !7
-  %14 = fcmp ord float %13, 0.000000e+00
-  %15 = load float, ptr %12, align 4, !alias.scope !3319, !noalias !3318, !noundef !7
-  %16 = fcmp ult float %13, %15
-  %.not2.i.i = and i1 %14, %16
-  %17 = fcmp ord float %15, 0.000000e+00
-  %18 = fcmp ult float %15, %13
-  %.not4.i.i = and i1 %17, %18
+  %14 = load float, ptr %12, align 4, !alias.scope !3318, !noalias !3319, !noundef !7
+  %15 = fcmp ord float %14, 0.000000e+00
+  %16 = load float, ptr %13, align 4, !alias.scope !3319, !noalias !3318, !noundef !7
+  %17 = fcmp ult float %14, %16
+  %.not2.i.i = and i1 %15, %17
+  %18 = fcmp ord float %16, 0.000000e+00
+  %19 = fcmp ult float %16, %14
+  %.not4.i.i = and i1 %18, %19
   %..i.i = zext i1 %.not4.i.i to i8
   %.sroa.0.0.i.i = select i1 %.not2.i.i, i8 -1, i8 %..i.i
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit"
 
-"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit": ; preds = %8, %9, %10
+"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit": ; preds = %7, %9, %11
   %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i, %10 ], [ %..i, %9 ], [ 1, %8 ]
   ret i8 %.sroa.0.0.i
 }
@@ -26960,31 +26960,31 @@ define internal noundef range(i8 -1, 2) i8 @_ZN4core3ops8function2Fn4call17h4af7
   %7 = trunc nuw i64 %6 to i1
   br i1 %5, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit"
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3328)
-  %13 = load double, ptr %11, align 8, !alias.scope !3330, !noalias !3331, !noundef !7
-  %14 = fcmp ord double %13, 0.000000e+00
-  %15 = load double, ptr %12, align 8, !alias.scope !3331, !noalias !3330, !noundef !7
-  %16 = fcmp ult double %13, %15
-  %.not2.i.i = and i1 %14, %16
-  %17 = fcmp ord double %15, 0.000000e+00
-  %18 = fcmp ult double %15, %13
-  %.not4.i.i = and i1 %17, %18
+  %14 = load double, ptr %12, align 8, !alias.scope !3330, !noalias !3331, !noundef !7
+  %15 = fcmp ord double %14, 0.000000e+00
+  %16 = load double, ptr %13, align 8, !alias.scope !3331, !noalias !3330, !noundef !7
+  %17 = fcmp ult double %14, %16
+  %.not2.i.i = and i1 %15, %17
+  %18 = fcmp ord double %16, 0.000000e+00
+  %19 = fcmp ult double %16, %14
+  %.not4.i.i = and i1 %18, %19
   %..i.i = zext i1 %.not4.i.i to i8
   %.sroa.0.0.i.i = select i1 %.not2.i.i, i8 -1, i8 %..i.i
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit"
 
-"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit": ; preds = %8, %9, %10
+"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit": ; preds = %7, %9, %11
   %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i, %10 ], [ %..i, %9 ], [ 1, %8 ]
   ret i8 %.sroa.0.0.i
 }
@@ -27033,31 +27033,31 @@ define internal noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut
   %7 = trunc nuw i32 %6 to i1
   br i1 %5, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit"
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3347)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3350)
-  %13 = load float, ptr %11, align 4, !alias.scope !3352, !noalias !3353, !noundef !7
-  %14 = fcmp ord float %13, 0.000000e+00
-  %15 = load float, ptr %12, align 4, !alias.scope !3353, !noalias !3352, !noundef !7
-  %16 = fcmp ult float %13, %15
-  %.not2.i.i = and i1 %14, %16
-  %17 = fcmp ord float %15, 0.000000e+00
-  %18 = fcmp ult float %15, %13
-  %.not4.i.i = and i1 %17, %18
+  %14 = load float, ptr %12, align 4, !alias.scope !3352, !noalias !3353, !noundef !7
+  %15 = fcmp ord float %14, 0.000000e+00
+  %16 = load float, ptr %13, align 4, !alias.scope !3353, !noalias !3352, !noundef !7
+  %17 = fcmp ult float %14, %16
+  %.not2.i.i = and i1 %15, %17
+  %18 = fcmp ord float %16, 0.000000e+00
+  %19 = fcmp ult float %16, %14
+  %.not4.i.i = and i1 %18, %19
   %..i.i = zext i1 %.not4.i.i to i8
   %.sroa.0.0.i.i = select i1 %.not2.i.i, i8 -1, i8 %..i.i
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit"
 
-"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit": ; preds = %8, %9, %10
+"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17he610cc4bffe883f6E.exit": ; preds = %7, %9, %11
   %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i, %10 ], [ %..i, %9 ], [ 1, %8 ]
   ret i8 %.sroa.0.0.i
 }
@@ -27072,31 +27072,31 @@ define internal noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut
   %7 = trunc nuw i64 %6 to i1
   br i1 %5, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit"
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3362)
-  %13 = load double, ptr %11, align 8, !alias.scope !3364, !noalias !3365, !noundef !7
-  %14 = fcmp ord double %13, 0.000000e+00
-  %15 = load double, ptr %12, align 8, !alias.scope !3365, !noalias !3364, !noundef !7
-  %16 = fcmp ult double %13, %15
-  %.not2.i.i = and i1 %14, %16
-  %17 = fcmp ord double %15, 0.000000e+00
-  %18 = fcmp ult double %15, %13
-  %.not4.i.i = and i1 %17, %18
+  %14 = load double, ptr %12, align 8, !alias.scope !3364, !noalias !3365, !noundef !7
+  %15 = fcmp ord double %14, 0.000000e+00
+  %16 = load double, ptr %13, align 8, !alias.scope !3365, !noalias !3364, !noundef !7
+  %17 = fcmp ult double %14, %16
+  %.not2.i.i = and i1 %15, %17
+  %18 = fcmp ord double %16, 0.000000e+00
+  %19 = fcmp ult double %16, %14
+  %.not4.i.i = and i1 %18, %19
   %..i.i = zext i1 %.not4.i.i to i8
   %.sroa.0.0.i.i = select i1 %.not2.i.i, i8 -1, i8 %..i.i
   br label %"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit"
 
-"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit": ; preds = %8, %9, %10
+"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalOrd$GT$7tot_cmp17h1f50a78fabddcea7E.exit": ; preds = %7, %9, %11
   %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i, %10 ], [ %..i, %9 ], [ 1, %8 ]
   ret i8 %.sroa.0.0.i
 }
@@ -27816,26 +27816,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_
   %7 = trunc nuw i32 %.val2 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17h810d7ce63749733bE.exit
 
 9:                                                ; preds = %3
   %..i.i.i = sext i1 %7 to i8
   br label %_ZN4core3ops8function6FnOnce9call_once17h810d7ce63749733bE.exit
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt float %.val1, %.val3
-  %12 = fcmp ult float %.val1, %.val3
-  %.1.i.i.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt float %.val1, %.val3
+  %14 = fcmp ult float %.val1, %.val3
+  %.1.i.i.i.i = sext i1 %14 to i8
   %brmerge.not.i.i = fcmp uno float %.val1, %.val3
-  %.1.i.i.mux.i.i = select i1 %11, i8 1, i8 %.1.i.i.i.i, !prof !3466
-  br i1 %brmerge.not.i.i, label %13, label %_ZN4core3ops8function6FnOnce9call_once17h810d7ce63749733bE.exit, !prof !3467
+  %.1.i.i.mux.i.i = select i1 %13, i8 1, i8 %.1.i.i.i.i, !prof !3466
+  br i1 %brmerge.not.i.i, label %15, label %_ZN4core3ops8function6FnOnce9call_once17h810d7ce63749733bE.exit, !prof !3467
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.374) #41, !noalias !3468
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17h810d7ce63749733bE.exit: ; preds = %8, %9, %10
+_ZN4core3ops8function6FnOnce9call_once17h810d7ce63749733bE.exit: ; preds = %7, %9, %12
   %.sroa.0.0.i7.i.i = phi i8 [ 1, %8 ], [ %..i.i.i, %9 ], [ %.1.i.i.mux.i.i, %10 ]
   ret i8 %.sroa.0.0.i7.i.i
 }
@@ -28273,26 +28273,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_
   %7 = trunc nuw i32 %.val2 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17h7ae48e88ac9d0817E.exit
 
 9:                                                ; preds = %3
   %..i.i.i = sext i1 %7 to i8
   br label %_ZN4core3ops8function6FnOnce9call_once17h7ae48e88ac9d0817E.exit
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt float %.val1, %.val3
-  %12 = fcmp ult float %.val1, %.val3
-  %.1.i.i.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt float %.val1, %.val3
+  %14 = fcmp ult float %.val1, %.val3
+  %.1.i.i.i.i = sext i1 %14 to i8
   %brmerge.not.i.i = fcmp uno float %.val1, %.val3
-  %.1.i.i.mux.i.i = select i1 %11, i8 1, i8 %.1.i.i.i.i, !prof !3466
-  br i1 %brmerge.not.i.i, label %13, label %_ZN4core3ops8function6FnOnce9call_once17h7ae48e88ac9d0817E.exit, !prof !3467
+  %.1.i.i.mux.i.i = select i1 %13, i8 1, i8 %.1.i.i.i.i, !prof !3466
+  br i1 %brmerge.not.i.i, label %15, label %_ZN4core3ops8function6FnOnce9call_once17h7ae48e88ac9d0817E.exit, !prof !3467
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.379) #41, !noalias !3592
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17h7ae48e88ac9d0817E.exit: ; preds = %8, %9, %10
+_ZN4core3ops8function6FnOnce9call_once17h7ae48e88ac9d0817E.exit: ; preds = %7, %9, %12
   %.sroa.0.0.i7.i.i = phi i8 [ 1, %8 ], [ %..i.i.i, %9 ], [ %.1.i.i.mux.i.i, %10 ]
   ret i8 %.sroa.0.0.i7.i.i
 }
@@ -28397,26 +28397,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_
   %7 = trunc nuw i64 %.val2 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17hcf55bd4b4f70654cE.exit
 
 9:                                                ; preds = %3
   %..i.i.i = sext i1 %7 to i8
   br label %_ZN4core3ops8function6FnOnce9call_once17hcf55bd4b4f70654cE.exit
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt double %.val1, %.val3
-  %12 = fcmp ult double %.val1, %.val3
-  %.1.i.i.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt double %.val1, %.val3
+  %14 = fcmp ult double %.val1, %.val3
+  %.1.i.i.i.i = sext i1 %14 to i8
   %brmerge.not.i.i = fcmp uno double %.val1, %.val3
-  %.1.i.i.mux.i.i = select i1 %11, i8 1, i8 %.1.i.i.i.i, !prof !3466
-  br i1 %brmerge.not.i.i, label %13, label %_ZN4core3ops8function6FnOnce9call_once17hcf55bd4b4f70654cE.exit, !prof !3467
+  %.1.i.i.mux.i.i = select i1 %13, i8 1, i8 %.1.i.i.i.i, !prof !3466
+  br i1 %brmerge.not.i.i, label %15, label %_ZN4core3ops8function6FnOnce9call_once17hcf55bd4b4f70654cE.exit, !prof !3467
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.374) #41, !noalias !3632
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17hcf55bd4b4f70654cE.exit: ; preds = %8, %9, %10
+_ZN4core3ops8function6FnOnce9call_once17hcf55bd4b4f70654cE.exit: ; preds = %7, %9, %12
   %.sroa.0.0.i7.i.i = phi i8 [ 1, %8 ], [ %..i.i.i, %9 ], [ %.1.i.i.mux.i.i, %10 ]
   ret i8 %.sroa.0.0.i7.i.i
 }
@@ -28448,25 +28448,25 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_
   %7 = trunc nuw i32 %.val2 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17h69586daf2fcc9720E.exit
 
 9:                                                ; preds = %3
   %..i.i = sext i1 %7 to i8
   br label %_ZN4core3ops8function6FnOnce9call_once17h69586daf2fcc9720E.exit
 
-10:                                               ; preds = %8
-  %11 = fcmp ord float %.val1, 0.000000e+00
-  %12 = fcmp ult float %.val1, %.val3
-  %.not2.i.i.i = and i1 %11, %12
-  %13 = fcmp ord float %.val3, 0.000000e+00
-  %14 = fcmp ult float %.val3, %.val1
-  %.not4.i.i.i = and i1 %13, %14
+12:                                               ; preds = %7
+  %13 = fcmp ord float %.val1, 0.000000e+00
+  %14 = fcmp ult float %.val1, %.val3
+  %.not2.i.i.i = and i1 %13, %14
+  %15 = fcmp ord float %.val3, 0.000000e+00
+  %16 = fcmp ult float %.val3, %.val1
+  %.not4.i.i.i = and i1 %15, %16
   %..i.i.i = zext i1 %.not4.i.i.i to i8
   %.sroa.0.0.i.i.i = select i1 %.not2.i.i.i, i8 -1, i8 %..i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h69586daf2fcc9720E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h69586daf2fcc9720E.exit: ; preds = %8, %9, %10
+_ZN4core3ops8function6FnOnce9call_once17h69586daf2fcc9720E.exit: ; preds = %7, %9, %12
   %.sroa.0.0.i.i = phi i8 [ %.sroa.0.0.i.i.i, %10 ], [ %..i.i, %9 ], [ 1, %8 ]
   ret i8 %.sroa.0.0.i.i
 }
@@ -28877,25 +28877,25 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_
   %7 = trunc nuw i64 %.val2 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17hd1ee179e7833b8c3E.exit
 
 9:                                                ; preds = %3
   %..i.i = sext i1 %7 to i8
   br label %_ZN4core3ops8function6FnOnce9call_once17hd1ee179e7833b8c3E.exit
 
-10:                                               ; preds = %8
-  %11 = fcmp ord double %.val1, 0.000000e+00
-  %12 = fcmp ult double %.val1, %.val3
-  %.not2.i.i.i = and i1 %11, %12
-  %13 = fcmp ord double %.val3, 0.000000e+00
-  %14 = fcmp ult double %.val3, %.val1
-  %.not4.i.i.i = and i1 %13, %14
+12:                                               ; preds = %7
+  %13 = fcmp ord double %.val1, 0.000000e+00
+  %14 = fcmp ult double %.val1, %.val3
+  %.not2.i.i.i = and i1 %13, %14
+  %15 = fcmp ord double %.val3, 0.000000e+00
+  %16 = fcmp ult double %.val3, %.val1
+  %.not4.i.i.i = and i1 %15, %16
   %..i.i.i = zext i1 %.not4.i.i.i to i8
   %.sroa.0.0.i.i.i = select i1 %.not2.i.i.i, i8 -1, i8 %..i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hd1ee179e7833b8c3E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hd1ee179e7833b8c3E.exit: ; preds = %8, %9, %10
+_ZN4core3ops8function6FnOnce9call_once17hd1ee179e7833b8c3E.exit: ; preds = %7, %9, %12
   %.sroa.0.0.i.i = phi i8 [ %.sroa.0.0.i.i.i, %10 ], [ %..i.i, %9 ], [ 1, %8 ]
   ret i8 %.sroa.0.0.i.i
 }
@@ -28932,26 +28932,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_
   %7 = trunc nuw i64 %.val2 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17h5c313d18977c8e57E.exit
 
 9:                                                ; preds = %3
   %..i.i.i = sext i1 %7 to i8
   br label %_ZN4core3ops8function6FnOnce9call_once17h5c313d18977c8e57E.exit
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt double %.val1, %.val3
-  %12 = fcmp ult double %.val1, %.val3
-  %.1.i.i.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt double %.val1, %.val3
+  %14 = fcmp ult double %.val1, %.val3
+  %.1.i.i.i.i = sext i1 %14 to i8
   %brmerge.not.i.i = fcmp uno double %.val1, %.val3
-  %.1.i.i.mux.i.i = select i1 %11, i8 1, i8 %.1.i.i.i.i, !prof !3466
-  br i1 %brmerge.not.i.i, label %13, label %_ZN4core3ops8function6FnOnce9call_once17h5c313d18977c8e57E.exit, !prof !3467
+  %.1.i.i.mux.i.i = select i1 %13, i8 1, i8 %.1.i.i.i.i, !prof !3466
+  br i1 %brmerge.not.i.i, label %15, label %_ZN4core3ops8function6FnOnce9call_once17h5c313d18977c8e57E.exit, !prof !3467
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.379) #41, !noalias !3779
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17h5c313d18977c8e57E.exit: ; preds = %8, %9, %10
+_ZN4core3ops8function6FnOnce9call_once17h5c313d18977c8e57E.exit: ; preds = %7, %9, %12
   %.sroa.0.0.i7.i.i = phi i8 [ 1, %8 ], [ %..i.i.i, %9 ], [ %.1.i.i.mux.i.i, %10 ]
   ret i8 %.sroa.0.0.i7.i.i
 }
@@ -90173,26 +90173,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN8skiplist16ordered_skiplist24Ord
   %7 = trunc nuw i32 %.val3 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread"
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt float %.val2, %.val4
-  %12 = fcmp ult float %.val2, %.val4
-  %.1.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt float %.val2, %.val4
+  %14 = fcmp ult float %.val2, %.val4
+  %.1.i.i = sext i1 %14 to i8
   %brmerge.not = fcmp uno float %.val2, %.val4
-  %.1.i.i.mux = select i1 %11, i8 1, i8 %.1.i.i, !prof !3466
-  br i1 %brmerge.not, label %13, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread", !prof !3467
+  %.1.i.i.mux = select i1 %13, i8 1, i8 %.1.i.i, !prof !3466
+  br i1 %brmerge.not, label %15, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread", !prof !3467
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread": ; preds = %10, %8, %9
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread": ; preds = %12, %7, %9
   %.sroa.0.0.i7 = phi i8 [ 1, %8 ], [ %..i, %9 ], [ %.1.i.i.mux, %10 ]
   ret i8 %.sroa.0.0.i7
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.374) #41
   unreachable
 }
@@ -90209,26 +90209,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN8skiplist16ordered_skiplist24Ord
   %7 = trunc nuw i64 %.val3 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread"
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt double %.val2, %.val4
-  %12 = fcmp ult double %.val2, %.val4
-  %.1.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt double %.val2, %.val4
+  %14 = fcmp ult double %.val2, %.val4
+  %.1.i.i = sext i1 %14 to i8
   %brmerge.not = fcmp uno double %.val2, %.val4
-  %.1.i.i.mux = select i1 %11, i8 1, i8 %.1.i.i, !prof !3466
-  br i1 %brmerge.not, label %13, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread", !prof !3467
+  %.1.i.i.mux = select i1 %13, i8 1, i8 %.1.i.i, !prof !3466
+  br i1 %brmerge.not, label %15, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread", !prof !3467
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread": ; preds = %10, %8, %9
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread": ; preds = %12, %7, %9
   %.sroa.0.0.i7 = phi i8 [ 1, %8 ], [ %..i, %9 ], [ %.1.i.i.mux, %10 ]
   ret i8 %.sroa.0.0.i7
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.374) #41
   unreachable
 }
@@ -90265,26 +90265,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN8skiplist16ordered_skiplist24Ord
   %7 = trunc nuw i64 %.val3 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread"
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt double %.val2, %.val4
-  %12 = fcmp ult double %.val2, %.val4
-  %.1.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt double %.val2, %.val4
+  %14 = fcmp ult double %.val2, %.val4
+  %.1.i.i = sext i1 %14 to i8
   %brmerge.not = fcmp uno double %.val2, %.val4
-  %.1.i.i.mux = select i1 %11, i8 1, i8 %.1.i.i, !prof !3466
-  br i1 %brmerge.not, label %13, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread", !prof !3467
+  %.1.i.i.mux = select i1 %13, i8 1, i8 %.1.i.i, !prof !3466
+  br i1 %brmerge.not, label %15, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread", !prof !3467
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread": ; preds = %10, %8, %9
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h681a08af2ce43757E.exit.thread": ; preds = %12, %7, %9
   %.sroa.0.0.i7 = phi i8 [ 1, %8 ], [ %..i, %9 ], [ %.1.i.i.mux, %10 ]
   ret i8 %.sroa.0.0.i7
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.379) #41
   unreachable
 }
@@ -90301,26 +90301,26 @@ define internal noundef range(i8 -1, 2) i8 @"_ZN8skiplist16ordered_skiplist24Ord
   %7 = trunc nuw i32 %.val3 to i1
   br i1 %6, label %8, label %9
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   br i1 %7, label %10, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread"
 
 9:                                                ; preds = %3
   %..i = sext i1 %7 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread"
 
-10:                                               ; preds = %8
-  %11 = fcmp ugt float %.val2, %.val4
-  %12 = fcmp ult float %.val2, %.val4
-  %.1.i.i = sext i1 %12 to i8
+12:                                               ; preds = %7
+  %13 = fcmp ugt float %.val2, %.val4
+  %14 = fcmp ult float %.val2, %.val4
+  %.1.i.i = sext i1 %14 to i8
   %brmerge.not = fcmp uno float %.val2, %.val4
-  %.1.i.i.mux = select i1 %11, i8 1, i8 %.1.i.i, !prof !3466
-  br i1 %brmerge.not, label %13, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread", !prof !3467
+  %.1.i.i.mux = select i1 %13, i8 1, i8 %.1.i.i, !prof !3466
+  br i1 %brmerge.not, label %15, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread", !prof !3467
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread": ; preds = %10, %8, %9
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hff5328dd4e34147eE.exit.thread": ; preds = %12, %7, %9
   %.sroa.0.0.i7 = phi i8 [ 1, %8 ], [ %..i, %9 ], [ %.1.i.i.mux, %10 ]
   ret i8 %.sroa.0.0.i7
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.78196254c718d13546bbe37e5b53c7b5.373, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.379) #41
   unreachable
 }

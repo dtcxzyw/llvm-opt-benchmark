@@ -17133,48 +17133,48 @@ define internal fastcc i64 @sip24_final(ptr noundef nonnull %0) unnamed_addr #13
   %11 = add i64 %7, %10
   %12 = shl i64 %11, 56
   switch i8 %8, label %53 [
-    i8 7, label %13
+    i8 7, label %14
     i8 6, label %19
     i8 5, label %25
-    i8 4, label %31
+    i8 4, label %32
     i8 3, label %37
     i8 2, label %43
     i8 1, label %49
   ]
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %15 = load i8, ptr %14, align 2, !tbaa !61
-  %16 = zext i8 %15 to i64
-  %17 = shl nuw nsw i64 %16, 48
-  %18 = or disjoint i64 %17, %12
-  br label %19
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %16 = load i8, ptr %15, align 2, !tbaa !61
+  %17 = zext i8 %16 to i64
+  %18 = shl nuw nsw i64 %17, 48
+  %19 = or disjoint i64 %18, %12
+  br label %20
 
-19:                                               ; preds = %13, %1
-  %.1 = phi i64 [ %18, %13 ], [ %12, %1 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %21 = load i8, ptr %20, align 1, !tbaa !61
-  %22 = zext i8 %21 to i64
-  %23 = shl nuw nsw i64 %22, 40
-  %24 = or i64 %23, %.1
-  br label %25
+20:                                               ; preds = %14, %1
+  %.1 = phi i64 [ %19, %13 ], [ %12, %1 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %22 = load i8, ptr %21, align 1, !tbaa !61
+  %23 = zext i8 %22 to i64
+  %24 = shl nuw nsw i64 %23, 40
+  %25 = or i64 %24, %.1
+  br label %26
 
-25:                                               ; preds = %19, %1
-  %.2 = phi i64 [ %24, %19 ], [ %12, %1 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %27 = load i8, ptr %26, align 4, !tbaa !61
-  %28 = zext i8 %27 to i64
-  %29 = shl nuw nsw i64 %28, 32
-  %30 = or i64 %29, %.2
-  br label %31
+26:                                               ; preds = %20, %1
+  %.2 = phi i64 [ %25, %19 ], [ %12, %1 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %28 = load i8, ptr %27, align 4, !tbaa !61
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, 32
+  %31 = or i64 %30, %.2
+  br label %32
 
-31:                                               ; preds = %25, %1
-  %.3 = phi i64 [ %30, %25 ], [ %12, %1 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %33 = load i8, ptr %32, align 1, !tbaa !61
-  %34 = zext i8 %33 to i64
-  %35 = shl nuw nsw i64 %34, 24
-  %36 = or i64 %35, %.3
+32:                                               ; preds = %26, %1
+  %.3 = phi i64 [ %31, %25 ], [ %12, %1 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  %34 = load i8, ptr %33, align 1, !tbaa !61
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 24
+  %37 = or i64 %36, %.3
   br label %37
 
 37:                                               ; preds = %31, %1
@@ -17186,32 +17186,32 @@ define internal fastcc i64 @sip24_final(ptr noundef nonnull %0) unnamed_addr #13
   %42 = or i64 %41, %.4
   br label %43
 
-43:                                               ; preds = %37, %1
-  %.5 = phi i64 [ %42, %37 ], [ %12, %1 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %45 = load i8, ptr %44, align 1, !tbaa !61
-  %46 = zext i8 %45 to i64
-  %47 = shl nuw nsw i64 %46, 8
-  %48 = or i64 %47, %.5
+38:                                               ; preds = %37, %1
+  %.4 = phi i64 [ %42, %37 ], [ %12, %1 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %40 = load i8, ptr %39, align 1, !tbaa !61
+  %41 = zext i8 %40 to i64
+  %42 = shl nuw nsw i64 %41, 8
+  %43 = or i64 %42, %.4
   br label %49
 
-49:                                               ; preds = %43, %1
+50:                                               ; preds = %43, %1
   %.6 = phi i64 [ %48, %43 ], [ %12, %1 ]
-  %50 = load i8, ptr %4, align 8, !tbaa !61
-  %51 = zext i8 %50 to i64
-  %52 = or i64 %.6, %51
-  br label %53
+  %51 = load i8, ptr %4, align 8, !tbaa !61
+  %52 = zext i8 %51 to i64
+  %53 = or i64 %.6, %52
+  br label %54
 
-53:                                               ; preds = %49, %1
-  %.0 = phi i64 [ %12, %1 ], [ %52, %49 ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %55 = load i64, ptr %54, align 8, !tbaa !317
-  %56 = xor i64 %55, %.0
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.promoted.i = load i64, ptr %57, align 8, !tbaa !315
+54:                                               ; preds = %50, %1
+  %.0 = phi i64 [ %12, %1 ], [ %53, %49 ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = load i64, ptr %55, align 8, !tbaa !317
+  %57 = xor i64 %56, %.0
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.promoted.i = load i64, ptr %58, align 8, !tbaa !315
   %.promoted36.i = load i64, ptr %0, align 8, !tbaa !313
-  %.promoted40.i = load i64, ptr %58, align 8, !tbaa !316
+  %.promoted40.i = load i64, ptr %59, align 8, !tbaa !316
   br label %59
 
 59:                                               ; preds = %59, %53
@@ -17243,37 +17243,37 @@ sip_round.exit:                                   ; preds = %59
   %80 = xor i64 %77, 255
   br label %81
 
-81:                                               ; preds = %81, %sip_round.exit
-  %.042.i33 = phi i32 [ 0, %sip_round.exit ], [ %100, %81 ]
-  %82 = phi i64 [ %76, %sip_round.exit ], [ %98, %81 ]
-  %83 = phi i64 [ %79, %sip_round.exit ], [ %93, %81 ]
-  %84 = phi i64 [ %73, %sip_round.exit ], [ %95, %81 ]
-  %85 = phi i64 [ %80, %sip_round.exit ], [ %99, %81 ]
-  %86 = add i64 %83, %82
-  %87 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 13)
-  %88 = xor i64 %86, %87
-  %89 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 32)
-  %90 = add i64 %85, %84
-  %91 = tail call i64 @llvm.fshl.i64(i64 %84, i64 %84, i64 16)
-  %92 = xor i64 %90, %91
-  %93 = add i64 %92, %89
-  %94 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 21)
-  %95 = xor i64 %94, %93
-  %96 = add i64 %90, %88
-  %97 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 17)
-  %98 = xor i64 %96, %97
-  %99 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 32)
-  %100 = add nuw nsw i32 %.042.i33, 1
-  %exitcond.not.i34 = icmp eq i32 %100, 4
-  br i1 %exitcond.not.i34, label %sip_round.exit35, label %81, !llvm.loop !343
+60:                                               ; preds = %60, %sip_round.exit
+  %.042.i = phi i32 [ 0, %sip_round.exit ], [ %79, %81 ]
+  %61 = phi i64 [ %76, %sip_round.exit ], [ %77, %81 ]
+  %62 = phi i64 [ %79, %sip_round.exit ], [ %72, %81 ]
+  %63 = phi i64 [ %73, %sip_round.exit ], [ %74, %81 ]
+  %64 = phi i64 [ %80, %sip_round.exit ], [ %78, %81 ]
+  %65 = add i64 %62, %61
+  %66 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 13)
+  %67 = xor i64 %65, %66
+  %68 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 32)
+  %69 = add i64 %64, %63
+  %70 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 16)
+  %71 = xor i64 %69, %70
+  %72 = add i64 %71, %68
+  %73 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 21)
+  %74 = xor i64 %73, %72
+  %75 = add i64 %69, %67
+  %76 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 17)
+  %77 = xor i64 %75, %76
+  %78 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 32)
+  %79 = add nuw nsw i32 %.042.i, 1
+  %exitcond.not.i = icmp eq i32 %79, 4
+  br i1 %exitcond.not.i, label %sip_round.exit, label %60, !llvm.loop !343
 
-sip_round.exit35:                                 ; preds = %81
-  store i64 %98, ptr %57, align 8, !tbaa !315
-  store i64 %93, ptr %0, align 8, !tbaa !313
+sip_round.exit:                                   ; preds = %60
+  store i64 %77, ptr %57, align 8, !tbaa !315
+  store i64 %72, ptr %0, align 8, !tbaa !313
   store i64 %95, ptr %54, align 8, !tbaa !317
   store i64 %99, ptr %58, align 8, !tbaa !316
-  %101 = xor i64 %93, %98
-  %102 = xor i64 %101, %99
+  %101 = xor i64 %72, %98
+  %102 = xor i64 %101, %78
   %103 = xor i64 %102, %95
   ret i64 %103
 }

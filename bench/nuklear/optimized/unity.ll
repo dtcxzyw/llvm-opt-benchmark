@@ -31341,8 +31341,8 @@ define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly capt
   %10 = add nsw i32 %.05, %9
   %11 = mul nsw i32 %10, %1
   %12 = add i32 %11, %8
-  %sext = shl i64 %.0324, 32
-  %13 = ashr exact i64 %sext, 32
+  %sext14 = shl i64 %.0324, 32
+  %13 = ashr exact i64 %sext14, 32
   br label %14
 
 14:                                               ; preds = %.preheader, %14

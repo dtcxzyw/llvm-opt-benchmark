@@ -3010,17 +3010,17 @@ define internal fastcc zeroext i1 @is_dbus_signature_valid(ptr noundef nonnull r
   %.not2 = icmp eq i8 %3, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %28
-  %4 = phi i8 [ %29, %28 ], [ %3, %1 ]
+.lr.ph:                                           ; preds = %1, %30
+  %4 = phi i8 [ %31, %28 ], [ %3, %1 ]
   %.0205 = phi ptr [ %5, %28 ], [ %0, %1 ]
   %.0214 = phi i8 [ %4, %28 ], [ 0, %1 ]
   %.0223 = phi i64 [ %6, %28 ], [ 0, %1 ]
   %5 = getelementptr i8, ptr %.0205, i64 1
   %6 = add nuw nsw i64 %.0223, 1
   %exitcond = icmp eq i64 %.0223, 254
-  br i1 %exitcond, label %is_basic_type.exit, label %7
+  br i1 %exitcond, label %is_basic_type.exit, label %8
 
-7:                                                ; preds = %.lr.ph
+8:                                                ; preds = %.lr.ph
   switch i8 %4, label %is_basic_type.exit [
     i8 121, label %thread-pre-split
     i8 103, label %thread-pre-split
@@ -3036,92 +3036,92 @@ define internal fastcc zeroext i1 @is_dbus_signature_valid(ptr noundef nonnull r
     i8 120, label %thread-pre-split
     i8 116, label %thread-pre-split
     i8 100, label %thread-pre-split
-    i8 97, label %8
-    i8 40, label %10
-    i8 123, label %13
-    i8 41, label %21
-    i8 125, label %21
+    i8 97, label %9
+    i8 40, label %11
+    i8 123, label %14
+    i8 41, label %22
+    i8 125, label %22
   ]
 
-8:                                                ; preds = %7
-  %9 = load i8, ptr %5, align 1
-  switch i8 %9, label %28 [
+9:                                                ; preds = %8
+  %10 = load i8, ptr %5, align 1
+  switch i8 %10, label %28 [
     i8 0, label %is_basic_type.exit
     i8 41, label %is_basic_type.exit
     i8 125, label %is_basic_type.exit
   ]
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %5, align 1
-  %12 = icmp eq i8 %11, 41
-  br i1 %12, label %is_basic_type.exit, label %thread-pre-split.sink.split
+11:                                               ; preds = %8
+  %12 = load i8, ptr %5, align 1
+  %13 = icmp eq i8 %12, 41
+  br i1 %13, label %is_basic_type.exit, label %thread-pre-split.sink.split
 
-13:                                               ; preds = %7
+14:                                               ; preds = %8
   %.not27 = icmp eq i8 %.0214, 97
-  br i1 %.not27, label %14, label %is_basic_type.exit
+  br i1 %.not27, label %15, label %is_basic_type.exit
 
-14:                                               ; preds = %13
-  %15 = load i8, ptr %5, align 1
-  switch i8 %15, label %is_basic_type.exit [
-    i8 121, label %16
-    i8 98, label %16
-    i8 110, label %16
-    i8 113, label %16
-    i8 105, label %16
-    i8 117, label %16
-    i8 120, label %16
-    i8 116, label %16
-    i8 100, label %16
-    i8 115, label %16
-    i8 111, label %16
-    i8 103, label %16
-    i8 104, label %16
+15:                                               ; preds = %14
+  %16 = load i8, ptr %5, align 1
+  switch i8 %16, label %is_basic_type.exit [
+    i8 121, label %17
+    i8 98, label %17
+    i8 110, label %17
+    i8 113, label %17
+    i8 105, label %17
+    i8 117, label %17
+    i8 120, label %17
+    i8 116, label %17
+    i8 100, label %17
+    i8 115, label %17
+    i8 111, label %17
+    i8 103, label %17
+    i8 104, label %17
   ]
 
-16:                                               ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14
-  %17 = getelementptr i8, ptr %.0205, i64 2
-  %18 = tail call fastcc ptr @skip_single_complete_type(ptr noundef %17)
-  %.not28 = icmp eq ptr %18, null
-  br i1 %.not28, label %is_basic_type.exit, label %19
+17:                                               ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
+  %18 = getelementptr i8, ptr %.0205, i64 2
+  %19 = tail call fastcc ptr @skip_single_complete_type(ptr noundef %18)
+  %.not28 = icmp eq ptr %19, null
+  br i1 %.not28, label %is_basic_type.exit, label %20
 
-19:                                               ; preds = %16
-  %20 = load i8, ptr %18, align 1
-  %.not29 = icmp eq i8 %20, 125
+20:                                               ; preds = %17
+  %21 = load i8, ptr %19, align 1
+  %.not29 = icmp eq i8 %21, 125
   br i1 %.not29, label %thread-pre-split.sink.split, label %is_basic_type.exit
 
-21:                                               ; preds = %7, %7
-  %22 = tail call i32 @wmem_list_count(ptr noundef %2)
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %is_basic_type.exit, label %24
+22:                                               ; preds = %8, %8
+  %23 = tail call i32 @wmem_list_count(ptr noundef %2)
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %is_basic_type.exit, label %25
 
-24:                                               ; preds = %21
-  %25 = tail call ptr @wmem_stack_pop(ptr noundef %2)
-  %26 = ptrtoint ptr %25 to i64
-  %27 = trunc i64 %26 to i8
-  %.not26 = icmp eq i8 %4, %27
+25:                                               ; preds = %22
+  %26 = tail call ptr @wmem_stack_pop(ptr noundef %2)
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i8
+  %.not26 = icmp eq i8 %4, %28
   br i1 %.not26, label %thread-pre-split, label %is_basic_type.exit
 
-thread-pre-split.sink.split:                      ; preds = %19, %10
+thread-pre-split.sink.split:                      ; preds = %20, %11
   %.sink = phi ptr [ inttoptr (i64 41 to ptr), %10 ], [ inttoptr (i64 125 to ptr), %19 ]
   tail call void @wmem_list_prepend(ptr noundef %2, ptr noundef nonnull %.sink)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %24
+thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %25
   %.pr = load i8, ptr %5, align 1
-  br label %28
+  br label %30
 
-28:                                               ; preds = %thread-pre-split, %8
-  %29 = phi i8 [ %.pr, %thread-pre-split ], [ %9, %8 ]
-  %.not = icmp eq i8 %29, 0
+30:                                               ; preds = %thread-pre-split, %9
+  %31 = phi i8 [ %.pr, %thread-pre-split ], [ %10, %8 ]
+  %.not = icmp eq i8 %31, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %28, %1
-  %30 = tail call i32 @wmem_list_count(ptr noundef %2)
-  %31 = icmp eq i32 %30, 0
+._crit_edge:                                      ; preds = %30, %1
+  %32 = tail call i32 @wmem_list_count(ptr noundef %2)
+  %33 = icmp eq i32 %32, 0
   br label %is_basic_type.exit
 
-is_basic_type.exit:                               ; preds = %14, %7, %21, %24, %19, %16, %13, %10, %8, %8, %8, %.lr.ph, %._crit_edge
-  %.1 = phi i1 [ %31, %._crit_edge ], [ false, %.lr.ph ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %24 ], [ false, %21 ], [ false, %7 ], [ false, %14 ]
+is_basic_type.exit:                               ; preds = %15, %8, %22, %25, %20, %17, %14, %11, %9, %9, %9, %.lr.ph, %._crit_edge
+  %.1 = phi i1 [ %33, %._crit_edge ], [ false, %.lr.ph ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %24 ], [ false, %21 ], [ false, %7 ], [ false, %14 ]
   ret i1 %.1
 }
 

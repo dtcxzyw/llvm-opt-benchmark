@@ -19,86 +19,86 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %154
 
 13:                                               ; preds = %5, %150
-  %.0267 = phi i32 [ 8, %5 ], [ %152, %150 ]
-  %.0221266 = phi ptr [ %6, %5 ], [ %.1222, %150 ]
-  %.0223265 = phi ptr [ %10, %5 ], [ %.1224, %150 ]
-  %.0225264 = phi ptr [ %2, %5 ], [ %.1226, %150 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.0225264, i64 16
+  %.0270 = phi i32 [ 8, %5 ], [ %152, %150 ]
+  %.0221269 = phi ptr [ %6, %5 ], [ %.1222, %150 ]
+  %.0223268 = phi ptr [ %10, %5 ], [ %.1224, %150 ]
+  %.0225267 = phi ptr [ %2, %5 ], [ %.1226, %150 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.0225267, i64 16
   %15 = load i16, ptr %14, align 2, !tbaa !32
   %16 = icmp eq i16 %15, 0
-  %17 = getelementptr inbounds nuw i8, ptr %.0225264, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0225267, i64 32
   %18 = load i16, ptr %17, align 2, !tbaa !32
   %19 = icmp eq i16 %18, 0
   %or.cond = select i1 %16, i1 %19, i1 false
   br i1 %or.cond, label %20, label %._crit_edge
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %.0225264, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.0225267, i64 48
   %22 = load i16, ptr %21, align 2, !tbaa !32
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %24, label %._crit_edge
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.0225264, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %.0225267, i64 64
   %26 = load i16, ptr %25, align 2, !tbaa !32
   %27 = icmp eq i16 %26, 0
   br i1 %27, label %28, label %._crit_edge
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.0225264, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %.0225267, i64 80
   %30 = load i16, ptr %29, align 2, !tbaa !32
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %32, label %._crit_edge
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %.0225264, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %.0225267, i64 96
   %34 = load i16, ptr %33, align 2, !tbaa !32
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %36, label %._crit_edge
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.0225264, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %.0225267, i64 112
   %38 = load i16, ptr %37, align 2, !tbaa !32
   %39 = icmp eq i16 %38, 0
   br i1 %39, label %40, label %._crit_edge
 
 40:                                               ; preds = %36
-  %41 = load i16, ptr %.0225264, align 2, !tbaa !32
+  %41 = load i16, ptr %.0225267, align 2, !tbaa !32
   %42 = sext i16 %41 to i32
-  %43 = load i16, ptr %.0223265, align 2, !tbaa !32
+  %43 = load i16, ptr %.0223268, align 2, !tbaa !32
   %44 = sext i16 %43 to i32
   %45 = mul nsw i32 %44, %42
-  store i32 %45, ptr %.0221266, align 4, !tbaa !33
-  %46 = getelementptr inbounds nuw i8, ptr %.0221266, i64 32
+  store i32 %45, ptr %.0221269, align 4, !tbaa !33
+  %46 = getelementptr inbounds nuw i8, ptr %.0221269, i64 32
   store i32 %45, ptr %46, align 4, !tbaa !33
-  %47 = getelementptr inbounds nuw i8, ptr %.0221266, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %.0221269, i64 64
   store i32 %45, ptr %47, align 4, !tbaa !33
-  %48 = getelementptr inbounds nuw i8, ptr %.0221266, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %.0221269, i64 96
   store i32 %45, ptr %48, align 4, !tbaa !33
-  %49 = getelementptr inbounds nuw i8, ptr %.0221266, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %.0221269, i64 128
   store i32 %45, ptr %49, align 4, !tbaa !33
-  %50 = getelementptr inbounds nuw i8, ptr %.0221266, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %.0221269, i64 160
   store i32 %45, ptr %50, align 4, !tbaa !33
-  %51 = getelementptr inbounds nuw i8, ptr %.0221266, i64 192
+  %51 = getelementptr inbounds nuw i8, ptr %.0221269, i64 192
   store i32 %45, ptr %51, align 4, !tbaa !33
   br label %150
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
   %52 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
-  %53 = load i16, ptr %.0225264, align 2, !tbaa !32
-  %54 = load i16, ptr %.0223265, align 2, !tbaa !32
+  %53 = load i16, ptr %.0225267, align 2, !tbaa !32
+  %54 = load i16, ptr %.0223268, align 2, !tbaa !32
   %55 = mul i16 %54, %53
-  %56 = getelementptr inbounds nuw i8, ptr %.0223265, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.0223268, i64 32
   %57 = load i16, ptr %56, align 2, !tbaa !32
   %58 = mul i16 %57, %52
-  %59 = getelementptr inbounds nuw i8, ptr %.0225264, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.0225267, i64 64
   %60 = load i16, ptr %59, align 2, !tbaa !32
-  %61 = getelementptr inbounds nuw i8, ptr %.0223265, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %.0223268, i64 64
   %62 = load i16, ptr %61, align 2, !tbaa !32
   %63 = mul i16 %62, %60
-  %64 = getelementptr inbounds nuw i8, ptr %.0225264, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %.0225267, i64 96
   %65 = load i16, ptr %64, align 2, !tbaa !32
-  %66 = getelementptr inbounds nuw i8, ptr %.0223265, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %.0223268, i64 96
   %67 = load i16, ptr %66, align 2, !tbaa !32
   %68 = mul i16 %67, %65
   %69 = add i16 %63, %55
@@ -115,22 +115,22 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %80 = sub i16 %69, %73
   %81 = add i16 %78, %70
   %82 = sub i16 %70, %78
-  %83 = getelementptr inbounds nuw i8, ptr %.0223265, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.0223268, i64 16
   %84 = load i16, ptr %83, align 2, !tbaa !32
   %85 = mul i16 %84, %15
-  %86 = getelementptr inbounds nuw i8, ptr %.0225264, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %.0225267, i64 48
   %87 = load i16, ptr %86, align 2, !tbaa !32
-  %88 = getelementptr inbounds nuw i8, ptr %.0223265, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %.0223268, i64 48
   %89 = load i16, ptr %88, align 2, !tbaa !32
   %90 = mul i16 %89, %87
-  %91 = getelementptr inbounds nuw i8, ptr %.0225264, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %.0225267, i64 80
   %92 = load i16, ptr %91, align 2, !tbaa !32
-  %93 = getelementptr inbounds nuw i8, ptr %.0223265, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %.0223268, i64 80
   %94 = load i16, ptr %93, align 2, !tbaa !32
   %95 = mul i16 %94, %92
-  %96 = getelementptr inbounds nuw i8, ptr %.0225264, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %.0225267, i64 112
   %97 = load i16, ptr %96, align 2, !tbaa !32
-  %98 = getelementptr inbounds nuw i8, ptr %.0223265, i64 112
+  %98 = getelementptr inbounds nuw i8, ptr %.0223268, i64 112
   %99 = load i16, ptr %98, align 2, !tbaa !32
   %100 = mul i16 %99, %97
   %101 = add i16 %95, %90
@@ -165,91 +165,91 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %130 = add i16 %125, %129
   %131 = sext i16 %79 to i32
   %132 = add nsw i32 %118, %131
-  store i32 %132, ptr %.0221266, align 4, !tbaa !33
+  store i32 %132, ptr %.0221269, align 4, !tbaa !33
   %133 = sub nsw i32 %131, %118
-  %134 = getelementptr inbounds nuw i8, ptr %.0221266, i64 224
+  %134 = getelementptr inbounds nuw i8, ptr %.0221269, i64 224
   store i32 %133, ptr %134, align 4, !tbaa !33
   %135 = sext i16 %81 to i32
   %136 = add nsw i32 %123, %135
-  %137 = getelementptr inbounds nuw i8, ptr %.0221266, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %.0221269, i64 32
   store i32 %136, ptr %137, align 4, !tbaa !33
   %138 = sub nsw i32 %135, %123
-  %139 = getelementptr inbounds nuw i8, ptr %.0221266, i64 192
+  %139 = getelementptr inbounds nuw i8, ptr %.0221269, i64 192
   store i32 %138, ptr %139, align 4, !tbaa !33
   %140 = sext i16 %82 to i32
   %141 = add nsw i32 %128, %140
-  %142 = getelementptr inbounds nuw i8, ptr %.0221266, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %.0221269, i64 64
   store i32 %141, ptr %142, align 4, !tbaa !33
   %143 = sub nsw i32 %140, %128
-  %144 = getelementptr inbounds nuw i8, ptr %.0221266, i64 160
+  %144 = getelementptr inbounds nuw i8, ptr %.0221269, i64 160
   store i32 %143, ptr %144, align 4, !tbaa !33
   %145 = sext i16 %80 to i32
   %146 = sext i16 %130 to i32
   %147 = add nsw i32 %146, %145
-  %148 = getelementptr inbounds nuw i8, ptr %.0221266, i64 128
+  %148 = getelementptr inbounds nuw i8, ptr %.0221269, i64 128
   store i32 %147, ptr %148, align 4, !tbaa !33
   %149 = sub nsw i32 %145, %146
   br label %150
 
 150:                                              ; preds = %._crit_edge, %40
-  %.sink276 = phi i64 [ 96, %._crit_edge ], [ 224, %40 ]
+  %.sink280 = phi i64 [ 96, %._crit_edge ], [ 224, %40 ]
   %.sink = phi i32 [ %149, %._crit_edge ], [ %45, %40 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.0221266, i64 %.sink276
+  %151 = getelementptr inbounds nuw i8, ptr %.0221269, i64 %.sink280
   store i32 %.sink, ptr %151, align 4, !tbaa !33
-  %.1222 = getelementptr inbounds nuw i8, ptr %.0221266, i64 4
-  %.1224 = getelementptr inbounds nuw i8, ptr %.0223265, i64 2
-  %.1226 = getelementptr inbounds nuw i8, ptr %.0225264, i64 2
-  %152 = add nsw i32 %.0267, -1
-  %153 = icmp samesign ugt i32 %.0267, 1
+  %.1222 = getelementptr inbounds nuw i8, ptr %.0221269, i64 4
+  %.1224 = getelementptr inbounds nuw i8, ptr %.0223268, i64 2
+  %.1226 = getelementptr inbounds nuw i8, ptr %.0225267, i64 2
+  %152 = add nsw i32 %.0270, -1
+  %153 = icmp samesign ugt i32 %.0270, 1
   br i1 %153, label %13, label %.preheader, !llvm.loop !34
 
-154:                                              ; preds = %.preheader, %308
+154:                                              ; preds = %.preheader, %310
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %308 ]
-  %.2268 = phi ptr [ %6, %.preheader ], [ %.3, %308 ]
+  %.2271 = phi ptr [ %6, %.preheader ], [ %.3, %308 ]
   %155 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 %12
-  %158 = getelementptr inbounds nuw i8, ptr %.2268, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %.2271, i64 4
   %159 = load i32, ptr %158, align 4, !tbaa !33
   %160 = icmp eq i32 %159, 0
-  %161 = getelementptr inbounds nuw i8, ptr %.2268, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.2271, i64 8
   %162 = load i32, ptr %161, align 4, !tbaa !33
   %163 = icmp eq i32 %162, 0
-  %or.cond277 = select i1 %160, i1 %163, i1 false
-  br i1 %or.cond277, label %164, label %._crit_edge271
+  %or.cond281 = select i1 %160, i1 %163, i1 false
+  br i1 %or.cond281, label %164, label %._crit_edge275
 
 164:                                              ; preds = %154
-  %165 = getelementptr inbounds nuw i8, ptr %.2268, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %.2271, i64 12
   %166 = load i32, ptr %165, align 4, !tbaa !33
   %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %._crit_edge271
+  br i1 %167, label %168, label %._crit_edge275
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds nuw i8, ptr %.2268, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.2271, i64 16
   %170 = load i32, ptr %169, align 4, !tbaa !33
   %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %._crit_edge271
+  br i1 %171, label %172, label %._crit_edge275
 
 172:                                              ; preds = %168
-  %173 = getelementptr inbounds nuw i8, ptr %.2268, i64 20
+  %173 = getelementptr inbounds nuw i8, ptr %.2271, i64 20
   %174 = load i32, ptr %173, align 4, !tbaa !33
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %._crit_edge271
+  br i1 %175, label %176, label %._crit_edge275
 
 176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw i8, ptr %.2268, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %.2271, i64 24
   %178 = load i32, ptr %177, align 4, !tbaa !33
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %._crit_edge271
+  br i1 %179, label %180, label %._crit_edge275
 
 180:                                              ; preds = %176
-  %181 = getelementptr inbounds nuw i8, ptr %.2268, i64 28
+  %181 = getelementptr inbounds nuw i8, ptr %.2271, i64 28
   %182 = load i32, ptr %181, align 4, !tbaa !33
   %183 = icmp eq i32 %182, 0
-  br i1 %183, label %184, label %._crit_edge271
+  br i1 %183, label %184, label %._crit_edge275
 
 184:                                              ; preds = %180
-  %185 = load i32, ptr %.2268, align 4, !tbaa !33
+  %185 = load i32, ptr %.2271, align 4, !tbaa !33
   %186 = lshr i32 %185, 5
   %187 = and i32 %186, 1023
   %188 = zext nneg i32 %187 to i64
@@ -268,18 +268,18 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %190, ptr %195, align 1, !tbaa !37
   %196 = getelementptr inbounds nuw i8, ptr %157, i64 6
   store i8 %190, ptr %196, align 1, !tbaa !37
-  br label %308
+  br label %310
 
-._crit_edge271:                                   ; preds = %154, %180, %176, %172, %168, %164
+._crit_edge275:                                   ; preds = %154, %180, %176, %172, %168, %164
   %197 = phi i32 [ 0, %180 ], [ 0, %176 ], [ 0, %172 ], [ 0, %168 ], [ 0, %164 ], [ %162, %154 ]
-  %198 = load i32, ptr %.2268, align 4, !tbaa !33
-  %199 = getelementptr inbounds nuw i8, ptr %.2268, i64 16
+  %198 = load i32, ptr %.2271, align 4, !tbaa !33
+  %199 = getelementptr inbounds nuw i8, ptr %.2271, i64 16
   %200 = load i32, ptr %199, align 4, !tbaa !33
   %201 = add i32 %200, %198
   %202 = sub i32 %198, %200
   %sext = shl i32 %197, 16
   %203 = ashr exact i32 %sext, 16
-  %204 = getelementptr inbounds nuw i8, ptr %.2268, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %.2271, i64 24
   %205 = load i32, ptr %204, align 4, !tbaa !33
   %sext228 = shl i32 %205, 16
   %206 = ashr exact i32 %sext228, 16
@@ -293,14 +293,14 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %214 = ashr i32 %213, 16
   %215 = add i32 %214, %202
   %216 = sub i32 %202, %214
-  %217 = getelementptr inbounds nuw i8, ptr %.2268, i64 20
+  %217 = getelementptr inbounds nuw i8, ptr %.2271, i64 20
   %218 = load i32, ptr %217, align 4, !tbaa !33
-  %219 = getelementptr inbounds nuw i8, ptr %.2268, i64 12
+  %219 = getelementptr inbounds nuw i8, ptr %.2271, i64 12
   %220 = load i32, ptr %219, align 4, !tbaa !33
   %221 = add i32 %220, %218
   %222 = sub i32 %218, %220
   %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds nuw i8, ptr %.2268, i64 28
+  %224 = getelementptr inbounds nuw i8, ptr %.2271, i64 28
   %225 = load i32, ptr %224, align 4, !tbaa !33
   %226 = add i32 %225, %159
   %227 = sub i32 %159, %225
@@ -399,17 +399,17 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %307 = load i8, ptr %306, align 1, !tbaa !37
   br label %308
 
-308:                                              ; preds = %._crit_edge271, %184
-  %.sink280 = phi i64 [ 3, %._crit_edge271 ], [ 7, %184 ]
-  %.sink278 = phi i8 [ %307, %._crit_edge271 ], [ %190, %184 ]
-  %309 = getelementptr inbounds nuw i8, ptr %157, i64 %.sink280
-  store i8 %.sink278, ptr %309, align 1, !tbaa !37
-  %.3 = getelementptr inbounds nuw i8, ptr %.2268, i64 32
+310:                                              ; preds = %._crit_edge275, %184
+  %.sink284 = phi i64 [ 3, %._crit_edge271 ], [ 7, %184 ]
+  %.sink282 = phi i8 [ %307, %._crit_edge271 ], [ %190, %184 ]
+  %311 = getelementptr inbounds nuw i8, ptr %157, i64 %.sink284
+  store i8 %.sink282, ptr %311, align 1, !tbaa !37
+  %.3 = getelementptr inbounds nuw i8, ptr %.2271, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %310, label %154, !llvm.loop !38
+  br i1 %exitcond.not, label %312, label %154, !llvm.loop !38
 
-310:                                              ; preds = %308
+312:                                              ; preds = %310
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

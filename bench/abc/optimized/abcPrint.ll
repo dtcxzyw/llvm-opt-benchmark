@@ -6552,16 +6552,16 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   %37 = tail call ptr @Abc_NodeGetFaninNames(ptr noundef nonnull %.0) #20
   %38 = freeze ptr %37
   %39 = load i8, ptr %22, align 1, !tbaa !47
-  %.not5671 = icmp eq i8 %39, 0
-  br i1 %.not5671, label %._crit_edge, label %.lr.ph
+  %.not5672 = icmp eq i8 %39, 0
+  br i1 %.not5672, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %33
   %40 = load i8, ptr %22, align 1, !tbaa !47
-  %.not567177 = icmp eq i8 %40, 0
-  br i1 %.not567177, label %._crit_edge.thread, label %.lr.ph.thread
+  %.not567278 = icmp eq i8 %40, 0
+  br i1 %.not567278, label %._crit_edge.thread, label %.lr.ph.thread
 
 ._crit_edge.thread:                               ; preds = %.thread
-  %fputc5784 = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc5785 = tail call i32 @fputc(i32 10, ptr %0)
   br label %84
 
 .lr.ph.thread:                                    ; preds = %.thread
@@ -6579,8 +6579,8 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
-  %.04872.us = phi ptr [ %62, %.loopexit.us ], [ %22, %.lr.ph.split.us.preheader ]
-  %.not59.us = icmp eq ptr %.04872.us, %22
+  %.04873.us = phi ptr [ %62, %.loopexit.us ], [ %22, %.lr.ph.split.us.preheader ]
+  %.not59.us = icmp eq ptr %.04873.us, %22
   br i1 %.not59.us, label %.preheader.us, label %45
 
 45:                                               ; preds = %.lr.ph.split.us
@@ -6588,11 +6588,11 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %45, %.lr.ph.split.us
-  %47 = ptrtoint ptr %.04872.us to i64
+  %47 = ptrtoint ptr %.04873.us to i64
   br label %48
 
 48:                                               ; preds = %.preheader.us, %59
-  %.1.us = phi ptr [ %60, %59 ], [ %.04872.us, %.preheader.us ]
+  %.1.us = phi ptr [ %60, %59 ], [ %.04873.us, %.preheader.us ]
   %49 = load i8, ptr %.1.us, align 1, !tbaa !47
   switch i8 %49, label %50 [
     i8 32, label %.loopexit.us
@@ -6615,30 +6615,30 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   br label %48, !llvm.loop !143
 
 .loopexit.us:                                     ; preds = %48
-  %61 = getelementptr i8, ptr %.04872.us, i64 %44
+  %61 = getelementptr i8, ptr %.04873.us, i64 %44
   %62 = getelementptr i8, ptr %61, i64 3
   %63 = load i8, ptr %62, align 1, !tbaa !47
   %.not56.us = icmp eq i8 %63, 0
   br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !144
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit70
-  %.04872 = phi ptr [ %81, %.loopexit70 ], [ %22, %.lr.ph ]
-  %.not59 = icmp eq ptr %.04872, %22
-  br i1 %.not59, label %.preheader69, label %64
+.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit71
+  %.04873 = phi ptr [ %81, %.loopexit70 ], [ %22, %.lr.ph ]
+  %.not59 = icmp eq ptr %.04873, %22
+  br i1 %.not59, label %.preheader70, label %64
 
 64:                                               ; preds = %.lr.ph.split
   %65 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 2, i64 1, ptr %0)
-  br label %.preheader69
+  br label %.preheader70
 
-.preheader69:                                     ; preds = %64, %.lr.ph.split
-  %66 = ptrtoint ptr %.04872 to i64
+.preheader70:                                     ; preds = %64, %.lr.ph.split
+  %66 = ptrtoint ptr %.04873 to i64
   br label %67
 
-67:                                               ; preds = %.preheader69, %78
-  %.047 = phi ptr [ %79, %78 ], [ %.04872, %.preheader69 ]
+67:                                               ; preds = %.preheader70, %78
+  %.047 = phi ptr [ %79, %78 ], [ %.04873, %.preheader69 ]
   %68 = load i8, ptr %.047, align 1, !tbaa !47
   switch i8 %68, label %69 [
-    i8 32, label %.loopexit70
+    i8 32, label %.loopexit71
     i8 45, label %78
   ]
 
@@ -6648,8 +6648,8 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   %72 = ptrtoint ptr %.047 to i64
   %73 = sub i64 %72, %66
   %.046.val = load ptr, ptr %42, align 8, !tbaa !43
-  %sext = shl i64 %73, 32
-  %74 = ashr exact i64 %sext, 29
+  %sext69 = shl i64 %73, 32
+  %74 = ashr exact i64 %sext69, 29
   %75 = getelementptr inbounds i8, ptr %.046.val, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !44
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef nonnull %71, ptr noundef %76) #20
@@ -6659,21 +6659,21 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   %79 = getelementptr inbounds nuw i8, ptr %.047, i64 1
   br label %67, !llvm.loop !145
 
-.loopexit70:                                      ; preds = %67
-  %80 = getelementptr i8, ptr %.04872, i64 %43
+.loopexit71:                                      ; preds = %67
+  %80 = getelementptr i8, ptr %.04873, i64 %43
   %81 = getelementptr i8, ptr %80, i64 3
   %82 = load i8, ptr %81, align 1, !tbaa !47
   %.not56 = icmp eq i8 %82, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split, !llvm.loop !144
 
-._crit_edge:                                      ; preds = %.loopexit70, %.loopexit.us, %36
-  %.04679 = phi ptr [ %38, %36 ], [ null, %.loopexit.us ], [ %38, %.loopexit70 ]
+._crit_edge:                                      ; preds = %.loopexit71, %.loopexit.us, %36
+  %.04680 = phi ptr [ %38, %36 ], [ null, %.loopexit.us ], [ %38, %.loopexit70 ]
   %fputc57 = tail call i32 @fputc(i32 10, ptr %0)
-  %.not58 = icmp eq ptr %.04679, null
+  %.not58 = icmp eq ptr %.04680, null
   br i1 %.not58, label %84, label %83
 
 83:                                               ; preds = %._crit_edge
-  tail call void @Abc_NodeFreeNames(ptr noundef nonnull %.04679) #20
+  tail call void @Abc_NodeFreeNames(ptr noundef nonnull %.04680) #20
   br label %84
 
 84:                                               ; preds = %._crit_edge.thread, %._crit_edge, %83, %25, %18, %16

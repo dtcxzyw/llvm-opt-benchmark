@@ -84196,7 +84196,7 @@ define hidden i32 @qoa_decode_frame(ptr noundef readonly captures(none) %0, i32 
   %7 = shl i32 %6, 4
   %8 = or disjoint i32 %7, 8
   %9 = icmp ult i32 %1, %8
-  br i1 %9, label %233, label %10
+  br i1 %9, label %231, label %10
 
 10:                                               ; preds = %5
   %11 = load i8, ptr %0, align 1
@@ -84210,7 +84210,7 @@ define hidden i32 @qoa_decode_frame(ptr noundef readonly captures(none) %0, i32 
   %19 = or disjoint i32 %15, %18
   %20 = zext i8 %11 to i32
   %.not = icmp eq i32 %6, %20
-  br i1 %.not, label %21, label %233
+  br i1 %.not, label %21, label %231
 
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 7
@@ -84245,35 +84245,35 @@ define hidden i32 @qoa_decode_frame(ptr noundef readonly captures(none) %0, i32 
   %or.cond = or i1 %48, %.not88
   %49 = mul nuw nsw i32 %19, %6
   %50 = icmp ugt i32 %49, %45
-  %or.cond90 = select i1 %or.cond, i1 true, i1 %50
-  br i1 %or.cond90, label %233, label %.preheader100
+  %or.cond92 = select i1 %or.cond, i1 true, i1 %50
+  br i1 %or.cond92, label %231, label %.preheader102
 
-.preheader100:                                    ; preds = %21
-  %.not119 = icmp eq i8 %11, 0
-  br i1 %.not119, label %._crit_edge116, label %.lr.ph
+.preheader102:                                    ; preds = %21
+  %.not121 = icmp eq i8 %11, 0
+  br i1 %.not121, label %._crit_edge118, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader100
+.lr.ph:                                           ; preds = %.preheader102
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %143
 
-.preheader99:                                     ; preds = %223
-  %52 = trunc nuw nsw i64 %indvars.iv.next129 to i32
-  %.not120 = icmp eq i32 %19, 0
-  br i1 %.not120, label %._crit_edge116, label %.preheader.lr.ph
+.preheader101:                                    ; preds = %223
+  %52 = trunc nuw nsw i64 %indvars.iv.next131 to i32
+  %.not122 = icmp eq i32 %19, 0
+  br i1 %.not122, label %._crit_edge118, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader99
+.preheader.lr.ph:                                 ; preds = %.preheader101
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %54 = zext nneg i32 %19 to i64
   %55 = zext nneg i32 %6 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge112.us
-  %indvars.iv139 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next140, %._crit_edge112.us ]
-  %.1114.us = phi i32 [ %52, %.preheader.lr.ph ], [ %62, %._crit_edge112.us ]
-  %56 = mul nuw nsw i64 %indvars.iv139, %55
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 20
-  %57 = trunc nuw nsw i64 %indvars.iv.next140 to i32
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge114.us
+  %indvars.iv141 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next142, %._crit_edge112.us ]
+  %.1116.us = phi i32 [ %52, %.preheader.lr.ph ], [ %62, %._crit_edge112.us ]
+  %56 = mul nuw nsw i64 %indvars.iv141, %55
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 20
+  %57 = trunc nuw nsw i64 %indvars.iv.next142 to i32
   %..i.us = tail call i32 @llvm.smin.i32(i32 range(i32 -32770, 65555) %57, i32 %19)
   %58 = mul nuw nsw i32 %..i.us, %6
   %59 = zext i32 %58 to i64
@@ -84281,20 +84281,20 @@ define hidden i32 @qoa_decode_frame(ptr noundef readonly captures(none) %0, i32 
   br label %61
 
 61:                                               ; preds = %.preheader.us, %._crit_edge.us
-  %indvars.iv134 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next135, %._crit_edge.us ]
-  %.2109.us = phi i32 [ %.1114.us, %.preheader.us ], [ %62, %._crit_edge.us ]
-  %62 = add i32 %.2109.us, 8
-  %63 = add nuw nsw i64 %indvars.iv134, %59
-  br i1 %60, label %.lr.ph108.us, label %._crit_edge.us
+  %indvars.iv136 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next137, %._crit_edge.us ]
+  %.2111.us = phi i32 [ %.1116.us, %.preheader.us ], [ %62, %._crit_edge.us ]
+  %62 = add i32 %.2111.us, 8
+  %63 = add nuw nsw i64 %indvars.iv136, %59
+  br i1 %60, label %.lr.ph110.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %qoa_lms_update.exit.us, %61
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %55
-  br i1 %exitcond138.not, label %._crit_edge112.us, label %61
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %55
+  br i1 %exitcond140.not, label %._crit_edge114.us, label %61
 
-64:                                               ; preds = %.lr.ph108.us, %qoa_lms_update.exit.us
-  %.078107.us = phi i32 [ %141, %.lr.ph108.us ], [ %92, %qoa_lms_update.exit.us ]
-  %.082106.us = phi i64 [ %135, %.lr.ph108.us ], [ %91, %qoa_lms_update.exit.us ]
+64:                                               ; preds = %.lr.ph110.us, %qoa_lms_update.exit.us
+  %.078109.us = phi i32 [ %141, %.lr.ph108.us ], [ %92, %qoa_lms_update.exit.us ]
+  %.082108.us = phi i64 [ %135, %.lr.ph108.us ], [ %91, %qoa_lms_update.exit.us ]
   br label %65
 
 65:                                               ; preds = %65, %64
@@ -84312,14 +84312,14 @@ define hidden i32 @qoa_decode_frame(ptr noundef readonly captures(none) %0, i32 
 
 qoa_lms_predict.exit.us:                          ; preds = %65
   %72 = ashr i32 %71, 13
-  %73 = lshr i64 %.082106.us, 61
+  %73 = lshr i64 %.082108.us, 61
   %74 = getelementptr inbounds nuw i32, ptr %139, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = add nsw i32 %75, %72
   %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 -32768)
   %.0.i.us = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %77, i32 32767)
   %78 = trunc nsw i32 %.0.i.us to i16
-  %79 = sext i32 %.078107.us to i64
+  %79 = sext i32 %.078109.us to i64
   %80 = getelementptr inbounds i16, ptr %3, i64 %79
   store i16 %78, ptr %80, align 2
   %81 = ashr i32 %75, 4
@@ -84327,31 +84327,31 @@ qoa_lms_predict.exit.us:                          ; preds = %65
   br label %83
 
 83:                                               ; preds = %83, %qoa_lms_predict.exit.us
-  %indvars.iv.i91.us = phi i64 [ 0, %qoa_lms_predict.exit.us ], [ %indvars.iv.next.i92.us, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv.i91.us
+  %indvars.iv.i93.us = phi i64 [ 0, %qoa_lms_predict.exit.us ], [ %indvars.iv.next.i94.us, %83 ]
+  %84 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv.i93.us
   %85 = load i32, ptr %84, align 4
   %86 = icmp slt i32 %85, 0
   %87 = select i1 %86, i32 %82, i32 %81
-  %88 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv.i91.us
+  %88 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv.i93.us
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %87, %89
   store i32 %90, ptr %88, align 4
-  %indvars.iv.next.i92.us = add nuw nsw i64 %indvars.iv.i91.us, 1
-  %exitcond.not.i93.us = icmp eq i64 %indvars.iv.next.i92.us, 4
-  br i1 %exitcond.not.i93.us, label %qoa_lms_update.exit.us, label %83
+  %indvars.iv.next.i94.us = add nuw nsw i64 %indvars.iv.i93.us, 1
+  %exitcond.not.i95.us = icmp eq i64 %indvars.iv.next.i94.us, 4
+  br i1 %exitcond.not.i95.us, label %qoa_lms_update.exit.us, label %83
 
 qoa_lms_update.exit.us:                           ; preds = %83
-  %91 = shl i64 %.082106.us, 3
+  %91 = shl i64 %.082108.us, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %137, ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i.us, i64 12, i1 false)
   store i32 %.0.i.us, ptr %140, align 4
-  %92 = add i32 %.078107.us, %6
+  %92 = add i32 %.078109.us, %6
   %93 = sext i32 %92 to i64
   %94 = icmp sgt i64 %63, %93
   br i1 %94, label %64, label %._crit_edge.us
 
-.lr.ph108.us:                                     ; preds = %61
-  %95 = add nuw nsw i64 %indvars.iv134, %56
-  %96 = zext i32 %.2109.us to i64
+.lr.ph110.us:                                     ; preds = %61
+  %95 = add nuw nsw i64 %indvars.iv136, %56
+  %96 = zext i32 %.2111.us to i64
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 6
   %99 = load i8, ptr %98, align 1
@@ -84392,7 +84392,7 @@ qoa_lms_update.exit.us:                           ; preds = %83
   %134 = shl i64 %132, 4
   %135 = or i64 %133, %134
   %136 = lshr i64 %106, 4
-  %137 = getelementptr inbounds nuw %struct.qoa_lms_t, ptr %53, i64 %indvars.iv134
+  %137 = getelementptr inbounds nuw %struct.qoa_lms_t, ptr %53, i64 %indvars.iv136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = getelementptr inbounds nuw [8 x i32], ptr @qoa_dequant_tab, i64 %136
   %scevgep.i.us = getelementptr i8, ptr %137, i64 4
@@ -84400,14 +84400,14 @@ qoa_lms_update.exit.us:                           ; preds = %83
   %141 = trunc nuw nsw i64 %95 to i32
   br label %64
 
-._crit_edge112.us:                                ; preds = %._crit_edge.us
-  %142 = icmp samesign ult i64 %indvars.iv.next140, %54
-  br i1 %142, label %.preheader.us, label %._crit_edge116
+._crit_edge114.us:                                ; preds = %._crit_edge.us
+  %142 = icmp samesign ult i64 %indvars.iv.next142, %54
+  br i1 %142, label %.preheader.us, label %._crit_edge118
 
 143:                                              ; preds = %.lr.ph, %223
-  %indvars.iv128 = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next129, %223 ]
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next127, %223 ]
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv128
+  %indvars.iv130 = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next131, %223 ]
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next129, %223 ]
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv130
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i64
   %147 = shl nuw i64 %146, 56
@@ -84445,7 +84445,7 @@ qoa_lms_update.exit.us:                           ; preds = %83
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i64
   %181 = or i64 %177, %180
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv128
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv130
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i64
@@ -84484,22 +84484,22 @@ qoa_lms_update.exit.us:                           ; preds = %83
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i64
   %220 = or i64 %216, %219
-  %221 = getelementptr inbounds nuw %struct.qoa_lms_t, ptr %51, i64 %indvars.iv126
+  %221 = getelementptr inbounds nuw %struct.qoa_lms_t, ptr %51, i64 %indvars.iv128
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   br label %224
 
 223:                                              ; preds = %224
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 16
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond133.not, label %.preheader99, label %143
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 16
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
+  br i1 %exitcond135.not, label %.preheader101, label %143
 
 224:                                              ; preds = %143, %224
   %indvars.iv = phi i64 [ 0, %143 ], [ %indvars.iv.next, %224 ]
-  %.077103 = phi i64 [ %181, %143 ], [ %228, %224 ]
-  %.079102 = phi i64 [ %220, %143 ], [ %232, %224 ]
-  %225 = ashr i64 %.077103, 48
-  %226 = trunc nsw i64 %225 to i32
+  %.077105 = phi i64 [ %181, %143 ], [ %228, %224 ]
+  %.079104 = phi i64 [ %220, %143 ], [ %232, %224 ]
+  %225 = ashr i64 %.077105, 48
+  %tr.sh.diff = trunc nsw i64 %225 to i32
   %227 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv
   store i32 %226, ptr %227, align 4
   %228 = shl i64 %.077103, 16
@@ -84512,12 +84512,12 @@ qoa_lms_update.exit.us:                           ; preds = %83
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %223, label %224
 
-._crit_edge116:                                   ; preds = %._crit_edge112.us, %.preheader100, %.preheader99
+._crit_edge118:                                   ; preds = %._crit_edge114.us, %.preheader102, %.preheader101
   %.1.lcssa = phi i32 [ %52, %.preheader99 ], [ 8, %.preheader100 ], [ %62, %._crit_edge112.us ]
   store i32 %19, ptr %4, align 4
-  br label %233
+  br label %231
 
-233:                                              ; preds = %._crit_edge116, %21, %10, %5
+231:                                              ; preds = %._crit_edge118, %21, %10, %5
   %.0 = phi i32 [ 0, %5 ], [ %.1.lcssa, %._crit_edge116 ], [ 0, %21 ], [ 0, %10 ]
   ret i32 %.0
 }

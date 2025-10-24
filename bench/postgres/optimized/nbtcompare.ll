@@ -25,9 +25,9 @@ define dso_local range(i64 -65535, 65536) i64 @btint2cmp(ptr noundef readonly ca
   %5 = load i64, ptr %4, align 8
   %sext = shl i64 %3, 48
   %6 = ashr exact i64 %sext, 48
-  %sext3 = shl i64 %5, 48
-  %7 = ashr exact i64 %sext3, 48
-  %8 = sub nsw i64 %6, %7
+  %sext = shl i64 %5, 48
+  %8 = ashr exact i64 %sext, 48
+  %8 = sub nsw i64 %6, %8
   ret i64 %8
 }
 

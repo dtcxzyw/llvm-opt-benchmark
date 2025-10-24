@@ -1871,7 +1871,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, 
   %.tr.lcssa = phi ptr [ %0, %2 ], [ %.tr.be, %tailrecurse.backedge ], [ %14, %tailrecurse.outer ]
   %6 = tail call fastcc double @eval_double(ptr noundef nonnull %.tr.lcssa)
   %7 = fptosi double %6 to i64
-  br label %296
+  br label %300
 
 8:                                                ; preds = %.lr.ph, %tailrecurse.backedge
   %.tr242 = phi ptr [ %.tr.ph247, %.lr.ph ], [ %.tr.be, %tailrecurse.backedge ]
@@ -1899,11 +1899,11 @@ tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, 
     i32 24, label %201
     i32 25, label %211
     i32 43, label %221
-    i32 20, label %248
+    i32 20, label %250
     i32 36, label %252
     i32 19, label %254
-    i32 40, label %275
-    i32 42, label %290
+    i32 40, label %279
+    i32 42, label %294
   ]
 
 tailrecurse.outer:                                ; preds = %8
@@ -1919,7 +1919,7 @@ tailrecurse.outer:                                ; preds = %8
   %18 = tail call zeroext i1 @is_flonum(ptr noundef %17) #13
   br i1 %18, label %tailrecurse.outer._crit_edge, label %.lr.ph
 
-common.ret650:                                    ; preds = %47, %49, %67, %69, %159, %162, %177, %180, %296, %215, %205, %196, %191, %138, %129, %121, %113, %95, %87, %79, %71, %51, %27, %19
+common.ret650:                                    ; preds = %47, %49, %67, %69, %159, %162, %177, %180, %300, %215, %205, %196, %191, %138, %129, %121, %113, %95, %87, %79, %71, %51, %27, %19
   %common.ret650.op = phi i64 [ %accumulator.ret.tr, %19 ], [ %accumulator.ret.tr111, %27 ], [ %accumulator.ret.tr114, %51 ], [ %accumulator.ret.tr117, %71 ], [ %accumulator.ret.tr118, %79 ], [ %accumulator.ret.tr119, %87 ], [ %accumulator.ret.tr120, %95 ], [ %accumulator.ret.tr121, %113 ], [ %accumulator.ret.tr122, %121 ], [ %accumulator.ret.tr123, %129 ], [ %accumulator.ret.tr124, %138 ], [ %accumulator.ret.tr129, %191 ], [ %accumulator.ret.tr130, %196 ], [ %accumulator.ret.tr131, %205 ], [ %accumulator.ret.tr132, %215 ], [ %accumulator.ret.tr112, %47 ], [ %accumulator.ret.tr113, %49 ], [ %accumulator.ret.tr115, %67 ], [ %accumulator.ret.tr116, %69 ], [ %accumulator.ret.tr125, %159 ], [ %accumulator.ret.tr126, %162 ], [ %accumulator.ret.tr127, %177 ], [ %accumulator.ret.tr128, %180 ], [ %accumulator.ret.tr133, %296 ]
   ret i64 %common.ret650.op
 
@@ -2196,7 +2196,7 @@ tailrecurse.backedge:                             ; preds = %183, %8
   %203 = load ptr, ptr %202, align 16, !tbaa !23
   %204 = tail call fastcc i64 @eval2(ptr noundef %203, ptr noundef null)
   %.not107 = icmp eq i64 %204, 0
-  br i1 %.not107, label %296, label %205
+  br i1 %.not107, label %300, label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %.tr242, i64 40
@@ -2212,7 +2212,7 @@ tailrecurse.backedge:                             ; preds = %183, %8
   %213 = load ptr, ptr %212, align 16, !tbaa !23
   %214 = tail call fastcc i64 @eval2(ptr noundef %213, ptr noundef null)
   %.not106 = icmp eq i64 %214, 0
-  br i1 %.not106, label %215, label %296
+  br i1 %.not106, label %215, label %300
 
 215:                                              ; preds = %211
   %216 = getelementptr inbounds nuw i8, ptr %.tr242, i64 40
@@ -2230,7 +2230,7 @@ tailrecurse.backedge:                             ; preds = %183, %8
   %225 = tail call fastcc i64 @eval2(ptr noundef %224, ptr noundef %.tr110.ph248)
   %226 = load ptr, ptr %222, align 16, !tbaa !24
   %227 = tail call zeroext i1 @is_integer(ptr noundef %226) #13
-  br i1 %227, label %228, label %296
+  br i1 %227, label %228, label %300
 
 228:                                              ; preds = %221
   %229 = load ptr, ptr %222, align 16, !tbaa !24
@@ -2252,7 +2252,7 @@ tailrecurse.backedge:                             ; preds = %183, %8
   %238 = select i1 %235, i64 %236, i64 %237
   br label %296
 
-239:                                              ; preds = %228
+239:; preds = %228
   %240 = getelementptr inbounds nuw i8, ptr %229, i64 12
   %241 = load i8, ptr %240, align 4, !tbaa !115, !range !58, !noundef !59
   %242 = trunc nuw i8 %241 to i1
@@ -2262,11 +2262,11 @@ tailrecurse.backedge:                             ; preds = %183, %8
   %245 = select i1 %242, i64 %243, i64 %244
   br label %296
 
-246:                                              ; preds = %228
+246:; preds = %228
   %247 = and i64 %225, 4294967295
-  br label %296
+  br label %300
 
-248:                                              ; preds = %8
+250:                                              ; preds = %8
   %249 = getelementptr inbounds nuw i8, ptr %.tr242, i64 32
   %250 = load ptr, ptr %249, align 16, !tbaa !23
   %251 = tail call fastcc i64 @eval_rval(ptr noundef %250, ptr noundef %.tr110.ph248)
@@ -2277,14 +2277,14 @@ tailrecurse.backedge:                             ; preds = %183, %8
   store ptr %253, ptr %.tr110.ph248, align 8, !tbaa !116
   br label %296
 
-254:                                              ; preds = %8
+256:                                              ; preds = %8
   %.not103 = icmp eq ptr %.tr110.ph248, null
-  br i1 %.not103, label %255, label %258
+  br i1 %.not103, label %259, label %258
 
-255:                                              ; preds = %254
-  %256 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
-  %257 = load ptr, ptr %256, align 8, !tbaa !22
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %257, ptr noundef nonnull @.str) #16
+259:                                              ; preds = %254
+  %260 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
+  %261 = load ptr, ptr %260, align 8, !tbaa !22
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %261, ptr noundef nonnull @.str) #16
   unreachable
 
 258:                                              ; preds = %254
@@ -2300,63 +2300,63 @@ tailrecurse.backedge:                             ; preds = %183, %8
   tail call void (ptr, ptr, ...) @error_tok(ptr noundef %264, ptr noundef nonnull @.str.1) #16
   unreachable
 
-265:                                              ; preds = %258
-  %266 = getelementptr inbounds nuw i8, ptr %.tr242, i64 32
-  %267 = load ptr, ptr %266, align 16, !tbaa !23
-  %268 = tail call fastcc i64 @eval_rval(ptr noundef %267, ptr noundef nonnull %.tr110.ph248)
-  %269 = getelementptr inbounds nuw i8, ptr %.tr242, i64 112
-  %270 = load ptr, ptr %269, align 16, !tbaa !117
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 40
-  %272 = load i32, ptr %271, align 8, !tbaa !118
-  %273 = sext i32 %272 to i64
-  %274 = add nsw i64 %268, %273
-  br label %296
+269:                                              ; preds = %258
+  %270 = getelementptr inbounds nuw i8, ptr %.tr242, i64 32
+  %271 = load ptr, ptr %270, align 16, !tbaa !23
+  %272 = tail call fastcc i64 @eval_rval(ptr noundef %271, ptr noundef nonnull %.tr110.ph248)
+  %273 = getelementptr inbounds nuw i8, ptr %.tr242, i64 112
+  %274 = load ptr, ptr %273, align 16, !tbaa !117
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 40
+  %276 = load i32, ptr %275, align 8, !tbaa !118
+  %277 = sext i32 %276 to i64
+  %278 = add nsw i64 %272, %277
+  br label %300
 
-275:                                              ; preds = %8
+279:                                              ; preds = %8
   %.not = icmp eq ptr %.tr110.ph248, null
-  br i1 %.not, label %276, label %279
+  br i1 %.not, label %280, label %283
 
-276:                                              ; preds = %275
-  %277 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
-  %278 = load ptr, ptr %277, align 8, !tbaa !22
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %278, ptr noundef nonnull @.str) #16
+280:                                              ; preds = %279
+  %281 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
+  %282 = load ptr, ptr %281, align 8, !tbaa !22
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %282, ptr noundef nonnull @.str) #16
   unreachable
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds nuw i8, ptr %.tr242, i64 256
-  %281 = load ptr, ptr %280, align 16, !tbaa !48
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  %283 = load ptr, ptr %282, align 8, !tbaa !37
-  %284 = load i32, ptr %283, align 8, !tbaa !61
-  %.off = add i32 %284, -11
+283:                                              ; preds = %279
+  %284 = getelementptr inbounds nuw i8, ptr %.tr242, i64 256
+  %285 = load ptr, ptr %284, align 16, !tbaa !48
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %287 = load ptr, ptr %286, align 8, !tbaa !37
+  %288 = load i32, ptr %287, align 8, !tbaa !61
+  %.off = add i32 %288, -11
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %288, label %285
+  br i1 %switch, label %292, label %289
 
-285:                                              ; preds = %279
-  %286 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
-  %287 = load ptr, ptr %286, align 8, !tbaa !22
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %287, ptr noundef nonnull @.str.1) #16
+289:                                              ; preds = %283
+  %290 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
+  %291 = load ptr, ptr %290, align 8, !tbaa !22
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %291, ptr noundef nonnull @.str.1) #16
   unreachable
 
-288:                                              ; preds = %279
-  %289 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store ptr %289, ptr %.tr110.ph248, align 8, !tbaa !116
-  br label %296
+292:                                              ; preds = %283
+  %293 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  store ptr %293, ptr %.tr110.ph248, align 8, !tbaa !116
+  br label %300
 
-290:                                              ; preds = %8
-  %291 = getelementptr inbounds nuw i8, ptr %.tr242, i64 264
-  %292 = load i64, ptr %291, align 8, !tbaa !120
-  br label %296
+294:                                              ; preds = %8
+  %295 = getelementptr inbounds nuw i8, ptr %.tr242, i64 264
+  %296 = load i64, ptr %295, align 8, !tbaa !120
+  br label %300
 
-293:                                              ; preds = %8
-  %294 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
-  %295 = load ptr, ptr %294, align 8, !tbaa !22
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %295, ptr noundef nonnull @.str) #16
+297:                                              ; preds = %8
+  %298 = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
+  %299 = load ptr, ptr %298, align 8, !tbaa !22
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %299, ptr noundef nonnull @.str) #16
   unreachable
 
-296:                                              ; preds = %232, %239, %246, %228, %221, %211, %201, %290, %288, %265, %252, %248, %tailrecurse.outer._crit_edge
+300:                                              ; preds = %232, %239, %246, %228, %221, %211, %201, %294, %292, %269, %252, %250, %tailrecurse.outer._crit_edge
   %accumulator.tr.ph236 = phi i64 [ %accumulator.tr.ph.lcssa235, %tailrecurse.outer._crit_edge ], [ %accumulator.tr.ph246, %248 ], [ %accumulator.tr.ph246, %252 ], [ %accumulator.tr.ph246, %265 ], [ %accumulator.tr.ph246, %288 ], [ %accumulator.tr.ph246, %290 ], [ %accumulator.tr.ph246, %201 ], [ %accumulator.tr.ph246, %211 ], [ %accumulator.tr.ph246, %232 ], [ %accumulator.tr.ph246, %239 ], [ %accumulator.tr.ph246, %246 ], [ %accumulator.tr.ph246, %228 ], [ %accumulator.tr.ph246, %221 ]
-  %.0 = phi i64 [ %7, %tailrecurse.outer._crit_edge ], [ %251, %248 ], [ 0, %252 ], [ %274, %265 ], [ 0, %288 ], [ %292, %290 ], [ 0, %201 ], [ 1, %211 ], [ %238, %232 ], [ %245, %239 ], [ %247, %246 ], [ %225, %228 ], [ %225, %221 ]
+  %.0 = phi i64 [ %7, %tailrecurse.outer._crit_edge ], [ %251, %248 ], [ 0, %252 ], [ %278, %265 ], [ 0, %288 ], [ %292, %290 ], [ 0, %201 ], [ 1, %211 ], [ %238, %232 ], [ %245, %239 ], [ %247, %246 ], [ %225, %228 ], [ %225, %221 ]
   %accumulator.ret.tr133 = add nsw i64 %.0, %accumulator.tr.ph236
   br label %common.ret650
 }
