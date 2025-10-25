@@ -17589,172 +17589,172 @@ define internal zeroext i1 @VULKAN_QueryFence(ptr noundef readonly captures(none
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = tail call i32 %4(ptr noundef %6, ptr noundef %7) #12
-  %switch = icmp ult i32 %8, 2
-  br i1 %switch, label %50, label %9
+  %9 = icmp ult i32 %8, 2
+  br i1 %9, label %51, label %10
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1628
-  %11 = load i8, ptr %10, align 4, !range !3, !noundef !4
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %31
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1628
+  %12 = load i8, ptr %11, align 4, !range !3, !noundef !4
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %14, label %32
 
-13:                                               ; preds = %9
-  switch i32 %8, label %30 [
+14:                                               ; preds = %10
+  switch i32 %8, label %31 [
     i32 -1, label %VkErrorMessages.exit
-    i32 -2, label %14
-    i32 -12, label %15
-    i32 -1000069000, label %16
-    i32 -3, label %17
-    i32 -6, label %18
-    i32 -7, label %19
-    i32 -8, label %20
-    i32 -10, label %21
-    i32 -4, label %22
-    i32 -9, label %23
-    i32 -1000001004, label %24
-    i32 -1000000000, label %25
-    i32 -1000255000, label %26
-    i32 1000001003, label %27
-    i32 -1000000001, label %28
-    i32 -1000012000, label %29
+    i32 -2, label %15
+    i32 -12, label %16
+    i32 -1000069000, label %17
+    i32 -3, label %18
+    i32 -6, label %19
+    i32 -7, label %20
+    i32 -8, label %21
+    i32 -10, label %22
+    i32 -4, label %23
+    i32 -9, label %24
+    i32 -1000001004, label %25
+    i32 -1000000000, label %26
+    i32 -1000255000, label %27
+    i32 1000001003, label %28
+    i32 -1000000001, label %29
+    i32 -1000012000, label %30
   ]
 
-14:                                               ; preds = %13
+15:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-17:                                               ; preds = %13
+18:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-18:                                               ; preds = %13
+19:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-19:                                               ; preds = %13
+20:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-20:                                               ; preds = %13
+21:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-21:                                               ; preds = %13
+22:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-22:                                               ; preds = %13
+23:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-23:                                               ; preds = %13
+24:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-24:                                               ; preds = %13
+25:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-25:                                               ; preds = %13
+26:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-26:                                               ; preds = %13
+27:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-27:                                               ; preds = %13
+28:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-28:                                               ; preds = %13
+29:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-29:                                               ; preds = %13
+30:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-30:                                               ; preds = %13
+31:                                               ; preds = %14
   br label %VkErrorMessages.exit
 
-VkErrorMessages.exit:                             ; preds = %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
-  %.0.i = phi ptr [ @.str.68, %30 ], [ @.str.52, %14 ], [ @.str.53, %15 ], [ @.str.54, %16 ], [ @.str.55, %17 ], [ @.str.56, %18 ], [ @.str.57, %19 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.62, %24 ], [ @.str.63, %25 ], [ @.str.64, %26 ], [ @.str.65, %27 ], [ @.str.66, %28 ], [ @.str.67, %29 ], [ @.str.51, %13 ]
+VkErrorMessages.exit:                             ; preds = %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31
+  %.0.i = phi ptr [ @.str.68, %31 ], [ @.str.52, %15 ], [ @.str.53, %16 ], [ @.str.54, %17 ], [ @.str.55, %18 ], [ @.str.56, %19 ], [ @.str.57, %20 ], [ @.str.58, %21 ], [ @.str.59, %22 ], [ @.str.60, %23 ], [ @.str.61, %24 ], [ @.str.62, %25 ], [ @.str.63, %26 ], [ @.str.64, %27 ], [ @.str.65, %28 ], [ @.str.66, %29 ], [ @.str.67, %30 ], [ @.str.51, %14 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.231, ptr noundef nonnull %.0.i) #12
-  br label %31
+  br label %32
 
-31:                                               ; preds = %VkErrorMessages.exit, %9
-  switch i32 %8, label %48 [
+32:                                               ; preds = %VkErrorMessages.exit, %10
+  switch i32 %8, label %49 [
     i32 -1, label %VkErrorMessages.exit11
-    i32 -2, label %32
-    i32 -12, label %33
-    i32 -1000069000, label %34
-    i32 -3, label %35
-    i32 -6, label %36
-    i32 -7, label %37
-    i32 -8, label %38
-    i32 -10, label %39
-    i32 -4, label %40
-    i32 -9, label %41
-    i32 -1000001004, label %42
-    i32 -1000000000, label %43
-    i32 -1000255000, label %44
-    i32 1000001003, label %45
-    i32 -1000000001, label %46
-    i32 -1000012000, label %47
+    i32 -2, label %33
+    i32 -12, label %34
+    i32 -1000069000, label %35
+    i32 -3, label %36
+    i32 -6, label %37
+    i32 -7, label %38
+    i32 -8, label %39
+    i32 -10, label %40
+    i32 -4, label %41
+    i32 -9, label %42
+    i32 -1000001004, label %43
+    i32 -1000000000, label %44
+    i32 -1000255000, label %45
+    i32 1000001003, label %46
+    i32 -1000000001, label %47
+    i32 -1000012000, label %48
   ]
 
-32:                                               ; preds = %31
+33:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-33:                                               ; preds = %31
+34:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-35:                                               ; preds = %31
+36:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-36:                                               ; preds = %31
+37:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-37:                                               ; preds = %31
+38:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-38:                                               ; preds = %31
+39:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-39:                                               ; preds = %31
+40:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-40:                                               ; preds = %31
+41:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-41:                                               ; preds = %31
+42:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-42:                                               ; preds = %31
+43:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-43:                                               ; preds = %31
+44:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-44:                                               ; preds = %31
+45:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-45:                                               ; preds = %31
+46:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-46:                                               ; preds = %31
+47:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-47:                                               ; preds = %31
+48:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-48:                                               ; preds = %31
+49:                                               ; preds = %32
   br label %VkErrorMessages.exit11
 
-VkErrorMessages.exit11:                           ; preds = %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48
-  %.0.i10 = phi ptr [ @.str.68, %48 ], [ @.str.52, %32 ], [ @.str.53, %33 ], [ @.str.54, %34 ], [ @.str.55, %35 ], [ @.str.56, %36 ], [ @.str.57, %37 ], [ @.str.58, %38 ], [ @.str.59, %39 ], [ @.str.60, %40 ], [ @.str.61, %41 ], [ @.str.62, %42 ], [ @.str.63, %43 ], [ @.str.64, %44 ], [ @.str.65, %45 ], [ @.str.66, %46 ], [ @.str.67, %47 ], [ @.str.51, %31 ]
-  %49 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.231, ptr noundef nonnull %.0.i10) #12
-  br label %50
+VkErrorMessages.exit11:                           ; preds = %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49
+  %.0.i10 = phi ptr [ @.str.68, %49 ], [ @.str.52, %33 ], [ @.str.53, %34 ], [ @.str.54, %35 ], [ @.str.55, %36 ], [ @.str.56, %37 ], [ @.str.57, %38 ], [ @.str.58, %39 ], [ @.str.59, %40 ], [ @.str.60, %41 ], [ @.str.61, %42 ], [ @.str.62, %43 ], [ @.str.63, %44 ], [ @.str.64, %45 ], [ @.str.65, %46 ], [ @.str.66, %47 ], [ @.str.67, %48 ], [ @.str.51, %32 ]
+  %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.231, ptr noundef nonnull %.0.i10) #12
+  br label %51
 
-50:                                               ; preds = %2, %VkErrorMessages.exit11
-  %51 = icmp eq i32 %8, 0
-  ret i1 %51
+51:                                               ; preds = %2, %VkErrorMessages.exit11
+  %52 = icmp eq i32 %8, 0
+  ret i1 %52
 }
 
 ; Function Attrs: nounwind uwtable

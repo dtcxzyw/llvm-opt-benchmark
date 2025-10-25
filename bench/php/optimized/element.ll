@@ -4044,14 +4044,14 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr noundef readonly ca
   br label %dom_element_insert_adjacent_element.exit
 
 40:                                               ; preds = %33
-  %switch.i = icmp ugt ptr %36, inttoptr (i64 -3 to ptr)
-  br i1 %switch.i, label %dom_element_insert_adjacent_element.exit, label %41
+  %41 = icmp ugt ptr %36, inttoptr (i64 -3 to ptr)
+  br i1 %41, label %dom_element_insert_adjacent_element.exit, label %42
 
-41:                                               ; preds = %40
-  %42 = call zeroext i1 @php_dom_create_object(ptr noundef %35, ptr noundef %1, ptr noundef nonnull %24) #11
+42:                                               ; preds = %40
+  %43 = call zeroext i1 @php_dom_create_object(ptr noundef %35, ptr noundef %1, ptr noundef nonnull %24) #11
   br label %dom_element_insert_adjacent_element.exit
 
-dom_element_insert_adjacent_element.exit:         ; preds = %40, %2, %41, %38, %27, %15
+dom_element_insert_adjacent_element.exit:         ; preds = %40, %2, %42, %38, %27, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4202,14 +4202,14 @@ thread-pre-split67:                               ; preds = %instanceof_function
   br label %dom_element_insert_adjacent_element.exit
 
 75:                                               ; preds = %68
-  %switch.i = icmp ugt ptr %71, inttoptr (i64 -3 to ptr)
-  br i1 %switch.i, label %dom_element_insert_adjacent_element.exit, label %76
+  %76 = icmp ugt ptr %71, inttoptr (i64 -3 to ptr)
+  br i1 %76, label %dom_element_insert_adjacent_element.exit, label %77
 
-76:                                               ; preds = %75
-  %77 = tail call zeroext i1 @php_dom_create_object(ptr noundef %70, ptr noundef %1, ptr noundef nonnull %59) #11
+77:                                               ; preds = %75
+  %78 = tail call zeroext i1 @php_dom_create_object(ptr noundef %70, ptr noundef %1, ptr noundef nonnull %59) #11
   br label %dom_element_insert_adjacent_element.exit
 
-dom_element_insert_adjacent_element.exit:         ; preds = %75, %76, %73, %62, %51, %43
+dom_element_insert_adjacent_element.exit:         ; preds = %75, %77, %73, %62, %51, %43
   ret void
 }
 

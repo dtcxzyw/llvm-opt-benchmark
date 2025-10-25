@@ -25769,7 +25769,7 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %189, label %9
+  br i1 %8, label %190, label %9
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %1, align 8
@@ -25822,7 +25822,7 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(152) %50) #22
   %.not42 = icmp eq i32 %54, 12
-  br i1 %.not42, label %164, label %55
+  br i1 %.not42, label %165, label %55
 
 55:                                               ; preds = %14
   %56 = load ptr, ptr %2, align 8
@@ -25837,7 +25837,7 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, 234881024
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %164, label %.sink.split
+  br i1 %67, label %165, label %.sink.split
 
 68:                                               ; preds = %9
   %69 = load ptr, ptr %1, align 8
@@ -25845,7 +25845,7 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %.not40 = icmp eq ptr %72, null
-  br i1 %.not40, label %164, label %73
+  br i1 %.not40, label %165, label %73
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %72, align 8
@@ -25876,17 +25876,17 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %88 = sub i64 %85, %87
   %89 = lshr exact i64 %88, 3
   %90 = and i64 %88, 34359738360
-  %.not71 = icmp eq i64 %90, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.preheader
+  %.not72 = icmp eq i64 %90, 0
+  br i1 %.not72, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73, %73, %73, %73, %81, %82
-  %.03477 = phi i64 [ %89, %82 ], [ 2, %81 ], [ 1, %73 ], [ 1, %73 ], [ 1, %73 ], [ 1, %73 ]
-  %wide.trip.count = and i64 %.03477, 4294967295
+  %.03478 = phi i64 [ %89, %82 ], [ 2, %81 ], [ 1, %73 ], [ 1, %73 ], [ 1, %73 ], [ 1, %73 ]
+  %wide.trip.count = and i64 %.03478, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.169 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
+  %.170 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
   %91 = load ptr, ptr %78, align 8
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
@@ -25903,7 +25903,7 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %104 = trunc i64 %103 to i32
   %105 = lshr i32 %104, 25
   %106 = and i32 %105, 7
-  %.sroa.speculated48 = tail call i32 @llvm.smax.i32(i32 %.169, i32 %106)
+  %.sroa.speculated48 = tail call i32 @llvm.smax.i32(i32 %.170, i32 %106)
   %107 = load ptr, ptr %2, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 320
   %109 = load ptr, ptr %108, align 8
@@ -25936,101 +25936,101 @@ define void @_ZN7glslang13TParseContext24computeBuiltinPrecisionsERNS_12TIntermT
   %124 = add i32 %.fr, -630
   %spec.select.i = icmp ult i32 %124, 54
   %125 = and i32 %.fr, -4
-  %switch = icmp eq i32 %125, 604
-  %or.cond = or i1 %spec.select.i, %switch
-  br i1 %or.cond, label %126, label %129
+  %126 = icmp eq i32 %125, 604
+  %or.cond = or i1 %spec.select.i, %126
+  br i1 %or.cond, label %127, label %130
 
-126:                                              ; preds = %._crit_edge
-  %127 = load ptr, ptr %78, align 8
-  %128 = load ptr, ptr %127, align 8
+127:                                              ; preds = %._crit_edge
+  %128 = load ptr, ptr %78, align 8
+  %129 = load ptr, ptr %128, align 8
   br label %.sink.split
 
-129:                                              ; preds = %._crit_edge
-  %130 = load ptr, ptr %2, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
-  %132 = load ptr, ptr %131, align 8
-  %133 = tail call noundef nonnull align 8 dereferenceable(152) ptr %132(ptr noundef nonnull align 8 dereferenceable(340) %2) #22
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 56
-  %136 = load ptr, ptr %135, align 8
-  %137 = tail call noundef i32 %136(ptr noundef nonnull align 8 dereferenceable(152) %133) #22
-  %.not41 = icmp eq i32 %137, 12
-  br i1 %.not41, label %164, label %138
+130:                                              ; preds = %._crit_edge
+  %131 = load ptr, ptr %2, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 96
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call noundef nonnull align 8 dereferenceable(152) ptr %133(ptr noundef nonnull align 8 dereferenceable(340) %2) #22
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
+  %137 = load ptr, ptr %136, align 8
+  %138 = tail call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(152) %134) #22
+  %.not41 = icmp eq i32 %138, 12
+  br i1 %.not41, label %165, label %139
 
-138:                                              ; preds = %129
-  %139 = load ptr, ptr %2, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 96
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef nonnull align 8 dereferenceable(152) ptr %141(ptr noundef nonnull align 8 dereferenceable(340) %2) #22
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 88
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call noundef nonnull align 8 dereferenceable(80) ptr %145(ptr noundef nonnull align 8 dereferenceable(152) %142) #22
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load i64, ptr %147, align 8
-  %149 = and i64 %148, 234881024
-  %150 = icmp eq i64 %149, 0
-  br i1 %150, label %164, label %.sink.split
+139:                                              ; preds = %130
+  %140 = load ptr, ptr %2, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 96
+  %142 = load ptr, ptr %141, align 8
+  %143 = tail call noundef nonnull align 8 dereferenceable(152) ptr %142(ptr noundef nonnull align 8 dereferenceable(340) %2) #22
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 88
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call noundef nonnull align 8 dereferenceable(80) ptr %146(ptr noundef nonnull align 8 dereferenceable(152) %143) #22
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load i64, ptr %148, align 8
+  %150 = and i64 %149, 234881024
+  %151 = icmp eq i64 %150, 0
+  br i1 %151, label %165, label %.sink.split
 
-.sink.split:                                      ; preds = %138, %55, %126
-  %.sink = phi ptr [ %128, %126 ], [ %2, %55 ], [ %2, %138 ]
-  %.sink90 = phi i64 [ 24, %126 ], [ 96, %55 ], [ 96, %138 ]
-  %.sink86 = phi i64 [ 264, %126 ], [ 88, %55 ], [ 88, %138 ]
-  %.065.ph = phi i32 [ %.1.lcssa, %126 ], [ %.sroa.speculated52, %55 ], [ %.1.lcssa, %138 ]
-  %151 = load ptr, ptr %.sink, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %.sink90
-  %153 = load ptr, ptr %152, align 8
-  %154 = tail call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink86
-  %157 = load ptr, ptr %156, align 8
-  %158 = tail call noundef nonnull align 8 dereferenceable(80) ptr %157(ptr noundef nonnull align 8 dereferenceable(152) %154) #22
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %160 = load i64, ptr %159, align 8
-  %161 = trunc i64 %160 to i32
-  %162 = lshr i32 %161, 25
-  %163 = and i32 %162, 7
-  br label %164
+.sink.split:                                      ; preds = %139, %55, %127
+  %.sink = phi ptr [ %129, %127 ], [ %2, %55 ], [ %2, %139 ]
+  %.sink91 = phi i64 [ 24, %127 ], [ 96, %55 ], [ 96, %139 ]
+  %.sink87 = phi i64 [ 264, %127 ], [ 88, %55 ], [ 88, %139 ]
+  %.065.ph = phi i32 [ %.1.lcssa, %127 ], [ %.sroa.speculated52, %55 ], [ %.1.lcssa, %139 ]
+  %152 = load ptr, ptr %.sink, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %.sink91
+  %154 = load ptr, ptr %153, align 8
+  %155 = tail call noundef ptr %154(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink87
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call noundef nonnull align 8 dereferenceable(80) ptr %158(ptr noundef nonnull align 8 dereferenceable(152) %155) #22
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %161 = load i64, ptr %160, align 8
+  %162 = trunc i64 %161 to i32
+  %163 = lshr i32 %162, 25
+  %164 = and i32 %163, 7
+  br label %165
 
-164:                                              ; preds = %.sink.split, %138, %55, %68, %129, %14
-  %.065 = phi i32 [ 0, %68 ], [ %.1.lcssa, %129 ], [ %.sroa.speculated52, %14 ], [ %.sroa.speculated52, %55 ], [ %.1.lcssa, %138 ], [ %.065.ph, %.sink.split ]
-  %.035 = phi i32 [ 0, %68 ], [ 0, %129 ], [ 0, %14 ], [ %.sroa.speculated52, %55 ], [ %.1.lcssa, %138 ], [ %163, %.sink.split ]
-  %165 = load ptr, ptr %7, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 264
-  %167 = load ptr, ptr %166, align 8
-  %168 = tail call noundef nonnull align 8 dereferenceable(80) ptr %167(ptr noundef nonnull align 8 dereferenceable(184) %7) #22
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %170 = load i64, ptr %169, align 8
-  %171 = and i64 %170, -234881025
-  store i64 %171, ptr %169, align 8
+165:                                              ; preds = %.sink.split, %139, %55, %68, %130, %14
+  %.065 = phi i32 [ 0, %68 ], [ %.1.lcssa, %130 ], [ %.sroa.speculated52, %14 ], [ %.sroa.speculated52, %55 ], [ %.1.lcssa, %139 ], [ %.065.ph, %.sink.split ]
+  %.035 = phi i32 [ 0, %68 ], [ 0, %130 ], [ 0, %14 ], [ %.sroa.speculated52, %55 ], [ %.1.lcssa, %139 ], [ %164, %.sink.split ]
+  %166 = load ptr, ptr %7, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 264
+  %168 = load ptr, ptr %167, align 8
+  %169 = tail call noundef nonnull align 8 dereferenceable(80) ptr %168(ptr noundef nonnull align 8 dereferenceable(184) %7) #22
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %171 = load i64, ptr %170, align 8
+  %172 = and i64 %171, -234881025
+  store i64 %172, ptr %170, align 8
   %.not43 = icmp eq i32 %.065, 0
-  br i1 %.not43, label %177, label %172
+  br i1 %.not43, label %178, label %173
 
-172:                                              ; preds = %164
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 296
-  %175 = load ptr, ptr %174, align 8
-  tail call void %175(ptr noundef nonnull align 8 dereferenceable(184) %7, i32 noundef %.065) #22
-  %176 = getelementptr inbounds nuw i8, ptr %7, i64 188
-  store i32 %.065, ptr %176, align 4
-  br label %177
+173:                                              ; preds = %165
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 296
+  %176 = load ptr, ptr %175, align 8
+  tail call void %176(ptr noundef nonnull align 8 dereferenceable(184) %7, i32 noundef %.065) #22
+  %177 = getelementptr inbounds nuw i8, ptr %7, i64 188
+  store i32 %.065, ptr %177, align 4
+  br label %178
 
-177:                                              ; preds = %172, %164
-  %178 = load ptr, ptr %7, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 264
-  %180 = load ptr, ptr %179, align 8
-  %181 = tail call noundef nonnull align 8 dereferenceable(80) ptr %180(ptr noundef nonnull align 8 dereferenceable(184) %7) #22
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  %183 = load i64, ptr %182, align 8
-  %184 = shl nuw nsw i32 %.035, 25
-  %185 = and i32 %184, 234881024
-  %186 = zext nneg i32 %185 to i64
-  %187 = and i64 %183, -234881025
-  %188 = or disjoint i64 %187, %186
-  store i64 %188, ptr %182, align 8
-  br label %189
+178:                                              ; preds = %173, %165
+  %179 = load ptr, ptr %7, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 264
+  %181 = load ptr, ptr %180, align 8
+  %182 = tail call noundef nonnull align 8 dereferenceable(80) ptr %181(ptr noundef nonnull align 8 dereferenceable(184) %7) #22
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %184 = load i64, ptr %183, align 8
+  %185 = shl nuw nsw i32 %.035, 25
+  %186 = and i32 %185, 234881024
+  %187 = zext nneg i32 %186 to i64
+  %188 = and i64 %184, -234881025
+  %189 = or disjoint i64 %188, %187
+  store i64 %189, ptr %183, align 8
+  br label %190
 
-189:                                              ; preds = %3, %177
+190:                                              ; preds = %3, %178
   ret void
 }
 

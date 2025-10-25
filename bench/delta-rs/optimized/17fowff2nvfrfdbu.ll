@@ -463,7 +463,7 @@ define hidden void @"_ZN4core3ptr123drop_in_place$LT$$LP$alloc..string..String$C
           cleanup
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value_update..AttributeValueUpdate$GT$17hab3ec3560f95e582E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %14) #40
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %36
 
 15:                                               ; preds = %10, %6, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !81
@@ -482,39 +482,39 @@ define hidden void @"_ZN4core3ptr123drop_in_place$LT$$LP$alloc..string..String$C
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$GT$$GT$17ha2dade989e9d9d3aE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %16) #40
-          to label %common.resume unwind label %33
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17hf87a617cbbaa7facE.llvm.7909737541732249412.exit.i": ; preds = %20, %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %23 = load i64, ptr %16, align 8, !range !100, !alias.scope !101, !noundef !14
-  %switch.i.i = icmp slt i64 %23, -9223372036854775804
-  br i1 %switch.i.i, label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value_update..AttributeValueUpdate$GT$17hab3ec3560f95e582E.exit", label %24
+  %24 = icmp slt i64 %23, -9223372036854775804
+  br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value_update..AttributeValueUpdate$GT$17hab3ec3560f95e582E.exit", label %25
 
-24:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17hf87a617cbbaa7facE.llvm.7909737541732249412.exit.i"
+25:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17hf87a617cbbaa7facE.llvm.7909737541732249412.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !102
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h08dfef4aea5aa374E.llvm.7909737541732249412"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %16)
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !range !13, !noalias !102, !noundef !14
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i", label %27
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %27 = load i64, ptr %26, align 8, !range !13, !noalias !102, !noundef !14
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %27, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i", label %28
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %29 = load i64, ptr %28, align 8, !noalias !102, !noundef !14
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i", label %31
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %30 = load i64, ptr %29, align 8, !noalias !102, !noundef !14
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i", label %32
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %2, align 8, !noalias !102, !nonnull !14, !noundef !14
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %29, i64 noundef %26) #39
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %2, align 8, !noalias !102, !nonnull !14, !noundef !14
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %30, i64 noundef %27) #39
   br label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i"
 
-"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i": ; preds = %31, %27, %24
+"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i": ; preds = %32, %28, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !102
   br label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value_update..AttributeValueUpdate$GT$17hab3ec3560f95e582E.exit"
 
-33:                                               ; preds = %21
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %21
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable
@@ -526,8 +526,8 @@ common.resume:                                    ; preds = %12, %21
 "_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value_update..AttributeValueUpdate$GT$17hab3ec3560f95e582E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17hf87a617cbbaa7facE.llvm.7909737541732249412.exit.i", %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_dynamodb..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17h49845d1785040942E.exit.i.i.i"
   ret void
 
-35:                                               ; preds = %12
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %12
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable

@@ -1505,7 +1505,7 @@ usePal.exit:                                      ; preds = %570, %570, %570, %5
   br i1 %.not977, label %586, label %582
 
 582:                                              ; preds = %.thread1234
-  switch i32 %3, label %.thread1362 [
+  switch i32 %3, label %.thread1360 [
     i32 33, label %583
     i32 0, label %583
     i32 1, label %587
@@ -1528,53 +1528,53 @@ usePal.exit:                                      ; preds = %570, %570, %570, %5
   br label %586
 
 586:                                              ; preds = %.sink.split, %583, %.thread1234
-  switch i32 %3, label %.thread1362 [
+  switch i32 %3, label %.thread1360 [
     i32 1, label %587
     i32 15, label %591
   ]
 
 587:                                              ; preds = %582, %586
-  switch i32 %5, label %.thread1362 [
+  switch i32 %5, label %.thread1360 [
     i32 33, label %588
     i32 0, label %588
-    i32 4, label %.thread1362.sink.split
+    i32 4, label %.thread1360.sink.split
   ]
 
 588:                                              ; preds = %587, %587
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr @yuyvToYuv420Wrapper, ptr %589, align 16, !tbaa !37
   %590 = icmp eq i32 %5, 4
-  br i1 %590, label %.thread1362.sink.split, label %.thread1362
+  br i1 %590, label %.thread1360.sink.split, label %.thread1360
 
 591:                                              ; preds = %582, %586
-  switch i32 %5, label %.thread1362 [
+  switch i32 %5, label %.thread1360 [
     i32 33, label %592
     i32 0, label %592
-    i32 4, label %.thread1362.sink.split
+    i32 4, label %.thread1360.sink.split
   ]
 
 592:                                              ; preds = %591, %591
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr @uyvyToYuv420Wrapper, ptr %593, align 16, !tbaa !37
   %594 = icmp eq i32 %5, 4
-  br i1 %594, label %.thread1362.sink.split, label %.thread1362
+  br i1 %594, label %.thread1360.sink.split, label %.thread1360
 
-.thread1362.sink.split:                           ; preds = %591, %592, %588, %587
+.thread1360.sink.split:                           ; preds = %591, %592, %588, %587
   %yuyvToYuv422Wrapper.sink = phi ptr [ @yuyvToYuv422Wrapper, %587 ], [ @yuyvToYuv422Wrapper, %588 ], [ @uyvyToYuv422Wrapper, %592 ], [ @uyvyToYuv422Wrapper, %591 ]
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %yuyvToYuv422Wrapper.sink, ptr %595, align 16, !tbaa !37
-  br label %.thread1362
+  br label %.thread1360
 
-.thread1362:                                      ; preds = %591, %582, %586, %.thread1362.sink.split, %587, %588, %592
+.thread1360:                                      ; preds = %591, %582, %586, %.thread1360.sink.split, %587, %588, %592
   %or.cond = select i1 %55, i1 %or.cond111201, i1 false
   br i1 %or.cond, label %596, label %598
 
-596:                                              ; preds = %.thread1362
+596:                                              ; preds = %.thread1360
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr @nv24ToYuv420Wrapper, ptr %597, align 16, !tbaa !37
   br label %598
 
-598:                                              ; preds = %596, %.thread1362
+598:                                              ; preds = %596, %.thread1360
   %599 = icmp eq i32 %3, %5
   %or.cond427 = and i1 %40, %55
   %or.cond1057 = or i1 %599, %or.cond427
@@ -2143,23 +2143,23 @@ isYUV.exit1177:                                   ; preds = %830
 
 841:                                              ; preds = %837
   %842 = icmp ult i8 %.pre, 4
-  br i1 %842, label %isSwappedChroma.exit, label %.thread1364
+  br i1 %842, label %isSwappedChroma.exit, label %.thread1362
 
 843:                                              ; preds = %837
   %844 = icmp ult i8 %.pre, 3
-  br i1 %844, label %isSwappedChroma.exit, label %.thread1364
+  br i1 %844, label %isSwappedChroma.exit, label %.thread1362
 
-.thread1364:                                      ; preds = %841, %843
+.thread1362:                                      ; preds = %841, %843
   %845 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
   %.not.i.i1138 = icmp eq ptr %845, null
   br i1 %.not.i.i1138, label %846, label %847
 
-846:                                              ; preds = %.thread1364
+846:                                              ; preds = %.thread1362
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
   tail call void @abort() #14
   unreachable
 
-847:                                              ; preds = %.thread1364
+847:                                              ; preds = %.thread1362
   %848 = getelementptr inbounds nuw i8, ptr %845, i64 16
   %849 = load i64, ptr %848, align 8, !tbaa !33
   %850 = and i64 %849, 16
@@ -2252,10 +2252,10 @@ isSemiPlanarYUV.exit.i.thread:                    ; preds = %874, %867, %isPlana
 
 isSwappedChroma.exit.sink.split:                  ; preds = %isPlanarYUV.exit.i1140, %isSemiPlanarYUV.exit.i, %847, %854, %isSemiPlanarYUV.exit.i.thread
   %.sink = phi i64 [ 44, %isSemiPlanarYUV.exit.i.thread ], [ 52, %854 ], [ 52, %847 ], [ 52, %isSemiPlanarYUV.exit.i ], [ 52, %isPlanarYUV.exit.i1140 ]
-  %.sink1368 = phi i64 [ 64, %isSemiPlanarYUV.exit.i.thread ], [ 72, %854 ], [ 72, %847 ], [ 72, %isSemiPlanarYUV.exit.i ], [ 72, %isPlanarYUV.exit.i1140 ]
+  %.sink1366 = phi i64 [ 64, %isSemiPlanarYUV.exit.i.thread ], [ 72, %854 ], [ 72, %847 ], [ 72, %isSemiPlanarYUV.exit.i ], [ 72, %isPlanarYUV.exit.i1140 ]
   %885 = getelementptr inbounds nuw i8, ptr %825, i64 %.sink
   %886 = load i32, ptr %885, align 4, !tbaa !48
-  %887 = getelementptr inbounds nuw i8, ptr %825, i64 %.sink1368
+  %887 = getelementptr inbounds nuw i8, ptr %825, i64 %.sink1366
   %888 = load i32, ptr %887, align 8, !tbaa !48
   %889 = icmp sgt i32 %886, %888
   br label %isSwappedChroma.exit
@@ -2299,29 +2299,29 @@ isYUV.exit1168:                                   ; preds = %895
   %904 = load i64, ptr %903, align 8, !tbaa !33
   %905 = and i64 %904, 128
   %.not14.i1144 = icmp eq i64 %905, 0
-  %.phi.trans.insert1303 = getelementptr inbounds nuw i8, ptr %890, i64 8
-  %.pre1304 = load i8, ptr %.phi.trans.insert1303, align 8, !tbaa !40
+  %.phi.trans.insert1301 = getelementptr inbounds nuw i8, ptr %890, i64 8
+  %.pre1302 = load i8, ptr %.phi.trans.insert1301, align 8, !tbaa !40
   br i1 %.not14.i1144, label %908, label %906
 
 906:                                              ; preds = %902
-  %907 = icmp ult i8 %.pre1304, 4
-  br i1 %907, label %isSwappedChroma.exit1158.thr_comm, label %.thread1365
+  %907 = icmp ult i8 %.pre1302, 4
+  br i1 %907, label %isSwappedChroma.exit1158.thr_comm, label %.thread1363
 
 908:                                              ; preds = %902
-  %909 = icmp ult i8 %.pre1304, 3
-  br i1 %909, label %isSwappedChroma.exit1158.thr_comm, label %.thread1365
+  %909 = icmp ult i8 %.pre1302, 3
+  br i1 %909, label %isSwappedChroma.exit1158.thr_comm, label %.thread1363
 
-.thread1365:                                      ; preds = %906, %908
+.thread1363:                                      ; preds = %906, %908
   %910 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
   %.not.i.i1145 = icmp eq ptr %910, null
   br i1 %.not.i.i1145, label %911, label %912
 
-911:                                              ; preds = %.thread1365
+911:                                              ; preds = %.thread1363
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
   tail call void @abort() #14
   unreachable
 
-912:                                              ; preds = %.thread1365
+912:                                              ; preds = %.thread1363
   %913 = getelementptr inbounds nuw i8, ptr %910, i64 16
   %914 = load i64, ptr %913, align 8, !tbaa !33
   %915 = and i64 %914, 16
@@ -2416,11 +2416,11 @@ isSwappedChroma.exit1158.thr_comm:                ; preds = %895, %908, %906, %i
   br i1 %.0.shrunk.i, label %isPlanarYUV.exit1106.thread, label %956
 
 isSwappedChroma.exit1158:                         ; preds = %isPlanarYUV.exit.i1147, %isSemiPlanarYUV.exit.i1154, %912, %919, %isSemiPlanarYUV.exit.i1154.thread
-  %.sink1375 = phi i64 [ 44, %isSemiPlanarYUV.exit.i1154.thread ], [ 52, %919 ], [ 52, %912 ], [ 52, %isSemiPlanarYUV.exit.i1154 ], [ 52, %isPlanarYUV.exit.i1147 ]
-  %.sink1373 = phi i64 [ 64, %isSemiPlanarYUV.exit.i1154.thread ], [ 72, %919 ], [ 72, %912 ], [ 72, %isSemiPlanarYUV.exit.i1154 ], [ 72, %isPlanarYUV.exit.i1147 ]
-  %950 = getelementptr inbounds nuw i8, ptr %890, i64 %.sink1375
+  %.sink1373 = phi i64 [ 44, %isSemiPlanarYUV.exit.i1154.thread ], [ 52, %919 ], [ 52, %912 ], [ 52, %isSemiPlanarYUV.exit.i1154 ], [ 52, %isPlanarYUV.exit.i1147 ]
+  %.sink1371 = phi i64 [ 64, %isSemiPlanarYUV.exit.i1154.thread ], [ 72, %919 ], [ 72, %912 ], [ 72, %isSemiPlanarYUV.exit.i1154 ], [ 72, %isPlanarYUV.exit.i1147 ]
+  %950 = getelementptr inbounds nuw i8, ptr %890, i64 %.sink1373
   %951 = load i32, ptr %950, align 4, !tbaa !48
-  %952 = getelementptr inbounds nuw i8, ptr %890, i64 %.sink1373
+  %952 = getelementptr inbounds nuw i8, ptr %890, i64 %.sink1371
   %953 = load i32, ptr %952, align 8, !tbaa !48
   %954 = icmp sgt i32 %951, %953
   %955 = xor i1 %.0.shrunk.i, %954
@@ -2441,7 +2441,7 @@ isSwappedChroma.exit1158:                         ; preds = %isPlanarYUV.exit.i1
   %961 = getelementptr inbounds nuw i8, ptr %958, i64 8
   %962 = load i8, ptr %961, align 8, !tbaa !40
   %963 = icmp ugt i8 %962, 1
-  br i1 %963, label %964, label %969
+  br i1 %963, label %964, label %971
 
 964:                                              ; preds = %960
   %965 = getelementptr inbounds nuw i8, ptr %958, i64 16
@@ -2449,23 +2449,23 @@ isSwappedChroma.exit1158:                         ; preds = %isPlanarYUV.exit.i1
   %.fr = freeze i64 %966
   %967 = and i64 %.fr, 16
   %968 = icmp eq i64 %967, 0
-  %.off1285 = add i32 %957, -9
-  %switch1286 = icmp ult i32 %.off1285, 3
-  %or.cond1287 = or i1 %switch1286, %968
-  br i1 %or.cond1287, label %isPlanarYUV.exit1106.thread.sink.split, label %970
+  %969 = add i32 %957, -9
+  %970 = icmp ult i32 %969, 3
+  %or.cond1287 = or i1 %970, %968
+  br i1 %or.cond1287, label %isPlanarYUV.exit1106.thread.sink.split, label %974
 
-969:                                              ; preds = %960
-  %.off1288 = add i32 %957, -9
-  %switch1289 = icmp ult i32 %.off1288, 3
-  br i1 %switch1289, label %isPlanarYUV.exit1106.thread.sink.split, label %970
+971:                                              ; preds = %960
+  %972 = add i32 %957, -9
+  %973 = icmp ult i32 %972, 3
+  br i1 %973, label %isPlanarYUV.exit1106.thread.sink.split, label %974
 
-970:                                              ; preds = %969, %964
+974:                                              ; preds = %964, %971
   br label %isPlanarYUV.exit1106.thread.sink.split
 
-isPlanarYUV.exit1106.thread.sink.split:           ; preds = %964, %969, %970
-  %packedCopyWrapper.sink = phi ptr [ @planarCopyWrapper, %970 ], [ @packedCopyWrapper, %969 ], [ @packedCopyWrapper, %964 ]
-  %971 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %packedCopyWrapper.sink, ptr %971, align 16, !tbaa !37
+isPlanarYUV.exit1106.thread.sink.split:           ; preds = %964, %971, %974
+  %packedCopyWrapper.sink = phi ptr [ @planarCopyWrapper, %974 ], [ @packedCopyWrapper, %971 ], [ @packedCopyWrapper, %964 ]
+  %975 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %packedCopyWrapper.sink, ptr %975, align 16, !tbaa !37
   br label %isPlanarYUV.exit1106.thread
 
 isPlanarYUV.exit1106.thread:                      ; preds = %isPlanarYUV.exit1106.thread.sink.split, %isSwappedChroma.exit1158.thr_comm, %749, %742, %732, %725, %isSwappedChroma.exit1158, %isSemiPlanarYUV.exit1136, %762, %756, %isPlanarYUV.exit1109, %isPlanarYUV.exit1106, %isFloat16.exit1098, %isFloat.exit1088

@@ -447,8 +447,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8, !range !69, !alias.scope !70, !noalias !75, !noundef !25
-  %switch.not.i.i.i = icmp samesign ult i8 %4, 2
-  br i1 %switch.not.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6e25f1527b38f882E.llvm.15956212377945586164.exit", label %5
+  %.not.i.i.i = icmp samesign ult i8 %4, 2
+  br i1 %.not.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6e25f1527b38f882E.llvm.15956212377945586164.exit", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -708,8 +708,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8, !range !69, !alias.scope !170, !noalias !167, !noundef !25
-  %switch.not.i = icmp samesign ult i8 %4, 2
-  br i1 %switch.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4921eb4f16702385E.llvm.15956212377945586164.exit", label %5
+  %.not.i = icmp samesign ult i8 %4, 2
+  br i1 %.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4921eb4f16702385E.llvm.15956212377945586164.exit", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -997,8 +997,8 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
 define hidden void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6e25f1527b38f882E.llvm.15956212377945586164"(ptr noalias noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8, !range !69, !alias.scope !225, !noalias !230, !noundef !25
-  %switch.not.i.i = icmp samesign ult i8 %4, 2
-  br i1 %switch.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c0e8a05f662722aE.llvm.15956212377945586164.exit", label %5
+  %.not.i.i = icmp samesign ult i8 %4, 2
+  br i1 %.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c0e8a05f662722aE.llvm.15956212377945586164.exit", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1059,8 +1059,8 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc38138d3c571543aE.exit":
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i8, ptr %2, align 8, !range !69, !noundef !25
-  %switch.not = icmp samesign ult i8 %3, 2
-  br i1 %switch.not, label %23, label %4
+  %.not = icmp samesign ult i8 %3, 2
+  br i1 %.not, label %23, label %4
 
 4:                                                ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc38138d3c571543aE.exit"
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112

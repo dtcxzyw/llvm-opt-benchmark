@@ -6593,7 +6593,7 @@ thread-pre-split:                                 ; preds = %169, %170, %174, %1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %291, %291, %291, %291, %291, %291, %295
-  %.not25 = phi i1 [ false, %291 ], [ true, %295 ], [ false, %291 ], [ false, %291 ], [ false, %291 ], [ false, %291 ], [ false, %291 ]
+  %.not27 = phi i1 [ false, %291 ], [ true, %295 ], [ false, %291 ], [ false, %291 ], [ false, %291 ], [ false, %291 ], [ false, %291 ]
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 287
   store i8 0, ptr %296, align 1, !tbaa !82
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -6609,54 +6609,54 @@ switch.edge:                                      ; preds = %291, %291, %291, %2
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %switch.edge, %301
   %302 = and i16 %294, -2
-  %switch = icmp ne i16 %302, 6
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %304 = load i32, ptr %303, align 4
-  %.not20 = icmp eq i32 %304, 3
-  %or.cond29 = select i1 %switch, i1 true, i1 %.not20
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 283
-  %306 = load i8, ptr %305, align 1, !range !16
-  %307 = trunc nuw i8 %306 to i1
-  %or.cond24 = select i1 %.not25, i1 true, i1 %307
-  %or.cond63 = select i1 %or.cond29, i1 %or.cond24, i1 false
-  br i1 %or.cond63, label %315, label %308
+  %303 = icmp ne i16 %302, 6
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %305 = load i32, ptr %304, align 4
+  %.not20 = icmp eq i32 %305, 3
+  %or.cond22 = select i1 %303, i1 true, i1 %.not20
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 283
+  %307 = load i8, ptr %306, align 1, !range !16
+  %308 = trunc nuw i8 %307 to i1
+  %or.cond26 = select i1 %.not27, i1 true, i1 %308
+  %or.cond63 = select i1 %or.cond22, i1 %or.cond26, i1 false
+  br i1 %or.cond63, label %316, label %309
 
-308:                                              ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
+309:                                              ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
   store i8 1, ptr %296, align 1, !tbaa !82
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 258, ptr %309, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %311 = load ptr, ptr %310, align 8, !tbaa !129
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %313 = load ptr, ptr %312, align 8, !tbaa !207
-  %.not.i.i49 = icmp eq ptr %313, %311
-  br i1 %.not.i.i49, label %.thread, label %314
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 258, ptr %310, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %312 = load ptr, ptr %311, align 8, !tbaa !129
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %314 = load ptr, ptr %313, align 8, !tbaa !207
+  %.not.i.i49 = icmp eq ptr %314, %312
+  br i1 %.not.i.i49, label %.thread, label %315
 
-314:                                              ; preds = %308
-  store ptr %311, ptr %312, align 8, !tbaa !207
+315:                                              ; preds = %309
+  store ptr %312, ptr %313, align 8, !tbaa !207
   br label %.thread
 
-.thread:                                          ; preds = %314, %308
+.thread:                                          ; preds = %315, %309
   store i16 2, ptr %42, align 4, !tbaa !156
-  br label %320
+  br label %321
 
-315:                                              ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
-  br i1 %.not25, label %320, label %316
+316:                                              ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
+  br i1 %.not27, label %321, label %317
 
-316:                                              ; preds = %315
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 8
+317:                                              ; preds = %316
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.50, ptr %38, align 8, !tbaa !111
-  %318 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i64 15, ptr %318, align 8, !tbaa !113
-  store ptr @.str.66, ptr %40, align 8, !tbaa !111
-  %319 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 15, ptr %319, align 8, !tbaa !113
+  store ptr @.str.66, ptr %40, align 8, !tbaa !111
+  %320 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 15, ptr %320, align 8, !tbaa !113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  call void @_ZNK11OpenImageIO6v3_1_09ImageSpec20get_string_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEES5_(ptr dead_on_unwind nonnull writable sret(%"class.OpenImageIO::v3_1_0::basic_string_view") align 8 %39, ptr noundef nonnull align 8 dereferenceable(160) %317, ptr noundef nonnull %40, ptr noundef nonnull %41)
-  call void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_viewIcSt11char_traitsIcEEES5_(ptr noundef nonnull align 8 dereferenceable(160) %317, ptr noundef nonnull %38, ptr noundef nonnull %39)
-  br label %320
+  call void @_ZNK11OpenImageIO6v3_1_09ImageSpec20get_string_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEES5_(ptr dead_on_unwind nonnull writable sret(%"class.OpenImageIO::v3_1_0::basic_string_view") align 8 %39, ptr noundef nonnull align 8 dereferenceable(160) %318, ptr noundef nonnull %40, ptr noundef nonnull %41)
+  call void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_viewIcSt11char_traitsIcEEES5_(ptr noundef nonnull align 8 dereferenceable(160) %318, ptr noundef nonnull %38, ptr noundef nonnull %39)
+  br label %321
 
-320:                                              ; preds = %.thread, %316, %315
+321:                                              ; preds = %.thread, %317, %316
   ret void
 }
 

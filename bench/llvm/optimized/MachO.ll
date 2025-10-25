@@ -264,7 +264,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   %11 = load ptr, ptr %3, align 8, !tbaa !22, !noalias !69
   store ptr %11, ptr %0, align 8, !tbaa !25, !alias.scope !69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %63
+  br label %67
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -298,19 +298,14 @@ _ZL13getX86SubTypeRKN4llvm6TripleE.exit:          ; preds = %16, %18, %_ZN4llvme
   %25 = and i8 %24, -2
   store i8 %25, ptr %23, align 8
   store i32 %.0.i, ptr %0, align 8, !tbaa !27
-  br label %63
+  br label %67
 
 26:                                               ; preds = %12
-  switch i32 %14, label %_ZN4llvm5ErrorD2Ev.exit20 [
+  switch i32 %14, label %43 [
     i32 36, label %27
     i32 35, label %27
     i32 2, label %27
     i32 1, label %27
-    i32 5, label %43
-    i32 4, label %43
-    i32 3, label %43
-    i32 21, label %55
-    i32 23, label %55
   ]
 
 27:                                               ; preds = %26, %26, %26, %26
@@ -363,54 +358,65 @@ _ZL13getARMSubTypeRKN4llvm6TripleE.exit:          ; preds = %27, %32, %33, %34, 
   %42 = and i8 %41, -2
   store i8 %42, ptr %40, align 8
   store i32 %.0.i18, ptr %0, align 8, !tbaa !27
-  br label %63
+  br label %67
 
-43:                                               ; preds = %26, %26, %26
-  %44 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
-  br i1 %44, label %_ZL15getARM64SubTypeRKN4llvm6TripleE.exit, label %45
+43:                                               ; preds = %26
+  %44 = add i32 %14, -3
+  %45 = icmp ult i32 %44, 3
+  br i1 %45, label %46, label %58
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %13, align 8, !tbaa !26
-  %47 = icmp eq i32 %46, 3
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 35
-  %51 = select i1 %47, i1 %50, i1 false
-  %..i = select i1 %51, i32 2, i32 0
+46:                                               ; preds = %43
+  %47 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
+  br i1 %47, label %_ZL15getARM64SubTypeRKN4llvm6TripleE.exit, label %48
+
+48:                                               ; preds = %46
+  %49 = load i32, ptr %13, align 8, !tbaa !26
+  %50 = icmp eq i32 %49, 3
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, 35
+  %54 = select i1 %50, i1 %53, i1 false
+  %..i = select i1 %54, i32 2, i32 0
   br label %_ZL15getARM64SubTypeRKN4llvm6TripleE.exit
 
-_ZL15getARM64SubTypeRKN4llvm6TripleE.exit:        ; preds = %43, %45
-  %.0.i19 = phi i32 [ 1, %43 ], [ %..i, %45 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, -2
-  store i8 %54, ptr %52, align 8
+_ZL15getARM64SubTypeRKN4llvm6TripleE.exit:        ; preds = %46, %48
+  %.0.i19 = phi i32 [ 1, %46 ], [ %..i, %48 ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load i8, ptr %55, align 8
+  %57 = and i8 %56, -2
+  store i8 %57, ptr %55, align 8
   store i32 %.0.i19, ptr %0, align 8, !tbaa !27
-  br label %63
+  br label %67
 
-55:                                               ; preds = %26, %26
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load i8, ptr %56, align 8
-  %58 = and i8 %57, -2
-  store i8 %58, ptr %56, align 8
+58:                                               ; preds = %43
+  switch i32 %14, label %_ZN4llvm5ErrorD2Ev.exit20 [
+    i32 21, label %59
+    i32 23, label %59
+  ]
+
+59:                                               ; preds = %58, %58
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %61 = load i8, ptr %60, align 8
+  %62 = and i8 %61, -2
+  store i8 %62, ptr %60, align 8
   store i32 0, ptr %0, align 8, !tbaa !27
-  br label %63
+  br label %67
 
-_ZN4llvm5ErrorD2Ev.exit20:                        ; preds = %26
+_ZN4llvm5ErrorD2Ev.exit20:                        ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val = load ptr, ptr %1, align 8, !tbaa !18
   call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull @.str.1, ptr %.val)
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load i8, ptr %59, align 8
-  %61 = or i8 %60, 1
-  store i8 %61, ptr %59, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %64 = load i8, ptr %63, align 8
+  %65 = or i8 %64, 1
+  store i8 %65, ptr %63, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %62 = load ptr, ptr %4, align 8, !tbaa !22, !noalias !72
-  store ptr %62, ptr %0, align 8, !tbaa !25, !alias.scope !72
+  %66 = load ptr, ptr %4, align 8, !tbaa !22, !noalias !72
+  store ptr %66, ptr %0, align 8, !tbaa !25, !alias.scope !72
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %63
+  br label %67
 
-63:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit20, %55, %_ZL15getARM64SubTypeRKN4llvm6TripleE.exit, %_ZL13getARMSubTypeRKN4llvm6TripleE.exit, %_ZL13getX86SubTypeRKN4llvm6TripleE.exit, %_ZN4llvm5ErrorD2Ev.exit
+67:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit20, %59, %_ZL15getARM64SubTypeRKN4llvm6TripleE.exit, %_ZL13getARMSubTypeRKN4llvm6TripleE.exit, %_ZL13getX86SubTypeRKN4llvm6TripleE.exit, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

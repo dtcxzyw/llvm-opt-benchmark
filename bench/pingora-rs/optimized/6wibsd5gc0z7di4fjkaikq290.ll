@@ -11293,8 +11293,8 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4d
   %22 = load i64, ptr %21, align 8, !noundef !16
   %23 = tail call i24 @_ZN12pingora_core9protocols4http2v16common23parse_connection_header17hf4fe6b377db0efa9E(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %22)
   %24 = and i24 %23, 65537
-  %switch.not.i = icmp eq i24 %24, 65536
-  br i1 %switch.not.i, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i"
+  %.not14.i = icmp eq i24 %24, 65536
+  br i1 %.not14.i, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i"
 
 "_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i": ; preds = %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.i", %16, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -13767,9 +13767,9 @@ _ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive
   %9 = load i64, ptr %8, align 8, !noundef !16
   %10 = tail call i24 @_ZN12pingora_core9protocols4http2v16common23parse_connection_header17hf4fe6b377db0efa9E(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
   %11 = and i24 %10, 65537
-  %switch.not = icmp ne i24 %11, 65536
+  %.not = icmp ne i24 %11, 65536
   %12 = trunc nuw i64 %1 to i1
-  %or.cond = select i1 %switch.not, i1 %12, i1 false
+  %or.cond = select i1 %.not, i1 %12, i1 false
   br i1 %or.cond, label %13, label %_ZN12pingora_core9protocols4http2v16server11HttpSession13set_keepalive17h541beee2dc1b8e04E.exit
 
 _ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread: ; preds = %3

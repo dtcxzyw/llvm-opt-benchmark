@@ -6338,25 +6338,23 @@ define internal void @dissect_pfcp_inactivity_detection_time(ptr noundef %0, ptr
 define internal void @dissect_pfcp_reporting_triggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_reporting_triggers.pfcp_reporting_triggers_o5_flags, i32 noundef 0)
   %8 = icmp eq i16 %4, 1
-  br i1 %8, label %14, label %9
+  br i1 %8, label %15, label %9
 
 9:                                                ; preds = %7
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_reporting_triggers.pfcp_reporting_triggers_o6_flags, i32 noundef 0)
   %10 = icmp eq i16 %4, 2
-  br i1 %10, label %14, label %11
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %9
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_reporting_triggers.pfcp_reporting_triggers_o7_flags, i32 noundef 0)
-  switch i16 %4, label %12 [
-    i16 3, label %14
-    i16 0, label %14
-  ]
+  %12 = icmp ult i16 %4, 4
+  br i1 %12, label %15, label %13
 
-12:                                               ; preds = %11
-  %13 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 3, i32 noundef -1)
-  br label %14
+13:                                               ; preds = %11
+  %14 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 3, i32 noundef -1)
+  br label %15
 
-14:                                               ; preds = %11, %11, %12, %9, %7
+15:                                               ; preds = %11, %13, %9, %7
   ret void
 }
 
@@ -7557,25 +7555,23 @@ define internal void @dissect_pfcp_measurement_method(ptr noundef %0, ptr nounde
 define internal void @dissect_pfcp_usage_report_trigger(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_usage_report_trigger.pfcp_usage_report_trigger_o5_flags, i32 noundef 0)
   %8 = icmp eq i16 %4, 1
-  br i1 %8, label %14, label %9
+  br i1 %8, label %15, label %9
 
 9:                                                ; preds = %7
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_usage_report_trigger.pfcp_usage_report_trigger_o6_flags, i32 noundef 0)
   %10 = icmp eq i16 %4, 2
-  br i1 %10, label %14, label %11
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %9
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_usage_report_trigger.pfcp_usage_report_trigger_o7_flags, i32 noundef 0)
-  switch i16 %4, label %12 [
-    i16 3, label %14
-    i16 0, label %14
-  ]
+  %12 = icmp ult i16 %4, 4
+  br i1 %12, label %15, label %13
 
-12:                                               ; preds = %11
-  %13 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 3, i32 noundef -1)
-  br label %14
+13:                                               ; preds = %11
+  %14 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 3, i32 noundef -1)
+  br label %15
 
-14:                                               ; preds = %11, %11, %12, %9, %7
+15:                                               ; preds = %11, %13, %9, %7
   ret void
 }
 

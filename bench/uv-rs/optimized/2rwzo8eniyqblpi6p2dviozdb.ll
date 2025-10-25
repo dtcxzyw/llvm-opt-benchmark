@@ -3281,50 +3281,50 @@ define void @_ZN7uv_auth11credentials11Credentials15to_header_value17haf475aedab
 define void @_ZN7uv_auth11credentials11Credentials5apply17hffc4366f131f197cE(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noalias noundef align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %1, align 8, !range !13, !alias.scope !819, !noundef !3
   %5 = icmp eq i64 %4, -9223372036854775807
-  %switch = icmp slt i64 %4, -9223372036854775806
-  br i1 %switch, label %.thread, label %8
+  %6 = icmp slt i64 %4, -9223372036854775806
+  br i1 %6, label %.thread, label %9
 
-6:                                                ; preds = %17, %8
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %18, %9
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hbf73a27880a673f5E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %2) #19
-          to label %26 unwind label %24
+          to label %27 unwind label %25
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !822
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !822, !nonnull !3
-  %13 = invoke noundef zeroext i1 @_ZN3url3Url12set_username17h209fa68a7ca1b05eE(ptr noalias noundef nonnull align 8 dereferenceable(88) %2, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %10)
-          to label %.thread unwind label %6
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !822
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !alias.scope !822, !nonnull !3
+  %14 = invoke noundef zeroext i1 @_ZN3url3Url12set_username17h209fa68a7ca1b05eE(ptr noalias noundef nonnull align 8 dereferenceable(88) %2, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %11)
+          to label %.thread unwind label %7
 
-.thread:                                          ; preds = %3, %8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !range !29, !alias.scope !825
-  %16 = icmp eq i64 %15, -9223372036854775808
-  %or.cond.i = select i1 %5, i1 true, i1 %16
-  br i1 %or.cond.i, label %23, label %17
+.thread:                                          ; preds = %3, %9
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load i64, ptr %15, align 8, !range !29, !alias.scope !825
+  %17 = icmp eq i64 %16, -9223372036854775808
+  %or.cond.i = select i1 %5, i1 true, i1 %17
+  br i1 %or.cond.i, label %24, label %18
 
-17:                                               ; preds = %.thread
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = load i64, ptr %18, align 8, !alias.scope !825
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load ptr, ptr %20, align 8, !alias.scope !825, !nonnull !3
-  %22 = invoke noundef zeroext i1 @_ZN3url3Url12set_password17h1ac23a49370e5d22E(ptr noalias noundef nonnull align 8 dereferenceable(88) %2, ptr noalias noundef nonnull readonly align 1 %21, i64 %19)
-          to label %23 unwind label %6
+18:                                               ; preds = %.thread
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %20 = load i64, ptr %19, align 8, !alias.scope !825
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %22 = load ptr, ptr %21, align 8, !alias.scope !825, !nonnull !3
+  %23 = invoke noundef zeroext i1 @_ZN3url3Url12set_password17h1ac23a49370e5d22E(ptr noalias noundef nonnull align 8 dereferenceable(88) %2, ptr noalias noundef nonnull readonly align 1 %22, i64 %20)
+          to label %24 unwind label %7
 
-23:                                               ; preds = %17, %.thread
+24:                                               ; preds = %18, %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   ret void
 
-24:                                               ; preds = %6
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %7
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #20
   unreachable
 
-26:                                               ; preds = %6
-  resume { ptr, i32 } %7
+27:                                               ; preds = %7
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable

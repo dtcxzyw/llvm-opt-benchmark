@@ -5327,22 +5327,22 @@ define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser19parseIntegerLiteralEP
   store ptr null, ptr %2, align 8
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %0, %1
-  %or.cond.not47 = and i1 %6, %7
-  %.off = add i32 %3, -1
-  %switch = icmp ult i32 %.off, 8
-  %or.cond45 = and i1 %or.cond.not47, %switch
-  br i1 %or.cond45, label %.lr.ph.preheader.i, label %38
+  %or.cond.not48 = and i1 %6, %7
+  %8 = add i32 %3, -1
+  %9 = icmp ult i32 %8, 8
+  %or.cond46 = and i1 %or.cond.not48, %9
+  br i1 %or.cond46, label %.lr.ph.preheader.i, label %40
 
 .lr.ph.preheader.i:                               ; preds = %4
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub i64 %5, %8
-  %scevgep.i = getelementptr i8, ptr %0, i64 %9
+  %10 = ptrtoint ptr %0 to i64
+  %11 = sub i64 %5, %10
+  %scevgep.i = getelementptr i8, ptr %0, i64 %11
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
-  %.010.i = phi ptr [ %11, %.critedge2.i ], [ %0, %.lr.ph.preheader.i ]
-  %10 = load i8, ptr %.010.i, align 1
-  switch i8 %10, label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit [
+  %.010.i = phi ptr [ %13, %.critedge2.i ], [ %0, %.lr.ph.preheader.i ]
+  %12 = load i8, ptr %.010.i, align 1
+  switch i8 %12, label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit [
     i8 32, label %.critedge2.i
     i8 9, label %.critedge2.i
     i8 13, label %.critedge2.i
@@ -5351,25 +5351,25 @@ define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser19parseIntegerLiteralEP
   ]
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %11 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %.not.i = icmp eq ptr %11, %1
+  %13 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
+  %.not.i = icmp eq ptr %13, %1
   br i1 %.not.i, label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit: ; preds = %.lr.ph.i, %.critedge2.i
   %.0.lcssa.i = phi ptr [ %.010.i, %.lr.ph.i ], [ %scevgep.i, %.critedge2.i ]
-  %12 = icmp eq ptr %.0.lcssa.i, %1
-  br i1 %12, label %switch.early.test._crit_edge, label %switch.early.test.preheader
+  %14 = icmp eq ptr %.0.lcssa.i, %1
+  br i1 %14, label %switch.early.test._crit_edge, label %switch.early.test.preheader
 
 switch.early.test.preheader:                      ; preds = %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
-  %.0.lcssa.i64 = ptrtoint ptr %.0.lcssa.i to i64
-  %13 = sub i64 %5, %.0.lcssa.i64
-  %scevgep = getelementptr i8, ptr %.0.lcssa.i, i64 %13
+  %.0.lcssa.i65 = ptrtoint ptr %.0.lcssa.i to i64
+  %15 = sub i64 %5, %.0.lcssa.i65
+  %scevgep = getelementptr i8, ptr %.0.lcssa.i, i64 %15
   br label %switch.early.test
 
-switch.early.test:                                ; preds = %switch.early.test.preheader, %15
-  %.03848 = phi ptr [ %16, %15 ], [ %.0.lcssa.i, %switch.early.test.preheader ]
-  %14 = load i8, ptr %.03848, align 1
-  switch i8 %14, label %15 [
+switch.early.test:                                ; preds = %switch.early.test.preheader, %17
+  %.03849 = phi ptr [ %18, %17 ], [ %.0.lcssa.i, %switch.early.test.preheader ]
+  %16 = load i8, ptr %.03849, align 1
+  switch i8 %16, label %17 [
     i8 125, label %switch.early.test._crit_edge
     i8 123, label %switch.early.test._crit_edge
     i8 91, label %switch.early.test._crit_edge
@@ -5380,74 +5380,74 @@ switch.early.test:                                ; preds = %switch.early.test.p
     i8 9, label %switch.early.test._crit_edge
   ]
 
-15:                                               ; preds = %switch.early.test
-  %16 = getelementptr inbounds nuw i8, ptr %.03848, i64 1
-  %17 = icmp eq ptr %16, %1
-  br i1 %17, label %switch.early.test._crit_edge, label %switch.early.test, !llvm.loop !34
+17:                                               ; preds = %switch.early.test
+  %18 = getelementptr inbounds nuw i8, ptr %.03849, i64 1
+  %19 = icmp eq ptr %18, %1
+  br i1 %19, label %switch.early.test._crit_edge, label %switch.early.test, !llvm.loop !34
 
-switch.early.test._crit_edge:                     ; preds = %15, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
-  %.038.lcssa = phi ptr [ %.0.lcssa.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %.03848, %switch.early.test ], [ %scevgep, %15 ]
-  %18 = load i8, ptr %.0.lcssa.i, align 1
-  %19 = add i8 %18, -48
-  %.0.i = icmp ult i8 %19, 11
-  br i1 %.0.i, label %20, label %38
+switch.early.test._crit_edge:                     ; preds = %17, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
+  %.038.lcssa = phi ptr [ %.0.lcssa.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %.03849, %switch.early.test ], [ %scevgep, %17 ]
+  %20 = load i8, ptr %.0.lcssa.i, align 1
+  %21 = add i8 %20, -48
+  %.0.i = icmp ult i8 %21, 11
+  br i1 %.0.i, label %22, label %40
 
-20:                                               ; preds = %switch.early.test._crit_edge
-  %21 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %.0.lcssa.i, ptr noundef null, i32 noundef 10) #30
-  %22 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %.0.lcssa.i, ptr noundef null, i32 noundef 10) #30
-  %23 = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef %3, i64 noundef 1)
-  store ptr %23, ptr %2, align 8
-  switch i32 %3, label %38 [
-    i32 1, label %24
-    i32 2, label %26
-    i32 3, label %28
-    i32 4, label %30
-    i32 5, label %31
-    i32 6, label %33
-    i32 7, label %35
-    i32 8, label %37
+22:                                               ; preds = %switch.early.test._crit_edge
+  %23 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %.0.lcssa.i, ptr noundef null, i32 noundef 10) #30
+  %24 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %.0.lcssa.i, ptr noundef null, i32 noundef 10) #30
+  %25 = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef %3, i64 noundef 1)
+  store ptr %25, ptr %2, align 8
+  switch i32 %3, label %40 [
+    i32 1, label %26
+    i32 2, label %28
+    i32 3, label %30
+    i32 4, label %32
+    i32 5, label %33
+    i32 6, label %35
+    i32 7, label %37
+    i32 8, label %39
   ]
 
-24:                                               ; preds = %20
-  %25 = trunc i64 %21 to i8
-  tail call void @_ZN10ODDLParser5Value7setInt8Ea(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 noundef signext %25)
-  br label %38
+26:                                               ; preds = %22
+  %27 = trunc i64 %23 to i8
+  tail call void @_ZN10ODDLParser5Value7setInt8Ea(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef signext %27)
+  br label %40
 
-26:                                               ; preds = %20
-  %27 = trunc i64 %21 to i16
-  tail call void @_ZN10ODDLParser5Value8setInt16Es(ptr noundef nonnull align 8 dereferenceable(32) %23, i16 noundef signext %27)
-  br label %38
+28:                                               ; preds = %22
+  %29 = trunc i64 %23 to i16
+  tail call void @_ZN10ODDLParser5Value8setInt16Es(ptr noundef nonnull align 8 dereferenceable(32) %25, i16 noundef signext %29)
+  br label %40
 
-28:                                               ; preds = %20
-  %29 = trunc i64 %21 to i32
-  tail call void @_ZN10ODDLParser5Value8setInt32Ei(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %29)
-  br label %38
+30:                                               ; preds = %22
+  %31 = trunc i64 %23 to i32
+  tail call void @_ZN10ODDLParser5Value8setInt32Ei(ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef %31)
+  br label %40
 
-30:                                               ; preds = %20
-  tail call void @_ZN10ODDLParser5Value8setInt64El(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %21)
-  br label %38
+32:                                               ; preds = %22
+  tail call void @_ZN10ODDLParser5Value8setInt64El(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %23)
+  br label %40
 
-31:                                               ; preds = %20
-  %32 = trunc i64 %22 to i8
-  tail call void @_ZN10ODDLParser5Value15setUnsignedInt8Eh(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 noundef zeroext %32)
-  br label %38
+33:                                               ; preds = %22
+  %34 = trunc i64 %24 to i8
+  tail call void @_ZN10ODDLParser5Value15setUnsignedInt8Eh(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef zeroext %34)
+  br label %40
 
-33:                                               ; preds = %20
-  %34 = trunc i64 %22 to i16
-  tail call void @_ZN10ODDLParser5Value16setUnsignedInt16Et(ptr noundef nonnull align 8 dereferenceable(32) %23, i16 noundef zeroext %34)
-  br label %38
+35:                                               ; preds = %22
+  %36 = trunc i64 %24 to i16
+  tail call void @_ZN10ODDLParser5Value16setUnsignedInt16Et(ptr noundef nonnull align 8 dereferenceable(32) %25, i16 noundef zeroext %36)
+  br label %40
 
-35:                                               ; preds = %20
-  %36 = trunc i64 %22 to i32
-  tail call void @_ZN10ODDLParser5Value16setUnsignedInt32Ej(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %36)
-  br label %38
+37:                                               ; preds = %22
+  %38 = trunc i64 %24 to i32
+  tail call void @_ZN10ODDLParser5Value16setUnsignedInt32Ej(ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef %38)
+  br label %40
 
-37:                                               ; preds = %20
-  tail call void @_ZN10ODDLParser5Value16setUnsignedInt64Em(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %22)
-  br label %38
+39:                                               ; preds = %22
+  tail call void @_ZN10ODDLParser5Value16setUnsignedInt64Em(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %24)
+  br label %40
 
-38:                                               ; preds = %switch.early.test._crit_edge, %20, %37, %35, %33, %31, %30, %28, %26, %24, %4
-  %.0 = phi ptr [ %0, %4 ], [ %.038.lcssa, %24 ], [ %.038.lcssa, %26 ], [ %.038.lcssa, %28 ], [ %.038.lcssa, %30 ], [ %.038.lcssa, %31 ], [ %.038.lcssa, %33 ], [ %.038.lcssa, %35 ], [ %.038.lcssa, %37 ], [ %.038.lcssa, %20 ], [ %.038.lcssa, %switch.early.test._crit_edge ]
+40:                                               ; preds = %switch.early.test._crit_edge, %22, %39, %37, %35, %33, %32, %30, %28, %26, %4
+  %.0 = phi ptr [ %0, %4 ], [ %.038.lcssa, %26 ], [ %.038.lcssa, %28 ], [ %.038.lcssa, %30 ], [ %.038.lcssa, %32 ], [ %.038.lcssa, %33 ], [ %.038.lcssa, %35 ], [ %.038.lcssa, %37 ], [ %.038.lcssa, %39 ], [ %.038.lcssa, %22 ], [ %.038.lcssa, %switch.early.test._crit_edge ]
   ret ptr %.0
 }
 
