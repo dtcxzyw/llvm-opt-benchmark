@@ -20485,7 +20485,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i: ; preds = %8
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39, !noalias !7298
   unreachable
 
-common.resume:                                    ; preds = %82, %87, %15, %21
+common.resume:                                    ; preds = %81, %86, %15, %21
   %common.resume.op = phi { ptr, i32 } [ %16, %21 ], [ %16, %15 ], [ %lpad.phi, %87 ], [ %lpad.phi, %82 ]
   resume { ptr, i32 } %common.resume.op
 
@@ -20604,69 +20604,69 @@ common.resume:                                    ; preds = %82, %87, %15, %21
   %68 = icmp eq i32 %.0.i.i.i.i.i, %.0.i.i3.i.i.i
   %69 = icmp eq i32 %44, %66
   %.0.i.i.i = and i1 %68, %69
-  br i1 %.0.i.i.i, label %70, label %75
+  br i1 %.0.i.i.i, label %70, label %74
 
 70:                                               ; preds = %67
   %71 = tail call { i64, ptr } @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$4cast17ha4c36d51cf8452bbE"(ptr noundef nonnull %.val.i.i.i28), !noalias !7306
   %72 = extractvalue { i64, ptr } %71, 0
   %73 = and i64 %72, -2
-  %74 = icmp eq i64 %73, 36
-  br i1 %74, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11", label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24"
+  %switch = icmp eq i64 %73, 36
+  br i1 %switch, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11", label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24"
 
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2.i.le = load ptr, ptr %76, align 8, !alias.scope !7306, !nonnull !4, !noundef !4
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val2.i.le = load ptr, ptr %75, align 8, !alias.scope !7306, !nonnull !4, !noundef !4
   store i8 1, ptr %.val2.i.le, align 1, !noalias !7306
-  %77 = getelementptr inbounds nuw i8, ptr %.val.i.i.i28, i64 48
-  %78 = load i32, ptr %77, align 4, !noalias !7316, !noundef !4
-  %79 = add i32 %78, -1
-  store i32 %79, ptr %77, align 4, !noalias !7316
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread"
+  %76 = getelementptr inbounds nuw i8, ptr %.val.i.i.i28, i64 48
+  %77 = load i32, ptr %76, align 4, !noalias !7316, !noundef !4
+  %78 = add i32 %77, -1
+  store i32 %78, ptr %76, align 4, !noalias !7316
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread"
 
-81:                                               ; preds = %75
+80:                                               ; preds = %74
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val.i.i.i28), !noalias !7316
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread"
 
 .loopexit:                                        ; preds = %31, %37, %53, %59
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %81
 
 .loopexit.split-lp:                               ; preds = %.invoke.i.i, %.invoke15.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %81
 
-82:                                               ; preds = %.loopexit.split-lp, %.loopexit
+81:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %83 = getelementptr inbounds nuw i8, ptr %.val.i.i.i28, i64 48
-  %84 = load i32, ptr %83, align 4, !noalias !7323, !noundef !4
-  %85 = add i32 %84, -1
-  store i32 %85, ptr %83, align 4, !noalias !7323
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %common.resume
+  %82 = getelementptr inbounds nuw i8, ptr %.val.i.i.i28, i64 48
+  %83 = load i32, ptr %82, align 4, !noalias !7323, !noundef !4
+  %84 = add i32 %83, -1
+  store i32 %84, ptr %82, align 4, !noalias !7323
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %common.resume
 
-87:                                               ; preds = %82
+86:                                               ; preds = %81
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val.i.i.i28)
-          to label %common.resume unwind label %88, !noalias !7306
+          to label %common.resume unwind label %87, !noalias !7306
 
-88:                                               ; preds = %87
-  %89 = landingpad { ptr, i32 }
+87:                                               ; preds = %86
+  %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39, !noalias !7306
   unreachable
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24": ; preds = %70
-  %90 = extractvalue { i64, ptr } %71, 1
+  %89 = extractvalue { i64, ptr } %71, 1
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread"
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24", %81, %75
-  %.sroa.3.0 = phi ptr [ undef, %75 ], [ undef, %81 ], [ %90, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24" ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11" ]
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24", %80, %74
+  %.sroa.3.0 = phi ptr [ undef, %75 ], [ undef, %81 ], [ %89, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24" ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11" ]
   %.sroa.0.0 = phi i64 [ 36, %75 ], [ 36, %81 ], [ %72, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread.loopexit.split.loop.exit24" ], [ 37, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hce3750a5511e14ceE.exit.thread11" ]
-  %91 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %92 = insertvalue { i64, ptr } %91, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %92
+  %90 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %91 = insertvalue { i64, ptr } %90, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %91
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

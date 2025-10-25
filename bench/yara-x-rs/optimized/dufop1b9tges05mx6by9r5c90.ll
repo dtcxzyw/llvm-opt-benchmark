@@ -559,33 +559,33 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peeka
           cleanup
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load i64, ptr %4, align 8, !range !3, !alias.scope !75, !noundef !4
-  %6 = icmp slt i64 %5, -9223372036854775803
-  br i1 %6, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit", label %7
+  %switch.i = icmp slt i64 %5, -9223372036854775803
+  br i1 %switch.i, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit", label %6
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hfcff0795fc8047f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit" unwind label %13
+          to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit" unwind label %11
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %10 = load i64, ptr %9, align 8, !range !3, !alias.scope !78, !noundef !4
-  %11 = icmp slt i64 %10, -9223372036854775803
-  br i1 %11, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit1", label %12
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %9 = load i64, ptr %8, align 8, !range !3, !alias.scope !78, !noundef !4
+  %switch.i1 = icmp slt i64 %9, -9223372036854775803
+  br i1 %switch.i1, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit2", label %10
 
-12:                                               ; preds = %8
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hfcff0795fc8047f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1, i64 noundef 1)
-  br label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit1"
+10:                                               ; preds = %7
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hfcff0795fc8047f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i64 noundef 1)
+  br label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit2"
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit1": ; preds = %8, %12
+"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit2": ; preds = %7, %10
   ret void
 
-13:                                               ; preds = %7
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #12
   unreachable
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit": ; preds = %2, %7
+"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit": ; preds = %2, %6
   resume { ptr, i32 } %3
 }
 
@@ -5434,52 +5434,52 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$yara_x_parser..ast..cst2ast.
           cleanup
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load i64, ptr %4, align 8, !range !3, !alias.scope !580, !noundef !4
-  %6 = icmp slt i64 %5, -9223372036854775803
-  br i1 %6, label %.body, label %7
+  %switch.i.i = icmp slt i64 %5, -9223372036854775803
+  br i1 %switch.i.i, label %.body, label %6
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hfcff0795fc8047f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i64 noundef 1)
-          to label %.body unwind label %13
+          to label %.body unwind label %11
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %10 = load i64, ptr %9, align 8, !range !3, !alias.scope !585, !noundef !4
-  %11 = icmp slt i64 %10, -9223372036854775803
-  br i1 %11, label %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$$GT$17h9abed8836a5d5eb1E.exit", label %12
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %9 = load i64, ptr %8, align 8, !range !3, !alias.scope !585, !noundef !4
+  %switch.i1.i = icmp slt i64 %9, -9223372036854775803
+  br i1 %switch.i1.i, label %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$$GT$17h9abed8836a5d5eb1E.exit", label %10
 
-12:                                               ; preds = %8
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hfcff0795fc8047f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$$GT$17h9abed8836a5d5eb1E.exit" unwind label %15
+10:                                               ; preds = %7
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hfcff0795fc8047f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$$GT$17h9abed8836a5d5eb1E.exit" unwind label %13
 
-13:                                               ; preds = %7
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #12
   unreachable
 
-15:                                               ; preds = %12
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %2, %7, %15
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %3, %7 ], [ %3, %2 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$yara_x_parser..ast..errors..Error$GT$$GT$17hda9d16928edcfc0cE"(ptr noalias noundef align 8 dereferenceable(24) %17) #13
-          to label %21 unwind label %19
+.body:                                            ; preds = %2, %6, %13
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %15 ], [ %3, %7 ], [ %3, %2 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$yara_x_parser..ast..errors..Error$GT$$GT$17hda9d16928edcfc0cE"(ptr noalias noundef align 8 dereferenceable(24) %15) #13
+          to label %21 unwind label %17
 
-"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$$GT$17h9abed8836a5d5eb1E.exit": ; preds = %8, %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  tail call fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$yara_x_parser..ast..errors..Error$GT$$GT$17hda9d16928edcfc0cE"(ptr noalias noundef align 8 dereferenceable(24) %18)
+"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$$GT$17h9abed8836a5d5eb1E.exit": ; preds = %7, %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  tail call fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$yara_x_parser..ast..errors..Error$GT$$GT$17hda9d16928edcfc0cE"(ptr noalias noundef align 8 dereferenceable(24) %16)
   ret void
 
-19:                                               ; preds = %.body
-  %20 = landingpad { ptr, i32 }
+17:                                               ; preds = %.body
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #12
   unreachable
 
-21:                                               ; preds = %.body
+19:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

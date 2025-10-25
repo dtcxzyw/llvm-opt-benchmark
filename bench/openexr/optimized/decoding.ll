@@ -132,7 +132,7 @@ declare i32 @internal_coding_fill_channel_info(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread273, label %4
+  br i1 %.not, label %.thread275, label %4
 
 4:                                                ; preds = %3
   %5 = load i8, ptr %0, align 8, !tbaa !42
@@ -143,7 +143,7 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 7) #5
-  br label %.thread273
+  br label %.thread275
 
 10:                                               ; preds = %4
   %11 = icmp slt i32 %1, 0
@@ -159,7 +159,7 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = tail call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %1) #5
-  br label %.thread273
+  br label %.thread275
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -174,7 +174,7 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = tail call i32 %27(ptr noundef nonnull %0, i32 noundef 3) #5
-  br label %.thread273
+  br label %.thread275
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -192,20 +192,20 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = tail call i32 (ptr, i32, ptr, ...) %37(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.2) #5
-  br label %.thread273
+  br label %.thread275
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !25
-  %.fr357 = freeze i32 %41
-  %42 = and i32 %.fr357, -2
+  %.fr = freeze i32 %41
+  %42 = and i32 %.fr, -2
   %spec.select = icmp eq i32 %42, 2
   %43 = zext i1 %spec.select to i32
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load i16, ptr %44, align 8, !tbaa !43
   %46 = sext i16 %45 to i32
-  %.not231320 = icmp sgt i16 %45, 0
-  br i1 %.not231320, label %.lr.ph, label %._crit_edge
+  %.not231322 = icmp sgt i16 %45, 0
+  br i1 %.not231322, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -218,19 +218,19 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %118
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %118 ]
-  %.0151333 = phi ptr [ null, %.lr.ph.split.preheader ], [ %.1152.ph, %118 ]
-  %.0154332 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2156.ph, %118 ]
-  %.0158331 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2160.ph, %118 ]
-  %.0162330 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2164.ph, %118 ]
-  %.0166329 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2168.ph, %118 ]
-  %.0171328 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2173.ph, %118 ]
-  %.0175327 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2177.ph, %118 ]
-  %.0179326 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2181.ph, %118 ]
-  %.0183325 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2185.ph, %118 ]
-  %.0187324 = phi i32 [ -2, %.lr.ph.split.preheader ], [ %.2189.ph, %118 ]
-  %.0191323 = phi i32 [ -2, %.lr.ph.split.preheader ], [ %.2193.ph, %118 ]
-  %.0195322 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2197.ph, %118 ]
-  %.0199321 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2201.ph, %118 ]
+  %.0151335 = phi ptr [ null, %.lr.ph.split.preheader ], [ %.1152.ph, %118 ]
+  %.0154334 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2156.ph, %118 ]
+  %.0158333 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2160.ph, %118 ]
+  %.0162332 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2164.ph, %118 ]
+  %.0166331 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2168.ph, %118 ]
+  %.0171330 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2173.ph, %118 ]
+  %.0175329 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2177.ph, %118 ]
+  %.0179328 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2181.ph, %118 ]
+  %.0183327 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2185.ph, %118 ]
+  %.0187326 = phi i32 [ -2, %.lr.ph.split.preheader ], [ %.2189.ph, %118 ]
+  %.0191325 = phi i32 [ -2, %.lr.ph.split.preheader ], [ %.2193.ph, %118 ]
+  %.0195324 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2197.ph, %118 ]
+  %.0199323 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2201.ph, %118 ]
   %49 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !45
@@ -258,14 +258,14 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %63 = load ptr, ptr %62, align 8, !tbaa !28
   %64 = load ptr, ptr %49, align 8, !tbaa !48
   %65 = tail call i32 (ptr, i32, ptr, ...) %63(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.3, i32 noundef %59, i32 noundef %61, ptr noundef %64) #5
-  br label %.thread273
+  br label %.thread275
 
 66:                                               ; preds = %56, %56
   %67 = getelementptr inbounds nuw i8, ptr %49, i64 30
   %68 = load i16, ptr %67, align 2, !tbaa !49
   %69 = zext i16 %68 to i32
-  %switch = icmp ult i16 %68, 3
-  br i1 %switch, label %76, label %70
+  %switch242 = icmp ult i16 %68, 3
+  br i1 %switch242, label %76, label %70
 
 70:                                               ; preds = %66
   %71 = trunc nuw nsw i64 %indvars.iv to i32
@@ -273,30 +273,30 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   %73 = load ptr, ptr %72, align 8, !tbaa !28
   %74 = load ptr, ptr %49, align 8, !tbaa !48
   %75 = tail call i32 (ptr, i32, ptr, ...) %73(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef %69, i32 noundef %71, ptr noundef %74) #5
-  br label %.thread273
+  br label %.thread275
 
 76:                                               ; preds = %66
-  %77 = icmp eq i32 %.0191323, -2
+  %77 = icmp eq i32 %.0191325, -2
   %78 = getelementptr inbounds nuw i8, ptr %49, i64 26
   %79 = load i16, ptr %78, align 2, !tbaa !50
   %80 = zext i16 %79 to i32
-  %.not219 = icmp eq i32 %.0191323, %80
-  %spec.store.select = select i1 %.not219, i32 %.0191323, i32 -1
+  %.not219 = icmp eq i32 %.0191325, %80
+  %spec.store.select = select i1 %.not219, i32 %.0191325, i32 -1
   %.3194 = select i1 %77, i32 %80, i32 %spec.store.select
-  %81 = icmp eq i32 %.0187324, -2
-  %.not220 = icmp eq i32 %.0187324, %69
-  %spec.store.select1 = select i1 %.not220, i32 %.0187324, i32 -1
+  %81 = icmp eq i32 %.0187326, -2
+  %.not220 = icmp eq i32 %.0187326, %69
+  %spec.store.select1 = select i1 %.not220, i32 %.0187326, i32 -1
   %.3190 = select i1 %81, i32 %69, i32 %spec.store.select1
-  %82 = icmp eq i32 %.0183325, 0
+  %82 = icmp eq i32 %.0183327, 0
   %83 = getelementptr inbounds nuw i8, ptr %49, i64 25
   %84 = load i8, ptr %83, align 1, !tbaa !51
   %85 = sext i8 %84 to i32
-  %.not221 = icmp eq i32 %.0183325, %85
-  %spec.store.select2 = select i1 %.not221, i32 %.0183325, i32 -1
+  %.not221 = icmp eq i32 %.0183327, %85
+  %spec.store.select2 = select i1 %.not221, i32 %.0183327, i32 -1
   %.3186 = select i1 %82, i32 %85, i32 %spec.store.select2
-  %86 = icmp eq i32 %.0179326, 0
-  %.not222 = icmp eq i32 %.0179326, %59
-  %spec.store.select3 = select i1 %.not222, i32 %.0179326, i32 -1
+  %86 = icmp eq i32 %.0179328, 0
+  %.not222 = icmp eq i32 %.0179328, %59
+  %spec.store.select3 = select i1 %.not222, i32 %.0179328, i32 -1
   %.3182 = select i1 %86, i32 %59, i32 %spec.store.select3
   %87 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %88 = load i32, ptr %87, align 8, !tbaa !52
@@ -313,73 +313,73 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   br label %93
 
 93:                                               ; preds = %92, %89
-  %.3178 = phi i32 [ 1, %92 ], [ %.0175327, %89 ]
-  %94 = add nsw i32 %.0199321, 1
+  %.3178 = phi i32 [ 1, %92 ], [ %.0175329, %89 ]
+  %94 = add nsw i32 %.0199323, 1
   %95 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %96 = load i32, ptr %95, align 8, !tbaa !54
   %97 = sext i8 %84 to i32
   %.not225 = icmp ne i32 %96, %97
   %98 = zext i1 %.not225 to i32
-  %spec.select236 = add nsw i32 %.0195322, %98
+  %spec.select236 = add nsw i32 %.0195324, %98
   %.not226 = icmp ne i16 %68, %79
   %99 = zext i1 %.not226 to i32
-  %.3174 = add nsw i32 %.0171328, %99
-  %100 = icmp eq i32 %.0158331, 0
+  %.3174 = add nsw i32 %.0171330, %99
+  %100 = icmp eq i32 %.0158333, 0
   %101 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %102 = load i32, ptr %101, align 4, !tbaa !55
-  %.not227 = icmp eq i32 %.0158331, %102
-  %spec.store.select4 = select i1 %.not227, i32 %.0158331, i32 -1
+  %.not227 = icmp eq i32 %.0158333, %102
+  %spec.store.select4 = select i1 %.not227, i32 %.0158333, i32 -1
   %.3161 = select i1 %100, i32 %102, i32 %spec.store.select4
-  %103 = icmp eq i32 %.0166329, 0
+  %103 = icmp eq i32 %.0166331, 0
   br i1 %103, label %115, label %104
 
 104:                                              ; preds = %93
-  %105 = icmp sgt i32 %.0166329, 0
+  %105 = icmp sgt i32 %.0166331, 0
   %106 = trunc nuw nsw i64 %indvars.iv to i32
   %107 = mul nsw i32 %106, %59
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %.0151333, i64 %108
+  %109 = getelementptr inbounds i8, ptr %.0151335, i64 %108
   %.not228 = icmp eq ptr %55, %109
-  %spec.select237 = select i1 %.not228, i32 %.0166329, i32 -1
-  %.4170 = select i1 %105, i32 %spec.select237, i32 %.0166329
-  %110 = icmp sgt i32 %.0162330, 0
+  %spec.select237 = select i1 %.not228, i32 %.0166331, i32 -1
+  %.4170 = select i1 %105, i32 %spec.select237, i32 %.0166331
+  %110 = icmp sgt i32 %.0162332, 0
   %111 = sub nsw i64 0, %108
-  %112 = getelementptr inbounds i8, ptr %.0151333, i64 %111
+  %112 = getelementptr inbounds i8, ptr %.0151335, i64 %111
   %.not229 = icmp eq ptr %55, %112
-  %spec.select238 = select i1 %.not229, i32 %.0162330, i32 -1
-  %.4 = select i1 %110, i32 %spec.select238, i32 %.0162330
+  %spec.select238 = select i1 %.not229, i32 %.0162332, i32 -1
+  %.4 = select i1 %110, i32 %spec.select238, i32 %.0162332
   %113 = icmp slt i32 %.4170, 0
   %114 = icmp slt i32 %.4, 0
   %or.cond = select i1 %113, i1 %114, i1 false
-  %spec.select239 = select i1 %or.cond, ptr null, ptr %.0151333
+  %spec.select239 = select i1 %or.cond, ptr null, ptr %.0151335
   br label %115
 
 115:                                              ; preds = %93, %104
   %.3169 = phi i32 [ %.4170, %104 ], [ %96, %93 ]
   %.3165 = phi i32 [ %.4, %104 ], [ %96, %93 ]
   %.2153 = phi ptr [ %spec.select239, %104 ], [ %55, %93 ]
-  %116 = icmp eq i32 %.0154332, 0
+  %116 = icmp eq i32 %.0154334, 0
   br i1 %116, label %118, label %117
 
 117:                                              ; preds = %115
-  %.not230 = icmp eq i32 %.0154332, %96
-  %spec.store.select6 = select i1 %.not230, i32 %.0154332, i32 -1
+  %.not230 = icmp eq i32 %.0154334, %96
+  %spec.store.select6 = select i1 %.not230, i32 %.0154334, i32 -1
   br label %118
 
 118:                                              ; preds = %53, %.lr.ph.split, %117, %115
-  %.2201.ph = phi i32 [ %94, %115 ], [ %94, %117 ], [ %.0199321, %.lr.ph.split ], [ %.0199321, %53 ]
-  %.2197.ph = phi i32 [ %spec.select236, %115 ], [ %spec.select236, %117 ], [ %.0195322, %.lr.ph.split ], [ %.0195322, %53 ]
-  %.2193.ph = phi i32 [ %.3194, %115 ], [ %.3194, %117 ], [ %.0191323, %.lr.ph.split ], [ %.0191323, %53 ]
-  %.2189.ph = phi i32 [ %.3190, %115 ], [ %.3190, %117 ], [ %.0187324, %.lr.ph.split ], [ %.0187324, %53 ]
-  %.2185.ph = phi i32 [ %.3186, %115 ], [ %.3186, %117 ], [ %.0183325, %.lr.ph.split ], [ %.0183325, %53 ]
-  %.2181.ph = phi i32 [ %.3182, %115 ], [ %.3182, %117 ], [ %.0179326, %.lr.ph.split ], [ %.0179326, %53 ]
-  %.2177.ph = phi i32 [ %.3178, %115 ], [ %.3178, %117 ], [ %.0175327, %.lr.ph.split ], [ %.0175327, %53 ]
-  %.2173.ph = phi i32 [ %.3174, %115 ], [ %.3174, %117 ], [ %.0171328, %.lr.ph.split ], [ %.0171328, %53 ]
-  %.2168.ph = phi i32 [ %.3169, %115 ], [ %.3169, %117 ], [ %.0166329, %.lr.ph.split ], [ %.0166329, %53 ]
-  %.2164.ph = phi i32 [ %.3165, %115 ], [ %.3165, %117 ], [ %.0162330, %.lr.ph.split ], [ %.0162330, %53 ]
-  %.2160.ph = phi i32 [ %.3161, %115 ], [ %.3161, %117 ], [ %.0158331, %.lr.ph.split ], [ %.0158331, %53 ]
-  %.2156.ph = phi i32 [ %96, %115 ], [ %spec.store.select6, %117 ], [ %.0154332, %.lr.ph.split ], [ %.0154332, %53 ]
-  %.1152.ph = phi ptr [ %.2153, %115 ], [ %.2153, %117 ], [ %.0151333, %.lr.ph.split ], [ %.0151333, %53 ]
+  %.2201.ph = phi i32 [ %94, %115 ], [ %94, %117 ], [ %.0199323, %.lr.ph.split ], [ %.0199323, %53 ]
+  %.2197.ph = phi i32 [ %spec.select236, %115 ], [ %spec.select236, %117 ], [ %.0195324, %.lr.ph.split ], [ %.0195324, %53 ]
+  %.2193.ph = phi i32 [ %.3194, %115 ], [ %.3194, %117 ], [ %.0191325, %.lr.ph.split ], [ %.0191325, %53 ]
+  %.2189.ph = phi i32 [ %.3190, %115 ], [ %.3190, %117 ], [ %.0187326, %.lr.ph.split ], [ %.0187326, %53 ]
+  %.2185.ph = phi i32 [ %.3186, %115 ], [ %.3186, %117 ], [ %.0183327, %.lr.ph.split ], [ %.0183327, %53 ]
+  %.2181.ph = phi i32 [ %.3182, %115 ], [ %.3182, %117 ], [ %.0179328, %.lr.ph.split ], [ %.0179328, %53 ]
+  %.2177.ph = phi i32 [ %.3178, %115 ], [ %.3178, %117 ], [ %.0175329, %.lr.ph.split ], [ %.0175329, %53 ]
+  %.2173.ph = phi i32 [ %.3174, %115 ], [ %.3174, %117 ], [ %.0171330, %.lr.ph.split ], [ %.0171330, %53 ]
+  %.2168.ph = phi i32 [ %.3169, %115 ], [ %.3169, %117 ], [ %.0166331, %.lr.ph.split ], [ %.0166331, %53 ]
+  %.2164.ph = phi i32 [ %.3165, %115 ], [ %.3165, %117 ], [ %.0162332, %.lr.ph.split ], [ %.0162332, %53 ]
+  %.2160.ph = phi i32 [ %.3161, %115 ], [ %.3161, %117 ], [ %.0158333, %.lr.ph.split ], [ %.0158333, %53 ]
+  %.2156.ph = phi i32 [ %96, %115 ], [ %spec.store.select6, %117 ], [ %.0154334, %.lr.ph.split ], [ %.0154334, %53 ]
+  %.1152.ph = phi ptr [ %.2153, %115 ], [ %.2153, %117 ], [ %.0151335, %.lr.ph.split ], [ %.0151335, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !56
@@ -405,18 +405,18 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   br i1 %spec.select, label %._crit_edge._crit_edge, label %120
 
 ._crit_edge._crit_edge:                           ; preds = %.lr.ph, %._crit_edge
-  %spec.store.select14411 = phi i32 [ %spec.store.select14, %._crit_edge ], [ 0, %.lr.ph ]
-  %spec.store.select7409 = phi i32 [ %spec.store.select7, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0154.lcssa407 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0158.lcssa405 = phi i32 [ %.0158.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0171.lcssa403 = phi i32 [ %.0171.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0175.lcssa401 = phi i32 [ %.0175.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0179.lcssa399 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0183.lcssa397 = phi i32 [ %.0183.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0187.lcssa395 = phi i32 [ %.0187.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
-  %.0191.lcssa393 = phi i32 [ %.0191.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
-  %.0195.lcssa391 = phi i32 [ %.0195.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0199.lcssa389 = phi i32 [ %.0199.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %spec.store.select14412 = phi i32 [ %spec.store.select14, %._crit_edge ], [ 0, %.lr.ph ]
+  %spec.store.select7410 = phi i32 [ %spec.store.select7, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0154.lcssa408 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0158.lcssa406 = phi i32 [ %.0158.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0171.lcssa404 = phi i32 [ %.0171.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0175.lcssa402 = phi i32 [ %.0175.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0179.lcssa400 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0183.lcssa398 = phi i32 [ %.0183.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0187.lcssa396 = phi i32 [ %.0187.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
+  %.0191.lcssa394 = phi i32 [ %.0191.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
+  %.0195.lcssa392 = phi i32 [ %.0195.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0199.lcssa390 = phi i32 [ %.0199.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 176
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !58
   br label %133
@@ -442,21 +442,21 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   store ptr null, ptr %131, align 8, !tbaa !60
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store ptr null, ptr %132, align 8, !tbaa !61
-  br label %.thread273
+  br label %.thread275
 
 133:                                              ; preds = %._crit_edge._crit_edge, %120
-  %spec.store.select14410 = phi i32 [ %spec.store.select14411, %._crit_edge._crit_edge ], [ %spec.store.select14, %120 ]
-  %spec.store.select7408 = phi i32 [ %spec.store.select7409, %._crit_edge._crit_edge ], [ %spec.store.select7, %120 ]
-  %.0154.lcssa406 = phi i32 [ %.0154.lcssa407, %._crit_edge._crit_edge ], [ %.0154.lcssa, %120 ]
-  %.0158.lcssa404 = phi i32 [ %.0158.lcssa405, %._crit_edge._crit_edge ], [ %.0158.lcssa, %120 ]
-  %.0171.lcssa402 = phi i32 [ %.0171.lcssa403, %._crit_edge._crit_edge ], [ %.0171.lcssa, %120 ]
-  %.0175.lcssa400 = phi i32 [ %.0175.lcssa401, %._crit_edge._crit_edge ], [ %.0175.lcssa, %120 ]
-  %.0179.lcssa398 = phi i32 [ %.0179.lcssa399, %._crit_edge._crit_edge ], [ %.0179.lcssa, %120 ]
-  %.0183.lcssa396 = phi i32 [ %.0183.lcssa397, %._crit_edge._crit_edge ], [ %.0183.lcssa, %120 ]
-  %.0187.lcssa394 = phi i32 [ %.0187.lcssa395, %._crit_edge._crit_edge ], [ %.0187.lcssa, %120 ]
-  %.0191.lcssa392 = phi i32 [ %.0191.lcssa393, %._crit_edge._crit_edge ], [ %.0191.lcssa, %120 ]
-  %.0195.lcssa390 = phi i32 [ %.0195.lcssa391, %._crit_edge._crit_edge ], [ %.0195.lcssa, %120 ]
-  %.0199.lcssa388 = phi i32 [ %.0199.lcssa389, %._crit_edge._crit_edge ], [ %.0199.lcssa, %120 ]
+  %spec.store.select14411 = phi i32 [ %spec.store.select14412, %._crit_edge._crit_edge ], [ %spec.store.select14, %120 ]
+  %spec.store.select7409 = phi i32 [ %spec.store.select7410, %._crit_edge._crit_edge ], [ %spec.store.select7, %120 ]
+  %.0154.lcssa407 = phi i32 [ %.0154.lcssa408, %._crit_edge._crit_edge ], [ %.0154.lcssa, %120 ]
+  %.0158.lcssa405 = phi i32 [ %.0158.lcssa406, %._crit_edge._crit_edge ], [ %.0158.lcssa, %120 ]
+  %.0171.lcssa403 = phi i32 [ %.0171.lcssa404, %._crit_edge._crit_edge ], [ %.0171.lcssa, %120 ]
+  %.0175.lcssa401 = phi i32 [ %.0175.lcssa402, %._crit_edge._crit_edge ], [ %.0175.lcssa, %120 ]
+  %.0179.lcssa399 = phi i32 [ %.0179.lcssa400, %._crit_edge._crit_edge ], [ %.0179.lcssa, %120 ]
+  %.0183.lcssa397 = phi i32 [ %.0183.lcssa398, %._crit_edge._crit_edge ], [ %.0183.lcssa, %120 ]
+  %.0187.lcssa395 = phi i32 [ %.0187.lcssa396, %._crit_edge._crit_edge ], [ %.0187.lcssa, %120 ]
+  %.0191.lcssa393 = phi i32 [ %.0191.lcssa394, %._crit_edge._crit_edge ], [ %.0191.lcssa, %120 ]
+  %.0195.lcssa391 = phi i32 [ %.0195.lcssa392, %._crit_edge._crit_edge ], [ %.0195.lcssa, %120 ]
+  %.0199.lcssa389 = phi i32 [ %.0199.lcssa390, %._crit_edge._crit_edge ], [ %.0199.lcssa, %120 ]
   %134 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %122, %120 ]
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr @default_read_chunk, ptr %135, align 8, !tbaa !59
@@ -469,19 +469,19 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   br label %138
 
 138:                                              ; preds = %136, %133
-  %139 = tail call ptr @internal_exr_match_decode(ptr noundef nonnull %2, i32 noundef %43, i32 noundef %.0199.lcssa388, i32 noundef %.0195.lcssa390, i32 noundef %.0191.lcssa392, i32 noundef %.0187.lcssa394, i32 noundef %.0183.lcssa396, i32 noundef %.0179.lcssa398, i32 noundef %.0175.lcssa400, i32 noundef %.0171.lcssa402, i32 noundef %.0154.lcssa406, i32 noundef %spec.store.select7408, i32 noundef %spec.store.select14410, i32 noundef %.0158.lcssa404) #5
+  %139 = tail call ptr @internal_exr_match_decode(ptr noundef nonnull %2, i32 noundef %43, i32 noundef %.0199.lcssa389, i32 noundef %.0195.lcssa391, i32 noundef %.0191.lcssa393, i32 noundef %.0187.lcssa395, i32 noundef %.0183.lcssa397, i32 noundef %.0179.lcssa399, i32 noundef %.0175.lcssa401, i32 noundef %.0171.lcssa403, i32 noundef %.0154.lcssa407, i32 noundef %spec.store.select7409, i32 noundef %spec.store.select14411, i32 noundef %.0158.lcssa405) #5
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store ptr %139, ptr %140, align 8, !tbaa !61
   %.not235 = icmp eq ptr %139, null
-  br i1 %.not235, label %141, label %.thread273
+  br i1 %.not235, label %141, label %.thread275
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %143 = load ptr, ptr %142, align 8, !tbaa !62
   %144 = tail call i32 %143(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str.5) #5
-  br label %.thread273
+  br label %.thread275
 
-.thread273:                                       ; preds = %70, %60, %138, %3, %141, %129, %35, %25, %15, %6
+.thread275:                                       ; preds = %70, %60, %138, %3, %141, %129, %35, %25, %15, %6
   %.0 = phi i32 [ %9, %6 ], [ %18, %15 ], [ %38, %35 ], [ %144, %141 ], [ 0, %129 ], [ %28, %25 ], [ 2, %3 ], [ 0, %138 ], [ %75, %70 ], [ %65, %60 ]
   ret i32 %.0
 }

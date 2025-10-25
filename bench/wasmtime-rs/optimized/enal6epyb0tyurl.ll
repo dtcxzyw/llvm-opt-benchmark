@@ -11644,32 +11644,32 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$wasm
 define hidden void @"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$wasmtime_environ..module..TableInitialValue$GT$$GT$17h59d9705eea75a3b8E.llvm.14223331465801898566"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !638, !noundef !4
-  %4 = icmp slt i64 %3, -9223372036854775804
-  br i1 %4, label %"_ZN4core3ptr64drop_in_place$LT$wasmtime_environ..module..TableInitialValue$GT$17hec1ff924a826d0eeE.llvm.14223331465801898566.exit", label %5
+  %switch = icmp slt i64 %3, -9223372036854775804
+  br i1 %switch, label %"_ZN4core3ptr64drop_in_place$LT$wasmtime_environ..module..TableInitialValue$GT$17hec1ff924a826d0eeE.llvm.14223331465801898566.exit", label %4
 
 "_ZN4core3ptr64drop_in_place$LT$wasmtime_environ..module..TableInitialValue$GT$17hec1ff924a826d0eeE.llvm.14223331465801898566.exit": ; preds = %1, %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i"
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1693
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h507120466c4fc9e3E.llvm.5456684732158232753"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !range !347, !noalias !1693, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i", label %8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = load i64, ptr %5, align 8, !range !347, !noalias !1693, !noundef !4
+  %.not.i.i.i.i = icmp eq i64 %6, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i", label %7
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8, !noalias !1693, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i", label %12
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = load i64, ptr %8, align 8, !noalias !1693, !noundef !4
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i", label %11
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %2, align 8, !noalias !1693, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %10, i64 noundef %7) #43
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %2, align 8, !noalias !1693, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %9, i64 noundef %6) #43
   br label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i"
 
-"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i": ; preds = %12, %8, %5
+"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h483bcbcbb9558c6eE.exit.i": ; preds = %11, %7, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1693
   br label %"_ZN4core3ptr64drop_in_place$LT$wasmtime_environ..module..TableInitialValue$GT$17hec1ff924a826d0eeE.llvm.14223331465801898566.exit"
 }

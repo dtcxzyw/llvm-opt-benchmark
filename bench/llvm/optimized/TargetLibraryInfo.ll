@@ -4880,23 +4880,23 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFuncEjPNS_4TypeERNS_7LibFuncE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #7 align 2 {
   %.not = icmp eq i32 %1, 24
-  br i1 %.not, label %5, label %14
+  br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 254
-  %9 = icmp eq i32 %8, 2
-  br i1 %9, label %10, label %14
+  %switch = icmp eq i32 %8, 2
+  br i1 %switch, label %9, label %13
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 3
-  %12 = icmp eq i32 %11, 3
-  %13 = select i1 %12, i32 276, i32 277
-  store i32 %13, ptr %3, align 4, !tbaa !168
-  br label %14
+9:                                                ; preds = %5
+  %10 = and i32 %7, 3
+  %11 = icmp eq i32 %10, 3
+  %12 = select i1 %11, i32 276, i32 277
+  store i32 %12, ptr %3, align 4, !tbaa !168
+  br label %13
 
-14:                                               ; preds = %5, %4, %10
+13:                                               ; preds = %5, %4, %9
   %.0 = phi i1 [ true, %10 ], [ false, %4 ], [ false, %5 ]
   ret i1 %.0
 }

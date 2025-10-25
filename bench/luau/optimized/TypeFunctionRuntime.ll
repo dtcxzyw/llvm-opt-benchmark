@@ -10985,53 +10985,53 @@ define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt
   br label %47
 
 13:                                               ; preds = %6
-  %14 = icmp ult i32 %4, 4
-  br i1 %14, label %47, label %15
+  %switch = icmp ult i32 %4, 4
+  br i1 %switch, label %47, label %14
 
-15:                                               ; preds = %13
+14:                                               ; preds = %13
   switch i32 %4, label %30 [
-    i32 4, label %16
+    i32 4, label %15
     i32 5, label %18
-    i32 6, label %20
+    i32 6, label %21
     i32 7, label %22
     i32 9, label %24
     i32 8, label %26
     i32 10, label %28
   ]
 
-16:                                               ; preds = %15
-  %17 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_25TypeFunctionSingletonTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
+15:                                               ; preds = %14
+  %16 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_25TypeFunctionSingletonTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
   br label %47
 
-18:                                               ; preds = %15
-  %19 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionUnionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+19:                                               ; preds = %14
+  %20 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionUnionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %47
 
-20:                                               ; preds = %15
-  %21 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_28TypeFunctionIntersectionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+21:                                               ; preds = %14
+  %22 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_28TypeFunctionIntersectionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %47
 
-22:                                               ; preds = %15
-  %23 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+23:                                               ; preds = %14
+  %24 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %47
 
-24:                                               ; preds = %15
-  %25 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionTableTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %8)
+25:                                               ; preds = %14
+  %26 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionTableTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %8)
   br label %47
 
-26:                                               ; preds = %15
+29:                                               ; preds = %14
   %27 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
   br label %47
 
-28:                                               ; preds = %15
+31:                                               ; preds = %15
   %29 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionClassTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %8)
   br label %47
 
-30:                                               ; preds = %15
+35:                                               ; preds = %15
   %31 = icmp eq i32 %4, 11
-  br i1 %31, label %32, label %46
+  br i1 %31, label %41, label %46
 
-32:                                               ; preds = %30
+41:                                               ; preds = %35
   %33 = load i8, ptr %7, align 8, !tbaa !95, !range !101, !noundef !102
   %34 = load i8, ptr %8, align 8, !tbaa !95, !range !101, !noundef !102
   %35 = icmp eq i8 %33, %34
@@ -11045,14 +11045,14 @@ define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt
   %41 = icmp eq i8 %38, %40
   br i1 %41, label %42, label %46
 
-42:                                               ; preds = %36
+45:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %44) #27
   br label %46
 
-46:                                               ; preds = %30, %32, %36, %42
-  %.9 = phi i1 [ false, %36 ], [ false, %32 ], [ %45, %42 ], [ undef, %30 ]
+46:                                               ; preds = %35, %41, %36, %45
+  %.0 = phi i1 [ false, %36 ], [ false, %32 ], [ %45, %42 ], [ undef, %30 ]
   %spec.select = and i1 %31, %.9
   br label %47
 

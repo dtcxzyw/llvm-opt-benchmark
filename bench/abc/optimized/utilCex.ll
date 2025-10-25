@@ -968,14 +968,14 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @Abc_CexFree(ptr noundef captures(address) %0) local_unnamed_addr #8 {
-  %2 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
-  br i1 %2, label %4, label %3
+  %switch = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  br i1 %switch, label %3, label %2
 
-3:                                                ; preds = %1
+2:                                                ; preds = %1
   tail call void @free(ptr noundef %0) #16
-  br label %4
+  br label %3
 
-4:                                                ; preds = %1, %3
+3:                                                ; preds = %1, %2
   ret void
 }
 

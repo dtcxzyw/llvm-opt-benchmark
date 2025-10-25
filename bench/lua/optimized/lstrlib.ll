@@ -2541,8 +2541,8 @@ posrelatI.exit:                                   ; preds = %1, %15, %19
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %32
 
-32:                                               ; preds = %.lr.ph, %141
-  %.090 = phi i64 [ %22, %.lr.ph ], [ %142, %141 ]
+32:                                               ; preds = %.lr.ph, %139
+  %.090 = phi i64 [ %22, %.lr.ph ], [ %140, %141 ]
   %.05889 = phi i32 [ 0, %.lr.ph ], [ %.159, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2572,10 +2572,10 @@ posrelatI.exit:                                   ; preds = %1, %15, %19
     i32 4, label %69
     i32 5, label %77
     i32 6, label %80
-    i32 7, label %129
-    i32 9, label %141
-    i32 8, label %141
-    i32 10, label %141
+    i32 7, label %127
+    i32 9, label %139
+    i32 8, label %139
+    i32 10, label %139
   ]
 
 45:                                               ; preds = %42, %42
@@ -2586,7 +2586,7 @@ posrelatI.exit:                                   ; preds = %1, %15, %19
   %50 = zext i1 %49 to i32
   %51 = call fastcc i64 @unpackint(ptr noundef %0, ptr noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %50)
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %51) #12
-  br label %141
+  br label %139
 
 52:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2608,12 +2608,12 @@ posrelatI.exit:                                   ; preds = %1, %15, %19
   br i1 %.not.i, label %copywithendian.exit, label %.preheader
 
 copywithendian.exit:                              ; preds = %.preheader, %52
-  %.in112 = phi ptr [ %53, %52 ], [ %7, %.preheader ]
-  %59 = load float, ptr %.in112, align 1
+  %.in113 = phi ptr [ %53, %52 ], [ %7, %.preheader ]
+  %59 = load float, ptr %.in113, align 1
   %60 = fpext float %59 to double
   call void @lua_pushnumber(ptr noundef %0, double noundef %60) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %141
+  br label %139
 
 61:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2635,11 +2635,11 @@ copywithendian.exit:                              ; preds = %.preheader, %52
   br i1 %.not.i68, label %copywithendian.exit69, label %.preheader92
 
 copywithendian.exit69:                            ; preds = %.preheader92, %61
-  %.in111 = phi ptr [ %62, %61 ], [ %8, %.preheader92 ]
-  %68 = load double, ptr %.in111, align 1
+  %.in112 = phi ptr [ %62, %61 ], [ %8, %.preheader92 ]
+  %68 = load double, ptr %.in112, align 1
   call void @lua_pushnumber(ptr noundef %0, double noundef %68) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %141
+  br label %139
 
 69:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2665,12 +2665,12 @@ copywithendian.exit75:                            ; preds = %.preheader93, %69
   %76 = load double, ptr %.in, align 1
   call void @lua_pushnumber(ptr noundef %0, double noundef %76) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %141
+  br label %139
 
 77:                                               ; preds = %42
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 %43
   %79 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef %78, i64 noundef %36) #12
-  br label %141
+  br label %139
 
 80:                                               ; preds = %42
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 %43
@@ -2714,118 +2714,118 @@ copywithendian.exit75:                            ; preds = %.preheader93, %69
   br i1 %101, label %.lr.ph.split.i, label %._crit_edge.i.thread
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i
-  %102 = icmp samesign ult i32 %82, 9
-  br i1 %102, label %unpackint.exit, label %.lr.ph46.split.us.preheader.i
+  %switch = icmp samesign ult i32 %82, 9
+  br i1 %switch, label %unpackint.exit, label %.lr.ph46.split.us.preheader.i
 
 ._crit_edge.i.thread:                             ; preds = %.lr.ph.split.i
-  %103 = icmp samesign ult i32 %82, 9
-  br i1 %103, label %unpackint.exit, label %.lr.ph46.split.preheader.i
+  %switch104 = icmp samesign ult i32 %82, 9
+  br i1 %switch104, label %unpackint.exit, label %.lr.ph46.split.preheader.i
 
 .lr.ph46.split.preheader.i:                       ; preds = %._crit_edge.i.thread
-  %104 = zext nneg i32 %83 to i64
+  %102 = zext nneg i32 %83 to i64
   br label %.lr.ph46.split.i
 
 .lr.ph46.split.us.preheader.i:                    ; preds = %._crit_edge.i
-  %105 = and i64 %36, 2147483647
-  %umax = call i64 @llvm.umax.i64(i64 %105, i64 9)
+  %103 = and i64 %36, 2147483647
+  %umax = call i64 @llvm.umax.i64(i64 %103, i64 9)
   br label %.lr.ph46.split.us.i
 
-.lr.ph46.split.us.i:                              ; preds = %113, %.lr.ph46.split.us.preheader.i
+.lr.ph46.split.us.i:                              ; preds = %111, %.lr.ph46.split.us.preheader.i
   %indvars.iv57.i = phi i64 [ 8, %.lr.ph46.split.us.preheader.i ], [ %indvars.iv.next58.i, %113 ]
-  %106 = xor i64 %indvars.iv57.i, -1
-  %107 = add i64 %36, %106
-  %sext80 = shl i64 %107, 32
-  %108 = ashr exact i64 %sext80, 32
-  %109 = getelementptr inbounds i8, ptr %81, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !9
-  %.not39.us.i = icmp eq i8 %110, 0
-  br i1 %.not39.us.i, label %113, label %111, !prof !10
+  %104 = xor i64 %indvars.iv57.i, -1
+  %105 = add i64 %36, %104
+  %sext80 = shl i64 %105, 32
+  %106 = ashr exact i64 %sext80, 32
+  %107 = getelementptr inbounds i8, ptr %81, i64 %106
+  %108 = load i8, ptr %107, align 1, !tbaa !9
+  %.not39.us.i = icmp eq i8 %108, 0
+  br i1 %.not39.us.i, label %111, label %109, !prof !10
 
-111:                                              ; preds = %.lr.ph46.split.us.i
-  %112 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %82) #12
-  br label %113
+109:                                              ; preds = %.lr.ph46.split.us.i
+  %110 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %82) #12
+  br label %111
 
-113:                                              ; preds = %111, %.lr.ph46.split.us.i
+111:                                              ; preds = %109, %.lr.ph46.split.us.i
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58.i, %umax
   br i1 %exitcond.not, label %unpackint.exit, label %.lr.ph46.split.us.i
 
-.lr.ph46.split.i:                                 ; preds = %118, %.lr.ph46.split.preheader.i
-  %indvars.iv53.i = phi i64 [ %104, %.lr.ph46.split.preheader.i ], [ %indvars.iv.next54.i, %118 ]
-  %114 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv53.i
-  %115 = load i8, ptr %114, align 1, !tbaa !9
-  %.not39.i = icmp eq i8 %115, 0
-  br i1 %.not39.i, label %118, label %116, !prof !10
+.lr.ph46.split.i:                                 ; preds = %116, %.lr.ph46.split.preheader.i
+  %indvars.iv53.i = phi i64 [ %102, %.lr.ph46.split.preheader.i ], [ %indvars.iv.next54.i, %118 ]
+  %112 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv53.i
+  %113 = load i8, ptr %112, align 1, !tbaa !9
+  %.not39.i = icmp eq i8 %113, 0
+  br i1 %.not39.i, label %116, label %114, !prof !10
 
-116:                                              ; preds = %.lr.ph46.split.i
-  %117 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %82) #12
-  br label %118
+114:                                              ; preds = %.lr.ph46.split.i
+  %115 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %82) #12
+  br label %116
 
-118:                                              ; preds = %116, %.lr.ph46.split.i
+116:                                              ; preds = %114, %.lr.ph46.split.i
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %119 = trunc nuw i64 %indvars.iv.next54.i to i32
-  %120 = icmp sgt i32 %82, %119
-  br i1 %120, label %.lr.ph46.split.i, label %unpackint.exit
+  %117 = trunc nuw i64 %indvars.iv.next54.i to i32
+  %118 = icmp sgt i32 %82, %117
+  br i1 %118, label %.lr.ph46.split.i, label %unpackint.exit
 
-unpackint.exit:                                   ; preds = %118, %113, %._crit_edge.i.thread, %._crit_edge.i
-  %.0.lcssa.i105 = phi i64 [ %100, %._crit_edge.i.thread ], [ %94, %._crit_edge.i ], [ %94, %113 ], [ %100, %118 ]
-  %121 = load i64, ptr %4, align 8, !tbaa !4
-  %122 = add i64 %43, %36
-  %123 = sub i64 %121, %122
-  %.not62 = icmp ugt i64 %.0.lcssa.i105, %123
-  br i1 %.not62, label %124, label %unpackint.exit.thread, !prof !54
+unpackint.exit:                                   ; preds = %116, %111, %._crit_edge.i.thread, %._crit_edge.i
+  %.0.lcssa.i106 = phi i64 [ %100, %._crit_edge.i.thread ], [ %94, %._crit_edge.i ], [ %94, %113 ], [ %100, %118 ]
+  %119 = load i64, ptr %4, align 8, !tbaa !4
+  %120 = add i64 %43, %36
+  %121 = sub i64 %119, %120
+  %.not62 = icmp ugt i64 %.0.lcssa.i106, %121
+  br i1 %.not62, label %122, label %unpackint.exit.thread, !prof !54
 
-124:                                              ; preds = %unpackint.exit
-  %125 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.72) #12
+122:                                              ; preds = %unpackint.exit
+  %123 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.72) #12
   br label %unpackint.exit.thread
 
-unpackint.exit.thread:                            ; preds = %80, %124, %unpackint.exit
-  %.1.i79 = phi i64 [ %.0.lcssa.i105, %124 ], [ %.0.lcssa.i105, %unpackint.exit ], [ 0, %80 ]
-  %126 = getelementptr inbounds nuw i8, ptr %81, i64 %36
-  %127 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef %126, i64 noundef %.1.i79) #12
-  %128 = add i64 %.1.i79, %43
-  br label %141
+unpackint.exit.thread:                            ; preds = %80, %122, %unpackint.exit
+  %.1.i79 = phi i64 [ %.0.lcssa.i106, %124 ], [ %.0.lcssa.i106, %unpackint.exit ], [ 0, %80 ]
+  %124 = getelementptr inbounds nuw i8, ptr %81, i64 %36
+  %125 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef %124, i64 noundef %.1.i79) #12
+  %126 = add i64 %.1.i79, %43
+  br label %139
 
-129:                                              ; preds = %42
-  %130 = getelementptr inbounds nuw i8, ptr %11, i64 %43
-  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %130) #13
-  %132 = add i64 %131, %43
-  %133 = load i64, ptr %4, align 8, !tbaa !4
-  %134 = icmp ult i64 %132, %133
-  br i1 %134, label %137, label %135, !prof !10
+127:                                              ; preds = %42
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 %43
+  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %128) #13
+  %130 = add i64 %129, %43
+  %131 = load i64, ptr %4, align 8, !tbaa !4
+  %132 = icmp ult i64 %130, %131
+  br i1 %132, label %135, label %133, !prof !10
 
-135:                                              ; preds = %129
-  %136 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.74) #12
-  br label %137
+133:                                              ; preds = %127
+  %134 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.74) #12
+  br label %135
 
-137:                                              ; preds = %135, %129
-  %138 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %130, i64 noundef %131) #12
-  %139 = add i64 %43, 1
-  %140 = add i64 %139, %131
-  br label %141
+135:                                              ; preds = %133, %127
+  %136 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %128, i64 noundef %129) #12
+  %137 = add i64 %43, 1
+  %138 = add i64 %137, %129
+  br label %139
 
 default.unreachable102:                           ; preds = %42
   unreachable
 
-141:                                              ; preds = %42, %42, %42, %137, %unpackint.exit.thread, %77, %copywithendian.exit75, %copywithendian.exit69, %copywithendian.exit, %45
+139:                                              ; preds = %42, %42, %42, %135, %unpackint.exit.thread, %77, %copywithendian.exit75, %copywithendian.exit69, %copywithendian.exit, %45
   %.159 = phi i32 [ %44, %45 ], [ %44, %copywithendian.exit ], [ %44, %copywithendian.exit69 ], [ %44, %copywithendian.exit75 ], [ %44, %77 ], [ %44, %unpackint.exit.thread ], [ %44, %137 ], [ %.05889, %42 ], [ %.05889, %42 ], [ %.05889, %42 ]
-  %.1 = phi i64 [ %43, %45 ], [ %43, %copywithendian.exit ], [ %43, %copywithendian.exit69 ], [ %43, %copywithendian.exit75 ], [ %43, %77 ], [ %128, %unpackint.exit.thread ], [ %140, %137 ], [ %43, %42 ], [ %43, %42 ], [ %43, %42 ]
-  %142 = add i64 %.1, %36
+  %.1 = phi i64 [ %43, %45 ], [ %43, %copywithendian.exit ], [ %43, %copywithendian.exit69 ], [ %43, %copywithendian.exit75 ], [ %43, %77 ], [ %126, %unpackint.exit.thread ], [ %138, %137 ], [ %43, %42 ], [ %43, %42 ], [ %43, %42 ]
+  %140 = add i64 %.1, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %143 = load ptr, ptr %3, align 8, !tbaa !45
-  %144 = load i8, ptr %143, align 1, !tbaa !9
-  %.not60 = icmp eq i8 %144, 0
+  %141 = load ptr, ptr %3, align 8, !tbaa !45
+  %142 = load i8, ptr %141, align 1, !tbaa !9
+  %.not60 = icmp eq i8 %142, 0
   br i1 %.not60, label %._crit_edge.loopexit, label %32
 
-._crit_edge.loopexit:                             ; preds = %141
-  %145 = add nsw i64 %142, 1
-  %146 = add nsw i32 %.159, 1
+._crit_edge.loopexit:                             ; preds = %139
+  %143 = add nsw i64 %140, 1
+  %144 = add nsw i32 %.159, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %.058.lcssa = phi i32 [ 1, %25 ], [ %146, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ %.0.i, %25 ], [ %145, %._crit_edge.loopexit ]
+  %.058.lcssa = phi i32 [ 1, %25 ], [ %144, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ %.0.i, %25 ], [ %143, %._crit_edge.loopexit ]
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0.lcssa) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

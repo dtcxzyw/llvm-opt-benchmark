@@ -161,12 +161,12 @@ declare void @p11ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_a
 define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %2, null
-  br i1 %5, label %76, label %6
+  br i1 %5, label %74, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @jvm_j2pkcs11, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %76, label %9
+  br i1 %8, label %74, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %7, align 8
@@ -174,20 +174,20 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef 65538) #4
   %14 = icmp eq i32 %13, -2
-  %15 = add i32 %13, 3
-  %16 = icmp ult i32 %15, 2
-  br i1 %16, label %.sink.split, label %22
+  %.off = add i32 %13, 3
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %9
-  %17 = load ptr, ptr @jvm_j2pkcs11, align 8
+  %15 = load ptr, ptr @jvm_j2pkcs11, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 %20(ptr noundef nonnull %17, ptr noundef nonnull %4, ptr noundef null) #4
   br label %22
 
-22:                                               ; preds = %9, %.sink.split
-  %23 = load ptr, ptr %4, align 8
+20:                                               ; preds = %9, %.sink.split
+  %21 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
@@ -195,8 +195,8 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %28 = icmp eq ptr %27, null
   br i1 %28, label %76, label %29
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %4, align 8
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %4, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 264
   %33 = load ptr, ptr %32, align 8
@@ -204,7 +204,7 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %35 = icmp eq ptr %34, null
   br i1 %35, label %76, label %36
 
-36:                                               ; preds = %29
+36:; preds = %29
   %37 = load ptr, ptr %4, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 488
@@ -221,7 +221,7 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %69, label %49
 
-49:                                               ; preds = %36
+49:; preds = %36
   %50 = load ptr, ptr %4, align 8
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -230,16 +230,16 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %55 = icmp eq ptr %54, null
   br i1 %55, label %76, label %56
 
-56:                                               ; preds = %49
+56:; preds = %49
   %57 = load ptr, ptr %4, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 264
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr %60(ptr noundef nonnull %57, ptr noundef nonnull %54, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #4
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %76, label %63
+  br i1 %62, label %74, label %63
 
-63:                                               ; preds = %56
+63:; preds = %56
   %64 = load ptr, ptr %4, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 416
@@ -247,20 +247,20 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %68 = call i64 (ptr, ptr, ptr, ...) %67(ptr noundef nonnull %64, ptr noundef nonnull %48, ptr noundef nonnull %61) #4
   br label %69
 
-69:                                               ; preds = %63, %36
+67:                                               ; preds = %63, %36
   %.029 = phi i64 [ %68, %63 ], [ 0, %36 ]
-  br i1 %14, label %76, label %70
+  br i1 %14, label %74, label %68
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr @jvm_j2pkcs11, align 8
+68:                                               ; preds = %67
+  %69 = load ptr, ptr @jvm_j2pkcs11, align 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 %74(ptr noundef nonnull %71) #4
   br label %76
 
-76:                                               ; preds = %69, %70, %56, %49, %29, %22, %6, %3
-  %.030 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 0, %29 ], [ 0, %49 ], [ 0, %56 ], [ %.029, %70 ], [ %.029, %69 ]
+74:                                               ; preds = %67, %68, %56, %49, %27, %20, %6, %3
+  %.030 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 0, %29 ], [ 0, %49 ], [ 0, %56 ], [ %.029, %70 ], [ %.027, %69 ]
   ret i64 %.030
 }
 

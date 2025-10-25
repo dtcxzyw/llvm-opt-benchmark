@@ -4773,10 +4773,10 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   %57 = load ptr, ptr %39, align 8, !tbaa !30
   %58 = call i32 @TIFFWriteCustomDirectory(ptr noundef %57, ptr noundef nonnull %11)
   %.not58 = icmp ne i32 %58, 0
-  br i1 %.not58, label %140, label %139
+  br i1 %.not58, label %136, label %135
 
 59:                                               ; preds = %.lr.ph99, %.critedge25
-  %.05298 = phi i64 [ 0, %.lr.ph99 ], [ %138, %.critedge25 ]
+  %.05298 = phi i64 [ 0, %.lr.ph99 ], [ %134, %.critedge25 ]
   %sext96 = shl i64 %.05298, 32
   %60 = ashr exact i64 %sext96, 32
   %61 = load ptr, ptr %17, align 8, !tbaa !150
@@ -4814,26 +4814,26 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
 
 72:                                               ; preds = %70
   %73 = icmp eq i32 %68, 2
-  br i1 %73, label %74, label %84
+  br i1 %73, label %73, label %84
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %39, align 8, !tbaa !30
-  %76 = getelementptr inbounds nuw i8, ptr %62, i64 38
-  %77 = load i8, ptr %76, align 2, !tbaa !131, !range !78, !noundef !79
-  %78 = trunc nuw i8 %77 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = select i1 %78, ptr %80, ptr %79
-  %82 = load ptr, ptr %81, align 8, !tbaa !113
-  %83 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %75, i32 noundef %71, ptr noundef %82)
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %39, align 8, !tbaa !30
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 38
+  %76 = load i8, ptr %75, align 2, !tbaa !131, !range !78, !noundef !79
+  %77 = trunc nuw i8 %76 to i1
+  %78 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = select i1 %77, ptr %79, ptr %78
+  %81 = load ptr, ptr %80, align 8, !tbaa !113
+  %82 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %74, i32 noundef %71, ptr noundef %81)
   br label %.critedge25
 
-84:                                               ; preds = %72
+83:                                               ; preds = %72
   %85 = add i32 %68, -3
   %86 = icmp ult i32 %85, 2
   br i1 %86, label %87, label %.critedge17
 
-87:                                               ; preds = %84
+87: ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %88, align 8
   %89 = and i64 %.sroa.0.0.copyload.i, -4294901761
@@ -4842,32 +4842,32 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
     i64 263, label %101
   ]
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %39, align 8, !tbaa !30
-  %92 = getelementptr inbounds nuw i8, ptr %62, i64 38
-  %93 = load i8, ptr %92, align 2, !tbaa !131, !range !78, !noundef !79
-  %94 = trunc nuw i8 %93 to i1
-  %95 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = select i1 %94, ptr %96, ptr %95
-  %98 = load i16, ptr %97, align 2, !tbaa !127
-  %99 = sext i16 %98 to i32
-  %100 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %91, i32 noundef %71, i32 noundef %99)
+86:                                               ; preds = %87
+  %87 = load ptr, ptr %39, align 8, !tbaa !30
+  %88 = getelementptr inbounds nuw i8, ptr %62, i64 38
+  %89 = load i8, ptr %88, align 2, !tbaa !131, !range !78, !noundef !79
+  %90 = trunc nuw i8 %89 to i1
+  %91 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %92 = load ptr, ptr %91, align 8
+  %93 = select i1 %90, ptr %92, ptr %91
+  %94 = load i16, ptr %93, align 2, !tbaa !127
+  %95 = sext i16 %94 to i32
+  %96 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %87, i32 noundef %71, i32 noundef %95)
   br label %.critedge25
 
-101:                                              ; preds = %87
-  %102 = load ptr, ptr %39, align 8, !tbaa !30
-  %103 = getelementptr inbounds nuw i8, ptr %62, i64 38
-  %104 = load i8, ptr %103, align 2, !tbaa !131, !range !78, !noundef !79
-  %105 = trunc nuw i8 %104 to i1
-  %106 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %108 = select i1 %105, ptr %107, ptr %106
-  %109 = load i32, ptr %108, align 4, !tbaa !114
-  %110 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %102, i32 noundef %71, i32 noundef %109)
+97:                                               ; preds = %87
+  %98 = load ptr, ptr %39, align 8, !tbaa !30
+  %99 = getelementptr inbounds nuw i8, ptr %62, i64 38
+  %100 = load i8, ptr %99, align 2, !tbaa !131, !range !78, !noundef !79
+  %101 = trunc nuw i8 %100 to i1
+  %102 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = select i1 %101, ptr %103, ptr %102
+  %105 = load i32, ptr %104, align 4, !tbaa !114
+  %106 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %98, i32 noundef %71, i32 noundef %105)
   br label %.critedge25
 
-.critedge17:                                      ; preds = %87, %84
+107:                                              ; preds = %87, %84
   switch i32 %68, label %.critedge25 [
     i32 10, label %111
     i32 5, label %111
@@ -4875,12 +4875,12 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
 
 111:                                              ; preds = %.critedge17, %.critedge17
   %112 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.sroa.0.0.copyload.i65 = load i64, ptr %112, align 8
-  %113 = and i64 %.sroa.0.0.copyload.i65, -4294901761
+  %112 = load i64, ptr %112, align 8
+  %113 = and i64 %112, -4294901761
   %114 = icmp eq i64 %113, 267
   br i1 %114, label %115, label %.critedge21
 
-115:                                              ; preds = %111
+115:  ; preds = %111
   %116 = load ptr, ptr %39, align 8, !tbaa !30
   %117 = getelementptr inbounds nuw i8, ptr %62, i64 38
   %118 = load i8, ptr %117, align 2, !tbaa !131, !range !78, !noundef !79
@@ -4895,51 +4895,51 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
 
 .critedge21:                                      ; preds = %111
   switch i32 %68, label %.critedge25 [
-    i32 10, label %126
-    i32 5, label %126
+    i32 10, label %122
+    i32 5, label %122
   ]
 
-126:                                              ; preds = %.critedge21, %.critedge21
-  %127 = icmp eq i64 %113, 268
-  br i1 %127, label %128, label %.critedge25
+122:                                              ; preds = %.critedge21, %.critedge21
+  %123 = icmp eq i64 %113, 268
+  br i1 %123, label %124, label %.critedge25
 
-128:                                              ; preds = %126
-  %129 = load ptr, ptr %39, align 8, !tbaa !30
-  %130 = getelementptr inbounds nuw i8, ptr %62, i64 38
-  %131 = load i8, ptr %130, align 2, !tbaa !131, !range !78, !noundef !79
-  %132 = trunc nuw i8 %131 to i1
-  %133 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %134 = load ptr, ptr %133, align 8
-  %135 = select i1 %132, ptr %134, ptr %133
-  %136 = load double, ptr %135, align 8, !tbaa !82
-  %137 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %129, i32 noundef %71, double noundef %136)
+124:                                              ; preds = %122
+  %125 = load ptr, ptr %39, align 8, !tbaa !30
+  %126 = getelementptr inbounds nuw i8, ptr %62, i64 38
+  %127 = load i8, ptr %126, align 2, !tbaa !131, !range !78, !noundef !79
+  %128 = trunc nuw i8 %127 to i1
+  %129 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %130 = load ptr, ptr %129, align 8
+  %131 = select i1 %128, ptr %130, ptr %129
+  %132 = load double, ptr %131, align 8, !tbaa !82
+  %133 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %125, i32 noundef %71, double noundef %132)
   br label %.critedge25
 
-.critedge25:                                      ; preds = %.critedge17, %.critedge21, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit61, %90, %115, %128, %126, %101, %74, %70, %70, %70
+.critedge25:                                      ; preds = %103, %.critedge21, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit61, %86, %115, %124, %122, %97, %73, %70, %70, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %138 = add nuw i64 %.05298, 1
-  %exitcond103.not = icmp eq i64 %138, %55
+  %134 = add nuw i64 %.05298, 1
+  %exitcond103.not = icmp eq i64 %134, %55
   br i1 %exitcond103.not, label %._crit_edge, label %59, !llvm.loop !178
 
-139:                                              ; preds = %._crit_edge
+135:                                              ; preds = %._crit_edge
   call void @_ZNK11OpenImageIO6v3_1_011ImageOutput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.83)
-  br label %146
+  br label %142
 
-140:                                              ; preds = %._crit_edge
-  %141 = load ptr, ptr %39, align 8, !tbaa !30
-  %142 = call i32 @TIFFSetDirectory(ptr noundef %141, i16 noundef zeroext 0)
-  %143 = load ptr, ptr %39, align 8, !tbaa !30
-  %144 = load i64, ptr %11, align 8, !tbaa !9
-  %145 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %143, i32 noundef 34665, i64 noundef %144)
-  br label %146
+136:                                              ; preds = %._crit_edge
+  %137 = load ptr, ptr %39, align 8, !tbaa !30
+  %138 = call i32 @TIFFSetDirectory(ptr noundef %137, i16 noundef zeroext 0)
+  %139 = load ptr, ptr %39, align 8, !tbaa !30
+  %140 = load i64, ptr %11, align 8, !tbaa !9
+  %141 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %139, i32 noundef 34665, i64 noundef %140)
+  br label %142
 
-146:                                              ; preds = %140, %139
+142:                                              ; preds = %136, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %16, %44, %48, %146, %1
+.loopexit:                                        ; preds = %42, %16, %44, %48, %142, %1
   %.048 = phi i1 [ true, %1 ], [ false, %48 ], [ %.not58, %146 ], [ false, %44 ], [ true, %16 ], [ true, %42 ]
   ret i1 %.048
 }

@@ -250,18 +250,18 @@ define hidden void @_ZN15SignatureStream19skip_to_return_typeEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN17SignatureIterator16fp_is_valid_typeE9BasicTypeb(i8 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
-  %3 = add i8 %0, -4
-  %4 = icmp ult i8 %3, 10
-  br i1 %4, label %_Z17is_reference_type9BasicTypeb.exit.thread, label %_Z17is_reference_type9BasicTypeb.exit
+  %.off = add i8 %0, -4
+  %switch = icmp ult i8 %.off, 10
+  br i1 %switch, label %_Z17is_reference_type9BasicTypeb.exit.thread, label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %2
-  %5 = icmp eq i8 %0, 14
-  %6 = and i1 %1, %5
+  %3 = icmp eq i8 %0, 14
+  %4 = and i1 %1, %3
   br label %_Z17is_reference_type9BasicTypeb.exit.thread
 
 _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %2, %_Z17is_reference_type9BasicTypeb.exit
-  %7 = phi i1 [ true, %2 ], [ %6, %_Z17is_reference_type9BasicTypeb.exit ]
-  ret i1 %7
+  %5 = phi i1 [ true, %2 ], [ %4, %_Z17is_reference_type9BasicTypeb.exit ]
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

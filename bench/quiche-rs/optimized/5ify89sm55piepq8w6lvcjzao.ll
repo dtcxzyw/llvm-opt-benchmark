@@ -3209,7 +3209,7 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
   %8 = tail call { i64, i64 } @"_ZN78_$LT$quiche..h3..Error$u20$as$u20$core..convert..From$LT$quiche..Error$GT$$GT$4from17h2909c663f6301edcE"(i64 noundef %5, i64 %7)
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
-  br label %77
+  br label %75
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 30432
@@ -3220,7 +3220,7 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
 
 15:                                               ; preds = %11
   %16 = extractvalue { i64, i64 } %13, 1
-  br label %77
+  br label %75
 
 17:                                               ; preds = %11
   %18 = tail call { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noalias noundef nonnull align 16 dereferenceable(30432) %0)
@@ -3231,7 +3231,7 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
 
 21:                                               ; preds = %17
   %22 = extractvalue { i64, i64 } %19, 1
-  br label %77
+  br label %75
 
 23:                                               ; preds = %17
   %24 = tail call { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noalias noundef nonnull align 16 dereferenceable(30432) %0)
@@ -3239,7 +3239,7 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
   %26 = extractvalue { i64, i64 } %25, 0
   %.not85 = icmp eq i64 %26, 40
   %27 = extractvalue { i64, i64 } %25, 1
-  br i1 %.not85, label %28, label %77
+  br i1 %.not85, label %28, label %75
 
 28:                                               ; preds = %23
   %29 = tail call { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noalias noundef nonnull align 16 dereferenceable(30432) %0)
@@ -3256,14 +3256,14 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
   %38 = extractvalue { i64, i64 } %37, 0
   %.not89 = icmp eq i64 %38, 40
   %39 = extractvalue { i64, i64 } %37, 1
-  br i1 %.not89, label %44, label %77
+  br i1 %.not89, label %44, label %75
 
 40:                                               ; preds = %28
   %41 = tail call { i64, i64 } @_ZN6quiche2h310Connection18open_grease_stream17h074826354951d504E(ptr noalias noundef nonnull align 8 dereferenceable(512) %12, ptr noalias noundef nonnull align 16 dereferenceable(15216) %0)
   %42 = extractvalue { i64, i64 } %41, 0
   %.not87 = icmp eq i64 %42, 40
   %43 = extractvalue { i64, i64 } %41, 1
-  br i1 %.not87, label %33, label %77
+  br i1 %.not87, label %33, label %75
 
 44:                                               ; preds = %33
   %45 = tail call { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noalias noundef nonnull align 16 dereferenceable(30432) %0)
@@ -3271,7 +3271,7 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
   %47 = extractvalue { i64, i64 } %46, 0
   %.not91 = icmp eq i64 %47, 40
   %48 = extractvalue { i64, i64 } %46, 1
-  br i1 %.not91, label %49, label %77
+  br i1 %.not91, label %49, label %75
 
 49:                                               ; preds = %44
   %50 = tail call { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noalias noundef nonnull align 16 dereferenceable(30432) %0)
@@ -3279,7 +3279,7 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
   %52 = extractvalue { i64, i64 } %51, 0
   %.not93 = icmp eq i64 %52, 40
   %53 = extractvalue { i64, i64 } %51, 1
-  br i1 %.not93, label %54, label %77
+  br i1 %.not93, label %54, label %75
 
 54:                                               ; preds = %49
   %55 = tail call { i64, i64 } @_ZN6quiche7testing4Pipe7advance17h57554453be7f547eE(ptr noalias noundef nonnull align 16 dereferenceable(30432) %0)
@@ -3294,69 +3294,69 @@ define { i64, i64 } @_ZN6quiche2h37testing7Session9handshake17h124e438eb4e32543E
   call void @_ZN6quiche2h310Connection4poll17hb5d670008b499de2E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(512) %12, ptr noalias noundef nonnull align 16 dereferenceable(15216) %0)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load i64, ptr %61, align 8, !range !270, !noundef !3
-  %.not97102 = icmp eq i64 %62, -9223372036854775803
-  br i1 %.not97102, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99", label %.lr.ph
+  %.not97105 = icmp eq i64 %62, -9223372036854775803
+  br i1 %.not97105, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100", label %.lr.ph
 
 63:                                               ; preds = %54
   %64 = tail call { i64, i64 } @_ZN6quiche2h310Connection18open_grease_stream17h074826354951d504E(ptr noalias noundef nonnull align 8 dereferenceable(512) %35, ptr noalias noundef nonnull align 16 dereferenceable(15216) %36)
   %65 = extractvalue { i64, i64 } %64, 0
   %.not95 = icmp eq i64 %65, 40
   %66 = extractvalue { i64, i64 } %64, 1
-  br i1 %.not95, label %59, label %77
+  br i1 %.not95, label %59, label %75
 
 .lr.ph:                                           ; preds = %59, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit"
-  %67 = phi i64 [ %70, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit" ], [ %62, %59 ]
-  %68 = icmp slt i64 %67, -9223372036854775802
-  br i1 %68, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit", label %69
+  %67 = phi i64 [ %69, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit" ], [ %62, %59 ]
+  %switch.i = icmp slt i64 %67, -9223372036854775802
+  br i1 %switch.i, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit", label %68
 
-69:                                               ; preds = %.lr.ph
+68:                                               ; preds = %.lr.ph
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h60f01f5c1406a926E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61)
   br label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit"
 
-"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit": ; preds = %.lr.ph, %69
+"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit": ; preds = %.lr.ph, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6quiche2h310Connection4poll17hb5d670008b499de2E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(512) %12, ptr noalias noundef nonnull align 16 dereferenceable(15216) %0)
-  %70 = load i64, ptr %61, align 8, !range !270, !noundef !3
-  %.not97 = icmp eq i64 %70, -9223372036854775803
-  br i1 %.not97, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99", label %.lr.ph
+  %69 = load i64, ptr %61, align 8, !range !270, !noundef !3
+  %.not97 = icmp eq i64 %69, -9223372036854775803
+  br i1 %.not97, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100", label %.lr.ph
 
-"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99": ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit", %59
+"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100": ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit", %59
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6quiche2h310Connection4poll17hb5d670008b499de2E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(512) %35, ptr noalias noundef nonnull align 16 dereferenceable(15216) %36)
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %72 = load i64, ptr %71, align 8, !range !270, !noundef !3
-  %.not98103 = icmp eq i64 %72, -9223372036854775803
-  br i1 %.not98103, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit101", label %.lr.ph104
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %71 = load i64, ptr %70, align 8, !range !270, !noundef !3
+  %.not98106 = icmp eq i64 %71, -9223372036854775803
+  br i1 %.not98106, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit104", label %.lr.ph107
 
-.lr.ph104:                                        ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99", %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100"
-  %73 = phi i64 [ %76, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100" ], [ %72, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99" ]
-  %74 = icmp slt i64 %73, -9223372036854775802
-  br i1 %74, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100", label %75
+.lr.ph107:                                        ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100", %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit102"
+  %72 = phi i64 [ %74, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100" ], [ %71, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99" ]
+  %switch.i101 = icmp slt i64 %72, -9223372036854775802
+  br i1 %switch.i101, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit102", label %73
 
-75:                                               ; preds = %.lr.ph104
-  call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h60f01f5c1406a926E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %71)
-  br label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100"
+73:                                               ; preds = %.lr.ph107
+  call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h60f01f5c1406a926E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %70)
+  br label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit102"
 
-"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100": ; preds = %.lr.ph104, %75
+"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit102": ; preds = %.lr.ph107, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6quiche2h310Connection4poll17hb5d670008b499de2E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(512) %35, ptr noalias noundef nonnull align 16 dereferenceable(15216) %36)
-  %76 = load i64, ptr %71, align 8, !range !270, !noundef !3
-  %.not98 = icmp eq i64 %76, -9223372036854775803
-  br i1 %.not98, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit101", label %.lr.ph104
+  %74 = load i64, ptr %70, align 8, !range !270, !noundef !3
+  %.not98 = icmp eq i64 %74, -9223372036854775803
+  br i1 %.not98, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit104", label %.lr.ph107
 
-"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit101": ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100", %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit99"
+"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit104": ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit102", %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit100"
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %77
+  br label %75
 
-77:                                               ; preds = %63, %49, %44, %33, %40, %23, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit101", %21, %15, %6
+75:                                               ; preds = %63, %49, %44, %33, %40, %23, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit104", %21, %15, %6
   %.sroa.11.0 = phi i64 [ %10, %6 ], [ %16, %15 ], [ %22, %21 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit101" ], [ %27, %23 ], [ %43, %40 ], [ %39, %33 ], [ %48, %44 ], [ %53, %49 ], [ %66, %63 ]
   %.sroa.0.0 = phi i64 [ %9, %6 ], [ %14, %15 ], [ %20, %21 ], [ 40, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$$LP$u64$C$quiche..h3..Event$RP$$C$quiche..h3..Error$GT$$GT$17hca0b7fe5f7b8e12dE.exit101" ], [ %26, %23 ], [ %42, %40 ], [ %38, %33 ], [ %47, %44 ], [ %52, %49 ], [ %65, %63 ]
-  %78 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %79 = insertvalue { i64, i64 } %78, i64 %.sroa.11.0, 1
-  ret { i64, i64 } %79
+  %76 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %77 = insertvalue { i64, i64 } %76, i64 %.sroa.11.0, 1
+  ret { i64, i64 } %77
 }
 
 ; Function Attrs: nonlazybind uwtable

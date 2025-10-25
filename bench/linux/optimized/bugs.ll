@@ -2081,7 +2081,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   switch i64 %1, label %ssb_prctl_set.exit [
     i64 0, label %4
     i64 1, label %43
-    i64 2, label %87
+    i64 2, label %85
   ]
 
 4:                                                ; preds = %3
@@ -2163,21 +2163,21 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
 43:                                               ; preds = %3
   switch i64 %2, label %ssb_prctl_set.exit [
     i64 2, label %44
-    i64 4, label %64
-    i64 8, label %64
+    i64 4, label %63
+    i64 8, label %63
   ]
 
 44:                                               ; preds = %43
   %45 = load i32, ptr @spectre_v2_user_ibpb, align 4
-  %.fr5.i = freeze i32 %45
-  %46 = icmp eq i32 %.fr5.i, 0
+  %.fr2.i = freeze i32 %45
+  %46 = icmp eq i32 %.fr2.i, 0
   %47 = load i32, ptr @spectre_v2_user_stibp, align 4
   %48 = icmp eq i32 %47, 0
   %49 = select i1 %46, i1 %48, i1 false
   br i1 %49, label %ssb_prctl_set.exit, label %50
 
 50:                                               ; preds = %44
-  %51 = icmp ugt i32 %.fr5.i, 2
+  %51 = icmp ugt i32 %.fr2.i, 2
   %52 = icmp ugt i32 %47, 2
   %or.cond.i = select i1 %51, i1 true, i1 %52
   br i1 %or.cond.i, label %53, label %ssb_prctl_set.exit
@@ -2190,9 +2190,9 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   br i1 %57, label %58, label %ssb_prctl_set.exit
 
 58:                                               ; preds = %53
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %54, i32 -33, ptr nonnull elementtype(i8) %54) #15, !srcloc !24
+  57:\0A\09lock                                               ; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %54, i32 -33, ptr nonnull elementtype(i8) %54) #15, !srcloc !24
   %59 = getelementptr i8, ptr %0, i64 2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %59, i32 128, ptr elementtype(i8) %59) #15, !srcloc !12
+  74:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %59, i32 128, ptr elementtype(i8) %59) #15, !srcloc !12
   %60 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %61 = inttoptr i64 %60 to ptr
   %62 = icmp eq ptr %0, %61
@@ -2202,34 +2202,34 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void @speculation_ctrl_update_current() #15
   br label %ssb_prctl_set.exit
 
-64:                                               ; preds = %43, %43
-  %65 = load i32, ptr @spectre_v2_user_ibpb, align 4
-  %.fr.i = freeze i32 %65
-  %66 = icmp eq i32 %.fr.i, 0
-  %67 = load i32, ptr @spectre_v2_user_stibp, align 4
-  %68 = icmp eq i32 %67, 0
-  %69 = select i1 %66, i1 %68, i1 false
-  br i1 %69, label %ssb_prctl_set.exit, label %70
+63:                                               ; preds = %43, %43
+  %64 = load i32, ptr @spectre_v2_user_ibpb, align 4
+  %.fr.i = freeze i32 %64
+  %65 = icmp eq i32 %.fr.i, 0
+  %66 = load i32, ptr @spectre_v2_user_stibp, align 4
+  %67 = icmp eq i32 %66, 0
+  %68 = select i1 %65, i1 %67, i1 false
+  br i1 %68, label %ssb_prctl_set.exit, label %69
 
-70:                                               ; preds = %64
-  %71 = icmp ugt i32 %.fr.i, 2
-  %72 = icmp ugt i32 %67, 2
+69:                                               ; preds = %63
+  %70 = icmp ugt i32 %.fr.i, 2
+  %72 = icmp ugt i32 %66, 2
   %or.cond4.i = select i1 %71, i1 true, i1 %72
   br i1 %or.cond4.i, label %73, label %ssb_prctl_set.exit
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i32 32, ptr nonnull elementtype(i8) %74) #15, !srcloc !12
+  74:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i32 32, ptr nonnull elementtype(i8) %74) #15, !srcloc !12
   %75 = icmp eq i64 %2, 8
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %73
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i32 64, ptr nonnull elementtype(i8) %74) #15, !srcloc !12
+  74:\0A\09lock                                               ; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i32 64, ptr nonnull elementtype(i8) %74) #15, !srcloc !12
   br label %77
 
 77:                                               ; preds = %76, %73
   %78 = getelementptr i8, ptr %0, i64 2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %78, i32 128, ptr elementtype(i8) %78) #15, !srcloc !12
+  74:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %78, i32 128, ptr elementtype(i8) %78) #15, !srcloc !12
   %79 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %80 = inttoptr i64 %79 to ptr
   %81 = icmp eq ptr %0, %80
@@ -2237,36 +2237,36 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
 
 82:                                               ; preds = %77
   tail call void @speculation_ctrl_update_current() #15
-  %83 = load i64, ptr @x86_pred_cmd, align 8
-  %84 = trunc i64 %83 to i32
-  %85 = lshr i64 %83, 32
-  %86 = trunc nuw i64 %85 to i32
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 %84, i32 %86, i32 245) #15, !srcloc !25
+  %81 = load i64, ptr @x86_pred_cmd, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = lshr i64 %81, 32
+  %84 = trunc nuw i64 %83 to i32
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 %82, i32 %84, i32 245) #15, !srcloc !25
   br label %ssb_prctl_set.exit
 
-87:                                               ; preds = %3
+85:                                               ; preds = %3
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @switch_mm_cond_l1d_flush, i32 2) #15
           to label %ssb_prctl_set.exit [label %88], !srcloc !9
 
-88:                                               ; preds = %87
+86:                                               ; preds = %85
   switch i64 %2, label %ssb_prctl_set.exit [
-    i64 2, label %89
-    i64 4, label %91
+    i64 2, label %87
+    i64 4, label %89
   ]
 
-89:                                               ; preds = %88
+87:                                               ; preds = %86
+  %88 = getelementptr i8, ptr %0, i64 1
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %88, i32 4, ptr elementtype(i8) %88) #15, !srcloc !12
+  br label %ssb_prctl_set.exit
+
+89:                                               ; preds = %86
   %90 = getelementptr i8, ptr %0, i64 1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %90, i32 4, ptr elementtype(i8) %90) #15, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %90, i32 -5, ptr elementtype(i8) %90) #15, !srcloc !24
   br label %ssb_prctl_set.exit
 
-91:                                               ; preds = %88
-  %92 = getelementptr i8, ptr %0, i64 1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %92, i32 -5, ptr elementtype(i8) %92) #15, !srcloc !24
-  br label %ssb_prctl_set.exit
-
-ssb_prctl_set.exit:                               ; preds = %82, %77, %70, %64, %63, %58, %53, %50, %44, %43, %42, %37, %32, %26, %20, %15, %10, %7, %4, %91, %89, %88, %87, %3
-  %93 = phi i32 [ -19, %3 ], [ 0, %91 ], [ 0, %89 ], [ -34, %88 ], [ -1, %87 ], [ -6, %4 ], [ -1, %10 ], [ -1, %32 ], [ -34, %7 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 0, %37 ], [ 0, %42 ], [ 0, %44 ], [ -1, %53 ], [ -1, %64 ], [ -34, %43 ], [ 0, %82 ], [ 0, %58 ], [ 0, %63 ], [ 0, %77 ], [ -1, %50 ], [ 0, %70 ]
-  ret i32 %93
+ssb_prctl_set.exit:                               ; preds = %82, %77, %69, %63, %63, %58, %53, %50, %44, %43, %42, %37, %32, %26, %20, %15, %10, %7, %4, %89, %87, %86, %85, %3
+  %91 = phi i32 [ -19, %3 ], [ 0, %91 ], [ 0, %89 ], [ -34, %88 ], [ -1, %87 ], [ -6, %4 ], [ -1, %10 ], [ -1, %32 ], [ -34, %7 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 0, %37 ], [ 0, %42 ], [ 0, %44 ], [ -1, %53 ], [ -1, %64 ], [ -34, %43 ], [ 0, %82 ], [ 0, %58 ], [ 0, %63 ], [ 0, %77 ], [ -1, %50 ], [ 0, %70 ]
+  ret i32 %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2298,13 +2298,13 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
   %14 = load i32, ptr @spectre_v2_user_stibp, align 4
   %15 = icmp eq i32 %14, 4
   %16 = select i1 %13, i1 true, i1 %15
-  br i1 %16, label %17, label %35
+  br i1 %16, label %17, label %34
 
 17:                                               ; preds = %11
   %18 = icmp eq i32 %.fr, 0
   %19 = icmp eq i32 %14, 0
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %35, label %21
+  br i1 %20, label %34, label %21
 
 21:                                               ; preds = %17
   %22 = icmp ugt i32 %.fr, 2
@@ -2314,10 +2314,10 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 32, ptr nonnull elementtype(i8) %25) #15, !srcloc !12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 64, ptr nonnull elementtype(i8) %25) #15, !srcloc !12
+  74:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 32, ptr nonnull elementtype(i8) %25) #15, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 63, ptr nonnull elementtype(i8) %25) #15, !srcloc !12
   %26 = getelementptr i8, ptr %0, i64 2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %26, i32 128, ptr elementtype(i8) %26) #15, !srcloc !12
+  74:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %26, i32 128, ptr elementtype(i8) %26) #15, !srcloc !12
   %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %28 = inttoptr i64 %27 to ptr
   %29 = icmp eq ptr %0, %28
@@ -2325,14 +2325,14 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
 
 30:                                               ; preds = %24
   tail call void @speculation_ctrl_update_current() #15
-  %31 = load i64, ptr @x86_pred_cmd, align 8
-  %32 = trunc i64 %31 to i32
-  %33 = lshr i64 %31, 32
-  %34 = trunc nuw i64 %33 to i32
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 %32, i32 %34, i32 245) #15, !srcloc !25
-  br label %35
+  %30 = load i64, ptr @x86_pred_cmd, align 8
+  %31 = trunc i64 %30 to i32
+  %32 = lshr i64 %30, 32
+  %33 = trunc nuw i64 %32 to i32
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 %31, i32 %33, i32 245) #15, !srcloc !25
+  br label %34
 
-35:                                               ; preds = %21, %30, %24, %17, %11
+34:                                               ; preds = %21, %30, %24, %17, %11
   ret void
 }
 
@@ -2411,15 +2411,15 @@ default.unreachable:                              ; preds = %3
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %58
 
-42:                                               ; preds = %37
+36:                                               ; preds = %37
   %43 = load volatile i64, ptr %38, align 8
   %44 = and i64 %43, 32
   %45 = icmp eq i64 %44, 0
   %46 = select i1 %45, i32 3, i32 5
   br label %58
 
-47:                                               ; preds = %34
-  %48 = icmp eq i32 %.fr, 1
+46:                                               ; preds = %34
+  %47 = icmp eq i32 %.fr, 1
   %49 = icmp ne i32 %31, 0
   %50 = select i1 %48, i1 true, i1 %49
   %51 = select i1 %50, i32 4, i32 0
@@ -2436,7 +2436,7 @@ default.unreachable:                              ; preds = %3
   %57 = select i1 %56, i32 5, i32 3
   br label %58
 
-58:                                               ; preds = %53, %52, %47, %42, %37, %28, %24, %19, %15, %10, %5, %3, %2
+58:                                               ; preds = %53, %52, %46, %42, %37, %28, %24, %19, %15, %10, %5, %3, %2
   %59 = phi i32 [ -19, %2 ], [ %9, %5 ], [ 4, %3 ], [ 9, %10 ], [ 17, %15 ], [ %23, %19 ], [ 0, %24 ], [ 2, %28 ], [ 9, %37 ], [ %46, %42 ], [ %51, %47 ], [ %57, %53 ], [ 8, %52 ]
   ret i32 %59
 }

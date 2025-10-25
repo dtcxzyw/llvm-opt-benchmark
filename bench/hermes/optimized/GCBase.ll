@@ -1569,18 +1569,18 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN6her
   %cmp.not15.i3.i.i.i = icmp eq ptr %incdec.ptr3.i.i.i, %1
   br i1 %cmp.not15.i3.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit, label %land.rhs.i4.i.i.i
 
-land.rhs.i4.i.i.i:                                ; preds = %for.inc, %while.body.i5.i.i.i
+land.rhs.i4.i.i.i:                                ; preds = %for.inc, %while.body.i6.i.i.i
   %iter.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i5.i.i.i ], [ %incdec.ptr3.i.i.i, %for.inc ]
   %7 = load ptr, ptr %iter.sroa.0.1, align 8
-  %8 = icmp ult ptr %7, inttoptr (i64 2 to ptr)
-  br i1 %8, label %while.body.i5.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit
+  %switch.i5.i.i.i = icmp ult ptr %7, inttoptr (i64 2 to ptr)
+  br i1 %switch.i5.i.i.i, label %while.body.i6.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit
 
-while.body.i5.i.i.i:                              ; preds = %land.rhs.i4.i.i.i
+while.body.i6.i.i.i:                              ; preds = %land.rhs.i4.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %iter.sroa.0.1, i64 24
-  %cmp.not.i6.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i6.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit, label %land.rhs.i4.i.i.i, !llvm.loop !23
+  %cmp.not.i7.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
+  br i1 %cmp.not.i7.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit, label %land.rhs.i4.i.i.i, !llvm.loop !23
 
-_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit: ; preds = %land.rhs.i4.i.i.i, %while.body.i5.i.i.i, %for.inc
+_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit: ; preds = %land.rhs.i4.i.i.i, %while.body.i6.i.i.i, %for.inc
   %iter.sroa.0.2 = phi ptr [ %incdec.ptr3.i.i.i, %for.inc ], [ %iter.sroa.0.1, %land.rhs.i4.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i5.i.i.i ]
   %cmp.i.i.i.not = icmp eq ptr %iter.sroa.0.2, %2
   br i1 %cmp.i.i.i.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !24

@@ -3290,7 +3290,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %3
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %50
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_family_idEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3311,16 +3311,16 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %28 = zext i32 %22 to i64
   %29 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %25, i64 %28
-  %.not34.i.i = icmp eq i32 %24, %22
-  br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
+  %.not35.i.i = icmp eq i32 %24, %22
+  br i1 %.not35.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %38, %_ZNK4decl13get_family_idEv.exit.thread
-  %.not2736.i.i = icmp eq i32 %24, 0
-  br i1 %.not2736.i.i, label %.loopexit, label %.lr.ph38.i.i
+  %.not2737.i.i = icmp eq i32 %24, 0
+  br i1 %.not2737.i.i, label %.loopexit, label %.lr.ph38.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4decl13get_family_idEv.exit.thread, %38
-  %.035.i.i = phi ptr [ %39, %38 ], [ %27, %_ZNK4decl13get_family_idEv.exit.thread ]
-  %30 = load ptr, ptr %.035.i.i, align 8, !tbaa !450
+  %.036.i.i = phi ptr [ %39, %38 ], [ %27, %_ZNK4decl13get_family_idEv.exit.thread ]
+  %30 = load ptr, ptr %.036.i.i, align 8, !tbaa !450
   %.not.i = icmp ult ptr %30, inttoptr (i64 2 to ptr)
   br i1 %.not.i, label %36, label %31
 
@@ -3336,26 +3336,26 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   %37 = icmp eq ptr %30, null
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %36, %31
+.lr.ph39.i.i:                                     ; preds = %36, %31
   %39 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 8
   %.not.i.i = icmp eq ptr %39, %29
   br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !452
 
-.lr.ph38.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph38.i.i.backedge
+39:                                               ; preds = %.preheader.i.i, %.lr.ph38.i.i.backedge
   %.137.i.i = phi ptr [ %.137.i.i.be, %.lr.ph38.i.i.backedge ], [ %25, %.preheader.i.i ]
-  %40 = load ptr, ptr %.137.i.i, align 8, !tbaa !450
-  %41 = icmp ult ptr %40, inttoptr (i64 2 to ptr)
+  %41 = load ptr, ptr %.137.i.i, align 8, !tbaa !450
+  %42 = icmp ult ptr %41, inttoptr (i64 2 to ptr)
   br i1 %41, label %47, label %42
 
-42:                                               ; preds = %.lr.ph38.i.i
+42:; preds = %.lr.ph38.i.i
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !445
   %45 = icmp eq i32 %44, %20
-  %46 = icmp eq ptr %40, %2
-  %or.cond31.i.i = and i1 %46, %45
+  %.not27.i.i = icmp eq ptr %40, %2
+  %or.cond31.i.i = and i1 %.not27.i.i, %45
   br i1 %or.cond31.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %50
 
-47:                                               ; preds = %.lr.ph38.i.i
+47:; preds = %.lr.ph38.i.i
   %48 = icmp eq ptr %40, null
   %49 = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 8
   %.not27.i.i = icmp eq ptr %49, %27
@@ -3380,17 +3380,17 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
   unreachable
 
-53:                                               ; preds = %.loopexit
-  %54 = landingpad { ptr, i32 }
+48:                                               ; preds = %.loopexit
+  %49 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %50
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %31, %42
   ret void
 
-55:                                               ; preds = %53, %12
+50:                                               ; preds = %48, %12
   %.sink = phi ptr [ %51, %53 ], [ %10, %12 ]
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %13, %12 ]
+  %.pn = phi { ptr, i32 } [ %49, %53 ], [ %13, %12 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #20
   resume { ptr, i32 } %.pn
 }

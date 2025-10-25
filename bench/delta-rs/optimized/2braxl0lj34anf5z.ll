@@ -116967,7 +116967,7 @@ define hidden void @_ZN14deltalake_core16delta_datafusion24files_matching_predic
   %.sroa.3100 = alloca [9 x i64], align 8
   %.sroa.391 = alloca [9 x i64], align 8
   %.sroa.476 = alloca [4 x i64], align 8
-  %.sroa.0188 = alloca [128 x i8], align 8
+  %.sroa.0193 = alloca [128 x i8], align 8
   %11 = alloca { i64, [15 x i64] }, align 8
   %.sroa.754 = alloca [11 x i64], align 8
   %12 = alloca { i64, [12 x i64] }, align 8
@@ -117021,10 +117021,10 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   br label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$datafusion_expr..expr..Expr$GT$$GT$17h2ed1808ac4f4fc47E.llvm.8022584466853825857.exit"
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$datafusion_expr..expr..Expr$GT$$GT$17h2ed1808ac4f4fc47E.llvm.8022584466853825857.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.8022584466853825857.exit.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.8022584466853825857.exit
-  %.sroa.0.0.copyload250 = load i128, ptr %23, align 16
-  %.sroa.5.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5.0..sroa_idx251, i64 256, i1 false)
-  %27 = and i128 %.sroa.0.0.copyload250, 62
+  %.sroa.0.0.copyload259 = load i128, ptr %23, align 16
+  %.sroa.5.0..sroa_idx260 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5.0..sroa_idx260, i64 256, i1 false)
+  %27 = and i128 %.sroa.0.0.copyload259, 62
   %28 = icmp eq i128 %27, 38
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %28, label %29, label %33
@@ -117046,7 +117046,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
 
 33:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$datafusion_expr..expr..Expr$GT$$GT$17h2ed1808ac4f4fc47E.llvm.8022584466853825857.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store i128 %.sroa.0.0.copyload250, ptr %22, align 16
+  store i128 %.sroa.0.0.copyload259, ptr %22, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -117055,12 +117055,12 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   invoke void @_ZN14deltalake_core16delta_datafusion13_arrow_schema17he2670a9c986cb141E(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(544) %1, i1 noundef zeroext true)
           to label %"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit" unwind label %34
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit": ; preds = %62, %67, %87, %117, %121, %.thread205, %45, %50, %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit", %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit165", %34
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit": ; preds = %62, %67, %87, %117, %121, %.thread210, %45, %50, %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit", %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit170", %34
   %.pn139 = phi { ptr, i32 } [ %35, %34 ], [ %.pn136, %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit165" ], [ %97, %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit" ], [ %46, %50 ], [ %46, %45 ], [ %lpad.thr_comm, %.thread205 ], [ %lpad.thr_comm.split-lp, %121 ], [ %lpad.thr_comm.split-lp, %117 ], [ %88, %87 ], [ %63, %67 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..expr..Expr$GT$17hee0b97e40624d8beE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 16 dereferenceable(272) %22) #66
           to label %.thread226 unwind label %112
 
-34:                                               ; preds = %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit163.invoke", %33, %103
+34:                                               ; preds = %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit168.invoke", %33, %103
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit"
@@ -117091,7 +117091,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.391.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.391, i64 72, i1 false)
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.critedge152
+  br label %.critedge153
 
 45:                                               ; preds = %40
   %46 = landingpad { ptr, i32 }
@@ -117119,19 +117119,19 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   %55 = load ptr, ptr %20, align 8, !alias.scope !27274, !nonnull !4, !noundef !4
   %56 = atomicrmw sub ptr %55, i64 1 release, align 8, !noalias !27274
   %57 = icmp eq i64 %56, 1
-  br i1 %57, label %58, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit154"
+  br i1 %57, label %58, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit159"
 
 58:                                               ; preds = %51
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h15476ea81105655aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit154" unwind label %117
 
-.thread205:                                       ; preds = %86, %72, %80
+.thread210:                                       ; preds = %86, %72, %80
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit"
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit154": ; preds = %51, %58
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit159": ; preds = %51, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.716)
@@ -117146,7 +117146,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   invoke void @_ZN14deltalake_core16delta_datafusion13_arrow_schema17he2670a9c986cb141E(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(544) %1, i1 noundef zeroext true)
           to label %"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit156" unwind label %62
 
-62:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit154"
+62:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit159"
   %63 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !27275)
@@ -117161,21 +117161,21 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha21e1268cd84f38cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit" unwind label %112
 
-"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit156": ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit154"
+"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit161": ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit159"
   %68 = load i64, ptr %15, align 8, !range !2087, !noundef !4
   %69 = icmp eq i64 %68, 45
   %70 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %71 = load ptr, ptr %70, align 8
   br i1 %69, label %72, label %75
 
-72:                                               ; preds = %"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit156"
+72:                                               ; preds = %"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit161"
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %73 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %74 = load ptr, ptr %61, align 8, !nonnull !4, !align !15, !noundef !4
   invoke void @_ZN10datafusion18physical_optimizer7pruning16PruningPredicate7try_new17h66bfad9132e57b17E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %17, ptr noundef nonnull %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74, ptr noundef nonnull %71)
-          to label %81 unwind label %.thread205
+          to label %81 unwind label %.thread210
 
-75:                                               ; preds = %"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit156"
+75:                                               ; preds = %"_ZN118_$LT$deltalake_core..kernel..snapshot..EagerSnapshot$u20$as$u20$deltalake_core..delta_datafusion..DataFusionMixins$GT$12arrow_schema17h64152e05e8e0d39bE.exit161"
   %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3100, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.597.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -117191,12 +117191,12 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   %77 = load ptr, ptr %16, align 8, !alias.scope !27288, !nonnull !4, !noundef !4
   %78 = atomicrmw sub ptr %77, i64 1 release, align 8, !noalias !27288
   %79 = icmp eq i64 %78, 1
-  br i1 %79, label %80, label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit159"
+  br i1 %79, label %80, label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit164"
 
 80:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha21e1268cd84f38cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
-          to label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit159" unwind label %.thread205
+          to label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit159" unwind label %.thread210
 
 81:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -117227,7 +117227,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   store i64 %.sroa.5106.0.copyload, ptr %.sroa.333.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @"_ZN14deltalake_core16delta_datafusion138_$LT$impl$u20$core..convert..From$LT$datafusion_common..error..DataFusionError$GT$$u20$for$u20$deltalake_core..errors..DeltaTableError$GT$4from17hfdaf7e58b4c82113E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %10)
-          to label %114 unwind label %.thread205
+          to label %114 unwind label %.thread210
 
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
@@ -117259,7 +117259,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %95, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.737, i64 88, i1 false)
   store i64 -9223372036854775804, ptr %0, align 8
-  br label %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit163.invoke"
+  br label %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit168.invoke"
 
 96:                                               ; preds = %93
   %97 = landingpad { ptr, i32 }
@@ -117271,11 +117271,11 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   %99 = load i64, ptr %12, align 8, !range !2876, !noundef !4
   %100 = icmp eq i64 %99, -9223372036854775790
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.0194.0.copyload = load i64, ptr %101, align 8
-  %.sroa.4195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.4195.0.copyload = load ptr, ptr %.sroa.4195.0..sroa_idx, align 8
-  %.sroa.5196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.5196.0.copyload = load i64, ptr %.sroa.5196.0..sroa_idx, align 8
+  %.sroa.0199.0.copyload = load i64, ptr %101, align 8
+  %.sroa.4200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.4200.0.copyload = load ptr, ptr %.sroa.4200.0..sroa_idx, align 8
+  %.sroa.5201.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.5201.0.copyload = load i64, ptr %.sroa.5201.0..sroa_idx, align 8
   br i1 %100, label %103, label %102
 
 102:                                              ; preds = %98
@@ -117286,31 +117286,31 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i64 %99, ptr %8, align 8
   %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.0194.0.copyload, ptr %.sroa.250.0..sroa_idx, align 8
+  store i64 %.sroa.0199.0.copyload, ptr %.sroa.250.0..sroa_idx, align 8
   %.sroa.250.sroa.2.0..sroa.250.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.sroa.4195.0.copyload, ptr %.sroa.250.sroa.2.0..sroa.250.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.4200.0.copyload, ptr %.sroa.250.sroa.2.0..sroa.250.0..sroa_idx.sroa_idx, align 8
   %.sroa.250.sroa.3.0..sroa.250.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %.sroa.5196.0.copyload, ptr %.sroa.250.sroa.3.0..sroa.250.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.5201.0.copyload, ptr %.sroa.250.sroa.3.0..sroa.250.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @"_ZN14deltalake_core16delta_datafusion138_$LT$impl$u20$core..convert..From$LT$datafusion_common..error..DataFusionError$GT$$u20$for$u20$deltalake_core..errors..DeltaTableError$GT$4from17hfdaf7e58b4c82113E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %8)
           to label %105 unwind label %110
 
 103:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %104 = getelementptr inbounds i8, ptr %.sroa.4195.0.copyload, i64 %.sroa.5196.0.copyload
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0188, ptr noundef nonnull align 8 dereferenceable(128) %14, i64 128, i1 false)
+  %104 = getelementptr inbounds i8, ptr %.sroa.4200.0.copyload, i64 %.sroa.5201.0.copyload
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0193, ptr noundef nonnull align 8 dereferenceable(128) %14, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0188, i64 128, i1 false)
-  %.sroa.2189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %.sroa.4195.0.copyload, ptr %.sroa.2189.0..sroa_idx, align 8
-  %.sroa.3190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.sroa.4195.0.copyload, ptr %.sroa.3190.0..sroa_idx, align 8
-  %.sroa.4191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %.sroa.0194.0.copyload, ptr %.sroa.4191.0..sroa_idx, align 8
-  %.sroa.5192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %104, ptr %.sroa.5192.0..sroa_idx, align 8
-  %.sroa.6193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6193.0..sroa_idx, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0193, i64 128, i1 false)
+  %.sroa.2194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %.sroa.4200.0.copyload, ptr %.sroa.2194.0..sroa_idx, align 8
+  %.sroa.3195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %.sroa.4200.0.copyload, ptr %.sroa.3195.0..sroa_idx, align 8
+  %.sroa.4196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i64 %.sroa.0199.0.copyload, ptr %.sroa.4196.0..sroa_idx, align 8
+  %.sroa.5197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %104, ptr %.sroa.5197.0..sroa_idx, align 8
+  %.sroa.6198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6198.0..sroa_idx, i8 0, i64 24, i1 false)
   invoke void @"_ZN4core3ptr78drop_in_place$LT$datafusion..physical_optimizer..pruning..PruningPredicate$GT$17h4ebbaf1e696f94f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %18)
           to label %.critedge unwind label %34
 
@@ -117330,7 +117330,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   invoke void @"_ZN4core3ptr507drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$deltalake_core..kernel..models..actions..Add$GT$$GT$$GT$17h43e47ef1e4d3b19aE.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(128) %14)
           to label %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit163.invoke" unwind label %107
 
-"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit165": ; preds = %110, %107
+"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit170": ; preds = %110, %107
   %.pn136 = phi { ptr, i32 } [ %108, %107 ], [ %111, %110 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$datafusion..physical_optimizer..pruning..PruningPredicate$GT$17h4ebbaf1e696f94f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %18) #66
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit" unwind label %112
@@ -117338,16 +117338,16 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit165"
+  br label %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit170"
 
-"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit163.invoke": ; preds = %105, %94
+"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit168.invoke": ; preds = %105, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @"_ZN4core3ptr78drop_in_place$LT$datafusion..physical_optimizer..pruning..PruningPredicate$GT$17h4ebbaf1e696f94f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %18)
           to label %109 unwind label %34
 
-109:                                              ; preds = %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit163.invoke"
+109:                                              ; preds = %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit168.invoke"
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.critedge152
+  br label %.critedge153
 
 110:                                              ; preds = %102
   %111 = landingpad { ptr, i32 }
@@ -117355,7 +117355,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   invoke void @"_ZN4core3ptr507drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$deltalake_core..kernel..models..actions..Add$GT$$GT$$GT$17h43e47ef1e4d3b19aE.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(128) %14)
           to label %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit165" unwind label %112
 
-112:                                              ; preds = %121, %110, %96, %67, %50, %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit", %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit165", %87, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit"
+112:                                              ; preds = %121, %110, %96, %67, %50, %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit", %"_ZN4core3ptr415drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$arrow_array..record_batch..RecordBatch$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..errors..DeltaTableError$GT$$C$deltalake_core..kernel..snapshot..EagerSnapshot..file_actions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hab090d723958d930E.exit170", %87, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit"
   %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #67
@@ -117365,7 +117365,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   invoke void @"_ZN4core3ptr78drop_in_place$LT$datafusion..physical_optimizer..pruning..PruningPredicate$GT$17h4ebbaf1e696f94f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %18) #66
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit" unwind label %112
 
-.critedge152:                                     ; preds = %43, %116, %109
+.critedge153:                                     ; preds = %43, %116, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..expr..Expr$GT$17hee0b97e40624d8beE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 16 dereferenceable(272) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -117379,12 +117379,12 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdab935462bf9c81cE.llvm.802258446
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %116
 
-116:                                              ; preds = %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit159", %114
+116:                                              ; preds = %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit164", %114
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.716)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.critedge152
+  br label %.critedge153
 
-"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit159": ; preds = %75, %80
+"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_expr..physical_expr..PhysicalExpr$GT$$GT$17h979b302b9829d769E.exit164": ; preds = %75, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %116
@@ -117424,11 +117424,11 @@ switch.early.test149:                             ; preds = %29
   store i64 -9223372036854775804, ptr %0, align 8
   br label %123
 
-123:                                              ; preds = %.critedge, %switch.early.test148, %.critedge152, %switch.early.test149
+123:                                              ; preds = %.critedge, %switch.early.test148, %.critedge153, %switch.early.test149
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret void
 
-.thread226:                                       ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit"
+.thread231:                                       ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.exit"
   resume { ptr, i32 } %.pn139
 }
 

@@ -23018,40 +23018,40 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$uv_build_backend..metadata..
           cleanup
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %5 = load i64, ptr %4, align 8, !range !1127, !alias.scope !8386, !noundef !8
-  %6 = icmp slt i64 %5, -9223372036854775805
-  br i1 %6, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit", label %7
+  %switch.i = icmp slt i64 %5, -9223372036854775805
+  br i1 %switch.i, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit", label %6
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   tail call void @"_ZN4core3ptr69drop_in_place$LT$uv_build_backend..settings..BuildBackendSettings$GT$17hc3784caacd1c9c7dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %4)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit"
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %10 = load i64, ptr %9, align 8, !range !1127, !alias.scope !8389, !noundef !8
-  %11 = icmp slt i64 %10, -9223372036854775805
-  br i1 %11, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit2", label %12
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %9 = load i64, ptr %8, align 8, !range !1127, !alias.scope !8389, !noundef !8
+  %switch.i2 = icmp slt i64 %9, -9223372036854775805
+  br i1 %switch.i2, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit3", label %10
 
-12:                                               ; preds = %8
-  tail call void @"_ZN4core3ptr69drop_in_place$LT$uv_build_backend..settings..BuildBackendSettings$GT$17hc3784caacd1c9c7dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %9)
-  br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit2"
+10:                                               ; preds = %7
+  tail call void @"_ZN4core3ptr69drop_in_place$LT$uv_build_backend..settings..BuildBackendSettings$GT$17hc3784caacd1c9c7dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %8)
+  br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit3"
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit": ; preds = %7, %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$uv_build_backend..metadata..BuildSystem$GT$17hf57267fb60d0bbc3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13) #41
-          to label %17 unwind label %15
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit": ; preds = %6, %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$uv_build_backend..metadata..BuildSystem$GT$17hf57267fb60d0bbc3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11) #41
+          to label %17 unwind label %13
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit2": ; preds = %12, %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  tail call void @"_ZN4core3ptr60drop_in_place$LT$uv_build_backend..metadata..BuildSystem$GT$17hf57267fb60d0bbc3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14)
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit3": ; preds = %10, %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  tail call void @"_ZN4core3ptr60drop_in_place$LT$uv_build_backend..metadata..BuildSystem$GT$17hf57267fb60d0bbc3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
   ret void
 
-15:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit"
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit"
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #40
   unreachable
 
-17:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit"
+15:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177.exit"
   resume { ptr, i32 } %3
 }
 
@@ -34318,13 +34318,13 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$toml
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_build_backend..metadata..Tool$GT$$GT$17hb9d417e6c921ea6fE.llvm.9417612539669657177"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(240) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !1127, !noundef !8
-  %3 = icmp slt i64 %2, -9223372036854775805
-  br i1 %3, label %"_ZN4core3ptr53drop_in_place$LT$uv_build_backend..metadata..Tool$GT$17hba9e8d81e56c4b77E.exit", label %4
+  %switch = icmp slt i64 %2, -9223372036854775805
+  br i1 %switch, label %"_ZN4core3ptr53drop_in_place$LT$uv_build_backend..metadata..Tool$GT$17hba9e8d81e56c4b77E.exit", label %3
 
-"_ZN4core3ptr53drop_in_place$LT$uv_build_backend..metadata..Tool$GT$17hba9e8d81e56c4b77E.exit": ; preds = %1, %4
+"_ZN4core3ptr53drop_in_place$LT$uv_build_backend..metadata..Tool$GT$17hba9e8d81e56c4b77E.exit": ; preds = %1, %3
   ret void
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN4core3ptr69drop_in_place$LT$uv_build_backend..settings..BuildBackendSettings$GT$17hc3784caacd1c9c7dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
   br label %"_ZN4core3ptr53drop_in_place$LT$uv_build_backend..metadata..Tool$GT$17hba9e8d81e56c4b77E.exit"
 }

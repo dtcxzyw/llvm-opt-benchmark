@@ -62767,11 +62767,11 @@ tailrecurse.backedge:                             ; preds = %26
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !tbaa !97
   br label %tailrecurse
 
-31:                                               ; preds = %26
+28:                                               ; preds = %26
   %32 = icmp eq i32 %28, 15
   br i1 %32, label %33, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70
 
-33:                                               ; preds = %31
+33:; preds = %31
   %34 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef nonnull %.tr) #39
   %35 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !1515
@@ -62779,62 +62779,62 @@ tailrecurse.backedge:                             ; preds = %26
   br i1 %.not5285, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext i32 %36 to i64
-  br label %39
+  br label %34
 
-39:                                               ; preds = %.lr.ph, %48
+34:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %.04587 = phi i64 [ 0, %.lr.ph ], [ %61, %48 ]
-  %40 = load ptr, ptr %37, align 8, !tbaa !197
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !97
-  %43 = call fastcc noundef zeroext i1 @_ZL15isDenselyPackedPN4llvm4TypeERKNS_10DataLayoutE(ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(496) %1)
-  br i1 %43, label %44, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70
+  %.04587 = phi i64 [ 0, %.lr.ph ], [ %56, %48 ]
+  %35 = load ptr, ptr %32, align 8, !tbaa !197
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8, !tbaa !97
+  %38 = call fastcc noundef zeroext i1 @_ZL15isDenselyPackedPN4llvm4TypeERKNS_10DataLayoutE(ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(496) %1)
+  br i1 %38, label %39, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70
 
-44:                                               ; preds = %39
+39:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %45 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %38, i64 %indvars.iv
-  %.sroa.0.0.copyload.i.i = load i64, ptr %45, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %40 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %33, i64 %indvars.iv
+  %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %46 = shl i64 %.sroa.0.0.copyload.i.i, 3
-  store i64 %46, ptr %3, align 8
+  %41 = shl i64 %.sroa.0.0.copyload.i.i, 3
+  store i64 %41, ptr %3, align 8
   store i8 %.sroa.2.0.copyload.i.i, ptr %.sroa.25.0..sroa_idx, align 8
-  %47 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #39
-  %.not51 = icmp eq i64 %.04587, %47
+  %42 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #39
+  %.not51 = icmp eq i64 %.04587, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not51, label %48, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70
+  br i1 %.not51, label %43, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70
 
-48:                                               ; preds = %44
+43:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %49 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %42)
-  %.fca.0.extract.i13.i.i56 = extractvalue { i64, i8 } %49, 0
-  %.fca.1.extract.i14.i.i57 = extractvalue { i64, i8 } %49, 1
-  %50 = add i64 %.fca.0.extract.i13.i.i56, 7
-  %51 = lshr i64 %50, 3
-  %52 = and i8 %.fca.1.extract.i14.i.i57, 1
-  %53 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %42) #39
-  %54 = zext nneg i8 %53 to i64
-  %55 = shl nuw i64 1, %54
-  %56 = add nuw nsw i64 %51, 2305843009213693951
-  %57 = add nuw i64 %56, %55
-  %.not.i.i58 = sub i64 0, %55
-  %58 = and i64 %57, %.not.i.i58
-  %59 = shl i64 %58, 3
-  store i64 %59, ptr %4, align 8
-  store i8 %52, ptr %.sroa.2.0..sroa_idx, align 8
-  %60 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #39
-  %61 = add i64 %60, %.04587
+  %44 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %37)
+  %.fca.0.extract.i13.i.i56 = extractvalue { i64, i8 } %44, 0
+  %.fca.1.extract.i14.i.i57 = extractvalue { i64, i8 } %44, 1
+  %45 = add i64 %.fca.0.extract.i13.i.i56, 7
+  %46 = lshr i64 %45, 3
+  %47 = and i8 %.fca.1.extract.i14.i.i57, 1
+  %48 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %37) #39
+  %49 = zext nneg i8 %48 to i64
+  %50 = shl nuw i64 1, %49
+  %51 = add nuw nsw i64 %46, 2305843009213693951
+  %52 = add nuw i64 %51, %50
+  %.not.i.i58 = sub i64 0, %50
+  %53 = and i64 %52, %.not.i.i58
+  %54 = shl i64 %53, 3
+  store i64 %54, ptr %4, align 8
+  store i8 %47, ptr %.sroa.2.0..sroa_idx, align 8
+  %55 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #39
+  %56 = add i64 %55, %.04587
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70, label %39, !llvm.loop !1638
+  br i1 %exitcond.not, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70, label %34, !llvm.loop !1638
 
-_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70: ; preds = %switch.early.test.i, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %44, %39, %48, %33, %31
+_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread70: ; preds = %switch.early.test.i, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %44, %39, %48, %33, %28
   %.0 = phi i1 [ true, %31 ], [ true, %33 ], [ false, %44 ], [ false, %39 ], [ true, %48 ], [ false, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ false, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread ], [ false, %switch.early.test.i ]
   ret i1 %.0
 }
