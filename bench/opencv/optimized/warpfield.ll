@@ -18489,17 +18489,17 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfE
   %wide.trip.count.i65 = zext nneg i32 %2 to i64
   br i1 %23, label %.lr.ph96.split.us, label %.lr.ph96.split
 
-.lr.ph96.split.us:                                ; preds = %.lr.ph96, %50
-  %24 = phi i32 [ %51, %50 ], [ 0, %.lr.ph96 ]
-  %.05294.us = phi float [ %.153.us, %50 ], [ -1.000000e+00, %.lr.ph96 ]
-  %.05493.us = phi i64 [ %52, %50 ], [ 0, %.lr.ph96 ]
+.lr.ph96.split.us:                                ; preds = %.lr.ph96, %47
+  %24 = phi i32 [ %48, %47 ], [ 0, %.lr.ph96 ]
+  %.05294.us = phi float [ %.153.us, %47 ], [ -1.000000e+00, %.lr.ph96 ]
+  %.05493.us = phi i64 [ %49, %47 ], [ 0, %.lr.ph96 ]
   %25 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %.05493.us
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !435
   %28 = load float, ptr %25, align 4, !tbaa !433
   %29 = fsub float %27, %28
   %30 = fcmp ogt float %29, %18
-  br i1 %30, label %.lr.ph.preheader.i64.us, label %50
+  br i1 %30, label %.lr.ph.preheader.i64.us, label %47
 
 .lr.ph.preheader.i64.us:                          ; preds = %.lr.ph96.split.us
   %31 = load i32, ptr %1, align 4, !tbaa !60
@@ -18516,162 +18516,156 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfE
 .lr.ph.i66.us:                                    ; preds = %.lr.ph.i66.us, %.lr.ph.preheader.i64.us
   %.087.us = phi float [ %37, %.lr.ph.preheader.i64.us ], [ %.188.us, %.lr.ph.i66.us ]
   %.084.us = phi float [ %37, %.lr.ph.preheader.i64.us ], [ %.185.us, %.lr.ph.i66.us ]
-  %38 = phi float [ %37, %.lr.ph.preheader.i64.us ], [ %47, %.lr.ph.i66.us ]
   %indvars.iv.i67.us = phi i64 [ 1, %.lr.ph.preheader.i64.us ], [ %indvars.iv.next.i69.us, %.lr.ph.i66.us ]
-  %39 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i67.us
-  %40 = load i32, ptr %39, align 4, !tbaa !60
-  %41 = sext i32 %40 to i64
-  %42 = mul i64 %22, %41
-  %gep.i68.us = getelementptr float, ptr %invariant.gep.i63.us, i64 %42
-  %43 = load float, ptr %gep.i68.us, align 4, !tbaa !83
-  %44 = fcmp olt float %43, %.087.us
-  %.188.us = select i1 %44, float %43, float %.087.us
-  %45 = select i1 %44, float %.084.us, float %38
-  %46 = fcmp ogt float %43, %45
-  %.185.us = select i1 %46, float %43, float %.084.us
-  %47 = select i1 %46, float %43, float %45
+  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i67.us
+  %39 = load i32, ptr %38, align 4, !tbaa !60
+  %40 = sext i32 %39 to i64
+  %41 = mul i64 %22, %40
+  %gep.i68.us = getelementptr float, ptr %invariant.gep.i63.us, i64 %41
+  %42 = load float, ptr %gep.i68.us, align 4, !tbaa !83
+  %43 = fcmp olt float %42, %.087.us
+  %.188.us = select i1 %43, float %42, float %.087.us
+  %44 = fcmp ogt float %42, %.084.us
+  %.185.us = select i1 %44, float %42, float %.084.us
   %indvars.iv.next.i69.us = add nuw nsw i64 %indvars.iv.i67.us, 1
   %exitcond.not.i70.us = icmp eq i64 %indvars.iv.next.i69.us, %wide.trip.count.i65
   br i1 %exitcond.not.i70.us, label %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us, label %.lr.ph.i66.us, !llvm.loop !467
 
-48:                                               ; preds = %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us
-  %49 = trunc i64 %.05493.us to i32
-  store i32 %49, ptr %4, align 4, !tbaa !60
-  br label %50
+45:                                               ; preds = %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us
+  %46 = trunc i64 %.05493.us to i32
+  store i32 %46, ptr %4, align 4, !tbaa !60
+  br label %47
 
-50:                                               ; preds = %48, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us, %.lr.ph96.split.us
-  %51 = phi i32 [ %24, %.lr.ph96.split.us ], [ %49, %48 ], [ %24, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us ]
-  %.153.us = phi float [ %.05294.us, %.lr.ph96.split.us ], [ %53, %48 ], [ %.05294.us, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us ]
-  %52 = add nuw i64 %.05493.us, 1
-  %exitcond100.not = icmp eq i64 %52, %16
+47:                                               ; preds = %45, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us, %.lr.ph96.split.us
+  %48 = phi i32 [ %24, %.lr.ph96.split.us ], [ %46, %45 ], [ %24, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us ]
+  %.153.us = phi float [ %.05294.us, %.lr.ph96.split.us ], [ %50, %45 ], [ %.05294.us, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us ]
+  %49 = add nuw i64 %.05493.us, 1
+  %exitcond100.not = icmp eq i64 %49, %16
   br i1 %exitcond100.not, label %._crit_edge97, label %.lr.ph96.split.us, !llvm.loop !468
 
 _ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72.loopexit.us: ; preds = %.lr.ph.i66.us
-  %53 = fsub float %.185.us, %.188.us
-  %54 = fcmp ogt float %53, %.05294.us
-  br i1 %54, label %48, label %50
+  %50 = fsub float %.185.us, %.188.us
+  %51 = fcmp ogt float %50, %.05294.us
+  br i1 %51, label %45, label %47
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.091 = phi float [ %.1, %.lr.ph ], [ %14, %7 ]
-  %.05190 = phi i64 [ %61, %.lr.ph ], [ 1, %7 ]
-  %55 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %.05190
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load float, ptr %56, align 4, !tbaa !435
-  %58 = load float, ptr %55, align 4, !tbaa !433
-  %59 = fsub float %57, %58
-  %60 = fcmp ogt float %59, %.091
-  %.1 = select i1 %60, float %59, float %.091
-  %61 = add nuw i64 %.05190, 1
-  %exitcond.not = icmp eq i64 %61, %16
+  %.05190 = phi i64 [ %58, %.lr.ph ], [ 1, %7 ]
+  %52 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %.05190
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = load float, ptr %53, align 4, !tbaa !435
+  %55 = load float, ptr %52, align 4, !tbaa !433
+  %56 = fsub float %54, %55
+  %57 = fcmp ogt float %56, %.091
+  %.1 = select i1 %57, float %56, float %.091
+  %58 = add nuw i64 %.05190, 1
+  %exitcond.not = icmp eq i64 %58, %16
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !469
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   store i32 0, ptr %4, align 4, !tbaa !60
   br label %.lr.ph96
 
-._crit_edge97:                                    ; preds = %113, %50, %._crit_edge.._crit_edge97_crit_edge
-  %62 = phi i64 [ %.pre102, %._crit_edge.._crit_edge97_crit_edge ], [ %22, %50 ], [ %22, %113 ]
-  %63 = phi ptr [ %.pre, %._crit_edge.._crit_edge97_crit_edge ], [ %20, %50 ], [ %20, %113 ]
-  %64 = phi i32 [ 0, %._crit_edge.._crit_edge97_crit_edge ], [ %51, %50 ], [ %114, %113 ]
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %65
-  %67 = load float, ptr %66, align 4, !tbaa !433
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %69 = load float, ptr %68, align 4, !tbaa !435
-  %70 = load i32, ptr %1, align 4, !tbaa !60
-  %71 = sext i32 %70 to i64
-  %72 = mul i64 %62, %71
-  %73 = getelementptr inbounds nuw float, ptr %63, i64 %72
-  %74 = getelementptr inbounds float, ptr %73, i64 %65
-  %75 = load float, ptr %74, align 4, !tbaa !83
-  %invariant.gep.i = getelementptr float, ptr %63, i64 %65
-  %76 = icmp sgt i32 %2, 1
-  br i1 %76, label %.lr.ph.preheader.i, label %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit
+._crit_edge97:                                    ; preds = %107, %47, %._crit_edge.._crit_edge97_crit_edge
+  %59 = phi i64 [ %.pre102, %._crit_edge.._crit_edge97_crit_edge ], [ %22, %47 ], [ %22, %107 ]
+  %60 = phi ptr [ %.pre, %._crit_edge.._crit_edge97_crit_edge ], [ %20, %47 ], [ %20, %107 ]
+  %61 = phi i32 [ 0, %._crit_edge.._crit_edge97_crit_edge ], [ %48, %47 ], [ %108, %107 ]
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %62
+  %64 = load float, ptr %63, align 4, !tbaa !433
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %66 = load float, ptr %65, align 4, !tbaa !435
+  %67 = load i32, ptr %1, align 4, !tbaa !60
+  %68 = sext i32 %67 to i64
+  %69 = mul i64 %59, %68
+  %70 = getelementptr inbounds nuw float, ptr %60, i64 %69
+  %71 = getelementptr inbounds float, ptr %70, i64 %62
+  %72 = load float, ptr %71, align 4, !tbaa !83
+  %invariant.gep.i = getelementptr float, ptr %60, i64 %62
+  %73 = icmp sgt i32 %2, 1
+  br i1 %73, label %.lr.ph.preheader.i, label %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge97
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.081 = phi float [ %75, %.lr.ph.preheader.i ], [ %.182, %.lr.ph.i ]
-  %.078 = phi float [ %75, %.lr.ph.preheader.i ], [ %.179, %.lr.ph.i ]
-  %77 = phi float [ %75, %.lr.ph.preheader.i ], [ %86, %.lr.ph.i ]
+  %.081 = phi float [ %72, %.lr.ph.preheader.i ], [ %.182, %.lr.ph.i ]
+  %.078 = phi float [ %72, %.lr.ph.preheader.i ], [ %.179, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %79 = load i32, ptr %78, align 4, !tbaa !60
-  %80 = sext i32 %79 to i64
-  %81 = mul i64 %62, %80
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %81
-  %82 = load float, ptr %gep.i, align 4, !tbaa !83
-  %83 = fcmp olt float %82, %.081
-  %.182 = select i1 %83, float %82, float %.081
-  %84 = select i1 %83, float %.078, float %77
-  %85 = fcmp ogt float %82, %84
-  %.179 = select i1 %85, float %82, float %.078
-  %86 = select i1 %85, float %82, float %84
+  %74 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %75 = load i32, ptr %74, align 4, !tbaa !60
+  %76 = sext i32 %75 to i64
+  %77 = mul i64 %59, %76
+  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %77
+  %78 = load float, ptr %gep.i, align 4, !tbaa !83
+  %79 = fcmp olt float %78, %.081
+  %.182 = select i1 %79, float %78, float %.081
+  %80 = fcmp ogt float %78, %.078
+  %.179 = select i1 %80, float %78, float %.078
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit, label %.lr.ph.i, !llvm.loop !467
 
 _ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit: ; preds = %.lr.ph.i, %._crit_edge97
-  %.283 = phi float [ %75, %._crit_edge97 ], [ %.182, %.lr.ph.i ]
-  %.280 = phi float [ %75, %._crit_edge97 ], [ %.179, %.lr.ph.i ]
-  %87 = fadd float %67, %69
-  %88 = fmul float %87, 5.000000e-01
-  %89 = fcmp olt float %88, %.283
-  %90 = fcmp ogt float %88, %.280
-  %.280. = select i1 %90, float %.280, float %88
-  %.280.sink = select i1 %89, float %.283, float %.280.
+  %.283 = phi float [ %72, %._crit_edge97 ], [ %.182, %.lr.ph.i ]
+  %.280 = phi float [ %72, %._crit_edge97 ], [ %.179, %.lr.ph.i ]
+  %81 = fadd float %64, %66
+  %82 = fmul float %81, 5.000000e-01
+  %83 = fcmp olt float %82, %.283
+  %84 = fcmp ogt float %82, %.280
+  %.280. = select i1 %84, float %.280, float %82
+  %.280.sink = select i1 %83, float %.283, float %.280.
   store float %.280.sink, ptr %5, align 4, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE10planeSplitEPiiifRiS5_(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %64, float noundef %.280.sink, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %91 = load i32, ptr %8, align 4, !tbaa !60
-  %92 = sdiv i32 %2, 2
-  %93 = icmp sgt i32 %91, %92
-  %94 = load i32, ptr %9, align 4
-  %. = call i32 @llvm.smin.i32(i32 %94, i32 %92)
-  %.sink = select i1 %93, i32 %91, i32 %.
+  call void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE10planeSplitEPiiifRiS5_(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %61, float noundef %.280.sink, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %85 = load i32, ptr %8, align 4, !tbaa !60
+  %86 = sdiv i32 %2, 2
+  %87 = icmp sgt i32 %85, %86
+  %88 = load i32, ptr %9, align 4
+  %. = call i32 @llvm.smin.i32(i32 %88, i32 %86)
+  %.sink = select i1 %87, i32 %85, i32 %.
   store i32 %.sink, ptr %3, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-.lr.ph96.split:                                   ; preds = %.lr.ph96, %113
-  %95 = phi i32 [ %114, %113 ], [ 0, %.lr.ph96 ]
-  %.05294 = phi float [ %.153, %113 ], [ -1.000000e+00, %.lr.ph96 ]
-  %.05493 = phi i64 [ %115, %113 ], [ 0, %.lr.ph96 ]
-  %96 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %.05493
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %98 = load float, ptr %97, align 4, !tbaa !435
-  %99 = load float, ptr %96, align 4, !tbaa !433
-  %100 = fsub float %98, %99
-  %101 = fcmp ogt float %100, %18
-  br i1 %101, label %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72, label %113
+.lr.ph96.split:                                   ; preds = %.lr.ph96, %107
+  %89 = phi i32 [ %108, %107 ], [ 0, %.lr.ph96 ]
+  %.05294 = phi float [ %.153, %107 ], [ -1.000000e+00, %.lr.ph96 ]
+  %.05493 = phi i64 [ %109, %107 ], [ 0, %.lr.ph96 ]
+  %90 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2_Simple<float>>::Interval", ptr %10, i64 %.05493
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %92 = load float, ptr %91, align 4, !tbaa !435
+  %93 = load float, ptr %90, align 4, !tbaa !433
+  %94 = fsub float %92, %93
+  %95 = fcmp ogt float %94, %18
+  br i1 %95, label %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72, label %107
 
 _ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72: ; preds = %.lr.ph96.split
-  %102 = load i32, ptr %1, align 4, !tbaa !60
-  %103 = sext i32 %102 to i64
-  %104 = mul i64 %22, %103
-  %105 = getelementptr inbounds nuw float, ptr %20, i64 %104
+  %96 = load i32, ptr %1, align 4, !tbaa !60
+  %97 = sext i32 %96 to i64
+  %98 = mul i64 %22, %97
+  %99 = getelementptr inbounds nuw float, ptr %20, i64 %98
   %sext = shl i64 %.05493, 32
-  %106 = ashr exact i64 %sext, 30
-  %107 = getelementptr inbounds i8, ptr %105, i64 %106
-  %108 = load float, ptr %107, align 4, !tbaa !83
-  %109 = fsub float %108, %108
-  %110 = fcmp ogt float %109, %.05294
-  br i1 %110, label %111, label %113
+  %100 = ashr exact i64 %sext, 30
+  %101 = getelementptr inbounds i8, ptr %99, i64 %100
+  %102 = load float, ptr %101, align 4, !tbaa !83
+  %103 = fsub float %102, %102
+  %104 = fcmp ogt float %103, %.05294
+  br i1 %104, label %105, label %107
 
-111:                                              ; preds = %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72
-  %112 = trunc i64 %.05493 to i32
-  store i32 %112, ptr %4, align 4, !tbaa !60
-  br label %113
+105:                                              ; preds = %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72
+  %106 = trunc i64 %.05493 to i32
+  store i32 %106, ptr %4, align 4, !tbaa !60
+  br label %107
 
-113:                                              ; preds = %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72, %111, %.lr.ph96.split
-  %114 = phi i32 [ %95, %.lr.ph96.split ], [ %112, %111 ], [ %95, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72 ]
-  %.153 = phi float [ %.05294, %.lr.ph96.split ], [ %109, %111 ], [ %.05294, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72 ]
-  %115 = add nuw i64 %.05493, 1
-  %exitcond99.not = icmp eq i64 %115, %16
+107:                                              ; preds = %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72, %105, %.lr.ph96.split
+  %108 = phi i32 [ %89, %.lr.ph96.split ], [ %106, %105 ], [ %89, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72 ]
+  %.153 = phi float [ %.05294, %.lr.ph96.split ], [ %103, %105 ], [ %.05294, %_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE13computeMinMaxEPiiiRfS5_.exit72 ]
+  %109 = add nuw i64 %.05493, 1
+  %exitcond99.not = icmp eq i64 %109, %16
   br i1 %exitcond99.not, label %._crit_edge97, label %.lr.ph96.split, !llvm.loop !468
 }
 

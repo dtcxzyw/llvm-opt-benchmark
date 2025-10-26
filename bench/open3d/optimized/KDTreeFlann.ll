@@ -6486,17 +6486,17 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
   %wide.trip.count109 = zext nneg i32 %12 to i64
   br i1 %26, label %.lr.ph97.split.us, label %.lr.ph97.split
 
-.lr.ph97.split.us:                                ; preds = %.lr.ph97, %56
-  %27 = phi i32 [ %57, %56 ], [ 0, %.lr.ph97 ]
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %56 ], [ 0, %.lr.ph97 ]
-  %.05895.us = phi double [ %.159.us, %56 ], [ -1.000000e+00, %.lr.ph97 ]
+.lr.ph97.split.us:                                ; preds = %.lr.ph97, %53
+  %27 = phi i32 [ %54, %53 ], [ 0, %.lr.ph97 ]
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %53 ], [ 0, %.lr.ph97 ]
+  %.05895.us = phi double [ %.159.us, %53 ], [ -1.000000e+00, %.lr.ph97 ]
   %28 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv106
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load double, ptr %29, align 8, !tbaa !94
   %31 = load double, ptr %28, align 8, !tbaa !92
   %32 = fsub double %30, %31
   %33 = fcmp ogt double %32, %20
-  br i1 %33, label %.lr.ph.i70.preheader.us, label %56
+  br i1 %33, label %.lr.ph.i70.preheader.us, label %53
 
 .lr.ph.i70.preheader.us:                          ; preds = %.lr.ph97.split.us
   %34 = load i64, ptr %22, align 8, !tbaa !31
@@ -6513,50 +6513,47 @@ define linkonce_odr void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexA
 .lr.ph.i70.us:                                    ; preds = %.lr.ph.i70.preheader.us, %.lr.ph.i70.us
   %.089.us = phi double [ %.190.us, %.lr.ph.i70.us ], [ %42, %.lr.ph.i70.preheader.us ]
   %.086.us = phi double [ %.187.us, %.lr.ph.i70.us ], [ %42, %.lr.ph.i70.preheader.us ]
-  %43 = phi double [ %52, %.lr.ph.i70.us ], [ %42, %.lr.ph.i70.preheader.us ]
-  %.022.i71.us = phi i64 [ %53, %.lr.ph.i70.us ], [ 1, %.lr.ph.i70.preheader.us ]
-  %44 = getelementptr i64, ptr %22, i64 %.022.i71.us
-  %45 = load i64, ptr %44, align 8, !tbaa !31
-  %46 = mul nsw i64 %45, %38
-  %47 = getelementptr double, ptr %40, i64 %46
-  %48 = load double, ptr %47, align 8, !tbaa !45
-  %49 = fcmp olt double %48, %.089.us
-  %.190.us = select i1 %49, double %48, double %.089.us
-  %50 = select i1 %49, double %.086.us, double %43
-  %51 = fcmp ogt double %48, %50
-  %.187.us = select i1 %51, double %48, double %.086.us
-  %52 = select i1 %51, double %48, double %50
-  %53 = add nuw i64 %.022.i71.us, 1
-  %exitcond.not.i72.us = icmp eq i64 %53, %3
+  %.022.i71.us = phi i64 [ %50, %.lr.ph.i70.us ], [ 1, %.lr.ph.i70.preheader.us ]
+  %43 = getelementptr i64, ptr %22, i64 %.022.i71.us
+  %44 = load i64, ptr %43, align 8, !tbaa !31
+  %45 = mul nsw i64 %44, %38
+  %46 = getelementptr double, ptr %40, i64 %45
+  %47 = load double, ptr %46, align 8, !tbaa !45
+  %48 = fcmp olt double %47, %.089.us
+  %.190.us = select i1 %48, double %47, double %.089.us
+  %49 = fcmp ogt double %47, %.086.us
+  %.187.us = select i1 %49, double %47, double %.086.us
+  %50 = add nuw i64 %.022.i71.us, 1
+  %exitcond.not.i72.us = icmp eq i64 %50, %3
   br i1 %exitcond.not.i72.us, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us, label %.lr.ph.i70.us, !llvm.loop !202
 
-54:                                               ; preds = %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us
-  %55 = trunc nuw nsw i64 %indvars.iv106 to i32
-  store i32 %55, ptr %5, align 4, !tbaa !52
-  br label %56
+51:                                               ; preds = %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us
+  %52 = trunc nuw nsw i64 %indvars.iv106 to i32
+  store i32 %52, ptr %5, align 4, !tbaa !52
+  br label %53
 
-56:                                               ; preds = %54, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us, %.lr.ph97.split.us
-  %57 = phi i32 [ %27, %.lr.ph97.split.us ], [ %55, %54 ], [ %27, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us ]
-  %.159.us = phi double [ %.05895.us, %.lr.ph97.split.us ], [ %58, %54 ], [ %.05895.us, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us ]
+53:                                               ; preds = %51, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us, %.lr.ph97.split.us
+  %54 = phi i32 [ %27, %.lr.ph97.split.us ], [ %52, %51 ], [ %27, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us ]
+  %.159.us = phi double [ %.05895.us, %.lr.ph97.split.us ], [ %55, %51 ], [ %.05895.us, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %._crit_edge98, label %.lr.ph97.split.us, !llvm.loop !203
 
 _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74.loopexit.us: ; preds = %.lr.ph.i70.us
-  %58 = fsub double %.187.us, %.190.us
-  %59 = fcmp ogt double %58, %.05895.us
-  br i1 %59, label %54, label %56
+  %55 = fsub double %.187.us, %.190.us
+  %56 = fcmp ogt double %55, %.05895.us
+  br i1 %56, label %51, label %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.093 = phi double [ %17, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %60 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load double, ptr %61, align 8, !tbaa !94
-  %63 = load double, ptr %60, align 8, !tbaa !92
-  %64 = fsub double %62, %63
-  %65 = fcmp ogt double %64, %.093
-  %.1 = select i1 %65, double %64, double %.093
+  %57 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load double, ptr %58, align 8, !tbaa !94
+  %60 = load double, ptr %57, align 8, !tbaa !92
+  %61 = fsub double %59, %60
+  %62 = fcmp ogt double %61, %.093
+  %.1 = select i1 %62, double %61, double %.093
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !204
@@ -6565,107 +6562,104 @@ _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS
   store i32 0, ptr %5, align 4, !tbaa !52
   br label %.lr.ph97
 
-._crit_edge98:                                    ; preds = %125, %56, %._crit_edge.._crit_edge98_crit_edge
-  %66 = phi ptr [ %.pre, %._crit_edge.._crit_edge98_crit_edge ], [ %24, %56 ], [ %24, %125 ]
-  %67 = phi i32 [ 0, %._crit_edge.._crit_edge98_crit_edge ], [ %57, %56 ], [ %126, %125 ]
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %68
-  %70 = load double, ptr %69, align 8, !tbaa !92
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %72 = load double, ptr %71, align 8, !tbaa !94
-  %73 = load ptr, ptr %0, align 8, !tbaa !100
-  %74 = getelementptr i64, ptr %73, i64 %2
-  %75 = load i64, ptr %74, align 8, !tbaa !31
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !101
-  %78 = load ptr, ptr %77, align 8, !tbaa !102
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !18
-  %81 = mul nsw i64 %80, %75
-  %82 = getelementptr double, ptr %78, i64 %68
-  %83 = getelementptr double, ptr %82, i64 %81
-  %84 = load double, ptr %83, align 8, !tbaa !45
-  %85 = icmp ugt i64 %3, 1
-  br i1 %85, label %.lr.ph.i, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit
+._crit_edge98:                                    ; preds = %119, %53, %._crit_edge.._crit_edge98_crit_edge
+  %63 = phi ptr [ %.pre, %._crit_edge.._crit_edge98_crit_edge ], [ %24, %53 ], [ %24, %119 ]
+  %64 = phi i32 [ 0, %._crit_edge.._crit_edge98_crit_edge ], [ %54, %53 ], [ %120, %119 ]
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %65
+  %67 = load double, ptr %66, align 8, !tbaa !92
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = load double, ptr %68, align 8, !tbaa !94
+  %70 = load ptr, ptr %0, align 8, !tbaa !100
+  %71 = getelementptr i64, ptr %70, i64 %2
+  %72 = load i64, ptr %71, align 8, !tbaa !31
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !101
+  %75 = load ptr, ptr %74, align 8, !tbaa !102
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !18
+  %78 = mul nsw i64 %77, %72
+  %79 = getelementptr double, ptr %75, i64 %65
+  %80 = getelementptr double, ptr %79, i64 %78
+  %81 = load double, ptr %80, align 8, !tbaa !45
+  %82 = icmp ugt i64 %3, 1
+  br i1 %82, label %.lr.ph.i, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge98, %.lr.ph.i
-  %.083 = phi double [ %.184, %.lr.ph.i ], [ %84, %._crit_edge98 ]
-  %.080 = phi double [ %.181, %.lr.ph.i ], [ %84, %._crit_edge98 ]
-  %86 = phi double [ %95, %.lr.ph.i ], [ %84, %._crit_edge98 ]
-  %.022.i = phi i64 [ %96, %.lr.ph.i ], [ 1, %._crit_edge98 ]
-  %87 = getelementptr i64, ptr %74, i64 %.022.i
-  %88 = load i64, ptr %87, align 8, !tbaa !31
-  %89 = mul nsw i64 %88, %80
-  %90 = getelementptr double, ptr %82, i64 %89
-  %91 = load double, ptr %90, align 8, !tbaa !45
-  %92 = fcmp olt double %91, %.083
-  %.184 = select i1 %92, double %91, double %.083
-  %93 = select i1 %92, double %.080, double %86
-  %94 = fcmp ogt double %91, %93
-  %.181 = select i1 %94, double %91, double %.080
-  %95 = select i1 %94, double %91, double %93
-  %96 = add nuw i64 %.022.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %3
+  %.083 = phi double [ %.184, %.lr.ph.i ], [ %81, %._crit_edge98 ]
+  %.080 = phi double [ %.181, %.lr.ph.i ], [ %81, %._crit_edge98 ]
+  %.022.i = phi i64 [ %90, %.lr.ph.i ], [ 1, %._crit_edge98 ]
+  %83 = getelementptr i64, ptr %71, i64 %.022.i
+  %84 = load i64, ptr %83, align 8, !tbaa !31
+  %85 = mul nsw i64 %84, %77
+  %86 = getelementptr double, ptr %79, i64 %85
+  %87 = load double, ptr %86, align 8, !tbaa !45
+  %88 = fcmp olt double %87, %.083
+  %.184 = select i1 %88, double %87, double %.083
+  %89 = fcmp ogt double %87, %.080
+  %.181 = select i1 %89, double %87, double %.080
+  %90 = add nuw i64 %.022.i, 1
+  %exitcond.not.i = icmp eq i64 %90, %3
   br i1 %exitcond.not.i, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit, label %.lr.ph.i, !llvm.loop !202
 
 _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit: ; preds = %.lr.ph.i, %._crit_edge98
-  %.285 = phi double [ %84, %._crit_edge98 ], [ %.184, %.lr.ph.i ]
-  %.282 = phi double [ %84, %._crit_edge98 ], [ %.181, %.lr.ph.i ]
-  %97 = fadd double %70, %72
-  %98 = fmul double %97, 5.000000e-01
-  %99 = fcmp olt double %98, %.285
-  %100 = fcmp ogt double %98, %.282
-  %.282. = select i1 %100, double %.282, double %98
-  %.282.sink = select i1 %99, double %.285, double %.282.
+  %.285 = phi double [ %81, %._crit_edge98 ], [ %.184, %.lr.ph.i ]
+  %.282 = phi double [ %81, %._crit_edge98 ], [ %.181, %.lr.ph.i ]
+  %91 = fadd double %67, %69
+  %92 = fmul double %91, 5.000000e-01
+  %93 = fcmp olt double %92, %.285
+  %94 = fcmp ogt double %92, %.282
+  %.282. = select i1 %94, double %.282, double %92
+  %.282.sink = select i1 %93, double %.285, double %.282.
   store double %.282.sink, ptr %6, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE10planeSplitERKSB_mmiRKdRmSH_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 noundef %2, i64 noundef %3, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %101 = load i64, ptr %9, align 8, !tbaa !31
-  %102 = lshr i64 %3, 1
-  %103 = icmp ugt i64 %101, %102
-  %104 = load i64, ptr %10, align 8
-  %. = call i64 @llvm.umin.i64(i64 %104, i64 %102)
-  %.sink = select i1 %103, i64 %101, i64 %.
+  call void @_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE10planeSplitERKSB_mmiRKdRmSH_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 noundef %2, i64 noundef %3, i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %95 = load i64, ptr %9, align 8, !tbaa !31
+  %96 = lshr i64 %3, 1
+  %97 = icmp ugt i64 %95, %96
+  %98 = load i64, ptr %10, align 8
+  %. = call i64 @llvm.umin.i64(i64 %98, i64 %96)
+  %.sink = select i1 %97, i64 %95, i64 %.
   store i64 %.sink, ptr %4, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-.lr.ph97.split:                                   ; preds = %.lr.ph97, %125
-  %105 = phi i32 [ %126, %125 ], [ 0, %.lr.ph97 ]
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %125 ], [ 0, %.lr.ph97 ]
-  %.05895 = phi double [ %.159, %125 ], [ -1.000000e+00, %.lr.ph97 ]
-  %106 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv101
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %108 = load double, ptr %107, align 8, !tbaa !94
-  %109 = load double, ptr %106, align 8, !tbaa !92
-  %110 = fsub double %108, %109
-  %111 = fcmp ogt double %110, %20
-  br i1 %111, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74, label %125
+.lr.ph97.split:                                   ; preds = %.lr.ph97, %119
+  %99 = phi i32 [ %120, %119 ], [ 0, %.lr.ph97 ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %119 ], [ 0, %.lr.ph97 ]
+  %.05895 = phi double [ %.159, %119 ], [ -1.000000e+00, %.lr.ph97 ]
+  %100 = getelementptr inbounds nuw %"struct.nanoflann::KDTreeBaseClass<nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>, nanoflann::L2_Adaptor<double, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, double, long>, nanoflann::KDTreeEigenMatrixAdaptor<const Eigen::Matrix<double, -1, -1>, -1, nanoflann::metric_L2, false>, -1, long>::Interval", ptr %13, i64 %indvars.iv101
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = load double, ptr %101, align 8, !tbaa !94
+  %103 = load double, ptr %100, align 8, !tbaa !92
+  %104 = fsub double %102, %103
+  %105 = fcmp ogt double %104, %20
+  br i1 %105, label %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74, label %119
 
 _ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74: ; preds = %.lr.ph97.split
-  %112 = load i64, ptr %22, align 8, !tbaa !31
-  %113 = load ptr, ptr %25, align 8, !tbaa !101
-  %114 = load ptr, ptr %113, align 8, !tbaa !102
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = load i64, ptr %115, align 8, !tbaa !18
-  %117 = mul nsw i64 %116, %112
-  %118 = getelementptr double, ptr %114, i64 %indvars.iv101
-  %119 = getelementptr double, ptr %118, i64 %117
-  %120 = load double, ptr %119, align 8, !tbaa !45
-  %121 = fsub double %120, %120
-  %122 = fcmp ogt double %121, %.05895
-  br i1 %122, label %123, label %125
+  %106 = load i64, ptr %22, align 8, !tbaa !31
+  %107 = load ptr, ptr %25, align 8, !tbaa !101
+  %108 = load ptr, ptr %107, align 8, !tbaa !102
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %110 = load i64, ptr %109, align 8, !tbaa !18
+  %111 = mul nsw i64 %110, %106
+  %112 = getelementptr double, ptr %108, i64 %indvars.iv101
+  %113 = getelementptr double, ptr %112, i64 %111
+  %114 = load double, ptr %113, align 8, !tbaa !45
+  %115 = fsub double %114, %114
+  %116 = fcmp ogt double %115, %.05895
+  br i1 %116, label %117, label %119
 
-123:                                              ; preds = %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74
-  %124 = trunc nuw nsw i64 %indvars.iv101 to i32
-  store i32 %124, ptr %5, align 4, !tbaa !52
-  br label %125
+117:                                              ; preds = %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74
+  %118 = trunc nuw nsw i64 %indvars.iv101 to i32
+  store i32 %118, ptr %5, align 4, !tbaa !52
+  br label %119
 
-125:                                              ; preds = %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74, %123, %.lr.ph97.split
-  %126 = phi i32 [ %105, %.lr.ph97.split ], [ %124, %123 ], [ %105, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74 ]
-  %.159 = phi double [ %.05895, %.lr.ph97.split ], [ %121, %123 ], [ %.05895, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74 ]
+119:                                              ; preds = %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74, %117, %.lr.ph97.split
+  %120 = phi i32 [ %99, %.lr.ph97.split ], [ %118, %117 ], [ %99, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74 ]
+  %.159 = phi double [ %.05895, %.lr.ph97.split ], [ %115, %117 ], [ %.05895, %_ZN9nanoflann15KDTreeBaseClassINS_24KDTreeSingleIndexAdaptorINS_10L2_AdaptorIdNS_24KDTreeEigenMatrixAdaptorIKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ENS_9metric_L2ELb0EEEdlEES9_Lin1ElEESA_S9_Lin1ElE13computeMinMaxERKSB_mmiRdSF_.exit74 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count109
   br i1 %exitcond105.not, label %._crit_edge98, label %.lr.ph97.split, !llvm.loop !203
