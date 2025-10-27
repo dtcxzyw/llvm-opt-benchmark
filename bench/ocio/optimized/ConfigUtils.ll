@@ -1736,50 +1736,50 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .noexc26:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #26
-  %16 = add i64 %10, -4
-  %17 = sub i64 %16, %11
-  %18 = and i64 %17, -4
-  %19 = add i64 %18, 4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 0, i64 %19, i1 false), !tbaa !51
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %12
+  %17 = add i64 %10, -4
+  %18 = sub i64 %17, %11
+  %19 = and i64 %18, -4
+  %20 = add i64 %19, 4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 0, i64 %20, i1 false), !tbaa !51
+  %21 = ptrtoint ptr %16 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.13.0 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %20, %.noexc26 ]
+  %.sroa.13.0 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %21, %.noexc26 ]
   %.sroa.030.0 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %15, %.noexc26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = lshr i64 %13, 2
-  invoke void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef %21, i64 noundef 1, i32 noundef 0)
-          to label %22 unwind label %80
+  %22 = lshr i64 %13, 2
+  invoke void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef %22, i64 noundef 1, i32 noundef 0)
+          to label %23 unwind label %80
 
-22:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
+23:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = load ptr, ptr %7, align 8, !tbaa !47
-  %24 = load ptr, ptr %1, align 8, !tbaa !50
-  %25 = ptrtoint ptr %23 to i64
+  %24 = load ptr, ptr %7, align 8, !tbaa !47
+  %25 = load ptr, ptr %1, align 8, !tbaa !50
   %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = ashr exact i64 %27, 2
-  %29 = sdiv i64 %28, 4
-  invoke void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %.sroa.030.0, i64 noundef %29, i64 noundef 1, i32 noundef 0)
-          to label %30 unwind label %39
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = ashr exact i64 %28, 2
+  %30 = sdiv i64 %29, 4
+  invoke void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %.sroa.030.0, i64 noundef %30, i64 noundef 1, i32 noundef 0)
+          to label %31 unwind label %39
 
-30:                                               ; preds = %22
+31:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = load ptr, ptr %0, align 8, !tbaa !53
-  invoke void @_ZNK19OpenColorIO_v2_5dev9Processor24getOptimizedCPUProcessorENS_17OptimizationFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.10") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0)
-          to label %32 unwind label %41
+  %32 = load ptr, ptr %0, align 8, !tbaa !53
+  invoke void @_ZNK19OpenColorIO_v2_5dev9Processor24getOptimizedCPUProcessorENS_17OptimizationFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.10") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0)
+          to label %33 unwind label %41
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %6, align 8, !tbaa !56
-  invoke void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor5applyERKNS_9ImageDescERS1_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %6, align 8, !tbaa !56
+  invoke void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor5applyERKNS_9ImageDescERS1_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.preheader unwind label %43
 
-.preheader:                                       ; preds = %32
-  %34 = ptrtoint ptr %.sroa.13.0 to i64
+.preheader:                                       ; preds = %33
   %35 = ptrtoint ptr %.sroa.030.0 to i64
-  %36 = sub i64 %34, %35
-  %.not43 = icmp eq ptr %.sroa.13.0, %.sroa.030.0
+  %36 = sub i64 %.sroa.13.0, %35
+  %.not43 = icmp eq i64 %.sroa.13.0, %35
   br i1 %.not43, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1787,17 +1787,17 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %38 = load ptr, ptr %1, align 8, !tbaa !50
   br label %45
 
-39:                                               ; preds = %22
+39:                                               ; preds = %23
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-41:                                               ; preds = %30
+41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %79
 
-43:                                               ; preds = %32
+43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
@@ -1901,10 +1901,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge, %63, %_Z
 
 82:                                               ; preds = %.thread, %80
   %.pn.pn.pn41 = phi { ptr, i32 } [ %.pn.pn, %.thread ], [ %81, %80 ]
-  %83 = ptrtoint ptr %.sroa.13.0 to i64
-  %84 = ptrtoint ptr %.sroa.030.0 to i64
-  %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #25
+  %83 = ptrtoint ptr %.sroa.030.0 to i64
+  %84 = sub i64 %.sroa.13.0, %83
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %84) #25
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit29
 
 _ZNSt6vectorIfSaIfEED2Ev.exit29:                  ; preds = %82, %80

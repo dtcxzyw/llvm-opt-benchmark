@@ -617,14 +617,17 @@ list_head.exit:                                   ; preds = %3, %4
   %13 = getelementptr i8, ptr %1, i64 4
   %14 = getelementptr i8, ptr %1, i64 16
   %narrow = add nuw i16 %11, 1
-  %15 = zext i16 %narrow to i32
   %wide.trip.count = zext i16 %narrow to i64
   br label %18
 
-select.unfold.preheader:                          ; preds = %68, %list_head.exit
-  %.050.lcssa = phi i32 [ 1, %list_head.exit ], [ %15, %68 ]
-  %.047.lcssa = phi ptr [ %7, %list_head.exit ], [ %.14861, %68 ]
-  %.044.lcssa = phi ptr [ null, %list_head.exit ], [ %69, %68 ]
+select.unfold.preheader.loopexit:                 ; preds = %68
+  %15 = zext i16 %narrow to i32
+  br label %select.unfold.preheader
+
+select.unfold.preheader:                          ; preds = %select.unfold.preheader.loopexit, %list_head.exit
+  %.050.lcssa = phi i32 [ 1, %list_head.exit ], [ %15, %select.unfold.preheader.loopexit ]
+  %.047.lcssa = phi ptr [ %7, %list_head.exit ], [ %.14861, %select.unfold.preheader.loopexit ]
+  %.044.lcssa = phi ptr [ null, %list_head.exit ], [ %69, %select.unfold.preheader.loopexit ]
   %.not5270 = icmp eq ptr %.047.lcssa, null
   br i1 %.not5270, label %select.unfold._crit_edge, label %.lr.ph74
 
@@ -715,7 +718,7 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
   %69 = tail call ptr @lappend(ptr noundef %.04467, ptr noundef %.2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %select.unfold.preheader, label %18, !llvm.loop !6
+  br i1 %exitcond.not, label %select.unfold.preheader.loopexit, label %18, !llvm.loop !6
 
 70:                                               ; preds = %.lr.ph74, %select.unfold
   %.173 = phi ptr [ %.044.lcssa, %.lr.ph74 ], [ %86, %select.unfold ]

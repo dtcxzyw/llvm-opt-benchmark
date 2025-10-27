@@ -4575,10 +4575,13 @@ _ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit
   br i1 %.not.i.i.i.i.i29.i, label %_ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit30.i, label %.lr.ph.i.i.i.i.i25.i, !llvm.loop !790
 
 _ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit30.i: ; preds = %.lr.ph.i.i.i.i.i25.i
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.not2026.i = icmp eq i32 %.val47, 0
-  br i1 %.not2026.i, label %.critedge.i, label %.lr.ph.i
+  br i1 %.not2026.i, label %.preheader.thread.i, label %.lr.ph.i
+
+.preheader.thread.i:                              ; preds = %_ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit30.i
+  %.phi.trans.insert.i.i.ptr96.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.phi.trans.insert3.i.i97.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  br label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit30.i
   %42 = zext i32 %.val47 to i64
@@ -4588,6 +4591,8 @@ _ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit
   br label %51
 
 .preheader.i:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPNS_11DbgVariableELj1EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEELb1EE9push_backES8_.exit.i
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.not.i31.i = icmp eq i32 %68, 0
   br i1 %.not.i31.i, label %.critedge.i, label %.lr.ph33.i
 
@@ -5458,7 +5463,9 @@ _ZN4llvm13SmallDenseMapIPKNS_15DILocalVariableEPNS_11DbgVariableELj4ENS_12DenseM
   %465 = icmp eq ptr %464, %36
   br i1 %465, label %_ZL13sortLocalVarsRN4llvm15SmallVectorImplIPNS_11DbgVariableEEE.exit, label %_ZN4llvm11SmallVectorIPNS_11DbgVariableELj8EED2Ev.exit.sink.split.i
 
-.critedge.i:                                      ; preds = %.backedge.i, %.preheader.i, %_ZN4llvm13SmallDenseSetIPNS_11DbgVariableELj8ENS_12DenseMapInfoIS2_vEEEC2Ev.exit30.i
+.critedge.i:                                      ; preds = %.backedge.i, %.preheader.i, %.preheader.thread.i
+  %.phi.trans.insert3.i.i100.i = phi ptr [ %.phi.trans.insert3.i.i97.i, %.preheader.thread.i ], [ %.phi.trans.insert3.i.i.i, %.preheader.i ], [ %.phi.trans.insert3.i.i.i, %.backedge.i ]
+  %.phi.trans.insert.i.i.ptr99.i = phi ptr [ %.phi.trans.insert.i.i.ptr96.i, %.preheader.thread.i ], [ %.phi.trans.insert.i.i.ptr.i, %.preheader.i ], [ %.phi.trans.insert.i.i.ptr.i, %.backedge.i ]
   %466 = load i32, ptr %14, align 8, !noalias !776
   %467 = and i32 %466, 1
   %.not.i.i.i50.i = icmp eq i32 %467, 0
@@ -5499,8 +5506,8 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13Dens
   br i1 %.not.i.i54.i, label %486, label %_ZN4llvm13SmallDenseMapIPKNS_15DILocalVariableEPNS_11DbgVariableELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit55.i
 
 486:                                              ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_11DbgVariableENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_ED2Ev.exit53.i
-  %487 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i, align 8, !tbaa !818, !noalias !776
-  %488 = load i32, ptr %.phi.trans.insert3.i.i.i, align 8, !tbaa !821, !noalias !776
+  %487 = load ptr, ptr %.phi.trans.insert.i.i.ptr99.i, align 8, !tbaa !818, !noalias !776
+  %488 = load i32, ptr %.phi.trans.insert3.i.i100.i, align 8, !tbaa !821, !noalias !776
   %489 = zext i32 %488 to i64
   %490 = shl nuw nsw i64 %489, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %487, i64 noundef %490, i64 noundef 8) #26

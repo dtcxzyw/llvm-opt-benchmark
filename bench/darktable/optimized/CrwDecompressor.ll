@@ -2392,8 +2392,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr n
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -2599,7 +2599,6 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0..sroa.0.0..i, ptr %3, align 8
-  %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit
@@ -2617,6 +2616,7 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   br i1 %35, label %37, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i
+  %.promoted66.i = load i64, ptr %0, align 8, !tbaa !153
   %36 = zext nneg i32 %5 to i64
   br label %46
 
@@ -2627,7 +2627,8 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   %41 = sub nuw nsw i32 32, %5
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw i64 %40, %42
-  %44 = or i64 %43, %.sroa.0.0.copyload.i
+  %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
+  %44 = or i64 %.sroa.0.0.copyload.i, %43
   %45 = add nuw nsw i32 %5, 32
   store i64 %44, ptr %0, align 8
   store i32 %45, ptr %4, align 8
@@ -2637,7 +2638,7 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   %indvars.iv.i = phi i64 [ %36, %.preheader.i ], [ %indvars.iv.next.i, %68 ]
   %.01970.i = phi i32 [ 0, %.preheader.i ], [ %69, %68 ]
   %.02169.i = phi i32 [ 0, %.preheader.i ], [ %70, %68 ]
-  %47 = phi i64 [ %.sroa.0.0.copyload.i, %.preheader.i ], [ %55, %68 ]
+  %47 = phi i64 [ %.promoted66.i, %.preheader.i ], [ %55, %68 ]
   %48 = zext nneg i32 %.01970.i to i64
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !100
@@ -3407,8 +3408,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr n
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

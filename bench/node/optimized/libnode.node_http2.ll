@@ -10712,20 +10712,18 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN2v85L
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %11, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #31
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i
-  %12 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %ov = getelementptr inbounds nuw i8, ptr %ext.sroa.1.0.copyload, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit
   %i.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
-  %13 = load ptr, ptr %ov, align 8
-  %arrayidx = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %13, i64 %i.028
-  %14 = load ptr, ptr %arrayidx, align 8
+  %12 = load ptr, ptr %ov, align 8
+  %arrayidx = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %12, i64 %i.028
+  %13 = load ptr, ptr %arrayidx, align 8
   %origin_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %15 = load i64, ptr %origin_len, align 8
-  %conv = trunc i64 %15 to i32
-  %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %2, ptr noundef %14, i32 noundef 0, i32 noundef %conv) #28
+  %14 = load i64, ptr %origin_len, align 8
+  %conv = trunc i64 %14 to i32
+  %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %2, ptr noundef %13, i32 noundef 0, i32 noundef %conv) #28
   %cmp.i.i.i = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i17, label %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit
 
@@ -10738,11 +10736,16 @@ _ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit:  ; preds = %for.body, %if.then.
   store ptr %call.i, ptr %add.ptr.i, align 8
   %inc = add nuw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %11
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !118
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !118
 
-for.end:                                          ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i32 = phi i64 [ 0, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %12, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
-  %origin_v.sroa.0.031 = phi ptr [ null, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %call5.i.i.i.i.i.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
+for.end.loopexit:                                 ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i
+  %15 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+  %__cur.0.lcssa.i.i.i.i.i32 = phi i64 [ 0, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %15, %for.end.loopexit ]
+  %origin_v.sroa.0.031 = phi ptr [ null, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %call5.i.i.i.i.i.i, %for.end.loopexit ]
   %sub.ptr.rhs.cast.i = ptrtoint ptr %origin_v.sroa.0.031 to i64
   %sub.ptr.sub.i = sub i64 %__cur.0.lcssa.i.i.i.i.i32, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3

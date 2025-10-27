@@ -17269,17 +17269,10 @@ if.end:
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 32
   %6 = trunc nuw i64 %5 to i32
-  br i1 %cmp.not, label %if.then6, label %if.end17
+  br i1 %cmp.not, label %while.cond.i, label %if.end17
 
-if.then6:                                         ; preds = %if.end
-  %ScreenSize = getelementptr inbounds nuw i8, ptr %this, i64 320
-  %7 = load i32, ptr %ScreenSize, align 8
-  %Height10 = getelementptr inbounds nuw i8, ptr %this, i64 324
-  %8 = load i32, ptr %Height10, align 4
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %while.cond.i, %if.then6
-  %i.0.i = phi i32 [ %shl.i, %while.cond.i ], [ 1, %if.then6 ]
+while.cond.i:                                     ; preds = %if.end, %while.cond.i
+  %i.0.i = phi i32 [ %shl.i, %while.cond.i ], [ 1, %if.end ]
   %cmp.i34 = icmp ult i32 %i.0.i, %4
   %shl.i = shl i32 %i.0.i, 1
   br i1 %cmp.i34, label %while.cond.i, label %while.cond10.i, !llvm.loop !452
@@ -17291,6 +17284,10 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   br i1 %cmp11.i, label %while.cond10.i, label %_ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit, !llvm.loop !453
 
 _ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit: ; preds = %while.cond10.i
+  %ScreenSize = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %7 = load i32, ptr %ScreenSize, align 8
+  %Height10 = getelementptr inbounds nuw i8, ptr %this, i64 324
+  %8 = load i32, ptr %Height10, align 4
   %9 = tail call i32 @llvm.umin.i32(i32 %7, i32 %4)
   %10 = tail call i32 @llvm.umin.i32(i32 %6, i32 %8)
   %cmp20.not.i = icmp eq i32 %j.0.i, %6
@@ -17612,17 +17609,10 @@ if.end:
   store i32 %sideLen, ptr %destSize, align 8, !tbaa !129
   %destSize.sroa_idx = getelementptr inbounds nuw i8, ptr %destSize, i64 4
   store i32 %sideLen, ptr %destSize.sroa_idx, align 4, !tbaa !129
-  br i1 %cmp.not, label %if.then6, label %if.end17
+  br i1 %cmp.not, label %while.cond.i, label %if.end17
 
-if.then6:                                         ; preds = %if.end
-  %ScreenSize = getelementptr inbounds nuw i8, ptr %this, i64 320
-  %3 = load i32, ptr %ScreenSize, align 8, !tbaa !129
-  %Height10 = getelementptr inbounds nuw i8, ptr %this, i64 324
-  %4 = load i32, ptr %Height10, align 4, !tbaa !129
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %while.cond.i, %if.then6
-  %i.0.i = phi i32 [ %shl.i, %while.cond.i ], [ 1, %if.then6 ]
+while.cond.i:                                     ; preds = %if.end, %while.cond.i
+  %i.0.i = phi i32 [ %shl.i, %while.cond.i ], [ 1, %if.end ]
   %cmp.i31 = icmp ult i32 %i.0.i, %sideLen
   %shl.i = shl i32 %i.0.i, 1
   br i1 %cmp.i31, label %while.cond.i, label %while.cond10.i, !llvm.loop !452
@@ -17634,6 +17624,10 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   br i1 %cmp11.i, label %while.cond10.i, label %_ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit, !llvm.loop !453
 
 _ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit: ; preds = %while.cond10.i
+  %ScreenSize = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %3 = load i32, ptr %ScreenSize, align 8, !tbaa !129
+  %Height10 = getelementptr inbounds nuw i8, ptr %this, i64 324
+  %4 = load i32, ptr %Height10, align 4, !tbaa !129
   %.sroa.speculated61 = tail call i32 @llvm.umin.i32(i32 %3, i32 %sideLen)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %4, i32 %sideLen)
   %cmp20.not.i = icmp eq i32 %j.0.i, %sideLen

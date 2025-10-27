@@ -1766,26 +1766,23 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %11 = getelementptr i8, ptr %0, i64 10
   %12 = load i8, ptr %11, align 1, !tbaa !124
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit.sink.split, label %.lr.ph.preheader
+  br i1 %13, label %.loopexit.sink.split, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %10
-  %14 = load ptr, ptr %0, align 8, !tbaa !120
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04963 = phi ptr [ %16, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds nuw i8, ptr %.04963, i64 256
-  %16 = load ptr, ptr %15, align 8, !tbaa !120
-  %17 = getelementptr i8, ptr %16, i64 11
-  %18 = load i8, ptr %17, align 1, !tbaa !124
-  %.not.i = icmp eq i8 %18, 0
+.lr.ph:                                           ; preds = %10, %.lr.ph
+  %.04963 = phi ptr [ %15, %.lr.ph ], [ %0, %10 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.04963, i64 256
+  %15 = load ptr, ptr %14, align 8, !tbaa !120
+  %16 = getelementptr i8, ptr %15, i64 11
+  %17 = load i8, ptr %16, align 1, !tbaa !124
+  %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %16, i64 8
+  %18 = load ptr, ptr %0, align 8, !tbaa !120
+  %19 = getelementptr i8, ptr %15, i64 8
   %20 = load i8, ptr %19, align 1, !tbaa !124
   %21 = zext i8 %20 to i64
-  %22 = load ptr, ptr %16, align 8, !tbaa !120
+  %22 = load ptr, ptr %15, align 8, !tbaa !120
   br label %23
 
 23:                                               ; preds = %.backedge, %._crit_edge
@@ -1843,7 +1840,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %47 = load i8, ptr %46, align 1, !tbaa !124
   %48 = load ptr, ptr %.3, align 8, !tbaa !120
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 504) #21
-  %49 = icmp eq ptr %48, %14
+  %49 = icmp eq ptr %48, %18
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %.preheader58
