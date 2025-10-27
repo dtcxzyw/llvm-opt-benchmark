@@ -8810,15 +8810,15 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17ha5b8994c8c6623b6E.exit"
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   br i1 %trunc1.i.i, label %8, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17ha5b8994c8c6623b6E.exit"
 
-8:                                                ; preds = %7
-  %9 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
+9:                                                ; preds = %8
+  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17ha5b8994c8c6623b6E.exit"
 
-"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17ha5b8994c8c6623b6E.exit": ; preds = %6, %7, %8
-  %.sroa.0.0.i.i = phi i8 [ %9, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
+"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17ha5b8994c8c6623b6E.exit": ; preds = %6, %8, %9
+  %.sroa.0.0.i.i = phi i8 [ %10, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
   ret i8 %.sroa.0.0.i.i
 }
 
@@ -8838,15 +8838,15 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6628b38b9b1c377eE.exit"
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   br i1 %trunc1.i.i, label %8, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6628b38b9b1c377eE.exit"
 
-8:                                                ; preds = %7
-  %9 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
+9:                                                ; preds = %8
+  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6628b38b9b1c377eE.exit"
 
-"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6628b38b9b1c377eE.exit": ; preds = %6, %7, %8
-  %.sroa.0.0.i.i = phi i8 [ %9, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
+"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6628b38b9b1c377eE.exit": ; preds = %6, %8, %9
+  %.sroa.0.0.i.i = phi i8 [ %10, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
   ret i8 %.sroa.0.0.i.i
 }
 

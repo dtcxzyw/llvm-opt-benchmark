@@ -1235,18 +1235,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %17, %masksel
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %18, align 4
-  br label %24
+  br label %28
 
 19:                                               ; preds = %2
   %20 = shl i64 %7, 48
-  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %20, 16
-  %21 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
-  %22 = inttoptr i64 %21 to ptr
+  %21 = ashr exact i64 %20, 16
+  %22 = sub nsw i64 2, %21
+  %23 = inttoptr i64 %22 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   br label %24
 
-24:                                               ; preds = %19, %9
+28:                                               ; preds = %19, %9
   %storemerge = phi i32 [ 1, %19 ], [ 0, %9 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1285,18 +1285,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %25
+  br label %29
 
 20:                                               ; preds = %2
   %21 = shl i64 %8, 48
-  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
-  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
-  %23 = inttoptr i64 %22 to ptr
+  %22 = ashr exact i64 %21, 16
+  %23 = sub nsw i64 2, %22
+  %23 = inttoptr i64 %23 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %20, %10
+29:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1335,18 +1335,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %25
+  br label %29
 
 20:                                               ; preds = %2
   %21 = shl i64 %8, 48
-  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
-  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
-  %23 = inttoptr i64 %22 to ptr
+  %22 = ashr exact i64 %21, 16
+  %23 = sub nsw i64 2, %22
+  %23 = inttoptr i64 %23 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %20, %10
+29:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1385,18 +1385,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %25
+  br label %29
 
 20:                                               ; preds = %2
   %21 = shl i64 %8, 48
-  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
-  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
-  %23 = inttoptr i64 %22 to ptr
+  %22 = ashr exact i64 %21, 16
+  %23 = sub nsw i64 2, %22
+  %23 = inttoptr i64 %23 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %20, %10
+29:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1435,18 +1435,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %25
+  br label %29
 
 20:                                               ; preds = %2
   %21 = shl i64 %8, 48
-  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
-  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
-  %23 = inttoptr i64 %22 to ptr
+  %22 = ashr exact i64 %21, 16
+  %23 = sub nsw i64 2, %22
+  %23 = inttoptr i64 %23 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %20, %10
+29:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void

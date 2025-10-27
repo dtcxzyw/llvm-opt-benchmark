@@ -526,9 +526,9 @@ define dso_local i64 @int4send(ptr noundef readonly captures(none) %0) local_unn
 define dso_local range(i64 -32768, 32768) i64 @i2toi4(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %sext = shl i64 %3, 48
-  %4 = ashr exact i64 %sext, 48
-  ret i64 %4
+  %4 = shl i64 %3, 48
+  %5 = ashr exact i64 %4, 48
+  ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -737,7 +737,7 @@ define dso_local range(i64 0, 2) i64 @int24eq(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = sext i16 %4 to i32
-  %9 = icmp eq i32 %7, %8
+  %9 = icmp eq i32 %7, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -751,7 +751,7 @@ define dso_local range(i64 0, 2) i64 @int24ne(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = sext i16 %4 to i32
-  %9 = icmp ne i32 %7, %8
+  %9 = icmp ne i32 %7, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -765,7 +765,7 @@ define dso_local range(i64 0, 2) i64 @int24lt(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = sext i16 %4 to i32
-  %9 = icmp sgt i32 %7, %8
+  %9 = icmp sgt i32 %7, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -779,7 +779,7 @@ define dso_local range(i64 0, 2) i64 @int24le(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = sext i16 %4 to i32
-  %9 = icmp sge i32 %7, %8
+  %9 = icmp sge i32 %7, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -793,7 +793,7 @@ define dso_local range(i64 0, 2) i64 @int24gt(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = sext i16 %4 to i32
-  %9 = icmp slt i32 %7, %8
+  %9 = icmp slt i32 %7, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -807,7 +807,7 @@ define dso_local range(i64 0, 2) i64 @int24ge(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = sext i16 %4 to i32
-  %9 = icmp sle i32 %7, %8
+  %9 = icmp sle i32 %7, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -821,7 +821,7 @@ define dso_local range(i64 0, 2) i64 @int42eq(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
   %8 = sext i16 %7 to i32
-  %9 = icmp eq i32 %4, %8
+  %9 = icmp eq i32 %4, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -835,7 +835,7 @@ define dso_local range(i64 0, 2) i64 @int42ne(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
   %8 = sext i16 %7 to i32
-  %9 = icmp ne i32 %4, %8
+  %9 = icmp ne i32 %4, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -849,7 +849,7 @@ define dso_local range(i64 0, 2) i64 @int42lt(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
   %8 = sext i16 %7 to i32
-  %9 = icmp slt i32 %4, %8
+  %9 = icmp slt i32 %4, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -863,7 +863,7 @@ define dso_local range(i64 0, 2) i64 @int42le(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
   %8 = sext i16 %7 to i32
-  %9 = icmp sle i32 %4, %8
+  %9 = icmp sle i32 %4, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -877,7 +877,7 @@ define dso_local range(i64 0, 2) i64 @int42gt(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
   %8 = sext i16 %7 to i32
-  %9 = icmp sgt i32 %4, %8
+  %9 = icmp sgt i32 %4, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -891,7 +891,7 @@ define dso_local range(i64 0, 2) i64 @int42ge(ptr noundef readonly captures(none
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i16
   %8 = sext i16 %7 to i32
-  %9 = icmp sge i32 %4, %8
+  %9 = icmp sge i32 %4, %10
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
@@ -960,14 +960,14 @@ define dso_local i64 @in_range_int4_int2(ptr noundef readonly captures(none) %0)
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
-  %sext = shl i64 %7, 48
-  %8 = ashr exact i64 %sext, 48
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int4_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %8, i64 noundef %10, i64 noundef %12) #12
-  ret i64 %13
+  %8 = shl i64 %7, 48
+  %9 = ashr exact i64 %8, 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = load i64, ptr %12, align 8
+  %14 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int4_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %9, i64 noundef %11, i64 noundef %13) #12
+  ret i64 %14
 }
 
 declare i64 @DirectFunctionCall5Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -1095,27 +1095,27 @@ define dso_local i64 @in_range_int2_int2(ptr noundef readonly captures(none) %0)
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
-  %sext = shl i64 %7, 48
-  %8 = ashr exact i64 %sext, 48
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int2_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %8, i64 noundef %10, i64 noundef %12) #12
-  ret i64 %13
+  %8 = shl i64 %7, 48
+  %9 = ashr exact i64 %8, 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = load i64, ptr %12, align 8
+  %14 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int2_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %9, i64 noundef %11, i64 noundef %13) #12
+  ret i64 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @in_range_int2_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %sext = shl i64 %3, 48
-  %4 = ashr exact i64 %sext, 48
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i64, ptr %5, align 8
-  %sext5 = shl i64 %6, 48
-  %7 = ashr exact i64 %sext5, 48
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = shl i64 %3, 48
+  %5 = ashr exact i64 %4, 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load i64, ptr %6, align 8
+  %8 = shl i64 %7, 48
+  %9 = ashr exact i64 %8, 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8
@@ -1735,8 +1735,8 @@ define dso_local range(i64 -32767, 32768) i64 @int2mod(ptr noundef readonly capt
   %14 = sext i16 %13 to i32
   %15 = srem i32 %14, %10
   %16 = zext i32 %15 to i64
-  %sext = shl i64 %16, 48
-  %17 = ashr exact i64 %sext, 48
+  %sext7 = shl i64 %16, 48
+  %17 = ashr exact i64 %sext7, 48
   br label %18
 
 18:                                               ; preds = %1, %9
@@ -2131,8 +2131,8 @@ define dso_local range(i64 -32768, 32768) i64 @int2shr(ptr noundef readonly capt
   %8 = sext i16 %4 to i32
   %9 = ashr i32 %8, %7
   %10 = zext i32 %9 to i64
-  %sext = shl i64 %10, 48
-  %11 = ashr exact i64 %sext, 48
+  %sext3 = shl i64 %10, 48
+  %11 = ashr exact i64 %sext3, 48
   ret i64 %11
 }
 

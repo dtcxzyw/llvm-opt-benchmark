@@ -61244,52 +61244,52 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN11ruff_linter3fix7cmp_fix17hd45730b
   %17 = trunc i32 %14 to i1
   br i1 %16, label %18, label %19
 
-18:                                               ; preds = %9
+17:                                               ; preds = %9
   br i1 %17, label %20, label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
 
 19:                                               ; preds = %9
   %..i = sext i1 %17 to i8
   br label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit"
 
-20:                                               ; preds = %18
-  %21 = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %15)
+22:                                               ; preds = %17
+  %23 = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %15)
   br label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit"
 
-"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit": ; preds = %20, %19
-  %.sroa.08.0 = phi i8 [ %21, %20 ], [ %..i, %19 ]
-  %22 = icmp eq i8 %.sroa.08.0, 0
-  br i1 %22, label %23, label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
+"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit": ; preds = %22, %19
+  %.sroa.08.0 = phi i8 [ %23, %20 ], [ %..i, %19 ]
+  %24 = icmp eq i8 %.sroa.08.0, 0
+  br i1 %24, label %25, label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
 
-23:                                               ; preds = %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit"
+25:                                               ; preds = %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit"
   switch i16 %0, label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread" [
-    i16 363, label %24
-    i16 384, label %26
-    i16 582, label %28
-    i16 591, label %30
+    i16 363, label %26
+    i16 384, label %28
+    i16 582, label %30
+    i16 591, label %32
   ]
 
-"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread": ; preds = %18, %8, %7, %30, %28, %26, %24, %23, %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit"
+"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread": ; preds = %17, %8, %7, %30, %28, %26, %24, %25, %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit"
   %.sroa.08.1 = phi i8 [ %.sroa.08.0, %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit" ], [ 0, %23 ], [ %spec.select, %24 ], [ %spec.select11, %26 ], [ %spec.select12, %28 ], [ %spec.select13, %30 ], [ 1, %18 ], [ 1, %8 ], [ -1, %7 ]
   ret i8 %.sroa.08.1
 
-24:                                               ; preds = %23
-  %25 = icmp eq i16 %1, 384
-  %spec.select = zext i1 %25 to i8
+26:                                               ; preds = %25
+  %27 = icmp eq i16 %1, 384
+  %spec.select = zext i1 %27 to i8
   br label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
 
-26:                                               ; preds = %23
-  %27 = icmp eq i16 %1, 363
-  %spec.select11 = sext i1 %27 to i8
+28:                                               ; preds = %25
+  %29 = icmp eq i16 %1, 363
+  %spec.select11 = sext i1 %29 to i8
   br label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
 
-28:                                               ; preds = %23
-  %29 = icmp eq i16 %1, 591
-  %spec.select12 = zext i1 %29 to i8
+30:                                               ; preds = %25
+  %31 = icmp eq i16 %1, 591
+  %spec.select12 = zext i1 %31 to i8
   br label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
 
-30:                                               ; preds = %23
-  %31 = icmp eq i16 %1, 582
-  %spec.select13 = sext i1 %31 to i8
+32:                                               ; preds = %25
+  %33 = icmp eq i16 %1, 582
+  %spec.select13 = sext i1 %33 to i8
   br label %"_ZN11ruff_linter3fix7cmp_fix28_$u7b$$u7b$closure$u7d$$u7d$17h7bb130e9edc4b1d2E.exit.thread"
 }
 

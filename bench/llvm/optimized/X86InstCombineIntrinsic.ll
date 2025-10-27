@@ -9230,7 +9230,7 @@ define internal fastcc noundef ptr @_ZL17simplifyX86pshufbRKN4llvm13IntrinsicIns
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = load i8, ptr %12, align 8, !tbaa !22
   %14 = icmp ugt i8 %13, 21
-  br i1 %14, label %47, label %15
+  br i1 %14, label %46, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9245,7 +9245,7 @@ define internal fastcc noundef ptr @_ZL17simplifyX86pshufbRKN4llvm13IntrinsicIns
   %wide.trip.count = zext i32 %19 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
   %20 = trunc nuw i64 %indvars.iv to i32
   %21 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %20) #15
@@ -9256,7 +9256,7 @@ define internal fastcc noundef ptr @_ZL17simplifyX86pshufbRKN4llvm13IntrinsicIns
   %23 = load i8, ptr %21, align 8, !tbaa !22
   %24 = and i8 %23, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %24, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %40, label %25
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %39, label %25
 
 25:                                               ; preds = %22
   %26 = icmp eq i8 %23, 17
@@ -9271,25 +9271,25 @@ define internal fastcc noundef ptr @_ZL17simplifyX86pshufbRKN4llvm13IntrinsicIns
   %.0.in.i = select i1 %31, ptr %28, ptr %32
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !25
   %33 = trunc i64 %.0.i to i32
-  %34 = and i64 %.0.i, 128
-  %.not30 = icmp eq i64 %34, 0
-  %35 = and i32 %33, 15
-  %36 = select i1 %.not30, i32 %35, i32 %19
-  %37 = and i32 %20, 240
-  %38 = add i32 %36, %37
-  %sext = shl i32 %38, 24
-  %39 = ashr exact i32 %sext, 24
-  br label %40
+  %sext.mask = and i64 %.0.i, 128
+  %.not30 = icmp eq i64 %sext.mask, 0
+  %34 = and i32 %33, 15
+  %35 = select i1 %.not30, i32 %34, i32 %19
+  %36 = and i32 %20, 240
+  %37 = add i32 %35, %36
+  %sext = shl i32 %37, 24
+  %38 = ashr exact i32 %sext, 24
+  br label %39
 
-40:                                               ; preds = %22, %27
-  %.sink = phi i32 [ %39, %27 ], [ -1, %22 ]
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %.sink, ptr %41, align 4, !tbaa !62
+39:                                               ; preds = %22, %27
+  %.sink = phi i32 [ %38, %27 ], [ -1, %22 ]
+  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  store i32 %.sink, ptr %40, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !253
 
-.critedge.loopexit:                               ; preds = %40
+.critedge.loopexit:                               ; preds = %39
   %.pre = load i32, ptr %5, align 4
   %.pre42 = and i32 %.pre, 134217727
   %.pre43 = zext nneg i32 %.pre42 to i64
@@ -9299,22 +9299,22 @@ define internal fastcc noundef ptr @_ZL17simplifyX86pshufbRKN4llvm13IntrinsicIns
 .critedge:                                        ; preds = %15, %.critedge.loopexit
   %.pre-phi48 = phi i64 [ %wide.trip.count, %.critedge.loopexit ], [ 0, %15 ]
   %.pre-phi46 = phi i64 [ %.pre45, %.critedge.loopexit ], [ %9, %15 ]
-  %42 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %.pre-phi46
-  %43 = load ptr, ptr %42, align 8, !tbaa !3
-  %44 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef nonnull %17) #15
+  %41 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %.pre-phi46
+  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  %43 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef nonnull %17) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i16 257, ptr %45, align 8
-  %46 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %43, ptr noundef %44, ptr nonnull %3, i64 %.pre-phi48, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i16 257, ptr %44, align 8
+  %45 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %42, ptr noundef %43, ptr nonnull %3, i64 %.pre-phi48, ptr noundef nonnull align 8 dereferenceable(34) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %.critedge
-  %.4 = phi ptr [ %46, %.critedge ], [ null, %25 ], [ null, %.lr.ph ]
+  %.4 = phi ptr [ %45, %.critedge ], [ null, %25 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %2, %.loopexit
+46:                                               ; preds = %2, %.loopexit
   %.0 = phi ptr [ %.4, %.loopexit ], [ null, %2 ]
   ret ptr %.0
 }

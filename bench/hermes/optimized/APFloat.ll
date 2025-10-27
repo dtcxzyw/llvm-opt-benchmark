@@ -6393,7 +6393,7 @@ entry:
 define hidden noundef i32 @_ZN4llvh6detail9IEEEFloat24convertFromDecimalStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %str.coerce0, i64 %str.coerce1, i32 noundef %rounding_mode) local_unnamed_addr #2 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
-  %begin63.i = ptrtoint ptr %str.coerce0 to i64
+  %begin64.i = ptrtoint ptr %str.coerce0 to i64
   %cmp.not16.i.i = icmp eq i64 %str.coerce1, 0
   br i1 %cmp.not16.i.i, label %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i, label %land.rhs.i.i
 
@@ -6424,18 +6424,18 @@ land.rhs8.i.i:                                    ; preds = %while.cond6.i.i
 _ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i: ; preds = %land.rhs.i.i, %land.rhs8.i.i, %entry
   %dot.4.i = phi ptr [ %str.coerce0, %entry ], [ %p.017.i.i, %land.rhs8.i.i ], [ %add.ptr.i, %land.rhs.i.i ]
   %p.1.i.i = phi ptr [ %str.coerce0, %entry ], [ %p.2.i.i, %land.rhs8.i.i ], [ %p.017.i.i, %land.rhs.i.i ]
-  %cmp.not51.i = icmp eq ptr %p.1.i.i, %add.ptr.i
-  br i1 %cmp.not51.i, label %if.then, label %for.body.i
+  %cmp.not52.i = icmp eq ptr %p.1.i.i, %add.ptr.i
+  br i1 %cmp.not52.i, label %if.then, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i, %for.inc.i
-  %p.053.i = phi ptr [ %incdec.ptr10.i, %for.inc.i ], [ %p.1.i.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i ]
-  %dot.052.i = phi ptr [ %dot.2.i, %for.inc.i ], [ %dot.4.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i ]
-  %2 = load i8, ptr %p.053.i, align 1
+  %p.054.i = phi ptr [ %incdec.ptr10.i, %for.inc.i ], [ %p.1.i.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i ]
+  %dot.053.i = phi ptr [ %dot.2.i, %for.inc.i ], [ %dot.4.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i ]
+  %2 = load i8, ptr %p.054.i, align 1
   %cmp1.i = icmp eq i8 %2, 46
   br i1 %cmp1.i, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.053.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.054.i, i64 1
   %cmp2.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp2.i, label %if.end18.i, label %if.then.if.end4_crit_edge.i
 
@@ -6445,8 +6445,8 @@ if.then.if.end4_crit_edge.i:                      ; preds = %if.then.i
 
 if.end4.i:                                        ; preds = %if.then.if.end4_crit_edge.i, %for.body.i
   %3 = phi i8 [ %.pre.i, %if.then.if.end4_crit_edge.i ], [ %2, %for.body.i ]
-  %dot.2.i = phi ptr [ %p.053.i, %if.then.if.end4_crit_edge.i ], [ %dot.052.i, %for.body.i ]
-  %p.2.i = phi ptr [ %incdec.ptr.i, %if.then.if.end4_crit_edge.i ], [ %p.053.i, %for.body.i ]
+  %dot.2.i = phi ptr [ %p.054.i, %if.then.if.end4_crit_edge.i ], [ %dot.053.i, %for.body.i ]
+  %p.2.i = phi ptr [ %incdec.ptr.i, %if.then.if.end4_crit_edge.i ], [ %p.054.i, %for.body.i ]
   %conv5.i = sext i8 %3 to i32
   %4 = add nsw i32 %conv5.i, -58
   %cmp7.i = icmp ult i32 %4, -10
@@ -6477,10 +6477,10 @@ if.then12.i:                                      ; preds = %for.end.i
   br i1 %cmp7.not15.i.i, label %_ZN4llvhL12readExponentEPKcS1_.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then12.i, %if.end12.i.i
-  %p.117.i.i = phi ptr [ %p.1.i42.i, %if.end12.i.i ], [ %p.114.i.i, %if.then12.i ]
+  %p.117.i.i = phi ptr [ %p.1.i43.i, %if.end12.i.i ], [ %p.114.i.i, %if.then12.i ]
   %absExponent.016.i.i = phi i32 [ %add.i.i, %if.end12.i.i ], [ %sub.i.i.i, %if.then12.i ]
-  %cmp10.i41.i = icmp ugt i32 %absExponent.016.i.i, 23999
-  br i1 %cmp10.i41.i, label %_ZN4llvhL12readExponentEPKcS1_.exit.i, label %if.end12.i.i
+  %cmp10.i42.i = icmp ugt i32 %absExponent.016.i.i, 23999
+  br i1 %cmp10.i42.i, label %_ZN4llvhL12readExponentEPKcS1_.exit.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.body.i.i
   %7 = load i8, ptr %p.117.i.i, align 1
@@ -6488,14 +6488,14 @@ if.end12.i.i:                                     ; preds = %for.body.i.i
   %mul.i.i = mul nuw nsw i32 %absExponent.016.i.i, 10
   %sub.i13.i.i = add nsw i32 %mul.i.i, -48
   %add.i.i = add nsw i32 %sub.i13.i.i, %conv8.i.i
-  %p.1.i42.i = getelementptr inbounds nuw i8, ptr %p.117.i.i, i64 1
-  %cmp7.not.i43.i = icmp eq ptr %p.1.i42.i, %add.ptr.i
-  br i1 %cmp7.not.i43.i, label %_ZN4llvhL12readExponentEPKcS1_.exit.i, label %for.body.i.i, !llvm.loop !33
+  %p.1.i43.i = getelementptr inbounds nuw i8, ptr %p.117.i.i, i64 1
+  %cmp7.not.i44.i = icmp eq ptr %p.1.i43.i, %add.ptr.i
+  br i1 %cmp7.not.i44.i, label %_ZN4llvhL12readExponentEPKcS1_.exit.i, label %for.body.i.i, !llvm.loop !33
 
 _ZN4llvhL12readExponentEPKcS1_.exit.i:            ; preds = %if.end12.i.i, %for.body.i.i, %if.then12.i
   %absExponent.1.i.i = phi i32 [ %sub.i.i.i, %if.then12.i ], [ 24000, %for.body.i.i ], [ %add.i.i, %if.end12.i.i ]
-  %sub.i44.i = sub nsw i32 0, %absExponent.1.i.i
-  %retval.0.i.i = select i1 %cmp.i.i, i32 %sub.i44.i, i32 %absExponent.1.i.i
+  %sub.i45.i = sub nsw i32 0, %absExponent.1.i.i
+  %retval.0.i.i = select i1 %cmp.i.i, i32 %sub.i45.i, i32 %absExponent.1.i.i
   %cmp15.i = icmp eq ptr %dot.2.i, %add.ptr.i
   %spec.select.i = select i1 %cmp15.i, ptr %p.2.i, ptr %dot.2.i
   br label %if.end18.i
@@ -6503,7 +6503,7 @@ _ZN4llvhL12readExponentEPKcS1_.exit.i:            ; preds = %if.end12.i.i, %for.
 if.end18.i:                                       ; preds = %for.inc.i, %if.then.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i, %for.end.i
   %p.1.i102 = phi ptr [ %p.2.i, %for.end.i ], [ %p.2.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %add.ptr.i, %if.then.i ], [ %add.ptr.i, %for.inc.i ]
   %D.sroa.8.0 = phi i32 [ 0, %for.end.i ], [ %retval.0.i.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ 0, %if.then.i ], [ 0, %for.inc.i ]
-  %dot.3.i = phi ptr [ %dot.2.i, %for.end.i ], [ %spec.select.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %dot.2.i, %for.inc.i ], [ %p.053.i, %if.then.i ]
+  %dot.3.i = phi ptr [ %dot.2.i, %for.end.i ], [ %spec.select.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %dot.2.i, %for.inc.i ], [ %p.054.i, %if.then.i ]
   %cmp20.not.i = icmp eq ptr %p.1.i102, %p.1.i.i
   br i1 %cmp20.not.i, label %lor.lhs.false.thread, label %if.then21.i
 
@@ -6529,14 +6529,14 @@ land.rhs.i:                                       ; preds = %do.body24.i
   ]
 
 if.end36.loopexit.split.loop.exit.i:              ; preds = %do.body24.i
-  %scevgep.le.i = getelementptr i8, ptr %p.5.i, i64 %begin63.i
-  %p.564.le.i = ptrtoint ptr %p.5.i to i64
-  %9 = sub i64 0, %p.564.le.i
-  %scevgep65.le.i = getelementptr i8, ptr %scevgep.le.i, i64 %9
+  %scevgep.le.i = getelementptr i8, ptr %p.5.i, i64 %begin64.i
+  %p.565.le.i = ptrtoint ptr %p.5.i to i64
+  %9 = sub i64 0, %p.565.le.i
+  %scevgep66.le.i = getelementptr i8, ptr %scevgep.le.i, i64 %9
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %land.rhs.i, %if.end36.loopexit.split.loop.exit.i, %if.then21.i
-  %p.4.i = phi ptr [ %str.coerce0, %if.then21.i ], [ %scevgep65.le.i, %if.end36.loopexit.split.loop.exit.i ], [ %incdec.ptr25.i, %land.rhs.i ]
+  %p.4.i = phi ptr [ %str.coerce0, %if.then21.i ], [ %scevgep66.le.i, %if.end36.loopexit.split.loop.exit.i ], [ %incdec.ptr25.i, %land.rhs.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %dot.3.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %p.4.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

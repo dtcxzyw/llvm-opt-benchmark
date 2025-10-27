@@ -220,12 +220,12 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %18, %30, %_ZNK3ue29
   %40 = trunc i64 %.016.i.i to i8
   %41 = add i8 %40, -123
   %42 = icmp ult i8 %41, -26
-  %43 = add i8 %40, -32
+  %42 = add i8 %40, -32
   %.0.i = select i1 %42, i8 %40, i8 %43
   %44 = icmp eq i8 %.0.i, %39
   br label %45
 
-45:                                               ; preds = %1, %_ZNK3ue29CharReach9find_nextEm.exit
+45:; preds = %1, %_ZNK3ue29CharReach9find_nextEm.exit
   %.0 = phi i1 [ %44, %_ZNK3ue29CharReach9find_nextEm.exit ], [ false, %1 ]
   ret i1 %.0
 }

@@ -327,7 +327,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData13Lut3by1DArray4fillENS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = and i32 %1, 1
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %68, label %.preheader
+  br i1 %.not, label %66, label %.preheader
 
 .preheader:                                       ; preds = %3
   %.not47 = icmp eq i64 %7, 0
@@ -342,7 +342,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData13Lut3by1DArray4fillENS
   br i1 %2, label %.lr.ph39.split.us.split, label %.lr.ph39.split.us.split.us
 
 .lr.ph39.split.us.split.us:                       ; preds = %.lr.ph39.split.us, %._crit_edge.us.us
-  %.03238.us.us = phi i64 [ %40, %._crit_edge.us.us ], [ 0, %.lr.ph39.split.us ]
+  %.03238.us.us = phi i64 [ %39, %._crit_edge.us.us ], [ 0, %.lr.ph39.split.us ]
   %15 = trunc i64 %.03238.us.us to i16
   %16 = trunc i64 %.03238.us.us to i32
   %17 = shl i32 %16, 13
@@ -352,11 +352,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData13Lut3by1DArray4fillENS
   %20 = icmp samesign ugt i32 %18, 8388607
   br i1 %20, label %30, label %21, !prof !12
 
-21:                                               ; preds = %.lr.ph39.split.us.split.us
+21:; preds = %.lr.ph39.split.us.split.us
   %.not.i.i.us.us = icmp eq i32 %18, 0
   br i1 %.not.i.i.us.us, label %_ZNK9Imath_3_14halfcvfEv.exit.us.us, label %22
 
-22:                                               ; preds = %21
+22:; preds = %21
   %23 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %24 = add nsw i32 %23, -8
   %25 = shl i32 %18, %24
@@ -366,41 +366,41 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData13Lut3by1DArray4fillENS
   %29 = sub nuw i32 %27, %28
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.us
 
-30:                                               ; preds = %.lr.ph39.split.us.split.us
-  %31 = or disjoint i32 %18, %19
-  %32 = icmp samesign ult i32 %18, 260046848
-  br i1 %32, label %35, label %33, !prof !12
+29:                                               ; preds = %.lr.ph39.split.us.split.us
+  %30 = or disjoint i32 %18, %19
+  %31 = icmp samesign ult i32 %18, 260046848
+  br i1 %31, label %34, label %32, !prof !12
 
-33:                                               ; preds = %30
-  %34 = or i32 %31, 2139095040
+32:                                               ; preds = %29
+  %33 = or i32 %30, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.us
 
-35:                                               ; preds = %30
-  %36 = add nuw nsw i32 %31, 939524096
+34:                                               ; preds = %29
+  %35 = add nuw nsw i32 %30, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.us
 
-_ZNK9Imath_3_14halfcvfEv.exit.us.us:              ; preds = %35, %33, %22, %21
-  %.sroa.0.0.i.i.us.us = phi i32 [ %36, %35 ], [ %34, %33 ], [ %29, %22 ], [ %19, %21 ]
-  %37 = mul i64 %.03238.us.us, %11
-  %invariant.gep.us.us = getelementptr float, ptr %14, i64 %37
-  br label %38
+_ZNK9Imath_3_14halfcvfEv.exit.us.us:              ; preds = %34, %32, %22, %21
+  %.sroa.0.0.i.i.us.us = phi i32 [ %35, %35 ], [ %33, %33 ], [ %29, %22 ], [ %19, %21 ]
+  %36 = mul i64 %.03238.us.us, %11
+  %invariant.gep.us.us = getelementptr float, ptr %14, i64 %36
+  br label %37
 
-38:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.us, %38
-  %.03537.us.us = phi i64 [ 0, %_ZNK9Imath_3_14halfcvfEv.exit.us.us ], [ %39, %38 ]
+37:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.us, %37
+  %.03537.us.us = phi i64 [ 0, %_ZNK9Imath_3_14halfcvfEv.exit.us.us ], [ %38, %38 ]
   %gep.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %.03537.us.us
   store i32 %.sroa.0.0.i.i.us.us, ptr %gep.us.us, align 4, !tbaa !13
-  %39 = add nuw i64 %.03537.us.us, 1
-  %exitcond.not = icmp eq i64 %39, %11
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %38, !llvm.loop !15
+  %38 = add nuw i64 %.03537.us.us, 1
+  %exitcond.not = icmp eq i64 %38, %11
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %37, !llvm.loop !15
 
-._crit_edge.us.us:                                ; preds = %38
-  %40 = add nuw i64 %.03238.us.us, 1
-  %exitcond55.not = icmp eq i64 %40, %7
+._crit_edge.us.us:                                ; preds = %37
+  %39 = add nuw i64 %.03238.us.us, 1
+  %exitcond55.not = icmp eq i64 %39, %7
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph39.split.us.split.us, !llvm.loop !17
 
 .lr.ph39.split.us.split:                          ; preds = %.lr.ph39.split.us, %._crit_edge.us
-  %.03238.us = phi i64 [ %67, %._crit_edge.us ], [ 0, %.lr.ph39.split.us ]
-  %41 = trunc i64 %.03238.us to i16
+  %.03238.us = phi i64 [ %65, %._crit_edge.us ], [ 0, %.lr.ph39.split.us ]
+  %40 = trunc i64 %.03238.us to i16
   %42 = trunc i64 %.03238.us to i32
   %43 = shl i32 %42, 13
   %44 = and i32 %43, 268427264
@@ -409,89 +409,89 @@ _ZNK9Imath_3_14halfcvfEv.exit.us.us:              ; preds = %35, %33, %22, %21
   %46 = icmp samesign ugt i32 %44, 8388607
   br i1 %46, label %56, label %47, !prof !12
 
-47:                                               ; preds = %.lr.ph39.split.us.split
+47:; preds = %.lr.ph39.split.us.split
   %.not.i.i.us = icmp eq i32 %44, 0
   br i1 %.not.i.i.us, label %_ZNK9Imath_3_14halfcvfEv.exit.us, label %48
 
-48:                                               ; preds = %47
+48:; preds = %47
   %49 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %50 = add nsw i32 %49, -8
   %51 = shl i32 %44, %50
-  %52 = or i32 %45, %51
+  %51 = or i32 %45, %51
   %53 = or i32 %52, 947912704
   %54 = shl nuw nsw i32 %50, 23
   %55 = sub nuw i32 %53, %54
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us
 
-56:                                               ; preds = %.lr.ph39.split.us.split
-  %57 = or disjoint i32 %44, %45
-  %58 = icmp samesign ult i32 %44, 260046848
-  br i1 %58, label %61, label %59, !prof !12
+54:                                               ; preds = %.lr.ph39.split.us.split
+  %55 = or disjoint i32 %44, %45
+  %56 = icmp samesign ult i32 %44, 260046848
+  br i1 %56, label %59, label %57, !prof !12
 
-59:                                               ; preds = %56
-  %60 = or i32 %57, 2139095040
+57:                                               ; preds = %54
+  %58 = or i32 %55, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us
 
-61:                                               ; preds = %56
-  %62 = add nuw nsw i32 %57, 939524096
+59:                                               ; preds = %54
+  %60 = add nuw nsw i32 %55, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us
 
-_ZNK9Imath_3_14halfcvfEv.exit.us:                 ; preds = %61, %59, %48, %47
-  %.sroa.0.0.i.i.us = phi i32 [ %62, %61 ], [ %60, %59 ], [ %55, %48 ], [ %45, %47 ]
-  %63 = bitcast i32 %.sroa.0.0.i.i.us to float
-  %.inv = fcmp ord float %63, 0.000000e+00
-  %unswitched.select = select i1 %.inv, float %63, float 0.000000e+00
-  %64 = mul i64 %.03238.us, %11
-  %invariant.gep.us = getelementptr float, ptr %14, i64 %64
-  br label %65
+_ZNK9Imath_3_14halfcvfEv.exit.us:                 ; preds = %59, %57, %48, %47
+  %.sroa.0.0.i.i.us = phi i32 [ %60, %61 ], [ %58, %59 ], [ %55, %48 ], [ %45, %47 ]
+  %61 = bitcast i32 %.sroa.0.0.i.i.us to float
+  %.inv = fcmp ord float %61, 0.000000e+00
+  %unswitched.select = select i1 %.inv, float %61, float 0.000000e+00
+  %62 = mul i64 %.03238.us, %11
+  %invariant.gep.us = getelementptr float, ptr %14, i64 %62
+  br label %63
 
-65:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us, %65
-  %.03537.us = phi i64 [ 0, %_ZNK9Imath_3_14halfcvfEv.exit.us ], [ %66, %65 ]
+63:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us, %63
+  %.03537.us = phi i64 [ 0, %_ZNK9Imath_3_14halfcvfEv.exit.us ], [ %64, %65 ]
   %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %.03537.us
   store float %unswitched.select, ptr %gep.us, align 4, !tbaa !13
-  %66 = add nuw i64 %.03537.us, 1
-  %exitcond56.not = icmp eq i64 %66, %11
-  br i1 %exitcond56.not, label %._crit_edge.us, label %65, !llvm.loop !15
+  %64 = add nuw i64 %.03537.us, 1
+  %exitcond56.not = icmp eq i64 %64, %11
+  br i1 %exitcond56.not, label %._crit_edge.us, label %63, !llvm.loop !15
 
-._crit_edge.us:                                   ; preds = %65
-  %67 = add nuw i64 %.03238.us, 1
-  %exitcond57.not = icmp eq i64 %67, %7
+._crit_edge.us:                                   ; preds = %63
+  %65 = add nuw i64 %.03238.us, 1
+  %exitcond57.not = icmp eq i64 %65, %7
   br i1 %exitcond57.not, label %.loopexit, label %.lr.ph39.split.us.split, !llvm.loop !17
 
-68:                                               ; preds = %3
-  %69 = uitofp i64 %7 to float
-  %70 = fadd float %69, -1.000000e+00
-  %71 = fdiv float 1.000000e+00, %70
+66:                                               ; preds = %3
+  %67 = uitofp i64 %7 to float
+  %68 = fadd float %67, -1.000000e+00
+  %69 = fdiv float 1.000000e+00, %68
   %.not49 = icmp eq i64 %7, 0
   br i1 %.not49, label %.loopexit, label %.lr.ph43
 
-.lr.ph43:                                         ; preds = %68
+.lr.ph43:                                         ; preds = %66
   %.not50 = icmp eq i64 %11, 0
-  %72 = load ptr, ptr %12, align 8
+  %70 = load ptr, ptr %12, align 8
   br i1 %.not50, label %.loopexit, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph43, %._crit_edge.us46
-  %.03341.us = phi i64 [ %78, %._crit_edge.us46 ], [ 0, %.lr.ph43 ]
-  %73 = uitofp i64 %.03341.us to float
-  %74 = fmul float %71, %73
-  %75 = mul i64 %.03341.us, %11
-  %invariant.gep.us45 = getelementptr float, ptr %72, i64 %75
-  br label %76
+  %.03341.us = phi i64 [ %76, %._crit_edge.us46 ], [ 0, %.lr.ph43 ]
+  %71 = uitofp i64 %.03341.us to float
+  %72 = fmul float %69, %71
+  %73 = mul i64 %.03341.us, %11
+  %invariant.gep.us45 = getelementptr float, ptr %70, i64 %73
+  br label %74
 
-76:                                               ; preds = %.lr.ph.us, %76
-  %.040.us = phi i64 [ 0, %.lr.ph.us ], [ %77, %76 ]
+74:                                               ; preds = %.lr.ph.us, %74
+  %.040.us = phi i64 [ 0, %.lr.ph.us ], [ %75, %76 ]
   %gep.us44 = getelementptr float, ptr %invariant.gep.us45, i64 %.040.us
-  store float %74, ptr %gep.us44, align 4, !tbaa !13
-  %77 = add nuw i64 %.040.us, 1
-  %exitcond58.not = icmp eq i64 %77, %11
-  br i1 %exitcond58.not, label %._crit_edge.us46, label %76, !llvm.loop !18
+  store float %72, ptr %gep.us44, align 4, !tbaa !13
+  %75 = add nuw i64 %.040.us, 1
+  %exitcond58.not = icmp eq i64 %75, %11
+  br i1 %exitcond58.not, label %._crit_edge.us46, label %74, !llvm.loop !18
 
-._crit_edge.us46:                                 ; preds = %76
-  %78 = add nuw i64 %.03341.us, 1
-  %exitcond59.not = icmp eq i64 %78, %7
+._crit_edge.us46:                                 ; preds = %74
+  %76 = add nuw i64 %.03341.us, 1
+  %exitcond59.not = icmp eq i64 %76, %7
   br i1 %exitcond59.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !19
 
-.loopexit:                                        ; preds = %._crit_edge.us.us, %._crit_edge.us, %._crit_edge.us46, %.lr.ph43, %.lr.ph39, %.preheader, %68
+.loopexit:                                        ; preds = %._crit_edge.us.us, %._crit_edge.us, %._crit_edge.us46, %.lr.ph43, %.lr.ph39, %.preheader, %66
   ret void
 }
 
