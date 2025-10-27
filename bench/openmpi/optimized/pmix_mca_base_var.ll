@@ -1707,16 +1707,16 @@ define noundef i32 @pmix_mca_base_var_build_env(ptr noundef %0, ptr noundef %1) 
 7:                                                ; preds = %2
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8, !tbaa !76
   %9 = sext i32 %8 to i64
-  %.not53 = icmp eq i32 %8, 0
-  br i1 %.not53, label %._crit_edge.thread, label %.lr.ph
+  %.not52 = icmp eq i32 %8, 0
+  br i1 %.not52, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %pmix_pointer_array_get_item.exit.thread
-  %.03152 = phi i32 [ %.1.ph.fr, %pmix_pointer_array_get_item.exit.thread ], [ 0, %7 ]
-  %.03351 = phi i64 [ %66, %pmix_pointer_array_get_item.exit.thread ], [ 0, %7 ]
+  %.03151 = phi i32 [ %.1.ph.fr, %pmix_pointer_array_get_item.exit.thread ], [ 0, %7 ]
+  %.03350 = phi i64 [ %66, %pmix_pointer_array_get_item.exit.thread ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !51
-  %10 = trunc i64 %.03351 to i32
+  %10 = trunc i64 %.03350 to i32
   %11 = icmp slt i32 %10, 0
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %13 = icmp sle i32 %12, %10
@@ -1725,7 +1725,7 @@ define noundef i32 @pmix_mca_base_var_build_env(ptr noundef %0, ptr noundef %1) 
 
 pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 152), align 8, !tbaa !58
-  %16 = and i64 %.03351, 2147483647
+  %16 = and i64 %.03350, 2147483647
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = icmp eq ptr %18, null
@@ -1790,22 +1790,22 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph
   %51 = getelementptr i8, ptr %18, i64 344
   %.val = load ptr, ptr %51, align 8, !tbaa !71
   %52 = getelementptr i8, ptr %18, i64 376
-  %.val41 = load ptr, ptr %52, align 8, !tbaa !72
+  %.val40 = load ptr, ptr %52, align 8, !tbaa !72
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %53, label %pmix_mca_base_var_source_file.exit
 
 53:                                               ; preds = %48
-  %.not8.i = icmp eq ptr %.val41, null
+  %.not8.i = icmp eq ptr %.val40, null
   br i1 %.not8.i, label %pmix_mca_base_var_source_file.exit, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %.val41, i64 160
+  %55 = getelementptr inbounds nuw i8, ptr %.val40, i64 160
   %56 = load ptr, ptr %55, align 8, !tbaa !73
   br label %pmix_mca_base_var_source_file.exit
 
 pmix_mca_base_var_source_file.exit:               ; preds = %48, %53, %54
-  %.0.i42 = phi ptr [ %56, %54 ], [ %.val, %48 ], [ null, %53 ]
-  %57 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef %49, ptr noundef %50, ptr noundef %.0.i42) #25
+  %.0.i41 = phi ptr [ %56, %54 ], [ %.val, %48 ], [ null, %53 ]
+  %57 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef %49, ptr noundef %50, ptr noundef %.0.i41) #25
   br label %62
 
 58:                                               ; preds = %43
@@ -1827,11 +1827,11 @@ pmix_mca_base_var_source_file.exit:               ; preds = %48, %53, %54
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %43, %43, %43, %.lr.ph, %pmix_pointer_array_get_item.exit, %20, %27, %63, %62
-  %.1.ph = phi i32 [ %.2.ph, %62 ], [ %.2.ph, %63 ], [ %.03152, %27 ], [ %.03152, %20 ], [ %.03152, %pmix_pointer_array_get_item.exit ], [ %.03152, %.lr.ph ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ]
+  %.1.ph = phi i32 [ %.2.ph, %62 ], [ %.2.ph, %63 ], [ %.03151, %27 ], [ %.03151, %20 ], [ %.03151, %pmix_pointer_array_get_item.exit ], [ %.03151, %.lr.ph ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ]
   %.1.ph.fr = freeze i32 %.1.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %66 = add nuw i64 %.03351, 1
+  %66 = add nuw i64 %.03350, 1
   %exitcond.not = icmp eq i64 %66, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 

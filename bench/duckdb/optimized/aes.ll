@@ -282,12 +282,12 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %138 = phi ptr [ %129, %128 ], [ %131, %.lr.ph ]
   %.pre129 = load i32, ptr %138, align 4, !tbaa !11
   switch i32 %.sink, label %._crit_edge.unreachabledefault [
-    i32 10, label %.preheader
+    i32 10, label %.preheader104.preheader
     i32 12, label %.preheader102
     i32 14, label %.preheader104
   ]
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
+.preheader104.preheader:                          ; preds = %._crit_edge, %.preheader
   %139 = phi i32 [ %173, %.preheader ], [ %.pre129, %._crit_edge ]
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.preheader ], [ 0, %._crit_edge ]
   %.0112 = phi ptr [ %174, %.preheader ], [ %138, %._crit_edge ]

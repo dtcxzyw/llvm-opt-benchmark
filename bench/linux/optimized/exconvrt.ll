@@ -354,10 +354,10 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %115 = icmp samesign ult i64 %112, %114
   br i1 %115, label %.split.us, label %.split9.us, !llvm.loop !11
 
-.split:                                           ; preds = %68
-  br i1 %55, label %.preheader.us, label %.preheader
+.split.us10:                                      ; preds = %68
+  br i1 %55, label %.preheader.us.us, label %.preheader.us
 
-.preheader.us:                                    ; preds = %.split, %.thread4.i.loopexit.us
+.preheader.us.us:                                 ; preds = %.split.us10, %.thread4.i.loopexit.us.us
   %116 = phi i64 [ %135, %.thread4.i.loopexit.us ], [ 0, %.split ]
   %117 = phi ptr [ %134, %.thread4.i.loopexit.us ], [ %64, %.split ]
   %118 = getelementptr i8, ptr %117, i64 1
@@ -372,7 +372,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %124
 
-124:                                              ; preds = %124, %.preheader.us
+124:                                              ; preds = %124, %.preheader.us.us
   %125 = phi i64 [ %131, %124 ], [ 0, %.preheader.us ]
   %126 = phi i32 [ %127, %124 ], [ 2, %.preheader.us ]
   %127 = add nsw i32 %126, -1
@@ -382,9 +382,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   store i8 %129, ptr %130, align 1
   %131 = add nuw nsw i64 %125, 1
   %132 = icmp eq i64 %131, 2
-  br i1 %132, label %.thread4.i.loopexit.us, label %124, !llvm.loop !12
+  br i1 %132, label %.thread4.i.loopexit.us.us, label %124, !llvm.loop !12
 
-.thread4.i.loopexit.us:                           ; preds = %124
+.thread4.i.loopexit.us.us:                        ; preds = %124
   %133 = getelementptr i8, ptr %117, i64 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -394,9 +394,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %136 = load i32, ptr %65, align 8
   %137 = zext i32 %136 to i64
   %138 = icmp samesign ult i64 %135, %137
-  br i1 %138, label %.preheader.us, label %.split9.us, !llvm.loop !11
+  br i1 %138, label %.preheader.us.us, label %.split9.us, !llvm.loop !11
 
-.preheader:                                       ; preds = %.split, %.thread4.i.loopexit
+.preheader.us:                                    ; preds = %.split.us10, %.thread4.i.loopexit.us
   %139 = phi i64 [ %156, %.thread4.i.loopexit ], [ 0, %.split ]
   %140 = phi ptr [ %155, %.thread4.i.loopexit ], [ %64, %.split ]
   %141 = load ptr, ptr %69, align 8
@@ -407,7 +407,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %145
 
-145:                                              ; preds = %.preheader, %145
+145:                                              ; preds = %.preheader.us, %145
   %146 = phi i64 [ %152, %145 ], [ 0, %.preheader ]
   %147 = phi i32 [ %148, %145 ], [ 2, %.preheader ]
   %148 = add nsw i32 %147, -1
@@ -417,9 +417,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   store i8 %150, ptr %151, align 1
   %152 = add nuw nsw i64 %146, 1
   %153 = icmp eq i64 %152, 2
-  br i1 %153, label %.thread4.i.loopexit, label %145, !llvm.loop !12
+  br i1 %153, label %.thread4.i.loopexit.us, label %145, !llvm.loop !12
 
-.thread4.i.loopexit:                              ; preds = %145
+.thread4.i.loopexit.us:                           ; preds = %145
   %154 = getelementptr i8, ptr %140, i64 2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -429,33 +429,33 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %157 = load i32, ptr %65, align 8
   %158 = zext i32 %157 to i64
   %159 = icmp samesign ult i64 %156, %158
-  br i1 %159, label %.preheader, label %.split9.us, !llvm.loop !11
+  br i1 %159, label %.preheader.us, label %.split9.us, !llvm.loop !11
 
-.split9.us:                                       ; preds = %.thread4.i.loopexit, %.thread4.i.loopexit.us, %.thread4.i.us
+.split:                                           ; preds = %.thread4.i.loopexit, %.thread4.i.loopexit.us, %.thread4.i.us
   %.us-phi = phi ptr [ %111, %.thread4.i.us ], [ %134, %.thread4.i.loopexit.us ], [ %155, %.thread4.i.loopexit ]
   %.us-phi10 = phi i32 [ %113, %.thread4.i.us ], [ %136, %.thread4.i.loopexit.us ], [ %157, %.thread4.i.loopexit ]
   %160 = icmp ne i32 %.us-phi10, 0
   %161 = sext i1 %160 to i64
   br label %162
 
-162:                                              ; preds = %.split9.us, %62
+162:; preds = %.split, %62
   %163 = phi ptr [ %64, %62 ], [ %.us-phi, %.split9.us ]
   %164 = phi i64 [ 0, %62 ], [ %161, %.split9.us ]
-  %165 = getelementptr i8, ptr %163, i64 %164
+  %164 = getelementptr i8, ptr %163, i64 %164
   br label %166
 
-166:                                              ; preds = %162, %16
+166:; preds = %162, %16
   %167 = phi ptr [ %165, %162 ], [ %26, %16 ]
   %168 = phi ptr [ %60, %162 ], [ %14, %16 ]
   store i8 0, ptr %167, align 1
   br label %169
 
-169:                                              ; preds = %166, %3
+169:; preds = %166, %3
   %170 = phi ptr [ %168, %166 ], [ %0, %3 ]
   store ptr %170, ptr %1, align 8
   br label %171
 
-171:                                              ; preds = %169, %.loopexit, %27, %8, %3
+171:; preds = %169, %.loopexit, %27, %8, %3
   %172 = phi i32 [ 4, %8 ], [ 4097, %27 ], [ 4, %.loopexit ], [ 8, %3 ], [ 0, %169 ]
   ret i32 %172
 }

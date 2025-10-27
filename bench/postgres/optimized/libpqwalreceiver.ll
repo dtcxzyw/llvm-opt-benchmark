@@ -150,8 +150,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   tail call void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext %3)
   store ptr @.str.2, ptr %7, align 16
   store ptr %0, ptr %8, align 16
-  %.sink65.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink65.sroa.gep66 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink64.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink64.sroa.gep65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %1, label %10, label %20
 
 10:                                               ; preds = %6
@@ -177,10 +177,10 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %15
-  %.sink65.sroa.phi = phi ptr [ %.sink65.sroa.gep, %15 ], [ %.sink65.sroa.gep66, %19 ]
+  %.sink64.sroa.phi = phi ptr [ %.sink64.sroa.gep, %15 ], [ %.sink64.sroa.gep65, %19 ]
   %.str.8.sink = phi ptr [ @.str.8, %15 ], [ @.str.3, %19 ]
   %.057.ph = phi i32 [ 4, %15 ], [ 3, %19 ]
-  store ptr %.str.8.sink, ptr %.sink65.sroa.phi, align 8
+  store ptr %.str.8.sink, ptr %.sink64.sroa.phi, align 8
   br label %20
 
 20:                                               ; preds = %.sink.split, %6

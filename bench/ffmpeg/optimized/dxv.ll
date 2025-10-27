@@ -518,7 +518,7 @@ bytestream2_get_le32.exit163:                     ; preds = %123, %122, %78
   %246 = icmp slt i32 %245, 0
   br i1 %246, label %.thread, label %247
 
-.unreachabledefault:                              ; preds = %188
+247:                                              ; preds = %188
   unreachable
 
 247:                                              ; preds = %237

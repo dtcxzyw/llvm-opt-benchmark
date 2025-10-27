@@ -6470,9 +6470,9 @@ define dso_local range(i32 -741587091, 1) i32 @gmac_test() local_unnamed_addr #0
   br i1 %.not31, label %35, label %.thread
 
 .thread:                                          ; preds = %30, %28, %26, %24, %22, %20
-  %.sink59 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink58 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ -536887062, %20 ], [ -536887072, %22 ], [ -536887076, %24 ], [ -536887080, %26 ], [ -536887087, %28 ], [ -536887091, %30 ]
-  %32 = sub nsw i32 0, %.sink59
+  %32 = sub nsw i32 0, %.sink58
   %33 = and i32 %32, 2047
   %narrow.neg48 = mul nsw i32 %33, -100000
   %34 = add nsw i32 %narrow.neg48, %.sink
@@ -7000,7 +7000,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
   br i1 %exitcond495.not, label %.thread, label %.preheader279, !llvm.loop !93
 
 .thread:                                          ; preds = %228, %225, %221, %216, %210, %198, %192, %185, %177, %171, %165, %44, %52, %60, %67, %71, %80, %88, %97, %107, %115, %123, %135, %143, %151, %157, %160, %101, %127, %128
-  %.1124 = phi i32 [ %47, %44 ], [ %55, %52 ], [ %63, %60 ], [ %69, %67 ], [ %73, %71 ], [ %83, %80 ], [ %91, %88 ], [ %100, %97 ], [ %110, %107 ], [ %118, %115 ], [ %126, %123 ], [ %138, %135 ], [ %146, %143 ], [ %154, %151 ], [ %158, %157 ], [ %161, %160 ], [ -7936, %101 ], [ -7959, %127 ], [ -7962, %128 ], [ %227, %225 ], [ %223, %221 ], [ %219, %216 ], [ %213, %210 ], [ %201, %198 ], [ %195, %192 ], [ %188, %185 ], [ %180, %177 ], [ %174, %171 ], [ %168, %165 ], [ 0, %228 ]
+  %.0120 = phi i32 [ %47, %44 ], [ %55, %52 ], [ %63, %60 ], [ %69, %67 ], [ %73, %71 ], [ %83, %80 ], [ %91, %88 ], [ %100, %97 ], [ %110, %107 ], [ %118, %115 ], [ %126, %123 ], [ %138, %135 ], [ %146, %143 ], [ %154, %151 ], [ %158, %157 ], [ %161, %160 ], [ -7936, %101 ], [ -7959, %127 ], [ -7962, %128 ], [ %227, %225 ], [ %223, %221 ], [ %219, %216 ], [ %213, %210 ], [ %201, %198 ], [ %195, %192 ], [ %188, %185 ], [ %180, %177 ], [ %174, %171 ], [ %168, %165 ], [ 0, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -7024,7 +7024,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.1124
+  ret i32 %.0120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10321,7 +10321,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %22 = and i32 %21, 2047
   %narrow.neg = mul nsw i32 %22, -100000
   %23 = add nsw i32 %narrow.neg, -1073765104
-  br label %.thread181
+  br label %.thread180
 
 24:                                               ; preds = %0
   %25 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %18)
@@ -10336,7 +10336,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %32 = and i32 %31, 2047
   %narrow.neg78 = mul nsw i32 %32, -100000
   %33 = add nsw i32 %narrow.neg78, -1073765109
-  br label %.thread181
+  br label %.thread180
 
 34:                                               ; preds = %24
   store i32 256, ptr %3, align 4, !tbaa !22
@@ -10353,7 +10353,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %38 = and i32 %37, 2047
   %narrow.neg142 = mul nsw i32 %38, -100000
   %39 = add nsw i32 %narrow.neg142, -536894220
-  br label %.thread181
+  br label %.thread180
 
 40:                                               ; preds = %34
   %41 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
@@ -10366,7 +10366,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %45 = and i32 %44, 2047
   %narrow.neg139 = mul nsw i32 %45, -100000
   %46 = add nsw i32 %narrow.neg139, -536894225
-  br label %.thread181
+  br label %.thread180
 
 47:                                               ; preds = %40
   %48 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #19
@@ -10376,18 +10376,18 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
 49:                                               ; preds = %47
   %50 = call i32 @wc_DhKeyDecode(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %26) #19
   %.not82 = icmp eq i32 %50, 0
-  br i1 %.not82, label %51, label %.thread193
+  br i1 %.not82, label %51, label %.thread192
 
 51:                                               ; preds = %49
   store i32 0, ptr %1, align 4, !tbaa !22
   %52 = call i32 @wc_DhKeyDecode(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef %26) #19
   %.not83 = icmp eq i32 %52, 0
-  br i1 %.not83, label %53, label %.thread193
+  br i1 %.not83, label %53, label %.thread192
 
 53:                                               ; preds = %51
   %54 = call i32 @wc_InitRng_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #19
   %.not84 = icmp eq i32 %54, 0
-  br i1 %.not84, label %55, label %.thread193
+  br i1 %.not84, label %55, label %.thread192
 
 55:                                               ; preds = %53
   %56 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %3) #19
@@ -10399,7 +10399,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %59 = and i32 %58, 2047
   %narrow.neg124 = mul nsw i32 %59, -100000
   %60 = add nsw i32 %narrow.neg124, -536894278
-  br label %.thread189
+  br label %.thread188
 
 61:                                               ; preds = %55
   %62 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull %5) #19
@@ -10411,7 +10411,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %65 = and i32 %64, 2047
   %narrow.neg121 = mul nsw i32 %65, -100000
   %66 = add nsw i32 %narrow.neg121, -536894285
-  br label %.thread189
+  br label %.thread188
 
 67:                                               ; preds = %61
   %68 = load i32, ptr %2, align 4, !tbaa !22
@@ -10425,7 +10425,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %73 = and i32 %72, 2047
   %narrow.neg118 = mul nsw i32 %73, -100000
   %74 = add nsw i32 %narrow.neg118, -536894292
-  br label %.thread189
+  br label %.thread188
 
 75:                                               ; preds = %67
   %76 = load i32, ptr %4, align 4, !tbaa !22
@@ -10439,19 +10439,19 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %81 = and i32 %80, 2047
   %narrow.neg115 = mul nsw i32 %81, -100000
   %82 = add nsw i32 %narrow.neg115, -536894299
-  br label %.thread189
+  br label %.thread188
 
 83:                                               ; preds = %75
   %84 = load i32, ptr %7, align 4, !tbaa !22
   %85 = load i32, ptr %8, align 4, !tbaa !22
   %.not89 = icmp eq i32 %84, %85
-  br i1 %.not89, label %86, label %.thread189
+  br i1 %.not89, label %86, label %.thread188
 
 86:                                               ; preds = %83
   %87 = zext i32 %84 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %16, ptr nonnull %17, i64 %87)
   %.not90 = icmp eq i32 %bcmp, 0
-  br i1 %.not90, label %88, label %.thread189
+  br i1 %.not90, label %88, label %.thread188
 
 88:                                               ; preds = %86
   store i32 256, ptr %7, align 4, !tbaa !22
@@ -10467,7 +10467,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %94 = and i32 %93, 2047
   %narrow.neg112 = mul nsw i32 %94, -100000
   %95 = add nsw i32 %narrow.neg112, -536894312
-  br label %.thread189
+  br label %.thread188
 
 96:                                               ; preds = %88
   %97 = load i32, ptr %4, align 4, !tbaa !22
@@ -10481,34 +10481,34 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %102 = and i32 %101, 2047
   %narrow.neg109 = mul nsw i32 %102, -100000
   %103 = add nsw i32 %narrow.neg109, -536894316
-  br label %.thread189
+  br label %.thread188
 
 104:                                              ; preds = %96
   %105 = load i32, ptr %7, align 4, !tbaa !22
   %106 = load i32, ptr %8, align 4, !tbaa !22
   %.not93 = icmp eq i32 %105, %106
-  br i1 %.not93, label %107, label %.thread189
+  br i1 %.not93, label %107, label %.thread188
 
 107:                                              ; preds = %104
   %108 = zext i32 %105 to i64
   %bcmp94 = call i32 @bcmp(ptr nonnull %16, ptr nonnull %17, i64 %108)
   %.not95 = icmp eq i32 %bcmp94, 0
-  br i1 %.not95, label %109, label %.thread189
+  br i1 %.not95, label %109, label %.thread188
 
 109:                                              ; preds = %107
   %110 = call fastcc i32 @dh_generate_test()
   %.not96 = icmp eq i32 %110, 0
-  br i1 %.not96, label %111, label %.thread189
+  br i1 %.not96, label %111, label %.thread188
 
 111:                                              ; preds = %109
   %112 = call fastcc i32 @dh_fips_generate_test(ptr noundef %6)
   %.not97 = icmp eq i32 %112, 0
-  br i1 %.not97, label %113, label %.thread189
+  br i1 %.not97, label %113, label %.thread188
 
 113:                                              ; preds = %111
   %114 = call fastcc i32 @dh_test_check_pubvalue()
   %.not98 = icmp eq i32 %114, 0
-  br i1 %.not98, label %115, label %.thread189
+  br i1 %.not98, label %115, label %.thread188
 
 115:                                              ; preds = %113
   %116 = call ptr @wc_Dh_ffdhe2048_Get() #19
@@ -10521,21 +10521,21 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %120 = and i32 %119, 2047
   %narrow.neg106 = mul nsw i32 %120, -100000
   %121 = add nsw i32 %narrow.neg106, -536894483
-  br label %.thread189
+  br label %.thread188
 
 122:                                              ; preds = %115
   %123 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
   %124 = call i32 @wc_DhSetCheckKey(ptr noundef nonnull %9, ptr noundef nonnull @dh_p, i32 noundef 128, ptr noundef nonnull @dh_g, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #19
   %.not100 = icmp eq i32 %124, 0
-  br i1 %.not100, label %.thread189, label %.thread185
+  br i1 %.not100, label %.thread188, label %.thread184
 
-.thread189:                                       ; preds = %57, %63, %71, %79, %92, %100, %118, %83, %86, %104, %107, %109, %111, %113, %122
+.thread188:                                       ; preds = %57, %63, %71, %79, %92, %100, %118, %83, %86, %104, %107, %109, %111, %113, %122
   %.1.ph.ph = phi i32 [ %60, %57 ], [ %66, %63 ], [ %74, %71 ], [ %82, %79 ], [ %95, %92 ], [ %103, %100 ], [ %121, %118 ], [ -23390, %83 ], [ -23390, %86 ], [ -23415, %104 ], [ -23420, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ 0, %122 ]
   %125 = call i32 @wc_FreeRng(ptr noundef nonnull %6) #19
   %126 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
   br label %140
 
-.thread185:                                       ; preds = %122
+.thread184:                                       ; preds = %122
   %127 = sub nsw i32 0, %124
   %128 = and i32 %127, 2047
   %narrow.neg103 = mul nsw i32 %128, -100000
@@ -10543,10 +10543,10 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %130 = call i32 @wc_FreeRng(ptr noundef nonnull %6) #19
   br label %140
 
-.thread193:                                       ; preds = %53, %51, %49
-  %.sink218 = phi i32 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
+.thread192:                                       ; preds = %53, %51, %49
+  %.sink217 = phi i32 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
   %.sink = phi i32 [ -536894255, %49 ], [ -536894260, %51 ], [ -536894270, %53 ]
-  %131 = sub nsw i32 0, %.sink218
+  %131 = sub nsw i32 0, %.sink217
   %132 = and i32 %131, 2047
   %narrow.neg127 = mul nsw i32 %132, -100000
   %133 = add nsw i32 %narrow.neg127, %.sink
@@ -10559,15 +10559,15 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %narrow.neg136 = mul nsw i32 %137, -100000
   %138 = add nsw i32 %narrow.neg136, -536894229
   %139 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
-  br label %.thread181
+  br label %.thread180
 
-140:                                              ; preds = %.thread193, %.thread189, %.thread185
-  %.1157170188 = phi i32 [ %129, %.thread185 ], [ %.1.ph.ph, %.thread189 ], [ %133, %.thread193 ]
+140:                                              ; preds = %.thread192, %.thread188, %.thread184
+  %.1156169187 = phi i32 [ %129, %.thread185 ], [ %.1.ph.ph, %.thread189 ], [ %133, %.thread193 ]
   %141 = call i32 @wc_FreeDhKey(ptr noundef nonnull %10) #19
-  br label %.thread181
+  br label %.thread180
 
-.thread181:                                       ; preds = %36, %43, %29, %19, %135, %140
-  %.1157170184 = phi i32 [ %138, %135 ], [ %.1157170188, %140 ], [ %46, %43 ], [ %39, %36 ], [ %23, %19 ], [ %33, %29 ]
+.thread180:                                       ; preds = %36, %43, %29, %19, %135, %140
+  %.1156169183 = phi i32 [ %138, %135 ], [ %.1156169187, %140 ], [ %46, %43 ], [ %39, %36 ], [ %23, %19 ], [ %33, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -10585,7 +10585,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.1157170184
+  ret i32 %.1156169183
 }
 
 ; Function Attrs: nounwind uwtable

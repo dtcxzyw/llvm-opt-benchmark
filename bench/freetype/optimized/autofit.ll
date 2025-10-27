@@ -3369,17 +3369,17 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   %66 = getelementptr inbounds nuw i16, ptr %64, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !47
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %.139.in58.i.i = and i16 %67, 16383
-  %69 = zext nneg i16 %.139.in58.i.i to i64
+  %.139.in57.i.i = and i16 %67, 16383
+  %69 = zext nneg i16 %.139.in57.i.i to i64
   %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !243
-  %.not4559.i.i = icmp eq ptr %71, null
-  br i1 %.not4559.i.i, label %.lr.ph.i.i, label %af_face_globals_get_metrics.exit.thread.i
+  %.not4558.i.i = icmp eq ptr %71, null
+  br i1 %.not4558.i.i, label %.lr.ph.i.i, label %af_face_globals_get_metrics.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %62, %98
   %72 = phi i64 [ %102, %98 ], [ %69, %62 ]
-  %.in65.i.i = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %72
-  %73 = load ptr, ptr %.in65.i.i, align 8, !tbaa !244
+  %.in64.i.i = getelementptr inbounds nuw ptr, ptr @af_style_classes, i64 %72
+  %73 = load ptr, ptr %.in64.i.i, align 8, !tbaa !244
   %.pn.in.in.i.i = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.pn.in.i.i = load i32, ptr %.pn.in.in.i.i, align 4, !tbaa !245
   %.pn.i.i = zext i32 %.pn.in.i.i to i64

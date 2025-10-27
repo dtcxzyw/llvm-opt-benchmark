@@ -19892,18 +19892,18 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4, !tbaa !40
-  %.fr13.i56 = freeze i8 %21
-  %.not39 = icmp eq i8 %.fr13.i56, 1
-  br i1 %.not39, label %.preheader75, label %28, !prof !41
+  %.fr13.i55 = freeze i8 %21
+  %.not39 = icmp eq i8 %.fr13.i55, 1
+  br i1 %.not39, label %.preheader74, label %28, !prof !41
 
-.preheader75:                                     ; preds = %19
+.preheader74:                                     ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !39
   %.fr.i = freeze i32 %23
   %24 = icmp sgt i32 %.fr.i, 0
   br i1 %24, label %_ZNK12V3NumberData3numEv.exit.i.preheader, label %.preheader
 
-_ZNK12V3NumberData3numEv.exit.i.preheader:        ; preds = %.preheader75
+_ZNK12V3NumberData3numEv.exit.i.preheader:        ; preds = %.preheader74
   %25 = icmp samesign ult i32 %.fr.i, 129
   %26 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %25, ptr %1, ptr %26
@@ -19919,30 +19919,30 @@ _ZNK12V3NumberData3numEv.exit.i.preheader:        ; preds = %.preheader75
   tail call void @_ZNK8V3Number15v3errorEndFatalERKNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(112) %33) #35
   unreachable
 
-.preheader:                                       ; preds = %_ZNK12V3NumberData3numEv.exit.i43, %.preheader75
+.preheader:                                       ; preds = %_ZNK12V3NumberData3numEv.exit.i42, %.preheader74
   %.034.lcssa = phi i8 [ 0, %.preheader75 ], [ %spec.store.select, %_ZNK12V3NumberData3numEv.exit.i43 ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !39
-  %.fr.i59 = freeze i32 %35
-  %36 = icmp sgt i32 %.fr.i59, 0
-  br i1 %36, label %_ZNK12V3NumberData3numEv.exit.i48.preheader, label %.thread
+  %.fr.i58 = freeze i32 %35
+  %36 = icmp sgt i32 %.fr.i58, 0
+  br i1 %36, label %_ZNK12V3NumberData3numEv.exit.i47.preheader, label %.thread
 
-_ZNK12V3NumberData3numEv.exit.i48.preheader:      ; preds = %.preheader
-  %37 = icmp samesign ult i32 %.fr.i59, 129
+_ZNK12V3NumberData3numEv.exit.i47.preheader:      ; preds = %.preheader
+  %37 = icmp samesign ult i32 %.fr.i58, 129
   %38 = load ptr, ptr %2, align 8
-  %spec.select.i10.i49 = select i1 %37, ptr %2, ptr %38
-  %39 = add nsw i32 %.fr.i59, -1
-  br label %_ZNK12V3NumberData3numEv.exit.i48
+  %spec.select.i10.i48 = select i1 %37, ptr %2, ptr %38
+  %39 = add nsw i32 %.fr.i58, -1
+  br label %_ZNK12V3NumberData3numEv.exit.i47
 
-_ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3numEv.exit.i.preheader, %_ZNK12V3NumberData3numEv.exit.i43
-  %.03379 = phi i32 [ %60, %_ZNK12V3NumberData3numEv.exit.i43 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i.preheader ]
-  %.03478 = phi i8 [ %spec.store.select, %_ZNK12V3NumberData3numEv.exit.i43 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i.preheader ]
-  %40 = lshr i32 %.03379, 5
+_ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3numEv.exit.i.preheader, %_ZNK12V3NumberData3numEv.exit.i42
+  %.03378 = phi i32 [ %60, %_ZNK12V3NumberData3numEv.exit.i43 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i.preheader ]
+  %.03477 = phi i8 [ %spec.store.select, %_ZNK12V3NumberData3numEv.exit.i43 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i.preheader ]
+  %40 = lshr i32 %.03378, 5
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %41
   %.sroa.0.0.copyload.i = load i32, ptr %42, align 4, !tbaa !62
   %43 = zext i32 %.sroa.0.0.copyload.i to i64
-  %44 = and i32 %.03379, 31
+  %44 = and i32 %.03378, 31
   %45 = zext nneg i32 %44 to i64
   %46 = shl nuw nsw i64 1, %45
   %47 = and i64 %46, %43
@@ -19961,11 +19961,11 @@ tailrecurse.i.preheader:                          ; preds = %_ZNK12V3NumberData3
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %tailrecurse.i
-  %.tr811.i = phi i32 [ %27, %tailrecurse.i ], [ %.03379, %tailrecurse.i.preheader ]
-  %.not.i42 = icmp samesign ult i32 %.tr811.i, %.fr.i
-  br i1 %.not.i42, label %_ZNK12V3NumberData3numEv.exit.i43, label %tailrecurse.i
+  %.tr811.i = phi i32 [ %27, %tailrecurse.i ], [ %.03378, %tailrecurse.i.preheader ]
+  %.not.i41 = icmp samesign ult i32 %.tr811.i, %.fr.i
+  br i1 %.not.i41, label %_ZNK12V3NumberData3numEv.exit.i42, label %tailrecurse.i
 
-_ZNK12V3NumberData3numEv.exit.i43:                ; preds = %tailrecurse.i
+_ZNK12V3NumberData3numEv.exit.i42:                ; preds = %tailrecurse.i
   %50 = lshr i32 %.tr811.i, 5
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %51
@@ -19977,64 +19977,64 @@ _ZNK12V3NumberData3numEv.exit.i43:                ; preds = %tailrecurse.i
   %56 = shl nuw nsw i64 1, %55
   %57 = and i64 %56, %53
   %58 = icmp ne i64 %57, 0
-  %59 = icmp eq i8 %.03478, 0
+  %59 = icmp eq i8 %.03477, 0
   %or.cond = select i1 %58, i1 %59, i1 false
-  %spec.store.select = select i1 %or.cond, i8 120, i8 %.03478
-  %60 = add nuw nsw i32 %.03379, 1
+  %spec.store.select = select i1 %or.cond, i8 120, i8 %.03477
+  %60 = add nuw nsw i32 %.03378, 1
   %exitcond.not = icmp eq i32 %60, %.fr.i
   br i1 %exitcond.not, label %.preheader, label %_ZNK12V3NumberData3numEv.exit.i, !llvm.loop !306
 
-_ZNK12V3NumberData3numEv.exit.i48:                ; preds = %_ZNK12V3NumberData3numEv.exit.i48.preheader, %_ZNK12V3NumberData3numEv.exit.i63
-  %.097 = phi i32 [ %81, %_ZNK12V3NumberData3numEv.exit.i63 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i48.preheader ]
-  %.396 = phi i8 [ %spec.store.select6, %_ZNK12V3NumberData3numEv.exit.i63 ], [ %.034.lcssa, %_ZNK12V3NumberData3numEv.exit.i48.preheader ]
-  %61 = lshr i32 %.097, 5
+_ZNK12V3NumberData3numEv.exit.i47:                ; preds = %_ZNK12V3NumberData3numEv.exit.i47.preheader, %_ZNK12V3NumberData3numEv.exit.i62
+  %.096 = phi i32 [ %81, %_ZNK12V3NumberData3numEv.exit.i63 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i48.preheader ]
+  %.395 = phi i8 [ %spec.store.select6, %_ZNK12V3NumberData3numEv.exit.i63 ], [ %.034.lcssa, %_ZNK12V3NumberData3numEv.exit.i48.preheader ]
+  %61 = lshr i32 %.096, 5
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i49, i64 %62
-  %.sroa.0.0.copyload.i50 = load i32, ptr %63, align 4, !tbaa !62
-  %64 = zext i32 %.sroa.0.0.copyload.i50 to i64
-  %65 = and i32 %.097, 31
+  %63 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i48, i64 %62
+  %.sroa.0.0.copyload.i49 = load i32, ptr %63, align 4, !tbaa !62
+  %64 = zext i32 %.sroa.0.0.copyload.i49 to i64
+  %65 = and i32 %.096, 31
   %66 = zext nneg i32 %65 to i64
   %67 = shl nuw nsw i64 1, %66
   %68 = and i64 %67, %64
-  %.not7.i51 = icmp eq i64 %68, 0
-  br i1 %.not7.i51, label %tailrecurse.i60.preheader, label %_ZNK8V3Number6bitIs1Ei.exit55
+  %.not7.i50 = icmp eq i64 %68, 0
+  br i1 %.not7.i50, label %tailrecurse.i59.preheader, label %_ZNK8V3Number6bitIs1Ei.exit54
 
-_ZNK8V3Number6bitIs1Ei.exit55:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i48
-  %.sroa.4.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %.sroa.4.0.copyload.i53 = load i32, ptr %.sroa.4.0..sroa_idx.i52, align 4, !tbaa !62
-  %69 = zext i32 %.sroa.4.0.copyload.i53 to i64
+_ZNK8V3Number6bitIs1Ei.exit54:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i47
+  %.sroa.4.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %.sroa.4.0.copyload.i52 = load i32, ptr %.sroa.4.0..sroa_idx.i51, align 4, !tbaa !62
+  %69 = zext i32 %.sroa.4.0.copyload.i52 to i64
   %70 = and i64 %67, %69
-  %.not8.i54 = icmp eq i64 %70, 0
-  br i1 %.not8.i54, label %.thread, label %tailrecurse.i60.preheader
+  %.not8.i53 = icmp eq i64 %70, 0
+  br i1 %.not8.i53, label %.thread, label %tailrecurse.i59.preheader
 
-tailrecurse.i60.preheader:                        ; preds = %_ZNK12V3NumberData3numEv.exit.i48, %_ZNK8V3Number6bitIs1Ei.exit55
-  br label %tailrecurse.i60
+tailrecurse.i59.preheader:                        ; preds = %_ZNK12V3NumberData3numEv.exit.i47, %_ZNK8V3Number6bitIs1Ei.exit54
+  br label %tailrecurse.i59
 
-tailrecurse.i60:                                  ; preds = %tailrecurse.i60.preheader, %tailrecurse.i60
-  %.tr811.i61 = phi i32 [ %39, %tailrecurse.i60 ], [ %.097, %tailrecurse.i60.preheader ]
-  %.not.i62 = icmp samesign ult i32 %.tr811.i61, %.fr.i59
-  br i1 %.not.i62, label %_ZNK12V3NumberData3numEv.exit.i63, label %tailrecurse.i60
+tailrecurse.i59:                                  ; preds = %tailrecurse.i59.preheader, %tailrecurse.i59
+  %.tr811.i60 = phi i32 [ %39, %tailrecurse.i60 ], [ %.096, %tailrecurse.i60.preheader ]
+  %.not.i61 = icmp samesign ult i32 %.tr811.i60, %.fr.i58
+  br i1 %.not.i61, label %_ZNK12V3NumberData3numEv.exit.i62, label %tailrecurse.i59
 
-_ZNK12V3NumberData3numEv.exit.i63:                ; preds = %tailrecurse.i60
-  %71 = lshr i32 %.tr811.i61, 5
+_ZNK12V3NumberData3numEv.exit.i62:                ; preds = %tailrecurse.i59
+  %71 = lshr i32 %.tr811.i60, 5
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i49, i64 %72
-  %.sroa.3.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %.sroa.3.0.copyload.i66 = load i32, ptr %.sroa.3.0..sroa_idx.i65, align 4, !tbaa !62
-  %74 = zext i32 %.sroa.3.0.copyload.i66 to i64
-  %75 = and i32 %.tr811.i61, 31
+  %73 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i48, i64 %72
+  %.sroa.3.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %.sroa.3.0.copyload.i65 = load i32, ptr %.sroa.3.0..sroa_idx.i64, align 4, !tbaa !62
+  %74 = zext i32 %.sroa.3.0.copyload.i65 to i64
+  %75 = and i32 %.tr811.i60, 31
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw nsw i64 1, %76
   %78 = and i64 %77, %74
   %79 = icmp ne i64 %78, 0
-  %80 = icmp eq i8 %.396, 0
+  %80 = icmp eq i8 %.395, 0
   %or.cond5 = select i1 %79, i1 %80, i1 false
-  %spec.store.select6 = select i1 %or.cond5, i8 120, i8 %.396
-  %81 = add nuw nsw i32 %.097, 1
-  %exitcond127.not = icmp eq i32 %81, %.fr.i59
-  br i1 %exitcond127.not, label %.thread, label %_ZNK12V3NumberData3numEv.exit.i48, !llvm.loop !307
+  %spec.store.select6 = select i1 %or.cond5, i8 120, i8 %.395
+  %81 = add nuw nsw i32 %.096, 1
+  %exitcond126.not = icmp eq i32 %81, %.fr.i58
+  br i1 %exitcond126.not, label %.thread, label %_ZNK12V3NumberData3numEv.exit.i47, !llvm.loop !307
 
-.thread:                                          ; preds = %_ZNK8V3Number6bitIs1Ei.exit, %_ZNK8V3Number6bitIs1Ei.exit55, %_ZNK12V3NumberData3numEv.exit.i63, %.preheader
+.thread:                                          ; preds = %_ZNK8V3Number6bitIs1Ei.exit, %_ZNK8V3Number6bitIs1Ei.exit54, %_ZNK12V3NumberData3numEv.exit.i62, %.preheader
   %.2 = phi i8 [ %.034.lcssa, %.preheader ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit55 ], [ %spec.store.select6, %_ZNK12V3NumberData3numEv.exit.i63 ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit ]
   %82 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13setSingleBitsEc(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %.2)
   ret ptr %0

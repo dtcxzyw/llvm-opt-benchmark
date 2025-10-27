@@ -493,8 +493,8 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit.i: ; preds = %.crite
   br i1 %.not33.i, label %_ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit, label %.lr.ph42.i
 
 _ZN12_GLOBAL__N_112OptimizePHIs10OptimizeBBERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i, %111, %21
-  %.0.lcssa.i = phi i1 [ false, %21 ], [ %.4.i, %111 ], [ %.041.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i ]
-  %112 = or i1 %.014, %.0.lcssa.i
+  %.1.i = phi i1 [ false, %21 ], [ %.4.i, %111 ], [ %.041.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i ]
+  %112 = or i1 %.014, %.1.i
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 8
   %.sroa.08.0 = load ptr, ptr %113, align 8, !tbaa !163
   %.not = icmp eq ptr %.sroa.08.0, %15

@@ -3650,9 +3650,9 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
 34:                                               ; preds = %31
   %35 = load i32, ptr %7, align 4
   %.not55 = icmp eq i32 %35, 16
-  br i1 %.not55, label %37, label %.critedge.thread75
+  br i1 %.not55, label %37, label %.critedge.thread74
 
-.critedge.thread75:                               ; preds = %34
+.critedge.thread74:                               ; preds = %34
   %36 = call i32 @close(i32 noundef %17) #30
   br label %81
 
@@ -3672,9 +3672,9 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
 43:                                               ; preds = %40, %40
   %44 = and i32 %1, 2048
   %.not56 = icmp eq i32 %44, 0
-  br i1 %.not56, label %.thread, label %.thread99
+  br i1 %.not56, label %.thread, label %.thread98
 
-.thread99:                                        ; preds = %43
+.thread98:                                        ; preds = %43
   store i32 16, ptr %7, align 4
   br label %.split
 
@@ -3687,12 +3687,12 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
 .split.us:                                        ; preds = %45
   %47 = call i32 @accept(i32 noundef %17, ptr nonnull %5, ptr noundef nonnull %7) #30
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %.thread, label %.critedge66
+  br i1 %48, label %.thread, label %.critedge65
 
-.split:                                           ; preds = %.thread99, %45
+.split:                                           ; preds = %.thread98, %45
   %49 = call i32 @accept(i32 noundef %17, ptr nonnull %5, ptr noundef nonnull %7) #30
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %.lr.ph, label %.critedge66
+  br i1 %50, label %.lr.ph, label %.critedge65
 
 .lr.ph:                                           ; preds = %.split
   %51 = tail call ptr @__errno_location() #31
@@ -3710,15 +3710,15 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
 55:                                               ; preds = %52, %52, %52
   %56 = call i32 @accept(i32 noundef %17, ptr nonnull %5, ptr noundef nonnull %7) #30
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %52, label %.critedge66
+  br i1 %57, label %52, label %.critedge65
 
-.critedge66:                                      ; preds = %55, %.split, %.split.us
+.critedge65:                                      ; preds = %55, %.split, %.split.us
   %.us-phi = phi i32 [ %47, %.split.us ], [ %49, %.split ], [ %56, %55 ]
   %58 = load i32, ptr %7, align 4
   %.not58 = icmp eq i32 %58, 16
   br i1 %.not58, label %59, label %.critedge
 
-59:                                               ; preds = %.critedge66
+59:                                               ; preds = %.critedge65
   %60 = call i32 @getsockname(i32 noundef %29, ptr nonnull %6, ptr noundef nonnull %7) #30
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %.thread, label %62
@@ -3762,34 +3762,34 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
   %79 = load i32, ptr %78, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %62, %64, %67, %71, %.critedge66, %.thread
-  %.04373 = phi i32 [ %.043.ph, %.thread ], [ %29, %62 ], [ %29, %64 ], [ %29, %67 ], [ %29, %71 ], [ %29, %.critedge66 ]
-  %.04471 = phi i32 [ %.044.ph, %.thread ], [ %.us-phi, %62 ], [ %.us-phi, %64 ], [ %.us-phi, %67 ], [ %.us-phi, %71 ], [ %.us-phi, %.critedge66 ]
+.critedge:                                        ; preds = %62, %64, %67, %71, %.critedge65, %.thread
+  %.04372 = phi i32 [ %.043.ph, %.thread ], [ %29, %62 ], [ %29, %64 ], [ %29, %67 ], [ %29, %71 ], [ %29, %.critedge66 ]
+  %.04470 = phi i32 [ %.044.ph, %.thread ], [ %.us-phi, %62 ], [ %.us-phi, %64 ], [ %.us-phi, %67 ], [ %.us-phi, %71 ], [ %.us-phi, %.critedge66 ]
   %.146 = phi i32 [ %79, %.thread ], [ 103, %62 ], [ 103, %64 ], [ 103, %67 ], [ 103, %71 ], [ 103, %.critedge66 ]
   %80 = call i32 @close(i32 noundef %17) #30
-  %.not63 = icmp eq i32 %.04373, -1
+  %.not63 = icmp eq i32 %.04372, -1
   br i1 %.not63, label %83, label %81
 
-81:                                               ; preds = %.critedge.thread75, %.critedge
-  %.14683 = phi i32 [ 103, %.critedge.thread75 ], [ %.146, %.critedge ]
-  %.0447181 = phi i32 [ -1, %.critedge.thread75 ], [ %.04471, %.critedge ]
-  %.0437380 = phi i32 [ %29, %.critedge.thread75 ], [ %.04373, %.critedge ]
-  %82 = call i32 @close(i32 noundef %.0437380) #30
+81:                                               ; preds = %.critedge.thread74, %.critedge
+  %.14682 = phi i32 [ 103, %.critedge.thread75 ], [ %.146, %.critedge ]
+  %.0447080 = phi i32 [ -1, %.critedge.thread75 ], [ %.04470, %.critedge ]
+  %.0437279 = phi i32 [ %29, %.critedge.thread75 ], [ %.04372, %.critedge ]
+  %82 = call i32 @close(i32 noundef %.0437279) #30
   br label %83
 
 83:                                               ; preds = %81, %.critedge
-  %.14684 = phi i32 [ %.14683, %81 ], [ %.146, %.critedge ]
-  %.0447182 = phi i32 [ %.0447181, %81 ], [ %.04471, %.critedge ]
-  %.not64 = icmp eq i32 %.0447182, -1
+  %.14683 = phi i32 [ %.14682, %81 ], [ %.146, %.critedge ]
+  %.0447081 = phi i32 [ %.0447080, %81 ], [ %.04470, %.critedge ]
+  %.not64 = icmp eq i32 %.0447081, -1
   br i1 %.not64, label %86, label %84
 
 84:                                               ; preds = %83
-  %85 = call i32 @close(i32 noundef %.0447182) #30
+  %85 = call i32 @close(i32 noundef %.0447081) #30
   br label %86
 
 86:                                               ; preds = %83, %84
   %87 = tail call ptr @__errno_location() #31
-  store i32 %.14684, ptr %87, align 4
+  store i32 %.14683, ptr %87, align 4
   br label %88
 
 88:                                               ; preds = %16, %86, %75, %14, %11

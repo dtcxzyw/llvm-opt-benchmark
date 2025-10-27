@@ -417,21 +417,21 @@ thread-pre-split124:                              ; preds = %.thread.i, %135, %1
   %150 = call i64 @archive_entry_size(ptr noundef %1) #12
   %151 = call i32 (i32, i64, ...) @ioctl(i32 noundef %136, i64 noundef 3223348747, ptr noundef nonnull %5) #12
   %152 = icmp slt i32 %151, 0
-  br i1 %152, label %setup_sparse_fiemap.exit.i, label %.lr.ph101.i.i
+  br i1 %152, label %setup_sparse_fiemap.exit.i, label %.lr.ph100.i.i
 
-.lr.ph101.i.i:                                    ; preds = %146
+.lr.ph100.i.i:                                    ; preds = %146
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %155
 
-155:                                              ; preds = %._crit_edge.thread.i.i, %.lr.ph101.i.i
-  %.06899.i.i = phi i32 [ 0, %.lr.ph101.i.i ], [ %193, %._crit_edge.thread.i.i ]
+155:                                              ; preds = %._crit_edge.thread.i.i, %.lr.ph100.i.i
+  %.06898.i.i = phi i32 [ 0, %.lr.ph101.i.i ], [ %193, %._crit_edge.thread.i.i ]
   %156 = load i32, ptr %153, align 4, !tbaa !35
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %161
 
 158:                                              ; preds = %155
-  %159 = icmp eq i32 %.06899.i.i, 0
+  %159 = icmp eq i32 %.06898.i.i, 0
   br i1 %159, label %160, label %setup_sparse_fiemap.exit.i
 
 160:                                              ; preds = %158
@@ -444,19 +444,19 @@ thread-pre-split124:                              ; preds = %.thread.i, %135, %1
 
 .lr.ph.i.i:                                       ; preds = %161, %.thread.i.i
   %163 = phi i32 [ %178, %.thread.i.i ], [ %156, %161 ]
-  %.06398.i.i = phi i32 [ %181, %.thread.i.i ], [ 0, %161 ]
-  %.06597.i.i = phi ptr [ %182, %.thread.i.i ], [ %154, %161 ]
-  %.296.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i ], [ 1, %161 ]
-  %164 = getelementptr inbounds nuw i8, ptr %.06597.i.i, i64 40
+  %.06397.i.i = phi i32 [ %181, %.thread.i.i ], [ 0, %161 ]
+  %.06596.i.i = phi ptr [ %182, %.thread.i.i ], [ %154, %161 ]
+  %.295.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i ], [ 1, %161 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.06596.i.i, i64 40
   %165 = load i32, ptr %164, align 8, !tbaa !36
   %166 = and i32 %165, 2048
   %.not76.i.i = icmp eq i32 %166, 0
   br i1 %.not76.i.i, label %167, label %.thread.i.i
 
 167:                                              ; preds = %.lr.ph.i.i
-  %168 = getelementptr inbounds nuw i8, ptr %.06597.i.i, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.06596.i.i, i64 16
   %169 = load i64, ptr %168, align 8, !tbaa !38
-  %170 = load i64, ptr %.06597.i.i, align 8, !tbaa !39
+  %170 = load i64, ptr %.06596.i.i, align 8, !tbaa !39
   %171 = add i64 %170, %169
   %172 = call i64 @llvm.usub.sat.i64(i64 %171, i64 %150)
   %.0.i.i = sub i64 %169, %172
@@ -472,17 +472,17 @@ thread-pre-split124:                              ; preds = %.thread.i, %135, %1
 177:                                              ; preds = %175
   call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef %170, i64 noundef %.0.i.i) #12
   %.pre.i.i = load i32, ptr %164, align 8, !tbaa !36
-  %.pre106.i.i = load i32, ptr %153, align 4, !tbaa !35
+  %.pre105.i.i = load i32, ptr %153, align 4, !tbaa !35
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %177, %175, %.lr.ph.i.i
-  %178 = phi i32 [ %163, %175 ], [ %.pre106.i.i, %177 ], [ %163, %.lr.ph.i.i ]
+  %178 = phi i32 [ %163, %175 ], [ %.pre105.i.i, %177 ], [ %163, %.lr.ph.i.i ]
   %179 = phi i32 [ %165, %175 ], [ %.pre.i.i, %177 ], [ %165, %.lr.ph.i.i ]
   %180 = and i32 %179, 1
   %.not78.i.i = icmp eq i32 %180, 0
-  %spec.select.i.i = select i1 %.not78.i.i, i32 %.296.i.i, i32 0
-  %181 = add nuw nsw i32 %.06398.i.i, 1
-  %182 = getelementptr inbounds nuw i8, ptr %.06597.i.i, i64 56
+  %spec.select.i.i = select i1 %.not78.i.i, i32 %.295.i.i, i32 0
+  %181 = add nuw nsw i32 %.06397.i.i, 1
+  %182 = getelementptr inbounds nuw i8, ptr %.06596.i.i, i64 56
   %183 = icmp slt i32 %181, %178
   br i1 %183, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !40
 
@@ -500,7 +500,7 @@ thread-pre-split124:                              ; preds = %.thread.i, %135, %1
   %191 = load i64, ptr %190, align 8, !tbaa !38
   %192 = add i64 %191, %189
   store i64 %192, ptr %5, align 16, !tbaa !42
-  %193 = add nuw nsw i32 %.06899.i.i, 1
+  %193 = add nuw nsw i32 %.06898.i.i, 1
   %194 = call i32 (i32, i64, ...) @ioctl(i32 noundef %136, i64 noundef 3223348747, ptr noundef nonnull %5) #12
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %setup_sparse_fiemap.exit.i, label %155

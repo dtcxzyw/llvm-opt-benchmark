@@ -3997,7 +3997,7 @@ define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   %28 = load ptr, ptr %27, align 8, !tbaa !182
   call void @listRelease(ptr noundef %28) #30
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !180
   call void @listRelease(ptr noundef %31) #30
@@ -4006,12 +4006,12 @@ define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
   %34 = load ptr, ptr %33, align 8, !tbaa !183
   call void @listRelease(ptr noundef %34) #30
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  call void @zfree(ptr noundef %35) #30
+  call void @zfree(ptr noundef %35) #31
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %49
 
-36:                                               ; preds = %18
+49:                                               ; preds = %18
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !190
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 24

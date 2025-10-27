@@ -437,8 +437,8 @@ declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !54
-  %.not104109.i = icmp eq ptr %3, null
-  br i1 %.not104109.i, label %tailrecurse._crit_edge.i, label %.lr.ph.lr.ph.i
+  %.not102107.i = icmp eq ptr %3, null
+  br i1 %.not102107.i, label %tailrecurse._crit_edge.i, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -454,21 +454,21 @@ define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, p
 
 .lr.ph.i:                                         ; preds = %tailrecurse.i, %.lr.ph.lr.ph.i
   %13 = phi ptr [ %3, %.lr.ph.lr.ph.i ], [ %71, %tailrecurse.i ]
-  %.tr86111.i = phi ptr [ %0, %.lr.ph.lr.ph.i ], [ %70, %tailrecurse.i ]
-  %.tr110.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %15, %tailrecurse.i ]
+  %.tr84109.i = phi ptr [ %0, %.lr.ph.lr.ph.i ], [ %70, %tailrecurse.i ]
+  %.tr108.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %15, %tailrecurse.i ]
   br label %14
 
 14:                                               ; preds = %select.unfold.i, %.lr.ph.i
   %15 = phi ptr [ %13, %.lr.ph.i ], [ %188, %select.unfold.i ]
-  %.0105.i = phi ptr [ %.tr86111.i, %.lr.ph.i ], [ %187, %select.unfold.i ]
+  %.0103.i = phi ptr [ %.tr84109.i, %.lr.ph.i ], [ %187, %select.unfold.i ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !55
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = icmp ult i32 %6, %18
-  br i1 %19, label %._crit_edge129.i, label %20
+  br i1 %19, label %._crit_edge127.i, label %20
 
-._crit_edge129.i:                                 ; preds = %14
-  %.pre130.i = load i32, ptr %1, align 8, !tbaa !60
+._crit_edge127.i:                                 ; preds = %14
+  %.pre128.i = load i32, ptr %1, align 8, !tbaa !60
   br label %split.i
 
 20:                                               ; preds = %14
@@ -500,9 +500,9 @@ define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, p
 split.thread.i:                                   ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %15, ptr %34, align 8, !tbaa !61
-  store ptr %1, ptr %.0105.i, align 8, !tbaa !54
+  store ptr %1, ptr %.0103.i, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.tr110.i, ptr %35, align 8, !tbaa !62
+  store ptr %.tr108.i, ptr %35, align 8, !tbaa !62
   br label %76
 
 36:                                               ; preds = %32, %28, %25, %22
@@ -518,23 +518,23 @@ split.thread.i:                                   ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %41 = load i32, ptr %40, align 4, !tbaa !35
   %42 = icmp eq i32 %41, 1
-  %.pre128.i = load i8, ptr %10, align 4, !tbaa !35
+  %.pre126.i = load i8, ptr %10, align 4, !tbaa !35
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %45 = load i8, ptr %44, align 4, !tbaa !35
-  %.not39.i.i = icmp ult i8 %.pre128.i, %45
+  %.not39.i.i = icmp ult i8 %.pre126.i, %45
   br i1 %.not39.i.i, label %49, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 33
   %48 = load i8, ptr %47, align 1, !tbaa !35
-  %.not40.i.i = icmp ugt i8 %.pre128.i, %48
+  %.not40.i.i = icmp ugt i8 %.pre126.i, %48
   br i1 %.not40.i.i, label %49, label %tailrecurse.i
 
 49:                                               ; preds = %46, %43, %39, %._crit_edge.i
-  %50 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.pre128.i, %46 ], [ %.pre128.i, %43 ], [ %.pre128.i, %39 ]
+  %50 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.pre126.i, %46 ], [ %.pre126.i, %43 ], [ %.pre126.i, %39 ]
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %52 = load i8, ptr %51, align 4, !tbaa !35
   %53 = icmp ult i8 %50, %52
@@ -569,16 +569,16 @@ split.thread.i:                                   ; preds = %32
 tailrecurse.i:                                    ; preds = %46
   %70 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %71 = load ptr, ptr %70, align 8, !tbaa !54
-  %.not104.i = icmp eq ptr %71, null
-  br i1 %.not104.i, label %tailrecurse._crit_edge.i, label %.lr.ph.i
+  %.not102.i = icmp eq ptr %71, null
+  br i1 %.not102.i, label %tailrecurse._crit_edge.i, label %.lr.ph.i
 
-split.i:                                          ; preds = %63, %56, %49, %._crit_edge129.i
-  %72 = phi i32 [ %.pre130.i, %._crit_edge129.i ], [ %23, %49 ], [ %23, %56 ], [ %23, %63 ]
+split.i:                                          ; preds = %63, %56, %49, %._crit_edge127.i
+  %72 = phi i32 [ %.pre128.i, %._crit_edge129.i ], [ %23, %49 ], [ %23, %56 ], [ %23, %63 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %15, ptr %73, align 8, !tbaa !61
-  store ptr %1, ptr %.0105.i, align 8, !tbaa !54
+  store ptr %1, ptr %.0103.i, align 8, !tbaa !54
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.tr110.i, ptr %74, align 8, !tbaa !62
+  store ptr %.tr108.i, ptr %74, align 8, !tbaa !62
   %75 = icmp eq i32 %72, 16
   br i1 %75, label %76, label %hwloc_pci_add_object.exit
 
@@ -597,7 +597,7 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   %.3.ph.i = phi ptr [ %.3.i, %133 ], [ %77, %80 ]
   br label %82
 
-82:                                               ; preds = %hwloc_pci_compare_busids.exit67.i, %.outer.i
+82:                                               ; preds = %hwloc_pci_compare_busids.exit66.i, %.outer.i
   %.3.i = phi ptr [ %143, %hwloc_pci_compare_busids.exit67.i ], [ %.3.ph.i, %.outer.i ]
   %83 = load ptr, ptr %.3.i, align 8, !tbaa !54
   %.not58.i = icmp eq ptr %83, null
@@ -624,48 +624,48 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %97 = load i8, ptr %96, align 4, !tbaa !35
   %98 = load i8, ptr %8, align 4, !tbaa !35
-  %.not.i65.i = icmp ult i8 %97, %98
-  br i1 %.not.i65.i, label %101, label %99
+  %.not.i64.i = icmp ult i8 %97, %98
+  br i1 %.not.i64.i, label %101, label %99
 
 99:                                               ; preds = %95
   %100 = load i8, ptr %9, align 1, !tbaa !35
-  %.not38.i66.i = icmp ugt i8 %97, %100
-  br i1 %.not38.i66.i, label %101, label %133
+  %.not38.i65.i = icmp ugt i8 %97, %100
+  br i1 %.not38.i65.i, label %101, label %133
 
 101:                                              ; preds = %99, %95, %92
   %102 = load i32, ptr %83, align 8, !tbaa !60
   %103 = icmp eq i32 %102, 16
-  br i1 %103, label %104, label %._crit_edge131.i
+  br i1 %103, label %104, label %._crit_edge129.i
 
-._crit_edge131.i:                                 ; preds = %101
-  %.pre132.i = load i8, ptr %10, align 4, !tbaa !35
+._crit_edge129.i:                                 ; preds = %101
+  %.pre130.i = load i8, ptr %10, align 4, !tbaa !35
   br label %114
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %87, i64 36
   %106 = load i32, ptr %105, align 4, !tbaa !35
   %107 = icmp eq i32 %106, 1
-  %.pre133.i = load i8, ptr %10, align 4, !tbaa !35
+  %.pre131.i = load i8, ptr %10, align 4, !tbaa !35
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %110 = load i8, ptr %109, align 4, !tbaa !35
-  %.not39.i63.i = icmp ult i8 %.pre133.i, %110
-  br i1 %.not39.i63.i, label %114, label %111
+  %.not39.i62.i = icmp ult i8 %.pre131.i, %110
+  br i1 %.not39.i62.i, label %114, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %87, i64 33
   %113 = load i8, ptr %112, align 1, !tbaa !35
-  %.not40.i64.i = icmp ugt i8 %.pre133.i, %113
-  br i1 %.not40.i64.i, label %114, label %133
+  %.not40.i63.i = icmp ugt i8 %.pre131.i, %113
+  br i1 %.not40.i63.i, label %114, label %133
 
-114:                                              ; preds = %111, %108, %104, %._crit_edge131.i
-  %115 = phi i8 [ %.pre132.i, %._crit_edge131.i ], [ %.pre133.i, %111 ], [ %.pre133.i, %108 ], [ %.pre133.i, %104 ]
+114:                                              ; preds = %111, %108, %104, %._crit_edge129.i
+  %115 = phi i8 [ %.pre130.i, %._crit_edge131.i ], [ %.pre131.i, %111 ], [ %.pre131.i, %108 ], [ %.pre131.i, %104 ]
   %116 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %117 = load i8, ptr %116, align 4, !tbaa !35
   %118 = icmp ult i8 %115, %117
-  br i1 %118, label %hwloc_pci_compare_busids.exit67.i, label %119
+  br i1 %118, label %hwloc_pci_compare_busids.exit66.i, label %119
 
 119:                                              ; preds = %114
   %120 = icmp ugt i8 %115, %117
@@ -676,7 +676,7 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   %123 = getelementptr inbounds nuw i8, ptr %87, i64 5
   %124 = load i8, ptr %123, align 1, !tbaa !35
   %125 = icmp ult i8 %122, %124
-  br i1 %125, label %hwloc_pci_compare_busids.exit67.i, label %126
+  br i1 %125, label %hwloc_pci_compare_busids.exit66.i, label %126
 
 126:                                              ; preds = %121
   %127 = icmp ugt i8 %122, %124
@@ -687,7 +687,7 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   %130 = getelementptr inbounds nuw i8, ptr %87, i64 6
   %131 = load i8, ptr %130, align 2, !tbaa !35
   %132 = icmp ult i8 %129, %131
-  br i1 %132, label %hwloc_pci_compare_busids.exit67.i, label %133
+  br i1 %132, label %hwloc_pci_compare_busids.exit66.i, label %133
 
 133:                                              ; preds = %128, %126, %119, %111, %99, %90
   store ptr %83, ptr %.053.ph.i, align 8, !tbaa !54
@@ -704,11 +704,11 @@ split.i:                                          ; preds = %63, %56, %49, %._cr
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 88
   br label %.outer.i, !llvm.loop !63
 
-hwloc_pci_compare_busids.exit67.i:                ; preds = %128, %121, %114
+hwloc_pci_compare_busids.exit66.i:                ; preds = %128, %121, %114
   %142 = load i8, ptr %9, align 1, !tbaa !35
-  %.not85.i = icmp ugt i8 %117, %142
+  %.not83.i = icmp ugt i8 %117, %142
   %143 = getelementptr inbounds nuw i8, ptr %83, i64 88
-  br i1 %.not85.i, label %hwloc_pci_add_object.exit, label %82, !llvm.loop !63
+  br i1 %.not83.i, label %hwloc_pci_add_object.exit, label %82, !llvm.loop !63
 
 hwloc_pci_compare_busids.exit.i:                  ; preds = %68
   %.b.i = load i1, ptr @hwloc_pci_add_object.reported, align 4
@@ -738,7 +738,7 @@ hwloc_pci_compare_busids.exit.i:                  ; preds = %68
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 6
   %164 = load i8, ptr %163, align 2, !tbaa !35
   %165 = zext i8 %164 to i32
-  %166 = load ptr, ptr %.0105.i, align 8, !tbaa !54
+  %166 = load ptr, ptr %.0103.i, align 8, !tbaa !54
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
   %168 = load ptr, ptr %167, align 8, !tbaa !55
   %169 = load i32, ptr %168, align 8, !tbaa !35
@@ -772,7 +772,7 @@ select.unfold.i:                                  ; preds = %68, %61, %54, %20
   br i1 %.not.i, label %tailrecurse._crit_edge.i, label %14
 
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %select.unfold.i, %2
-  %.tr.lcssa.i = phi ptr [ null, %2 ], [ %.tr110.i, %select.unfold.i ], [ %15, %tailrecurse.i ]
+  %.tr.lcssa.i = phi ptr [ null, %2 ], [ %.tr108.i, %select.unfold.i ], [ %15, %tailrecurse.i ]
   %.0.lcssa.i = phi ptr [ %0, %2 ], [ %187, %select.unfold.i ], [ %70, %tailrecurse.i ]
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %.tr.lcssa.i, ptr %189, align 8, !tbaa !62
@@ -781,7 +781,7 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %sel
   store ptr %1, ptr %.0.lcssa.i, align 8, !tbaa !54
   br label %hwloc_pci_add_object.exit
 
-hwloc_pci_add_object.exit:                        ; preds = %82, %84, %hwloc_pci_compare_busids.exit67.i, %split.i, %76, %186, %tailrecurse._crit_edge.i
+hwloc_pci_add_object.exit:                        ; preds = %82, %84, %hwloc_pci_compare_busids.exit66.i, %split.i, %76, %186, %tailrecurse._crit_edge.i
   ret void
 }
 

@@ -1956,8 +1956,8 @@ _ZN5follyeqINS_5RangeIPKcEEA16_cEENSt9enable_ifIXsr6detail23ComparableAsStringPi
   %20 = load i8, ptr %.01115.i.i.i.i.i, align 1, !tbaa !28
   %21 = sext i8 %20 to i32
   %22 = call i32 @isspace(i32 noundef %21) #29
-  %.not12.not.i.i.not.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not12.not.i.i.not.i.i.i, label %.critedge, label %18
+  %.not12.not.i.i.i.i.i = icmp eq i32 %22, 0
+  br i1 %.not12.not.i.i.i.i.i, label %.critedge, label %18
 
 23:                                               ; preds = %_ZN5follyeqINS_5RangeIPKcEEA16_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

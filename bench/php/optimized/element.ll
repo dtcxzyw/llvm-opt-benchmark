@@ -4423,7 +4423,7 @@ define hidden void @zim_Dom_Element_insertAdjacentHTML(ptr noundef %0, ptr nound
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #11
-  br label %.thread124
+  br label %.thread123
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4455,41 +4455,41 @@ thread-pre-split:                                 ; preds = %instanceof_function
 21:                                               ; preds = %thread-pre-split, %8
   %22 = phi ptr [ %.pr, %thread-pre-split ], [ %10, %8 ]
   %.not102 = icmp eq ptr %22, null
-  br i1 %.not102, label %.thread124, label %23, !prof !77
+  br i1 %.not102, label %.thread123, label %23, !prof !77
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !47
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  br label %.thread124
+  br label %.thread123
 
 zend_parse_arg_object.exit:                       ; preds = %15, %instanceof_function.exit, %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = load i8, ptr %28, align 8, !tbaa !13
   %30 = icmp eq i8 %29, 6
-  br i1 %30, label %.thread144, label %zend_parse_arg_str_ex.exit, !prof !44
+  br i1 %30, label %.thread143, label %zend_parse_arg_str_ex.exit, !prof !44
 
-.thread144:                                       ; preds = %zend_parse_arg_object.exit
+.thread143:                                       ; preds = %zend_parse_arg_object.exit
   %31 = load ptr, ptr %27, align 8, !tbaa !13
   store ptr %31, ptr %3, align 8, !tbaa !24
   br label %.critedge
 
 zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_object.exit
   %32 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 2) #11
-  %cond.fr114 = freeze i1 %32
-  br i1 %cond.fr114, label %.critedge, label %.thread124, !prof !103
+  %cond.fr113 = freeze i1 %32
+  br i1 %cond.fr113, label %.critedge, label %.thread123, !prof !103
 
-.thread124:                                       ; preds = %zend_parse_arg_str_ex.exit, %21, %23, %7
-  %.087136 = phi i32 [ 1, %21 ], [ 1, %23 ], [ 0, %7 ], [ 2, %zend_parse_arg_str_ex.exit ]
-  %.092135 = phi i32 [ 9, %21 ], [ 3, %23 ], [ 1, %7 ], [ 9, %zend_parse_arg_str_ex.exit ]
-  %.093134 = phi ptr [ %9, %21 ], [ %9, %23 ], [ null, %7 ], [ %27, %zend_parse_arg_str_ex.exit ]
-  %.094133 = phi i32 [ 18, %21 ], [ 0, %23 ], [ 0, %7 ], [ 4, %zend_parse_arg_str_ex.exit ]
-  %.095132 = phi ptr [ null, %21 ], [ %26, %23 ], [ null, %7 ], [ null, %zend_parse_arg_str_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.092135, i32 noundef %.087136, ptr noundef %.095132, i32 noundef %.094133, ptr noundef %.093134) #11
+.thread123:                                       ; preds = %zend_parse_arg_str_ex.exit, %21, %23, %7
+  %.087135 = phi i32 [ 1, %21 ], [ 1, %23 ], [ 0, %7 ], [ 2, %zend_parse_arg_str_ex.exit ]
+  %.092134 = phi i32 [ 9, %21 ], [ 3, %23 ], [ 1, %7 ], [ 9, %zend_parse_arg_str_ex.exit ]
+  %.093133 = phi ptr [ %9, %21 ], [ %9, %23 ], [ null, %7 ], [ %27, %zend_parse_arg_str_ex.exit ]
+  %.094132 = phi i32 [ 18, %21 ], [ 0, %23 ], [ 0, %7 ], [ 4, %zend_parse_arg_str_ex.exit ]
+  %.095131 = phi ptr [ null, %21 ], [ %26, %23 ], [ null, %7 ], [ null, %zend_parse_arg_str_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.092134, i32 noundef %.087135, ptr noundef %.095131, i32 noundef %.094132, ptr noundef %.093133) #11
   br label %111
 
-.critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %.thread144
+.critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %.thread143
   %33 = load ptr, ptr %4, align 8, !tbaa !13
   %34 = getelementptr inbounds i8, ptr %33, i64 -24
   %35 = load ptr, ptr %34, align 8, !tbaa !45
@@ -4553,14 +4553,14 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
 
 66:                                               ; preds = %63
   %67 = call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %.088) #11
-  br i1 %67, label %68, label %.thread138
+  br i1 %67, label %68, label %.thread137
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %.088, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !104
   %71 = call i32 @xmlStrEqual(ptr noundef %70, ptr noundef nonnull @.str.14) #11
   %.not105 = icmp eq i32 %71, 0
-  br i1 %.not105, label %.thread138, label %72
+  br i1 %.not105, label %.thread137, label %72
 
 72:                                               ; preds = %68, %63
   %73 = call ptr @php_dom_get_ns_mapper(ptr noundef nonnull %34) #11
@@ -4569,13 +4569,13 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %76 = load ptr, ptr %75, align 8, !tbaa !65
   %77 = call ptr @xmlNewDocNode(ptr noundef %76, ptr noundef %74, ptr noundef nonnull @.str.15, ptr noundef null) #11
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread140, label %.thread138, !prof !15
+  br i1 %78, label %.thread139, label %.thread137, !prof !15
 
-.thread140:                                       ; preds = %72
+.thread139:                                       ; preds = %72
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #11
   br label %110
 
-.thread138:                                       ; preds = %72, %68, %66
+.thread137:                                       ; preds = %72, %68, %66
   %.189 = phi ptr [ %.088, %68 ], [ %.088, %66 ], [ %77, %72 ]
   %.0 = phi i1 [ false, %68 ], [ false, %66 ], [ true, %72 ]
   %79 = load ptr, ptr %3, align 8, !tbaa !24
@@ -4583,11 +4583,11 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %81 = icmp eq ptr %80, null
   br i1 %81, label %109, label %82
 
-82:                                               ; preds = %.thread138
+82:                                               ; preds = %.thread137
   %83 = getelementptr inbounds i8, ptr %33, i64 -16
   %84 = load ptr, ptr %83, align 8, !tbaa !16
-  %.not.i109 = icmp eq ptr %84, null
-  br i1 %.not.i109, label %php_libxml_invalidate_node_list_cache.exit, label %85
+  %.not.i108 = icmp eq ptr %84, null
+  br i1 %.not.i108, label %php_libxml_invalidate_node_list_cache.exit, label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -4635,15 +4635,15 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %82, %85
 108:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
   unreachable
 
-109:                                              ; preds = %93, %97, %103, %107, %.thread138
+109:                                              ; preds = %93, %97, %103, %107, %.thread137
   br i1 %.0, label %110, label %111
 
-110:                                              ; preds = %.thread140, %109
-  %.2143 = phi ptr [ null, %.thread140 ], [ %.189, %109 ]
-  call void @xmlFreeNode(ptr noundef %.2143) #11
+110:                                              ; preds = %.thread139, %109
+  %.2142 = phi ptr [ null, %.thread140 ], [ %.189, %109 ]
+  call void @xmlFreeNode(ptr noundef %.2142) #11
   br label %111
 
-111:                                              ; preds = %.thread124, %61, %110, %109, %37
+111:                                              ; preds = %.thread123, %61, %110, %109, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

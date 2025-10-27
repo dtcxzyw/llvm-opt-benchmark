@@ -728,14 +728,14 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %12) #6
   %.not58 = icmp eq i32 %13, 0
-  br i1 %.not58, label %19, label %.preheader71
+  br i1 %.not58, label %19, label %.preheader68
 
-.preheader71:                                     ; preds = %10
+.preheader68:                                     ; preds = %10
   %14 = load i8, ptr %8, align 1, !tbaa !25
-  %.not5977 = icmp eq i8 %14, 0
-  br i1 %.not5977, label %.thread, label %.lr.ph
+  %.not5974 = icmp eq i8 %14, 0
+  br i1 %.not5974, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader71
+.lr.ph:                                           ; preds = %.preheader68
   %15 = sext i8 %3 to i32
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -747,25 +747,25 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   br label %60
 
 .preheader:                                       ; preds = %48
-  %20 = icmp ult ptr %8, %.052105
-  br i1 %20, label %.lr.ph83, label %.thread
+  %20 = icmp ult ptr %8, %.052102
+  br i1 %20, label %.lr.ph80, label %.thread
 
 21:                                               ; preds = %.lr.ph, %48
-  %.04779 = phi i32 [ %1, %.lr.ph ], [ %.1, %48 ]
-  %.05078 = phi ptr [ %8, %.lr.ph ], [ %.052105, %48 ]
-  %22 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05078, i32 noundef %15) #7
+  %.04776 = phi i32 [ %1, %.lr.ph ], [ %.1, %48 ]
+  %.05075 = phi ptr [ %8, %.lr.ph ], [ %.052102, %48 ]
+  %22 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05075, i32 noundef %15) #7
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread103, label %26
+  br i1 %23, label %.thread100, label %26
 
-.thread103:                                       ; preds = %21
-  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05078) #7
-  %25 = getelementptr inbounds nuw i8, ptr %.05078, i64 %24
+.thread100:                                       ; preds = %21
+  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05075) #7
+  %25 = getelementptr inbounds nuw i8, ptr %.05075, i64 %24
   br label %.preheader.i.i
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 0, ptr %22, align 1, !tbaa !25
-  %.pre = load i8, ptr %.05078, align 1, !tbaa !25
+  %.pre = load i8, ptr %.05075, align 1, !tbaa !25
   %28 = icmp eq i8 %.pre, 0
   br i1 %28, label %29, label %.preheader.i.i
 
@@ -775,13 +775,13 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 117, ptr noundef null) #6
   br label %.thread
 
-.preheader.i.i:                                   ; preds = %.thread103, %26
-  %.052105 = phi ptr [ %25, %.thread103 ], [ %27, %26 ]
+.preheader.i.i:                                   ; preds = %.thread100, %26
+  %.052102 = phi ptr [ %25, %.thread103 ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   store i64 64, ptr %5, align 8, !tbaa !19
   store ptr %16, ptr %17, align 8, !tbaa !24
-  %30 = load i8, ptr %.05078, align 1, !tbaa !25
+  %30 = load i8, ptr %.05075, align 1, !tbaa !25
   %.not.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i, label %ossl_ht_strcase.exit.i, label %.lr.ph.i.i
 
@@ -792,7 +792,7 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i.i
   store i8 %32, ptr %33, align 1, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %34 = getelementptr inbounds nuw i8, ptr %.05078, i64 %indvars.iv.next.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %.05075, i64 %indvars.iv.next.i.i
   %35 = load i8, ptr %34, align 1, !tbaa !25
   %36 = icmp ne i8 %35, 0
   %37 = icmp samesign ult i64 %indvars.iv.i.i, 62
@@ -814,53 +814,53 @@ ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %.prehe
 ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exit.i, %41
   %.0.i = phi i32 [ %44, %41 ], [ 0, %ossl_ht_strcase.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %45 = icmp eq i32 %.04779, 0
+  %45 = icmp eq i32 %.04776, 0
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %ossl_namemap_name2num.exit
   %.not61 = icmp eq i32 %.0.i, 0
-  %.not62 = icmp eq i32 %.0.i, %.04779
+  %.not62 = icmp eq i32 %.0.i, %.04776
   %or.cond = select i1 %.not61, i1 true, i1 %.not62
   br i1 %or.cond, label %48, label %47
 
 47:                                               ; preds = %46
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 340, ptr noundef nonnull @__func__.ossl_namemap_add_names) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull %.05078, i32 noundef %.0.i, ptr noundef %2) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull %.05075, i32 noundef %.0.i, ptr noundef %2) #6
   br label %.thread
 
 48:                                               ; preds = %46, %ossl_namemap_name2num.exit
-  %.1 = phi i32 [ %.04779, %46 ], [ %.0.i, %ossl_namemap_name2num.exit ]
-  %49 = load i8, ptr %.052105, align 1, !tbaa !25
+  %.1 = phi i32 [ %.04776, %46 ], [ %.0.i, %ossl_namemap_name2num.exit ]
+  %49 = load i8, ptr %.052102, align 1, !tbaa !25
   %.not59 = icmp eq i8 %49, 0
   br i1 %.not59, label %.preheader, label %21, !llvm.loop !34
 
-.lr.ph83:                                         ; preds = %.preheader, %56
-  %.482 = phi i32 [ %.6, %56 ], [ %.1, %.preheader ]
-  %.15181 = phi ptr [ %52, %56 ], [ %8, %.preheader ]
-  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.15181) #7
-  %51 = getelementptr inbounds nuw i8, ptr %.15181, i64 %50
+.lr.ph80:                                         ; preds = %.preheader, %56
+  %.479 = phi i32 [ %.6, %56 ], [ %.1, %.preheader ]
+  %.15178 = phi ptr [ %52, %56 ], [ %8, %.preheader ]
+  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.15178) #7
+  %51 = getelementptr inbounds nuw i8, ptr %.15178, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %53 = call fastcc i32 @namemap_add_name(ptr noundef %0, i32 noundef %.482, ptr noundef %.15181)
-  %54 = icmp eq i32 %.482, 0
+  %53 = call fastcc i32 @namemap_add_name(ptr noundef %0, i32 noundef %.479, ptr noundef %.15178)
+  %54 = icmp eq i32 %.479, 0
   br i1 %54, label %56, label %55
 
-55:                                               ; preds = %.lr.ph83
-  %.not60 = icmp eq i32 %53, %.482
-  br i1 %.not60, label %56, label %.thread68
+55:                                               ; preds = %.lr.ph80
+  %.not60 = icmp eq i32 %53, %.479
+  br i1 %.not60, label %56, label %.thread65
 
-.thread68:                                        ; preds = %55
+.thread65:                                        ; preds = %55
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 359, ptr noundef nonnull @__func__.ossl_namemap_add_names) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %53, i32 noundef %.482) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %53, i32 noundef %.479) #6
   br label %.thread
 
-56:                                               ; preds = %55, %.lr.ph83
-  %.6 = phi i32 [ %.482, %55 ], [ %53, %.lr.ph83 ]
-  %57 = icmp ult ptr %52, %.052105
-  br i1 %57, label %.lr.ph83, label %.thread, !llvm.loop !35
+56:                                               ; preds = %55, %.lr.ph80
+  %.6 = phi i32 [ %.479, %55 ], [ %53, %.lr.ph83 ]
+  %57 = icmp ult ptr %52, %.052102
+  br i1 %57, label %.lr.ph80, label %.thread, !llvm.loop !35
 
-.thread:                                          ; preds = %56, %.preheader71, %.preheader, %47, %29, %.thread68
+.thread:                                          ; preds = %56, %.preheader68, %.preheader, %47, %29, %.thread65
   %.3 = phi i32 [ 0, %.thread68 ], [ 0, %29 ], [ 0, %47 ], [ %.1, %.preheader ], [ %1, %.preheader71 ], [ %.6, %56 ]
   %58 = load ptr, ptr %11, align 8, !tbaa !11
   %59 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %58) #6

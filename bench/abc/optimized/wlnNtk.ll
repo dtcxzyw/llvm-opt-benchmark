@@ -1778,8 +1778,8 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
   br i1 %155, label %139, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %153, %91, %.critedge2.preheader, %135, %62, %77, %.critedge2._crit_edge, %149
-  %.196 = phi i32 [ 0, %62 ], [ 0, %77 ], [ 1, %.critedge2._crit_edge ], [ 0, %149 ], [ 1, %135 ], [ 1, %.critedge2.preheader ], [ 1, %91 ], [ 1, %153 ]
-  ret i32 %.196
+  %.099 = phi i32 [ 0, %62 ], [ 0, %77 ], [ 1, %.critedge2._crit_edge ], [ 0, %149 ], [ 1, %135 ], [ 1, %.critedge2.preheader ], [ 1, %91 ], [ 1, %153 ]
+  ret i32 %.099
 }
 
 ; Function Attrs: nounwind uwtable
