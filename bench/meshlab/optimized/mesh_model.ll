@@ -222,6 +222,7 @@ $_ZTI11MLException = comdat any
 @.str.22 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
 @.str.23 = private unnamed_addr constant [12 x i8] c"VFAdjacency\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_mesh_model.cpp, ptr null }]
+@switch.table._ZN9MeshModel5io2mmEi = private unnamed_addr constant [18 x i32] [i32 1, i32 4, i32 8, i32 16, i32 2, i32 1024, i32 4096, i32 16384, i32 32768, i32 65536, i32 8192, i32 8388608, i32 2097152, i32 0, i32 4194304, i32 0, i32 512, i32 1073741824], align 4
 
 @_ZN9MeshModelC1EiRK7QStringS2_ = unnamed_addr alias void (ptr, i32, ptr, ptr), ptr @_ZN9MeshModelC2EiRK7QStringS2_
 
@@ -3773,75 +3774,23 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 1073741825) i32 @_ZN9MeshModel5io2mmEi(i32 noundef %0) local_unnamed_addr #18 align 2 {
-  switch i32 %0, label %17 [
-    i32 131072, label %16
-    i32 1, label %18
-    i32 4, label %2
-    i32 2, label %3
-    i32 8, label %4
-    i32 16, label %5
-    i32 32, label %6
-    i32 65536, label %7
-    i32 64, label %8
-    i32 128, label %9
-    i32 256, label %10
-    i32 512, label %11
-    i32 1024, label %12
-    i32 4096, label %13
-    i32 2048, label %14
-    i32 16384, label %15
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %18
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 18
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %18
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN9MeshModel5io2mmEi, i64 %6
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %7
 
-4:                                                ; preds = %1
-  br label %18
-
-5:                                                ; preds = %1
-  br label %18
-
-6:                                                ; preds = %1
-  br label %18
-
-7:                                                ; preds = %1
-  br label %18
-
-8:                                                ; preds = %1
-  br label %18
-
-9:                                                ; preds = %1
-  br label %18
-
-10:                                               ; preds = %1
-  br label %18
-
-11:                                               ; preds = %1
-  br label %18
-
-12:                                               ; preds = %1
-  br label %18
-
-13:                                               ; preds = %1
-  br label %18
-
-14:                                               ; preds = %1
-  br label %18
-
-15:                                               ; preds = %1
-  br label %18
-
-16:                                               ; preds = %1
-  br label %18
-
-17:                                               ; preds = %1
-  br label %18
-
-18:                                               ; preds = %1, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %17 ], [ 8, %2 ], [ 4, %3 ], [ 16, %4 ], [ 2, %5 ], [ 1024, %6 ], [ 512, %7 ], [ 4096, %8 ], [ 16384, %9 ], [ 32768, %10 ], [ 65536, %11 ], [ 8192, %12 ], [ 2097152, %13 ], [ 8388608, %14 ], [ 4194304, %15 ], [ 1073741824, %16 ], [ %0, %1 ]
+7:                                                ; preds = %1, %.split, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %.split ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -9699,11 +9648,17 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #25
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #24
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
@@ -9718,10 +9673,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9747,8 +9702,8 @@ attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nofree nosync nounwind memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: read) }

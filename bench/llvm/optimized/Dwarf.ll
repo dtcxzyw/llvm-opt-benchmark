@@ -1037,28 +1037,30 @@ $_ZN4llvm5dwarf10EnumTraitsINS0_12LocationAtomEE4TypeE = comdat any
 @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.14 = private unnamed_addr constant [10 x i64] [i64 19, i64 18, i64 23, i64 21, i64 28, i64 27, i64 32, i64 32, i64 31, i64 36], align 8
 @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj = private unnamed_addr constant [9 x ptr] [ptr @.str.901, ptr @.str.902, ptr @.str.903, ptr @.str.904, ptr @.str.905, ptr @.str.906, ptr @.str.907, ptr @.str.908, ptr @.str.909], align 8
 @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.16 = private unnamed_addr constant [9 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 23, i64 19, i64 16, i64 19], align 8
+@switch.table._ZN4llvm5dwarf19ApplePropertyStringEj = private unnamed_addr constant [15 x ptr] [ptr @.str.943, ptr @.str.944, ptr @.str.945, ptr @.str.946, ptr @.str.947, ptr @.str.948, ptr @.str.949, ptr @.str.950, ptr @.str.951, ptr @.str.952, ptr @.str.953, ptr @.str.954, ptr @.str.955, ptr @.str.956, ptr @.str.957], align 8
+@switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.17 = private unnamed_addr constant [15 x i64] [i64 26, i64 24, i64 24, i64 27, i64 24, i64 22, i64 27, i64 24, i64 24, i64 22, i64 24, i64 35, i64 29, i64 33, i64 23], align 8
 @switch.table._ZN4llvm5dwarf14UnitTypeStringEj = private unnamed_addr constant [6 x ptr] [ptr @.str.958, ptr @.str.959, ptr @.str.960, ptr @.str.961, ptr @.str.962, ptr @.str.963], align 8
-@switch.table._ZN4llvm5dwarf14UnitTypeStringEj.17 = private unnamed_addr constant [6 x i64] [i64 13, i64 10, i64 13, i64 14, i64 19, i64 16], align 8
+@switch.table._ZN4llvm5dwarf14UnitTypeStringEj.18 = private unnamed_addr constant [6 x i64] [i64 13, i64 10, i64 13, i64 14, i64 19, i64 16], align 8
 @switch.table._ZN4llvm5dwarf14AtomTypeStringEj = private unnamed_addr constant [7 x ptr] [ptr @.str.964, ptr @.str.965, ptr @.str.966, ptr @.str.967, ptr @.str.968, ptr @.str.968, ptr @.str.969], align 8
-@switch.table._ZN4llvm5dwarf14AtomTypeStringEj.18 = private unnamed_addr constant [7 x i64] [i64 12, i64 18, i64 17, i64 15, i64 18, i64 18, i64 22], align 8
+@switch.table._ZN4llvm5dwarf14AtomTypeStringEj.19 = private unnamed_addr constant [7 x i64] [i64 12, i64 18, i64 17, i64 15, i64 18, i64 18, i64 22], align 8
 @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE = private unnamed_addr constant [8 x i64] [i64 4, i64 4, i64 8, i64 8, i64 5, i64 7, i64 7, i64 7], align 8
-@switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.19 = private unnamed_addr constant [8 x ptr] [ptr @.str.970, ptr @.str.971, ptr @.str.972, ptr @.str.973, ptr @.str.974, ptr @.str.975, ptr @.str.976, ptr @.str.977], align 8
+@switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.20 = private unnamed_addr constant [8 x ptr] [ptr @.str.970, ptr @.str.971, ptr @.str.972, ptr @.str.973, ptr @.str.974, ptr @.str.975, ptr @.str.976, ptr @.str.977], align 8
 @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj = private unnamed_addr constant [3 x ptr] [ptr @.str.690, ptr @.str.691, ptr @.str.692], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20 = private unnamed_addr constant [3 x i64] [i64 16, i64 19, i64 17], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21 = private unnamed_addr constant [3 x ptr] [ptr @.str.699, ptr @.str.700, ptr @.str.701], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22 = private unnamed_addr constant [3 x i64] [i64 18, i64 21, i64 26], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23 = private unnamed_addr constant [5 x ptr] [ptr @.str.680, ptr @.str.681, ptr @.str.682, ptr @.str.683, ptr @.str.684], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24 = private unnamed_addr constant [5 x i64] [i64 14, i64 23, i64 24, i64 22, i64 23], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25 = private unnamed_addr constant [3 x ptr] [ptr @.str.696, ptr @.str.697, ptr @.str.698], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26 = private unnamed_addr constant [3 x i64] [i64 12, i64 15, i64 16], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27 = private unnamed_addr constant [4 x ptr] [ptr @.str.807, ptr @.str.808, ptr @.str.809, ptr @.str.810], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28 = private unnamed_addr constant [4 x i64] [i64 20, i64 13, i64 15, i64 22], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29 = private unnamed_addr constant [4 x ptr] [ptr @.str.842, ptr @.str.843, ptr @.str.844, ptr @.str.845], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30 = private unnamed_addr constant [4 x i64] [i64 18, i64 14, i64 27, i64 23], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31 = private unnamed_addr constant [3 x ptr] [ptr @.str.693, ptr @.str.694, ptr @.str.695], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32 = private unnamed_addr constant [3 x i64] [i64 15, i64 21, i64 25], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21 = private unnamed_addr constant [3 x i64] [i64 16, i64 19, i64 17], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22 = private unnamed_addr constant [3 x ptr] [ptr @.str.699, ptr @.str.700, ptr @.str.701], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23 = private unnamed_addr constant [3 x i64] [i64 18, i64 21, i64 26], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24 = private unnamed_addr constant [5 x ptr] [ptr @.str.680, ptr @.str.681, ptr @.str.682, ptr @.str.683, ptr @.str.684], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25 = private unnamed_addr constant [5 x i64] [i64 14, i64 23, i64 24, i64 22, i64 23], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26 = private unnamed_addr constant [3 x ptr] [ptr @.str.696, ptr @.str.697, ptr @.str.698], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27 = private unnamed_addr constant [3 x i64] [i64 12, i64 15, i64 16], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28 = private unnamed_addr constant [4 x ptr] [ptr @.str.807, ptr @.str.808, ptr @.str.809, ptr @.str.810], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29 = private unnamed_addr constant [4 x i64] [i64 20, i64 13, i64 15, i64 22], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30 = private unnamed_addr constant [4 x ptr] [ptr @.str.842, ptr @.str.843, ptr @.str.844, ptr @.str.845], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31 = private unnamed_addr constant [4 x i64] [i64 18, i64 14, i64 27, i64 23], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32 = private unnamed_addr constant [3 x ptr] [ptr @.str.693, ptr @.str.694, ptr @.str.695], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.33 = private unnamed_addr constant [3 x i64] [i64 15, i64 21, i64 25], align 8
 @switch.table._ZN4llvm5dwarf9RLEStringEj = private unnamed_addr constant [8 x ptr] [ptr @.str.893, ptr @.str.894, ptr @.str.895, ptr @.str.896, ptr @.str.897, ptr @.str.898, ptr @.str.899, ptr @.str.900], align 8
-@switch.table._ZN4llvm5dwarf9RLEStringEj.33 = private unnamed_addr constant [8 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 19, i64 16, i64 19], align 8
+@switch.table._ZN4llvm5dwarf9RLEStringEj.34 = private unnamed_addr constant [8 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 19, i64 16, i64 19], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm5dwarf9TagStringEj(i32 noundef %0) local_unnamed_addr #0 {
@@ -6988,10 +6990,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf17DecimalSignStringEj(i32 noundef %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7047,7 +7049,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7066,10 +7068,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf21DefaultedMemberStringEj(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.33, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7089,10 +7091,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16VisibilityStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7111,10 +7113,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16VirtualityStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8246,10 +8248,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf10CaseStringEj(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8693,10 +8695,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16InlineCodeStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9018,7 +9020,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.33, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.34, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9210,72 +9212,27 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf15CallFrameStringEjNS_6Triple8ArchT
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm5dwarf19ApplePropertyStringEj(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %17 [
-    i32 1, label %2
-    i32 2, label %3
-    i32 4, label %4
-    i32 8, label %5
-    i32 16, label %6
-    i32 32, label %7
-    i32 64, label %8
-    i32 128, label %9
-    i32 256, label %10
-    i32 512, label %11
-    i32 1024, label %12
-    i32 2048, label %13
-    i32 4096, label %14
-    i32 8192, label %15
-    i32 16384, label %16
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %8
 
-2:                                                ; preds = %1
-  br label %17
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 15
+  br i1 %5, label %switch.lookup, label %8
 
-3:                                                ; preds = %1
-  br label %17
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj, i64 %6
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %7 = zext nneg i32 %4 to i64
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.17, i64 %7
+  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  br label %8
 
-4:                                                ; preds = %1
-  br label %17
-
-5:                                                ; preds = %1
-  br label %17
-
-6:                                                ; preds = %1
-  br label %17
-
-7:                                                ; preds = %1
-  br label %17
-
-8:                                                ; preds = %1
-  br label %17
-
-9:                                                ; preds = %1
-  br label %17
-
-10:                                               ; preds = %1
-  br label %17
-
-11:                                               ; preds = %1
-  br label %17
-
-12:                                               ; preds = %1
-  br label %17
-
-13:                                               ; preds = %1
-  br label %17
-
-14:                                               ; preds = %1
-  br label %17
-
-15:                                               ; preds = %1
-  br label %17
-
-16:                                               ; preds = %1
-  br label %17
-
-17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ @.str.943, %2 ], [ @.str.944, %3 ], [ @.str.945, %4 ], [ @.str.946, %5 ], [ @.str.947, %6 ], [ @.str.948, %7 ], [ @.str.949, %8 ], [ @.str.950, %9 ], [ @.str.951, %10 ], [ @.str.952, %11 ], [ @.str.953, %12 ], [ @.str.954, %13 ], [ @.str.955, %14 ], [ @.str.956, %15 ], [ @.str.957, %16 ], [ null, %1 ]
-  %.sroa.18.0 = phi i64 [ 26, %2 ], [ 24, %3 ], [ 24, %4 ], [ 27, %5 ], [ 24, %6 ], [ 22, %7 ], [ 27, %8 ], [ 24, %9 ], [ 24, %10 ], [ 22, %11 ], [ 24, %12 ], [ 35, %13 ], [ 29, %14 ], [ 33, %15 ], [ 23, %16 ], [ 0, %1 ]
+8:                                                ; preds = %switch.lookup, %.split, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %.split ], [ %switch.load, %switch.lookup ]
+  %.sroa.18.0 = phi i64 [ 0, %1 ], [ 0, %.split ], [ %switch.load4, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.18.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9292,7 +9249,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.17, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.18, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9314,7 +9271,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.18, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.19, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9333,7 +9290,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.19, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.20, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -9464,61 +9421,61 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep45 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %43
+  %switch.gep45 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %43
   %switch.load46 = load i64, ptr %switch.gep45, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup47:                                  ; preds = %5
   %44 = zext nneg i32 %1 to i64
-  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %44
+  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %44
   %switch.load49 = load ptr, ptr %switch.gep48, align 8
   %45 = zext nneg i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %45
+  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %45
   %switch.load51 = load i64, ptr %switch.gep50, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup53:                                  ; preds = %15
   %46 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %46
+  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %46
   %switch.load55 = load ptr, ptr %switch.gep54, align 8
   %47 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep56 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %47
+  %switch.gep56 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %47
   %switch.load57 = load i64, ptr %switch.gep56, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup59:                                  ; preds = %23
   %48 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %48
+  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %48
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %49 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep62 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %49
+  %switch.gep62 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %49
   %switch.load63 = load i64, ptr %switch.gep62, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup64:                                  ; preds = %25
   %50 = zext nneg i32 %1 to i64
-  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %50
+  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %50
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   %51 = zext nneg i32 %1 to i64
-  %switch.gep67 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %51
+  %switch.gep67 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %51
   %switch.load68 = load i64, ptr %switch.gep67, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup69:                                  ; preds = %31
   %52 = zext nneg i32 %1 to i64
-  %switch.gep70 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %52
+  %switch.gep70 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %52
   %switch.load71 = load ptr, ptr %switch.gep70, align 8
   %53 = zext nneg i32 %1 to i64
-  %switch.gep72 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %53
+  %switch.gep72 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %53
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup74:                                  ; preds = %40
   %54 = zext nneg i32 %1 to i64
-  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %54
+  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 %54
   %switch.load76 = load ptr, ptr %switch.gep75, align 8
   %55 = zext nneg i32 %1 to i64
-  %switch.gep77 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 %55
+  %switch.gep77 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.33, i64 %55
   %switch.load78 = load i64, ptr %switch.gep77, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
@@ -9808,7 +9765,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.33, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.34, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9820,12 +9777,19 @@ switch.lookup:                                    ; preds = %1
   ret { ptr, i64 } %.fca.1.insert
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

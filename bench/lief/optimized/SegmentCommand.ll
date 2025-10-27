@@ -599,6 +599,7 @@ $_ZTSN3fmt3v106detail6bufferIjEE = comdat any
 @.str.61 = private unnamed_addr constant [32 x i8] c"\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\00\00\00\00\00\00\00\02\02\02\02\03\03\04\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_ZN3fmt3v1012format_facetISt6localeE2idE }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN3fmt3v1012format_facetISt6localeE2idE], section "llvm.metadata"
+@switch.table._ZN4LIEF5MachO9to_stringENS0_14SegmentCommand5FLAGSE = private unnamed_addr constant [5 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5], align 8
 @switch.table._ZN4LIEF5MachO9to_stringENS0_14SegmentCommand14VM_PROTECTIONSE = private unnamed_addr constant [4 x ptr] [ptr @.str.7, ptr @.str.8, ptr @.str.6, ptr @.str.9], align 8
 
 @_ZN4LIEF5MachO14SegmentCommandC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4LIEF5MachO14SegmentCommandC2Ev
@@ -3362,31 +3363,22 @@ _ZNKSt8functionIFvRSt6vectorIhSaIhEEmmEEclES3_mm.exit: ; preds = %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN4LIEF5MachO9to_stringENS0_14SegmentCommand5FLAGSE(i64 noundef %0) local_unnamed_addr #4 {
-  switch i64 %0, label %6 [
-    i64 1, label %7
-    i64 2, label %2
-    i64 4, label %3
-    i64 8, label %4
-    i64 16, label %5
-  ]
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = icmp eq i64 %2, 1
+  br i1 %3, label %.split, label %6
 
-2:                                                ; preds = %1
-  br label %7
+.split:                                           ; preds = %1
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  %5 = icmp samesign ult i64 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-3:                                                ; preds = %1
-  br label %7
+switch.lookup:                                    ; preds = %.split
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4LIEF5MachO9to_stringENS0_14SegmentCommand5FLAGSE, i64 %4
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %6
 
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.6, %6 ], [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.1, %1 ]
+6:                                                ; preds = %1, %.split, %switch.lookup
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.6, %.split ], [ @.str.6, %1 ]
   ret ptr %.0
 }
 
@@ -31789,6 +31781,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

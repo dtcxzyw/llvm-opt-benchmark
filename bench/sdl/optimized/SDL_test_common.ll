@@ -493,22 +493,22 @@ define dso_local noundef ptr @SDLTest_CommonCreateState(ptr noundef %0, i32 noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 1, %2 ]
   %5 = phi ptr [ %17, %15 ], [ %4, %2 ]
   %6 = phi ptr [ %16, %15 ], [ %3, %2 ]
-  %7 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str) #9
+  %7 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %.lr.ph
-  tail call void @SDLTest_TrackAllocations() #9
+  tail call void @SDLTest_TrackAllocations() #10
   br label %15
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr %6, align 8
-  %12 = tail call i32 @SDL_strcasecmp(ptr noundef %11, ptr noundef nonnull @.str.1) #9
+  %12 = tail call i32 @SDL_strcasecmp(ptr noundef %11, ptr noundef nonnull @.str.1) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  tail call void @SDLTest_RandFillAllocations() #9
+  tail call void @SDLTest_RandFillAllocations() #10
   br label %15
 
 15:                                               ; preds = %9, %14, %10
@@ -519,7 +519,7 @@ define dso_local noundef ptr @SDLTest_CommonCreateState(ptr noundef %0, i32 noun
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %15, %2
-  %18 = tail call noalias dereferenceable_or_null(496) ptr @SDL_calloc(i64 noundef 1, i64 noundef 496) #10
+  %18 = tail call noalias dereferenceable_or_null(496) ptr @SDL_calloc(i64 noundef 1, i64 noundef 496) #11
   %.not67 = icmp eq ptr %18, null
   br i1 %.not67, label %62, label %19
 
@@ -628,31 +628,31 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds ptr, ptr %1, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @SDL_strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.216) #9
+  %7 = tail call i32 @SDL_strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.216) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %115, label %9
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %5, align 8
-  %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.217) #9
+  %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.217) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %115, label %13
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %5, align 8
-  %15 = tail call i32 @SDL_strcasecmp(ptr noundef %14, ptr noundef nonnull @.str) #9
+  %15 = tail call i32 @SDL_strcasecmp(ptr noundef %14, ptr noundef nonnull @.str) #10
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %115, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = tail call i32 @SDL_strcasecmp(ptr noundef %18, ptr noundef nonnull @.str.1) #9
+  %19 = tail call i32 @SDL_strcasecmp(ptr noundef %18, ptr noundef nonnull @.str.1) #10
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %115, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %5, align 8
-  %23 = tail call i32 @SDL_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.218) #9
+  %23 = tail call i32 @SDL_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.218) #10
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %57
 
@@ -663,67 +663,67 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
   br i1 %.not53, label %115, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.219) #9
+  %29 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.219) #10
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  tail call void @SDL_SetLogPriorities(i32 noundef 2) #9
+  tail call void @SDL_SetLogPriorities(i32 noundef 2) #10
   br label %115
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %26, align 8
-  %34 = tail call i32 @SDL_strcasecmp(ptr noundef %33, ptr noundef nonnull @.str.220) #9
+  %34 = tail call i32 @SDL_strcasecmp(ptr noundef %33, ptr noundef nonnull @.str.220) #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
-  tail call void @SDL_SetLogPriority(i32 noundef 3, i32 noundef 2) #9
+  tail call void @SDL_SetLogPriority(i32 noundef 3, i32 noundef 2) #10
   br label %115
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %26, align 8
-  %39 = tail call i32 @SDL_strcasecmp(ptr noundef %38, ptr noundef nonnull @.str.221) #9
+  %39 = tail call i32 @SDL_strcasecmp(ptr noundef %38, ptr noundef nonnull @.str.221) #10
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call void @SDL_SetLogPriority(i32 noundef 4, i32 noundef 2) #9
+  tail call void @SDL_SetLogPriority(i32 noundef 4, i32 noundef 2) #10
   br label %115
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %26, align 8
-  %44 = tail call i32 @SDL_strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.222) #9
+  %44 = tail call i32 @SDL_strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.222) #10
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %42
-  tail call void @SDL_SetLogPriority(i32 noundef 5, i32 noundef 2) #9
+  tail call void @SDL_SetLogPriority(i32 noundef 5, i32 noundef 2) #10
   br label %115
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr %26, align 8
-  %49 = tail call i32 @SDL_strcasecmp(ptr noundef %48, ptr noundef nonnull @.str.223) #9
+  %49 = tail call i32 @SDL_strcasecmp(ptr noundef %48, ptr noundef nonnull @.str.223) #10
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %47
-  tail call void @SDL_SetLogPriority(i32 noundef 6, i32 noundef 2) #9
+  tail call void @SDL_SetLogPriority(i32 noundef 6, i32 noundef 2) #10
   br label %115
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %26, align 8
-  %54 = tail call i32 @SDL_strcasecmp(ptr noundef %53, ptr noundef nonnull @.str.224) #9
+  %54 = tail call i32 @SDL_strcasecmp(ptr noundef %53, ptr noundef nonnull @.str.224) #10
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %115
 
 56:                                               ; preds = %52
-  tail call void @SDL_SetLogPriority(i32 noundef 7, i32 noundef 2) #9
+  tail call void @SDL_SetLogPriority(i32 noundef 7, i32 noundef 2) #10
   br label %115
 
 57:                                               ; preds = %21
   %58 = load ptr, ptr %5, align 8
-  %59 = tail call i32 @SDL_strcasecmp(ptr noundef %58, ptr noundef nonnull @.str.225) #9
+  %59 = tail call i32 @SDL_strcasecmp(ptr noundef %58, ptr noundef nonnull @.str.225) #10
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %111
 
@@ -734,7 +734,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
   br i1 %.not, label %115, label %64
 
 64:                                               ; preds = %61
-  %65 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %63, ptr noundef nonnull @.str.219) #9
+  %65 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %63, ptr noundef nonnull @.str.219) #10
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %71
 
@@ -747,7 +747,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
 
 71:                                               ; preds = %64
   %72 = load ptr, ptr %62, align 8
-  %73 = tail call i32 @SDL_strcasecmp(ptr noundef %72, ptr noundef nonnull @.str.222) #9
+  %73 = tail call i32 @SDL_strcasecmp(ptr noundef %72, ptr noundef nonnull @.str.222) #10
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %79
 
@@ -760,7 +760,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
 
 79:                                               ; preds = %71
   %80 = load ptr, ptr %62, align 8
-  %81 = tail call i32 @SDL_strcasecmp(ptr noundef %80, ptr noundef nonnull @.str.226) #9
+  %81 = tail call i32 @SDL_strcasecmp(ptr noundef %80, ptr noundef nonnull @.str.226) #10
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %87
 
@@ -773,7 +773,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
 
 87:                                               ; preds = %79
   %88 = load ptr, ptr %62, align 8
-  %89 = tail call i32 @SDL_strcasecmp(ptr noundef %88, ptr noundef nonnull @.str.223) #9
+  %89 = tail call i32 @SDL_strcasecmp(ptr noundef %88, ptr noundef nonnull @.str.223) #10
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %95
 
@@ -786,7 +786,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
 
 95:                                               ; preds = %87
   %96 = load ptr, ptr %62, align 8
-  %97 = tail call i32 @SDL_strcasecmp(ptr noundef %96, ptr noundef nonnull @.str.227) #9
+  %97 = tail call i32 @SDL_strcasecmp(ptr noundef %96, ptr noundef nonnull @.str.227) #10
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %103
 
@@ -799,7 +799,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
 
 103:                                              ; preds = %95
   %104 = load ptr, ptr %62, align 8
-  %105 = tail call i32 @SDL_strcasecmp(ptr noundef %104, ptr noundef nonnull @.str.228) #9
+  %105 = tail call i32 @SDL_strcasecmp(ptr noundef %104, ptr noundef nonnull @.str.228) #10
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %115
 
@@ -812,7 +812,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseCommonArguments(pt
 
 111:                                              ; preds = %57
   %112 = load ptr, ptr %5, align 8
-  %113 = tail call i32 @SDL_strcmp(ptr noundef %112, ptr noundef nonnull @.str.229) #9
+  %113 = tail call i32 @SDL_strcmp(ptr noundef %112, ptr noundef nonnull @.str.229) #10
   %114 = icmp eq i32 %113, 0
   %. = select i1 %114, i32 2, i32 0
   br label %115
@@ -861,7 +861,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds ptr, ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.235) #9
+  %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.235) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %19
 
@@ -874,12 +874,12 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8
-  %18 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.236, ptr noundef nonnull %15) #9
+  %18 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.236, ptr noundef nonnull %15) #10
   br label %.loopexit
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call i32 @SDL_strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.237) #9
+  %21 = tail call i32 @SDL_strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.237) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %29
 
@@ -892,12 +892,12 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %25, ptr %27, align 8
-  %28 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.238, ptr noundef nonnull %25) #9
+  %28 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.238, ptr noundef nonnull %25) #10
   br label %.loopexit
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %9, align 8
-  %31 = tail call i32 @SDL_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.239) #9
+  %31 = tail call i32 @SDL_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.239) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %35
 
@@ -908,7 +908,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %9, align 8
-  %37 = tail call i32 @SDL_strcasecmp(ptr noundef %36, ptr noundef nonnull @.str.240) #9
+  %37 = tail call i32 @SDL_strcasecmp(ptr noundef %36, ptr noundef nonnull @.str.240) #10
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %45
 
@@ -919,14 +919,14 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
   br i1 %.not430, label %.loopexit, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @SDL_atoi(ptr noundef nonnull %41) #9
+  %43 = tail call i32 @SDL_atoi(ptr noundef nonnull %41) #10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %43, ptr %44, align 8
   br label %.loopexit
 
 45:                                               ; preds = %35
   %46 = load ptr, ptr %9, align 8
-  %47 = tail call i32 @SDL_strcasecmp(ptr noundef %46, ptr noundef nonnull @.str.241) #9
+  %47 = tail call i32 @SDL_strcasecmp(ptr noundef %46, ptr noundef nonnull @.str.241) #10
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %53
 
@@ -939,7 +939,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %9, align 8
-  %55 = tail call i32 @SDL_strcasecmp(ptr noundef %54, ptr noundef nonnull @.str.242) #9
+  %55 = tail call i32 @SDL_strcasecmp(ptr noundef %54, ptr noundef nonnull @.str.242) #10
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %61
 
@@ -952,7 +952,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 61:                                               ; preds = %53
   %62 = load ptr, ptr %9, align 8
-  %63 = tail call i32 @SDL_strcasecmp(ptr noundef %62, ptr noundef nonnull @.str.243) #9
+  %63 = tail call i32 @SDL_strcasecmp(ptr noundef %62, ptr noundef nonnull @.str.243) #10
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %69
 
@@ -965,7 +965,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 69:                                               ; preds = %61
   %70 = load ptr, ptr %9, align 8
-  %71 = tail call i32 @SDL_strcasecmp(ptr noundef %70, ptr noundef nonnull @.str.244) #9
+  %71 = tail call i32 @SDL_strcasecmp(ptr noundef %70, ptr noundef nonnull @.str.244) #10
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %79
 
@@ -982,7 +982,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 79:                                               ; preds = %69
   %80 = load ptr, ptr %9, align 8
-  %81 = tail call i32 @SDL_strcasecmp(ptr noundef %80, ptr noundef nonnull @.str.245) #9
+  %81 = tail call i32 @SDL_strcasecmp(ptr noundef %80, ptr noundef nonnull @.str.245) #10
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %89
 
@@ -999,7 +999,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 89:                                               ; preds = %79
   %90 = load ptr, ptr %9, align 8
-  %91 = tail call i32 @SDL_strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.246) #9
+  %91 = tail call i32 @SDL_strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.246) #10
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %108
 
@@ -1012,7 +1012,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 96:                                               ; preds = %93
   %97 = load i8, ptr %95, align 1
   %98 = zext i8 %97 to i32
-  %99 = tail call i32 @SDL_isdigit(i32 noundef %98) #9
+  %99 = tail call i32 @SDL_isdigit(i32 noundef %98) #10
   %.not428 = icmp eq i32 %99, 0
   br i1 %.not428, label %.loopexit, label %100
 
@@ -1025,14 +1025,14 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr %94, align 8
-  %106 = tail call i32 @SDL_atoi(ptr noundef %105) #9
+  %106 = tail call i32 @SDL_atoi(ptr noundef %105) #10
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %106, ptr %107, align 8
   br label %.loopexit
 
 108:                                              ; preds = %89
   %109 = load ptr, ptr %9, align 8
-  %110 = tail call i32 @SDL_strcasecmp(ptr noundef %109, ptr noundef nonnull @.str.247) #9
+  %110 = tail call i32 @SDL_strcasecmp(ptr noundef %109, ptr noundef nonnull @.str.247) #10
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %117
 
@@ -1049,7 +1049,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 117:                                              ; preds = %108
   %118 = load ptr, ptr %9, align 8
-  %119 = tail call i32 @SDL_strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.248) #9
+  %119 = tail call i32 @SDL_strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.248) #10
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %126
 
@@ -1066,7 +1066,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 126:                                              ; preds = %117
   %127 = load ptr, ptr %9, align 8
-  %128 = tail call i32 @SDL_strcasecmp(ptr noundef %127, ptr noundef nonnull @.str.249) #9
+  %128 = tail call i32 @SDL_strcasecmp(ptr noundef %127, ptr noundef nonnull @.str.249) #10
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %133
 
@@ -1079,7 +1079,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 133:                                              ; preds = %126
   %134 = load ptr, ptr %9, align 8
-  %135 = tail call i32 @SDL_strcasecmp(ptr noundef %134, ptr noundef nonnull @.str.250) #9
+  %135 = tail call i32 @SDL_strcasecmp(ptr noundef %134, ptr noundef nonnull @.str.250) #10
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %149
 
@@ -1104,17 +1104,17 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 143:                                              ; preds = %.preheader
   %144 = getelementptr inbounds nuw i8, ptr %.0354, i64 1
   store i8 0, ptr %.0354, align 1
-  %145 = tail call i32 @SDL_atoi(ptr noundef nonnull %139) #9
+  %145 = tail call i32 @SDL_atoi(ptr noundef nonnull %139) #10
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %145, ptr %146, align 4
-  %147 = tail call i32 @SDL_atoi(ptr noundef nonnull %144) #9
+  %147 = tail call i32 @SDL_atoi(ptr noundef nonnull %144) #10
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %147, ptr %148, align 8
   br label %.loopexit
 
 149:                                              ; preds = %133
   %150 = load ptr, ptr %9, align 8
-  %151 = tail call i32 @SDL_strcasecmp(ptr noundef %150, ptr noundef nonnull @.str.251) #9
+  %151 = tail call i32 @SDL_strcasecmp(ptr noundef %150, ptr noundef nonnull @.str.251) #10
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %153, label %181
 
@@ -1173,23 +1173,23 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 171:                                              ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %.0357, i64 1
   store i8 0, ptr %.0357, align 1
-  %173 = tail call i32 @SDL_atoi(ptr noundef nonnull %155) #9
+  %173 = tail call i32 @SDL_atoi(ptr noundef nonnull %155) #10
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 %173, ptr %174, align 8
-  %175 = tail call i32 @SDL_atoi(ptr noundef nonnull %160) #9
+  %175 = tail call i32 @SDL_atoi(ptr noundef nonnull %160) #10
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 %175, ptr %176, align 4
-  %177 = tail call i32 @SDL_atoi(ptr noundef nonnull %166) #9
+  %177 = tail call i32 @SDL_atoi(ptr noundef nonnull %166) #10
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 %177, ptr %178, align 8
-  %179 = tail call i32 @SDL_atoi(ptr noundef nonnull %172) #9
+  %179 = tail call i32 @SDL_atoi(ptr noundef nonnull %172) #10
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 %179, ptr %180, align 4
   br label %.loopexit
 
 181:                                              ; preds = %149
   %182 = load ptr, ptr %9, align 8
-  %183 = tail call i32 @SDL_strcasecmp(ptr noundef %182, ptr noundef nonnull @.str.252) #9
+  %183 = tail call i32 @SDL_strcasecmp(ptr noundef %182, ptr noundef nonnull @.str.252) #10
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %187
 
@@ -1200,7 +1200,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 187:                                              ; preds = %181
   %188 = load ptr, ptr %9, align 8
-  %189 = tail call i32 @SDL_strcasecmp(ptr noundef %188, ptr noundef nonnull @.str.253) #9
+  %189 = tail call i32 @SDL_strcasecmp(ptr noundef %188, ptr noundef nonnull @.str.253) #10
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %203
 
@@ -1225,17 +1225,17 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 197:                                              ; preds = %.preheader437
   %198 = getelementptr inbounds nuw i8, ptr %.0355, i64 1
   store i8 0, ptr %.0355, align 1
-  %199 = tail call i32 @SDL_atoi(ptr noundef nonnull %193) #9
+  %199 = tail call i32 @SDL_atoi(ptr noundef nonnull %193) #10
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %199, ptr %200, align 4
-  %201 = tail call i32 @SDL_atoi(ptr noundef nonnull %198) #9
+  %201 = tail call i32 @SDL_atoi(ptr noundef nonnull %198) #10
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %201, ptr %202, align 8
   br label %.loopexit
 
 203:                                              ; preds = %187
   %204 = load ptr, ptr %9, align 8
-  %205 = tail call i32 @SDL_strcasecmp(ptr noundef %204, ptr noundef nonnull @.str.254) #9
+  %205 = tail call i32 @SDL_strcasecmp(ptr noundef %204, ptr noundef nonnull @.str.254) #10
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %219
 
@@ -1260,17 +1260,17 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 213:                                              ; preds = %.preheader439
   %214 = getelementptr inbounds nuw i8, ptr %.0353, i64 1
   store i8 0, ptr %.0353, align 1
-  %215 = tail call i32 @SDL_atoi(ptr noundef nonnull %209) #9
+  %215 = tail call i32 @SDL_atoi(ptr noundef nonnull %209) #10
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %215, ptr %216, align 4
-  %217 = tail call i32 @SDL_atoi(ptr noundef nonnull %214) #9
+  %217 = tail call i32 @SDL_atoi(ptr noundef nonnull %214) #10
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %217, ptr %218, align 8
   br label %.loopexit
 
 219:                                              ; preds = %203
   %220 = load ptr, ptr %9, align 8
-  %221 = tail call i32 @SDL_strcasecmp(ptr noundef %220, ptr noundef nonnull @.str.255) #9
+  %221 = tail call i32 @SDL_strcasecmp(ptr noundef %220, ptr noundef nonnull @.str.255) #10
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %223, label %235
 
@@ -1295,17 +1295,17 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 229:                                              ; preds = %.preheader441
   %230 = getelementptr inbounds nuw i8, ptr %.0352, i64 1
   store i8 0, ptr %.0352, align 1
-  %231 = tail call i32 @SDL_atoi(ptr noundef nonnull %225) #9
+  %231 = tail call i32 @SDL_atoi(ptr noundef nonnull %225) #10
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %231, ptr %232, align 4
-  %233 = tail call i32 @SDL_atoi(ptr noundef nonnull %230) #9
+  %233 = tail call i32 @SDL_atoi(ptr noundef nonnull %230) #10
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %233, ptr %234, align 8
   br label %.loopexit
 
 235:                                              ; preds = %219
   %236 = load ptr, ptr %9, align 8
-  %237 = tail call i32 @SDL_strcasecmp(ptr noundef %236, ptr noundef nonnull @.str.256) #9
+  %237 = tail call i32 @SDL_strcasecmp(ptr noundef %236, ptr noundef nonnull @.str.256) #10
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %239, label %253
 
@@ -1334,11 +1334,11 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 .loopexit444:                                     ; preds = %.preheader443, %245
   %.1351 = phi ptr [ %246, %245 ], [ %241, %.preheader443 ]
-  %247 = tail call double @SDL_atof(ptr noundef nonnull %241) #9
+  %247 = tail call double @SDL_atof(ptr noundef nonnull %241) #10
   %248 = fptrunc double %247 to float
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %248, ptr %249, align 4
-  %250 = tail call double @SDL_atof(ptr noundef nonnull %.1351) #9
+  %250 = tail call double @SDL_atof(ptr noundef nonnull %.1351) #10
   %251 = fptrunc double %250 to float
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %251, ptr %252, align 8
@@ -1346,7 +1346,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 253:                                              ; preds = %235
   %254 = load ptr, ptr %9, align 8
-  %255 = tail call i32 @SDL_strcasecmp(ptr noundef %254, ptr noundef nonnull @.str.257) #9
+  %255 = tail call i32 @SDL_strcasecmp(ptr noundef %254, ptr noundef nonnull @.str.257) #10
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %257, label %269
 
@@ -1371,17 +1371,17 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 263:                                              ; preds = %.preheader445
   %264 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %.0, align 1
-  %265 = tail call i32 @SDL_atoi(ptr noundef nonnull %259) #9
+  %265 = tail call i32 @SDL_atoi(ptr noundef nonnull %259) #10
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %265, ptr %266, align 4
-  %267 = tail call i32 @SDL_atoi(ptr noundef nonnull %264) #9
+  %267 = tail call i32 @SDL_atoi(ptr noundef nonnull %264) #10
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %267, ptr %268, align 8
   br label %.loopexit
 
 269:                                              ; preds = %253
   %270 = load ptr, ptr %9, align 8
-  %271 = tail call i32 @SDL_strcasecmp(ptr noundef %270, ptr noundef nonnull @.str.258) #9
+  %271 = tail call i32 @SDL_strcasecmp(ptr noundef %270, ptr noundef nonnull @.str.258) #10
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %277
 
@@ -1394,7 +1394,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 277:                                              ; preds = %269
   %278 = load ptr, ptr %9, align 8
-  %279 = tail call i32 @SDL_strcasecmp(ptr noundef %278, ptr noundef nonnull @.str.259) #9
+  %279 = tail call i32 @SDL_strcasecmp(ptr noundef %278, ptr noundef nonnull @.str.259) #10
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %281, label %287
 
@@ -1412,7 +1412,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 287:                                              ; preds = %277
   %288 = load ptr, ptr %9, align 8
-  %289 = tail call i32 @SDL_strcasecmp(ptr noundef %288, ptr noundef nonnull @.str.260) #9
+  %289 = tail call i32 @SDL_strcasecmp(ptr noundef %288, ptr noundef nonnull @.str.260) #10
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %291, label %323
 
@@ -1423,7 +1423,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
   br i1 %.not390, label %.loopexit, label %294
 
 294:                                              ; preds = %291
-  %295 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %293, ptr noundef nonnull @.str.82) #9
+  %295 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %293, ptr noundef nonnull @.str.82) #10
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %297, label %299
 
@@ -1434,7 +1434,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 299:                                              ; preds = %294
   %300 = load ptr, ptr %292, align 8
-  %301 = tail call i32 @SDL_strcasecmp(ptr noundef %300, ptr noundef nonnull @.str.261) #9
+  %301 = tail call i32 @SDL_strcasecmp(ptr noundef %300, ptr noundef nonnull @.str.261) #10
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %303, label %305
 
@@ -1445,7 +1445,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 305:                                              ; preds = %299
   %306 = load ptr, ptr %292, align 8
-  %307 = tail call i32 @SDL_strcasecmp(ptr noundef %306, ptr noundef nonnull @.str.262) #9
+  %307 = tail call i32 @SDL_strcasecmp(ptr noundef %306, ptr noundef nonnull @.str.262) #10
   %308 = icmp eq i32 %307, 0
   br i1 %308, label %309, label %311
 
@@ -1456,7 +1456,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 311:                                              ; preds = %305
   %312 = load ptr, ptr %292, align 8
-  %313 = tail call i32 @SDL_strcasecmp(ptr noundef %312, ptr noundef nonnull @.str.263) #9
+  %313 = tail call i32 @SDL_strcasecmp(ptr noundef %312, ptr noundef nonnull @.str.263) #10
   %314 = icmp eq i32 %313, 0
   br i1 %314, label %315, label %317
 
@@ -1467,7 +1467,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 317:                                              ; preds = %311
   %318 = load ptr, ptr %292, align 8
-  %319 = tail call i32 @SDL_strcasecmp(ptr noundef %318, ptr noundef nonnull @.str.264) #9
+  %319 = tail call i32 @SDL_strcasecmp(ptr noundef %318, ptr noundef nonnull @.str.264) #10
   %320 = icmp eq i32 %319, 0
   br i1 %320, label %321, label %.loopexit
 
@@ -1478,7 +1478,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 323:                                              ; preds = %287
   %324 = load ptr, ptr %9, align 8
-  %325 = tail call i32 @SDL_strcasecmp(ptr noundef %324, ptr noundef nonnull @.str.265) #9
+  %325 = tail call i32 @SDL_strcasecmp(ptr noundef %324, ptr noundef nonnull @.str.265) #10
   %326 = icmp eq i32 %325, 0
   br i1 %326, label %327, label %334
 
@@ -1489,7 +1489,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
   br i1 %.not389, label %.loopexit, label %330
 
 330:                                              ; preds = %327
-  %331 = tail call double @SDL_atof(ptr noundef nonnull %329) #9
+  %331 = tail call double @SDL_atof(ptr noundef nonnull %329) #10
   %332 = fptrunc double %331 to float
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store float %332, ptr %333, align 4
@@ -1497,7 +1497,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 334:                                              ; preds = %323
   %335 = load ptr, ptr %9, align 8
-  %336 = tail call i32 @SDL_strcasecmp(ptr noundef %335, ptr noundef nonnull @.str.266) #9
+  %336 = tail call i32 @SDL_strcasecmp(ptr noundef %335, ptr noundef nonnull @.str.266) #10
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %338, label %344
 
@@ -1508,14 +1508,14 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
   br i1 %.not388, label %.loopexit, label %341
 
 341:                                              ; preds = %338
-  %342 = tail call i32 @SDL_atoi(ptr noundef nonnull %340) #9
+  %342 = tail call i32 @SDL_atoi(ptr noundef nonnull %340) #10
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %342, ptr %343, align 8
   br label %.loopexit
 
 344:                                              ; preds = %334
   %345 = load ptr, ptr %9, align 8
-  %346 = tail call i32 @SDL_strcasecmp(ptr noundef %345, ptr noundef nonnull @.str.267) #9
+  %346 = tail call i32 @SDL_strcasecmp(ptr noundef %345, ptr noundef nonnull @.str.267) #10
   %347 = icmp eq i32 %346, 0
   br i1 %347, label %348, label %355
 
@@ -1526,7 +1526,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
   br i1 %.not387, label %.loopexit, label %351
 
 351:                                              ; preds = %348
-  %352 = tail call double @SDL_atof(ptr noundef nonnull %350) #9
+  %352 = tail call double @SDL_atof(ptr noundef nonnull %350) #10
   %353 = fptrunc double %352 to float
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float %353, ptr %354, align 4
@@ -1534,7 +1534,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 355:                                              ; preds = %344
   %356 = load ptr, ptr %9, align 8
-  %357 = tail call i32 @SDL_strcasecmp(ptr noundef %356, ptr noundef nonnull @.str.268) #9
+  %357 = tail call i32 @SDL_strcasecmp(ptr noundef %356, ptr noundef nonnull @.str.268) #10
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %359, label %361
 
@@ -1545,7 +1545,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 361:                                              ; preds = %355
   %362 = load ptr, ptr %9, align 8
-  %363 = tail call i32 @SDL_strcasecmp(ptr noundef %362, ptr noundef nonnull @.str.269) #9
+  %363 = tail call i32 @SDL_strcasecmp(ptr noundef %362, ptr noundef nonnull @.str.269) #10
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %365, label %369
 
@@ -1558,7 +1558,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 369:                                              ; preds = %361
   %370 = load ptr, ptr %9, align 8
-  %371 = tail call i32 @SDL_strcasecmp(ptr noundef %370, ptr noundef nonnull @.str.270) #9
+  %371 = tail call i32 @SDL_strcasecmp(ptr noundef %370, ptr noundef nonnull @.str.270) #10
   %372 = icmp eq i32 %371, 0
   br i1 %372, label %373, label %377
 
@@ -1571,7 +1571,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 377:                                              ; preds = %369
   %378 = load ptr, ptr %9, align 8
-  %379 = tail call i32 @SDL_strcasecmp(ptr noundef %378, ptr noundef nonnull @.str.271) #9
+  %379 = tail call i32 @SDL_strcasecmp(ptr noundef %378, ptr noundef nonnull @.str.271) #10
   %380 = icmp eq i32 %379, 0
   br i1 %380, label %381, label %385
 
@@ -1584,7 +1584,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 385:                                              ; preds = %377
   %386 = load ptr, ptr %9, align 8
-  %387 = tail call i32 @SDL_strcasecmp(ptr noundef %386, ptr noundef nonnull @.str.272) #9
+  %387 = tail call i32 @SDL_strcasecmp(ptr noundef %386, ptr noundef nonnull @.str.272) #10
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %389, label %393
 
@@ -1597,7 +1597,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 393:                                              ; preds = %385
   %394 = load ptr, ptr %9, align 8
-  %395 = tail call i32 @SDL_strcasecmp(ptr noundef %394, ptr noundef nonnull @.str.273) #9
+  %395 = tail call i32 @SDL_strcasecmp(ptr noundef %394, ptr noundef nonnull @.str.273) #10
   %396 = icmp eq i32 %395, 0
   br i1 %396, label %397, label %401
 
@@ -1610,7 +1610,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 401:                                              ; preds = %393
   %402 = load ptr, ptr %9, align 8
-  %403 = tail call i32 @SDL_strcasecmp(ptr noundef %402, ptr noundef nonnull @.str.274) #9
+  %403 = tail call i32 @SDL_strcasecmp(ptr noundef %402, ptr noundef nonnull @.str.274) #10
   %404 = icmp eq i32 %403, 0
   br i1 %404, label %405, label %409
 
@@ -1623,7 +1623,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 409:                                              ; preds = %401
   %410 = load ptr, ptr %9, align 8
-  %411 = tail call i32 @SDL_strcasecmp(ptr noundef %410, ptr noundef nonnull @.str.275) #9
+  %411 = tail call i32 @SDL_strcasecmp(ptr noundef %410, ptr noundef nonnull @.str.275) #10
   %412 = icmp eq i32 %411, 0
   br i1 %412, label %413, label %417
 
@@ -1636,7 +1636,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 417:                                              ; preds = %409
   %418 = load ptr, ptr %9, align 8
-  %419 = tail call i32 @SDL_strcasecmp(ptr noundef %418, ptr noundef nonnull @.str.276) #9
+  %419 = tail call i32 @SDL_strcasecmp(ptr noundef %418, ptr noundef nonnull @.str.276) #10
   %420 = icmp eq i32 %419, 0
   br i1 %420, label %421, label %425
 
@@ -1649,7 +1649,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 425:                                              ; preds = %417
   %426 = load ptr, ptr %9, align 8
-  %427 = tail call i32 @SDL_strcasecmp(ptr noundef %426, ptr noundef nonnull @.str.277) #9
+  %427 = tail call i32 @SDL_strcasecmp(ptr noundef %426, ptr noundef nonnull @.str.277) #10
   %428 = icmp eq i32 %427, 0
   br i1 %428, label %429, label %433
 
@@ -1662,7 +1662,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 433:                                              ; preds = %425
   %434 = load ptr, ptr %9, align 8
-  %435 = tail call i32 @SDL_strcasecmp(ptr noundef %434, ptr noundef nonnull @.str.278) #9
+  %435 = tail call i32 @SDL_strcasecmp(ptr noundef %434, ptr noundef nonnull @.str.278) #10
   %436 = icmp eq i32 %435, 0
   br i1 %436, label %437, label %439
 
@@ -1673,7 +1673,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 439:                                              ; preds = %433
   %440 = load ptr, ptr %9, align 8
-  %441 = tail call i32 @SDL_strcasecmp(ptr noundef %440, ptr noundef nonnull @.str.279) #9
+  %441 = tail call i32 @SDL_strcasecmp(ptr noundef %440, ptr noundef nonnull @.str.279) #10
   %442 = icmp eq i32 %441, 0
   br i1 %442, label %443, label %447
 
@@ -1686,7 +1686,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 447:                                              ; preds = %439
   %448 = load ptr, ptr %9, align 8
-  %449 = tail call i32 @SDL_strcasecmp(ptr noundef %448, ptr noundef nonnull @.str.280) #9
+  %449 = tail call i32 @SDL_strcasecmp(ptr noundef %448, ptr noundef nonnull @.str.280) #10
   %450 = icmp eq i32 %449, 0
   br i1 %450, label %451, label %455
 
@@ -1699,7 +1699,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 455:                                              ; preds = %447
   %456 = load ptr, ptr %9, align 8
-  %457 = tail call i32 @SDL_strcasecmp(ptr noundef %456, ptr noundef nonnull @.str.281) #9
+  %457 = tail call i32 @SDL_strcasecmp(ptr noundef %456, ptr noundef nonnull @.str.281) #10
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %459, label %463
 
@@ -1712,7 +1712,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 463:                                              ; preds = %455
   %464 = load ptr, ptr %9, align 8
-  %465 = tail call i32 @SDL_strcasecmp(ptr noundef %464, ptr noundef nonnull @.str.282) #9
+  %465 = tail call i32 @SDL_strcasecmp(ptr noundef %464, ptr noundef nonnull @.str.282) #10
   %466 = icmp eq i32 %465, 0
   br i1 %466, label %467, label %469
 
@@ -1723,7 +1723,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 469:                                              ; preds = %463
   %470 = load ptr, ptr %9, align 8
-  %471 = tail call i32 @SDL_strcasecmp(ptr noundef %470, ptr noundef nonnull @.str.283) #9
+  %471 = tail call i32 @SDL_strcasecmp(ptr noundef %470, ptr noundef nonnull @.str.283) #10
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %473, label %.loopexit
 
@@ -1736,7 +1736,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 476:                                              ; preds = %473
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %475, ptr %477, align 8
-  %478 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.284, ptr noundef nonnull %475) #9
+  %478 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.284, ptr noundef nonnull %475) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader445, %.preheader441, %.preheader439, %.preheader437, %.preheader435, %161, %167, %.preheader, %469, %473, %348, %338, %327, %317, %291, %281, %286, %263, %257, %.loopexit444, %239, %229, %223, %213, %207, %197, %191, %171, %153, %143, %137, %121, %112, %100, %104, %93, %96, %39, %23, %13, %3, %476, %467, %459, %451, %443, %437, %429, %421, %413, %405, %397, %389, %381, %373, %365, %359, %351, %341, %330, %321, %315, %309, %303, %297, %273, %185, %130, %124, %115, %83, %73, %65, %57, %49, %42, %33, %26, %16
@@ -1756,7 +1756,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds ptr, ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.323) #9
+  %11 = tail call i32 @SDL_strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.323) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %19
 
@@ -1769,12 +1769,12 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %15, ptr %17, align 8
-  %18 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.324, ptr noundef nonnull %15) #9
+  %18 = tail call zeroext i1 @SDL_SetHint(ptr noundef nonnull @.str.324, ptr noundef nonnull %15) #10
   br label %112
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call i32 @SDL_strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.325) #9
+  %21 = tail call i32 @SDL_strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.325) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %29
 
@@ -1785,14 +1785,14 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
   br i1 %.not71, label %112, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @SDL_atoi(ptr noundef nonnull %25) #9
+  %27 = tail call i32 @SDL_atoi(ptr noundef nonnull %25) #10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %27, ptr %28, align 8
   br label %112
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %9, align 8
-  %31 = tail call i32 @SDL_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.326) #9
+  %31 = tail call i32 @SDL_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.326) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %101
 
@@ -1803,7 +1803,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
   br i1 %.not70, label %112, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.327) #9
+  %37 = tail call i32 @SDL_strcasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.327) #10
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %41
 
@@ -1814,7 +1814,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %34, align 8
-  %43 = tail call i32 @SDL_strcasecmp(ptr noundef %42, ptr noundef nonnull @.str.328) #9
+  %43 = tail call i32 @SDL_strcasecmp(ptr noundef %42, ptr noundef nonnull @.str.328) #10
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %47
 
@@ -1825,7 +1825,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %34, align 8
-  %49 = tail call i32 @SDL_strcasecmp(ptr noundef %48, ptr noundef nonnull @.str.329) #9
+  %49 = tail call i32 @SDL_strcasecmp(ptr noundef %48, ptr noundef nonnull @.str.329) #10
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -1836,7 +1836,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %34, align 8
-  %55 = tail call i32 @SDL_strcasecmp(ptr noundef %54, ptr noundef nonnull @.str.330) #9
+  %55 = tail call i32 @SDL_strcasecmp(ptr noundef %54, ptr noundef nonnull @.str.330) #10
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -1847,7 +1847,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %34, align 8
-  %61 = tail call i32 @SDL_strcasecmp(ptr noundef %60, ptr noundef nonnull @.str.331) #9
+  %61 = tail call i32 @SDL_strcasecmp(ptr noundef %60, ptr noundef nonnull @.str.331) #10
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
@@ -1858,7 +1858,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %34, align 8
-  %67 = tail call i32 @SDL_strcasecmp(ptr noundef %66, ptr noundef nonnull @.str.332) #9
+  %67 = tail call i32 @SDL_strcasecmp(ptr noundef %66, ptr noundef nonnull @.str.332) #10
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %71
 
@@ -1869,7 +1869,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %34, align 8
-  %73 = tail call i32 @SDL_strcasecmp(ptr noundef %72, ptr noundef nonnull @.str.333) #9
+  %73 = tail call i32 @SDL_strcasecmp(ptr noundef %72, ptr noundef nonnull @.str.333) #10
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %77
 
@@ -1880,7 +1880,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %34, align 8
-  %79 = tail call i32 @SDL_strcasecmp(ptr noundef %78, ptr noundef nonnull @.str.334) #9
+  %79 = tail call i32 @SDL_strcasecmp(ptr noundef %78, ptr noundef nonnull @.str.334) #10
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %83
 
@@ -1891,7 +1891,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %34, align 8
-  %85 = tail call i32 @SDL_strcasecmp(ptr noundef %84, ptr noundef nonnull @.str.335) #9
+  %85 = tail call i32 @SDL_strcasecmp(ptr noundef %84, ptr noundef nonnull @.str.335) #10
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %89
 
@@ -1902,7 +1902,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %34, align 8
-  %91 = tail call i32 @SDL_strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.336) #9
+  %91 = tail call i32 @SDL_strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.336) #10
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %95
 
@@ -1913,7 +1913,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr %34, align 8
-  %97 = tail call i32 @SDL_strcasecmp(ptr noundef %96, ptr noundef nonnull @.str.337) #9
+  %97 = tail call i32 @SDL_strcasecmp(ptr noundef %96, ptr noundef nonnull @.str.337) #10
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %112
 
@@ -1924,7 +1924,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 101:                                              ; preds = %29
   %102 = load ptr, ptr %9, align 8
-  %103 = tail call i32 @SDL_strcasecmp(ptr noundef %102, ptr noundef nonnull @.str.338) #9
+  %103 = tail call i32 @SDL_strcasecmp(ptr noundef %102, ptr noundef nonnull @.str.338) #10
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %112
 
@@ -1935,7 +1935,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
   br i1 %.not69, label %112, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i32 @SDL_atoi(ptr noundef nonnull %107) #9
+  %109 = tail call i32 @SDL_atoi(ptr noundef nonnull %107) #10
   %110 = and i32 %109, 255
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 %110, ptr %111, align 4
@@ -1948,8 +1948,8 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseAudioArguments(ptr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SDLTest_CommonDestroyState(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @SDL_free(ptr noundef %0) #9
-  tail call void @SDLTest_LogAllocations() #9
+  tail call void @SDL_free(ptr noundef %0) #10
+  tail call void @SDLTest_LogAllocations() #10
   ret void
 }
 
@@ -1974,7 +1974,7 @@ define dso_local i32 @SDLTest_CommonArg(ptr noundef readonly captures(none) %0, 
   %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 %4(ptr noundef %7, ptr noundef %8, i32 noundef %1) #9
+  %9 = tail call i32 %4(ptr noundef %7, ptr noundef %8, i32 noundef %1) #10
   %.not16 = icmp eq i32 %9, 0
   br i1 %.not16, label %10, label %._crit_edge
 
@@ -1991,7 +1991,7 @@ define dso_local i32 @SDLTest_CommonArg(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.2, ptr noundef %1) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.2, ptr noundef %1) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %.01933 = load ptr, ptr %4, align 8
   %.not34 = icmp eq ptr %.01933, null
@@ -2007,7 +2007,7 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
 7:                                                ; preds = %.lr.ph36
   %8 = getelementptr inbounds nuw i8, ptr %.01935, i64 24
   %9 = load ptr, ptr %8, align 8
-  tail call void %6(ptr noundef %9) #9
+  tail call void %6(ptr noundef %9) #10
   br label %10
 
 10:                                               ; preds = %7, %.lr.ph36
@@ -2024,7 +2024,7 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %.preheader29, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader29 ]
   %14 = phi ptr [ %17, %.lr.ph ], [ %13, %.preheader29 ]
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %14) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %14) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
@@ -2050,7 +2050,7 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph39 ], [ 0, %.preheader ]
   %20 = phi ptr [ %22, %.lr.ph39 ], [ %19, %.preheader ]
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %20) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %20) #10
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next42
   %22 = load ptr, ptr %21, align 8
@@ -2093,7 +2093,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonDefaultArgs(ptr noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %.01219.i, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 %9(ptr noundef %12, ptr noundef %13, i32 noundef %.01124) #9
+  %14 = tail call i32 %9(ptr noundef %12, ptr noundef %13, i32 noundef %.01124) #10
   %.not16.i = icmp eq i32 %14, 0
   br i1 %.not16.i, label %15, label %SDLTest_CommonArg.exit
 
@@ -2109,7 +2109,7 @@ SDLTest_CommonArg.exit:                           ; preds = %10
 
 SDLTest_CommonArg.exit.thread:                    ; preds = %8, %SDLTest_CommonArg.exit, %15
   %18 = load ptr, ptr %2, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.2, ptr noundef %18) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.2, ptr noundef %18) #10
   %.01933.i = load ptr, ptr %5, align 8
   %.not34.i = icmp eq ptr %.01933.i, null
   br i1 %.not34.i, label %SDLTest_CommonLogUsage.exit.thread, label %.lr.ph36.i
@@ -2124,7 +2124,7 @@ SDLTest_CommonArg.exit.thread:                    ; preds = %8, %SDLTest_CommonA
 21:                                               ; preds = %.lr.ph36.i
   %22 = getelementptr inbounds nuw i8, ptr %.01935.i, i64 24
   %23 = load ptr, ptr %22, align 8
-  tail call void %20(ptr noundef %23) #9
+  tail call void %20(ptr noundef %23) #10
   br label %24
 
 24:                                               ; preds = %21, %.lr.ph36.i
@@ -2141,7 +2141,7 @@ SDLTest_CommonArg.exit.thread:                    ; preds = %8, %SDLTest_CommonA
 .lr.ph.i14:                                       ; preds = %.preheader29.i, %.lr.ph.i14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i14 ], [ 0, %.preheader29.i ]
   %28 = phi ptr [ %31, %.lr.ph.i14 ], [ %27, %.preheader29.i ]
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %28) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %28) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next.i
@@ -2200,17 +2200,17 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not250, label %39, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @SDL_GetNumVideoDrivers() #9
+  %26 = tail call i32 @SDL_GetNumVideoDrivers() #10
   store i32 %26, ptr %4, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.4) #10
   br label %39
 
 29:                                               ; preds = %25
-  %30 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.5) #9
+  %30 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.5) #10
   %31 = load i32, ptr %4, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
@@ -2225,7 +2225,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br label %34
 
 34:                                               ; preds = %33, %.lr.ph
-  %35 = call ptr @SDL_GetVideoDriver(i32 noundef %.0231289) #9
+  %35 = call ptr @SDL_GetVideoDriver(i32 noundef %.0231289) #10
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef %7, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef %35)
   %36 = add nuw nsw i32 %.0231289, 1
   %37 = load i32, ptr %4, align 4
@@ -2233,16 +2233,16 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %34, %29
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #10
   br label %39
 
 39:                                               ; preds = %28, %._crit_edge, %21
-  %40 = call zeroext i1 @SDL_InitSubSystem(i32 noundef 32) #9
+  %40 = call zeroext i1 @SDL_InitSubSystem(i32 noundef 32) #10
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %39
-  %42 = call ptr @SDL_GetError() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.9, ptr noundef %42) #9
+  %42 = call ptr @SDL_GetError() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.9, ptr noundef %42) #10
   br label %613
 
 43:                                               ; preds = %39
@@ -2252,82 +2252,82 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not252, label %48, label %46
 
 46:                                               ; preds = %43
-  %47 = call ptr @SDL_GetCurrentVideoDriver() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.10, ptr noundef %47) #9
+  %47 = call ptr @SDL_GetCurrentVideoDriver() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.10, ptr noundef %47) #10
   br label %48
 
 48:                                               ; preds = %46, %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %50 = load i32, ptr %49, align 8
-  %51 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 0, i32 noundef %50) #9
+  %51 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 0, i32 noundef %50) #10
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %53 = load i32, ptr %52, align 4
-  %54 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 1, i32 noundef %53) #9
+  %54 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 1, i32 noundef %53) #10
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %56 = load i32, ptr %55, align 8
-  %57 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 2, i32 noundef %56) #9
+  %57 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 2, i32 noundef %56) #10
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %59 = load i32, ptr %58, align 4
-  %60 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 3, i32 noundef %59) #9
+  %60 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 3, i32 noundef %59) #10
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %62 = load i32, ptr %61, align 4
-  %63 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 5, i32 noundef %62) #9
+  %63 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 5, i32 noundef %62) #10
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %65 = load i32, ptr %64, align 8
-  %66 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 4, i32 noundef %65) #9
+  %66 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 4, i32 noundef %65) #10
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %68 = load i32, ptr %67, align 4
-  %69 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 6, i32 noundef %68) #9
+  %69 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 6, i32 noundef %68) #10
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %71 = load i32, ptr %70, align 8
-  %72 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 7, i32 noundef %71) #9
+  %72 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 7, i32 noundef %71) #10
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %74 = load i32, ptr %73, align 8
-  %75 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 8, i32 noundef %74) #9
+  %75 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 8, i32 noundef %74) #10
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %77 = load i32, ptr %76, align 4
-  %78 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 9, i32 noundef %77) #9
+  %78 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 9, i32 noundef %77) #10
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %80 = load i32, ptr %79, align 8
-  %81 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 10, i32 noundef %80) #9
+  %81 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 10, i32 noundef %80) #10
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %83 = load i32, ptr %82, align 4
-  %84 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 11, i32 noundef %83) #9
+  %84 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 11, i32 noundef %83) #10
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %86 = load i32, ptr %85, align 8
-  %87 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 12, i32 noundef %86) #9
+  %87 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 12, i32 noundef %86) #10
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %89 = load i32, ptr %88, align 4
-  %90 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 23, i32 noundef %89) #9
+  %90 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 23, i32 noundef %89) #10
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %92 = load i32, ptr %91, align 8
-  %93 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 13, i32 noundef %92) #9
+  %93 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 13, i32 noundef %92) #10
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %95 = load i32, ptr %94, align 4
-  %96 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 14, i32 noundef %95) #9
+  %96 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 14, i32 noundef %95) #10
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %48
-  %101 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 15, i32 noundef %98) #9
+  %101 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 15, i32 noundef %98) #10
   br label %102
 
 102:                                              ; preds = %100, %48
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %104 = load i32, ptr %103, align 8
-  %105 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 16, i32 noundef %104) #9
+  %105 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 16, i32 noundef %104) #10
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %107 = load i32, ptr %106, align 8
   %.not253 = icmp eq i32 %107, 0
   br i1 %.not253, label %113, label %108
 
 108:                                              ; preds = %102
-  %109 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 17, i32 noundef %107) #9
+  %109 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 17, i32 noundef %107) #10
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %111 = load i32, ptr %110, align 4
-  %112 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 18, i32 noundef %111) #9
+  %112 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 18, i32 noundef %111) #10
   br label %113
 
 113:                                              ; preds = %108, %102
@@ -2337,7 +2337,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not254, label %118, label %116
 
 116:                                              ; preds = %113
-  %117 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 19, i32 noundef 1) #9
+  %117 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 19, i32 noundef 1) #10
   br label %118
 
 118:                                              ; preds = %116, %113
@@ -2347,7 +2347,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not255, label %123, label %121
 
 121:                                              ; preds = %118
-  %122 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 20, i32 noundef %120) #9
+  %122 = call zeroext i1 @SDL_GL_SetAttribute(i32 noundef 20, i32 noundef %120) #10
   br label %123
 
 123:                                              ; preds = %121, %118
@@ -2364,9 +2364,9 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %127 = call ptr @SDL_GetDisplays(ptr noundef nonnull %4) #9
+  %127 = call ptr @SDL_GetDisplays(ptr noundef nonnull %4) #10
   %128 = load i32, ptr %4, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.11, i32 noundef %128) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.11, i32 noundef %128) #10
   %129 = load i32, ptr %4, align 4
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %.lr.ph295, label %._crit_edge296
@@ -2384,26 +2384,26 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %indvars.iv308 = phi i64 [ 0, %.lr.ph295 ], [ %indvars.iv.next309, %.loopexit288 ]
   %138 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv308
   %139 = load i32, ptr %138, align 4
-  %140 = call ptr @SDL_GetDisplayName(i32 noundef %139) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.12, i32 noundef %139, ptr noundef %140) #9
+  %140 = call ptr @SDL_GetDisplayName(i32 noundef %139) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.12, i32 noundef %139, ptr noundef %140) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %141 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %139, ptr noundef nonnull %8) #9
+  %141 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %139, ptr noundef nonnull %8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %142 = call zeroext i1 @SDL_GetDisplayUsableBounds(i32 noundef %139, ptr noundef nonnull %9) #9
+  %142 = call zeroext i1 @SDL_GetDisplayUsableBounds(i32 noundef %139, ptr noundef nonnull %9) #10
   %143 = load i32, ptr %131, align 4
   %144 = load i32, ptr %132, align 4
   %145 = load i32, ptr %8, align 4
   %146 = load i32, ptr %133, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.13, i32 noundef %143, i32 noundef %144, i32 noundef %145, i32 noundef %146) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.13, i32 noundef %143, i32 noundef %144, i32 noundef %145, i32 noundef %146) #10
   %147 = load i32, ptr %134, align 4
   %148 = load i32, ptr %135, align 4
   %149 = load i32, ptr %9, align 4
   %150 = load i32, ptr %136, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.14, i32 noundef %147, i32 noundef %148, i32 noundef %149, i32 noundef %150) #9
-  %151 = call ptr @SDL_GetDesktopDisplayMode(i32 noundef %139) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.14, i32 noundef %147, i32 noundef %148, i32 noundef %149, i32 noundef %150) #10
+  %151 = call ptr @SDL_GetDesktopDisplayMode(i32 noundef %139) #10
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4
-  %154 = call zeroext i1 @SDL_GetMasksForPixelFormat(i32 noundef %153, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
+  %154 = call zeroext i1 @SDL_GetMasksForPixelFormat(i32 noundef %153, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #10
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %156 = load i32, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %151, i64 12
@@ -2416,8 +2416,8 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %164 = fpext float %163 to double
   %165 = load i32, ptr %10, align 4
   %166 = load i32, ptr %152, align 4
-  %167 = call ptr @SDL_GetPixelFormatName(i32 noundef %166) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.15, i32 noundef %156, i32 noundef %158, double noundef %161, double noundef %164, i32 noundef %165, ptr noundef %167) #9
+  %167 = call ptr @SDL_GetPixelFormatName(i32 noundef %166) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.15, i32 noundef %156, i32 noundef %158, double noundef %161, double noundef %164, i32 noundef %165, ptr noundef %167) #10
   %168 = load i32, ptr %11, align 4
   %169 = icmp ne i32 %168, 0
   %170 = load i32, ptr %12, align 4
@@ -2429,31 +2429,31 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %or.cond4, label %174, label %179
 
 174:                                              ; preds = %137
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.16, i32 noundef %168) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.16, i32 noundef %168) #10
   %175 = load i32, ptr %12, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.17, i32 noundef %175) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.17, i32 noundef %175) #10
   %176 = load i32, ptr %13, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.18, i32 noundef %176) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.18, i32 noundef %176) #10
   %177 = load i32, ptr %14, align 4
   %.not283 = icmp eq i32 %177, 0
   br i1 %.not283, label %179, label %178
 
 178:                                              ; preds = %174
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.19, i32 noundef %177) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.19, i32 noundef %177) #10
   br label %179
 
 179:                                              ; preds = %174, %178, %137
-  %180 = call ptr @SDL_GetFullscreenDisplayModes(i32 noundef %139, ptr noundef nonnull %3) #9
+  %180 = call ptr @SDL_GetFullscreenDisplayModes(i32 noundef %139, ptr noundef nonnull %3) #10
   %181 = load i32, ptr %3, align 4
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %179
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.20) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.20) #10
   br label %.loopexit288
 
 184:                                              ; preds = %179
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.21) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.21) #10
   %185 = load i32, ptr %3, align 4
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %.lr.ph292, label %.loopexit288
@@ -2464,7 +2464,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
-  %191 = call zeroext i1 @SDL_GetMasksForPixelFormat(i32 noundef %190, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
+  %191 = call zeroext i1 @SDL_GetMasksForPixelFormat(i32 noundef %190, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #10
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %193 = load i32, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 12
@@ -2477,9 +2477,9 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %201 = fpext float %200 to double
   %202 = load i32, ptr %10, align 4
   %203 = load i32, ptr %189, align 4
-  %204 = call ptr @SDL_GetPixelFormatName(i32 noundef %203) #9
+  %204 = call ptr @SDL_GetPixelFormatName(i32 noundef %203) #10
   %205 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.22, i32 noundef %205, i32 noundef %193, i32 noundef %195, double noundef %198, double noundef %201, i32 noundef %202, ptr noundef %204) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.22, i32 noundef %205, i32 noundef %193, i32 noundef %195, double noundef %198, double noundef %201, i32 noundef %202, ptr noundef %204) #10
   %206 = load i32, ptr %11, align 4
   %207 = icmp ne i32 %206, 0
   %208 = load i32, ptr %12, align 4
@@ -2491,17 +2491,17 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %or.cond8, label %212, label %217
 
 212:                                              ; preds = %.lr.ph292
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.23, i32 noundef %206) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.23, i32 noundef %206) #10
   %213 = load i32, ptr %12, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.24, i32 noundef %213) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.24, i32 noundef %213) #10
   %214 = load i32, ptr %13, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.25, i32 noundef %214) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.25, i32 noundef %214) #10
   %215 = load i32, ptr %14, align 4
   %.not284 = icmp eq i32 %215, 0
   br i1 %.not284, label %217, label %216
 
 216:                                              ; preds = %212
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.26, i32 noundef %215) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.26, i32 noundef %215) #10
   br label %217
 
 217:                                              ; preds = %.lr.ph292, %216, %212
@@ -2512,7 +2512,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %220, label %.lr.ph292, label %.loopexit288, !llvm.loop !21
 
 .loopexit288:                                     ; preds = %217, %184, %183
-  call void @SDL_free(ptr noundef %180) #9
+  call void @SDL_free(ptr noundef %180) #10
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %221 = load i32, ptr %4, align 4
   %222 = sext i32 %221 to i64
@@ -2520,7 +2520,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %223, label %137, label %._crit_edge296, !llvm.loop !22
 
 ._crit_edge296:                                   ; preds = %.loopexit288, %126
-  call void @SDL_free(ptr noundef %127) #9
+  call void @SDL_free(ptr noundef %127) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2538,32 +2538,32 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not257, label %.loopexit, label %227
 
 227:                                              ; preds = %224
-  %228 = call i32 @SDL_GetNumRenderDrivers() #9
+  %228 = call i32 @SDL_GetNumRenderDrivers() #10
   store i32 %228, ptr %4, align 4
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %230, label %231
 
 230:                                              ; preds = %227
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.27) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.27) #10
   br label %.loopexit
 
 231:                                              ; preds = %227
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.28) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.28) #10
   %232 = load i32, ptr %4, align 4
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %.lr.ph299, label %.loopexit
 
 .lr.ph299:                                        ; preds = %231, %.lr.ph299
   %.2233297 = phi i32 [ %235, %.lr.ph299 ], [ 0, %231 ]
-  %234 = call ptr @SDL_GetRenderDriver(i32 noundef %.2233297) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.29, ptr noundef %234) #9
+  %234 = call ptr @SDL_GetRenderDriver(i32 noundef %.2233297) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.29, ptr noundef %234) #10
   %235 = add nuw nsw i32 %.2233297, 1
   %236 = load i32, ptr %4, align 4
   %237 = icmp slt i32 %235, %236
   br i1 %237, label %.lr.ph299, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph299, %231, %230, %224
-  %238 = call i32 @SDL_GetPrimaryDisplay() #9
+  %238 = call i32 @SDL_GetPrimaryDisplay() #10
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %238, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2572,7 +2572,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %242, label %243, label %._crit_edge314
 
 243:                                              ; preds = %.loopexit
-  %244 = call ptr @SDL_GetDisplays(ptr noundef nonnull %4) #9
+  %244 = call ptr @SDL_GetDisplays(ptr noundef nonnull %4) #10
   %245 = load i32, ptr %240, align 8
   %246 = load i32, ptr %4, align 4
   %247 = icmp slt i32 %245, %246
@@ -2586,7 +2586,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br label %252
 
 252:                                              ; preds = %248, %243
-  call void @SDL_free(ptr noundef %244) #9
+  call void @SDL_free(ptr noundef %244) #10
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %254 = load i32, ptr %253, align 4
   %255 = and i32 %254, -65536
@@ -2616,21 +2616,21 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %267 = load float, ptr %266, align 4
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %269 = call zeroext i1 @SDL_GetClosestFullscreenDisplayMode(i32 noundef %258, i32 noundef %263, i32 noundef %265, float noundef %267, i1 noundef zeroext %.not258, ptr noundef nonnull %268) #9
+  %269 = call zeroext i1 @SDL_GetClosestFullscreenDisplayMode(i32 noundef %258, i32 noundef %263, i32 noundef %265, float noundef %267, i1 noundef zeroext %.not258, ptr noundef nonnull %268) #10
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %271 = load i32, ptr %270, align 8
   %272 = sext i32 %271 to i64
-  %273 = call noalias ptr @SDL_calloc(i64 noundef %272, i64 noundef 8) #10
+  %273 = call noalias ptr @SDL_calloc(i64 noundef %272, i64 noundef 8) #11
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %273, ptr %274, align 8
   %275 = load i32, ptr %270, align 8
   %276 = sext i32 %275 to i64
-  %277 = call noalias ptr @SDL_calloc(i64 noundef %276, i64 noundef 8) #10
+  %277 = call noalias ptr @SDL_calloc(i64 noundef %276, i64 noundef 8) #11
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %277, ptr %278, align 8
   %279 = load i32, ptr %270, align 8
   %280 = sext i32 %279 to i64
-  %281 = call noalias ptr @SDL_calloc(i64 noundef %280, i64 noundef 8) #10
+  %281 = call noalias ptr @SDL_calloc(i64 noundef %280, i64 noundef 8) #11
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %281, ptr %282, align 8
   %283 = load ptr, ptr %274, align 8
@@ -2677,7 +2677,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br label %315
 
 314:                                              ; preds = %284, %._crit_edge314
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.30) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.30) #10
   br label %613
 
 315:                                              ; preds = %.lr.ph301, %.critedge
@@ -2690,7 +2690,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 318:                                              ; preds = %315
   %319 = load i32, ptr %239, align 4
-  %320 = call zeroext i1 @SDL_GetDisplayUsableBounds(i32 noundef %319, ptr noundef nonnull %16) #9
+  %320 = call zeroext i1 @SDL_GetDisplayUsableBounds(i32 noundef %319, ptr noundef nonnull %16) #10
   br label %341
 
 321:                                              ; preds = %315
@@ -2708,17 +2708,17 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 
 328:                                              ; preds = %321
   %329 = load i32, ptr %239, align 4
-  %330 = call float @SDL_GetDisplayContentScale(i32 noundef %329) #9
+  %330 = call float @SDL_GetDisplayContentScale(i32 noundef %329) #10
   %331 = load i32, ptr %292, align 4
   %332 = sitofp i32 %331 to float
   %333 = fmul float %330, %332
-  %334 = call float @SDL_ceilf(float noundef %333) #9
+  %334 = call float @SDL_ceilf(float noundef %333) #10
   %335 = fptosi float %334 to i32
   store i32 %335, ptr %292, align 4
   %336 = load i32, ptr %293, align 4
   %337 = sitofp i32 %336 to float
   %338 = fmul float %330, %337
-  %339 = call float @SDL_ceilf(float noundef %338) #9
+  %339 = call float @SDL_ceilf(float noundef %338) #10
   %340 = fptosi float %339 to i32
   store i32 %340, ptr %293, align 4
   br label %341
@@ -2732,35 +2732,35 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
 345:                                              ; preds = %341
   %346 = trunc i64 %indvars.iv311 to i32
   %347 = add i32 %346, 1
-  %348 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %344, i32 noundef %347) #9
+  %348 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %344, i32 noundef %347) #10
   br label %351
 
 349:                                              ; preds = %341
-  %350 = call i64 @SDL_strlcpy(ptr noundef nonnull %15, ptr noundef %344, i64 noundef 1024) #9
+  %350 = call i64 @SDL_strlcpy(ptr noundef nonnull %15, ptr noundef %344, i64 noundef 1024) #10
   br label %351
 
 351:                                              ; preds = %349, %345
-  %352 = call i32 @SDL_CreateProperties() #9
-  %353 = call zeroext i1 @SDL_SetStringProperty(i32 noundef %352, ptr noundef nonnull @.str.32, ptr noundef nonnull %15) #9
+  %352 = call i32 @SDL_CreateProperties() #10
+  %353 = call zeroext i1 @SDL_SetStringProperty(i32 noundef %352, ptr noundef nonnull @.str.32, ptr noundef nonnull %15) #10
   %354 = load i32, ptr %16, align 4
   %355 = sext i32 %354 to i64
-  %356 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.33, i64 noundef %355) #9
+  %356 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.33, i64 noundef %355) #10
   %357 = load i32, ptr %291, align 4
   %358 = sext i32 %357 to i64
-  %359 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.34, i64 noundef %358) #9
+  %359 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.34, i64 noundef %358) #10
   %360 = load i32, ptr %292, align 4
   %361 = sext i32 %360 to i64
-  %362 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.35, i64 noundef %361) #9
+  %362 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.35, i64 noundef %361) #10
   %363 = load i32, ptr %293, align 4
   %364 = sext i32 %363 to i64
-  %365 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.36, i64 noundef %364) #9
+  %365 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.36, i64 noundef %364) #10
   %366 = load i64, ptr %259, align 8
-  %367 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.37, i64 noundef %366) #9
-  %368 = call ptr @SDL_CreateWindowWithProperties(i32 noundef %352) #9
+  %367 = call zeroext i1 @SDL_SetNumberProperty(i32 noundef %352, ptr noundef nonnull @.str.37, i64 noundef %366) #10
+  %368 = call ptr @SDL_CreateWindowWithProperties(i32 noundef %352) #10
   %369 = load ptr, ptr %274, align 8
   %370 = getelementptr inbounds nuw ptr, ptr %369, i64 %indvars.iv311
   store ptr %368, ptr %370, align 8
-  call void @SDL_DestroyProperties(i32 noundef %352) #9
+  call void @SDL_DestroyProperties(i32 noundef %352) #10
   %371 = load ptr, ptr %274, align 8
   %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv311
   %373 = load ptr, ptr %372, align 8
@@ -2776,7 +2776,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %or.cond349, label %378, label %376
 
 376:                                              ; preds = %374
-  %377 = call zeroext i1 @SDL_SetWindowMinimumSize(ptr noundef nonnull %373, i32 noundef %375, i32 noundef %.pre316) #9
+  %377 = call zeroext i1 @SDL_SetWindowMinimumSize(ptr noundef nonnull %373, i32 noundef %375, i32 noundef %.pre316) #10
   br label %378
 
 378:                                              ; preds = %374, %376
@@ -2791,7 +2791,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %381 = load ptr, ptr %274, align 8
   %382 = getelementptr inbounds nuw ptr, ptr %381, i64 %indvars.iv311
   %383 = load ptr, ptr %382, align 8
-  %384 = call zeroext i1 @SDL_SetWindowMaximumSize(ptr noundef %383, i32 noundef %379, i32 noundef %.pre317) #9
+  %384 = call zeroext i1 @SDL_SetWindowMaximumSize(ptr noundef %383, i32 noundef %379, i32 noundef %.pre317) #10
   br label %385
 
 385:                                              ; preds = %378, %380
@@ -2806,14 +2806,14 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %390 = load ptr, ptr %274, align 8
   %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv311
   %392 = load ptr, ptr %391, align 8
-  %393 = call zeroext i1 @SDL_SetWindowAspectRatio(ptr noundef %392, float noundef %386, float noundef %.pre318) #9
+  %393 = call zeroext i1 @SDL_SetWindowAspectRatio(ptr noundef %392, float noundef %386, float noundef %.pre318) #10
   br label %394
 
 394:                                              ; preds = %385, %389
   %395 = load ptr, ptr %274, align 8
   %396 = getelementptr inbounds nuw ptr, ptr %395, i64 %indvars.iv311
   %397 = load ptr, ptr %396, align 8
-  %398 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %397, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %398 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %397, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %399 = load i64, ptr %259, align 8
   %400 = and i64 %399, 32
   %.not272 = icmp eq i64 %400, 0
@@ -2830,7 +2830,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %or.cond352, label %407, label %404
 
 404:                                              ; preds = %401
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.39, i32 noundef %403, i32 noundef %.pre319, i32 noundef %402, i32 noundef %.pre320) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.39, i32 noundef %403, i32 noundef %.pre319, i32 noundef %402, i32 noundef %.pre320) #10
   %405 = load i32, ptr %5, align 4
   store i32 %405, ptr %262, align 4
   %406 = load i32, ptr %6, align 4
@@ -2853,14 +2853,14 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %414 = load ptr, ptr %274, align 8
   %415 = getelementptr inbounds nuw ptr, ptr %414, i64 %indvars.iv311
   %416 = load ptr, ptr %415, align 8
-  %417 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef %416, ptr noundef nonnull %268) #9
+  %417 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef %416, ptr noundef nonnull %268) #10
   br label %418
 
 418:                                              ; preds = %413, %410
   %419 = load ptr, ptr %274, align 8
   %420 = getelementptr inbounds nuw ptr, ptr %419, i64 %indvars.iv311
   %421 = load ptr, ptr %420, align 8
-  %422 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef %421, i1 noundef zeroext true) #9
+  %422 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef %421, i1 noundef zeroext true) #10
   %.pre322 = load i64, ptr %259, align 8
   br label %423
 
@@ -2874,7 +2874,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %428 = load ptr, ptr %274, align 8
   %429 = getelementptr inbounds nuw ptr, ptr %428, i64 %indvars.iv311
   %430 = load ptr, ptr %429, align 8
-  %431 = call zeroext i1 @SDL_SetWindowHitTest(ptr noundef %430, ptr noundef nonnull @SDLTest_ExampleHitTestCallback, ptr noundef null) #9
+  %431 = call zeroext i1 @SDL_SetWindowHitTest(ptr noundef %430, ptr noundef nonnull @SDLTest_ExampleHitTestCallback, ptr noundef null) #10
   br label %432
 
 432:                                              ; preds = %427, %423
@@ -2883,7 +2883,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not276, label %452, label %434
 
 434:                                              ; preds = %432
-  %435 = call ptr @SDL_LoadBMP(ptr noundef nonnull %433) #9
+  %435 = call ptr @SDL_LoadBMP(ptr noundef nonnull %433) #10
   %.not.i = icmp eq ptr %435, null
   br i1 %.not.i, label %SDLTest_LoadIcon.exit, label %436
 
@@ -2898,20 +2898,20 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %442 = load ptr, ptr %441, align 8
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
-  %445 = call zeroext i1 @SDL_SetSurfaceColorKey(ptr noundef nonnull %435, i1 noundef zeroext true, i32 noundef %444) #9
+  %445 = call zeroext i1 @SDL_SetSurfaceColorKey(ptr noundef nonnull %435, i1 noundef zeroext true, i32 noundef %444) #10
   br label %447
 
 SDLTest_LoadIcon.exit:                            ; preds = %434
-  %446 = call ptr @SDL_GetError() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.352, ptr noundef nonnull %433, ptr noundef %446) #9
+  %446 = call ptr @SDL_GetError() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.352, ptr noundef nonnull %433, ptr noundef %446) #10
   br label %452
 
 447:                                              ; preds = %436, %440
   %448 = load ptr, ptr %274, align 8
   %449 = getelementptr inbounds nuw ptr, ptr %448, i64 %indvars.iv311
   %450 = load ptr, ptr %449, align 8
-  %451 = call zeroext i1 @SDL_SetWindowIcon(ptr noundef %450, ptr noundef nonnull %435) #9
-  call void @SDL_DestroySurface(ptr noundef nonnull %435) #9
+  %451 = call zeroext i1 @SDL_SetWindowIcon(ptr noundef %450, ptr noundef nonnull %435) #10
+  call void @SDL_DestroySurface(ptr noundef nonnull %435) #10
   br label %452
 
 452:                                              ; preds = %SDLTest_LoadIcon.exit, %447, %432
@@ -2928,7 +2928,7 @@ SDL_RectEmpty.exit:                               ; preds = %452
   %458 = load ptr, ptr %274, align 8
   %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv311
   %460 = load ptr, ptr %459, align 8
-  %461 = call zeroext i1 @SDL_SetWindowMouseRect(ptr noundef %460, ptr noundef nonnull %304) #9
+  %461 = call zeroext i1 @SDL_SetWindowMouseRect(ptr noundef %460, ptr noundef nonnull %304) #10
   br label %SDL_RectEmpty.exit.thread
 
 SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_RectEmpty.exit
@@ -2951,7 +2951,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
   %470 = load ptr, ptr %274, align 8
   %471 = getelementptr inbounds nuw ptr, ptr %470, i64 %indvars.iv311
   %472 = load ptr, ptr %471, align 8
-  %473 = call ptr @SDL_CreateRenderer(ptr noundef %472, ptr noundef %465) #9
+  %473 = call ptr @SDL_CreateRenderer(ptr noundef %472, ptr noundef %465) #10
   %474 = load ptr, ptr %278, align 8
   %475 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv311
   store ptr %473, ptr %475, align 8
@@ -2987,7 +2987,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
 
 492:                                              ; preds = %488
   %493 = load ptr, ptr %477, align 8
-  %494 = call zeroext i1 @SDL_SetRenderVSync(ptr noundef %493, i32 noundef %491) #9
+  %494 = call zeroext i1 @SDL_SetRenderVSync(ptr noundef %493, i32 noundef %491) #10
   %.pre323 = load ptr, ptr %278, align 8
   %.pre324 = load i32, ptr %309, align 4
   %.pre325 = load i32, ptr %310, align 8
@@ -3000,7 +3000,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
   %499 = getelementptr inbounds nuw ptr, ptr %498, i64 %indvars.iv311
   %500 = load ptr, ptr %499, align 8
   %501 = load i32, ptr %312, align 8
-  %502 = call zeroext i1 @SDL_SetRenderLogicalPresentation(ptr noundef %500, i32 noundef %497, i32 noundef %496, i32 noundef %501) #9
+  %502 = call zeroext i1 @SDL_SetRenderLogicalPresentation(ptr noundef %500, i32 noundef %497, i32 noundef %496, i32 noundef %501) #10
   br i1 %502, label %503, label %558
 
 503:                                              ; preds = %495
@@ -3012,7 +3012,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
   %507 = load ptr, ptr %278, align 8
   %508 = getelementptr inbounds nuw ptr, ptr %507, i64 %indvars.iv311
   %509 = load ptr, ptr %508, align 8
-  %510 = call zeroext i1 @SDL_SetRenderScale(ptr noundef %509, float noundef %504, float noundef %504) #9
+  %510 = call zeroext i1 @SDL_SetRenderScale(ptr noundef %509, float noundef %504, float noundef %504) #10
   br label %511
 
 511:                                              ; preds = %506, %503
@@ -3022,36 +3022,36 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
   br i1 %.not282, label %.critedge, label %514
 
 514:                                              ; preds = %511
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.42) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.42) #10
   %515 = load ptr, ptr %278, align 8
   %516 = getelementptr inbounds nuw ptr, ptr %515, i64 %indvars.iv311
   %517 = load ptr, ptr %516, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %518 = call ptr @SDL_GetRendererName(ptr noundef %517) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.353, ptr noundef %518) #9
-  %519 = call i32 @SDL_strcmp(ptr noundef %518, ptr noundef nonnull @.str.354) #9
+  %518 = call ptr @SDL_GetRendererName(ptr noundef %517) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.353, ptr noundef %518) #10
+  %519 = call i32 @SDL_strcmp(ptr noundef %518, ptr noundef nonnull @.str.354) #10
   %520 = icmp eq i32 %519, 0
   br i1 %520, label %521, label %525
 
 521:                                              ; preds = %514
-  %522 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #9
-  %523 = call ptr @SDL_GetPointerProperty(i32 noundef %522, ptr noundef nonnull @.str.355, ptr noundef null) #9
-  %524 = call ptr @SDL_GetGPUDeviceDriver(ptr noundef %523) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.356, ptr noundef %524) #9
+  %522 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #10
+  %523 = call ptr @SDL_GetPointerProperty(i32 noundef %522, ptr noundef nonnull @.str.355, ptr noundef null) #10
+  %524 = call ptr @SDL_GetGPUDeviceDriver(ptr noundef %523) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.356, ptr noundef %524) #10
   br label %525
 
 525:                                              ; preds = %521, %514
-  %526 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #9
-  %527 = call i64 @SDL_GetNumberProperty(i32 noundef %526, ptr noundef nonnull @.str.358, i64 noundef 0) #9
+  %526 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #10
+  %527 = call i64 @SDL_GetNumberProperty(i32 noundef %526, ptr noundef nonnull @.str.358, i64 noundef 0) #10
   %528 = trunc i64 %527 to i32
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.357, i32 noundef %528) #9
-  %529 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #9
-  %530 = call ptr @SDL_GetPointerProperty(i32 noundef %529, ptr noundef nonnull @.str.359, ptr noundef null) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.357, i32 noundef %528) #10
+  %529 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #10
+  %530 = call ptr @SDL_GetPointerProperty(i32 noundef %529, ptr noundef nonnull @.str.359, ptr noundef null) #10
   %.not.i287 = icmp eq ptr %530, null
   br i1 %.not.i287, label %546, label %531
 
 531:                                              ; preds = %525
-  %532 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.360) #9
+  %532 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.360) #10
   %533 = load i32, ptr %530, align 4
   %.not1922.i = icmp eq i32 %533, 0
   br i1 %.not1922.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3070,12 +3070,12 @@ SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_Rec
 
 537:                                              ; preds = %535, %.lr.ph.i
   %538 = phi i32 [ %.pre.i, %535 ], [ %534, %.lr.ph.i ]
-  %539 = call ptr @SDL_GetPixelFormatName(i32 noundef %538) #9
+  %539 = call ptr @SDL_GetPixelFormatName(i32 noundef %538) #10
   %.not.i.i = icmp eq ptr %539, null
   br i1 %.not.i.i, label %543, label %540
 
 540:                                              ; preds = %537
-  %541 = call i32 @SDL_strncmp(ptr noundef nonnull %539, ptr noundef nonnull @.str.364, i64 noundef 16) #9
+  %541 = call i32 @SDL_strncmp(ptr noundef nonnull %539, ptr noundef nonnull @.str.364, i64 noundef 16) #10
   %542 = icmp eq i32 %541, 0
   %spec.select.idx.i.i = select i1 %542, i64 16, i64 0
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %539, i64 %spec.select.idx.i.i
@@ -3094,18 +3094,18 @@ SDLTest_PrintPixelFormat.exit.i:                  ; preds = %543, %540
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %SDLTest_PrintPixelFormat.exit.i, %531
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #10
   br label %546
 
 546:                                              ; preds = %._crit_edge.i, %525
-  %547 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #9
-  %548 = call i64 @SDL_GetNumberProperty(i32 noundef %547, ptr noundef nonnull @.str.362, i64 noundef 0) #9
+  %547 = call i32 @SDL_GetRendererProperties(ptr noundef %517) #10
+  %548 = call i64 @SDL_GetNumberProperty(i32 noundef %547, ptr noundef nonnull @.str.362, i64 noundef 0) #10
   %549 = trunc i64 %548 to i32
   %.not20.i = icmp eq i32 %549, 0
   br i1 %.not20.i, label %SDLTest_PrintRenderer.exit, label %550
 
 550:                                              ; preds = %546
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.363, i32 noundef %549, i32 noundef %549) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.363, i32 noundef %549, i32 noundef %549) #10
   br label %SDLTest_PrintRenderer.exit
 
 SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
@@ -3116,7 +3116,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   %551 = load ptr, ptr %274, align 8
   %552 = getelementptr inbounds nuw ptr, ptr %551, i64 %indvars.iv311
   %553 = load ptr, ptr %552, align 8
-  %554 = call zeroext i1 @SDL_ShowWindow(ptr noundef %553) #9
+  %554 = call zeroext i1 @SDL_ShowWindow(ptr noundef %553) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
@@ -3127,8 +3127,8 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
 
 558:                                              ; preds = %495, %469, %351
   %.str.41.sink = phi ptr [ @.str.38, %351 ], [ @.str.40, %469 ], [ @.str.41, %495 ]
-  %559 = call ptr @SDL_GetError() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull %.str.41.sink, ptr noundef %559) #9
+  %559 = call ptr @SDL_GetError() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull %.str.41.sink, ptr noundef %559) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %613
@@ -3140,7 +3140,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   br i1 %562, label %563, label %565
 
 563:                                              ; preds = %._crit_edge302
-  %564 = call zeroext i1 @SDL_HideCursor() #9
+  %564 = call zeroext i1 @SDL_HideCursor() #10
   br label %565
 
 565:                                              ; preds = %._crit_edge302, %563, %1
@@ -3157,17 +3157,17 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   br i1 %.not262, label %586, label %572
 
 572:                                              ; preds = %568
-  %573 = call i32 @SDL_GetNumAudioDrivers() #9
+  %573 = call i32 @SDL_GetNumAudioDrivers() #10
   store i32 %573, ptr %4, align 4
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %575, label %576
 
 575:                                              ; preds = %572
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.43) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.43) #10
   br label %586
 
 576:                                              ; preds = %572
-  %577 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.44) #9
+  %577 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.44) #10
   %578 = load i32, ptr %4, align 4
   %579 = icmp sgt i32 %578, 0
   br i1 %579, label %.lr.ph305, label %._crit_edge306
@@ -3182,7 +3182,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   br label %581
 
 581:                                              ; preds = %580, %.lr.ph305
-  %582 = call ptr @SDL_GetAudioDriver(i32 noundef %.4235303) #9
+  %582 = call ptr @SDL_GetAudioDriver(i32 noundef %.4235303) #10
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef %7, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef %582)
   %583 = add nuw nsw i32 %.4235303, 1
   %584 = load i32, ptr %4, align 4
@@ -3190,16 +3190,16 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   br i1 %585, label %.lr.ph305, label %._crit_edge306, !llvm.loop !28
 
 ._crit_edge306:                                   ; preds = %581, %576
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #10
   br label %586
 
 586:                                              ; preds = %575, %._crit_edge306, %568
-  %587 = call zeroext i1 @SDL_InitSubSystem(i32 noundef 16) #9
+  %587 = call zeroext i1 @SDL_InitSubSystem(i32 noundef 16) #10
   br i1 %587, label %590, label %588
 
 588:                                              ; preds = %586
-  %589 = call ptr @SDL_GetError() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.45, ptr noundef %589) #9
+  %589 = call ptr @SDL_GetError() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.45, ptr noundef %589) #10
   br label %613
 
 590:                                              ; preds = %586
@@ -3209,8 +3209,8 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   br i1 %.not264, label %595, label %593
 
 593:                                              ; preds = %590
-  %594 = call ptr @SDL_GetCurrentAudioDriver() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.46, ptr noundef %594) #9
+  %594 = call ptr @SDL_GetCurrentAudioDriver() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.46, ptr noundef %594) #10
   br label %595
 
 595:                                              ; preds = %593, %590
@@ -3226,15 +3226,15 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %603 = load i32, ptr %602, align 8
   store i32 %603, ptr %601, align 4
-  %604 = call i32 @SDL_OpenAudioDevice(i32 noundef -1, ptr noundef nonnull %17) #9
+  %604 = call i32 @SDL_OpenAudioDevice(i32 noundef -1, ptr noundef nonnull %17) #10
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 %604, ptr %605, align 4
   %.not265.not = icmp eq i32 %604, 0
   br i1 %.not265.not, label %606, label %.critedge286
 
 606:                                              ; preds = %595
-  %607 = call ptr @SDL_GetError() #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.47, ptr noundef %607) #9
+  %607 = call ptr @SDL_GetError() #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.47, ptr noundef %607) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %613
 
@@ -3250,7 +3250,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   br i1 %.not266, label %613, label %611
 
 611:                                              ; preds = %608
-  %612 = call zeroext i1 @SDL_InitSubSystem(i32 noundef 65536) #9
+  %612 = call zeroext i1 @SDL_InitSubSystem(i32 noundef 65536) #10
   br label %613
 
 613:                                              ; preds = %606, %608, %611, %558, %588, %314, %41
@@ -3270,12 +3270,12 @@ declare i32 @SDL_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  %5 = tail call i64 @SDL_strlen(ptr noundef nonnull %0) #9
+  %5 = tail call i64 @SDL_strlen(ptr noundef nonnull %0) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = sub i64 %1, %5
-  %8 = call i32 @SDL_vsnprintf(ptr noundef nonnull %6, i64 noundef %7, ptr noundef %2, ptr noundef nonnull %4) #9
+  %8 = call i32 @SDL_vsnprintf(ptr noundef nonnull %6, i64 noundef %7, ptr noundef %2, ptr noundef nonnull %4) #10
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -3354,7 +3354,7 @@ define internal range(i32 0, 10) i32 @SDLTest_ExampleHitTestCallback(ptr noundef
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %6 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %7 = load i32, ptr %1, align 4
   %8 = icmp slt i32 %7, 8
   br i1 %8, label %9, label %16
@@ -3410,7 +3410,7 @@ define internal range(i32 0, 10) i32 @SDLTest_ExampleHitTestCallback(ptr noundef
 .sink.split:                                      ; preds = %31, %29, %26, %23, %21, %13, %9
   %.str.351.sink = phi ptr [ @.str.343, %9 ], [ %.str.345..str.344, %13 ], [ @.str.346, %21 ], [ %.str.348..str.347, %23 ], [ @.str.349, %26 ], [ @.str.350, %29 ], [ @.str.351, %31 ]
   %.0.ph = phi i32 [ 2, %9 ], [ %., %13 ], [ 4, %21 ], [ %.21, %23 ], [ 7, %26 ], [ 3, %29 ], [ 1, %31 ]
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull %.str.351.sink) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull %.str.351.sink) #10
   br label %33
 
 33:                                               ; preds = %.sink.split, %31
@@ -3554,7 +3554,7 @@ define dso_local void @SDLTest_PrintEvent(ptr noundef %0) local_unnamed_addr #0 
   ]
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @SDL_GetSystemTheme() #9
+  %6 = tail call i32 @SDL_GetSystemTheme() #10
   %7 = icmp ult i32 %6, 3
   br i1 %7, label %switch.lookup, label %SystemThemeName.exit
 
@@ -3566,23 +3566,23 @@ switch.lookup:                                    ; preds = %5
 
 SystemThemeName.exit:                             ; preds = %5, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.368, %5 ]
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i) #10
   br label %530
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.49, i32 noundef %11) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.49, i32 noundef %11) #10
   br label %530
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = tail call float @SDL_GetDisplayContentScale(i32 noundef %14) #9
+  %15 = tail call float @SDL_GetDisplayContentScale(i32 noundef %14) #10
   %16 = load i32, ptr %13, align 8
   %17 = fmul float %15, 1.000000e+02
   %18 = fptosi float %17 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.50, i32 noundef %16, i32 noundef %18) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.50, i32 noundef %16, i32 noundef %18) #10
   br label %530
 
 19:                                               ; preds = %1
@@ -3592,7 +3592,7 @@ SystemThemeName.exit:                             ; preds = %5, %switch.lookup
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.51, i32 noundef %21, i32 noundef %23, i32 noundef %25) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.51, i32 noundef %21, i32 noundef %23, i32 noundef %25) #10
   br label %530
 
 26:                                               ; preds = %1
@@ -3602,13 +3602,13 @@ SystemThemeName.exit:                             ; preds = %5, %switch.lookup
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.52, i32 noundef %28, i32 noundef %30, i32 noundef %32) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.52, i32 noundef %28, i32 noundef %30, i32 noundef %32) #10
   br label %530
 
 33:                                               ; preds = %1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.53, i32 noundef %35) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.53, i32 noundef %35) #10
   br label %530
 
 36:                                               ; preds = %1
@@ -3627,31 +3627,31 @@ switch.lookup185:                                 ; preds = %36
 
 DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup185
   %.0.i182 = phi ptr [ %switch.load187, %switch.lookup185 ], [ @.str.368, %36 ]
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.54, i32 noundef %38, ptr noundef nonnull %.0.i182) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.54, i32 noundef %38, ptr noundef nonnull %.0.i182) #10
   br label %530
 
 43:                                               ; preds = %1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i32, ptr %44, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.55, i32 noundef %45) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.55, i32 noundef %45) #10
   br label %530
 
 46:                                               ; preds = %1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.56, i32 noundef %48) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.56, i32 noundef %48) #10
   br label %530
 
 49:                                               ; preds = %1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.57, i32 noundef %51) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.57, i32 noundef %51) #10
   br label %530
 
 52:                                               ; preds = %1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load i32, ptr %53, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.58, i32 noundef %54) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.58, i32 noundef %54) #10
   br label %530
 
 55:                                               ; preds = %1
@@ -3661,7 +3661,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load i32, ptr %60, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.59, i32 noundef %57, i32 noundef %59, i32 noundef %61) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.59, i32 noundef %57, i32 noundef %59, i32 noundef %61) #10
   br label %530
 
 62:                                               ; preds = %1
@@ -3671,7 +3671,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.60, i32 noundef %64, i32 noundef %66, i32 noundef %68) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.60, i32 noundef %64, i32 noundef %66, i32 noundef %68) #10
   br label %530
 
 69:                                               ; preds = %1
@@ -3681,19 +3681,19 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %75 = load i32, ptr %74, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.61, i32 noundef %71, i32 noundef %73, i32 noundef %75) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.61, i32 noundef %71, i32 noundef %73, i32 noundef %75) #10
   br label %530
 
 76:                                               ; preds = %1
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load i32, ptr %77, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.62, i32 noundef %78) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.62, i32 noundef %78) #10
   br label %530
 
 79:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %80 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %0) #9
-  %81 = call zeroext i1 @SDL_GetWindowSafeArea(ptr noundef %80, ptr noundef nonnull %2) #9
+  %80 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %0) #10
+  %81 = call zeroext i1 @SDL_GetWindowSafeArea(ptr noundef %80, ptr noundef nonnull %2) #10
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = load i32, ptr %2, align 4
@@ -3703,68 +3703,68 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %90 = load i32, ptr %89, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.63, i32 noundef %83, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %90) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.63, i32 noundef %83, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %90) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %530
 
 91:                                               ; preds = %1
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load i32, ptr %92, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.64, i32 noundef %93) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.64, i32 noundef %93) #10
   br label %530
 
 94:                                               ; preds = %1
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load i32, ptr %95, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.65, i32 noundef %96) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.65, i32 noundef %96) #10
   br label %530
 
 97:                                               ; preds = %1
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load i32, ptr %98, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.66, i32 noundef %99) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.66, i32 noundef %99) #10
   br label %530
 
 100:                                              ; preds = %1
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load i32, ptr %101, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.67, i32 noundef %102) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.67, i32 noundef %102) #10
   br label %530
 
 103:                                              ; preds = %1
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load i32, ptr %104, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.68, i32 noundef %105) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.68, i32 noundef %105) #10
   br label %530
 
 106:                                              ; preds = %1
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load i32, ptr %107, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.69, i32 noundef %108) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.69, i32 noundef %108) #10
   br label %530
 
 109:                                              ; preds = %1
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %111 = load i32, ptr %110, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.70, i32 noundef %111) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.70, i32 noundef %111) #10
   br label %530
 
 112:                                              ; preds = %1
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %114 = load i32, ptr %113, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.71, i32 noundef %114) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.71, i32 noundef %114) #10
   br label %530
 
 115:                                              ; preds = %1
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %117 = load i32, ptr %116, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.72, i32 noundef %117) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.72, i32 noundef %117) #10
   br label %530
 
 118:                                              ; preds = %1
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load i32, ptr %119, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.73, i32 noundef %120) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.73, i32 noundef %120) #10
   br label %530
 
 121:                                              ; preds = %1
@@ -3772,41 +3772,41 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %125 = load i32, ptr %124, align 4
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.74, i32 noundef %123, i32 noundef %125) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.74, i32 noundef %123, i32 noundef %125) #10
   br label %530
 
 126:                                              ; preds = %1
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %128 = load i32, ptr %127, align 8
-  %129 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %0) #9
-  %130 = tail call float @SDL_GetWindowDisplayScale(ptr noundef %129) #9
+  %129 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %0) #10
+  %130 = tail call float @SDL_GetWindowDisplayScale(ptr noundef %129) #10
   %131 = fmul float %130, 1.000000e+02
   %132 = fptosi float %131 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.75, i32 noundef %128, i32 noundef %132) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.75, i32 noundef %128, i32 noundef %132) #10
   br label %530
 
 133:                                              ; preds = %1
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load i32, ptr %134, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.76, i32 noundef %135) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.76, i32 noundef %135) #10
   br label %530
 
 136:                                              ; preds = %1
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.77, i32 noundef %138) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.77, i32 noundef %138) #10
   br label %530
 
 139:                                              ; preds = %1
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %141 = load i32, ptr %140, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.78, i32 noundef %141) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.78, i32 noundef %141) #10
   br label %530
 
 142:                                              ; preds = %1
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %144 = load i32, ptr %143, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.79, i32 noundef %144) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.79, i32 noundef %144) #10
   br label %530
 
 145:                                              ; preds = %1
@@ -3816,19 +3816,19 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %149 = load i32, ptr %148, align 4
   %.not181 = icmp eq i32 %149, 0
   %150 = select i1 %.not181, ptr @.str.82, ptr @.str.81
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.80, i32 noundef %147, ptr noundef nonnull %150) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.80, i32 noundef %147, ptr noundef nonnull %150) #10
   br label %530
 
 151:                                              ; preds = %1
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = load i32, ptr %152, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.83, i32 noundef %153) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.83, i32 noundef %153) #10
   br label %530
 
 154:                                              ; preds = %1
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %156 = load i32, ptr %155, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.84, i32 noundef %156) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.84, i32 noundef %156) #10
   br label %530
 
 157:                                              ; preds = %1, %1
@@ -3844,7 +3844,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   br label %163
 
 161:                                              ; preds = %157
-  %162 = call i64 @SDL_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i64 noundef 64) #9
+  %162 = call i64 @SDL_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i64 noundef 64) #10
   br label %163
 
 163:                                              ; preds = %161, %160
@@ -3855,11 +3855,11 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %168 = load i32, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %170 = load i32, ptr %169, align 8
-  %171 = call ptr @SDL_GetScancodeName(i32 noundef %170) #9
+  %171 = call ptr @SDL_GetScancodeName(i32 noundef %170) #10
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %173 = load i32, ptr %172, align 4
-  %174 = call ptr @SDL_GetKeyName(i32 noundef %173) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.86, ptr noundef nonnull %166, i32 noundef %168, i32 noundef %170, ptr noundef %171, i32 noundef %173, ptr noundef %174, ptr noundef nonnull %3) #9
+  %174 = call ptr @SDL_GetKeyName(i32 noundef %173) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.86, ptr noundef nonnull %166, i32 noundef %168, i32 noundef %170, ptr noundef %171, i32 noundef %173, ptr noundef %174, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %530
 
@@ -3868,13 +3868,13 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %179 = load i32, ptr %178, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.89, ptr noundef %177, i32 noundef %179) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.89, ptr noundef %177, i32 noundef %179) #10
   br label %530
 
 180:                                              ; preds = %1
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %182 = load i32, ptr %181, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.90, i32 noundef %182) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.90, i32 noundef %182) #10
   br label %530
 
 183:                                              ; preds = %1
@@ -3882,23 +3882,23 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %187 = load i32, ptr %186, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.91, ptr noundef %185, i32 noundef %187) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.91, ptr noundef %185, i32 noundef %187) #10
   br label %530
 
 188:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.92) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.92) #10
   br label %530
 
 189:                                              ; preds = %1
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %191 = load i32, ptr %190, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.93, i32 noundef %191) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.93, i32 noundef %191) #10
   br label %530
 
 192:                                              ; preds = %1
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %194 = load i32, ptr %193, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.94, i32 noundef %194) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.94, i32 noundef %194) #10
   br label %530
 
 195:                                              ; preds = %1
@@ -3916,7 +3916,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %207 = fpext float %206 to double
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %209 = load i32, ptr %208, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.95, double noundef %198, double noundef %201, double noundef %204, double noundef %207, i32 noundef %209) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.95, double noundef %198, double noundef %201, double noundef %204, double noundef %207, i32 noundef %209) #10
   br label %530
 
 210:                                              ; preds = %1
@@ -3934,7 +3934,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %222 = zext i8 %221 to i32
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %224 = load i32, ptr %223, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.96, i32 noundef %213, double noundef %216, double noundef %219, i32 noundef %222, i32 noundef %224) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.96, i32 noundef %213, double noundef %216, double noundef %219, i32 noundef %222, i32 noundef %224) #10
   br label %530
 
 225:                                              ; preds = %1
@@ -3952,7 +3952,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %237 = zext i8 %236 to i32
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %239 = load i32, ptr %238, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.97, i32 noundef %228, double noundef %231, double noundef %234, i32 noundef %237, i32 noundef %239) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.97, i32 noundef %228, double noundef %231, double noundef %234, i32 noundef %237, i32 noundef %239) #10
   br label %530
 
 240:                                              ; preds = %1
@@ -3966,19 +3966,19 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %248 = load i32, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %250 = load i32, ptr %249, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.98, double noundef %243, double noundef %246, i32 noundef %248, i32 noundef %250) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.98, double noundef %243, double noundef %246, i32 noundef %248, i32 noundef %250) #10
   br label %530
 
 251:                                              ; preds = %1
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %253 = load i32, ptr %252, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.99, i32 noundef %253) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.99, i32 noundef %253) #10
   br label %530
 
 254:                                              ; preds = %1
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %256 = load i32, ptr %255, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.100, i32 noundef %256) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.100, i32 noundef %256) #10
   br label %530
 
 257:                                              ; preds = %1
@@ -3990,7 +3990,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %264 = load i16, ptr %263, align 8
   %265 = sext i16 %264 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.101, i32 noundef %259, i32 noundef %262, i32 noundef %265) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.101, i32 noundef %259, i32 noundef %262, i32 noundef %265) #10
   br label %530
 
 266:                                              ; preds = %1
@@ -4005,7 +4005,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %276 = load i16, ptr %275, align 2
   %277 = sext i16 %276 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.102, i32 noundef %268, i32 noundef %271, i32 noundef %274, i32 noundef %277) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.102, i32 noundef %268, i32 noundef %271, i32 noundef %274, i32 noundef %277) #10
   br label %530
 
 278:                                              ; preds = %1
@@ -4027,7 +4027,7 @@ switch.lookup188:                                 ; preds = %278
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %287 = load i8, ptr %286, align 4
   %288 = zext i8 %287 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.113, i32 noundef %285, i32 noundef %288, ptr noundef nonnull %.0) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.113, i32 noundef %285, i32 noundef %288, ptr noundef nonnull %.0) #10
   br label %530
 
 289:                                              ; preds = %1
@@ -4036,7 +4036,7 @@ switch.lookup188:                                 ; preds = %278
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %293 = load i8, ptr %292, align 4
   %294 = zext i8 %293 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.114, i32 noundef %291, i32 noundef %294) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.114, i32 noundef %291, i32 noundef %294) #10
   br label %530
 
 295:                                              ; preds = %1
@@ -4045,7 +4045,7 @@ switch.lookup188:                                 ; preds = %278
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %299 = load i8, ptr %298, align 4
   %300 = zext i8 %299 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.115, i32 noundef %297, i32 noundef %300) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.115, i32 noundef %297, i32 noundef %300) #10
   br label %530
 
 301:                                              ; preds = %1
@@ -4053,25 +4053,25 @@ switch.lookup188:                                 ; preds = %278
   %303 = load i32, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %305 = load i32, ptr %304, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.116, i32 noundef %303, i32 noundef %305) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.116, i32 noundef %303, i32 noundef %305) #10
   br label %530
 
 306:                                              ; preds = %1
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %308 = load i32, ptr %307, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.117, i32 noundef %308) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.117, i32 noundef %308) #10
   br label %530
 
 309:                                              ; preds = %1
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %311 = load i32, ptr %310, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.118, i32 noundef %311) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.118, i32 noundef %311) #10
   br label %530
 
 312:                                              ; preds = %1
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %314 = load i32, ptr %313, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.119, i32 noundef %314) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.119, i32 noundef %314) #10
   br label %530
 
 315:                                              ; preds = %1
@@ -4094,7 +4094,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %324 = load i16, ptr %323, align 8
   %325 = sext i16 %324 to i32
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.120, i32 noundef %317, i32 noundef %320, ptr noundef nonnull %.0.i183, i32 noundef %325) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.120, i32 noundef %317, i32 noundef %320, ptr noundef nonnull %.0.i183, i32 noundef %325) #10
   br label %530
 
 326:                                              ; preds = %1
@@ -4104,7 +4104,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %330 = load i8, ptr %329, align 4
   %331 = zext i8 %330 to i32
   %332 = tail call fastcc ptr @GamepadButtonName(i32 noundef %331)
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.121, i32 noundef %328, i32 noundef %331, ptr noundef nonnull %332) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.121, i32 noundef %328, i32 noundef %331, ptr noundef nonnull %332) #10
   br label %530
 
 333:                                              ; preds = %1
@@ -4114,11 +4114,11 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %337 = load i8, ptr %336, align 4
   %338 = zext i8 %337 to i32
   %339 = tail call fastcc ptr @GamepadButtonName(i32 noundef %338)
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.122, i32 noundef %335, i32 noundef %338, ptr noundef nonnull %339) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.122, i32 noundef %335, i32 noundef %338, ptr noundef nonnull %339) #10
   br label %530
 
 340:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.123) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.123) #10
   br label %530
 
 341:                                              ; preds = %1
@@ -4141,7 +4141,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %359 = load float, ptr %358, align 8
   %360 = fpext float %359 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.124, i64 noundef %343, i64 noundef %345, double noundef %348, double noundef %351, double noundef %354, double noundef %357, double noundef %360) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.124, i64 noundef %343, i64 noundef %345, double noundef %348, double noundef %351, double noundef %354, double noundef %357, double noundef %360) #10
   br label %530
 
 361:                                              ; preds = %1, %1, %1
@@ -4168,55 +4168,55 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %383 = load float, ptr %382, align 8
   %384 = fpext float %383 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.125, ptr noundef nonnull %365, i64 noundef %367, i64 noundef %369, double noundef %372, double noundef %375, double noundef %378, double noundef %381, double noundef %384) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.125, ptr noundef nonnull %365, i64 noundef %367, i64 noundef %369, double noundef %372, double noundef %375, double noundef %378, double noundef %381, double noundef %384) #10
   br label %530
 
 385:                                              ; preds = %1
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %387 = load i32, ptr %386, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.129, i32 noundef %387) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.129, i32 noundef %387) #10
   br label %530
 
 388:                                              ; preds = %1
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %390 = load i32, ptr %389, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.130, i32 noundef %390) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.130, i32 noundef %390) #10
   br label %530
 
 391:                                              ; preds = %1
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %393 = load i32, ptr %392, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.131, i32 noundef %393) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.131, i32 noundef %393) #10
   br label %530
 
 394:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.132) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.132) #10
   br label %530
 
 395:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.133) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.133) #10
   br label %530
 
 396:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.134) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.134) #10
   br label %530
 
 397:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.135) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.135) #10
   br label %530
 
 398:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.136) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.136) #10
   br label %530
 
 399:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.137) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.137) #10
   br label %530
 
 400:                                              ; preds = %1
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %402 = load i32, ptr %401, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.138, i32 noundef %402) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.138, i32 noundef %402) #10
   br label %530
 
 403:                                              ; preds = %1
@@ -4228,7 +4228,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %410 = load float, ptr %409, align 8
   %411 = fpext float %410 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.139, i32 noundef %405, double noundef %408, double noundef %411) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.139, i32 noundef %405, double noundef %408, double noundef %411) #10
   br label %530
 
 412:                                              ; preds = %1
@@ -4236,7 +4236,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %414 = load i32, ptr %413, align 8
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %416 = load ptr, ptr %415, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.140, i32 noundef %414, ptr noundef %416) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.140, i32 noundef %414, ptr noundef %416) #10
   br label %530
 
 417:                                              ; preds = %1
@@ -4244,11 +4244,11 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %419 = load i32, ptr %418, align 8
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %421 = load ptr, ptr %420, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.141, i32 noundef %419, ptr noundef %421) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.141, i32 noundef %419, ptr noundef %421) #10
   br label %530
 
 422:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.142) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.142) #10
   br label %530
 
 423:                                              ; preds = %1
@@ -4258,7 +4258,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %427 = select i1 %426, ptr @.str.144, ptr @.str.145
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %429 = load i32, ptr %428, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.143, ptr noundef nonnull %427, i32 noundef %429) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.143, ptr noundef nonnull %427, i32 noundef %429) #10
   br label %530
 
 430:                                              ; preds = %1
@@ -4268,7 +4268,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %434 = select i1 %433, ptr @.str.144, ptr @.str.145
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %436 = load i32, ptr %435, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.146, ptr noundef nonnull %434, i32 noundef %436) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.146, ptr noundef nonnull %434, i32 noundef %436) #10
   br label %530
 
 437:                                              ; preds = %1
@@ -4278,49 +4278,49 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %441 = select i1 %440, ptr @.str.144, ptr @.str.145
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %443 = load i32, ptr %442, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.147, ptr noundef nonnull %441, i32 noundef %443) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.147, ptr noundef nonnull %441, i32 noundef %443) #10
   br label %530
 
 444:                                              ; preds = %1
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %446 = load i32, ptr %445, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.148, i32 noundef %446) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.148, i32 noundef %446) #10
   br label %530
 
 447:                                              ; preds = %1
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %449 = load i32, ptr %448, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.149, i32 noundef %449) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.149, i32 noundef %449) #10
   br label %530
 
 450:                                              ; preds = %1
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %452 = load i32, ptr %451, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.150, i32 noundef %452) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.150, i32 noundef %452) #10
   br label %530
 
 453:                                              ; preds = %1
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %455 = load i32, ptr %454, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.151, i32 noundef %455) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.151, i32 noundef %455) #10
   br label %530
 
 456:                                              ; preds = %1
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %458 = load i32, ptr %457, align 8
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.152, i32 noundef %458) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.152, i32 noundef %458) #10
   br label %530
 
 459:                                              ; preds = %1
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %461 = load i32, ptr %460, align 4
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.153, i32 noundef %461) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.153, i32 noundef %461) #10
   br label %530
 
 462:                                              ; preds = %1
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %464 = load i32, ptr %463, align 4
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.154, i32 noundef %464) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.154, i32 noundef %464) #10
   br label %530
 
 465:                                              ; preds = %1
@@ -4332,7 +4332,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %472 = load float, ptr %471, align 8
   %473 = fpext float %472 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.155, i32 noundef %467, double noundef %470, double noundef %473) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.155, i32 noundef %467, double noundef %470, double noundef %473) #10
   br label %530
 
 474:                                              ; preds = %1
@@ -4344,7 +4344,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %481 = load float, ptr %480, align 8
   %482 = fpext float %481 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.156, i32 noundef %476, double noundef %479, double noundef %482) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.156, i32 noundef %476, double noundef %479, double noundef %482) #10
   br label %530
 
 483:                                              ; preds = %1
@@ -4359,7 +4359,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %493 = load float, ptr %492, align 8
   %494 = fpext float %493 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.157, i32 noundef %485, i32 noundef %488, double noundef %491, double noundef %494) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.157, i32 noundef %485, i32 noundef %488, double noundef %491, double noundef %494) #10
   br label %530
 
 495:                                              ; preds = %1
@@ -4374,7 +4374,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %505 = load float, ptr %504, align 8
   %506 = fpext float %505 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.158, i32 noundef %497, i32 noundef %500, double noundef %503, double noundef %506) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.158, i32 noundef %497, i32 noundef %500, double noundef %503, double noundef %506) #10
   br label %530
 
 507:                                              ; preds = %1
@@ -4386,7 +4386,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %514 = load float, ptr %513, align 8
   %515 = fpext float %514 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.159, i32 noundef %509, double noundef %512, double noundef %515) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.159, i32 noundef %509, double noundef %512, double noundef %515) #10
   br label %530
 
 516:                                              ; preds = %1
@@ -4397,25 +4397,25 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %522 = load float, ptr %521, align 8
   %523 = fpext float %522 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.160, i32 noundef %518, i32 noundef %520, double noundef %523) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.160, i32 noundef %518, i32 noundef %520, double noundef %523) #10
   br label %530
 
 524:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.161) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.161) #10
   br label %530
 
 525:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.162) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.162) #10
   br label %530
 
 526:                                              ; preds = %1
   %527 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %528 = load i32, ptr %527, align 4
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.163, i32 noundef %528) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.163, i32 noundef %528) #10
   br label %530
 
 529:                                              ; preds = %1
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.164, i32 noundef %4) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.164, i32 noundef %4) #10
   br label %530
 
 530:                                              ; preds = %529, %526, %525, %524, %516, %507, %495, %483, %474, %465, %462, %459, %456, %453, %450, %447, %444, %437, %430, %423, %422, %417, %412, %403, %400, %399, %398, %397, %396, %395, %394, %391, %388, %385, %361, %341, %340, %333, %326, %GamepadAxisName.exit, %312, %309, %306, %301, %295, %289, %283, %266, %257, %254, %251, %240, %225, %210, %195, %192, %189, %188, %183, %180, %175, %163, %154, %151, %145, %142, %139, %136, %133, %126, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %79, %76, %69, %62, %55, %52, %49, %46, %43, %DisplayOrientationName.exit, %33, %26, %19, %12, %9, %SystemThemeName.exit
@@ -4432,14 +4432,14 @@ declare float @SDL_GetWindowDisplayScale(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @SDLTest_PrintModState(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, i16 noundef zeroext %2) unnamed_addr #0 {
   br label %4
 
-4:                                                ; preds = %3, %29
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %29 ]
-  %.01214 = phi i32 [ 0, %3 ], [ %.1, %29 ]
+4:                                                ; preds = %3, %32
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %32 ]
+  %.01214 = phi i32 [ 0, %3 ], [ %.1, %32 ]
   %5 = getelementptr inbounds nuw i16, ptr @__const.SDLTest_PrintModState.kmod_flags, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, %2
   %8 = icmp eq i16 %7, %6
-  br i1 %8, label %9, label %29
+  br i1 %8, label %9, label %32
 
 9:                                                ; preds = %4
   %10 = icmp sgt i32 %.01214, 0
@@ -4450,90 +4450,96 @@ define internal fastcc void @SDLTest_PrintModState(ptr noundef nonnull %0, i64 n
   br label %12
 
 12:                                               ; preds = %11, %9
-  switch i16 %6, label %26 [
-    i16 1, label %13
-    i16 2, label %14
-    i16 4, label %15
-    i16 64, label %16
-    i16 128, label %17
-    i16 256, label %18
-    i16 512, label %19
-    i16 1024, label %20
-    i16 2048, label %21
-    i16 4096, label %22
-    i16 8192, label %23
-    i16 16384, label %24
-    i16 -32768, label %25
+  %13 = zext i16 %6 to i32
+  %14 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %13)
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %.split.i, label %30
+
+.split.i:                                         ; preds = %12
+  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %13, i1 true)
+  switch i32 %16, label %30 [
+    i32 0, label %17
+    i32 1, label %18
+    i32 2, label %19
+    i32 6, label %20
+    i32 7, label %21
+    i32 8, label %22
+    i32 9, label %23
+    i32 10, label %24
+    i32 11, label %25
+    i32 12, label %26
+    i32 13, label %27
+    i32 14, label %28
+    i32 15, label %29
   ]
 
-13:                                               ; preds = %12
+17:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.374)
   br label %SDLTest_PrintModStateFlag.exit
 
-14:                                               ; preds = %12
+18:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.375)
   br label %SDLTest_PrintModStateFlag.exit
 
-15:                                               ; preds = %12
+19:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.376)
   br label %SDLTest_PrintModStateFlag.exit
 
-16:                                               ; preds = %12
+20:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.377)
   br label %SDLTest_PrintModStateFlag.exit
 
-17:                                               ; preds = %12
+21:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.378)
   br label %SDLTest_PrintModStateFlag.exit
 
-18:                                               ; preds = %12
+22:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.379)
   br label %SDLTest_PrintModStateFlag.exit
 
-19:                                               ; preds = %12
+23:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.380)
   br label %SDLTest_PrintModStateFlag.exit
 
-20:                                               ; preds = %12
+24:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.381)
   br label %SDLTest_PrintModStateFlag.exit
 
-21:                                               ; preds = %12
+25:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.382)
   br label %SDLTest_PrintModStateFlag.exit
 
-22:                                               ; preds = %12
+26:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.383)
   br label %SDLTest_PrintModStateFlag.exit
 
-23:                                               ; preds = %12
+27:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.384)
   br label %SDLTest_PrintModStateFlag.exit
 
-24:                                               ; preds = %12
+28:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.385)
   br label %SDLTest_PrintModStateFlag.exit
 
-25:                                               ; preds = %12
+29:                                               ; preds = %.split.i
   tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.386)
   br label %SDLTest_PrintModStateFlag.exit
 
-26:                                               ; preds = %12
-  %27 = zext i16 %6 to i32
-  tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.365, i32 noundef %27)
+30:                                               ; preds = %.split.i, %12
+  tail call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %0, i64 noundef range(i64 64, 1025) %1, ptr noundef nonnull @.str.365, i32 noundef %13)
   br label %SDLTest_PrintModStateFlag.exit
 
-SDLTest_PrintModStateFlag.exit:                   ; preds = %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26
-  %28 = add nsw i32 %.01214, 1
-  br label %29
+SDLTest_PrintModStateFlag.exit:                   ; preds = %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
+  %31 = add nsw i32 %.01214, 1
+  br label %32
 
-29:                                               ; preds = %SDLTest_PrintModStateFlag.exit, %4
-  %.1 = phi i32 [ %28, %SDLTest_PrintModStateFlag.exit ], [ %.01214, %4 ]
+32:                                               ; preds = %SDLTest_PrintModStateFlag.exit, %4
+  %.1 = phi i32 [ %31, %SDLTest_PrintModStateFlag.exit ], [ %.01214, %4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %30, label %4, !llvm.loop !29
+  br i1 %exitcond.not, label %33, label %4, !llvm.loop !29
 
-30:                                               ; preds = %29
+33:                                               ; preds = %32
   ret void
 }
 
@@ -4611,26 +4617,26 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %21
-  %26 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %26 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not305 = icmp eq ptr %26, null
   br i1 %.not305, label %.critedge, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @SDL_GetDisplayForWindow(ptr noundef nonnull %26) #9
-  %29 = tail call float @SDL_GetDisplayContentScale(i32 noundef %28) #9
+  %28 = tail call i32 @SDL_GetDisplayForWindow(ptr noundef nonnull %26) #10
+  %29 = tail call float @SDL_GetDisplayContentScale(i32 noundef %28) #10
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i32, ptr %32, align 8
   %34 = sitofp i32 %31 to float
   %35 = fmul float %29, %34
-  %36 = tail call float @SDL_ceilf(float noundef %35) #9
+  %36 = tail call float @SDL_ceilf(float noundef %35) #10
   %37 = fptosi float %36 to i32
   %38 = sitofp i32 %33 to float
   %39 = fmul float %29, %38
-  %40 = tail call float @SDL_ceilf(float noundef %39) #9
+  %40 = tail call float @SDL_ceilf(float noundef %39) #10
   %41 = fptosi float %40 to i32
-  %42 = tail call zeroext i1 @SDL_SetWindowSize(ptr noundef nonnull %26, i32 noundef %37, i32 noundef %41) #9
+  %42 = tail call zeroext i1 @SDL_SetWindowSize(ptr noundef nonnull %26, i32 noundef %37, i32 noundef %41) #10
   br label %.critedge
 
 43:                                               ; preds = %19
@@ -4640,21 +4646,21 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %43
-  %48 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %48 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not304 = icmp eq ptr %48, null
   br i1 %.not304, label %.critedge, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call zeroext i1 @SDL_FlashWindow(ptr noundef nonnull %48, i32 noundef 2) #9
+  %50 = tail call zeroext i1 @SDL_FlashWindow(ptr noundef nonnull %48, i32 noundef 2) #10
   br label %.critedge
 
 51:                                               ; preds = %19
-  %52 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %52 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not303 = icmp eq ptr %52, null
   br i1 %.not303, label %.critedge, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call zeroext i1 @SDL_HideWindow(ptr noundef nonnull %52) #9
+  %54 = tail call zeroext i1 @SDL_HideWindow(ptr noundef nonnull %52) #10
   br label %.critedge
 
 55:                                               ; preds = %19
@@ -4699,7 +4705,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   ]
 
 64:                                               ; preds = %55
-  %65 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %65 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not302 = icmp eq ptr %65, null
   br i1 %.not302, label %.critedge, label %.preheader
 
@@ -4742,19 +4748,19 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %.not267, label %.critedge, label %86
 
 86:                                               ; preds = %85
-  %87 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %87 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not301 = icmp eq ptr %87, null
   br i1 %.not301, label %.critedge, label %88
 
 88:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %89 = call zeroext i1 @SDL_GetWindowSize(ptr noundef nonnull %87, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %89 = call zeroext i1 @SDL_GetWindowSize(ptr noundef nonnull %87, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %90 = load i32, ptr %3, align 4
   %91 = shl nsw i32 %90, 1
   %92 = load i32, ptr %4, align 4
   %93 = shl nsw i32 %92, 1
-  %94 = call zeroext i1 @SDL_SetWindowSize(ptr noundef nonnull %87, i32 noundef %91, i32 noundef %93) #9
+  %94 = call zeroext i1 @SDL_SetWindowSize(ptr noundef nonnull %87, i32 noundef %91, i32 noundef %93) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
@@ -4763,19 +4769,19 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %.not267, label %.critedge, label %96
 
 96:                                               ; preds = %95
-  %97 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %97 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not300 = icmp eq ptr %97, null
   br i1 %.not300, label %.critedge, label %98
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %99 = call zeroext i1 @SDL_GetWindowSize(ptr noundef nonnull %97, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %99 = call zeroext i1 @SDL_GetWindowSize(ptr noundef nonnull %97, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %100 = load i32, ptr %5, align 4
   %101 = sdiv i32 %100, 2
   %102 = load i32, ptr %6, align 4
   %103 = sdiv i32 %102, 2
-  %104 = call zeroext i1 @SDL_SetWindowSize(ptr noundef nonnull %97, i32 noundef %101, i32 noundef %103) #9
+  %104 = call zeroext i1 @SDL_SetWindowSize(ptr noundef nonnull %97, i32 noundef %101, i32 noundef %103) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
@@ -4784,18 +4790,18 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %.not269, label %130, label %106
 
 106:                                              ; preds = %105
-  %107 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %107 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not297 = icmp eq ptr %107, null
   br i1 %.not297, label %130, label %108
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %109 = call ptr @SDL_GetDisplays(ptr noundef nonnull %7) #9
+  %109 = call ptr @SDL_GetDisplays(ptr noundef nonnull %7) #10
   %.not298 = icmp eq ptr %109, null
   br i1 %.not298, label %.thread, label %110
 
 110:                                              ; preds = %108
-  %111 = call i32 @SDL_GetDisplayForWindow(ptr noundef nonnull %107) #9
+  %111 = call i32 @SDL_GetDisplayForWindow(ptr noundef nonnull %107) #10
   %112 = load i32, ptr %7, align 4
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %.lr.ph318.preheader, label %.thread
@@ -4840,9 +4846,9 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %.pn = sext i32 %.pn.in to i64
   %.0230.in = getelementptr inbounds i32, ptr %109, i64 %.pn
   %.0230 = load i32, ptr %.0230.in, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.165, i32 noundef %.0230) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.165, i32 noundef %.0230) #10
   %128 = or i32 %.0230, 805240832
-  %129 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %107, i32 noundef %128, i32 noundef %128) #9
+  %129 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %107, i32 noundef %128, i32 noundef %128) #10
   br label %.thread
 
 .thread:                                          ; preds = %117, %110, %127, %108
@@ -4853,14 +4859,14 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %.not268, label %.critedge, label %131
 
 131:                                              ; preds = %130
-  %132 = call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %132 = call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not299 = icmp eq ptr %132, null
   br i1 %.not299, label %.critedge, label %133
 
 133:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %134 = call zeroext i1 @SDL_GetWindowPosition(ptr noundef nonnull %132, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  %134 = call zeroext i1 @SDL_GetWindowPosition(ptr noundef nonnull %132, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %135 = load i32, ptr %62, align 4
   switch i32 %135, label %.thread310 [
     i32 1073741906, label %.thread310.sink.split
@@ -4889,10 +4895,10 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 .thread310:                                       ; preds = %.thread310.sink.split, %133
   %141 = load i32, ptr %8, align 4
   %142 = load i32, ptr %9, align 4
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.166, i32 noundef %141, i32 noundef %142) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.166, i32 noundef %141, i32 noundef %142) #10
   %143 = load i32, ptr %8, align 4
   %144 = load i32, ptr %9, align 4
-  %145 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %132, i32 noundef %143, i32 noundef %144) #9
+  %145 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %132, i32 noundef %143, i32 noundef %144) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
@@ -4901,38 +4907,38 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %.not267, label %.critedge, label %147
 
 147:                                              ; preds = %146
-  %148 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %148 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not296 = icmp eq ptr %148, null
   br i1 %.not296, label %.critedge, label %149
 
 149:                                              ; preds = %147
-  %150 = tail call float @SDL_GetWindowOpacity(ptr noundef nonnull %148) #9
+  %150 = tail call float @SDL_GetWindowOpacity(ptr noundef nonnull %148) #10
   %.0231.v = select i1 %.not268, float 0xBFC99999A0000000, float 0x3FC99999A0000000
   %.0231 = fadd float %.0231.v, %150
-  %151 = tail call zeroext i1 @SDL_SetWindowOpacity(ptr noundef nonnull %148, float noundef %.0231) #9
+  %151 = tail call zeroext i1 @SDL_SetWindowOpacity(ptr noundef nonnull %148, float noundef %.0231) #10
   br label %.critedge
 
 152:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %153
 
 153:                                              ; preds = %152
-  %154 = tail call zeroext i1 @SDL_CursorVisible() #9
+  %154 = tail call zeroext i1 @SDL_CursorVisible() #10
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %153
-  %156 = tail call zeroext i1 @SDL_HideCursor() #9
+  %156 = tail call zeroext i1 @SDL_HideCursor() #10
   br label %.critedge
 
 157:                                              ; preds = %153
-  %158 = tail call zeroext i1 @SDL_ShowCursor() #9
+  %158 = tail call zeroext i1 @SDL_ShowCursor() #10
   br label %.critedge
 
 159:                                              ; preds = %55
   br i1 %.not269, label %162, label %160
 
 160:                                              ; preds = %159
-  %161 = tail call zeroext i1 @SDL_SetPrimarySelectionText(ptr noundef nonnull @.str.167) #9
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.168) #9
+  %161 = tail call zeroext i1 @SDL_SetPrimarySelectionText(ptr noundef nonnull @.str.167) #10
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.168) #10
   br label %.critedge
 
 162:                                              ; preds = %159
@@ -4942,7 +4948,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %.not268, label %185, label %164
 
 164:                                              ; preds = %163
-  %165 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %165 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not295 = icmp eq ptr %165, null
   br i1 %.not295, label %.critedge, label %.preheader312
 
@@ -4982,29 +4988,29 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br i1 %184, label %171, label %.critedge, !llvm.loop !32
 
 185:                                              ; preds = %163
-  %186 = tail call zeroext i1 @SDL_SetClipboardText(ptr noundef nonnull @.str.167) #9
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.169) #9
+  %186 = tail call zeroext i1 @SDL_SetClipboardText(ptr noundef nonnull @.str.167) #10
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.169) #10
   br label %.critedge
 
 187:                                              ; preds = %55
   br i1 %.not269, label %194, label %188
 
 188:                                              ; preds = %187
-  %189 = tail call ptr @SDL_GetPrimarySelectionText() #9
+  %189 = tail call ptr @SDL_GetPrimarySelectionText() #10
   %190 = load i8, ptr %189, align 1
   %.not294 = icmp eq i8 %190, 0
   br i1 %.not294, label %192, label %191
 
 191:                                              ; preds = %188
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.170, ptr noundef nonnull %189) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.170, ptr noundef nonnull %189) #10
   br label %193
 
 192:                                              ; preds = %188
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.171) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.171) #10
   br label %193
 
 193:                                              ; preds = %192, %191
-  tail call void @SDL_free(ptr noundef nonnull %189) #9
+  tail call void @SDL_free(ptr noundef nonnull %189) #10
   br label %.critedge
 
 194:                                              ; preds = %187
@@ -5018,45 +5024,45 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br label %.critedge
 
 197:                                              ; preds = %195
-  %198 = tail call ptr @SDL_GetClipboardText() #9
+  %198 = tail call ptr @SDL_GetClipboardText() #10
   %199 = load i8, ptr %198, align 1
   %.not293 = icmp eq i8 %199, 0
   br i1 %.not293, label %201, label %200
 
 200:                                              ; preds = %197
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.172, ptr noundef nonnull %198) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.172, ptr noundef nonnull %198) #10
   br label %202
 
 201:                                              ; preds = %197
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.173) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.173) #10
   br label %202
 
 202:                                              ; preds = %201, %200
-  tail call void @SDL_free(ptr noundef nonnull %198) #9
+  tail call void @SDL_free(ptr noundef nonnull %198) #10
   br label %.critedge
 
 203:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %204
 
 204:                                              ; preds = %203
-  %205 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %205 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not292 = icmp eq ptr %205, null
   br i1 %.not292, label %.critedge, label %206
 
 206:                                              ; preds = %204
-  %207 = tail call zeroext i1 @SDL_FlashWindow(ptr noundef nonnull %205, i32 noundef 1) #9
+  %207 = tail call zeroext i1 @SDL_FlashWindow(ptr noundef nonnull %205, i32 noundef 1) #10
   br label %.critedge
 
 208:                                              ; preds = %55
   br i1 %.not269, label %219, label %209
 
 209:                                              ; preds = %208
-  %210 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %210 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not291 = icmp eq ptr %210, null
   br i1 %.not291, label %.critedge, label %211
 
 211:                                              ; preds = %209
-  %212 = tail call i32 @SDL_GetWindowProgressState(ptr noundef nonnull %210) #9
+  %212 = tail call i32 @SDL_GetWindowProgressState(ptr noundef nonnull %210) #10
   %213 = add nsw i32 %212, 1
   %214 = icmp sgt i32 %212, 3
   %spec.store.select = select i1 %214, i32 0, i32 %213
@@ -5071,71 +5077,71 @@ switch.lookup:                                    ; preds = %211
 
 217:                                              ; preds = %211, %switch.lookup
   %.0232 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.103, %211 ]
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.178, ptr noundef nonnull %.0232) #9
-  %218 = tail call zeroext i1 @SDL_SetWindowProgressState(ptr noundef nonnull %210, i32 noundef %spec.store.select) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.178, ptr noundef nonnull %.0232) #10
+  %218 = tail call zeroext i1 @SDL_SetWindowProgressState(ptr noundef nonnull %210, i32 noundef %spec.store.select) #10
   br label %.critedge
 
 219:                                              ; preds = %208
   br i1 %.not267, label %.critedge, label %220
 
 220:                                              ; preds = %219
-  %221 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %221 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not290 = icmp eq ptr %221, null
   br i1 %.not290, label %.critedge, label %222
 
 222:                                              ; preds = %220
-  %223 = tail call float @SDL_GetWindowProgressValue(ptr noundef nonnull %221) #9
+  %223 = tail call float @SDL_GetWindowProgressValue(ptr noundef nonnull %221) #10
   %.0233.v = select i1 %.not268, float 0x3FB99999A0000000, float 0xBFB99999A0000000
   %.0233 = fadd float %.0233.v, %223
   %224 = fpext float %.0233 to double
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.179, double noundef %224) #9
-  %225 = tail call zeroext i1 @SDL_SetWindowProgressValue(ptr noundef nonnull %221, float noundef %.0233) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.179, double noundef %224) #10
+  %225 = tail call zeroext i1 @SDL_SetWindowProgressValue(ptr noundef nonnull %221, float noundef %.0233) #10
   br label %.critedge
 
 226:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %227
 
 227:                                              ; preds = %226
-  %228 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %228 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not289 = icmp eq ptr %228, null
   br i1 %.not289, label %.critedge, label %229
 
 229:                                              ; preds = %227
-  %230 = tail call zeroext i1 @SDL_GetWindowMouseGrab(ptr noundef nonnull %228) #9
+  %230 = tail call zeroext i1 @SDL_GetWindowMouseGrab(ptr noundef nonnull %228) #10
   %231 = xor i1 %230, true
-  %232 = tail call zeroext i1 @SDL_SetWindowMouseGrab(ptr noundef nonnull %228, i1 noundef zeroext %231) #9
+  %232 = tail call zeroext i1 @SDL_SetWindowMouseGrab(ptr noundef nonnull %228, i1 noundef zeroext %231) #10
   br label %.critedge
 
 233:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %234
 
 234:                                              ; preds = %233
-  %235 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %235 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not288 = icmp eq ptr %235, null
   br i1 %.not288, label %.critedge, label %236
 
 236:                                              ; preds = %234
-  %237 = tail call zeroext i1 @SDL_GetWindowKeyboardGrab(ptr noundef nonnull %235) #9
+  %237 = tail call zeroext i1 @SDL_GetWindowKeyboardGrab(ptr noundef nonnull %235) #10
   %238 = xor i1 %237, true
-  %239 = tail call zeroext i1 @SDL_SetWindowKeyboardGrab(ptr noundef nonnull %235, i1 noundef zeroext %238) #9
+  %239 = tail call zeroext i1 @SDL_SetWindowKeyboardGrab(ptr noundef nonnull %235, i1 noundef zeroext %238) #10
   br label %.critedge
 
 240:                                              ; preds = %55
   br i1 %.not267, label %257, label %241
 
 241:                                              ; preds = %240
-  %242 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %242 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not283 = icmp eq ptr %242, null
   br i1 %.not283, label %257, label %243
 
 243:                                              ; preds = %241
-  %244 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %242) #9
+  %244 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %242) #10
   %245 = and i64 %244, 32
   %.not284 = icmp eq i64 %245, 0
   br i1 %.not284, label %246, label %248
 
 246:                                              ; preds = %243
-  %247 = tail call zeroext i1 @SDL_SetWindowResizable(ptr noundef nonnull %242, i1 noundef zeroext true) #9
+  %247 = tail call zeroext i1 @SDL_SetWindowResizable(ptr noundef nonnull %242, i1 noundef zeroext true) #10
   br label %248
 
 248:                                              ; preds = %246, %243
@@ -5144,163 +5150,163 @@ switch.lookup:                                    ; preds = %211
   br i1 %.not285, label %252, label %250
 
 250:                                              ; preds = %248
-  %251 = tail call zeroext i1 @SDL_RestoreWindow(ptr noundef nonnull %242) #9
+  %251 = tail call zeroext i1 @SDL_RestoreWindow(ptr noundef nonnull %242) #10
   br label %254
 
 252:                                              ; preds = %248
-  %253 = tail call zeroext i1 @SDL_MaximizeWindow(ptr noundef nonnull %242) #9
+  %253 = tail call zeroext i1 @SDL_MaximizeWindow(ptr noundef nonnull %242) #10
   br label %254
 
 254:                                              ; preds = %252, %250
   br i1 %.not284, label %255, label %257
 
 255:                                              ; preds = %254
-  %256 = tail call zeroext i1 @SDL_SetWindowResizable(ptr noundef nonnull %242, i1 noundef zeroext false) #9
+  %256 = tail call zeroext i1 @SDL_SetWindowResizable(ptr noundef nonnull %242, i1 noundef zeroext false) #10
   br label %257
 
 257:                                              ; preds = %241, %255, %254, %240
   br i1 %.not268, label %.critedge, label %258
 
 258:                                              ; preds = %257
-  %259 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %259 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not286 = icmp eq ptr %259, null
   br i1 %.not286, label %.critedge, label %260
 
 260:                                              ; preds = %258
-  %261 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %259) #9
+  %261 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %259) #10
   %262 = and i64 %261, 16384
   %.not287 = icmp eq i64 %262, 0
-  %263 = tail call zeroext i1 @SDL_CaptureMouse(i1 noundef zeroext %.not287) #9
+  %263 = tail call zeroext i1 @SDL_CaptureMouse(i1 noundef zeroext %.not287) #10
   %264 = select i1 %.not287, ptr @.str.181, ptr @.str.182
   %265 = select i1 %263, ptr @.str.183, ptr @.str.184
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.180, ptr noundef nonnull %264, ptr noundef nonnull %265) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.180, ptr noundef nonnull %264, ptr noundef nonnull %265) #10
   br label %.critedge
 
 266:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %267
 
 267:                                              ; preds = %266
-  %268 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %268 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not282 = icmp eq ptr %268, null
   br i1 %.not282, label %.critedge, label %269
 
 269:                                              ; preds = %267
-  %270 = tail call zeroext i1 @SDL_GetWindowRelativeMouseMode(ptr noundef nonnull %268) #9
+  %270 = tail call zeroext i1 @SDL_GetWindowRelativeMouseMode(ptr noundef nonnull %268) #10
   %271 = xor i1 %270, true
-  %272 = tail call zeroext i1 @SDL_SetWindowRelativeMouseMode(ptr noundef nonnull %268, i1 noundef zeroext %271) #9
+  %272 = tail call zeroext i1 @SDL_SetWindowRelativeMouseMode(ptr noundef nonnull %268, i1 noundef zeroext %271) #10
   br label %.critedge
 
 273:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %274
 
 274:                                              ; preds = %273
-  %275 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %275 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not280 = icmp eq ptr %275, null
   br i1 %.not280, label %.critedge, label %276
 
 276:                                              ; preds = %274
-  %277 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %275) #9
+  %277 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %275) #10
   %278 = and i64 %277, 65536
   %.not281 = icmp eq i64 %278, 0
   br i1 %.not281, label %281, label %279
 
 279:                                              ; preds = %276
-  %280 = tail call zeroext i1 @SDL_SetWindowAlwaysOnTop(ptr noundef nonnull %275, i1 noundef zeroext false) #9
+  %280 = tail call zeroext i1 @SDL_SetWindowAlwaysOnTop(ptr noundef nonnull %275, i1 noundef zeroext false) #10
   br label %.critedge
 
 281:                                              ; preds = %276
-  %282 = tail call zeroext i1 @SDL_SetWindowAlwaysOnTop(ptr noundef nonnull %275, i1 noundef zeroext true) #9
+  %282 = tail call zeroext i1 @SDL_SetWindowAlwaysOnTop(ptr noundef nonnull %275, i1 noundef zeroext true) #10
   br label %.critedge
 
 283:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %284
 
 284:                                              ; preds = %283
-  %285 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %285 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not279 = icmp eq ptr %285, null
   br i1 %.not279, label %.critedge, label %286
 
 286:                                              ; preds = %284
-  %287 = tail call zeroext i1 @SDL_MinimizeWindow(ptr noundef nonnull %285) #9
+  %287 = tail call zeroext i1 @SDL_MinimizeWindow(ptr noundef nonnull %285) #10
   br label %.critedge
 
 288:                                              ; preds = %55
   br i1 %.not267, label %302, label %289
 
 289:                                              ; preds = %288
-  %290 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %290 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not276 = icmp eq ptr %290, null
   br i1 %.not276, label %.critedge, label %291
 
 291:                                              ; preds = %289
-  %292 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %290) #9
+  %292 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %290) #10
   %293 = and i64 %292, 1
   %.not277 = icmp eq i64 %293, 0
   br i1 %.not277, label %296, label %294
 
 294:                                              ; preds = %291
-  %295 = tail call ptr @SDL_GetWindowFullscreenMode(ptr noundef nonnull %290) #9
+  %295 = tail call ptr @SDL_GetWindowFullscreenMode(ptr noundef nonnull %290) #10
   %.not278 = icmp eq ptr %295, null
   br i1 %.not278, label %296, label %300
 
 296:                                              ; preds = %294, %291
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %298 = tail call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %290, ptr noundef nonnull %297) #9
-  %299 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %290, i1 noundef zeroext true) #9
+  %298 = tail call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %290, ptr noundef nonnull %297) #10
+  %299 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %290, i1 noundef zeroext true) #10
   br label %.critedge
 
 300:                                              ; preds = %294
-  %301 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %290, i1 noundef zeroext false) #9
+  %301 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %290, i1 noundef zeroext false) #10
   br label %.critedge
 
 302:                                              ; preds = %288
   br i1 %.not269, label %.critedge, label %303
 
 303:                                              ; preds = %302
-  %304 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %304 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not273 = icmp eq ptr %304, null
   br i1 %.not273, label %.critedge, label %305
 
 305:                                              ; preds = %303
-  %306 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %304) #9
+  %306 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %304) #10
   %307 = and i64 %306, 1
   %.not274 = icmp eq i64 %307, 0
   br i1 %.not274, label %310, label %308
 
 308:                                              ; preds = %305
-  %309 = tail call ptr @SDL_GetWindowFullscreenMode(ptr noundef nonnull %304) #9
+  %309 = tail call ptr @SDL_GetWindowFullscreenMode(ptr noundef nonnull %304) #10
   %.not275 = icmp eq ptr %309, null
   br i1 %.not275, label %313, label %310
 
 310:                                              ; preds = %308, %305
-  %311 = tail call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %304, ptr noundef null) #9
-  %312 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %304, i1 noundef zeroext true) #9
+  %311 = tail call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %304, ptr noundef null) #10
+  %312 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %304, i1 noundef zeroext true) #10
   br label %.critedge
 
 313:                                              ; preds = %308
-  %314 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %304, i1 noundef zeroext false) #9
+  %314 = tail call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %304, i1 noundef zeroext false) #10
   br label %.critedge
 
 315:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %316
 
 316:                                              ; preds = %315
-  %317 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %317 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not272 = icmp eq ptr %317, null
   br i1 %.not272, label %.critedge, label %318
 
 318:                                              ; preds = %316
-  %319 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %317) #9
+  %319 = tail call i64 @SDL_GetWindowFlags(ptr noundef nonnull %317) #10
   %320 = and i64 %319, 16
   %321 = icmp ne i64 %320, 0
-  %322 = tail call zeroext i1 @SDL_SetWindowBordered(ptr noundef nonnull %317, i1 noundef zeroext %321) #9
+  %322 = tail call zeroext i1 @SDL_SetWindowBordered(ptr noundef nonnull %317, i1 noundef zeroext %321) #10
   br label %.critedge
 
 323:                                              ; preds = %55
   br i1 %.not267, label %.critedge, label %324
 
 324:                                              ; preds = %323
-  %325 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
+  %325 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
   %.not270 = icmp eq ptr %325, null
   br i1 %.not270, label %.critedge, label %326
 
@@ -5309,7 +5315,7 @@ switch.lookup:                                    ; preds = %211
   store float 0.000000e+00, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0.000000e+00, ptr %11, align 4
-  %327 = call zeroext i1 @SDL_GetWindowAspectRatio(ptr noundef nonnull %325, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
+  %327 = call zeroext i1 @SDL_GetWindowAspectRatio(ptr noundef nonnull %325, ptr noundef nonnull %10, ptr noundef nonnull %11) #10
   %328 = load float, ptr %10, align 4
   %329 = fcmp ogt float %328, 0.000000e+00
   %330 = load float, ptr %11, align 4
@@ -5318,7 +5324,7 @@ switch.lookup:                                    ; preds = %211
   %. = select i1 %or.cond, float 0.000000e+00, float 1.000000e+00
   store float %., ptr %10, align 4
   store float %., ptr %11, align 4
-  %332 = call zeroext i1 @SDL_SetWindowAspectRatio(ptr noundef nonnull %325, float noundef %., float noundef %.) #9
+  %332 = call zeroext i1 @SDL_SetWindowAspectRatio(ptr noundef nonnull %325, float noundef %., float noundef %.) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
@@ -5327,8 +5333,8 @@ switch.lookup:                                    ; preds = %211
   br i1 %.not267, label %.critedge, label %334
 
 334:                                              ; preds = %333
-  %335 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #9
-  %336 = tail call zeroext i1 @SDL_ShowSimpleMessageBox(i32 noundef 64, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef %335) #9
+  %335 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #10
+  %336 = tail call zeroext i1 @SDL_ShowSimpleMessageBox(i32 noundef 64, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef %335) #10
   br label %.critedge
 
 337:                                              ; preds = %55
@@ -5374,38 +5380,38 @@ define internal fastcc void @SDLTest_CopyScreenShot(ptr noundef %0) unnamed_addr
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @SDL_RenderReadPixels(ptr noundef nonnull %0, ptr noundef null) #9
+  %4 = tail call ptr @SDL_RenderReadPixels(ptr noundef nonnull %0, ptr noundef null) #10
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @SDL_GetError() #9
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.411, ptr noundef %6) #9
+  %6 = tail call ptr @SDL_GetError() #10
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.411, ptr noundef %6) #10
   br label %16
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @SDL_SaveBMP(ptr noundef nonnull %4, ptr noundef nonnull @.str.412) #9
+  %8 = tail call zeroext i1 @SDL_SaveBMP(ptr noundef nonnull %4, ptr noundef nonnull @.str.412) #10
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @SDL_GetError() #9
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.413, ptr noundef nonnull @.str.412, ptr noundef %10) #9
-  tail call void @SDL_DestroySurface(ptr noundef nonnull %4) #9
+  %10 = tail call ptr @SDL_GetError() #10
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.413, ptr noundef nonnull @.str.412, ptr noundef %10) #10
+  tail call void @SDL_DestroySurface(ptr noundef nonnull %4) #10
   br label %16
 
 11:                                               ; preds = %7
-  tail call void @SDL_DestroySurface(ptr noundef nonnull %4) #9
-  %12 = tail call noalias dereferenceable_or_null(16) ptr @SDL_calloc(i64 noundef 1, i64 noundef 16) #10
+  tail call void @SDL_DestroySurface(ptr noundef nonnull %4) #10
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @SDL_calloc(i64 noundef 1, i64 noundef 16) #11
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.414) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.414) #10
   br label %16
 
 14:                                               ; preds = %11
-  %15 = call zeroext i1 @SDL_SetClipboardData(ptr noundef nonnull @SDLTest_ScreenShotClipboardProvider, ptr noundef nonnull @SDLTest_ScreenShotClipboardCleanup, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef 2) #9
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.415, ptr noundef nonnull @.str.412) #9
+  %15 = call zeroext i1 @SDL_SetClipboardData(ptr noundef nonnull @SDLTest_ScreenShotClipboardProvider, ptr noundef nonnull @SDLTest_ScreenShotClipboardCleanup, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef 2) #10
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.415, ptr noundef nonnull @.str.412) #10
   br label %16
 
 16:                                               ; preds = %1, %14, %13, %9, %5
@@ -5442,27 +5448,27 @@ define internal fastcc void @SDLTest_PasteScreenShot() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = getelementptr inbounds nuw ptr, ptr @__const.SDLTest_PasteScreenShot.image_formats, i64 %.01015
   %5 = load ptr, ptr %4, align 8
-  %6 = call ptr @SDL_GetClipboardData(ptr noundef %5, ptr noundef nonnull %1) #9
+  %6 = call ptr @SDL_GetClipboardData(ptr noundef %5, ptr noundef nonnull %1) #10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %9 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull @.str.425, ptr noundef nonnull %8) #9
-  %10 = call ptr @SDL_IOFromFile(ptr noundef nonnull %2, ptr noundef nonnull @.str.426) #9
+  %9 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull @.str.425, ptr noundef nonnull %8) #10
+  %10 = call ptr @SDL_IOFromFile(ptr noundef nonnull %2, ptr noundef nonnull @.str.426) #10
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %15, label %11
 
 11:                                               ; preds = %7
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.427, ptr noundef nonnull %2) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.427, ptr noundef nonnull %2) #10
   %12 = load i64, ptr %1, align 8
-  %13 = call i64 @SDL_WriteIO(ptr noundef nonnull %10, ptr noundef nonnull %6, i64 noundef %12) #9
-  %14 = call zeroext i1 @SDL_CloseIO(ptr noundef nonnull %10) #9
+  %13 = call i64 @SDL_WriteIO(ptr noundef nonnull %10, ptr noundef nonnull %6, i64 noundef %12) #10
+  %14 = call zeroext i1 @SDL_CloseIO(ptr noundef nonnull %10) #10
   br label %15
 
 15:                                               ; preds = %11, %7
-  call void @SDL_free(ptr noundef nonnull %6) #9
+  call void @SDL_free(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %19
@@ -5474,7 +5480,7 @@ define internal fastcc void @SDLTest_PasteScreenShot() unnamed_addr #0 {
   br i1 %exitcond.not, label %18, label %3, !llvm.loop !33
 
 18:                                               ; preds = %16
-  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.428) #9
+  call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.428) #10
   br label %19
 
 19:                                               ; preds = %15, %18
@@ -5533,7 +5539,7 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %7 = call ptr @SDL_GetDisplays(ptr noundef nonnull %4) #9
+  %7 = call ptr @SDL_GetDisplays(ptr noundef nonnull %4) #10
   %.not = icmp ne ptr %7, null
   %8 = load i32, ptr %4, align 4
   %9 = icmp slt i32 %1, %8
@@ -5541,7 +5547,7 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
   br i1 %or.cond, label %10, label %47
 
 10:                                               ; preds = %3
-  %11 = call ptr @SDL_GetWindowFromID(i32 noundef %2) #9
+  %11 = call ptr @SDL_GetWindowFromID(i32 noundef %2) #10
   %.not29 = icmp eq ptr %11, null
   br i1 %.not29, label %47, label %12
 
@@ -5549,19 +5555,19 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
-  %16 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %15, ptr noundef nonnull %5) #9
-  %17 = call i64 @SDL_GetWindowFlags(ptr noundef nonnull %11) #9
+  %16 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %15, ptr noundef nonnull %5) #10
+  %17 = call i64 @SDL_GetWindowFlags(ptr noundef nonnull %11) #10
   %18 = and i64 %17, 1
   %.not30 = icmp eq i64 %18, 0
   br i1 %.not30, label %21, label %19
 
 19:                                               ; preds = %12
-  %20 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %11, i1 noundef zeroext false) #9
-  call void @SDL_Delay(i32 noundef 15) #9
+  %20 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %11, i1 noundef zeroext false) #10
+  call void @SDL_Delay(i32 noundef 15) #10
   br label %21
 
 21:                                               ; preds = %19, %12
-  %22 = call ptr @SDL_GetWindowFullscreenMode(ptr noundef nonnull %11) #9
+  %22 = call ptr @SDL_GetWindowFullscreenMode(ptr noundef nonnull %11) #10
   %.not31 = icmp eq ptr %22, null
   br i1 %.not31, label %.critedge, label %23
 
@@ -5570,7 +5576,7 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
   %24 = load i32, ptr %14, align 4
   store i32 %24, ptr %6, align 8
-  %25 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %11, ptr noundef nonnull %6) #9
+  %25 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %11, ptr noundef nonnull %6) #10
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %23
@@ -5585,11 +5591,11 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %36 = load float, ptr %35, align 4
-  %37 = call zeroext i1 @SDL_GetClosestFullscreenDisplayMode(i32 noundef %30, i32 noundef %32, i32 noundef %34, float noundef %36, i1 noundef zeroext %.not32, ptr noundef nonnull %6) #9
+  %37 = call zeroext i1 @SDL_GetClosestFullscreenDisplayMode(i32 noundef %30, i32 noundef %32, i32 noundef %34, float noundef %36, i1 noundef zeroext %.not32, ptr noundef nonnull %6) #10
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %26
-  %39 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %11, ptr noundef nonnull %6) #9
+  %39 = call zeroext i1 @SDL_SetWindowFullscreenMode(ptr noundef nonnull %11, ptr noundef nonnull %6) #10
   br label %40
 
 40:                                               ; preds = %26, %38, %23
@@ -5600,15 +5606,15 @@ define internal fastcc void @FullscreenTo(ptr noundef readonly captures(none) %0
   %41 = load i32, ptr %5, align 4
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %11, i32 noundef %41, i32 noundef %43) #9
+  %44 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %11, i32 noundef %41, i32 noundef %43) #10
   br label %45
 
 45:                                               ; preds = %40, %.critedge
-  %46 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %11, i1 noundef zeroext true) #9
+  %46 = call zeroext i1 @SDL_SetWindowFullscreen(ptr noundef nonnull %11, i1 noundef zeroext true) #10
   br label %47
 
 47:                                               ; preds = %10, %45, %3
-  call void @SDL_free(ptr noundef %7) #9
+  call void @SDL_free(ptr noundef %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -5655,7 +5661,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not35, label %13, label %12
 
 12:                                               ; preds = %.lr.ph
-  tail call void @SDL_DestroyTexture(ptr noundef nonnull %11) #9
+  tail call void @SDL_DestroyTexture(ptr noundef nonnull %11) #10
   %.pre = load i32, ptr %5, align 8
   br label %13
 
@@ -5672,7 +5678,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader37
   %17 = phi ptr [ %.pre52, %._crit_edge.loopexit ], [ %4, %.preheader37 ]
-  tail call void @SDL_free(ptr noundef %17) #9
+  tail call void @SDL_free(ptr noundef %17) #10
   br label %18
 
 18:                                               ; preds = %._crit_edge, %2
@@ -5697,7 +5703,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not34, label %29, label %28
 
 28:                                               ; preds = %.lr.ph40
-  tail call void @SDL_DestroyRenderer(ptr noundef nonnull %27) #9
+  tail call void @SDL_DestroyRenderer(ptr noundef nonnull %27) #10
   %.pre53 = load i32, ptr %21, align 8
   br label %29
 
@@ -5714,7 +5720,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
 
 ._crit_edge41:                                    ; preds = %._crit_edge41.loopexit, %.preheader36
   %33 = phi ptr [ %.pre54, %._crit_edge41.loopexit ], [ %20, %.preheader36 ]
-  tail call void @SDL_free(ptr noundef %33) #9
+  tail call void @SDL_free(ptr noundef %33) #10
   br label %34
 
 34:                                               ; preds = %._crit_edge41, %18
@@ -5734,7 +5740,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   %40 = load ptr, ptr %35, align 8
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv49
   %42 = load ptr, ptr %41, align 8
-  tail call void @SDL_DestroyWindow(ptr noundef %42) #9
+  tail call void @SDL_DestroyWindow(ptr noundef %42) #10
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %43 = load i32, ptr %37, align 8
   %44 = sext i32 %43 to i64
@@ -5747,14 +5753,14 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
 
 ._crit_edge44:                                    ; preds = %._crit_edge44.loopexit, %.preheader
   %46 = phi ptr [ %.pre55, %._crit_edge44.loopexit ], [ %36, %.preheader ]
-  tail call void @SDL_free(ptr noundef %46) #9
+  tail call void @SDL_free(ptr noundef %46) #10
   br label %.split
 
 .split:                                           ; preds = %._crit_edge44, %34, %1
   %.sink = phi ptr [ null, %1 ], [ %0, %34 ], [ %0, %._crit_edge44 ]
-  tail call void @SDL_Quit() #9
-  tail call void @SDL_free(ptr noundef %.sink) #9
-  tail call void @SDLTest_LogAllocations() #9
+  tail call void @SDL_Quit() #10
+  tail call void @SDL_free(ptr noundef %.sink) #10
+  tail call void @SDLTest_LogAllocations() #10
   ret void
 }
 
@@ -5789,46 +5795,46 @@ define dso_local void @SDLTest_CommonDrawWindowInfo(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %15 = tail call i32 @SDL_GetDisplayForWindow(ptr noundef %1) #9
+  %15 = tail call i32 @SDL_GetDisplayForWindow(ptr noundef %1) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %16 = tail call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %17 = tail call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.187) #9
-  %18 = tail call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #9
-  %19 = tail call ptr @SDL_GetCurrentVideoDriver() #9
-  %20 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.188, ptr noundef %19) #9
-  %21 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 1.000000e+01, ptr noundef nonnull %4) #9
-  %22 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %23 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 2.000000e+01, ptr noundef nonnull @.str.189) #9
-  %24 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #9
-  %25 = call ptr @SDL_GetRendererName(ptr noundef %0) #9
-  %26 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.190, ptr noundef %25) #9
-  %27 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 3.000000e+01, ptr noundef nonnull %4) #9
-  %28 = call zeroext i1 @SDL_GetRenderOutputSize(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %16 = tail call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #10
+  %17 = tail call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.187) #10
+  %18 = tail call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #10
+  %19 = tail call ptr @SDL_GetCurrentVideoDriver() #10
+  %20 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.188, ptr noundef %19) #10
+  %21 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 1.000000e+01, ptr noundef nonnull %4) #10
+  %22 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #10
+  %23 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 2.000000e+01, ptr noundef nonnull @.str.189) #10
+  %24 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #10
+  %25 = call ptr @SDL_GetRendererName(ptr noundef %0) #10
+  %26 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.190, ptr noundef %25) #10
+  %27 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 3.000000e+01, ptr noundef nonnull %4) #10
+  %28 = call zeroext i1 @SDL_GetRenderOutputSize(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %3
   %30 = load i32, ptr %7, align 4
   %31 = load i32, ptr %8, align 4
-  %32 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.191, i32 noundef %30, i32 noundef %31) #9
-  %33 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 4.000000e+01, ptr noundef nonnull %4) #9
+  %32 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.191, i32 noundef %30, i32 noundef %31) #10
+  %33 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef 4.000000e+01, ptr noundef nonnull %4) #10
   br label %34
 
 34:                                               ; preds = %29, %3
   %.0 = phi float [ 5.000000e+01, %29 ], [ 4.000000e+01, %3 ]
-  %35 = call zeroext i1 @SDL_GetCurrentRenderOutputSize(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %35 = call zeroext i1 @SDL_GetCurrentRenderOutputSize(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %34
   %37 = load i32, ptr %7, align 4
   %38 = load i32, ptr %8, align 4
-  %39 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.192, i32 noundef %37, i32 noundef %38) #9
-  %40 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.0, ptr noundef nonnull %4) #9
+  %39 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.192, i32 noundef %37, i32 noundef %38) #10
+  %40 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.0, ptr noundef nonnull %4) #10
   %41 = fadd float %.0, 1.000000e+01
   br label %42
 
 42:                                               ; preds = %36, %34
   %.1 = phi float [ %41, %36 ], [ %.0, %34 ]
-  %43 = call zeroext i1 @SDL_GetRenderViewport(ptr noundef %0, ptr noundef nonnull %11) #9
+  %43 = call zeroext i1 @SDL_GetRenderViewport(ptr noundef %0, ptr noundef nonnull %11) #10
   %44 = load i32, ptr %11, align 4
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %46 = load i32, ptr %45, align 4
@@ -5836,21 +5842,21 @@ define dso_local void @SDLTest_CommonDrawWindowInfo(ptr noundef %0, ptr noundef 
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %50 = load i32, ptr %49, align 4
-  %51 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.193, i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef %50) #9
-  %52 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.1, ptr noundef nonnull %4) #9
+  %51 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.193, i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef %50) #10
+  %52 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.1, ptr noundef nonnull %4) #10
   %53 = fadd float %.1, 1.000000e+01
-  %54 = call zeroext i1 @SDL_GetRenderScale(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
+  %54 = call zeroext i1 @SDL_GetRenderScale(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
   %55 = load float, ptr %12, align 4
   %56 = fpext float %55 to double
   %57 = load float, ptr %13, align 4
   %58 = fpext float %57 to double
-  %59 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.194, double noundef %56, double noundef %58) #9
-  %60 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %53, ptr noundef nonnull %4) #9
+  %59 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.194, double noundef %56, double noundef %58) #10
+  %60 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %53, ptr noundef nonnull %4) #10
   %61 = fadd float %53, 1.000000e+01
-  %62 = call zeroext i1 @SDL_GetRenderLogicalPresentation(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %14) #9
+  %62 = call zeroext i1 @SDL_GetRenderLogicalPresentation(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %14) #10
   %63 = load i32, ptr %7, align 4
   %64 = load i32, ptr %8, align 4
-  %65 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.195, i32 noundef %63, i32 noundef %64) #9
+  %65 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.195, i32 noundef %63, i32 noundef %64) #10
   %66 = load i32, ptr %14, align 4
   switch i32 %66, label %72 [
     i32 0, label %67
@@ -5886,41 +5892,41 @@ define dso_local void @SDLTest_CommonDrawWindowInfo(ptr noundef %0, ptr noundef 
 
 SDLTest_PrintLogicalPresentation.exit:            ; preds = %67, %68, %69, %70, %71, %72
   %73 = fadd float %61, 1.000000e+01
-  %74 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %75 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %73, ptr noundef nonnull @.str.196) #9
+  %74 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #10
+  %75 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %73, ptr noundef nonnull @.str.196) #10
   %76 = fadd float %73, 1.000000e+01
-  %77 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #9
-  %78 = call zeroext i1 @SDL_GetWindowPosition(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %77 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #10
+  %78 = call zeroext i1 @SDL_GetWindowPosition(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %79 = load i32, ptr %5, align 4
   %80 = load i32, ptr %6, align 4
-  %81 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.197, i32 noundef %79, i32 noundef %80) #9
-  %82 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %76, ptr noundef nonnull %4) #9
+  %81 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.197, i32 noundef %79, i32 noundef %80) #10
+  %82 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %76, ptr noundef nonnull %4) #10
   %83 = fadd float %76, 1.000000e+01
-  %84 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %84 = call zeroext i1 @SDL_GetWindowSize(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %85 = load i32, ptr %7, align 4
   %86 = load i32, ptr %8, align 4
-  %87 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.198, i32 noundef %85, i32 noundef %86) #9
-  %88 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %83, ptr noundef nonnull %4) #9
+  %87 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.198, i32 noundef %85, i32 noundef %86) #10
+  %88 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %83, ptr noundef nonnull %4) #10
   %89 = fadd float %83, 1.000000e+01
-  %90 = call zeroext i1 @SDL_GetWindowSafeArea(ptr noundef %1, ptr noundef nonnull %11) #9
+  %90 = call zeroext i1 @SDL_GetWindowSafeArea(ptr noundef %1, ptr noundef nonnull %11) #10
   %91 = load i32, ptr %11, align 4
   %92 = load i32, ptr %45, align 4
   %93 = load i32, ptr %47, align 4
   %94 = load i32, ptr %49, align 4
-  %95 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.199, i32 noundef %91, i32 noundef %92, i32 noundef %93, i32 noundef %94) #9
-  %96 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %89, ptr noundef nonnull %4) #9
-  %97 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.200) #9
-  %98 = call i64 @SDL_GetWindowFlags(ptr noundef %1) #9
+  %95 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.199, i32 noundef %91, i32 noundef %92, i32 noundef %93, i32 noundef %94) #10
+  %96 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %89, ptr noundef nonnull %4) #10
+  %97 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.200) #10
+  %98 = call i64 @SDL_GetWindowFlags(ptr noundef %1) #10
   br label %99
 
-99:                                               ; preds = %135, %SDLTest_PrintLogicalPresentation.exit
-  %indvars.iv.i = phi i64 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %indvars.iv.next.i, %135 ]
-  %.01215.i = phi i32 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %.1.i, %135 ]
+99:                                               ; preds = %138, %SDLTest_PrintLogicalPresentation.exit
+  %indvars.iv.i = phi i64 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %indvars.iv.next.i, %138 ]
+  %.01215.i = phi i32 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %.1.i, %138 ]
   %100 = getelementptr inbounds nuw i64, ptr @__const.SDLTest_PrintWindowFlags.window_flags, i64 %indvars.iv.i
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %101, %98
   %103 = icmp eq i64 %102, %101
-  br i1 %103, label %104, label %135
+  br i1 %103, label %104, label %138
 
 104:                                              ; preds = %99
   %105 = icmp sgt i32 %.01215.i, 0
@@ -5931,367 +5937,373 @@ SDLTest_PrintLogicalPresentation.exit:            ; preds = %67, %68, %69, %70, 
   br label %107
 
 107:                                              ; preds = %106, %104
-  switch i64 %101, label %133 [
-    i64 1, label %108
-    i64 2, label %109
-    i64 4, label %110
-    i64 8, label %111
-    i64 16, label %112
-    i64 32, label %113
-    i64 64, label %114
-    i64 128, label %115
-    i64 256, label %116
-    i64 512, label %117
-    i64 1024, label %118
-    i64 2048, label %119
-    i64 4096, label %120
-    i64 8192, label %121
-    i64 16384, label %122
-    i64 32768, label %123
-    i64 65536, label %124
-    i64 131072, label %125
-    i64 262144, label %126
-    i64 524288, label %127
-    i64 1048576, label %128
-    i64 268435456, label %129
-    i64 536870912, label %130
-    i64 1073741824, label %131
-    i64 2147483648, label %132
+  %108 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %101)
+  %109 = icmp eq i64 %108, 1
+  br i1 %109, label %.split.i.i, label %136
+
+.split.i.i:                                       ; preds = %107
+  %110 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %101, i1 true)
+  switch i64 %110, label %136 [
+    i64 0, label %111
+    i64 1, label %112
+    i64 2, label %113
+    i64 3, label %114
+    i64 4, label %115
+    i64 5, label %116
+    i64 6, label %117
+    i64 7, label %118
+    i64 8, label %119
+    i64 9, label %120
+    i64 10, label %121
+    i64 11, label %122
+    i64 12, label %123
+    i64 13, label %124
+    i64 14, label %125
+    i64 15, label %126
+    i64 16, label %127
+    i64 17, label %128
+    i64 18, label %129
+    i64 19, label %130
+    i64 20, label %131
+    i64 28, label %132
+    i64 29, label %133
+    i64 30, label %134
+    i64 31, label %135
   ]
 
-108:                                              ; preds = %107
+111:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.434)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-109:                                              ; preds = %107
+112:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.435)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-110:                                              ; preds = %107
+113:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.436)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-111:                                              ; preds = %107
+114:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.437)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-112:                                              ; preds = %107
+115:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.438)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-113:                                              ; preds = %107
+116:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.439)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-114:                                              ; preds = %107
+117:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.440)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-115:                                              ; preds = %107
+118:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.441)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-116:                                              ; preds = %107
+119:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.442)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-117:                                              ; preds = %107
+120:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.443)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-118:                                              ; preds = %107
+121:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.444)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-119:                                              ; preds = %107
+122:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.445)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-120:                                              ; preds = %107
+123:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.446)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-121:                                              ; preds = %107
+124:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.447)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-122:                                              ; preds = %107
+125:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.448)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-123:                                              ; preds = %107
+126:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.449)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-124:                                              ; preds = %107
+127:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.450)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-125:                                              ; preds = %107
+128:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.451)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-126:                                              ; preds = %107
+129:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.452)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-127:                                              ; preds = %107
+130:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.453)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-128:                                              ; preds = %107
+131:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.454)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-129:                                              ; preds = %107
+132:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.455)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-130:                                              ; preds = %107
+133:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.456)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-131:                                              ; preds = %107
+134:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.457)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-132:                                              ; preds = %107
+135:                                              ; preds = %.split.i.i
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.458)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-133:                                              ; preds = %107
+136:                                              ; preds = %.split.i.i, %107
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.459, i64 noundef %101)
   br label %SDLTest_PrintWindowFlag.exit.i
 
-SDLTest_PrintWindowFlag.exit.i:                   ; preds = %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108
-  %134 = add nsw i32 %.01215.i, 1
-  br label %135
+SDLTest_PrintWindowFlag.exit.i:                   ; preds = %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111
+  %137 = add nsw i32 %.01215.i, 1
+  br label %138
 
-135:                                              ; preds = %SDLTest_PrintWindowFlag.exit.i, %99
-  %.1.i = phi i32 [ %134, %SDLTest_PrintWindowFlag.exit.i ], [ %.01215.i, %99 ]
+138:                                              ; preds = %SDLTest_PrintWindowFlag.exit.i, %99
+  %.1.i = phi i32 [ %137, %SDLTest_PrintWindowFlag.exit.i ], [ %.01215.i, %99 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
   br i1 %exitcond.not.i, label %SDLTest_PrintWindowFlags.exit, label %99, !llvm.loop !37
 
-SDLTest_PrintWindowFlags.exit:                    ; preds = %135
-  %136 = fadd float %89, 1.000000e+01
-  %137 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %136, ptr noundef nonnull %4) #9
-  %138 = fadd float %136, 1.000000e+01
-  %139 = call ptr @SDL_GetWindowFullscreenMode(ptr noundef %1) #9
-  %.not = icmp eq ptr %139, null
-  br i1 %.not, label %157, label %140
+SDLTest_PrintWindowFlags.exit:                    ; preds = %138
+  %139 = fadd float %89, 1.000000e+01
+  %140 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %139, ptr noundef nonnull %4) #10
+  %141 = fadd float %139, 1.000000e+01
+  %142 = call ptr @SDL_GetWindowFullscreenMode(ptr noundef %1) #10
+  %.not = icmp eq ptr %142, null
+  br i1 %.not, label %160, label %143
 
-140:                                              ; preds = %SDLTest_PrintWindowFlags.exit
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 12
-  %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %146 = load float, ptr %145, align 8
-  %147 = fpext float %146 to double
-  %148 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  %149 = load float, ptr %148, align 4
+143:                                              ; preds = %SDLTest_PrintWindowFlags.exit
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %145 = load i32, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 12
+  %147 = load i32, ptr %146, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %149 = load float, ptr %148, align 8
   %150 = fpext float %149 to double
-  %151 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  %152 = load i32, ptr %151, align 4
-  %153 = call ptr @SDL_GetPixelFormatName(i32 noundef %152) #9
-  %154 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.201, i32 noundef %142, i32 noundef %144, double noundef %147, double noundef %150, ptr noundef %153) #9
-  %155 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %138, ptr noundef nonnull %4) #9
-  %156 = fadd float %138, 1.000000e+01
-  br label %157
+  %151 = getelementptr inbounds nuw i8, ptr %142, i64 20
+  %152 = load float, ptr %151, align 4
+  %153 = fpext float %152 to double
+  %154 = getelementptr inbounds nuw i8, ptr %142, i64 4
+  %155 = load i32, ptr %154, align 4
+  %156 = call ptr @SDL_GetPixelFormatName(i32 noundef %155) #10
+  %157 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.201, i32 noundef %145, i32 noundef %147, double noundef %150, double noundef %153, ptr noundef %156) #10
+  %158 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %141, ptr noundef nonnull %4) #10
+  %159 = fadd float %141, 1.000000e+01
+  br label %160
 
-157:                                              ; preds = %140, %SDLTest_PrintWindowFlags.exit
-  %.2 = phi float [ %156, %140 ], [ %138, %SDLTest_PrintWindowFlags.exit ]
-  %158 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %159 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.2, ptr noundef nonnull @.str.202) #9
-  %160 = fadd float %.2, 1.000000e+01
-  %161 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #9
-  %162 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.203, i32 noundef %15) #9
-  %163 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %160, ptr noundef nonnull %4) #9
-  %164 = fadd float %160, 1.000000e+01
-  %165 = call ptr @SDL_GetDisplayName(i32 noundef %15) #9
-  %166 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.204, ptr noundef %165) #9
-  %167 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %164, ptr noundef nonnull %4) #9
-  %168 = fadd float %164, 1.000000e+01
-  %169 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %15, ptr noundef nonnull %11) #9
-  br i1 %169, label %170, label %178
+160:                                              ; preds = %143, %SDLTest_PrintWindowFlags.exit
+  %.2 = phi float [ %159, %143 ], [ %141, %SDLTest_PrintWindowFlags.exit ]
+  %161 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #10
+  %162 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.2, ptr noundef nonnull @.str.202) #10
+  %163 = fadd float %.2, 1.000000e+01
+  %164 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #10
+  %165 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.203, i32 noundef %15) #10
+  %166 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %163, ptr noundef nonnull %4) #10
+  %167 = fadd float %163, 1.000000e+01
+  %168 = call ptr @SDL_GetDisplayName(i32 noundef %15) #10
+  %169 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.204, ptr noundef %168) #10
+  %170 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %167, ptr noundef nonnull %4) #10
+  %171 = fadd float %167, 1.000000e+01
+  %172 = call zeroext i1 @SDL_GetDisplayBounds(i32 noundef %15, ptr noundef nonnull %11) #10
+  br i1 %172, label %173, label %181
 
-170:                                              ; preds = %157
-  %171 = load i32, ptr %11, align 4
-  %172 = load i32, ptr %45, align 4
-  %173 = load i32, ptr %47, align 4
-  %174 = load i32, ptr %49, align 4
-  %175 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.205, i32 noundef %171, i32 noundef %172, i32 noundef %173, i32 noundef %174) #9
-  %176 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %168, ptr noundef nonnull %4) #9
-  %177 = fadd float %168, 1.000000e+01
-  br label %178
+173:                                              ; preds = %160
+  %174 = load i32, ptr %11, align 4
+  %175 = load i32, ptr %45, align 4
+  %176 = load i32, ptr %47, align 4
+  %177 = load i32, ptr %49, align 4
+  %178 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.205, i32 noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef %177) #10
+  %179 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %171, ptr noundef nonnull %4) #10
+  %180 = fadd float %171, 1.000000e+01
+  br label %181
 
-178:                                              ; preds = %170, %157
-  %.3 = phi float [ %177, %170 ], [ %168, %157 ]
-  %179 = call ptr @SDL_GetCurrentDisplayMode(i32 noundef %15) #9
-  %.not144 = icmp eq ptr %179, null
-  br i1 %.not144, label %197, label %180
+181:                                              ; preds = %173, %160
+  %.3 = phi float [ %180, %173 ], [ %171, %160 ]
+  %182 = call ptr @SDL_GetCurrentDisplayMode(i32 noundef %15) #10
+  %.not144 = icmp eq ptr %182, null
+  br i1 %.not144, label %200, label %183
 
-180:                                              ; preds = %178
-  %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %182 = load i32, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %179, i64 12
-  %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %186 = load float, ptr %185, align 8
-  %187 = fpext float %186 to double
-  %188 = getelementptr inbounds nuw i8, ptr %179, i64 20
-  %189 = load float, ptr %188, align 4
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %185 = load i32, ptr %184, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  %187 = load i32, ptr %186, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %189 = load float, ptr %188, align 8
   %190 = fpext float %189 to double
-  %191 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  %192 = load i32, ptr %191, align 4
-  %193 = call ptr @SDL_GetPixelFormatName(i32 noundef %192) #9
-  %194 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.206, i32 noundef %182, i32 noundef %184, double noundef %187, double noundef %190, ptr noundef %193) #9
-  %195 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.3, ptr noundef nonnull %4) #9
-  %196 = fadd float %.3, 1.000000e+01
-  br label %197
+  %191 = getelementptr inbounds nuw i8, ptr %182, i64 20
+  %192 = load float, ptr %191, align 4
+  %193 = fpext float %192 to double
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 4
+  %195 = load i32, ptr %194, align 4
+  %196 = call ptr @SDL_GetPixelFormatName(i32 noundef %195) #10
+  %197 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.206, i32 noundef %185, i32 noundef %187, double noundef %190, double noundef %193, ptr noundef %196) #10
+  %198 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.3, ptr noundef nonnull %4) #10
+  %199 = fadd float %.3, 1.000000e+01
+  br label %200
 
-197:                                              ; preds = %180, %178
-  %.4 = phi float [ %196, %180 ], [ %.3, %178 ]
-  %198 = call ptr @SDL_GetDesktopDisplayMode(i32 noundef %15) #9
-  %.not145 = icmp eq ptr %198, null
-  br i1 %.not145, label %216, label %199
+200:                                              ; preds = %183, %181
+  %.4 = phi float [ %199, %183 ], [ %.3, %181 ]
+  %201 = call ptr @SDL_GetDesktopDisplayMode(i32 noundef %15) #10
+  %.not145 = icmp eq ptr %201, null
+  br i1 %.not145, label %219, label %202
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  %201 = load i32, ptr %200, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %198, i64 12
-  %203 = load i32, ptr %202, align 4
-  %204 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %205 = load float, ptr %204, align 8
-  %206 = fpext float %205 to double
-  %207 = getelementptr inbounds nuw i8, ptr %198, i64 20
-  %208 = load float, ptr %207, align 4
+202:                                              ; preds = %200
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %204 = load i32, ptr %203, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 12
+  %206 = load i32, ptr %205, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %208 = load float, ptr %207, align 8
   %209 = fpext float %208 to double
-  %210 = getelementptr inbounds nuw i8, ptr %198, i64 4
-  %211 = load i32, ptr %210, align 4
-  %212 = call ptr @SDL_GetPixelFormatName(i32 noundef %211) #9
-  %213 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.207, i32 noundef %201, i32 noundef %203, double noundef %206, double noundef %209, ptr noundef %212) #9
-  %214 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.4, ptr noundef nonnull %4) #9
-  %215 = fadd float %.4, 1.000000e+01
-  br label %216
+  %210 = getelementptr inbounds nuw i8, ptr %201, i64 20
+  %211 = load float, ptr %210, align 4
+  %212 = fpext float %211 to double
+  %213 = getelementptr inbounds nuw i8, ptr %201, i64 4
+  %214 = load i32, ptr %213, align 4
+  %215 = call ptr @SDL_GetPixelFormatName(i32 noundef %214) #10
+  %216 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.207, i32 noundef %204, i32 noundef %206, double noundef %209, double noundef %212, ptr noundef %215) #10
+  %217 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.4, ptr noundef nonnull %4) #10
+  %218 = fadd float %.4, 1.000000e+01
+  br label %219
 
-216:                                              ; preds = %199, %197
-  %.5 = phi float [ %215, %199 ], [ %.4, %197 ]
-  %217 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.208) #9
-  %218 = call i32 @SDL_GetNaturalDisplayOrientation(i32 noundef %15) #9
-  call fastcc void @SDLTest_PrintDisplayOrientation(ptr noundef %4, i32 noundef %218)
-  %219 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.5, ptr noundef nonnull %4) #9
-  %220 = fadd float %.5, 1.000000e+01
-  %221 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.209) #9
-  %222 = call i32 @SDL_GetCurrentDisplayOrientation(i32 noundef %15) #9
-  call fastcc void @SDLTest_PrintDisplayOrientation(ptr noundef %4, i32 noundef %222)
-  %223 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %220, ptr noundef nonnull %4) #9
-  %224 = fadd float %220, 1.000000e+01
-  %225 = call float @SDL_GetDisplayContentScale(i32 noundef %15) #9
-  %226 = fpext float %225 to double
-  %227 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.210, double noundef %226) #9
-  %228 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %224, ptr noundef nonnull %4) #9
-  %229 = fadd float %224, 1.000000e+01
-  %230 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %231 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %229, ptr noundef nonnull @.str.211) #9
-  %232 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #9
-  %233 = call i32 @SDL_GetMouseState(ptr noundef nonnull %9, ptr noundef nonnull %10) #9
-  %234 = load float, ptr %9, align 4
-  %235 = fpext float %234 to double
-  %236 = load float, ptr %10, align 4
-  %237 = fpext float %236 to double
-  %238 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.212, double noundef %235, double noundef %237) #9
-  br label %239
+219:                                              ; preds = %202, %200
+  %.5 = phi float [ %218, %202 ], [ %.4, %200 ]
+  %220 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.208) #10
+  %221 = call i32 @SDL_GetNaturalDisplayOrientation(i32 noundef %15) #10
+  call fastcc void @SDLTest_PrintDisplayOrientation(ptr noundef %4, i32 noundef %221)
+  %222 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %.5, ptr noundef nonnull %4) #10
+  %223 = fadd float %.5, 1.000000e+01
+  %224 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.209) #10
+  %225 = call i32 @SDL_GetCurrentDisplayOrientation(i32 noundef %15) #10
+  call fastcc void @SDLTest_PrintDisplayOrientation(ptr noundef %4, i32 noundef %225)
+  %226 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %223, ptr noundef nonnull %4) #10
+  %227 = fadd float %223, 1.000000e+01
+  %228 = call float @SDL_GetDisplayContentScale(i32 noundef %15) #10
+  %229 = fpext float %228 to double
+  %230 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.210, double noundef %229) #10
+  %231 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %227, ptr noundef nonnull %4) #10
+  %232 = fadd float %227, 1.000000e+01
+  %233 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #10
+  %234 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %232, ptr noundef nonnull @.str.211) #10
+  %235 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #10
+  %236 = call i32 @SDL_GetMouseState(ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+  %237 = load float, ptr %9, align 4
+  %238 = fpext float %237 to double
+  %239 = load float, ptr %10, align 4
+  %240 = fpext float %239 to double
+  %241 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.212, double noundef %238, double noundef %240) #10
+  br label %242
 
-239:                                              ; preds = %248, %216
-  %.014.i = phi i32 [ 1, %216 ], [ %249, %248 ]
-  %.01213.i = phi i32 [ 0, %216 ], [ %.1.i147, %248 ]
-  %240 = add nsw i32 %.014.i, -1
-  %241 = shl nuw i32 1, %240
-  %242 = and i32 %241, %233
-  %.not.i = icmp eq i32 %242, 0
-  br i1 %.not.i, label %248, label %243
+242:                                              ; preds = %251, %219
+  %.014.i = phi i32 [ 1, %219 ], [ %252, %251 ]
+  %.01213.i = phi i32 [ 0, %219 ], [ %.1.i147, %251 ]
+  %243 = add nsw i32 %.014.i, -1
+  %244 = shl nuw i32 1, %243
+  %245 = and i32 %244, %236
+  %.not.i = icmp eq i32 %245, 0
+  br i1 %.not.i, label %251, label %246
 
-243:                                              ; preds = %239
-  %244 = icmp sgt i32 %.01213.i, 0
-  br i1 %244, label %245, label %246
+246:                                              ; preds = %242
+  %247 = icmp sgt i32 %.01213.i, 0
+  br i1 %247, label %248, label %249
 
-245:                                              ; preds = %243
+248:                                              ; preds = %246
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.373)
-  br label %246
+  br label %249
 
-246:                                              ; preds = %245, %243
+249:                                              ; preds = %248, %246
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.460, i32 noundef %.014.i)
-  %247 = add nsw i32 %.01213.i, 1
-  br label %248
+  %250 = add nsw i32 %.01213.i, 1
+  br label %251
 
-248:                                              ; preds = %246, %239
-  %.1.i147 = phi i32 [ %247, %246 ], [ %.01213.i, %239 ]
-  %249 = add nuw nsw i32 %.014.i, 1
-  %exitcond.not.i148 = icmp eq i32 %249, 33
-  br i1 %exitcond.not.i148, label %SDLTest_PrintButtonMask.exit, label %239, !llvm.loop !38
+251:                                              ; preds = %249, %242
+  %.1.i147 = phi i32 [ %250, %249 ], [ %.01213.i, %242 ]
+  %252 = add nuw nsw i32 %.014.i, 1
+  %exitcond.not.i148 = icmp eq i32 %252, 33
+  br i1 %exitcond.not.i148, label %SDLTest_PrintButtonMask.exit, label %242, !llvm.loop !38
 
-SDLTest_PrintButtonMask.exit:                     ; preds = %248
-  %250 = fadd float %229, 1.000000e+01
-  %251 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %250, ptr noundef nonnull %4) #9
-  %252 = call i32 @SDL_GetGlobalMouseState(ptr noundef nonnull %9, ptr noundef nonnull %10) #9
-  %253 = load float, ptr %9, align 4
-  %254 = fpext float %253 to double
-  %255 = load float, ptr %10, align 4
-  %256 = fpext float %255 to double
-  %257 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.213, double noundef %254, double noundef %256) #9
-  br label %258
+SDLTest_PrintButtonMask.exit:                     ; preds = %251
+  %253 = fadd float %232, 1.000000e+01
+  %254 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %253, ptr noundef nonnull %4) #10
+  %255 = call i32 @SDL_GetGlobalMouseState(ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+  %256 = load float, ptr %9, align 4
+  %257 = fpext float %256 to double
+  %258 = load float, ptr %10, align 4
+  %259 = fpext float %258 to double
+  %260 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.213, double noundef %257, double noundef %259) #10
+  br label %261
 
-258:                                              ; preds = %267, %SDLTest_PrintButtonMask.exit
-  %.014.i149 = phi i32 [ 1, %SDLTest_PrintButtonMask.exit ], [ %268, %267 ]
-  %.01213.i150 = phi i32 [ 0, %SDLTest_PrintButtonMask.exit ], [ %.1.i152, %267 ]
-  %259 = add nsw i32 %.014.i149, -1
-  %260 = shl nuw i32 1, %259
-  %261 = and i32 %260, %252
-  %.not.i151 = icmp eq i32 %261, 0
-  br i1 %.not.i151, label %267, label %262
+261:                                              ; preds = %270, %SDLTest_PrintButtonMask.exit
+  %.014.i149 = phi i32 [ 1, %SDLTest_PrintButtonMask.exit ], [ %271, %270 ]
+  %.01213.i150 = phi i32 [ 0, %SDLTest_PrintButtonMask.exit ], [ %.1.i152, %270 ]
+  %262 = add nsw i32 %.014.i149, -1
+  %263 = shl nuw i32 1, %262
+  %264 = and i32 %263, %255
+  %.not.i151 = icmp eq i32 %264, 0
+  br i1 %.not.i151, label %270, label %265
 
-262:                                              ; preds = %258
-  %263 = icmp sgt i32 %.01213.i150, 0
-  br i1 %263, label %264, label %265
+265:                                              ; preds = %261
+  %266 = icmp sgt i32 %.01213.i150, 0
+  br i1 %266, label %267, label %268
 
-264:                                              ; preds = %262
+267:                                              ; preds = %265
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.373)
-  br label %265
+  br label %268
 
-265:                                              ; preds = %264, %262
+268:                                              ; preds = %267, %265
   call void (ptr, i64, ptr, ...) @SDL_snprintfcat(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.460, i32 noundef %.014.i149)
-  %266 = add nsw i32 %.01213.i150, 1
-  br label %267
+  %269 = add nsw i32 %.01213.i150, 1
+  br label %270
 
-267:                                              ; preds = %265, %258
-  %.1.i152 = phi i32 [ %266, %265 ], [ %.01213.i150, %258 ]
-  %268 = add nuw nsw i32 %.014.i149, 1
-  %exitcond.not.i153 = icmp eq i32 %268, 33
-  br i1 %exitcond.not.i153, label %SDLTest_PrintButtonMask.exit154, label %258, !llvm.loop !38
+270:                                              ; preds = %268, %261
+  %.1.i152 = phi i32 [ %269, %268 ], [ %.01213.i150, %261 ]
+  %271 = add nuw nsw i32 %.014.i149, 1
+  %exitcond.not.i153 = icmp eq i32 %271, 33
+  br i1 %exitcond.not.i153, label %SDLTest_PrintButtonMask.exit154, label %261, !llvm.loop !38
 
-SDLTest_PrintButtonMask.exit154:                  ; preds = %267
-  %269 = fadd float %250, 1.000000e+01
-  %270 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %269, ptr noundef nonnull %4) #9
-  %271 = fadd float %269, 1.000000e+01
-  %272 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #9
-  %273 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %271, ptr noundef nonnull @.str.214) #9
-  %274 = fadd float %271, 1.000000e+01
-  %275 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #9
-  %276 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.215) #9
-  %277 = call zeroext i16 @SDL_GetModState() #9
-  call fastcc void @SDLTest_PrintModState(ptr noundef %4, i64 noundef 1024, i16 noundef zeroext %277)
-  %278 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %274, ptr noundef nonnull %4) #9
+SDLTest_PrintButtonMask.exit154:                  ; preds = %270
+  %272 = fadd float %253, 1.000000e+01
+  %273 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %272, ptr noundef nonnull %4) #10
+  %274 = fadd float %272, 1.000000e+01
+  %275 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1) #10
+  %276 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %274, ptr noundef nonnull @.str.214) #10
+  %277 = fadd float %274, 1.000000e+01
+  %278 = call zeroext i1 @SDL_SetRenderDrawColor(ptr noundef %0, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -86, i8 noundef zeroext -1) #10
+  %279 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.215) #10
+  %280 = call zeroext i16 @SDL_GetModState() #10
+  call fastcc void @SDLTest_PrintModState(ptr noundef %4, i64 noundef 1024, i16 noundef zeroext %280)
+  %281 = call zeroext i1 @SDLTest_DrawString(ptr noundef %0, float noundef 0.000000e+00, float noundef %277, ptr noundef nonnull %4) #10
   %.not146 = icmp eq ptr %2, null
-  br i1 %.not146, label %281, label %279
+  br i1 %.not146, label %284, label %282
 
-279:                                              ; preds = %SDLTest_PrintButtonMask.exit154
-  %280 = fadd float %274, 1.000000e+01
-  store float %280, ptr %2, align 4
-  br label %281
+282:                                              ; preds = %SDLTest_PrintButtonMask.exit154
+  %283 = fadd float %277, 1.000000e+01
+  store float %283, ptr %2, align 4
+  br label %284
 
-281:                                              ; preds = %279, %SDLTest_PrintButtonMask.exit154
+284:                                              ; preds = %282, %SDLTest_PrintButtonMask.exit154
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -6423,57 +6435,57 @@ declare zeroext i1 @SDL_SetClipboardData(ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @SDLTest_ScreenShotClipboardProvider(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
-  %4 = tail call i32 @SDL_strncmp(ptr noundef %1, ptr noundef nonnull @.str.416, i64 noundef 4) #9
+  %4 = tail call i32 @SDL_strncmp(ptr noundef %1, ptr noundef nonnull @.str.416, i64 noundef 4) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.417) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.417) #10
   store i64 15, ptr %2, align 8
   br label %28
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.419) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.419) #10
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %24
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @SDL_IOFromFile(ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.420) #9
+  %10 = tail call ptr @SDL_IOFromFile(ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.420) #10
   %.not25 = icmp eq ptr %10, null
   br i1 %.not25, label %22, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @SDL_GetIOSize(ptr noundef nonnull %10) #9
-  %13 = tail call noalias ptr @SDL_malloc(i64 noundef %12) #9
+  %12 = tail call i64 @SDL_GetIOSize(ptr noundef nonnull %10) #10
+  %13 = tail call noalias ptr @SDL_malloc(i64 noundef %12) #10
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i64 @SDL_ReadIO(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %12) #9
+  %15 = tail call i64 @SDL_ReadIO(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %12) #10
   %.not27 = icmp eq i64 %15, %12
   br i1 %.not27, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @SDL_GetError() #9
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, ptr noundef %17) #9
-  tail call void @SDL_free(ptr noundef nonnull %13) #9
+  %17 = tail call ptr @SDL_GetError() #10
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, ptr noundef %17) #10
+  tail call void @SDL_free(ptr noundef nonnull %13) #10
   br label %.thread
 
 .thread:                                          ; preds = %16, %11
-  %18 = tail call zeroext i1 @SDL_CloseIO(ptr noundef nonnull %10) #9
+  %18 = tail call zeroext i1 @SDL_CloseIO(ptr noundef nonnull %10) #10
   br label %24
 
 19:                                               ; preds = %14
-  %20 = tail call zeroext i1 @SDL_CloseIO(ptr noundef nonnull %10) #9
+  %20 = tail call zeroext i1 @SDL_CloseIO(ptr noundef nonnull %10) #10
   store ptr %13, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %12, ptr %21, align 8
   br label %24
 
 22:                                               ; preds = %9
-  %23 = tail call ptr @SDL_GetError() #9
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.412, ptr noundef %23) #9
+  %23 = tail call ptr @SDL_GetError() #10
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.412, ptr noundef %23) #10
   br label %24
 
 24:                                               ; preds = %.thread, %22, %19, %7
@@ -6490,17 +6502,17 @@ define internal ptr @SDLTest_ScreenShotClipboardProvider(ptr noundef captures(no
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDLTest_ScreenShotClipboardCleanup(ptr noundef %0) #0 {
-  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.422) #9
+  tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.422) #10
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @SDL_free(ptr noundef nonnull %2) #9
+  tail call void @SDL_free(ptr noundef nonnull %2) #10
   br label %4
 
 4:                                                ; preds = %3, %1
-  tail call void @SDL_free(ptr noundef nonnull %0) #9
+  tail call void @SDL_free(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -6528,6 +6540,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6537,8 +6561,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

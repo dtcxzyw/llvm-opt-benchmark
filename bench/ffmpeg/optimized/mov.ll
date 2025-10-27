@@ -11665,13 +11665,13 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stsz(ptr noundef readonl
 
 10:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %9, i32 noundef 24, ptr noundef nonnull @.str.139) #16
-  br label %131
+  br label %132
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %131, label %15
+  br i1 %14, label %132, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -11719,175 +11719,176 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stsz(ptr noundef readonl
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %40, i32 noundef 56, ptr noundef nonnull @.str.140, i32 noundef %42, i32 noundef %39) #16
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 172
   store i32 %39, ptr %43, align 4, !tbaa !168
-  br i1 %.076, label %44, label %131
+  br i1 %.076, label %44, label %132
 
 44:                                               ; preds = %38
-  %45 = add i32 %.077, -4
-  %46 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 30)
-  switch i32 %46, label %47 [
-    i32 7, label %49
-    i32 3, label %49
-    i32 1, label %49
-    i32 0, label %49
-  ]
+  %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.077)
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %.split, label %48
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %8, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %48, i32 noundef 16, ptr noundef nonnull @.str.141, i32 noundef %.077) #16
-  br label %131
+.split:                                           ; preds = %44
+  %47 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.077, i1 true)
+  %.off = add nsw i32 %47, -2
+  %switch = icmp ult i32 %.off, 4
+  br i1 %switch, label %50, label %48
 
-49:                                               ; preds = %44, %44, %44, %44
+48:                                               ; preds = %.split, %44
+  %49 = load ptr, ptr %8, align 8, !tbaa !4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %49, i32 noundef 16, ptr noundef nonnull @.str.141, i32 noundef %.077) #16
+  br label %132
+
+50:                                               ; preds = %.split
   %.not83 = icmp eq i32 %39, 0
-  br i1 %.not83, label %131, label %50
+  br i1 %.not83, label %132, label %51
 
-50:                                               ; preds = %49
-  %51 = udiv i32 2147483131, %.077
-  %.not84 = icmp ult i32 %39, %51
-  br i1 %.not84, label %52, label %131
+51:                                               ; preds = %50
+  %52 = lshr i32 2147483131, %47
+  %.not84 = icmp ult i32 %39, %52
+  br i1 %.not84, label %53, label %132
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %23, i64 176
-  %54 = load ptr, ptr %53, align 8, !tbaa !173
-  %.not85 = icmp eq ptr %54, null
-  br i1 %.not85, label %57, label %55
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 176
+  %55 = load ptr, ptr %54, align 8, !tbaa !173
+  %.not85 = icmp eq ptr %55, null
+  br i1 %.not85, label %58, label %56
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %8, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %56, i32 noundef 24, ptr noundef nonnull @.str.142) #16
-  %.pre = load ptr, ptr %53, align 8, !tbaa !173
-  br label %57
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %8, align 8, !tbaa !4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %57, i32 noundef 24, ptr noundef nonnull @.str.142) #16
+  %.pre = load ptr, ptr %54, align 8, !tbaa !173
+  br label %58
 
-57:                                               ; preds = %55, %52
-  %58 = phi ptr [ %.pre, %55 ], [ null, %52 ]
-  tail call void @av_free(ptr noundef %58) #16
+58:                                               ; preds = %56, %53
+  %59 = phi ptr [ %.pre, %56 ], [ null, %53 ]
+  tail call void @av_free(ptr noundef %59) #16
   store i32 0, ptr %43, align 4, !tbaa !168
-  %59 = zext nneg i32 %39 to i64
-  %60 = tail call ptr @av_malloc_array(i64 noundef %59, i64 noundef 4) #16
-  store ptr %60, ptr %53, align 8, !tbaa !173
-  %.not86 = icmp eq ptr %60, null
-  br i1 %.not86, label %131, label %61
+  %60 = zext nneg i32 %39 to i64
+  %61 = tail call ptr @av_malloc_array(i64 noundef %60, i64 noundef 4) #16
+  store ptr %61, ptr %54, align 8, !tbaa !173
+  %.not86 = icmp eq ptr %61, null
+  br i1 %.not86, label %132, label %62
 
-61:                                               ; preds = %57
-  %62 = mul i32 %39, %.077
-  %63 = add i32 %62, 4
-  %64 = lshr i32 %63, 3
-  %65 = add nuw nsw i32 %64, 64
-  %66 = zext nneg i32 %65 to i64
-  %67 = tail call noalias ptr @av_malloc(i64 noundef %66) #16
-  %.not87 = icmp eq ptr %67, null
-  br i1 %.not87, label %68, label %69
+62:                                               ; preds = %58
+  %63 = mul i32 %39, %.077
+  %64 = add i32 %63, 4
+  %65 = lshr i32 %64, 3
+  %66 = add nuw nsw i32 %65, 64
+  %67 = zext nneg i32 %66 to i64
+  %68 = tail call noalias ptr @av_malloc(i64 noundef %67) #16
+  %.not87 = icmp eq ptr %68, null
+  br i1 %.not87, label %69, label %70
 
-68:                                               ; preds = %61
-  tail call void @av_freep(ptr noundef nonnull %53) #16
-  br label %131
+69:                                               ; preds = %62
+  tail call void @av_freep(ptr noundef nonnull %54) #16
+  br label %132
 
-69:                                               ; preds = %61
-  %70 = tail call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %67, i32 noundef %64) #16
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %74
+70:                                               ; preds = %62
+  %71 = tail call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %68, i32 noundef %65) #16
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %69
-  tail call void @av_freep(ptr noundef nonnull %53) #16
-  tail call void @av_free(ptr noundef nonnull %67) #16
-  %73 = load ptr, ptr %8, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %73, i32 noundef 24, ptr noundef nonnull @.str.143) #16
-  br label %131
+73:                                               ; preds = %70
+  tail call void @av_freep(ptr noundef nonnull %54) #16
+  tail call void @av_free(ptr noundef nonnull %68) #16
+  %74 = load ptr, ptr %8, align 8, !tbaa !4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %74, i32 noundef 24, ptr noundef nonnull @.str.143) #16
+  br label %132
 
-74:                                               ; preds = %69
-  %75 = and i32 %63, -8
-  %or.cond.i = icmp ult i32 %75, 2147483135
-  %76 = add nuw nsw i32 %75, 8
-  %77 = select i1 %or.cond.i, i32 %76, i32 8
-  %78 = icmp slt i32 %.077, 26
-  %79 = load ptr, ptr %53, align 8, !tbaa !173
-  %80 = getelementptr inbounds nuw i8, ptr %23, i64 1352
-  %.promoted = load i64, ptr %80, align 8, !tbaa !270
-  %81 = add nsw i32 %.077, -16
-  %82 = sub nsw i32 48, %.077
-  %83 = sub nsw i32 32, %.077
-  br i1 %78, label %get_bits_long.exit.us, label %get_bits_long.exit
+75:                                               ; preds = %70
+  %76 = and i32 %64, -8
+  %or.cond.i = icmp ult i32 %76, 2147483135
+  %77 = add nuw nsw i32 %76, 8
+  %78 = select i1 %or.cond.i, i32 %77, i32 8
+  %79 = icmp slt i32 %.077, 26
+  %80 = load ptr, ptr %54, align 8, !tbaa !173
+  %81 = getelementptr inbounds nuw i8, ptr %23, i64 1352
+  %.promoted = load i64, ptr %81, align 8, !tbaa !270
+  %82 = add nsw i32 %.077, -16
+  %83 = sub nsw i32 48, %.077
+  %84 = sub nsw i32 32, %.077
+  br i1 %79, label %get_bits_long.exit.us, label %get_bits_long.exit
 
-get_bits_long.exit.us:                            ; preds = %74, %97
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %97 ], [ 0, %74 ]
-  %.sroa.5.090.us = phi i32 [ %99, %97 ], [ 0, %74 ]
-  %84 = phi i64 [ %100, %97 ], [ %.promoted, %74 ]
-  %85 = lshr i32 %.sroa.5.090.us, 3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %67, i64 %86
-  %88 = load i32, ptr %87, align 1, !tbaa !82
-  %89 = tail call i32 @llvm.bswap.i32(i32 %88)
-  %90 = and i32 %.sroa.5.090.us, 7
-  %91 = shl i32 %89, %90
-  %92 = lshr i32 %91, %83
-  %93 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv100
-  store i32 %92, ptr %93, align 4, !tbaa !83
-  %94 = zext i32 %92 to i64
-  %95 = sub nsw i64 9223372036854775807, %84
-  %96 = icmp samesign ult i64 %95, %94
-  br i1 %96, label %.split93.us, label %97
+get_bits_long.exit.us:                            ; preds = %75, %98
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %98 ], [ 0, %75 ]
+  %.sroa.5.090.us = phi i32 [ %100, %98 ], [ 0, %75 ]
+  %85 = phi i64 [ %101, %98 ], [ %.promoted, %75 ]
+  %86 = lshr i32 %.sroa.5.090.us, 3
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %68, i64 %87
+  %89 = load i32, ptr %88, align 1, !tbaa !82
+  %90 = tail call i32 @llvm.bswap.i32(i32 %89)
+  %91 = and i32 %.sroa.5.090.us, 7
+  %92 = shl i32 %90, %91
+  %93 = lshr i32 %92, %84
+  %94 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv101
+  store i32 %93, ptr %94, align 4, !tbaa !83
+  %95 = zext i32 %93 to i64
+  %96 = sub nsw i64 9223372036854775807, %85
+  %97 = icmp samesign ult i64 %96, %95
+  br i1 %97, label %.split94.us, label %98
 
-97:                                               ; preds = %get_bits_long.exit.us
-  %98 = add i32 %.sroa.5.090.us, %.077
-  %99 = tail call i32 @llvm.umin.i32(i32 %77, i32 %98)
-  %100 = add nsw i64 %84, %94
-  store i64 %100, ptr %80, align 8, !tbaa !270
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next101, %59
-  br i1 %exitcond105.not, label %.split95.us, label %get_bits_long.exit.us, !llvm.loop !478
+98:                                               ; preds = %get_bits_long.exit.us
+  %99 = add i32 %.sroa.5.090.us, %.077
+  %100 = tail call i32 @llvm.umin.i32(i32 %78, i32 %99)
+  %101 = add nsw i64 %85, %95
+  store i64 %101, ptr %81, align 8, !tbaa !270
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next102, %60
+  br i1 %exitcond106.not, label %.split96.us, label %get_bits_long.exit.us, !llvm.loop !478
 
-get_bits_long.exit:                               ; preds = %74, %127
-  %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %74 ]
-  %.sroa.5.090 = phi i32 [ %129, %127 ], [ 0, %74 ]
-  %101 = phi i64 [ %130, %127 ], [ %.promoted, %74 ]
-  %102 = lshr i32 %.sroa.5.090, 3
-  %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i8, ptr %67, i64 %103
-  %105 = load i32, ptr %104, align 1, !tbaa !82
-  %106 = tail call i32 @llvm.bswap.i32(i32 %105)
-  %107 = and i32 %.sroa.5.090, 7
-  %108 = shl i32 %106, %107
-  %109 = lshr i32 %108, 16
-  %110 = add i32 %.sroa.5.090, 16
-  %111 = tail call i32 @llvm.umin.i32(i32 %77, i32 %110)
-  %112 = shl i32 %109, %81
-  %113 = lshr i32 %111, 3
-  %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw i8, ptr %67, i64 %114
-  %116 = load i32, ptr %115, align 1, !tbaa !82
-  %117 = tail call i32 @llvm.bswap.i32(i32 %116)
-  %118 = and i32 %111, 7
-  %119 = shl i32 %117, %118
-  %120 = lshr i32 %119, %82
-  %121 = or i32 %120, %112
-  %122 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv
-  store i32 %121, ptr %122, align 4, !tbaa !83
-  %123 = zext i32 %121 to i64
-  %124 = sub nsw i64 9223372036854775807, %101
-  %125 = icmp samesign ult i64 %124, %123
-  br i1 %125, label %.split93.us, label %127
+get_bits_long.exit:                               ; preds = %75, %128
+  %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %75 ]
+  %.sroa.5.090 = phi i32 [ %130, %128 ], [ 0, %75 ]
+  %102 = phi i64 [ %131, %128 ], [ %.promoted, %75 ]
+  %103 = lshr i32 %.sroa.5.090, 3
+  %104 = zext nneg i32 %103 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %68, i64 %104
+  %106 = load i32, ptr %105, align 1, !tbaa !82
+  %107 = tail call i32 @llvm.bswap.i32(i32 %106)
+  %108 = and i32 %.sroa.5.090, 7
+  %109 = shl i32 %107, %108
+  %110 = lshr i32 %109, 16
+  %111 = add i32 %.sroa.5.090, 16
+  %112 = tail call i32 @llvm.umin.i32(i32 %78, i32 %111)
+  %113 = shl i32 %110, %82
+  %114 = lshr i32 %112, 3
+  %115 = zext nneg i32 %114 to i64
+  %116 = getelementptr inbounds nuw i8, ptr %68, i64 %115
+  %117 = load i32, ptr %116, align 1, !tbaa !82
+  %118 = tail call i32 @llvm.bswap.i32(i32 %117)
+  %119 = and i32 %112, 7
+  %120 = shl i32 %118, %119
+  %121 = lshr i32 %120, %83
+  %122 = or i32 %121, %113
+  %123 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  store i32 %122, ptr %123, align 4, !tbaa !83
+  %124 = zext i32 %122 to i64
+  %125 = sub nsw i64 9223372036854775807, %102
+  %126 = icmp samesign ult i64 %125, %124
+  br i1 %126, label %.split94.us, label %128
 
-.split93.us:                                      ; preds = %get_bits_long.exit, %get_bits_long.exit.us
-  tail call void @av_free(ptr noundef nonnull %67) #16
-  %126 = load ptr, ptr %8, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %126, i32 noundef 16, ptr noundef nonnull @.str.144) #16
-  br label %131
+.split94.us:                                      ; preds = %get_bits_long.exit, %get_bits_long.exit.us
+  tail call void @av_free(ptr noundef nonnull %68) #16
+  %127 = load ptr, ptr %8, align 8, !tbaa !4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %127, i32 noundef 16, ptr noundef nonnull @.str.144) #16
+  br label %132
 
-127:                                              ; preds = %get_bits_long.exit
-  %128 = add i32 %111, %81
-  %129 = tail call i32 @llvm.umin.i32(i32 %77, i32 %128)
-  %130 = add nsw i64 %101, %123
-  store i64 %130, ptr %80, align 8, !tbaa !270
+128:                                              ; preds = %get_bits_long.exit
+  %129 = add i32 %112, %82
+  %130 = tail call i32 @llvm.umin.i32(i32 %78, i32 %129)
+  %131 = add nsw i64 %102, %124
+  store i64 %131, ptr %81, align 8, !tbaa !270
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %59
-  br i1 %exitcond.not, label %.split95.us, label %get_bits_long.exit, !llvm.loop !478
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %60
+  br i1 %exitcond.not, label %.split96.us, label %get_bits_long.exit, !llvm.loop !478
 
-.split95.us:                                      ; preds = %127, %97
+.split96.us:                                      ; preds = %128, %98
   store i32 %39, ptr %43, align 4, !tbaa !168
-  tail call void @av_free(ptr noundef nonnull %67) #16
-  br label %131
+  tail call void @av_free(ptr noundef nonnull %68) #16
+  br label %132
 
-131:                                              ; preds = %57, %50, %49, %38, %11, %.split95.us, %.split93.us, %72, %68, %47, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1094995529, %47 ], [ 0, %72 ], [ -1094995529, %.split93.us ], [ 0, %.split95.us ], [ -12, %68 ], [ 0, %11 ], [ 0, %38 ], [ 0, %49 ], [ -1094995529, %50 ], [ -12, %57 ]
+132:                                              ; preds = %58, %51, %50, %38, %11, %.split96.us, %.split94.us, %73, %69, %48, %10
+  %.0 = phi i32 [ 0, %10 ], [ -1094995529, %48 ], [ 0, %73 ], [ -1094995529, %.split94.us ], [ 0, %.split96.us ], [ -12, %69 ], [ 0, %11 ], [ 0, %38 ], [ 0, %50 ], [ -1094995529, %51 ], [ -12, %58 ]
   ret i32 %.0
 }
 
@@ -27012,7 +27013,10 @@ declare i16 @llvm.bswap.i16(i16) #14
 declare i32 @llvm.bswap.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #14
+declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

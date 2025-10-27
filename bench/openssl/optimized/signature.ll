@@ -40,11 +40,11 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 8:                                                ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 393) #6
+  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 393) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !12
-  tail call void @ossl_provider_free(ptr noundef %12) #6
-  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 396) #6
+  tail call void @ossl_provider_free(ptr noundef %12) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 396) #7
   br label %13
 
 13:                                               ; preds = %CRYPTO_DOWN_REF.exit, %1, %8
@@ -71,7 +71,7 @@ define ptr @EVP_SIGNATURE_get0_provider(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_SIGNATURE_fetch(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @evp_generic_fetch(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
+  %4 = tail call ptr @evp_generic_fetch(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #7
   ret ptr %4
 }
 
@@ -81,14 +81,14 @@ declare ptr @evp_generic_fetch(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !13
-  %6 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 296, ptr noundef nonnull @.str, i32 noundef 35) #6
+  %6 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 296, ptr noundef nonnull @.str, i32 noundef 35) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread308, label %8
 
 .thread308:                                       ; preds = %3
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.evp_signature_from_algorithm) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524294, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.evp_signature_from_algorithm) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524294, ptr noundef null) #7
   br label %.critedge270
 
 8:                                                ; preds = %3
@@ -96,9 +96,9 @@ define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1
   store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %10, align 8, !tbaa !12
-  %11 = tail call i32 @ossl_provider_up_ref(ptr noundef %2) #6
+  %11 = tail call i32 @ossl_provider_up_ref(ptr noundef %2) #7
   store i32 %0, ptr %6, align 8, !tbaa !17
-  %12 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %1) #6
+  %12 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %1) #7
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !3
   %14 = icmp eq ptr %12, null
@@ -728,9 +728,9 @@ define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1
   br i1 %261, label %.thread, label %.critedge270
 
 .thread:                                          ; preds = %.critedge261, %207, %238, %236, %223, %221, %200, %201, %.critedge266, %217, %214, %233, %230, %249, %246, %259, %256
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 374, ptr noundef nonnull @__func__.evp_signature_from_algorithm) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 193, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 374, ptr noundef nonnull @__func__.evp_signature_from_algorithm) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 193, ptr noundef null) #7
   br label %.thread309
 
 .thread309:                                       ; preds = %.thread, %8
@@ -748,10 +748,10 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %.thread309
 
 265:                                              ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %266 = load ptr, ptr %13, align 8, !tbaa !3
-  tail call void @CRYPTO_free(ptr noundef %266, ptr noundef nonnull @.str, i32 noundef 393) #6
+  tail call void @CRYPTO_free(ptr noundef %266, ptr noundef nonnull @.str, i32 noundef 393) #7
   %267 = load ptr, ptr %10, align 8, !tbaa !12
-  tail call void @ossl_provider_free(ptr noundef %267) #6
-  tail call void @CRYPTO_free(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef 396) #6
+  tail call void @ossl_provider_free(ptr noundef %267) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef 396) #7
   br label %.critedge270
 
 .critedge270:                                     ; preds = %265, %CRYPTO_DOWN_REF.exit.i, %.thread308, %259, %253, %.critedge269
@@ -788,11 +788,11 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %3
 8:                                                ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 393) #6
+  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 393) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !12
-  tail call void @ossl_provider_free(ptr noundef %12) #6
-  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 396) #6
+  tail call void @ossl_provider_free(ptr noundef %12) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 396) #7
   br label %EVP_SIGNATURE_free.exit
 
 EVP_SIGNATURE_free.exit:                          ; preds = %1, %CRYPTO_DOWN_REF.exit.i, %8
@@ -801,7 +801,7 @@ EVP_SIGNATURE_free.exit:                          ; preds = %1, %CRYPTO_DOWN_REF
 
 ; Function Attrs: nounwind uwtable
 define ptr @evp_signature_fetch_from_prov(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @evp_generic_fetch_from_prov(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
+  %4 = tail call ptr @evp_generic_fetch_from_prov(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #7
   ret ptr %4
 }
 
@@ -816,7 +816,7 @@ define range(i32 0, 2) i32 @EVP_SIGNATURE_is_a(ptr noundef readonly captures(add
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = load i32, ptr %0, align 8, !tbaa !17
-  %7 = tail call i32 @evp_is_a(ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef %1) #6
+  %7 = tail call i32 @evp_is_a(ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef %1) #7
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
   br label %10
@@ -850,7 +850,7 @@ define ptr @EVP_SIGNATURE_get0_description(ptr noundef readonly captures(none) %
 
 ; Function Attrs: nounwind uwtable
 define void @EVP_SIGNATURE_do_all_provided(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  tail call void @evp_generic_do_all(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
+  tail call void @evp_generic_do_all(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #7
   ret void
 }
 
@@ -865,7 +865,7 @@ define i32 @EVP_SIGNATURE_names_do_all(ptr noundef readonly captures(none) %0, p
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8, !tbaa !17
-  %8 = tail call i32 @evp_names_do_all(ptr noundef nonnull %5, i32 noundef %7, ptr noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 @evp_names_do_all(ptr noundef nonnull %5, i32 noundef %7, ptr noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -889,9 +889,9 @@ define ptr @EVP_SIGNATURE_gettable_ctx_params(ptr noundef readonly captures(addr
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !12
-  %10 = tail call ptr @ossl_provider_ctx(ptr noundef %9) #6
+  %10 = tail call ptr @ossl_provider_ctx(ptr noundef %9) #7
   %11 = load ptr, ptr %4, align 8, !tbaa !47
-  %12 = tail call ptr %11(ptr noundef null, ptr noundef %10) #6
+  %12 = tail call ptr %11(ptr noundef null, ptr noundef %10) #7
   br label %13
 
 13:                                               ; preds = %1, %3, %7
@@ -915,9 +915,9 @@ define ptr @EVP_SIGNATURE_settable_ctx_params(ptr noundef readonly captures(addr
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !12
-  %10 = tail call ptr @ossl_provider_ctx(ptr noundef %9) #6
+  %10 = tail call ptr @ossl_provider_ctx(ptr noundef %9) #7
   %11 = load ptr, ptr %4, align 8, !tbaa !49
-  %12 = tail call ptr %11(ptr noundef null, ptr noundef %10) #6
+  %12 = tail call ptr %11(ptr noundef null, ptr noundef %10) #7
   br label %13
 
 13:                                               ; preds = %1, %3, %7
@@ -940,13 +940,13 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
-  br label %.thread202
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
+  br label %.thread201
 
 8:                                                ; preds = %4
-  tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #6
+  tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #7
   store i32 %2, ptr %0, align 8, !tbaa !59
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %57, label %9
@@ -962,10 +962,10 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !70
-  %18 = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef %17) #6
+  %18 = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef %17) #7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !71
-  %21 = tail call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %15, ptr noundef %18, ptr noundef %20) #6
+  %21 = tail call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %15, ptr noundef %18, ptr noundef %20) #7
   store ptr %21, ptr %5, align 8, !tbaa !57
   %.not179 = icmp eq ptr %21, null
   br i1 %.not179, label %.thread, label %22
@@ -975,20 +975,20 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !72
   %26 = load ptr, ptr %19, align 8, !tbaa !71
-  %27 = call ptr @evp_pkey_export_to_provider(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %5, ptr noundef %26) #6
+  %27 = call ptr @evp_pkey_export_to_provider(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %5, ptr noundef %26) #7
   %.pr = load ptr, ptr %5, align 8, !tbaa !57
   %28 = icmp eq ptr %.pr, null
   br i1 %28, label %.thread, label %29
 
 .thread:                                          ; preds = %13, %22
-  %.1144198 = phi ptr [ %27, %22 ], [ null, %13 ]
-  call void @EVP_KEYMGMT_free(ptr noundef %21) #6
+  %.1144197 = phi ptr [ %27, %22 ], [ null, %13 ]
+  call void @EVP_KEYMGMT_free(ptr noundef %21) #7
   br label %29
 
 29:                                               ; preds = %.thread, %22
-  %.1144197 = phi ptr [ %.1144198, %.thread ], [ %27, %22 ]
-  %30 = icmp eq ptr %.1144197, null
-  br i1 %30, label %.thread208, label %31
+  %.1144196 = phi ptr [ %.1144197, %.thread ], [ %27, %22 ]
+  %30 = icmp eq ptr %.1144196, null
+  br i1 %30, label %.thread207, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -997,72 +997,72 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   br i1 %.not180, label %EVP_SIGNATURE_is_a.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = call ptr %33() #6
+  %35 = call ptr %33() #7
   %36 = load ptr, ptr %35, align 8, !tbaa !73
-  %.not183243 = icmp eq ptr %36, null
-  br i1 %.not183243, label %.thread200, label %.lr.ph
+  %.not183242 = icmp eq ptr %36, null
+  br i1 %.not183242, label %.thread199, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %39
   %37 = phi ptr [ %41, %39 ], [ %36, %34 ]
-  %.0134244 = phi ptr [ %40, %39 ], [ %35, %34 ]
-  %38 = call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %0, ptr noundef nonnull %37) #6
+  %.0134243 = phi ptr [ %40, %39 ], [ %35, %34 ]
+  %38 = call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %0, ptr noundef nonnull %37) #7
   %.not184 = icmp eq i32 %38, 0
   br i1 %.not184, label %39, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %.0134244, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0134243, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !73
   %.not183 = icmp eq ptr %41, null
-  br i1 %.not183, label %.thread200, label %.lr.ph, !llvm.loop !74
+  br i1 %.not183, label %.thread199, label %.lr.ph, !llvm.loop !74
 
 42:                                               ; preds = %.lr.ph
-  %.pr199 = load ptr, ptr %.0134244, align 8, !tbaa !73
-  %.not185 = icmp eq ptr %.pr199, null
-  br i1 %.not185, label %.thread200, label %.thread205
+  %.pr198 = load ptr, ptr %.0134243, align 8, !tbaa !73
+  %.not185 = icmp eq ptr %.pr198, null
+  br i1 %.not185, label %.thread199, label %.thread204
 
-.thread200:                                       ; preds = %39, %34, %42
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 567, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 228, ptr noundef null) #6
-  br label %.thread202
+.thread199:                                       ; preds = %39, %34, %42
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 567, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 228, ptr noundef null) #7
+  br label %.thread201
 
 EVP_SIGNATURE_is_a.exit:                          ; preds = %31
   %43 = load ptr, ptr %16, align 8, !tbaa !70
-  %44 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %43) #6
+  %44 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %43) #7
   %45 = load ptr, ptr %14, align 8, !tbaa !12
   %46 = load i32, ptr %1, align 8, !tbaa !17
-  %47 = call i32 @evp_is_a(ptr noundef %45, i32 noundef %46, ptr noundef null, ptr noundef %44) #6
-  %.not236 = icmp eq i32 %47, 0
-  br i1 %.not236, label %EVP_SIGNATURE_is_a.exit195, label %.thread205
+  %47 = call i32 @evp_is_a(ptr noundef %45, i32 noundef %46, ptr noundef null, ptr noundef %44) #7
+  %.not235 = icmp eq i32 %47, 0
+  br i1 %.not235, label %EVP_SIGNATURE_is_a.exit194, label %.thread204
 
-EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.exit
+EVP_SIGNATURE_is_a.exit194:                       ; preds = %EVP_SIGNATURE_is_a.exit
   %48 = load ptr, ptr %16, align 8, !tbaa !70
-  %49 = call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %48, i32 noundef 12) #6
+  %49 = call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %48, i32 noundef 12) #7
   %50 = load ptr, ptr %14, align 8, !tbaa !12
   %51 = load i32, ptr %1, align 8, !tbaa !17
-  %52 = call i32 @evp_is_a(ptr noundef %50, i32 noundef %51, ptr noundef null, ptr noundef %49) #6
-  %.not237 = icmp eq i32 %52, 0
-  br i1 %.not237, label %53, label %.thread205
+  %52 = call i32 @evp_is_a(ptr noundef %50, i32 noundef %51, ptr noundef null, ptr noundef %49) #7
+  %.not236 = icmp eq i32 %52, 0
+  br i1 %.not236, label %53, label %.thread204
 
-53:                                               ; preds = %EVP_SIGNATURE_is_a.exit195
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 593, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 228, ptr noundef null) #6
-  br label %.thread202
+53:                                               ; preds = %EVP_SIGNATURE_is_a.exit194
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 593, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 228, ptr noundef null) #7
+  br label %.thread201
 
-.thread205:                                       ; preds = %42, %EVP_SIGNATURE_is_a.exit195, %EVP_SIGNATURE_is_a.exit
+.thread204:                                       ; preds = %42, %EVP_SIGNATURE_is_a.exit194, %EVP_SIGNATURE_is_a.exit
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = atomicrmw add ptr %54, i32 1 monotonic, align 4
   br label %129
 
 56:                                               ; preds = %9
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 525, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 154, ptr noundef null) #6
-  br label %210
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 525, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 154, ptr noundef null) #7
+  br label %213
 
 57:                                               ; preds = %8
-  %58 = tail call i32 @ERR_set_mark() #6
+  %58 = tail call i32 @ERR_set_mark() #7
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !70
   %61 = icmp eq ptr %60, null
@@ -1075,11 +1075,11 @@ EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = tail call i32 @ERR_clear_last_mark() #6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 609, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 154, ptr noundef null) #6
-  br label %210
+  %67 = tail call i32 @ERR_clear_last_mark() #7
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 609, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 154, ptr noundef null) #7
+  br label %213
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 96
@@ -1090,14 +1090,14 @@ EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.
   br i1 %spec.select, label %75, label %73, !prof !83
 
 73:                                               ; preds = %68
-  %74 = tail call i32 @ERR_clear_last_mark() #6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 619, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #6
-  br label %210
+  %74 = tail call i32 @ERR_clear_last_mark() #7
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 619, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #7
+  br label %213
 
 75:                                               ; preds = %68
-  %76 = tail call ptr @evp_keymgmt_util_query_operation_name(ptr noundef nonnull %60, i32 noundef 12) #6
+  %76 = tail call ptr @evp_keymgmt_util_query_operation_name(ptr noundef nonnull %60, i32 noundef 12) #7
   %77 = icmp eq ptr %76, null
   br i1 %77, label %80, label %.preheader
 
@@ -1107,20 +1107,20 @@ EVP_SIGNATURE_is_a.exit195:                       ; preds = %EVP_SIGNATURE_is_a.
   br label %82
 
 80:                                               ; preds = %75
-  %81 = tail call i32 @ERR_clear_last_mark() #6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 627, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
-  br label %210
+  %81 = tail call i32 @ERR_clear_last_mark() #7
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 627, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
+  br label %213
 
 82:                                               ; preds = %.preheader, %120
-  %.1131246 = phi ptr [ null, %.preheader ], [ %.3133.ph, %120 ]
-  %.0139245 = phi i32 [ 1, %.preheader ], [ %121, %120 ]
-  %83 = icmp eq ptr %.1131246, null
+  %.1131245 = phi ptr [ null, %.preheader ], [ %.3133.ph, %120 ]
+  %.0139244 = phi i32 [ 1, %.preheader ], [ %121, %120 ]
+  %83 = icmp eq ptr %.1131245, null
   br i1 %83, label %EVP_SIGNATURE_free.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %.1131246, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.1131245, i64 32
   %86 = atomicrmw sub ptr %85, i32 1 release, align 4
   %87 = icmp eq i32 %86, 1
   br i1 %87, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -1134,25 +1134,25 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %84
   br i1 %88, label %EVP_SIGNATURE_free.exit, label %89
 
 89:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %90 = getelementptr inbounds nuw i8, ptr %.1131246, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.1131245, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 393) #6
-  %92 = getelementptr inbounds nuw i8, ptr %.1131246, i64 24
+  call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 393) #7
+  %92 = getelementptr inbounds nuw i8, ptr %.1131245, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !12
-  call void @ossl_provider_free(ptr noundef %93) #6
-  call void @CRYPTO_free(ptr noundef nonnull %.1131246, ptr noundef nonnull @.str, i32 noundef 396) #6
+  call void @ossl_provider_free(ptr noundef %93) #7
+  call void @CRYPTO_free(ptr noundef nonnull %.1131245, ptr noundef nonnull @.str, i32 noundef 396) #7
   br label %EVP_SIGNATURE_free.exit
 
 EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_REF.exit.i, %89
   %94 = load ptr, ptr %5, align 8, !tbaa !57
-  call void @EVP_KEYMGMT_free(ptr noundef %94) #6
-  %95 = icmp eq i32 %.0139245, 1
+  call void @EVP_KEYMGMT_free(ptr noundef %94) #7
+  %95 = icmp eq i32 %.0139244, 1
   br i1 %95, label %96, label %103
 
 96:                                               ; preds = %EVP_SIGNATURE_free.exit
   %97 = load ptr, ptr %79, align 8, !tbaa !72
   %98 = load ptr, ptr %78, align 8, !tbaa !71
-  %99 = call ptr @evp_generic_fetch(ptr noundef %97, i32 noundef 12, ptr noundef nonnull %76, ptr noundef %98, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
+  %99 = call ptr @evp_generic_fetch(ptr noundef %97, i32 noundef 12, ptr noundef nonnull %76, ptr noundef %98, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #7
   %.not177 = icmp eq ptr %99, null
   br i1 %.not177, label %120, label %100
 
@@ -1163,9 +1163,9 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
 
 103:                                              ; preds = %EVP_SIGNATURE_free.exit
   %104 = load ptr, ptr %59, align 8, !tbaa !70
-  %105 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %104) #6
+  %105 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %104) #7
   %106 = load ptr, ptr %78, align 8, !tbaa !71
-  %107 = call ptr @evp_generic_fetch_from_prov(ptr noundef %105, i32 noundef 12, ptr noundef nonnull %76, ptr noundef %106, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #6
+  %107 = call ptr @evp_generic_fetch_from_prov(ptr noundef %105, i32 noundef 12, ptr noundef nonnull %76, ptr noundef %106, ptr noundef nonnull @evp_signature_from_algorithm, ptr noundef nonnull @evp_signature_up_ref, ptr noundef nonnull @evp_signature_free) #7
   %108 = icmp eq ptr %107, null
   br i1 %108, label %.loopexit, label %109
 
@@ -1173,32 +1173,32 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %.1141.ph = phi ptr [ %105, %103 ], [ %102, %100 ]
   %.2132.ph = phi ptr [ %107, %103 ], [ %99, %100 ]
   %110 = load ptr, ptr %59, align 8, !tbaa !70
-  %111 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %110) #6
+  %111 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %110) #7
   %112 = load ptr, ptr %78, align 8, !tbaa !71
-  %113 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1141.ph, ptr noundef %111, ptr noundef %112) #6
+  %113 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1141.ph, ptr noundef %111, ptr noundef %112) #7
   store ptr %113, ptr %5, align 8, !tbaa !57
   %.not178 = icmp eq ptr %113, null
-  br i1 %.not178, label %.thread218, label %114
+  br i1 %.not178, label %.thread217, label %114
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %63, align 8, !tbaa !69
   %116 = load ptr, ptr %79, align 8, !tbaa !72
   %117 = load ptr, ptr %78, align 8, !tbaa !71
-  %118 = call ptr @evp_pkey_export_to_provider(ptr noundef %115, ptr noundef %116, ptr noundef nonnull %5, ptr noundef %117) #6
-  %.pr217 = load ptr, ptr %5, align 8, !tbaa !57
-  %119 = icmp eq ptr %.pr217, null
-  br i1 %119, label %.thread218, label %120
+  %118 = call ptr @evp_pkey_export_to_provider(ptr noundef %115, ptr noundef %116, ptr noundef nonnull %5, ptr noundef %117) #7
+  %.pr216 = load ptr, ptr %5, align 8, !tbaa !57
+  %119 = icmp eq ptr %.pr216, null
+  br i1 %119, label %.thread217, label %120
 
-.thread218:                                       ; preds = %109, %114
-  %.5220 = phi ptr [ %118, %114 ], [ null, %109 ]
-  call void @EVP_KEYMGMT_free(ptr noundef %113) #6
+.thread217:                                       ; preds = %109, %114
+  %.5219 = phi ptr [ %118, %114 ], [ null, %109 ]
+  call void @EVP_KEYMGMT_free(ptr noundef %113) #7
   br label %120
 
-120:                                              ; preds = %.thread218, %114, %96
-  %.4147.ph = phi ptr [ null, %96 ], [ %118, %114 ], [ %.5220, %.thread218 ]
-  %.3133.ph = phi ptr [ null, %96 ], [ %.2132.ph, %114 ], [ %.2132.ph, %.thread218 ]
-  %121 = add nuw nsw i32 %.0139245, 1
-  %122 = icmp samesign ult i32 %.0139245, 2
+120:                                              ; preds = %.thread217, %114, %96
+  %.4147.ph = phi ptr [ null, %96 ], [ %118, %114 ], [ %.5219, %.thread217 ]
+  %.3133.ph = phi ptr [ null, %96 ], [ %.2132.ph, %114 ], [ %.2132.ph, %.thread217 ]
+  %121 = add nuw nsw i32 %.0139244, 1
+  %122 = icmp samesign ult i32 %.0139244, 2
   %123 = icmp eq ptr %.4147.ph, null
   %124 = select i1 %122, i1 %123, i1 false
   br i1 %124, label %82, label %125, !llvm.loop !84
@@ -1211,215 +1211,220 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   br label %.loopexit
 
 127:                                              ; preds = %125
-  %128 = call i32 @ERR_pop_to_mark() #6
+  %128 = call i32 @ERR_pop_to_mark() #7
   br label %129
 
-129:                                              ; preds = %.thread205, %127
-  %.2145 = phi ptr [ %.4147.ph, %127 ], [ %.1144197, %.thread205 ]
-  %.0130 = phi ptr [ %.3133.ph, %127 ], [ %1, %.thread205 ]
+129:                                              ; preds = %.thread204, %127
+  %.2145 = phi ptr [ %.4147.ph, %127 ], [ %.1144196, %.thread204 ]
+  %.0130 = phi ptr [ %.3133.ph, %127 ], [ %1, %.thread204 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0130, ptr %130, align 8, !tbaa !85
   %131 = getelementptr inbounds nuw i8, ptr %.0130, i64 40
   %132 = load ptr, ptr %131, align 8, !tbaa !22
   %133 = getelementptr inbounds nuw i8, ptr %.0130, i64 24
   %134 = load ptr, ptr %133, align 8, !tbaa !12
-  %135 = call ptr @ossl_provider_ctx(ptr noundef %134) #6
+  %135 = call ptr @ossl_provider_ctx(ptr noundef %134) #7
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !71
-  %138 = call ptr %132(ptr noundef %135, ptr noundef %137) #6
+  %138 = call ptr %132(ptr noundef %135, ptr noundef %137) #7
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %138, ptr %139, align 8, !tbaa !85
   %140 = icmp eq ptr %138, null
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %129
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 714, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
-  br label %210
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 714, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
+  br label %213
 
 142:                                              ; preds = %129
-  %trunc186 = trunc nuw i32 %2 to i16
-  switch i16 %trunc186, label %168 [
-    i16 16, label %143
-    i16 16384, label %148
-    i16 32, label %153
-    i16 -32768, label %158
-    i16 64, label %163
+  %143 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %2)
+  %144 = icmp eq i32 %143, 1
+  br i1 %144, label %.split, label %171
+
+.split:                                           ; preds = %142
+  %145 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  switch i32 %145, label %171 [
+    i32 4, label %146
+    i32 14, label %151
+    i32 5, label %156
+    i32 15, label %161
+    i32 6, label %166
   ]
 
-143:                                              ; preds = %142
-  %144 = getelementptr inbounds nuw i8, ptr %.0130, i64 48
-  %145 = load ptr, ptr %144, align 8, !tbaa !24
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %169
+146:                                              ; preds = %.split
+  %147 = getelementptr inbounds nuw i8, ptr %.0130, i64 48
+  %148 = load ptr, ptr %147, align 8, !tbaa !24
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %150, label %172
 
-147:                                              ; preds = %143
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 721, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %210
+150:                                              ; preds = %146
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 721, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
+  br label %213
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.0130, i64 64
-  %150 = load ptr, ptr %149, align 8, !tbaa !26
-  %151 = icmp eq ptr %150, null
-  br i1 %151, label %152, label %169
+151:                                              ; preds = %.split
+  %152 = getelementptr inbounds nuw i8, ptr %.0130, i64 64
+  %153 = load ptr, ptr %152, align 8, !tbaa !26
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %155, label %172
 
-152:                                              ; preds = %148
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %210
+155:                                              ; preds = %151
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
+  br label %213
 
-153:                                              ; preds = %142
-  %154 = getelementptr inbounds nuw i8, ptr %.0130, i64 88
-  %155 = load ptr, ptr %154, align 8, !tbaa !29
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %157, label %169
+156:                                              ; preds = %.split
+  %157 = getelementptr inbounds nuw i8, ptr %.0130, i64 88
+  %158 = load ptr, ptr %157, align 8, !tbaa !29
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %160, label %172
 
-157:                                              ; preds = %153
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %210
+160:                                              ; preds = %156
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
+  br label %213
 
-158:                                              ; preds = %142
-  %159 = getelementptr inbounds nuw i8, ptr %.0130, i64 104
-  %160 = load ptr, ptr %159, align 8, !tbaa !31
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %169
+161:                                              ; preds = %.split
+  %162 = getelementptr inbounds nuw i8, ptr %.0130, i64 104
+  %163 = load ptr, ptr %162, align 8, !tbaa !31
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %165, label %172
 
-162:                                              ; preds = %158
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 745, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %210
+165:                                              ; preds = %161
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 745, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
+  br label %213
 
-163:                                              ; preds = %142
-  %164 = getelementptr inbounds nuw i8, ptr %.0130, i64 128
-  %165 = load ptr, ptr %164, align 8, !tbaa !34
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %169
+166:                                              ; preds = %.split
+  %167 = getelementptr inbounds nuw i8, ptr %.0130, i64 128
+  %168 = load ptr, ptr %167, align 8, !tbaa !34
+  %169 = icmp eq ptr %168, null
+  br i1 %169, label %170, label %172
 
-167:                                              ; preds = %163
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %210
+170:                                              ; preds = %166
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
+  br label %213
 
-168:                                              ; preds = %142
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 760, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
-  br label %210
+171:                                              ; preds = %142, %.split
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 760, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
+  br label %213
 
-169:                                              ; preds = %163, %158, %153, %148, %143
-  %.sink = phi ptr [ %145, %143 ], [ %150, %148 ], [ %155, %153 ], [ %160, %158 ], [ %165, %163 ]
-  %170 = call i32 %.sink(ptr noundef nonnull %138, ptr noundef nonnull %.2145, ptr noundef %3) #6
-  %171 = icmp slt i32 %170, 1
-  br i1 %171, label %172, label %.critedge192
+172:                                              ; preds = %166, %161, %156, %151, %146
+  %.sink = phi ptr [ %148, %146 ], [ %153, %151 ], [ %158, %156 ], [ %163, %161 ], [ %168, %166 ]
+  %173 = call i32 %.sink(ptr noundef nonnull %138, ptr noundef nonnull %.2145, ptr noundef %3) #7
+  %174 = icmp slt i32 %173, 1
+  br i1 %174, label %175, label %.critedge191
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %.0130, i64 208
-  %174 = load ptr, ptr %173, align 8, !tbaa !44
-  %175 = load ptr, ptr %139, align 8, !tbaa !85
-  call void %174(ptr noundef %175) #6
+175:                                              ; preds = %172
+  %176 = getelementptr inbounds nuw i8, ptr %.0130, i64 208
+  %177 = load ptr, ptr %176, align 8, !tbaa !44
+  %178 = load ptr, ptr %139, align 8, !tbaa !85
+  call void %177(ptr noundef %178) #7
   store ptr null, ptr %139, align 8, !tbaa !85
-  br label %210
+  br label %213
 
 .loopexit:                                        ; preds = %103, %57, %126
-  %176 = call i32 @ERR_pop_to_mark() #6
-  %177 = load ptr, ptr %5, align 8, !tbaa !57
-  call void @EVP_KEYMGMT_free(ptr noundef %177) #6
+  %179 = call i32 @ERR_pop_to_mark() #7
+  %180 = load ptr, ptr %5, align 8, !tbaa !57
+  call void @EVP_KEYMGMT_free(ptr noundef %180) #7
   store ptr null, ptr %5, align 8, !tbaa !57
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %179 = load ptr, ptr %178, align 8, !tbaa !86
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %194, label %181
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %182 = load ptr, ptr %181, align 8, !tbaa !86
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %197, label %184
 
-181:                                              ; preds = %.loopexit
-  %trunc238 = trunc nuw i32 %2 to i16
-  switch i16 %trunc238, label %204 [
-    i16 16, label %182
-    i16 32, label %186
-    i16 64, label %190
+184:                                              ; preds = %.loopexit
+  %trunc237 = trunc nuw i32 %2 to i16
+  switch i16 %trunc237, label %207 [
+    i16 16, label %185
+    i16 32, label %189
+    i16 64, label %193
   ]
 
-182:                                              ; preds = %181
-  %183 = getelementptr inbounds nuw i8, ptr %179, i64 72
-  %184 = load ptr, ptr %183, align 8, !tbaa !87
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %194, label %.thread230
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 72
+  %187 = load ptr, ptr %186, align 8, !tbaa !87
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %197, label %.thread229
 
-186:                                              ; preds = %181
-  %187 = getelementptr inbounds nuw i8, ptr %179, i64 88
-  %188 = load ptr, ptr %187, align 8, !tbaa !89
-  %189 = icmp eq ptr %188, null
-  br i1 %189, label %194, label %.thread232
+189:                                              ; preds = %184
+  %190 = getelementptr inbounds nuw i8, ptr %182, i64 88
+  %191 = load ptr, ptr %190, align 8, !tbaa !89
+  %192 = icmp eq ptr %191, null
+  br i1 %192, label %197, label %.thread231
 
-190:                                              ; preds = %181
-  %191 = getelementptr inbounds nuw i8, ptr %179, i64 104
-  %192 = load ptr, ptr %191, align 8, !tbaa !90
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %194, label %.thread234
+193:                                              ; preds = %184
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 104
+  %195 = load ptr, ptr %194, align 8, !tbaa !90
+  %196 = icmp eq ptr %195, null
+  br i1 %196, label %197, label %.thread233
 
-194:                                              ; preds = %190, %186, %182, %.loopexit
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 785, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %.thread202
+197:                                              ; preds = %193, %189, %185, %.loopexit
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 785, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
+  br label %.thread201
 
-.thread230:                                       ; preds = %182
-  %195 = getelementptr inbounds nuw i8, ptr %179, i64 64
-  %196 = load ptr, ptr %195, align 8, !tbaa !91
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %.thread202, label %205
-
-.thread232:                                       ; preds = %186
-  %198 = getelementptr inbounds nuw i8, ptr %179, i64 80
-  %199 = load ptr, ptr %198, align 8, !tbaa !92
+.thread229:                                       ; preds = %185
+  %198 = getelementptr inbounds nuw i8, ptr %182, i64 64
+  %199 = load ptr, ptr %198, align 8, !tbaa !91
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %.thread202, label %205
+  br i1 %200, label %.thread201, label %208
 
-.thread234:                                       ; preds = %190
-  %201 = getelementptr inbounds nuw i8, ptr %179, i64 96
-  %202 = load ptr, ptr %201, align 8, !tbaa !93
+.thread231:                                       ; preds = %189
+  %201 = getelementptr inbounds nuw i8, ptr %182, i64 80
+  %202 = load ptr, ptr %201, align 8, !tbaa !92
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %.thread202, label %205
+  br i1 %203, label %.thread201, label %208
 
-204:                                              ; preds = %181
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 806, ptr noundef nonnull @__func__.evp_pkey_signature_init) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
-  br label %210
+.thread233:                                       ; preds = %193
+  %204 = getelementptr inbounds nuw i8, ptr %182, i64 96
+  %205 = load ptr, ptr %204, align 8, !tbaa !93
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %.thread201, label %208
 
-205:                                              ; preds = %.thread234, %.thread232, %.thread230
-  %.sink270 = phi ptr [ %196, %.thread230 ], [ %199, %.thread232 ], [ %202, %.thread234 ]
-  %206 = call i32 %.sink270(ptr noundef nonnull %0) #6
-  %207 = icmp slt i32 %206, 1
-  br i1 %207, label %210, label %.critedge192
+207:                                              ; preds = %184
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 806, ptr noundef nonnull @__func__.evp_pkey_signature_init) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
+  br label %213
 
-.critedge192:                                     ; preds = %205, %169
-  %208 = call i32 @evp_pkey_ctx_use_cached_data(ptr noundef nonnull %0) #6
-  br label %.thread208
+208:                                              ; preds = %.thread233, %.thread231, %.thread229
+  %.sink269 = phi ptr [ %199, %.thread229 ], [ %202, %.thread231 ], [ %205, %.thread233 ]
+  %209 = call i32 %.sink269(ptr noundef nonnull %0) #7
+  %210 = icmp slt i32 %209, 1
+  br i1 %210, label %213, label %.critedge191
 
-.thread208:                                       ; preds = %29, %.critedge192
-  %.4152 = phi i32 [ %208, %.critedge192 ], [ 0, %29 ]
-  %209 = load ptr, ptr %5, align 8, !tbaa !57
-  call void @EVP_KEYMGMT_free(ptr noundef %209) #6
-  br label %.thread202
+.critedge191:                                     ; preds = %208, %172
+  %211 = call i32 @evp_pkey_ctx_use_cached_data(ptr noundef nonnull %0) #7
+  br label %.thread207
 
-210:                                              ; preds = %56, %205, %204, %172, %168, %167, %162, %157, %152, %147, %141, %80, %73, %66
-  %.1149 = phi i32 [ 0, %141 ], [ 0, %168 ], [ -2, %147 ], [ %170, %172 ], [ -2, %152 ], [ -2, %157 ], [ -2, %162 ], [ -2, %167 ], [ 0, %56 ], [ 0, %204 ], [ %206, %205 ], [ 0, %66 ], [ 0, %80 ], [ 0, %73 ]
-  call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #6
+.thread207:                                       ; preds = %29, %.critedge191
+  %.4152 = phi i32 [ %211, %.critedge191 ], [ 0, %29 ]
+  %212 = load ptr, ptr %5, align 8, !tbaa !57
+  call void @EVP_KEYMGMT_free(ptr noundef %212) #7
+  br label %.thread201
+
+213:                                              ; preds = %56, %208, %207, %175, %171, %170, %165, %160, %155, %150, %141, %80, %73, %66
+  %.1149 = phi i32 [ 0, %141 ], [ 0, %171 ], [ -2, %150 ], [ %173, %175 ], [ -2, %155 ], [ -2, %160 ], [ -2, %165 ], [ -2, %170 ], [ 0, %56 ], [ 0, %207 ], [ %209, %208 ], [ 0, %66 ], [ 0, %80 ], [ 0, %73 ]
+  call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #7
   store i32 0, ptr %0, align 8, !tbaa !59
-  %211 = load ptr, ptr %5, align 8, !tbaa !57
-  call void @EVP_KEYMGMT_free(ptr noundef %211) #6
-  br label %.thread202
+  %214 = load ptr, ptr %5, align 8, !tbaa !57
+  call void @EVP_KEYMGMT_free(ptr noundef %214) #7
+  br label %.thread201
 
-.thread202:                                       ; preds = %53, %.thread200, %.thread234, %.thread232, %.thread230, %210, %.thread208, %194, %7
-  %.0 = phi i32 [ -1, %7 ], [ %.1149, %210 ], [ %.4152, %.thread208 ], [ -2, %194 ], [ 1, %.thread230 ], [ 1, %.thread232 ], [ 1, %.thread234 ], [ -2, %.thread200 ], [ -2, %53 ]
+.thread201:                                       ; preds = %53, %.thread199, %.thread233, %.thread231, %.thread229, %213, %.thread207, %197, %7
+  %.0 = phi i32 [ -1, %7 ], [ %.1149, %213 ], [ %.4152, %.thread207 ], [ -2, %197 ], [ 1, %.thread229 ], [ 1, %.thread231 ], [ 1, %.thread233 ], [ -2, %.thread199 ], [ -2, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1448,9 +1453,9 @@ define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_i
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 852, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_update) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 852, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_update) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %20
 
 6:                                                ; preds = %3
@@ -1459,9 +1464,9 @@ define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_i
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 857, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_update) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 857, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_update) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %20
 
 9:                                                ; preds = %6
@@ -1473,15 +1478,15 @@ define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_i
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_update) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_update) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %20
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !85
-  %19 = tail call i32 %13(ptr noundef %18, ptr noundef %1, i64 noundef %2) #6
+  %19 = tail call i32 %13(ptr noundef %18, ptr noundef %1, i64 noundef %2) #7
   br label %20
 
 20:                                               ; preds = %16, %15, %8, %5
@@ -1501,9 +1506,9 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 874, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_final) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 874, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_final) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %25
 
 6:                                                ; preds = %3
@@ -1512,9 +1517,9 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 879, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_final) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 879, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_final) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %25
 
 9:                                                ; preds = %6
@@ -1526,9 +1531,9 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 884, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_final) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 884, ptr noundef nonnull @__func__.EVP_PKEY_sign_message_final) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %25
 
 16:                                               ; preds = %9
@@ -1543,7 +1548,7 @@ define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is
 
 22:                                               ; preds = %16, %20
   %23 = phi i64 [ %21, %20 ], [ 0, %16 ]
-  %24 = tail call i32 %13(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef %23) #6
+  %24 = tail call i32 %13(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef %23) #7
   br label %25
 
 25:                                               ; preds = %22, %15, %8, %5
@@ -1557,9 +1562,9 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 900, ptr noundef nonnull @__func__.EVP_PKEY_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 900, ptr noundef nonnull @__func__.EVP_PKEY_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %.thread
 
 8:                                                ; preds = %5
@@ -1570,9 +1575,9 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   ]
 
 10:                                               ; preds = %8
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 906, ptr noundef nonnull @__func__.EVP_PKEY_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 906, ptr noundef nonnull @__func__.EVP_PKEY_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %.thread
 
 11:                                               ; preds = %8, %8
@@ -1590,9 +1595,9 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 914, ptr noundef nonnull @__func__.EVP_PKEY_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 914, ptr noundef nonnull @__func__.EVP_PKEY_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %.thread
 
 22:                                               ; preds = %15
@@ -1605,7 +1610,7 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 26:                                               ; preds = %22, %24
   %27 = phi i64 [ %25, %24 ], [ 0, %22 ]
-  %28 = tail call i32 %19(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i64 noundef %27, ptr noundef %3, i64 noundef %4) #6
+  %28 = tail call i32 %19(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i64 noundef %27, ptr noundef %3, i64 noundef %4) #7
   br label %.thread
 
 29:                                               ; preds = %11
@@ -1621,9 +1626,9 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33, %29
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.EVP_PKEY_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.EVP_PKEY_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %.thread
 
 38:                                               ; preds = %33
@@ -1636,15 +1641,15 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = load ptr, ptr %43, align 8, !tbaa !69
-  %45 = tail call i32 @EVP_PKEY_get_size(ptr noundef %44) #6
+  %45 = tail call i32 @EVP_PKEY_get_size(ptr noundef %44) #7
   %46 = sext i32 %45 to i64
   %47 = icmp eq i32 %45, 0
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %42
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.EVP_PKEY_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 163, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.EVP_PKEY_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 163, ptr noundef null) #7
   br label %.thread
 
 49:                                               ; preds = %42
@@ -1667,14 +1672,14 @@ define i32 @EVP_PKEY_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %56
 
 55:                                               ; preds = %52
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.EVP_PKEY_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 155, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.EVP_PKEY_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 155, ptr noundef null) #7
   br label %.thread
 
 56:                                               ; preds = %._crit_edge, %38
   %57 = phi ptr [ %.pre42, %._crit_edge ], [ %35, %38 ]
-  %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #6
+  %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %.thread
 
 .thread:                                          ; preds = %55, %51, %48, %56, %37, %26, %21, %10, %7
@@ -1717,19 +1722,19 @@ define i32 @EVP_PKEY_CTX_set_signature(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 961, ptr noundef nonnull @__func__.EVP_PKEY_CTX_set_signature) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 961, ptr noundef nonnull @__func__.EVP_PKEY_CTX_set_signature) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %11
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.1, ptr noundef %1, i64 noundef %2) #6
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.1, ptr noundef %1, i64 noundef %2) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %10 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
+  %10 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   br label %11
 
 11:                                               ; preds = %8, %7
@@ -1753,9 +1758,9 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 980, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_update) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 980, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_update) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %20
 
 6:                                                ; preds = %3
@@ -1764,9 +1769,9 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 985, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_update) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 985, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_update) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %20
 
 9:                                                ; preds = %6
@@ -1778,15 +1783,15 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 990, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_update) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 990, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_update) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %20
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !85
-  %19 = tail call i32 %13(ptr noundef %18, ptr noundef %1, i64 noundef %2) #6
+  %19 = tail call i32 %13(ptr noundef %18, ptr noundef %1, i64 noundef %2) #7
   br label %20
 
 20:                                               ; preds = %16, %15, %8, %5
@@ -1800,9 +1805,9 @@ define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1001, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_final) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1001, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_final) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %18
 
 4:                                                ; preds = %1
@@ -1811,9 +1816,9 @@ define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %4
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1006, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_final) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1006, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_final) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %18
 
 7:                                                ; preds = %4
@@ -1825,15 +1830,15 @@ define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %7
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1011, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_final) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1011, ptr noundef nonnull @__func__.EVP_PKEY_verify_message_final) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %18
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !85
-  %17 = tail call i32 %11(ptr noundef %16) #6
+  %17 = tail call i32 %11(ptr noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %13, %6, %3
@@ -1847,9 +1852,9 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1026, ptr noundef nonnull @__func__.EVP_PKEY_verify) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1026, ptr noundef nonnull @__func__.EVP_PKEY_verify) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %35
 
 8:                                                ; preds = %5
@@ -1860,9 +1865,9 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
   ]
 
 10:                                               ; preds = %8
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1032, ptr noundef nonnull @__func__.EVP_PKEY_verify) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1032, ptr noundef nonnull @__func__.EVP_PKEY_verify) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %35
 
 11:                                               ; preds = %8, %8
@@ -1880,13 +1885,13 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1040, ptr noundef nonnull @__func__.EVP_PKEY_verify) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1040, ptr noundef nonnull @__func__.EVP_PKEY_verify) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %35
 
 22:                                               ; preds = %15
-  %23 = tail call i32 %19(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6
+  %23 = tail call i32 %19(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %35
 
 24:                                               ; preds = %11
@@ -1902,13 +1907,13 @@ define i32 @EVP_PKEY_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28, %24
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1050, ptr noundef nonnull @__func__.EVP_PKEY_verify) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1050, ptr noundef nonnull @__func__.EVP_PKEY_verify) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %35
 
 33:                                               ; preds = %28
-  %34 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6
+  %34 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %35
 
 35:                                               ; preds = %33, %32, %22, %21, %10, %7
@@ -1940,9 +1945,9 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1081, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1081, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %.thread
 
 8:                                                ; preds = %5
@@ -1951,9 +1956,9 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1086, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1086, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #7
   br label %.thread
 
 11:                                               ; preds = %8
@@ -1971,9 +1976,9 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1094, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1094, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %.thread
 
 22:                                               ; preds = %15
@@ -1986,7 +1991,7 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 26:                                               ; preds = %22, %24
   %27 = phi i64 [ %25, %24 ], [ 0, %22 ]
-  %28 = tail call i32 %19(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i64 noundef %27, ptr noundef %3, i64 noundef %4) #6
+  %28 = tail call i32 %19(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i64 noundef %27, ptr noundef %3, i64 noundef %4) #7
   br label %.thread
 
 29:                                               ; preds = %11
@@ -2002,9 +2007,9 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33, %29
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1105, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1105, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #7
   br label %.thread
 
 38:                                               ; preds = %33
@@ -2017,15 +2022,15 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = load ptr, ptr %43, align 8, !tbaa !69
-  %45 = tail call i32 @EVP_PKEY_get_size(ptr noundef %44) #6
+  %45 = tail call i32 @EVP_PKEY_get_size(ptr noundef %44) #7
   %46 = sext i32 %45 to i64
   %47 = icmp eq i32 %45, 0
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %42
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1108, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 163, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1108, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 163, ptr noundef null) #7
   br label %.thread
 
 49:                                               ; preds = %42
@@ -2048,14 +2053,14 @@ define i32 @EVP_PKEY_verify_recover(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %56
 
 55:                                               ; preds = %52
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1108, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 155, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1108, ptr noundef nonnull @__func__.EVP_PKEY_verify_recover) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 155, ptr noundef null) #7
   br label %.thread
 
 56:                                               ; preds = %._crit_edge, %38
   %57 = phi ptr [ %.pre39, %._crit_edge ], [ %35, %38 ]
-  %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #6
+  %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %.thread
 
 .thread:                                          ; preds = %55, %51, %48, %56, %37, %26, %21, %10, %7
@@ -2099,13 +2104,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

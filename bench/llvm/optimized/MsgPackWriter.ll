@@ -664,121 +664,127 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %15 = alloca i8, align 1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !31
-  switch i64 %17, label %33 [
-    i64 1, label %18
-    i64 2, label %21
-    i64 4, label %24
-    i64 8, label %27
-    i64 16, label %30
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %19 = icmp eq i64 %18, 1
+  br i1 %19, label %.split, label %36
+
+.split:                                           ; preds = %3
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %17, i1 true)
+  switch i64 %20, label %36 [
+    i64 0, label %21
+    i64 1, label %24
+    i64 2, label %27
+    i64 3, label %30
+    i64 4, label %33
   ]
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %0, align 8, !tbaa !14
+21:                                               ; preds = %.split
+  %22 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 -44, ptr %15, align 1, !tbaa !15
-  %20 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %15, i64 noundef 1) #7
+  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %15, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %58
+  br label %61
 
-21:                                               ; preds = %3
-  %22 = load ptr, ptr %0, align 8, !tbaa !14
+24:                                               ; preds = %.split
+  %25 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 -43, ptr %14, align 1, !tbaa !15
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %14, i64 noundef 1) #7
+  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %14, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %58
+  br label %61
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %0, align 8, !tbaa !14
+27:                                               ; preds = %.split
+  %28 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 -42, ptr %13, align 1, !tbaa !15
-  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %13, i64 noundef 1) #7
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %13, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %58
+  br label %61
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr %0, align 8, !tbaa !14
+30:                                               ; preds = %.split
+  %31 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 -41, ptr %12, align 1, !tbaa !15
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %12, i64 noundef 1) #7
+  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %12, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %58
+  br label %61
 
-30:                                               ; preds = %3
-  %31 = load ptr, ptr %0, align 8, !tbaa !14
+33:                                               ; preds = %.split
+  %34 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 -40, ptr %11, align 1, !tbaa !15
-  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %11, i64 noundef 1) #7
+  %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %11, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %58
+  br label %61
 
-33:                                               ; preds = %3
-  %34 = icmp ult i64 %17, 256
-  br i1 %34, label %35, label %41
+36:                                               ; preds = %3, %.split
+  %37 = icmp ult i64 %17, 256
+  br i1 %37, label %38, label %44
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %0, align 8, !tbaa !14
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -57, ptr %10, align 1, !tbaa !15
-  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull %10, i64 noundef 1) #7
+  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull %10, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %38 = trunc nuw i64 %17 to i8
-  %39 = load ptr, ptr %0, align 8, !tbaa !14
+  %41 = trunc nuw i64 %17 to i8
+  %42 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i8 %38, ptr %9, align 1, !tbaa !15
-  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull %9, i64 noundef 1) #7
+  store i8 %41, ptr %9, align 1, !tbaa !15
+  %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull %9, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %58
+  br label %61
 
-41:                                               ; preds = %33
-  %42 = icmp ult i64 %17, 65536
-  %43 = load ptr, ptr %0, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %42, label %45, label %51
+44:                                               ; preds = %36
+  %45 = icmp ult i64 %17, 65536
+  %46 = load ptr, ptr %0, align 8, !tbaa !14
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %45, label %48, label %54
 
-45:                                               ; preds = %41
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -56, ptr %8, align 1, !tbaa !15
-  %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull %8, i64 noundef 1) #7
+  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %8, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %47 = trunc nuw i64 %17 to i16
-  %48 = load ptr, ptr %0, align 8, !tbaa !14
-  %49 = load i32, ptr %44, align 8, !tbaa !8
+  %50 = trunc nuw i64 %17 to i16
+  %51 = load ptr, ptr %0, align 8, !tbaa !14
+  %52 = load i32, ptr %47, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not.i.i.i = icmp eq i32 %49, 1
-  %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %47)
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %47, i16 %rev.i.i.i.i.i.i
+  %.not.i.i.i = icmp eq i32 %52, 1
+  %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %50)
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %50, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %7, align 2, !tbaa !16
-  %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull %7, i64 noundef 2) #7
+  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %7, i64 noundef 2) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %58
+  br label %61
 
-51:                                               ; preds = %41
+54:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -55, ptr %6, align 1, !tbaa !15
-  %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull %6, i64 noundef 1) #7
+  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %6, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %53 = trunc i64 %17 to i32
-  %54 = load ptr, ptr %0, align 8, !tbaa !14
-  %55 = load i32, ptr %44, align 8, !tbaa !8
+  %56 = trunc i64 %17 to i32
+  %57 = load ptr, ptr %0, align 8, !tbaa !14
+  %58 = load i32, ptr %47, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not.i.i.i8 = icmp eq i32 %55, 1
-  %56 = call i32 @llvm.bswap.i32(i32 %53)
-  %spec.select.i.i.i9 = select i1 %.not.i.i.i8, i32 %53, i32 %56
+  %.not.i.i.i8 = icmp eq i32 %58, 1
+  %59 = call i32 @llvm.bswap.i32(i32 %56)
+  %spec.select.i.i.i9 = select i1 %.not.i.i.i8, i32 %56, i32 %59
   store i32 %spec.select.i.i.i9, ptr %5, align 4, !tbaa !18
-  %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull %5, i64 noundef 4) #7
+  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull %5, i64 noundef 4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %58
+  br label %61
 
-58:                                               ; preds = %35, %51, %45, %30, %27, %24, %21, %18
-  %59 = load ptr, ptr %0, align 8, !tbaa !14
+61:                                               ; preds = %38, %54, %48, %33, %30, %27, %24, %21
+  %62 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1, !tbaa !15
-  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull %4, i64 noundef 1) #7
+  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %4, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %61 = load ptr, ptr %0, align 8, !tbaa !24
-  %62 = load ptr, ptr %2, align 8, !tbaa !33
-  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef %62, i64 noundef %17) #7
+  %64 = load ptr, ptr %0, align 8, !tbaa !24
+  %65 = load ptr, ptr %2, align 8, !tbaa !33
+  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %65, i64 noundef %17) #7
   ret void
 }
 
@@ -787,6 +793,12 @@ declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5

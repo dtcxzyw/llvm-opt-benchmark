@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [31 x i8] c"ctx->channels == out->ch_count\00", align 1
 @.str.2 = private unnamed_addr constant [29 x i8] c"libswresample/audioconvert.c\00", align 1
 @fmt_pair_to_conv_functions = internal unnamed_addr constant <{ [131 x ptr], [13 x ptr] }> <{ [131 x ptr] [ptr @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_U8, ptr @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_S16, ptr @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_S32, ptr @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_FLT, ptr @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_DBL, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_S64, ptr null, ptr @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_U8, ptr @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_S16, ptr @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_S32, ptr @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_FLT, ptr @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_DBL, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_S64, ptr null, ptr @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_U8, ptr @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_S16, ptr @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_S32, ptr @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_FLT, ptr @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_DBL, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_S64, ptr null, ptr @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_U8, ptr @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_S16, ptr @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_S32, ptr @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_FLT, ptr @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_DBL, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_S64, ptr null, ptr @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_U8, ptr @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_S16, ptr @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_S32, ptr @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_FLT, ptr @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_DBL, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_S64, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_U8, ptr @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_S16, ptr @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_S32, ptr @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_FLT, ptr @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_DBL, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_S64], [13 x ptr] zeroinitializer }>, align 16
-@switch.table.swri_audio_convert_alloc = private unnamed_addr constant [8 x ptr] [ptr @cpy1, ptr @cpy2, ptr poison, ptr @cpy4, ptr poison, ptr poison, ptr poison, ptr @cpy8], align 8
+@switch.table.swri_audio_convert_alloc = private unnamed_addr constant [4 x ptr] [ptr @cpy1, ptr @cpy2, ptr @cpy4, ptr @cpy8], align 8
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -19,12 +19,12 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   %11 = getelementptr inbounds ptr, ptr @fmt_pair_to_conv_functions, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %33, label %13
+  br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %5
   %14 = tail call noalias ptr @av_mallocz(i64 noundef 48) #8
   %.not32 = icmp eq ptr %14, null
-  br i1 %.not32, label %33, label %15
+  br i1 %.not32, label %36, label %15
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %2, 1
@@ -57,28 +57,29 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   %26 = icmp ne i32 %.028, %.029
   %27 = icmp ne ptr %3, null
   %or.cond3 = or i1 %27, %26
-  br i1 %or.cond3, label %33, label %28
+  br i1 %or.cond3, label %36, label %28
 
 28:                                               ; preds = %25
   %29 = tail call i32 @av_get_bytes_per_sample(i32 noundef %.029) #8
-  %switch.tableidx = add i32 %29, -1
-  %30 = icmp ult i32 %switch.tableidx, 8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %30, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %33
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %.split, label %36
 
-switch.lookup:                                    ; preds = %28
-  %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_audio_convert_alloc, i64 %31
+.split:                                           ; preds = %28
+  %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %29, i1 true)
+  %33 = icmp samesign ult i32 %32, 4
+  br i1 %33, label %switch.lookup, label %36
+
+switch.lookup:                                    ; preds = %.split
+  %34 = zext nneg i32 %32 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_audio_convert_alloc, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %switch.load, ptr %32, align 8, !tbaa !14
-  br label %33
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %switch.load, ptr %35, align 8, !tbaa !14
+  br label %36
 
-33:                                               ; preds = %28, %switch.lookup, %25, %13, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ %14, %28 ], [ %14, %25 ], [ %14, %switch.lookup ]
+36:                                               ; preds = %.split, %switch.lookup, %25, %28, %13, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ %14, %.split ], [ %14, %28 ], [ %14, %25 ], [ %14, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -3106,6 +3107,12 @@ declare i64 @llvm.llrint.i64.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7

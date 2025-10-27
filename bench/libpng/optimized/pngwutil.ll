@@ -384,241 +384,239 @@ declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 define void @png_write_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca [13 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  switch i32 %4, label %21 [
+  switch i32 %4, label %26 [
     i32 0, label %10
-    i32 2, label %12
-    i32 3, label %14
-    i32 4, label %17
-    i32 6, label %19
+    i32 2, label %15
+    i32 3, label %17
+    i32 4, label %22
+    i32 6, label %24
   ]
 
 10:                                               ; preds = %8
-  switch i32 %3, label %11 [
-    i32 1, label %switch.lookup
-    i32 2, label %switch.lookup
-    i32 4, label %switch.lookup
-    i32 8, label %switch.lookup
-    i32 16, label %switch.lookup
-  ]
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %12 = icmp eq i32 %11, 1
+  %13 = and i32 %3, 31
+  %switch = icmp ne i32 %13, 0
+  %or.cond97 = and i1 %12, %switch
+  br i1 %or.cond97, label %27, label %14
 
-11:                                               ; preds = %10
+14:                                               ; preds = %10
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str) #13
   unreachable
 
-12:                                               ; preds = %8
-  switch i32 %3, label %13 [
-    i32 16, label %switch.lookup
-    i32 8, label %switch.lookup
+15:                                               ; preds = %8
+  switch i32 %3, label %16 [
+    i32 16, label %27
+    i32 8, label %27
   ]
 
-13:                                               ; preds = %12
+16:                                               ; preds = %15
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.1) #13
   unreachable
 
-14:                                               ; preds = %8
-  %switch.tableidx = add i32 %3, -1
-  %15 = icmp ult i32 %switch.tableidx, 8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond100 = select i1 %15, i1 %switch.lobit, i1 false
-  br i1 %or.cond100, label %switch.lookup, label %16
+17:                                               ; preds = %8
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %19 = icmp eq i32 %18, 1
+  %20 = and i32 %3, 15
+  %switch98 = icmp ne i32 %20, 0
+  %or.cond99 = and i1 %19, %switch98
+  br i1 %or.cond99, label %27, label %21
 
-16:                                               ; preds = %14
+21:                                               ; preds = %17
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.2) #13
   unreachable
 
-17:                                               ; preds = %8
-  switch i32 %3, label %18 [
-    i32 16, label %switch.lookup
-    i32 8, label %switch.lookup
+22:                                               ; preds = %8
+  switch i32 %3, label %23 [
+    i32 16, label %27
+    i32 8, label %27
   ]
 
-18:                                               ; preds = %17
+23:                                               ; preds = %22
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.3) #13
   unreachable
 
-19:                                               ; preds = %8
-  switch i32 %3, label %20 [
-    i32 16, label %switch.lookup
-    i32 8, label %switch.lookup
+24:                                               ; preds = %8
+  switch i32 %3, label %25 [
+    i32 16, label %27
+    i32 8, label %27
   ]
 
-20:                                               ; preds = %19
+25:                                               ; preds = %24
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.4) #13
   unreachable
 
-21:                                               ; preds = %8
+26:                                               ; preds = %8
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   unreachable
 
-switch.lookup:                                    ; preds = %14, %19, %19, %17, %17, %12, %12, %10, %10, %10, %10, %10
-  %.sink = phi i8 [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 3, %12 ], [ 3, %12 ], [ 2, %17 ], [ 2, %17 ], [ 4, %19 ], [ 4, %19 ], [ 1, %14 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 627
-  store i8 %.sink, ptr %22, align 1, !tbaa !41
+27:                                               ; preds = %24, %24, %22, %22, %17, %15, %15, %10
+  %.sink = phi i8 [ 1, %10 ], [ 3, %15 ], [ 3, %15 ], [ 1, %17 ], [ 2, %22 ], [ 2, %22 ], [ 4, %24 ], [ 4, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 627
+  store i8 %.sink, ptr %28, align 1, !tbaa !41
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %24, label %23
+  br i1 %.not, label %30, label %29
 
-23:                                               ; preds = %switch.lookup
+29:                                               ; preds = %27
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #12
-  br label %24
+  br label %30
 
-24:                                               ; preds = %23, %switch.lookup
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %26 = load i32, ptr %25, align 8, !tbaa !42
-  %27 = and i32 %26, 4
-  %.not93 = icmp eq i32 %27, 0
-  br i1 %.not93, label %37, label %28
+30:                                               ; preds = %29, %27
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %32 = load i32, ptr %31, align 8, !tbaa !42
+  %33 = and i32 %32, 4
+  %.not94 = icmp eq i32 %33, 0
+  br i1 %.not94, label %43, label %34
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %30 = load i32, ptr %29, align 4, !tbaa !24
-  %31 = and i32 %30, 4096
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %37
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %36 = load i32, ptr %35, align 4, !tbaa !24
+  %37 = and i32 %36, 4096
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %43
 
-33:                                               ; preds = %28
-  %34 = and i32 %4, -5
-  %or.cond = icmp ne i32 %34, 2
-  %35 = icmp ne i32 %6, 64
-  %or.cond3.not95 = or i1 %or.cond, %35
-  %36 = icmp ne i32 %6, 0
-  %or.cond5 = and i1 %36, %or.cond3.not95
-  br i1 %or.cond5, label %38, label %39
+39:                                               ; preds = %34
+  %40 = and i32 %4, -5
+  %or.cond = icmp ne i32 %40, 2
+  %41 = icmp ne i32 %6, 64
+  %or.cond4.not96 = or i1 %or.cond, %41
+  %42 = icmp ne i32 %6, 0
+  %or.cond6 = and i1 %42, %or.cond4.not96
+  br i1 %or.cond6, label %44, label %45
 
-37:                                               ; preds = %28, %24
-  %.old4.not = icmp eq i32 %6, 0
-  br i1 %.old4.not, label %39, label %38
+43:                                               ; preds = %34, %30
+  %.old5.not = icmp eq i32 %6, 0
+  br i1 %.old5.not, label %45, label %44
 
-38:                                               ; preds = %33, %37
+44:                                               ; preds = %39, %43
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #12
-  br label %39
+  br label %45
 
-39:                                               ; preds = %33, %38, %37
-  %.089 = phi i32 [ 0, %38 ], [ %6, %33 ], [ 0, %37 ]
-  %or.cond8 = icmp ugt i32 %7, 1
-  br i1 %or.cond8, label %40, label %41
+45:                                               ; preds = %39, %44, %43
+  %.090 = phi i32 [ 0, %44 ], [ %6, %39 ], [ 0, %43 ]
+  %or.cond9 = icmp ugt i32 %7, 1
+  br i1 %or.cond9, label %46, label %47
 
-40:                                               ; preds = %39
+46:                                               ; preds = %45
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #12
-  br label %41
+  br label %47
 
-41:                                               ; preds = %40, %39
-  %.0 = phi i32 [ 1, %40 ], [ %7, %39 ]
-  %42 = trunc nuw nsw i32 %3 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i8 %42, ptr %43, align 8, !tbaa !43
-  %44 = trunc nuw nsw i32 %4 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 623
-  store i8 %44, ptr %45, align 1, !tbaa !44
-  %46 = trunc nuw nsw i32 %.0 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  store i8 %46, ptr %47, align 4, !tbaa !45
-  %48 = trunc nuw nsw i32 %.089 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1052
-  store i8 %48, ptr %49, align 4, !tbaa !46
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store i8 0, ptr %50, align 8, !tbaa !47
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  store i32 %1, ptr %51, align 4, !tbaa !48
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store i32 %2, ptr %52, align 8, !tbaa !49
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 627
-  %54 = load i8, ptr %53, align 1, !tbaa !41
-  %55 = mul i8 %54, %42
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 626
-  store i8 %55, ptr %56, align 2, !tbaa !50
-  %57 = icmp ugt i8 %55, 7
-  %58 = zext i32 %1 to i64
-  br i1 %57, label %59, label %63
+47:                                               ; preds = %46, %45
+  %.0 = phi i32 [ 1, %46 ], [ %7, %45 ]
+  %48 = trunc i32 %3 to i8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i8 %48, ptr %49, align 8, !tbaa !43
+  %50 = trunc nuw nsw i32 %4 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 623
+  store i8 %50, ptr %51, align 1, !tbaa !44
+  %52 = trunc nuw nsw i32 %.0 to i8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 620
+  store i8 %52, ptr %53, align 4, !tbaa !45
+  %54 = trunc nuw nsw i32 %.090 to i8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1052
+  store i8 %54, ptr %55, align 4, !tbaa !46
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  store i8 0, ptr %56, align 8, !tbaa !47
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  store i32 %1, ptr %57, align 4, !tbaa !48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  store i32 %2, ptr %58, align 8, !tbaa !49
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 627
+  %60 = load i8, ptr %59, align 1, !tbaa !41
+  %61 = mul i8 %60, %48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 626
+  store i8 %61, ptr %62, align 2, !tbaa !50
+  %63 = icmp ugt i8 %61, 7
+  %64 = zext i32 %1 to i64
+  br i1 %63, label %65, label %69
 
-59:                                               ; preds = %41
-  %60 = lshr i8 %55, 3
-  %61 = zext nneg i8 %60 to i64
-  %62 = mul nuw nsw i64 %61, %58
-  br label %68
+65:                                               ; preds = %47
+  %66 = lshr i8 %61, 3
+  %67 = zext nneg i8 %66 to i64
+  %68 = mul nuw nsw i64 %67, %64
+  br label %74
 
-63:                                               ; preds = %41
-  %64 = zext nneg i8 %55 to i64
-  %65 = mul nuw nsw i64 %64, %58
-  %66 = add nuw nsw i64 %65, 7
-  %67 = lshr i64 %66, 3
-  br label %68
+69:                                               ; preds = %47
+  %70 = zext nneg i8 %61 to i64
+  %71 = mul nuw nsw i64 %70, %64
+  %72 = add nuw nsw i64 %71, 7
+  %73 = lshr i64 %72, 3
+  br label %74
 
-68:                                               ; preds = %63, %59
-  %69 = phi i64 [ %62, %59 ], [ %67, %63 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i64 %69, ptr %70, align 8, !tbaa !51
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i32 %1, ptr %71, align 8, !tbaa !52
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 625
-  store i8 %42, ptr %72, align 1, !tbaa !53
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  store i8 %54, ptr %73, align 4, !tbaa !54
-  %74 = lshr i32 %1, 24
-  %75 = trunc nuw i32 %74 to i8
-  store i8 %75, ptr %9, align 1, !tbaa !3
-  %76 = lshr i32 %1, 16
-  %77 = trunc i32 %76 to i8
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %77, ptr %78, align 1, !tbaa !3
-  %79 = lshr i32 %1, 8
-  %80 = trunc i32 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 %80, ptr %81, align 1, !tbaa !3
-  %82 = trunc i32 %1 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 %82, ptr %83, align 1, !tbaa !3
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %85 = lshr i32 %2, 24
-  %86 = trunc nuw i32 %85 to i8
-  store i8 %86, ptr %84, align 1, !tbaa !3
-  %87 = lshr i32 %2, 16
-  %88 = trunc i32 %87 to i8
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 5
+74:                                               ; preds = %69, %65
+  %75 = phi i64 [ %68, %65 ], [ %73, %69 ]
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i64 %75, ptr %76, align 8, !tbaa !51
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  store i32 %1, ptr %77, align 8, !tbaa !52
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 625
+  store i8 %48, ptr %78, align 1, !tbaa !53
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 628
+  store i8 %60, ptr %79, align 4, !tbaa !54
+  %80 = lshr i32 %1, 24
+  %81 = trunc nuw i32 %80 to i8
+  store i8 %81, ptr %9, align 1, !tbaa !3
+  %82 = lshr i32 %1, 16
+  %83 = trunc i32 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %83, ptr %84, align 1, !tbaa !3
+  %85 = lshr i32 %1, 8
+  %86 = trunc i32 %85 to i8
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %86, ptr %87, align 1, !tbaa !3
+  %88 = trunc i32 %1 to i8
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 %88, ptr %89, align 1, !tbaa !3
-  %90 = lshr i32 %2, 8
-  %91 = trunc i32 %90 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  store i8 %91, ptr %92, align 1, !tbaa !3
-  %93 = trunc i32 %2 to i8
-  %94 = getelementptr inbounds nuw i8, ptr %9, i64 7
-  store i8 %93, ptr %94, align 1, !tbaa !3
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 %42, ptr %95, align 1, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  store i8 %44, ptr %96, align 1, !tbaa !3
-  %97 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 0, ptr %97, align 1, !tbaa !3
-  %98 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  store i8 %48, ptr %98, align 1, !tbaa !3
-  %99 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 %46, ptr %99, align 1, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %91 = lshr i32 %2, 24
+  %92 = trunc nuw i32 %91 to i8
+  store i8 %92, ptr %90, align 1, !tbaa !3
+  %93 = lshr i32 %2, 16
+  %94 = trunc i32 %93 to i8
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 5
+  store i8 %94, ptr %95, align 1, !tbaa !3
+  %96 = lshr i32 %2, 8
+  %97 = trunc i32 %96 to i8
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  store i8 %97, ptr %98, align 1, !tbaa !3
+  %99 = trunc i32 %2 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 7
+  store i8 %99, ptr %100, align 1, !tbaa !3
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 %48, ptr %101, align 1, !tbaa !3
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  store i8 %50, ptr %102, align 1, !tbaa !3
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  store i8 0, ptr %103, align 1, !tbaa !3
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 11
+  store i8 %54, ptr %104, align 1, !tbaa !3
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i8 %52, ptr %105, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef nonnull %0, i32 noundef 1229472850, ptr noundef nonnull %9, i64 noundef 13)
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 622
-  %101 = load i8, ptr %100, align 2, !tbaa !55
-  %102 = icmp eq i8 %101, 0
-  br i1 %102, label %103, label %109
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 622
+  %107 = load i8, ptr %106, align 2, !tbaa !55
+  %108 = icmp eq i8 %107, 0
+  br i1 %108, label %109, label %115
 
-103:                                              ; preds = %68
-  %104 = load i8, ptr %45, align 1, !tbaa !44
-  %105 = icmp eq i8 %104, 3
-  br i1 %105, label %.sink.split, label %106
+109:                                              ; preds = %74
+  %110 = load i8, ptr %51, align 1, !tbaa !44
+  %111 = icmp eq i8 %110, 3
+  br i1 %111, label %.sink.split, label %112
 
-106:                                              ; preds = %103
-  %107 = load i8, ptr %43, align 8, !tbaa !43
-  %108 = icmp ult i8 %107, 8
-  %spec.select = select i1 %108, i8 8, i8 -8
+112:                                              ; preds = %109
+  %113 = load i8, ptr %49, align 8, !tbaa !43
+  %114 = icmp ult i8 %113, 8
+  %spec.select = select i1 %114, i8 8, i8 -8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %106, %103
-  %.sink99 = phi i8 [ 8, %103 ], [ %spec.select, %106 ]
-  store i8 %.sink99, ptr %100, align 2, !tbaa !55
-  br label %109
+.sink.split:                                      ; preds = %112, %109
+  %.sink103 = phi i8 [ 8, %109 ], [ %spec.select, %112 ]
+  store i8 %.sink103, ptr %106, align 2, !tbaa !55
+  br label %115
 
-109:                                              ; preds = %.sink.split, %68
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 1, ptr %110, align 4, !tbaa !24
+115:                                              ; preds = %.sink.split, %74
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  store i32 1, ptr %116, align 4, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
@@ -5219,6 +5217,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10

@@ -51,7 +51,7 @@ define internal range(i32 -22, 1) i32 @pcm_dvd_encode_init(ptr noundef initializ
 
 22:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #6
-  br label %63
+  br label %66
 
 23:                                               ; preds = %1
   %24 = icmp eq i32 %7, 1
@@ -64,77 +64,81 @@ define internal range(i32 -22, 1) i32 @pcm_dvd_encode_init(ptr noundef initializ
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %27, ptr %28, align 4, !tbaa !35
   %29 = sdiv i32 2008, %27
-  br label %51
+  br label %54
 
 30:                                               ; preds = %23
-  switch i32 %12, label %37 [
-    i32 1, label %31
-    i32 2, label %31
-    i32 4, label %31
-    i32 8, label %35
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12)
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %.split, label %40
+
+.split:                                           ; preds = %30
+  %33 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
+  switch i32 %33, label %40 [
+    i32 0, label %34
+    i32 1, label %34
+    i32 2, label %34
+    i32 3, label %38
   ]
 
-31:                                               ; preds = %30, %30, %30
-  %32 = lshr exact i32 %9, 1
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %32, ptr %33, align 4, !tbaa !35
-  %.rhs.trunc = trunc nuw nsw i32 %12 to i8
-  %34 = udiv i8 4, %.rhs.trunc
-  %.zext = zext nneg i8 %34 to i32
-  br label %42
-
-35:                                               ; preds = %30
+34:                                               ; preds = %.split, %.split, %.split
+  %35 = lshr exact i32 %9, 1
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %9, ptr %36, align 4, !tbaa !35
-  br label %42
+  store i32 %35, ptr %36, align 4, !tbaa !35
+  %37 = lshr i32 4, %33
+  br label %45
 
-37:                                               ; preds = %30
-  %38 = shl nsw i32 %12, 2
-  %39 = mul nsw i32 %38, %9
-  %40 = ashr exact i32 %39, 3
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %40, ptr %41, align 4, !tbaa !35
-  br label %42
+38:                                               ; preds = %.split
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %9, ptr %39, align 4, !tbaa !35
+  br label %45
 
-42:                                               ; preds = %37, %35, %31
-  %.sink58 = phi i32 [ 4, %37 ], [ 1, %35 ], [ %.zext, %31 ]
-  %.sink = phi i32 [ %12, %37 ], [ 2, %35 ], [ 1, %31 ]
-  %43 = phi i32 [ %40, %37 ], [ %9, %35 ], [ %32, %31 ]
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink58, ptr %44, align 4, !tbaa !33
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %.sink, ptr %45, align 4, !tbaa !36
-  %46 = sdiv i32 2008, %43
-  %47 = add nsw i32 %46, -1
-  %48 = add nsw i32 %47, %.sink58
-  %49 = sub nsw i32 0, %.sink58
-  %50 = and i32 %48, %49
-  br label %51
+40:                                               ; preds = %30, %.split
+  %41 = shl nsw i32 %12, 2
+  %42 = mul nsw i32 %41, %9
+  %43 = ashr exact i32 %42, 3
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %43, ptr %44, align 4, !tbaa !35
+  br label %45
 
-51:                                               ; preds = %42, %25
-  %.0 = phi i32 [ %29, %25 ], [ %50, %42 ]
+45:                                               ; preds = %40, %38, %34
+  %.sink58 = phi i32 [ 4, %40 ], [ 1, %38 ], [ %37, %34 ]
+  %.sink = phi i32 [ %12, %40 ], [ 2, %38 ], [ 1, %34 ]
+  %46 = phi i32 [ %43, %40 ], [ %9, %38 ], [ %35, %34 ]
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.sink58, ptr %47, align 4, !tbaa !33
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %.sink, ptr %48, align 4, !tbaa !36
+  %49 = sdiv i32 2008, %46
+  %50 = add nsw i32 %49, -1
+  %51 = add nsw i32 %50, %.sink58
+  %52 = sub nsw i32 0, %.sink58
+  %53 = and i32 %51, %52
+  br label %54
+
+54:                                               ; preds = %45, %25
+  %.0 = phi i32 [ %29, %25 ], [ %53, %45 ]
   store i8 12, ptr %3, align 4, !tbaa !37
-  %52 = shl nuw nsw i32 %switch.select56, 6
-  %53 = or disjoint i32 %52, %switch.select
-  %54 = load i32, ptr %11, align 4, !tbaa !30
-  %55 = add i32 %54, 255
-  %56 = or i32 %53, %55
-  %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %57, ptr %58, align 1, !tbaa !37
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 -128, ptr %59, align 2, !tbaa !37
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %61 = load i32, ptr %60, align 8, !tbaa !38
-  %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %62, label %63
+  %55 = shl nuw nsw i32 %switch.select56, 6
+  %56 = or disjoint i32 %55, %switch.select
+  %57 = load i32, ptr %11, align 4, !tbaa !30
+  %58 = add i32 %57, 255
+  %59 = or i32 %56, %58
+  %60 = trunc i32 %59 to i8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 %60, ptr %61, align 1, !tbaa !37
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 -128, ptr %62, align 2, !tbaa !37
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %64 = load i32, ptr %63, align 8, !tbaa !38
+  %.not = icmp eq i32 %64, 0
+  br i1 %.not, label %65, label %66
 
-62:                                               ; preds = %51
-  store i32 %.0, ptr %60, align 8, !tbaa !38
-  br label %63
+65:                                               ; preds = %54
+  store i32 %.0, ptr %63, align 8, !tbaa !38
+  br label %66
 
-63:                                               ; preds = %51, %62, %22
-  %.050 = phi i32 [ -22, %22 ], [ 0, %62 ], [ 0, %51 ]
+66:                                               ; preds = %54, %65, %22
+  %.050 = phi i32 [ -22, %22 ], [ 0, %65 ], [ 0, %54 ]
   ret i32 %.050
 }
 
@@ -460,6 +464,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5

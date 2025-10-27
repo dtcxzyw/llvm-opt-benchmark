@@ -2219,184 +2219,185 @@ define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr nound
   %notmask.i.i = shl nsw i64 -1, %24
   %25 = xor i64 %notmask.i.i, -1
   %26 = select i1 %23, i64 -1, i64 %25
-  %27 = icmp sgt i32 %3, 0
+  %27 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %28 = icmp eq i32 %27, 1
+  %29 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3, i1 true)
+  %30 = icmp sgt i32 %3, 0
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
-  %28 = sext i32 %3 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  br label %30
+  %31 = sext i32 %3 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  br label %33
 
-30:                                               ; preds = %.lr.ph, %79
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %79 ]
-  %.03741 = phi ptr [ %14, %.lr.ph ], [ %68, %79 ]
-  %.03840 = phi ptr [ %21, %.lr.ph ], [ %69, %79 ]
-  %31 = icmp eq i32 %.042, 0
-  br i1 %31, label %32, label %34
+33:                                               ; preds = %.lr.ph, %82
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
+  %.03741 = phi ptr [ %14, %.lr.ph ], [ %71, %82 ]
+  %.03840 = phi ptr [ %21, %.lr.ph ], [ %72, %82 ]
+  %34 = icmp eq i32 %.042, 0
+  br i1 %34, label %35, label %37
 
-32:                                               ; preds = %30
-  %33 = ptrtoint ptr %.03840 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20, i64 noundef %33) #28
-  br label %34
+35:                                               ; preds = %33
+  %36 = ptrtoint ptr %.03840 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20, i64 noundef %36) #28
+  br label %37
 
-34:                                               ; preds = %32, %30
-  %35 = ptrtoint ptr %.03741 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = call noundef i64 @SafeFetchN_impl(ptr noundef %37, i64 noundef 5911) #28
-  %39 = icmp eq i64 %38, 5911
-  br i1 %39, label %40, label %43
+37:                                               ; preds = %35, %33
+  %38 = ptrtoint ptr %.03741 to i64
+  %39 = and i64 %38, -8
+  %40 = inttoptr i64 %39 to ptr
+  %41 = call noundef i64 @SafeFetchN_impl(ptr noundef %40, i64 noundef 5911) #28
+  %42 = icmp eq i64 %41, 5911
+  br i1 %42, label %43, label %46
 
-40:                                               ; preds = %34
-  %41 = call noundef i64 @SafeFetchN_impl(ptr noundef %37, i64 noundef -5912) #28
-  %42 = icmp eq i64 %41, -5912
-  br i1 %42, label %_ZL16read_safely_fromPKmPm.exit.i, label %43
+43:                                               ; preds = %37
+  %44 = call noundef i64 @SafeFetchN_impl(ptr noundef %40, i64 noundef -5912) #28
+  %45 = icmp eq i64 %44, -5912
+  br i1 %45, label %_ZL16read_safely_fromPKmPm.exit.i, label %46
 
-43:                                               ; preds = %40, %34
-  %.0.ph.i = phi i64 [ %38, %34 ], [ %41, %40 ]
-  %44 = shl i64 %35, 3
-  %45 = and i64 %44, 56
-  %46 = ashr i64 %.0.ph.i, %45
-  %47 = and i64 %46, %26
-  switch i32 %3, label %57 [
-    i32 1, label %48
-    i32 2, label %51
-    i32 4, label %54
-    i32 8, label %56
+46:                                               ; preds = %43, %37
+  %.0.ph.i = phi i64 [ %41, %37 ], [ %44, %43 ]
+  %47 = shl i64 %38, 3
+  %48 = and i64 %47, 56
+  %49 = ashr i64 %.0.ph.i, %48
+  %50 = and i64 %49, %26
+  br i1 %28, label %.split.i, label %60
+
+.split.i:                                         ; preds = %46
+  switch i32 %29, label %60 [
+    i32 0, label %51
+    i32 1, label %54
+    i32 2, label %57
+    i32 3, label %59
   ]
 
-48:                                               ; preds = %43
-  %49 = trunc i64 %47 to i32
-  %50 = and i32 %49, 255
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.104, i32 noundef %50) #28
-  br label %.thread.i
+51:                                               ; preds = %.split.i
+  %52 = trunc i64 %50 to i32
+  %53 = and i32 %52, 255
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.104, i32 noundef %53) #28
+  br label %60
 
-51:                                               ; preds = %43
-  %52 = trunc i64 %47 to i32
-  %53 = and i32 %52, 65535
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.105, i32 noundef %53) #28
-  br label %.thread.i
+54:                                               ; preds = %.split.i
+  %55 = trunc i64 %50 to i32
+  %56 = and i32 %55, 65535
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.105, i32 noundef %56) #28
+  br label %60
 
-54:                                               ; preds = %43
-  %55 = trunc i64 %47 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.106, i32 noundef %55) #28
-  br label %.thread.i
+57:                                               ; preds = %.split.i
+  %58 = trunc i64 %50 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.106, i32 noundef %58) #28
+  br label %60
 
-56:                                               ; preds = %43
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.107, i64 noundef %47) #28
-  br label %.thread.i
+59:                                               ; preds = %.split.i
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.107, i64 noundef %50) #28
+  br label %60
 
-.thread.i:                                        ; preds = %56, %54, %51, %48
+60:                                               ; preds = %59, %57, %54, %51, %.split.i, %46
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 %47, ptr %8, align 8
-  br label %.lr.ph.i.i.preheader
+  store i64 %50, ptr %8, align 8
+  br i1 %30, label %.lr.ph.i.i, label %_ZL16print_ascii_formR12stringStreammi.exit.i
 
-57:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 %47, ptr %8, align 8
-  br i1 %27, label %.lr.ph.i.i.preheader, label %_ZL16print_ascii_formR12stringStreammi.exit.i
-
-.lr.ph.i.i.preheader:                             ; preds = %57, %.thread.i
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = call i32 @isprint(i32 noundef %60) #29
-  %.not.i.i = icmp ne i32 %61, 0
-  %62 = icmp sgt i8 %59, -1
-  %or.cond.i.i = and i1 %62, %.not.i.i
-  %63 = select i1 %or.cond.i.i, i8 %59, i8 46
-  call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(129) %9, i8 noundef signext %63) #28
+.lr.ph.i.i:                                       ; preds = %60, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %60 ]
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i32
+  %64 = call i32 @isprint(i32 noundef %63) #29
+  %.not.i.i = icmp ne i32 %64, 0
+  %65 = icmp sgt i8 %62, -1
+  %or.cond.i.i = and i1 %65, %.not.i.i
+  %66 = select i1 %or.cond.i.i, i8 %62, i8 46
+  call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(129) %9, i8 noundef signext %66) #28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZL16print_ascii_formR12stringStreammi.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 
-_ZL16print_ascii_formR12stringStreammi.exit.i:    ; preds = %.lr.ph.i.i, %57
+_ZL16print_ascii_formR12stringStreammi.exit.i:    ; preds = %.lr.ph.i.i, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
 
-_ZL16read_safely_fromPKmPm.exit.i:                ; preds = %40
-  switch i32 %3, label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit [
-    i32 1, label %64
-    i32 2, label %65
-    i32 4, label %66
-    i32 8, label %67
+_ZL16read_safely_fromPKmPm.exit.i:                ; preds = %43
+  br i1 %28, label %.split1.i, label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
+
+.split1.i:                                        ; preds = %_ZL16read_safely_fromPKmPm.exit.i
+  switch i32 %29, label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit [
+    i32 0, label %67
+    i32 1, label %68
+    i32 2, label %69
+    i32 3, label %70
   ]
 
-64:                                               ; preds = %_ZL16read_safely_fromPKmPm.exit.i
+67:                                               ; preds = %.split1.i
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.108, i64 noundef 2) #28
   br label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
 
-65:                                               ; preds = %_ZL16read_safely_fromPKmPm.exit.i
+68:                                               ; preds = %.split1.i
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.109, i64 noundef 4) #28
   br label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
 
-66:                                               ; preds = %_ZL16read_safely_fromPKmPm.exit.i
+69:                                               ; preds = %.split1.i
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.110, i64 noundef 8) #28
   br label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
 
-67:                                               ; preds = %_ZL16read_safely_fromPKmPm.exit.i
+70:                                               ; preds = %.split1.i
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.111, i64 noundef 16) #28
   br label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
 
-_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit: ; preds = %_ZL16print_ascii_formR12stringStreammi.exit.i, %_ZL16read_safely_fromPKmPm.exit.i, %64, %65, %66, %67
-  %68 = getelementptr inbounds i8, ptr %.03741, i64 %28
-  %69 = getelementptr inbounds i8, ptr %.03840, i64 %28
-  %70 = add nsw i32 %.042, 1
-  %.not = icmp slt i32 %70, %17
-  br i1 %.not, label %78, label %71
+_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit: ; preds = %_ZL16print_ascii_formR12stringStreammi.exit.i, %_ZL16read_safely_fromPKmPm.exit.i, %.split1.i, %67, %68, %69, %70
+  %71 = getelementptr inbounds i8, ptr %.03741, i64 %31
+  %72 = getelementptr inbounds i8, ptr %.03840, i64 %31
+  %73 = add nsw i32 %.042, 1
+  %.not = icmp slt i32 %73, %17
+  br i1 %.not, label %81, label %74
 
-71:                                               ; preds = %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
-  br i1 %4, label %72, label %77
+74:                                               ; preds = %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
+  br i1 %4, label %75, label %80
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %29, align 8
-  %74 = load i8, ptr %73, align 1
-  %75 = icmp eq i8 %74, 0
-  br i1 %75, label %77, label %76
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %32, align 8
+  %77 = load i8, ptr %76, align 1
+  %78 = icmp eq i8 %77, 0
+  br i1 %78, label %80, label %79
 
-76:                                               ; preds = %72
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %73) #28
-  br label %77
+79:                                               ; preds = %75
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %76) #28
+  br label %80
 
-77:                                               ; preds = %76, %72, %71
+80:                                               ; preds = %79, %75, %74
   call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %9) #28
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
-  br label %79
+  br label %82
 
-78:                                               ; preds = %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
+81:                                               ; preds = %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #28
-  br label %79
+  br label %82
 
-79:                                               ; preds = %78, %77
-  %.1 = phi i32 [ 0, %77 ], [ %70, %78 ]
-  %80 = icmp ult ptr %68, %2
-  br i1 %80, label %30, label %._crit_edge, !llvm.loop !19
+82:                                               ; preds = %81, %80
+  %.1 = phi i32 [ 0, %80 ], [ %73, %81 ]
+  %83 = icmp ult ptr %71, %2
+  br i1 %83, label %33, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %79
-  %81 = icmp sgt i32 %.1, 0
-  br i1 %81, label %82, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %82
+  %84 = icmp sgt i32 %.1, 0
+  br i1 %84, label %85, label %._crit_edge.thread
 
-82:                                               ; preds = %._crit_edge
-  br i1 %4, label %83, label %90
+85:                                               ; preds = %._crit_edge
+  br i1 %4, label %86, label %93
 
-83:                                               ; preds = %82
-  %84 = shl nsw i32 %3, 1
-  %85 = sub nsw i32 %17, %.1
-  %86 = or disjoint i32 %84, 1
-  %87 = mul nsw i32 %85, %86
-  call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %87) #28
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %89 = load ptr, ptr %88, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23, ptr noundef %89) #28
-  br label %90
+86:                                               ; preds = %85
+  %87 = shl nsw i32 %3, 1
+  %88 = sub nsw i32 %17, %.1
+  %89 = or disjoint i32 %87, 1
+  %90 = mul nsw i32 %88, %89
+  call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %90) #28
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %92 = load ptr, ptr %91, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23, ptr noundef %92) #28
+  br label %93
 
-90:                                               ; preds = %83, %82
+93:                                               ; preds = %86, %85
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %7, %90, %._crit_edge
+._crit_edge.thread:                               ; preds = %7, %93, %._crit_edge
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %9) #28
   ret void
 }
@@ -5808,6 +5809,12 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26

@@ -21133,7 +21133,7 @@ define internal fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !tbaa !435
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %50, label %7
+  br i1 %.not, label %54, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21148,76 +21148,83 @@ define internal fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef captures(no
   store i32 %14, ptr %4, align 8, !tbaa !449
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %17 = load i8, ptr %16, align 2, !tbaa !445
-  switch i8 %17, label %50 [
-    i8 1, label %18
-    i8 2, label %22
-    i8 4, label %26
-    i8 8, label %30
-    i8 32, label %32
+  %18 = zext i8 %17 to i32
+  %19 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %18)
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %.split, label %54
+
+.split:                                           ; preds = %7
+  %21 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %18, i1 true)
+  switch i32 %21, label %54 [
+    i32 0, label %22
+    i32 1, label %26
+    i32 2, label %30
+    i32 3, label %34
+    i32 5, label %36
   ]
 
-18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 1, ptr %19, align 2, !tbaa !465
-  %20 = add nuw nsw i32 %12, 7
-  %21 = lshr i32 %20, 3
-  br label %35
-
-22:                                               ; preds = %7
+22:                                               ; preds = %.split
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 3, ptr %23, align 2, !tbaa !465
-  %24 = add nuw nsw i32 %12, 3
-  %25 = lshr i32 %24, 2
-  br label %35
+  store i8 1, ptr %23, align 2, !tbaa !465
+  %24 = add nuw nsw i32 %12, 7
+  %25 = lshr i32 %24, 3
+  br label %39
 
-26:                                               ; preds = %7
+26:                                               ; preds = %.split
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 4, ptr %27, align 2, !tbaa !465
-  %28 = add nuw nsw i32 %12, 1
-  %29 = lshr i32 %28, 1
-  br label %35
+  store i8 3, ptr %27, align 2, !tbaa !465
+  %28 = add nuw nsw i32 %12, 3
+  %29 = lshr i32 %28, 2
+  br label %39
 
-30:                                               ; preds = %7
+30:                                               ; preds = %.split
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 2, ptr %31, align 2, !tbaa !465
-  br label %35
+  store i8 4, ptr %31, align 2, !tbaa !465
+  %32 = add nuw nsw i32 %12, 1
+  %33 = lshr i32 %32, 1
+  br label %39
 
-32:                                               ; preds = %7
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 7, ptr %33, align 2, !tbaa !465
-  %34 = shl nuw nsw i32 %12, 2
-  br label %35
+34:                                               ; preds = %.split
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  store i8 2, ptr %35, align 2, !tbaa !465
+  br label %39
 
-35:                                               ; preds = %32, %30, %26, %22, %18
-  %.sink44 = phi i32 [ %34, %32 ], [ %12, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ]
-  %.sink = phi i16 [ 256, %32 ], [ 256, %30 ], [ 16, %26 ], [ 4, %22 ], [ 2, %18 ]
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink44, ptr %36, align 8, !tbaa !473
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %.sink, ptr %37, align 8, !tbaa !474
-  %38 = zext i16 %13 to i64
-  %39 = zext nneg i32 %.sink44 to i64
-  %40 = mul nuw nsw i64 %39, %38
-  %41 = icmp eq i64 %40, 0
-  %42 = icmp ne i8 %1, 0
-  %or.cond = or i1 %42, %41
-  br i1 %or.cond, label %50, label %43
+36:                                               ; preds = %.split
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  store i8 7, ptr %37, align 2, !tbaa !465
+  %38 = shl nuw nsw i32 %12, 2
+  br label %39
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %0, align 8, !tbaa !426
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 152
-  %46 = load ptr, ptr %45, align 8, !tbaa !432
-  %47 = tail call i32 @ft_glyphslot_alloc_bitmap(ptr noundef %46, i64 noundef %40) #27
-  %.not40 = icmp eq i32 %47, 0
-  br i1 %.not40, label %48, label %50
+39:                                               ; preds = %36, %34, %30, %26, %22
+  %.sink44 = phi i32 [ %38, %36 ], [ %12, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ]
+  %.sink = phi i16 [ 256, %36 ], [ 256, %34 ], [ 16, %30 ], [ 4, %26 ], [ 2, %22 ]
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %.sink44, ptr %40, align 8, !tbaa !473
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i16 %.sink, ptr %41, align 8, !tbaa !474
+  %42 = zext i16 %13 to i64
+  %43 = zext nneg i32 %.sink44 to i64
+  %44 = mul nuw nsw i64 %43, %42
+  %45 = icmp eq i64 %44, 0
+  %46 = icmp ne i8 %1, 0
+  %or.cond = or i1 %46, %45
+  br i1 %or.cond, label %54, label %47
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %49, align 1, !tbaa !436
-  br label %50
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %0, align 8, !tbaa !426
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 152
+  %50 = load ptr, ptr %49, align 8, !tbaa !432
+  %51 = tail call i32 @ft_glyphslot_alloc_bitmap(ptr noundef %50, i64 noundef %44) #27
+  %.not40 = icmp eq i32 %51, 0
+  br i1 %.not40, label %52, label %54
 
-50:                                               ; preds = %7, %2, %43, %35, %48
-  %.0 = phi i32 [ 0, %35 ], [ %47, %43 ], [ 0, %48 ], [ 6, %2 ], [ 3, %7 ]
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %53, align 1, !tbaa !436
+  br label %54
+
+54:                                               ; preds = %.split, %7, %2, %47, %39, %52
+  %.0 = phi i32 [ 0, %39 ], [ %51, %47 ], [ 0, %52 ], [ 6, %2 ], [ 3, %7 ], [ 3, %.split ]
   ret i32 %.0
 }
 
@@ -26447,6 +26454,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #25

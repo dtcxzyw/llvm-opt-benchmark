@@ -3669,7 +3669,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
   %8 = add i32 %1, -1
-  br i1 %.not.i, label %9, label %47
+  br i1 %.not.i, label %9, label %50
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3677,7 +3677,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %12 = getelementptr inbounds %struct.CompactAttribute, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %45
+  br i1 %14, label %15, label %48
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -3691,73 +3691,79 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %26 = load i16, ptr %25, align 4
-  br i1 %24, label %27, label %43
+  %27 = sext i16 %26 to i32
+  br i1 %24, label %28, label %46
 
-27:                                               ; preds = %15
-  switch i16 %26, label %39 [
-    i16 1, label %28
-    i16 2, label %31
-    i16 4, label %34
-    i16 8, label %37
+28:                                               ; preds = %15
+  %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %27)
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %.split.i, label %43
+
+.split.i:                                         ; preds = %28
+  %31 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %27, i1 true)
+  switch i32 %31, label %43 [
+    i32 0, label %32
+    i32 1, label %35
+    i32 2, label %38
+    i32 3, label %41
   ]
 
-28:                                               ; preds = %27
-  %29 = load i8, ptr %21, align 1
-  %30 = sext i8 %29 to i64
+32:                                               ; preds = %.split.i
+  %33 = load i8, ptr %21, align 1
+  %34 = sext i8 %33 to i64
   br label %fetch_att.exit
 
-31:                                               ; preds = %27
-  %32 = load i16, ptr %21, align 2
-  %33 = sext i16 %32 to i64
+35:                                               ; preds = %.split.i
+  %36 = load i16, ptr %21, align 2
+  %37 = sext i16 %36 to i64
   br label %fetch_att.exit
 
-34:                                               ; preds = %27
-  %35 = load i32, ptr %21, align 4
-  %36 = sext i32 %35 to i64
+38:                                               ; preds = %.split.i
+  %39 = load i32, ptr %21, align 4
+  %40 = sext i32 %39 to i64
   br label %fetch_att.exit
 
-37:                                               ; preds = %27
-  %38 = load i64, ptr %21, align 8
+41:                                               ; preds = %.split.i
+  %42 = load i64, ptr %21, align 8
   br label %fetch_att.exit
 
-39:                                               ; preds = %27
-  %40 = sext i16 %26 to i32
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %40) #13
+43:                                               ; preds = %.split.i, %28
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %27) #13
   tail call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #13
   unreachable
 
-43:                                               ; preds = %15
-  %44 = ptrtoint ptr %21 to i64
+46:                                               ; preds = %15
+  %47 = ptrtoint ptr %21 to i64
   br label %fetch_att.exit
 
-45:                                               ; preds = %9
-  %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
+48:                                               ; preds = %9
+  %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
   br label %fetch_att.exit
 
-47:                                               ; preds = %4
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %49 = ashr i32 %8, 3
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = and i32 %8, 7
-  %55 = shl nuw nsw i32 1, %54
-  %56 = and i32 %55, %53
-  %.not.i20 = icmp eq i32 %56, 0
-  br i1 %.not.i20, label %57, label %58
+50:                                               ; preds = %4
+  %51 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %52 = ashr i32 %8, 3
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %51, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = and i32 %8, 7
+  %58 = shl nuw nsw i32 1, %57
+  %59 = and i32 %58, %56
+  %.not.i20 = icmp eq i32 %59, 0
+  br i1 %.not.i20, label %60, label %61
 
-57:                                               ; preds = %47
+60:                                               ; preds = %50
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-58:                                               ; preds = %47
-  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+61:                                               ; preds = %50
+  %62 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
+fetch_att.exit:                                   ; preds = %46, %41, %38, %35, %32, %48, %61, %60
+  %.1 = phi i64 [ 0, %60 ], [ %62, %61 ], [ %49, %48 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %42, %41 ], [ %47, %46 ]
   ret i64 %.1
 }
 
@@ -3780,6 +3786,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12

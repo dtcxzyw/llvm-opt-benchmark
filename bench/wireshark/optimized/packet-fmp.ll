@@ -403,6 +403,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.294 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @dissect_fmp_capabilities.capabilities = internal constant [4 x ptr] [ptr @hf_fmp_cap_revoke_handle_list, ptr @hf_fmp_cap_unc_names, ptr @hf_fmp_cap_cifsv2, ptr null], align 16
 @.str.295 = private unnamed_addr constant [12 x i8] c"Attribute: \00", align 1
+@switch.table.dissect_fmp_flushCmd = private unnamed_addr constant [6 x ptr] [ptr @.str.285, ptr @.str.286, ptr @.str.287, ptr @.str.288, ptr @.str.289, ptr @.str.290], align 8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_fmp() local_unnamed_addr #0 {
@@ -556,110 +557,116 @@ dissect_fmp_status.exit:                          ; preds = %4
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
   %16 = load i32, ptr @hf_fmp_volume_mgmt_type, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  switch i32 %15, label %dissect_fmp_vmInfo.exit [
-    i32 1, label %18
-    i32 2, label %31
-    i32 4, label %34
-    i32 8, label %37
-    i32 16, label %49
-    i32 64, label %71
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %.split.i, label %dissect_fmp_vmInfo.exit
+
+.split.i:                                         ; preds = %8
+  %20 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %15, i1 true)
+  switch i32 %20, label %dissect_fmp_vmInfo.exit [
+    i32 0, label %21
+    i32 1, label %34
+    i32 2, label %37
+    i32 3, label %40
+    i32 4, label %52
+    i32 6, label %74
   ]
 
-18:                                               ; preds = %8
-  %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
+21:                                               ; preds = %.split.i
+  %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
   %.0393.i = add i32 %14, 4
-  %.not4.i = icmp eq i32 %19, 0
+  %.not4.i = icmp eq i32 %22, 0
   br i1 %.not4.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.i
-  %.0397.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.0393.i, %18 ]
-  %.06.i = phi i32 [ %30, %.lr.ph.i ], [ %19, %18 ]
-  %.039.in5.i = phi i32 [ %27, %.lr.ph.i ], [ %14, %18 ]
-  %20 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.0397.i, i32 noundef 4, i32 noundef 0)
-  %22 = add i32 %.039.in5.i, 8
-  %23 = load i32, ptr @hf_fmp_sigoffset, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0)
-  %25 = add i32 %.039.in5.i, 12
-  %26 = load i32, ptr @hf_fmp_devSignature, align 4
-  %27 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %26, i32 noundef %25, ptr noundef null)
-  %28 = load i32, ptr @hf_fmp_volindex, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0)
-  %30 = add i32 %.06.i, -1
-  %.039.i = add i32 %27, 4
-  %.not.i = icmp eq i32 %30, 0
+.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
+  %.0397.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.0393.i, %21 ]
+  %.06.i = phi i32 [ %33, %.lr.ph.i ], [ %22, %21 ]
+  %.039.in5.i = phi i32 [ %30, %.lr.ph.i ], [ %14, %21 ]
+  %23 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.0397.i, i32 noundef 4, i32 noundef 0)
+  %25 = add i32 %.039.in5.i, 8
+  %26 = load i32, ptr @hf_fmp_sigoffset, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0)
+  %28 = add i32 %.039.in5.i, 12
+  %29 = load i32, ptr @hf_fmp_devSignature, align 4
+  %30 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef %28, ptr noundef null)
+  %31 = load i32, ptr @hf_fmp_volindex, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0)
+  %33 = add i32 %.06.i, -1
+  %.039.i = add i32 %30, 4
+  %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph.i, !llvm.loop !6
 
-31:                                               ; preds = %8
-  %32 = load i32, ptr @hf_fmp_volHandle, align 4
-  %33 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %32, i32 noundef %14, ptr noundef null)
-  br label %dissect_fmp_vmInfo.exit
-
-34:                                               ; preds = %8
+34:                                               ; preds = %.split.i
   %35 = load i32, ptr @hf_fmp_volHandle, align 4
   %36 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %35, i32 noundef %14, ptr noundef null)
   br label %dissect_fmp_vmInfo.exit
 
-37:                                               ; preds = %8
-  %38 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %40 = add i32 %14, 4
-  %41 = load i32, ptr @hf_fmp_sigoffset, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0)
-  %43 = add i32 %14, 8
-  %44 = load i32, ptr @hf_fmp_devSignature, align 4
-  %45 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %44, i32 noundef %43, ptr noundef null)
-  %46 = load i32, ptr @hf_fmp_blockindex, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0)
-  %48 = add i32 %45, 4
+37:                                               ; preds = %.split.i
+  %38 = load i32, ptr @hf_fmp_volHandle, align 4
+  %39 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %38, i32 noundef %14, ptr noundef null)
   br label %dissect_fmp_vmInfo.exit
 
-49:                                               ; preds = %8
-  %50 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
-  %51 = load i32, ptr @hf_fmp_number_of_disk, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %53 = add i32 %14, 4
-  %54 = icmp sgt i32 %50, 0
-  br i1 %54, label %.lr.ph38.i.i, label %dissect_fmp_vmInfo.exit
+40:                                               ; preds = %.split.i
+  %41 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
+  %43 = add i32 %14, 4
+  %44 = load i32, ptr @hf_fmp_sigoffset, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef 0)
+  %46 = add i32 %14, 8
+  %47 = load i32, ptr @hf_fmp_devSignature, align 4
+  %48 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %47, i32 noundef %46, ptr noundef null)
+  %49 = load i32, ptr @hf_fmp_blockindex, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0)
+  %51 = add i32 %48, 4
+  br label %dissect_fmp_vmInfo.exit
 
-.lr.ph38.i.i:                                     ; preds = %49, %._crit_edge.i.i
-  %.03136.i.i = phi i32 [ %70, %._crit_edge.i.i ], [ 0, %49 ]
-  %.03235.i.i = phi i32 [ %69, %._crit_edge.i.i ], [ %53, %49 ]
-  %55 = load i32, ptr @hf_fmp_sig_offset, align 4
-  %56 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %55, i32 noundef %.03235.i.i)
-  %57 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %56)
-  %58 = load i32, ptr @hf_fmp_length_of_list, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0)
-  %60 = add i32 %56, 4
-  %61 = icmp sgt i32 %57, 0
-  br i1 %61, label %.lr.ph.i.i, label %._crit_edge.i.i
+52:                                               ; preds = %.split.i
+  %53 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
+  %54 = load i32, ptr @hf_fmp_number_of_disk, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
+  %56 = add i32 %14, 4
+  %57 = icmp sgt i32 %53, 0
+  br i1 %57, label %.lr.ph38.i.i, label %dissect_fmp_vmInfo.exit
+
+.lr.ph38.i.i:                                     ; preds = %52, %._crit_edge.i.i
+  %.03136.i.i = phi i32 [ %73, %._crit_edge.i.i ], [ 0, %52 ]
+  %.03235.i.i = phi i32 [ %72, %._crit_edge.i.i ], [ %56, %52 ]
+  %58 = load i32, ptr @hf_fmp_sig_offset, align 4
+  %59 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %58, i32 noundef %.03235.i.i)
+  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %59)
+  %61 = load i32, ptr @hf_fmp_length_of_list, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0)
+  %63 = add i32 %59, 4
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph38.i.i, %.lr.ph.i.i
-  %.034.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ 0, %.lr.ph38.i.i ]
-  %.133.i.i = phi i32 [ %66, %.lr.ph.i.i ], [ %60, %.lr.ph38.i.i ]
-  %62 = load i32, ptr @hf_fmp_sigoffset, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %.133.i.i, i32 noundef 4, i32 noundef 0)
-  %64 = add i32 %.133.i.i, 4
-  %65 = load i32, ptr @hf_fmp_dskSigEnt_val, align 4
-  %66 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %65, i32 noundef %64, ptr noundef null)
-  %67 = add nuw nsw i32 %.034.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %67, %57
+  %.034.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 0, %.lr.ph38.i.i ]
+  %.133.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %63, %.lr.ph38.i.i ]
+  %65 = load i32, ptr @hf_fmp_sigoffset, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.133.i.i, i32 noundef 4, i32 noundef 0)
+  %67 = add i32 %.133.i.i, 4
+  %68 = load i32, ptr @hf_fmp_dskSigEnt_val, align 4
+  %69 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %68, i32 noundef %67, ptr noundef null)
+  %70 = add nuw nsw i32 %.034.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %70, %60
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph38.i.i
-  %.1.lcssa.i.i = phi i32 [ %60, %.lr.ph38.i.i ], [ %66, %.lr.ph.i.i ]
-  %68 = load i32, ptr @hf_fmp_volID, align 4
-  %69 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %68, i32 noundef %.1.lcssa.i.i)
-  %70 = add nuw nsw i32 %.03136.i.i, 1
-  %exitcond42.not.i.i = icmp eq i32 %70, %50
+  %.1.lcssa.i.i = phi i32 [ %63, %.lr.ph38.i.i ], [ %69, %.lr.ph.i.i ]
+  %71 = load i32, ptr @hf_fmp_volID, align 4
+  %72 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %71, i32 noundef %.1.lcssa.i.i)
+  %73 = add nuw nsw i32 %.03136.i.i, 1
+  %exitcond42.not.i.i = icmp eq i32 %73, %53
   br i1 %exitcond42.not.i.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph38.i.i, !llvm.loop !9
 
-71:                                               ; preds = %8
-  %72 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %14, ptr noundef %2)
+74:                                               ; preds = %.split.i
+  %75 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %14, ptr noundef %2)
   br label %dissect_fmp_vmInfo.exit
 
-dissect_fmp_vmInfo.exit:                          ; preds = %._crit_edge.i.i, %.lr.ph.i, %71, %49, %37, %34, %31, %18, %8, %dissect_fmp_status.exit
-  %.0 = phi i32 [ %7, %dissect_fmp_status.exit ], [ %14, %8 ], [ %33, %31 ], [ %36, %34 ], [ %48, %37 ], [ %14, %71 ], [ %53, %49 ], [ %.0393.i, %18 ], [ %.039.i, %.lr.ph.i ], [ %69, %._crit_edge.i.i ]
+dissect_fmp_vmInfo.exit:                          ; preds = %._crit_edge.i.i, %.lr.ph.i, %74, %52, %40, %37, %34, %21, %.split.i, %8, %dissect_fmp_status.exit
+  %.0 = phi i32 [ %7, %dissect_fmp_status.exit ], [ %14, %.split.i ], [ %36, %34 ], [ %39, %37 ], [ %51, %40 ], [ %14, %74 ], [ %14, %8 ], [ %56, %52 ], [ %.0393.i, %21 ], [ %.039.i, %.lr.ph.i ], [ %72, %._crit_edge.i.i ]
   ret i32 %.0
 }
 
@@ -2041,7 +2048,7 @@ define internal fastcc noundef i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 nou
   %4 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %30, label %5
+  br i1 %.not, label %25, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1)
@@ -2049,81 +2056,63 @@ define internal fastcc noundef i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 nou
   %.not26 = icmp eq i32 %6, 0
   br i1 %.not26, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %22
-  %.025 = phi i32 [ %23, %22 ], [ 0, %5 ]
-  %.01824 = phi i32 [ %.1, %22 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %17
+  %.025 = phi i32 [ %18, %17 ], [ 0, %5 ]
+  %.01824 = phi i32 [ %.1, %17 ], [ %6, %5 ]
   %7 = shl nuw i32 1, %.025
   %8 = and i32 %7, %.01824
   %.not22 = icmp eq i32 %8, 0
-  br i1 %.not22, label %22, label %9
+  br i1 %.not22, label %17, label %.split
 
-9:                                                ; preds = %.lr.ph
-  switch i32 %7, label %15 [
-    i32 1, label %16
-    i32 2, label %10
-    i32 4, label %11
-    i32 8, label %12
-    i32 16, label %13
-    i32 32, label %14
-  ]
+.split:                                           ; preds = %.lr.ph
+  %9 = icmp samesign ult i32 %.025, 6
+  br i1 %9, label %switch.lookup, label %11
 
-10:                                               ; preds = %9
-  br label %16
+switch.lookup:                                    ; preds = %.split
+  %10 = zext nneg i32 %.025 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_fmp_flushCmd, i64 %10
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %11
 
-11:                                               ; preds = %9
-  br label %16
+11:                                               ; preds = %.split, %switch.lookup
+  %.str.291.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.291, %.split ]
+  %12 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull %.str.291.sink, i64 noundef 256)
+  %13 = xor i32 %7, -1
+  %14 = and i32 %.01824, %13
+  %.not23 = icmp eq i32 %14, 0
+  br i1 %.not23, label %._crit_edge, label %15
 
-12:                                               ; preds = %9
-  br label %16
+15:                                               ; preds = %11
+  %16 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.292, i64 noundef 256)
+  br label %17
 
-13:                                               ; preds = %9
-  br label %16
+17:                                               ; preds = %.lr.ph, %15
+  %.1 = phi i32 [ %14, %15 ], [ %.01824, %.lr.ph ]
+  %18 = add nuw nsw i32 %.025, 1
+  %19 = icmp samesign ult i32 %.025, 31
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-14:                                               ; preds = %9
-  br label %16
-
-15:                                               ; preds = %9
-  br label %16
-
-16:                                               ; preds = %9, %15, %14, %13, %12, %11, %10
-  %.str.291.sink = phi ptr [ @.str.291, %15 ], [ @.str.290, %14 ], [ @.str.289, %13 ], [ @.str.288, %12 ], [ @.str.287, %11 ], [ @.str.286, %10 ], [ @.str.285, %9 ]
-  %17 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull %.str.291.sink, i64 noundef 256)
-  %18 = xor i32 %7, -1
-  %19 = and i32 %.01824, %18
-  %.not23 = icmp eq i32 %19, 0
-  br i1 %.not23, label %._crit_edge, label %20
-
-20:                                               ; preds = %16
-  %21 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.292, i64 noundef 256)
-  br label %22
-
-22:                                               ; preds = %.lr.ph, %20
-  %.1 = phi i32 [ %19, %20 ], [ %.01824, %.lr.ph ]
-  %23 = add nuw nsw i32 %.025, 1
-  %24 = icmp samesign ult i32 %.025, 31
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
-
-._crit_edge:                                      ; preds = %16, %22
-  %.131 = phi i32 [ %.1, %22 ], [ 0, %16 ]
+._crit_edge:                                      ; preds = %11, %17
+  %.131 = phi i32 [ %.1, %17 ], [ 0, %11 ]
   %char0.pre = load i8, ptr %4, align 16
-  %25 = icmp eq i8 %char0.pre, 0
-  br i1 %25, label %._crit_edge.thread, label %27
+  %20 = icmp eq i8 %char0.pre, 0
+  br i1 %20, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
   %.018.lcssa35 = phi i32 [ %.131, %._crit_edge ], [ 0, %5 ]
-  %26 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.293, i64 noundef 256)
-  br label %27
+  %21 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.293, i64 noundef 256)
+  br label %22
 
-27:                                               ; preds = %._crit_edge.thread, %._crit_edge
+22:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.018.lcssa34 = phi i32 [ %.018.lcssa35, %._crit_edge.thread ], [ %.131, %._crit_edge ]
-  %28 = load i32, ptr @hf_fmp_cmd, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %2, i32 noundef %28, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %.018.lcssa34, ptr noundef nonnull @.str.294, ptr noundef nonnull %4)
-  br label %30
+  %23 = load i32, ptr @hf_fmp_cmd, align 4
+  %24 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %2, i32 noundef %23, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %.018.lcssa34, ptr noundef nonnull @.str.294, ptr noundef nonnull %4)
+  br label %25
 
-30:                                               ; preds = %27, %3
-  %31 = add i32 %1, 4
+25:                                               ; preds = %22, %3
+  %26 = add i32 %1, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %31
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2211,9 +2200,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

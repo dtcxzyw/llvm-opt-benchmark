@@ -243,7 +243,6 @@ $_ZTV11LIR_Address = comdat any
 @_ZTV11LIR_Address = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN10LIR_OprPtr11as_constantEv, ptr @_ZN11LIR_Address10as_addressEv, ptr @_ZNK11LIR_Address4typeEv, ptr @_ZNK11LIR_Address14print_value_onEP12outputStream] }, comdat, align 8
 @_ZTV14DeoptimizeStub = external unnamed_addr constant { [8 x ptr] }, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN11LIR_Address5scaleE9BasicType = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 3], align 4
 @switch.table._ZN12LIR_OpBranch11negate_condEv = private unnamed_addr constant [6 x i32] [i32 1, i32 0, i32 4, i32 5, i32 2, i32 3], align 4
 
 @_ZN12LIR_OpBranchC1E13LIR_ConditionP10BlockBegin = hidden unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN12LIR_OpBranchC2E13LIR_ConditionP10BlockBegin
@@ -757,25 +756,23 @@ define hidden noundef range(i32 0, 4) i32 @_ZN11LIR_Address5scaleE9BasicType(i8 
   %2 = zext i8 %0 to i64
   %3 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %2
   %4 = load i32, ptr %3, align 4
-  %switch.tableidx = add i32 %4, -1
-  %5 = icmp ult i32 %switch.tableidx, 8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %6
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %8
 
-6:                                                ; preds = %1
-  %7 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %7, align 1
+.split:                                           ; preds = %1
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4, i1 true)
+  %switch = icmp samesign ult i32 %7, 4
+  br i1 %switch, label %10, label %8
+
+8:                                                ; preds = %.split, %1
+  %9 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %9, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 90) #12
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11LIR_Address5scaleE9BasicType, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  ret i32 %switch.load
+10:                                               ; preds = %.split
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10365,10 +10362,13 @@ _ZN13GrowableArrayIiE10deallocateEPi.exit:        ; preds = %42, %39, %.preheade
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

@@ -144,6 +144,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TopMemoryContext = external local_unnamed_addr global ptr, align 8
 @work_mem = external local_unnamed_addr global i32, align 4
 @__func__.aclmask_direct = private unnamed_addr constant [15 x i8] c"aclmask_direct\00", align 1
+@switch.table.aclexplode = private unnamed_addr constant [15 x ptr] [ptr @.str.10, ptr @.str.9, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_empty_acl() local_unnamed_addr #0 {
@@ -3027,126 +3028,71 @@ define dso_local i64 @aclexplode(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not58, label %43, label %65
 
 65:                                               ; preds = %54
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = zext i32 %68 to i64
-  store i64 %69, ptr %2, align 16
-  %70 = load i32, ptr %58, align 8
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %71, ptr %72, align 8
-  %73 = trunc i64 %60 to i32
-  switch i32 %73, label %88 [
-    i32 1, label %.thread
-    i32 2, label %74
-    i32 4, label %75
-    i32 8, label %76
-    i32 16, label %77
-    i32 32, label %78
-    i32 64, label %79
-    i32 128, label %80
-    i32 256, label %81
-    i32 512, label %82
-    i32 1024, label %83
-    i32 2048, label %84
-    i32 4096, label %85
-    i32 8192, label %86
-    i32 16384, label %87
-  ]
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = zext i32 %67 to i64
+  store i64 %68, ptr %2, align 16
+  %69 = load i32, ptr %58, align 8
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %70, ptr %71, align 8
+  %72 = icmp ult i32 %55, 15
+  br i1 %72, label %switch.lookup, label %73
 
-74:                                               ; preds = %65
-  br label %.thread
-
-75:                                               ; preds = %65
-  br label %.thread
-
-76:                                               ; preds = %65
-  br label %.thread
-
-77:                                               ; preds = %65
-  br label %.thread
-
-78:                                               ; preds = %65
-  br label %.thread
-
-79:                                               ; preds = %65
-  br label %.thread
-
-80:                                               ; preds = %65
-  br label %.thread
-
-81:                                               ; preds = %65
-  br label %.thread
-
-82:                                               ; preds = %65
-  br label %.thread
-
-83:                                               ; preds = %65
-  br label %.thread
-
-84:                                               ; preds = %65
-  br label %.thread
-
-85:                                               ; preds = %65
-  br label %.thread
-
-86:                                               ; preds = %65
-  br label %.thread
-
-87:                                               ; preds = %65
-  br label %.thread
-
-88:                                               ; preds = %65
-  %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %90 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %73) #13
+73:                                               ; preds = %65
+  %74 = trunc i64 %60 to i32
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %76 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %74) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1753, ptr noundef nonnull @__func__.convert_aclright_to_string) #13
   unreachable
 
-.thread:                                          ; preds = %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %65
-  %.0.i = phi ptr [ @.str.9, %74 ], [ @.str.11, %75 ], [ @.str.12, %76 ], [ @.str.13, %77 ], [ @.str.14, %78 ], [ @.str.15, %79 ], [ @.str.16, %80 ], [ @.str.17, %81 ], [ @.str.18, %82 ], [ @.str.20, %83 ], [ @.str.21, %84 ], [ @.str.22, %85 ], [ @.str.23, %86 ], [ @.str.24, %87 ], [ @.str.10, %65 ]
-  %91 = tail call ptr @cstring_to_text(ptr noundef nonnull %.0.i) #13
-  %92 = ptrtoint ptr %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %92, ptr %93, align 16
-  %94 = load i64, ptr %66, align 8
-  %95 = lshr i64 %94, 32
-  %96 = lshr i64 %95, %59
-  %97 = and i64 %96, 1
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %97, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = call ptr @heap_form_tuple(ptr noundef %100, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
-  %102 = getelementptr i8, ptr %101, i64 16
-  %.val = load ptr, ptr %102, align 8
-  %103 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
-  %104 = load i64, ptr %24, align 8
-  %105 = add i64 %104, 1
-  store i64 %105, ptr %24, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  store i32 1, ptr %108, align 8
+switch.lookup:                                    ; preds = %65
+  %77 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %78 = zext nneg i32 %55 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.aclexplode, i64 %78
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %79 = tail call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #13
+  %80 = ptrtoint ptr %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %80, ptr %81, align 16
+  %82 = load i64, ptr %77, align 8
+  %83 = lshr i64 %82, 32
+  %84 = lshr i64 %83, %59
+  %85 = and i64 %84, 1
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %85, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %88 = load ptr, ptr %87, align 8
+  %89 = call ptr @heap_form_tuple(ptr noundef %88, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
+  %90 = getelementptr i8, ptr %89, i64 16
+  %.val = load ptr, ptr %90, align 8
+  %91 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
+  %92 = load i64, ptr %24, align 8
+  %93 = add i64 %92, 1
+  store i64 %93, ptr %24, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  store i32 1, ptr %96, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %113
+  br label %101
 
 .thread61:                                        ; preds = %51, %43
   tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %24) #13
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  store i32 2, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %112, align 4
-  br label %113
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  store i32 2, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %100, align 4
+  br label %101
 
-113:                                              ; preds = %.thread, %.thread61
-  %.3 = phi i64 [ 0, %.thread61 ], [ %103, %.thread ]
+101:                                              ; preds = %switch.lookup, %.thread61
+  %.3 = phi i64 [ 0, %.thread61 ], [ %91, %switch.lookup ]
   ret i64 %.3
 }
 

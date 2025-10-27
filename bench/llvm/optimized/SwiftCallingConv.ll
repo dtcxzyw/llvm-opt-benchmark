@@ -389,7 +389,7 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
 
 41:                                               ; preds = %26, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %54
+  br label %57
 
 .thread:                                          ; preds = %4
   %42 = icmp ne i32 %9, 12
@@ -397,37 +397,43 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   br i1 %.not27, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread, label %43
 
 43:                                               ; preds = %.thread
-  %44 = lshr i32 %8, 8
-  switch i32 %44, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45 [
-    i32 1, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
-    i32 8, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
-    i32 16, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
-    i32 32, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
-    i32 64, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
-    i32 128, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit
+  %44 = load ptr, ptr %0, align 8, !tbaa !13
+  %45 = lshr i32 %8, 8
+  %46 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %45)
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %.split.i, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45
+
+.split.i:                                         ; preds = %43
+  %48 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %45, i1 true)
+  switch i32 %48, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45 [
+    i32 0, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+    i32 3, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+    i32 4, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+    i32 5, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+    i32 6, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+    i32 7, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit
   ]
 
-_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit: ; preds = %43
-  %45 = load ptr, ptr %0, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 144
-  %47 = load ptr, ptr %46, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 17288
-  %49 = load ptr, ptr %48, align 8, !tbaa !367
-  %50 = load ptr, ptr %49, align 8, !tbaa !701
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(489) %49) #15
-  br i1 %53, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45
+_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit: ; preds = %.split.i
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 144
+  %50 = load ptr, ptr %49, align 8, !tbaa !24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 17288
+  %52 = load ptr, ptr %51, align 8, !tbaa !367
+  %53 = load ptr, ptr %52, align 8, !tbaa !701
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(489) %52) #15
+  br i1 %56, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45
 
-_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45: ; preds = %43, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit
+_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45: ; preds = %.split.i, %43, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit
   tail call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering8addEntryEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef null, i64 %2, i64 %3)
-  br label %54
+  br label %57
 
-_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread: ; preds = %43, %43, %43, %43, %43, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit, %.thread
+_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread: ; preds = %.split.i, %.split.i, %.split.i, %.split.i, %.split.i, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit, %.thread
   tail call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull %1, i64 %2, i64 %3)
-  br label %54
+  br label %57
 
-54:                                               ; preds = %41, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+57:                                               ; preds = %41, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
   ret void
 }
 
@@ -1393,31 +1399,37 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen9swiftcall18isLegalInteger
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 8
-  switch i32 %5, label %15 [
-    i32 1, label %16
-    i32 8, label %16
-    i32 16, label %16
-    i32 32, label %16
-    i32 64, label %16
-    i32 128, label %6
+  %6 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %5)
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %.split, label %18
+
+.split:                                           ; preds = %2
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
+  switch i32 %8, label %18 [
+    i32 0, label %19
+    i32 3, label %19
+    i32 4, label %19
+    i32 5, label %19
+    i32 6, label %19
+    i32 7, label %9
   ]
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %8 = load ptr, ptr %7, align 8, !tbaa !24
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 17288
-  %10 = load ptr, ptr %9, align 8, !tbaa !367
-  %11 = load ptr, ptr %10, align 8, !tbaa !701
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(489) %10) #15
-  br label %16
+9:                                                ; preds = %.split
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 17288
+  %13 = load ptr, ptr %12, align 8, !tbaa !367
+  %14 = load ptr, ptr %13, align 8, !tbaa !701
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(489) %13) #15
+  br label %19
 
-15:                                               ; preds = %2
-  br label %16
+18:                                               ; preds = %2, %.split
+  br label %19
 
-16:                                               ; preds = %2, %2, %2, %2, %2, %15, %6
-  %.0 = phi i1 [ false, %15 ], [ %14, %6 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+19:                                               ; preds = %.split, %.split, %.split, %.split, %.split, %18, %9
+  %.0 = phi i1 [ false, %18 ], [ %17, %9 ], [ true, %.split ], [ true, %.split ], [ true, %.split ], [ true, %.split ], [ true, %.split ]
   ret i1 %.0
 }
 
@@ -4755,6 +4767,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

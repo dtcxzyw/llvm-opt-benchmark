@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [56 x i8] c"Not recognizing known sRGB profile that has been edited\00", align 1
 @.str.77 = private unnamed_addr constant [10 x i8] c"too short\00", align 1
 @.str.78 = private unnamed_addr constant [31 x i8] c"simplified write not supported\00", align 1
-@switch.table.png_build_grayscale_palette = private unnamed_addr constant [8 x i64] [i64 2, i64 4, i64 poison, i64 16, i64 poison, i64 poison, i64 poison, i64 256], align 8
+@switch.table.png_build_grayscale_palette = private unnamed_addr constant [4 x i64] [i64 2, i64 4, i64 16, i64 256], align 8
 @switch.table.png_zstream_error = private unnamed_addr constant [10 x ptr] [ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr @.str.15, ptr @.str.14, ptr @.str.13, ptr @.str.10, ptr @.str.11, ptr @.str.12], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -1131,43 +1131,41 @@ define hidden noundef nonnull ptr @png_get_header_version(ptr noalias noundef re
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @png_build_grayscale_palette(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %.loopexit, label %4
+  %3 = icmp ne ptr %1, null
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %5 = icmp eq i32 %4, 1
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %.split, label %.loopexit
 
-4:                                                ; preds = %2
-  %switch.tableidx = add i32 %0, -1
-  %5 = icmp ult i32 %switch.tableidx, 8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %.loopexit
+.split:                                           ; preds = %2
+  %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %7 = icmp samesign ult i32 %6, 4
+  br i1 %7, label %switch.lookup, label %.loopexit
 
-switch.lookup:                                    ; preds = %4
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.png_build_grayscale_palette, i64 %6
+switch.lookup:                                    ; preds = %.split
+  %8 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.png_build_grayscale_palette, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %7 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i32 %7 to i64
-  %switch.downshift = lshr i64 72057594323162623, %switch.shiftamt
-  %switch.masked = trunc i64 %switch.downshift to i8
+  %switch.shiftamt = shl nuw nsw i32 %6, 3
+  %switch.downshift = lshr i32 17913343, %switch.shiftamt
+  %switch.masked = trunc i32 %switch.downshift to i8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %switch.lookup, %.lr.ph
   %indvars.iv = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next, %.lr.ph ]
-  %.020 = phi i8 [ 0, %switch.lookup ], [ %11, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv
-  store i8 %.020, ptr %8, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.020 = phi i8 [ 0, %switch.lookup ], [ %12, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv
   store i8 %.020, ptr %9, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %.020, ptr %10, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %.020, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = add i8 %.020, %switch.masked
+  %12 = add i8 %.020, %switch.masked
   %exitcond.not = icmp eq i64 %indvars.iv.next, %switch.load
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.lr.ph, %4, %2
+.loopexit:                                        ; preds = %.lr.ph, %.split, %2
   ret void
 }
 
@@ -3989,19 +3987,19 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
 17:                                               ; preds = %16, %12
   %.3 = phi i32 [ 1, %16 ], [ %.1, %12 ]
   %18 = icmp eq i32 %2, 0
-  br i1 %18, label %.sink.split95, label %19
+  br i1 %18, label %.sink.split96, label %19
 
 19:                                               ; preds = %17
   %20 = icmp slt i32 %2, 0
-  br i1 %20, label %.sink.split95, label %21
+  br i1 %20, label %.sink.split96, label %21
 
-.sink.split95:                                    ; preds = %19, %17
+.sink.split96:                                    ; preds = %19, %17
   %.str.53.sink = phi ptr [ @.str.53, %17 ], [ @.str.54, %19 ]
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %.str.53.sink) #30
   br label %21
 
-21:                                               ; preds = %.sink.split95, %19
-  %.5 = phi i32 [ %.3, %19 ], [ 1, %.sink.split95 ]
+21:                                               ; preds = %.sink.split96, %19
+  %.5 = phi i32 [ %.3, %19 ], [ 1, %.sink.split96 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %23 = load i32, ptr %22, align 8
   %24 = icmp ugt i32 %2, %23
@@ -4013,126 +4011,125 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
 
 26:                                               ; preds = %25, %21
   %.6 = phi i32 [ 1, %25 ], [ %.5, %21 ]
-  switch i32 %3, label %27 [
-    i32 16, label %28
-    i32 8, label %28
-    i32 4, label %28
-    i32 2, label %28
-    i32 1, label %28
-  ]
+  %27 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %28 = icmp eq i32 %27, 1
+  %29 = and i32 %3, 31
+  %switch = icmp ne i32 %29, 0
+  %or.cond81 = and i1 %28, %switch
+  br i1 %or.cond81, label %31, label %30
 
-27:                                               ; preds = %26
+30:                                               ; preds = %26
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.56) #30
-  br label %28
+  br label %31
 
-28:                                               ; preds = %26, %26, %26, %26, %26, %27
-  %.7 = phi i32 [ 1, %27 ], [ %.6, %26 ], [ %.6, %26 ], [ %.6, %26 ], [ %.6, %26 ], [ %.6, %26 ]
-  %29 = and i32 %4, -5
-  %30 = icmp eq i32 %29, 1
-  %31 = icmp ugt i32 %4, 6
-  %or.cond13 = or i1 %31, %30
-  br i1 %or.cond13, label %32, label %33
+31:                                               ; preds = %26, %30
+  %.7 = phi i32 [ 1, %30 ], [ %.6, %26 ]
+  %32 = and i32 %4, -5
+  %33 = icmp eq i32 %32, 1
+  %34 = icmp ugt i32 %4, 6
+  %or.cond13 = or i1 %34, %33
+  br i1 %or.cond13, label %35, label %36
 
-32:                                               ; preds = %28
+35:                                               ; preds = %31
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #30
-  br label %33
+  br label %36
 
-33:                                               ; preds = %28, %32
-  %.8 = phi i32 [ 1, %32 ], [ %.7, %28 ]
-  %34 = icmp eq i32 %4, 3
-  %35 = icmp sgt i32 %3, 8
-  %or.cond15 = and i1 %35, %34
-  br i1 %or.cond15, label %40, label %36
+36:                                               ; preds = %31, %35
+  %.8 = phi i32 [ 1, %35 ], [ %.7, %31 ]
+  %37 = icmp eq i32 %4, 3
+  %38 = icmp sgt i32 %3, 8
+  %or.cond15 = and i1 %38, %37
+  br i1 %or.cond15, label %43, label %39
 
-36:                                               ; preds = %33
-  %37 = icmp eq i32 %4, 4
-  %38 = icmp eq i32 %29, 2
-  %or.cond19 = or i1 %37, %38
-  %39 = icmp slt i32 %3, 8
-  %or.cond21 = and i1 %39, %or.cond19
-  br i1 %or.cond21, label %40, label %41
+39:                                               ; preds = %36
+  %40 = icmp eq i32 %4, 4
+  %41 = icmp eq i32 %32, 2
+  %or.cond19 = or i1 %40, %41
+  %42 = icmp slt i32 %3, 8
+  %or.cond21 = and i1 %42, %or.cond19
+  br i1 %or.cond21, label %43, label %44
 
-40:                                               ; preds = %36, %33
+43:                                               ; preds = %39, %36
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #30
-  br label %41
-
-41:                                               ; preds = %36, %40
-  %.9 = phi i32 [ 1, %40 ], [ %.8, %36 ]
-  %42 = icmp sgt i32 %5, 1
-  br i1 %42, label %43, label %44
-
-43:                                               ; preds = %41
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #30
   br label %44
 
-44:                                               ; preds = %43, %41
-  %.10 = phi i32 [ 1, %43 ], [ %.9, %41 ]
+44:                                               ; preds = %39, %43
+  %.9 = phi i32 [ 1, %43 ], [ %.8, %39 ]
+  %45 = icmp sgt i32 %5, 1
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %44
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #30
+  br label %47
+
+47:                                               ; preds = %46, %44
+  %.10 = phi i32 [ 1, %46 ], [ %.9, %44 ]
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %46, label %45
+  br i1 %.not, label %49, label %48
 
-45:                                               ; preds = %44
+48:                                               ; preds = %47
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #30
-  br label %46
+  br label %49
 
-46:                                               ; preds = %45, %44
-  %.11 = phi i32 [ 1, %45 ], [ %.10, %44 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %48 = load i32, ptr %47, align 4
-  %49 = and i32 %48, 4096
-  %.not77 = icmp eq i32 %49, 0
-  br i1 %.not77, label %54, label %50
+49:                                               ; preds = %48, %47
+  %.11 = phi i32 [ 1, %48 ], [ %.10, %47 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 4096
+  %.not77 = icmp eq i32 %52, 0
+  br i1 %.not77, label %57, label %53
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %52 = load i32, ptr %51, align 8
-  %.not78 = icmp eq i32 %52, 0
-  br i1 %.not78, label %54, label %53
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %55 = load i32, ptr %54, align 8
+  %.not78 = icmp eq i32 %55, 0
+  br i1 %.not78, label %57, label %56
 
-53:                                               ; preds = %50
+56:                                               ; preds = %53
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.61) #30
-  br label %54
+  br label %57
 
-54:                                               ; preds = %53, %50, %46
+57:                                               ; preds = %56, %53, %49
   %.not79 = icmp eq i32 %7, 0
-  br i1 %.not79, label %.thread90, label %55
+  br i1 %.not79, label %.thread91, label %58
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %57 = load i32, ptr %56, align 8
-  %58 = and i32 %57, 4
-  %59 = icmp ne i32 %58, 0
-  %60 = icmp eq i32 %7, 64
-  %or.cond23 = and i1 %60, %59
-  br i1 %or.cond23, label %61, label %65
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %60 = load i32, ptr %59, align 8
+  %61 = and i32 %60, 4
+  %62 = icmp ne i32 %61, 0
+  %63 = icmp eq i32 %7, 64
+  %or.cond23 = and i1 %63, %62
+  br i1 %or.cond23, label %64, label %68
 
-61:                                               ; preds = %55
-  %62 = load i32, ptr %47, align 4
-  %63 = and i32 %62, 4096
-  %64 = icmp eq i32 %63, 0
-  %or.cond25 = icmp eq i32 %29, 2
-  %or.cond = and i1 %or.cond25, %64
-  br i1 %or.cond, label %.thread90, label %65
+64:                                               ; preds = %58
+  %65 = load i32, ptr %50, align 4
+  %66 = and i32 %65, 4096
+  %67 = icmp eq i32 %66, 0
+  %or.cond25 = icmp eq i32 %32, 2
+  %or.cond = and i1 %or.cond25, %67
+  br i1 %or.cond, label %.thread91, label %68
 
-65:                                               ; preds = %55, %61
+68:                                               ; preds = %58, %64
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #30
-  %.pre = load i32, ptr %47, align 4
-  %.pre86 = and i32 %.pre, 4096
-  %66 = icmp eq i32 %.pre86, 0
-  br i1 %66, label %.thread93, label %.thread84
+  %.pre = load i32, ptr %50, align 4
+  %.pre87 = and i32 %.pre, 4096
+  %69 = icmp eq i32 %.pre87, 0
+  br i1 %69, label %.thread94, label %.thread85
 
-.thread84:                                        ; preds = %65
+.thread85:                                        ; preds = %68
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.63) #30
-  br label %.thread93
+  br label %.thread94
 
-.thread90:                                        ; preds = %61, %54
-  %67 = icmp eq i32 %.11, 1
-  br i1 %67, label %.thread93, label %68
+.thread91:                                        ; preds = %64, %57
+  %70 = icmp eq i32 %.11, 1
+  br i1 %70, label %.thread94, label %71
 
-.thread93:                                        ; preds = %65, %.thread84, %.thread90
+.thread94:                                        ; preds = %68, %.thread85, %.thread91
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #28
   unreachable
 
-68:                                               ; preds = %.thread90
+71:                                               ; preds = %.thread91
   ret void
 }
 
@@ -6261,20 +6258,26 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare void @png_destroy_read_struct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #24
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #25
+declare i8 @llvm.umax.i8(i8, i8) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #25
+declare i8 @llvm.umin.i8(i8, i8) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
+declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
@@ -6309,8 +6312,8 @@ attributes #20 = { mustprogress nofree norecurse nounwind willreturn memory(errn
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { noreturn nounwind }

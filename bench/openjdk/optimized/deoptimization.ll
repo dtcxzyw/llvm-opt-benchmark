@@ -3862,15 +3862,15 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
   %12 = icmp eq i8 %4, 10
   br label %13
 
-13:                                               ; preds = %.lr.ph, %206
-  %.075 = phi i32 [ 0, %.lr.ph ], [ %.2, %206 ]
-  %.06774 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %206 ]
+13:                                               ; preds = %.lr.ph, %209
+  %.075 = phi i32 [ 0, %.lr.ph ], [ %.2, %209 ]
+  %.06774 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %209 ]
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(59) %2, i32 noundef %.06774) #22
   %18 = tail call noundef ptr @_ZN10StackValue18create_stack_valueI11RegisterMapEEPS_PK5framePKT_P10ScopeValue(ptr noundef %0, ptr noundef %1, ptr noundef %17) #22
-  switch i8 %4, label %202 [
+  switch i8 %4, label %205 [
     i8 11, label %19
     i8 7, label %19
     i8 10, label %35
@@ -3878,7 +3878,7 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
     i8 9, label %107
     i8 5, label %118
     i8 8, label %.preheader
-    i8 4, label %190
+    i8 4, label %193
   ]
 
 19:                                               ; preds = %13, %13
@@ -3898,7 +3898,7 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
   %33 = sext i32 %.075 to i64
   %34 = getelementptr inbounds i64, ptr %32, i64 %33
   store i64 %27, ptr %34, align 8
-  br label %204
+  br label %207
 
 35:                                               ; preds = %13, %13
   %36 = add nsw i32 %.06774, 1
@@ -3984,7 +3984,7 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
   %96 = sext i32 %90 to i64
   %97 = getelementptr inbounds i32, ptr %95, i64 %96
   store i32 %.sroa.2.0.extract.trunc, ptr %97, align 4
-  br label %204
+  br label %207
 
 .critedge73:                                      ; preds = %71, %57, %35, %54
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -3997,7 +3997,7 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
   %105 = sext i32 %.075 to i64
   %106 = getelementptr inbounds i32, ptr %104, i64 %105
   store i32 %99, ptr %106, align 4
-  br label %204
+  br label %207
 
 107:                                              ; preds = %13
   %108 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -4011,7 +4011,7 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
   %116 = sext i32 %.075 to i64
   %117 = getelementptr inbounds i16, ptr %115, i64 %116
   store i16 %110, ptr %117, align 2
-  br label %204
+  br label %207
 
 118:                                              ; preds = %13
   %119 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -4025,7 +4025,7 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
   %127 = sext i32 %.075 to i64
   %128 = getelementptr inbounds i16, ptr %126, i64 %127
   store i16 %121, ptr %128, align 2
-  br label %204
+  br label %207
 
 .preheader:                                       ; preds = %13, %135
   %.0.i = phi i32 [ %129, %135 ], [ %.06774, %13 ]
@@ -4050,116 +4050,122 @@ define hidden void @_ZN14Deoptimization28reassign_type_array_elementsEP5frameP11
 
 _ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit: ; preds = %.preheader, %135
   %144 = sub nsw i32 %129, %.06774
-  switch i32 %144, label %187 [
-    i32 1, label %145
-    i32 2, label %156
-    i32 4, label %167
-    i32 8, label %177
+  %145 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %144)
+  %146 = icmp eq i32 %145, 1
+  br i1 %146, label %.split.i, label %190
+
+.split.i:                                         ; preds = %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
+  %147 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %144, i1 true)
+  switch i32 %147, label %190 [
+    i32 0, label %148
+    i32 1, label %159
+    i32 2, label %170
+    i32 3, label %180
   ]
 
-145:                                              ; preds = %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
-  %146 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %147 = load i32, ptr %146, align 8
-  %148 = trunc i32 %147 to i8
-  %149 = load i8, ptr @UseCompressedClassPointers, align 1
-  %150 = trunc i8 %149 to i1
-  %151 = select i1 %150, i64 16, i64 20
-  %152 = add nsw i64 %151, %11
-  %153 = inttoptr i64 %152 to ptr
-  %154 = sext i32 %.075 to i64
-  %155 = getelementptr inbounds i8, ptr %153, i64 %154
-  store i8 %148, ptr %155, align 1
+148:                                              ; preds = %.split.i
+  %149 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %150 = load i32, ptr %149, align 8
+  %151 = trunc i32 %150 to i8
+  %152 = load i8, ptr @UseCompressedClassPointers, align 1
+  %153 = trunc i8 %152 to i1
+  %154 = select i1 %153, i64 16, i64 20
+  %155 = add nsw i64 %154, %11
+  %156 = inttoptr i64 %155 to ptr
+  %157 = sext i32 %.075 to i64
+  %158 = getelementptr inbounds i8, ptr %156, i64 %157
+  store i8 %151, ptr %158, align 1
   br label %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit
 
-156:                                              ; preds = %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
-  %157 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %158 = load i32, ptr %157, align 8
-  %159 = trunc i32 %158 to i16
-  %160 = load i8, ptr @UseCompressedClassPointers, align 1
-  %161 = trunc i8 %160 to i1
-  %162 = select i1 %161, i64 16, i64 20
-  %163 = add nsw i64 %162, %11
-  %164 = inttoptr i64 %163 to ptr
-  %165 = sext i32 %.075 to i64
-  %166 = getelementptr inbounds i8, ptr %164, i64 %165
-  store i16 %159, ptr %166, align 2
+159:                                              ; preds = %.split.i
+  %160 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %161 = load i32, ptr %160, align 8
+  %162 = trunc i32 %161 to i16
+  %163 = load i8, ptr @UseCompressedClassPointers, align 1
+  %164 = trunc i8 %163 to i1
+  %165 = select i1 %164, i64 16, i64 20
+  %166 = add nsw i64 %165, %11
+  %167 = inttoptr i64 %166 to ptr
+  %168 = sext i32 %.075 to i64
+  %169 = getelementptr inbounds i8, ptr %167, i64 %168
+  store i16 %162, ptr %169, align 2
   br label %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit
 
-167:                                              ; preds = %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
-  %168 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %169 = load i32, ptr %168, align 8
-  %170 = load i8, ptr @UseCompressedClassPointers, align 1
-  %171 = trunc i8 %170 to i1
-  %172 = select i1 %171, i64 16, i64 20
-  %173 = add nsw i64 %172, %11
-  %174 = inttoptr i64 %173 to ptr
-  %175 = sext i32 %.075 to i64
-  %176 = getelementptr inbounds i8, ptr %174, i64 %175
-  store i32 %169, ptr %176, align 4
+170:                                              ; preds = %.split.i
+  %171 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %172 = load i32, ptr %171, align 8
+  %173 = load i8, ptr @UseCompressedClassPointers, align 1
+  %174 = trunc i8 %173 to i1
+  %175 = select i1 %174, i64 16, i64 20
+  %176 = add nsw i64 %175, %11
+  %177 = inttoptr i64 %176 to ptr
+  %178 = sext i32 %.075 to i64
+  %179 = getelementptr inbounds i8, ptr %177, i64 %178
+  store i32 %172, ptr %179, align 4
   br label %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit
 
-177:                                              ; preds = %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
-  %178 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %179 = load i64, ptr %178, align 8
-  %180 = load i8, ptr @UseCompressedClassPointers, align 1
-  %181 = trunc i8 %180 to i1
-  %182 = select i1 %181, i64 16, i64 20
-  %183 = add nsw i64 %182, %11
-  %184 = inttoptr i64 %183 to ptr
-  %185 = sext i32 %.075 to i64
-  %186 = getelementptr inbounds i8, ptr %184, i64 %185
-  store i64 %179, ptr %186, align 8
+180:                                              ; preds = %.split.i
+  %181 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %182 = load i64, ptr %181, align 8
+  %183 = load i8, ptr @UseCompressedClassPointers, align 1
+  %184 = trunc i8 %183 to i1
+  %185 = select i1 %184, i64 16, i64 20
+  %186 = add nsw i64 %185, %11
+  %187 = inttoptr i64 %186 to ptr
+  %188 = sext i32 %.075 to i64
+  %189 = getelementptr inbounds i8, ptr %187, i64 %188
+  store i64 %182, ptr %189, align 8
   br label %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit
 
-187:                                              ; preds = %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
-  %188 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %188, align 1
+190:                                              ; preds = %.split.i, %_ZL31count_number_of_bytes_for_entryP11ObjectValuei.exit
+  %191 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %191, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.7, i32 noundef 1333) #24
   unreachable
 
-_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit: ; preds = %145, %156, %167, %177
-  %189 = add nsw i32 %144, %.075
-  br label %206
+_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit: ; preds = %148, %159, %170, %180
+  %192 = add nsw i32 %144, %.075
+  br label %209
 
-190:                                              ; preds = %13
-  %191 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %192 = load i32, ptr %191, align 8
-  %193 = trunc i32 %192 to i8
-  %194 = and i8 %193, 1
-  %195 = load i8, ptr @UseCompressedClassPointers, align 1
-  %196 = trunc i8 %195 to i1
-  %197 = select i1 %196, i64 16, i64 20
-  %198 = add nsw i64 %197, %11
-  %199 = inttoptr i64 %198 to ptr
-  %200 = sext i32 %.075 to i64
-  %201 = getelementptr inbounds i8, ptr %199, i64 %200
-  store i8 %194, ptr %201, align 1
-  br label %204
+193:                                              ; preds = %13
+  %194 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %195 = load i32, ptr %194, align 8
+  %196 = trunc i32 %195 to i8
+  %197 = and i8 %196, 1
+  %198 = load i8, ptr @UseCompressedClassPointers, align 1
+  %199 = trunc i8 %198 to i1
+  %200 = select i1 %199, i64 16, i64 20
+  %201 = add nsw i64 %200, %11
+  %202 = inttoptr i64 %201 to ptr
+  %203 = sext i32 %.075 to i64
+  %204 = getelementptr inbounds i8, ptr %202, i64 %203
+  store i8 %197, ptr %204, align 1
+  br label %207
 
-202:                                              ; preds = %13
-  %203 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %203, align 1
+205:                                              ; preds = %13
+  %206 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %206, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.7, i32 noundef 1425) #24
   unreachable
 
-204:                                              ; preds = %.critedge, %.critedge73, %190, %118, %107, %19
-  %.168 = phi i32 [ %20, %19 ], [ %36, %.critedge ], [ %.06774, %.critedge73 ], [ %.06774, %107 ], [ %.06774, %118 ], [ %.06774, %190 ]
-  %.1 = phi i32 [ %.075, %19 ], [ %90, %.critedge ], [ %.075, %.critedge73 ], [ %.075, %107 ], [ %.075, %118 ], [ %.075, %190 ]
-  %205 = add nsw i32 %.1, 1
+207:                                              ; preds = %.critedge, %.critedge73, %193, %118, %107, %19
+  %.168 = phi i32 [ %20, %19 ], [ %36, %.critedge ], [ %.06774, %.critedge73 ], [ %.06774, %107 ], [ %.06774, %118 ], [ %.06774, %193 ]
+  %.1 = phi i32 [ %.075, %19 ], [ %90, %.critedge ], [ %.075, %.critedge73 ], [ %.075, %107 ], [ %.075, %118 ], [ %.075, %193 ]
+  %208 = add nsw i32 %.1, 1
   %.pre = add nsw i32 %.168, 1
-  br label %206
+  br label %209
 
-206:                                              ; preds = %204, %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit
-  %.pre-phi = phi i32 [ %.pre, %204 ], [ %129, %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit ]
-  %.2 = phi i32 [ %205, %204 ], [ %189, %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit ]
-  %207 = load ptr, ptr %2, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 112
-  %209 = load ptr, ptr %208, align 8
-  %210 = tail call noundef i32 %209(ptr noundef nonnull align 8 dereferenceable(59) %2) #22
-  %211 = icmp slt i32 %.pre-phi, %210
-  br i1 %211, label %13, label %._crit_edge, !llvm.loop !47
+209:                                              ; preds = %207, %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit
+  %.pre-phi = phi i32 [ %.pre, %207 ], [ %129, %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit ]
+  %.2 = phi i32 [ %208, %207 ], [ %192, %_ZL14byte_array_putP16typeArrayOopDescP10StackValueii.exit ]
+  %210 = load ptr, ptr %2, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 112
+  %212 = load ptr, ptr %211, align 8
+  %213 = tail call noundef i32 %212(ptr noundef nonnull align 8 dereferenceable(59) %2) #22
+  %214 = icmp slt i32 %.pre-phi, %213
+  br i1 %214, label %13, label %._crit_edge, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %206, %5
+._crit_edge:                                      ; preds = %209, %5
   ret void
 }
 
@@ -15494,6 +15500,9 @@ declare void @_ZN24java_lang_Long_LongCache15compute_offsetsEP13InstanceKlass(pt
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #20

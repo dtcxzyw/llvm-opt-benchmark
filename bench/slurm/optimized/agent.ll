@@ -215,6 +215,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.116 = private unnamed_addr constant [69 x i8] c"%s: Requested reboot from slurmctld but RebootProgram is not defined\00", align 1
 @.str.117 = private unnamed_addr constant [32 x i8] c"RebootProgram exit status of %d\00", align 1
 @.str.118 = private unnamed_addr constant [27 x i8] c"RebootProgram signaled: %s\00", align 1
+@switch.table.mail_job_info.6 = private unnamed_addr constant [11 x ptr] [ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.101, ptr @.str.106, ptr @.str.96], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @agent(ptr noundef %0) #0 {
@@ -5308,7 +5309,7 @@ define dso_local void @mail_job_info(ptr noundef %0, i16 noundef zeroext %1) loc
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %10 = load i32, ptr %9, align 8
   %.not48 = icmp eq i32 %10, 0
-  br i1 %.not48, label %11, label %274
+  br i1 %.not48, label %11, label %244
 
 11:                                               ; preds = %8, %2
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 2028, ptr noundef nonnull @__func__._mail_alloc) #14
@@ -5360,545 +5361,421 @@ define dso_local void @mail_job_info(ptr noundef %0, i16 noundef zeroext %1) loc
   %38 = and i32 %37, 255
   %39 = tail call ptr @job_state_string(i32 noundef %38) #14
   %40 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef %39) #14
-  switch i16 %1, label %_build_mail_env.exit [
-    i16 1024, label %_build_mail_env.exit.thread72
-    i16 1, label %_build_mail_env.exit.thread74
-    i16 2, label %_build_mail_env.exit.thread70
-    i16 4, label %49
-    i16 8, label %50
-    i16 256, label %_build_mail_env.exit.thread76
-    i16 16, label %_build_mail_env.exit.thread
-    i16 32, label %56
-    i16 64, label %57
-    i16 128, label %58
+  %41 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %1)
+  %42 = icmp eq i16 %41, 1
+  br i1 %42, label %.split.i.i, label %_build_mail_env.exit
+
+.split.i.i:                                       ; preds = %32
+  %43 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %1, i1 true)
+  %44 = icmp samesign ult i16 %43, 11
+  br i1 %44, label %switch.lookup, label %_build_mail_env.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %45 = zext nneg i16 %43 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %45
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %_build_mail_env.exit
+
+_build_mail_env.exit:                             ; preds = %32, %.split.i.i, %switch.lookup
+  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.106, %.split.i.i ], [ @.str.106, %32 ]
+  %46 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull %.0.i.i) #14
+  %47 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %47, ptr %48, align 8
+  store i8 0, ptr %4, align 16
+  br i1 %42, label %.split99.i, label %_set_job_time.exit
+
+.split99.i:                                       ; preds = %_build_mail_env.exit
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %1, i1 true)
+  switch i16 %49, label %_set_job_time.exit [
+    i16 0, label %50
+    i16 3, label %63
+    i16 2, label %63
+    i16 1, label %63
+    i16 7, label %82
+    i16 6, label %82
+    i16 5, label %82
+    i16 4, label %82
+    i16 8, label %103
   ]
 
-_build_mail_env.exit.thread72:                    ; preds = %32
-  %41 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.96) #14
-  %42 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %42, ptr %43, align 8
-  store i8 0, ptr %4, align 16
-  br label %_set_job_time.exit.thread
+50:                                               ; preds = %.split99.i
+  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 912
+  %52 = load i64, ptr %51, align 8
+  %.not.i = icmp eq i64 %52, 0
+  br i1 %.not.i, label %_set_job_time.exit, label %53
 
-_build_mail_env.exit.thread74:                    ; preds = %32
-  %44 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.97) #14
-  %45 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %45, ptr %46, align 8
-  store i8 0, ptr %4, align 16
-  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 912
-  %48 = load i64, ptr %47, align 8
-  %.not.i = icmp eq i64 %48, 0
-  br i1 %.not.i, label %_set_job_time.exit.thread, label %72
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 216
+  %55 = load ptr, ptr %54, align 8
+  %.not91.i = icmp eq ptr %55, null
+  br i1 %.not91.i, label %_set_job_time.exit, label %56
 
-49:                                               ; preds = %32
-  br label %_build_mail_env.exit.thread70
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 464
+  %58 = load i64, ptr %57, align 8
+  %.not92.i = icmp eq i64 %58, 0
+  br i1 %.not92.i, label %_set_job_time.exit, label %59
 
-50:                                               ; preds = %32
-  br label %_build_mail_env.exit.thread70
-
-_build_mail_env.exit.thread76:                    ; preds = %32
-  %51 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.101) #14
-  %52 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %52, ptr %53, align 8
-  store i8 0, ptr %4, align 16
-  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 232
-  %55 = load i64, ptr %54, align 8
-  %.not96.i = icmp eq i64 %55, 0
-  br i1 %.not96.i, label %_set_job_time.exit.thread, label %114
-
-56:                                               ; preds = %32
-  br label %_build_mail_env.exit.thread
-
-57:                                               ; preds = %32
-  br label %_build_mail_env.exit.thread
-
-58:                                               ; preds = %32
-  br label %_build_mail_env.exit.thread
-
-_build_mail_env.exit.thread:                      ; preds = %56, %57, %58, %32
-  %.0.i.i.ph = phi ptr [ @.str.105, %58 ], [ @.str.104, %57 ], [ @.str.103, %56 ], [ @.str.102, %32 ]
-  %59 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull %.0.i.i.ph) #14
-  %60 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %60, ptr %61, align 8
-  store i8 0, ptr %4, align 16
-  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 912
-  %63 = load i64, ptr %62, align 8
-  %.not95.i = icmp eq i64 %63, 0
-  br i1 %.not95.i, label %_set_job_time.exit, label %98
-
-_build_mail_env.exit.thread70:                    ; preds = %49, %50, %32
-  %.0.i.i.ph69 = phi ptr [ @.str.100, %50 ], [ @.str.99, %49 ], [ @.str.98, %32 ]
-  %64 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull %.0.i.i.ph69) #14
-  %65 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %65, ptr %66, align 8
-  store i8 0, ptr %4, align 16
-  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 912
-  %68 = load i64, ptr %67, align 8
-  %.not93.i = icmp eq i64 %68, 0
-  br i1 %.not93.i, label %_set_job_time.exit, label %82
-
-_build_mail_env.exit:                             ; preds = %32
-  %69 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.106) #14
-  %70 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %70, ptr %71, align 8
-  store i8 0, ptr %4, align 16
+59:                                               ; preds = %56
+  %60 = sub nsw i64 %52, %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) @.str.78, i64 15, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  call void @secs2time_str(i64 noundef %60, ptr noundef nonnull %61, i32 noundef 114) #14
+  %62 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.76, ptr noundef nonnull %61) #14
   br label %_set_job_time.exit
 
-72:                                               ; preds = %_build_mail_env.exit.thread74
-  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 216
-  %74 = load ptr, ptr %73, align 8
-  %.not91.i = icmp eq ptr %74, null
-  br i1 %.not91.i, label %_set_job_time.exit.thread, label %75
+63:                                               ; preds = %.split99.i, %.split99.i, %.split99.i
+  %64 = getelementptr inbounds nuw i8, ptr %.0, i64 912
+  %65 = load i64, ptr %64, align 8
+  %.not93.i = icmp eq i64 %65, 0
+  br i1 %.not93.i, label %_set_job_time.exit, label %66
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 464
-  %77 = load i64, ptr %76, align 8
-  %.not92.i = icmp eq i64 %77, 0
-  br i1 %.not92.i, label %_set_job_time.exit.thread, label %78
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 232
+  %68 = load i64, ptr %67, align 8
+  %.not94.i = icmp eq i64 %68, 0
+  br i1 %.not94.i, label %_set_job_time.exit, label %69
 
-78:                                               ; preds = %75
-  %79 = sub nsw i64 %48, %77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) @.str.78, i64 15, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  call void @secs2time_str(i64 noundef %79, ptr noundef nonnull %80, i32 noundef 114) #14
-  %81 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %46, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.76, ptr noundef nonnull %80) #14
-  br label %_set_job_time.exit.thread
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 944
+  %71 = load i64, ptr %70, align 8
+  %.not98.i = icmp eq i64 %71, 0
+  br i1 %.not98.i, label %77, label %72
 
-82:                                               ; preds = %_build_mail_env.exit.thread70
-  %83 = getelementptr inbounds nuw i8, ptr %.0, i64 232
+72:                                               ; preds = %69
+  %73 = sub i64 %68, %71
+  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 688
+  %75 = load i64, ptr %74, align 8
+  %76 = add nsw i64 %73, %75
+  br label %79
+
+77:                                               ; preds = %69
+  %78 = sub nsw i64 %68, %65
+  br label %79
+
+79:                                               ; preds = %77, %72
+  %.0.i = phi i64 [ %76, %72 ], [ %78, %77 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) @.str.80, i64 12, i1 false)
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  call void @secs2time_str(i64 noundef %.0.i, ptr noundef nonnull %80, i32 noundef 117) #14
+  %81 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.76, ptr noundef nonnull %80) #14
+  br label %_set_job_time.exit
+
+82:                                               ; preds = %.split99.i, %.split99.i, %.split99.i, %.split99.i
+  %83 = getelementptr inbounds nuw i8, ptr %.0, i64 912
   %84 = load i64, ptr %83, align 8
-  %.not94.i = icmp eq i64 %84, 0
-  br i1 %.not94.i, label %_set_job_time.exit, label %85
+  %.not95.i = icmp eq i64 %84, 0
+  br i1 %.not95.i, label %101, label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 944
   %87 = load i64, ptr %86, align 8
-  %.not98.i = icmp eq i64 %87, 0
-  br i1 %.not98.i, label %93, label %88
+  %.not97.i = icmp eq i64 %87, 0
+  %88 = call i64 @time(ptr noundef null) #14
+  br i1 %.not97.i, label %95, label %89
 
-88:                                               ; preds = %85
-  %89 = sub i64 %84, %87
-  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 688
-  %91 = load i64, ptr %90, align 8
-  %92 = add nsw i64 %89, %91
-  br label %95
+89:                                               ; preds = %85
+  %90 = load i64, ptr %86, align 8
+  %91 = sub i64 %88, %90
+  %92 = getelementptr inbounds nuw i8, ptr %.0, i64 688
+  %93 = load i64, ptr %92, align 8
+  %94 = add nsw i64 %91, %93
+  br label %98
 
-93:                                               ; preds = %85
-  %94 = sub nsw i64 %84, %68
-  br label %95
+95:                                               ; preds = %85
+  %96 = load i64, ptr %83, align 8
+  %97 = sub nsw i64 %88, %96
+  br label %98
 
-95:                                               ; preds = %93, %88
-  %.0.i = phi i64 [ %92, %88 ], [ %94, %93 ]
+98:                                               ; preds = %95, %89
+  %.1.i = phi i64 [ %94, %89 ], [ %97, %95 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) @.str.80, i64 12, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  call void @secs2time_str(i64 noundef %.0.i, ptr noundef nonnull %96, i32 noundef 117) #14
-  %97 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %66, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.76, ptr noundef nonnull %96) #14
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  call void @secs2time_str(i64 noundef %.1.i, ptr noundef nonnull %99, i32 noundef 117) #14
+  %100 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.76, ptr noundef nonnull %99) #14
   br label %_set_job_time.exit
 
-98:                                               ; preds = %_build_mail_env.exit.thread
-  %99 = getelementptr inbounds nuw i8, ptr %.0, i64 944
-  %100 = load i64, ptr %99, align 8
-  %.not97.i = icmp eq i64 %100, 0
-  %101 = call i64 @time(ptr noundef null) #14
-  br i1 %.not97.i, label %108, label %102
+101:                                              ; preds = %82
+  %102 = icmp eq i16 %1, 256
+  br i1 %102, label %103, label %_set_job_time.exit
 
-102:                                              ; preds = %98
-  %103 = load i64, ptr %99, align 8
-  %104 = sub i64 %101, %103
-  %105 = getelementptr inbounds nuw i8, ptr %.0, i64 688
-  %106 = load i64, ptr %105, align 8
-  %107 = add nsw i64 %104, %106
-  br label %111
+103:                                              ; preds = %101, %.split99.i
+  %104 = getelementptr inbounds nuw i8, ptr %.0, i64 232
+  %105 = load i64, ptr %104, align 8
+  %.not96.i = icmp eq i64 %105, 0
+  br i1 %.not96.i, label %_set_job_time.exit, label %106
 
-108:                                              ; preds = %98
-  %109 = load i64, ptr %62, align 8
-  %110 = sub nsw i64 %101, %109
-  br label %111
-
-111:                                              ; preds = %108, %102
-  %.1.i = phi i64 [ %107, %102 ], [ %110, %108 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) @.str.80, i64 12, i1 false)
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  call void @secs2time_str(i64 noundef %.1.i, ptr noundef nonnull %112, i32 noundef 117) #14
-  %113 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %61, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.76, ptr noundef nonnull %112) #14
-  br label %_set_job_time.exit
-
-114:                                              ; preds = %_build_mail_env.exit.thread76
-  %115 = call i64 @time(ptr noundef null) #14
-  %116 = load i64, ptr %54, align 8
-  %117 = sub nsw i64 %115, %116
+106:                                              ; preds = %103
+  %107 = call i64 @time(ptr noundef null) #14
+  %108 = load i64, ptr %104, align 8
+  %109 = sub nsw i64 %107, %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.82, i64 7, i1 false)
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  call void @secs2time_str(i64 noundef %117, ptr noundef nonnull %118, i32 noundef 117) #14
-  %119 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %53, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.76, ptr noundef nonnull %118) #14
-  br label %_set_job_time.exit.thread
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  call void @secs2time_str(i64 noundef %109, ptr noundef nonnull %110, i32 noundef 117) #14
+  %111 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.76, ptr noundef nonnull %110) #14
+  br label %_set_job_time.exit
 
-_set_job_time.exit.thread:                        ; preds = %_build_mail_env.exit.thread72, %_build_mail_env.exit.thread74, %72, %75, %78, %_build_mail_env.exit.thread76, %114
-  store i8 0, ptr %5, align 16
-  br label %_set_job_term_info.exit
-
-_set_job_time.exit:                               ; preds = %_build_mail_env.exit, %_build_mail_env.exit.thread70, %82, %95, %_build_mail_env.exit.thread, %111
-  %120 = phi ptr [ %71, %_build_mail_env.exit ], [ %66, %_build_mail_env.exit.thread70 ], [ %66, %82 ], [ %66, %95 ], [ %61, %_build_mail_env.exit.thread ], [ %61, %111 ]
+_set_job_time.exit:                               ; preds = %_build_mail_env.exit, %.split99.i, %50, %53, %56, %59, %63, %66, %79, %98, %101, %103, %106
   store i8 0, ptr %5, align 16
   switch i16 %1, label %_set_job_term_info.exit [
-    i16 4, label %121
-    i16 2, label %121
+    i16 4, label %112
+    i16 2, label %112
   ]
 
-121:                                              ; preds = %_set_job_time.exit, %_set_job_time.exit
-  %122 = load i32, ptr %36, align 8
-  %123 = and i32 %122, 255
-  %124 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %125 = load ptr, ptr %124, align 8
-  %.not.i60 = icmp eq ptr %125, null
-  br i1 %.not.i60, label %177, label %126
+112:                                              ; preds = %_set_job_time.exit, %_set_job_time.exit
+  %113 = load i32, ptr %36, align 8
+  %114 = and i32 %113, 255
+  %115 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  %116 = load ptr, ptr %115, align 8
+  %.not.i60 = icmp eq ptr %116, null
+  br i1 %.not.i60, label %168, label %117
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %.0, i64 512
-  %128 = load i16, ptr %127, align 8
-  %129 = and i16 %128, 512
-  %.not65.i = icmp eq i16 %129, 0
-  br i1 %.not65.i, label %130, label %177
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds nuw i8, ptr %.0, i64 512
+  %119 = load i16, ptr %118, align 8
+  %120 = and i16 %119, 512
+  %.not65.i = icmp eq i16 %120, 0
+  br i1 %.not65.i, label %121, label %168
 
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds nuw i8, ptr %125, i64 36
-  %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %134 = load i32, ptr %133, align 8
-  %135 = and i32 %132, 127
-  %136 = icmp eq i32 %135, 0
-  %137 = and i32 %134, 127
-  %138 = icmp eq i32 %137, 0
-  %or.cond.i = select i1 %136, i1 %138, i1 false
-  br i1 %or.cond.i, label %139, label %152
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 36
+  %123 = load i32, ptr %122, align 4
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 40
+  %125 = load i32, ptr %124, align 8
+  %126 = and i32 %123, 127
+  %127 = icmp eq i32 %126, 0
+  %128 = and i32 %125, 127
+  %129 = icmp eq i32 %128, 0
+  %or.cond.i = select i1 %127, i1 %129, i1 false
+  br i1 %or.cond.i, label %130, label %143
 
-139:                                              ; preds = %130
-  %140 = lshr i32 %132, 8
-  %141 = and i32 %140, 255
-  %142 = lshr i32 %134, 8
-  %143 = and i32 %142, 255
-  %144 = icmp eq i32 %141, 0
-  %145 = icmp ne i32 %143, 0
-  %or.cond4.i = select i1 %144, i1 %145, i1 false
-  br i1 %or.cond4.i, label %148, label %146
+130:                                              ; preds = %121
+  %131 = lshr i32 %123, 8
+  %132 = and i32 %131, 255
+  %133 = lshr i32 %125, 8
+  %134 = and i32 %133, 255
+  %135 = icmp eq i32 %132, 0
+  %136 = icmp ne i32 %134, 0
+  %or.cond4.i = select i1 %135, i1 %136, i1 false
+  br i1 %or.cond4.i, label %139, label %137
 
-146:                                              ; preds = %139
-  %147 = call ptr @job_state_string(i32 noundef %123) #14
-  br label %148
+137:                                              ; preds = %130
+  %138 = call ptr @job_state_string(i32 noundef %114) #14
+  br label %139
 
-148:                                              ; preds = %146, %139
-  %.0.i61 = phi ptr [ %147, %146 ], [ @.str.84, %139 ]
-  %149 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.85, ptr noundef %.0.i61, i32 noundef %141, i32 noundef %143) #14
-  %150 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef %141) #14
-  %151 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i32 noundef %143) #14
-  br label %168
+139:                                              ; preds = %137, %130
+  %.0.i61 = phi ptr [ %138, %137 ], [ @.str.84, %130 ]
+  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.85, ptr noundef %.0.i61, i32 noundef %132, i32 noundef %134) #14
+  %141 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef %132) #14
+  %142 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i32 noundef %134) #14
+  br label %159
 
-152:                                              ; preds = %130
-  %153 = shl nuw nsw i32 %137, 24
-  %sext.i = add nuw i32 %153, 16777216
-  %154 = icmp sgt i32 %sext.i, 33554431
-  br i1 %154, label %155, label %158
+143:                                              ; preds = %121
+  %144 = shl nuw nsw i32 %128, 24
+  %sext.i = add nuw i32 %144, 16777216
+  %145 = icmp sgt i32 %sext.i, 33554431
+  br i1 %145, label %146, label %149
 
-155:                                              ; preds = %152
-  %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.84, i32 noundef %137) #14
-  %157 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.87, i32 noundef %137) #14
-  br label %168
+146:                                              ; preds = %143
+  %147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.84, i32 noundef %128) #14
+  %148 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.87, i32 noundef %128) #14
+  br label %159
 
-158:                                              ; preds = %152
-  br i1 %138, label %159, label %164
+149:                                              ; preds = %143
+  br i1 %129, label %150, label %155
 
-159:                                              ; preds = %158
-  %160 = lshr i32 %134, 8
-  %161 = and i32 %160, 255
-  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.84, i32 noundef %161) #14
-  %163 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i32 noundef %161) #14
-  br label %168
+150:                                              ; preds = %149
+  %151 = lshr i32 %125, 8
+  %152 = and i32 %151, 255
+  %153 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.84, i32 noundef %152) #14
+  %154 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i32 noundef %152) #14
+  br label %159
 
-164:                                              ; preds = %158
-  %165 = call ptr @job_state_string(i32 noundef %123) #14
-  %166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.92, ptr noundef %165) #14
-  %167 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.93) #14
-  br label %168
+155:                                              ; preds = %149
+  %156 = call ptr @job_state_string(i32 noundef %114) #14
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.92, ptr noundef %156) #14
+  %158 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.93) #14
+  br label %159
 
-168:                                              ; preds = %164, %159, %155, %148
-  %169 = load ptr, ptr %124, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %171 = load i32, ptr %170, align 8
-  %172 = and i32 %171, 1
-  %.not66.i = icmp eq i32 %172, 0
-  br i1 %.not66.i, label %_set_job_term_info.exit, label %173
+159:                                              ; preds = %155, %150, %146, %139
+  %160 = load ptr, ptr %115, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
+  %162 = load i32, ptr %161, align 8
+  %163 = and i32 %162, 1
+  %.not66.i = icmp eq i32 %163, 0
+  br i1 %.not66.i, label %_set_job_term_info.exit, label %164
+
+164:                                              ; preds = %159
+  %165 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
+  %166 = sub i64 127, %165
+  %167 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.94, i64 noundef %166) #14
+  br label %_set_job_term_info.exit
+
+168:                                              ; preds = %117, %112
+  %169 = getelementptr inbounds nuw i8, ptr %.0, i64 252
+  %170 = load i32, ptr %169, align 4
+  %171 = and i32 %170, 127
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %179
 
 173:                                              ; preds = %168
-  %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
-  %175 = sub i64 127, %174
-  %176 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.94, i64 noundef %175) #14
+  %174 = lshr i32 %170, 8
+  %175 = and i32 %174, 255
+  %176 = call ptr @job_state_string(i32 noundef %114) #14
+  %177 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.95, ptr noundef %176, i32 noundef %175) #14
+  %178 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i32 noundef %175) #14
   br label %_set_job_term_info.exit
 
-177:                                              ; preds = %126, %121
-  %178 = getelementptr inbounds nuw i8, ptr %.0, i64 252
-  %179 = load i32, ptr %178, align 4
-  %180 = and i32 %179, 127
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %182, label %188
-
-182:                                              ; preds = %177
-  %183 = lshr i32 %179, 8
-  %184 = and i32 %183, 255
-  %185 = call ptr @job_state_string(i32 noundef %123) #14
-  %186 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.95, ptr noundef %185, i32 noundef %184) #14
-  %187 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.87, i32 noundef %184) #14
+179:                                              ; preds = %168
+  %180 = call ptr @job_state_string(i32 noundef %114) #14
+  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.92, ptr noundef %180) #14
+  %182 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %48, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.93) #14
   br label %_set_job_term_info.exit
 
-188:                                              ; preds = %177
-  %189 = call ptr @job_state_string(i32 noundef %123) #14
-  %190 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.92, ptr noundef %189) #14
-  %191 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %120, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.93) #14
-  br label %_set_job_term_info.exit
+_set_job_term_info.exit:                          ; preds = %_set_job_time.exit, %159, %164, %173, %179
+  %183 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  %184 = load ptr, ptr %183, align 8
+  %.not54 = icmp eq ptr %184, null
+  br i1 %.not54, label %200, label %185
 
-_set_job_term_info.exit:                          ; preds = %_set_job_time.exit.thread, %_set_job_time.exit, %168, %173, %182, %188
-  %192 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %193 = load ptr, ptr %192, align 8
-  %.not54 = icmp eq ptr %193, null
-  br i1 %.not54, label %216, label %194
+185:                                              ; preds = %_set_job_term_info.exit
+  %186 = getelementptr inbounds nuw i8, ptr %.0, i64 512
+  %187 = load i16, ptr %186, align 8
+  %188 = and i16 %187, 512
+  %.not55 = icmp eq i16 %188, 0
+  br i1 %.not55, label %189, label %200
 
-194:                                              ; preds = %_set_job_term_info.exit
-  %195 = getelementptr inbounds nuw i8, ptr %.0, i64 512
-  %196 = load i16, ptr %195, align 8
-  %197 = and i16 %196, 512
-  %.not55 = icmp eq i16 %197, 0
-  br i1 %.not55, label %198, label %216
+189:                                              ; preds = %185
+  %190 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %191 = load i32, ptr %190, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %.0, i64 392
+  %193 = load i32, ptr %192, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %.0, i64 544
+  %195 = load ptr, ptr %194, align 8
+  br i1 %42, label %.split.i, label %_mail_type_str.exit
 
-198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %200 = load i32, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %.0, i64 392
-  %202 = load i32, ptr %201, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %.0, i64 544
-  %204 = load ptr, ptr %203, align 8
-  switch i16 %1, label %214 [
-    i16 1024, label %_mail_type_str.exit
-    i16 1, label %205
-    i16 2, label %206
-    i16 4, label %207
-    i16 8, label %208
-    i16 256, label %209
-    i16 16, label %210
-    i16 32, label %211
-    i16 64, label %212
-    i16 128, label %213
-  ]
+.split.i:                                         ; preds = %189
+  %196 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %1, i1 true)
+  %197 = icmp samesign ult i16 %196, 11
+  br i1 %197, label %switch.lookup83, label %_mail_type_str.exit
 
-205:                                              ; preds = %198
+switch.lookup83:                                  ; preds = %.split.i
+  %198 = zext nneg i16 %196 to i64
+  %switch.gep84 = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %198
+  %switch.load85 = load ptr, ptr %switch.gep84, align 8
   br label %_mail_type_str.exit
 
-206:                                              ; preds = %198
-  br label %_mail_type_str.exit
+_mail_type_str.exit:                              ; preds = %189, %.split.i, %switch.lookup83
+  %.0.i62 = phi ptr [ %switch.load85, %switch.lookup83 ], [ @.str.106, %.split.i ], [ @.str.106, %189 ]
+  %199 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.23, i32 noundef %191, i32 noundef %193, ptr noundef %195, ptr noundef nonnull %.0.i62, ptr noundef nonnull %5) #14
+  br label %223
 
-207:                                              ; preds = %198
-  br label %_mail_type_str.exit
+200:                                              ; preds = %185, %_set_job_term_info.exit
+  %201 = getelementptr inbounds nuw i8, ptr %.0, i64 52
+  %202 = load i32, ptr %201, align 4
+  %.not56 = icmp eq i32 %202, -2
+  br i1 %.not56, label %214, label %203
 
-208:                                              ; preds = %198
-  br label %_mail_type_str.exit
+203:                                              ; preds = %200
+  %204 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %205 = load i32, ptr %204, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %.0, i64 392
+  %207 = load i32, ptr %206, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %.0, i64 544
+  %209 = load ptr, ptr %208, align 8
+  br i1 %42, label %.split.i64, label %_mail_type_str.exit65
 
-209:                                              ; preds = %198
-  br label %_mail_type_str.exit
+.split.i64:                                       ; preds = %203
+  %210 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %1, i1 true)
+  %211 = icmp samesign ult i16 %210, 11
+  br i1 %211, label %switch.lookup86, label %_mail_type_str.exit65
 
-210:                                              ; preds = %198
-  br label %_mail_type_str.exit
+switch.lookup86:                                  ; preds = %.split.i64
+  %212 = zext nneg i16 %210 to i64
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %212
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
+  br label %_mail_type_str.exit65
 
-211:                                              ; preds = %198
-  br label %_mail_type_str.exit
+_mail_type_str.exit65:                            ; preds = %203, %.split.i64, %switch.lookup86
+  %.0.i63 = phi ptr [ %switch.load88, %switch.lookup86 ], [ @.str.106, %.split.i64 ], [ @.str.106, %203 ]
+  %213 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, i32 noundef %205, i32 noundef %202, i32 noundef %207, ptr noundef %209, ptr noundef nonnull %.0.i63, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  br label %223
 
-212:                                              ; preds = %198
-  br label %_mail_type_str.exit
+214:                                              ; preds = %200
+  %215 = getelementptr inbounds nuw i8, ptr %.0, i64 392
+  %216 = load i32, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %.0, i64 544
+  %218 = load ptr, ptr %217, align 8
+  br i1 %42, label %.split.i67, label %_mail_type_str.exit68
 
-213:                                              ; preds = %198
-  br label %_mail_type_str.exit
+.split.i67:                                       ; preds = %214
+  %219 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %1, i1 true)
+  %220 = icmp samesign ult i16 %219, 11
+  br i1 %220, label %switch.lookup89, label %_mail_type_str.exit68
 
-214:                                              ; preds = %198
-  br label %_mail_type_str.exit
+switch.lookup89:                                  ; preds = %.split.i67
+  %221 = zext nneg i16 %219 to i64
+  %switch.gep90 = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %221
+  %switch.load91 = load ptr, ptr %switch.gep90, align 8
+  br label %_mail_type_str.exit68
 
-_mail_type_str.exit:                              ; preds = %198, %205, %206, %207, %208, %209, %210, %211, %212, %213, %214
-  %.0.i62 = phi ptr [ @.str.97, %205 ], [ @.str.98, %206 ], [ @.str.99, %207 ], [ @.str.100, %208 ], [ @.str.101, %209 ], [ @.str.102, %210 ], [ @.str.103, %211 ], [ @.str.104, %212 ], [ @.str.105, %213 ], [ @.str.106, %214 ], [ @.str.96, %198 ]
-  %215 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.23, i32 noundef %200, i32 noundef %202, ptr noundef %204, ptr noundef nonnull %.0.i62, ptr noundef nonnull %5) #14
-  br label %253
+_mail_type_str.exit68:                            ; preds = %214, %.split.i67, %switch.lookup89
+  %.0.i66 = phi ptr [ %switch.load91, %switch.lookup89 ], [ @.str.106, %.split.i67 ], [ @.str.106, %214 ]
+  %222 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.25, i32 noundef %216, ptr noundef %218, ptr noundef nonnull %.0.i66, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  br label %223
 
-216:                                              ; preds = %194, %_set_job_term_info.exit
-  %217 = getelementptr inbounds nuw i8, ptr %.0, i64 52
-  %218 = load i32, ptr %217, align 4
-  %.not56 = icmp eq i32 %218, -2
-  br i1 %.not56, label %237, label %219
+223:                                              ; preds = %_mail_type_str.exit65, %_mail_type_str.exit68, %_mail_type_str.exit
+  %.sink = phi ptr [ %213, %_mail_type_str.exit65 ], [ %222, %_mail_type_str.exit68 ], [ %199, %_mail_type_str.exit ]
+  %224 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %.sink, ptr %224, align 8
+  %225 = call i32 @get_log_level() #14
+  %226 = icmp sgt i32 %225, 4
+  br i1 %226, label %227, label %231
 
-219:                                              ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %221 = load i32, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %.0, i64 392
-  %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %.0, i64 544
-  %225 = load ptr, ptr %224, align 8
-  switch i16 %1, label %235 [
-    i16 1024, label %_mail_type_str.exit64
-    i16 1, label %226
-    i16 2, label %227
-    i16 4, label %228
-    i16 8, label %229
-    i16 256, label %230
-    i16 16, label %231
-    i16 32, label %232
-    i16 64, label %233
-    i16 128, label %234
-  ]
+227:                                              ; preds = %223
+  %228 = load ptr, ptr %12, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %230 = load ptr, ptr %229, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.26, ptr noundef %228, ptr noundef %230) #14
+  br label %231
 
-226:                                              ; preds = %219
-  br label %_mail_type_str.exit64
+231:                                              ; preds = %223, %227
+  %232 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mail_mutex) #14
+  %.not57 = icmp eq i32 %232, 0
+  br i1 %.not57, label %235, label %233
 
-227:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-228:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-229:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-230:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-231:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-232:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-233:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-234:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-235:                                              ; preds = %219
-  br label %_mail_type_str.exit64
-
-_mail_type_str.exit64:                            ; preds = %219, %226, %227, %228, %229, %230, %231, %232, %233, %234, %235
-  %.0.i63 = phi ptr [ @.str.97, %226 ], [ @.str.98, %227 ], [ @.str.99, %228 ], [ @.str.100, %229 ], [ @.str.101, %230 ], [ @.str.102, %231 ], [ @.str.103, %232 ], [ @.str.104, %233 ], [ @.str.105, %234 ], [ @.str.106, %235 ], [ @.str.96, %219 ]
-  %236 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, i32 noundef %221, i32 noundef %218, i32 noundef %223, ptr noundef %225, ptr noundef nonnull %.0.i63, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  br label %253
-
-237:                                              ; preds = %216
-  %238 = getelementptr inbounds nuw i8, ptr %.0, i64 392
-  %239 = load i32, ptr %238, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %.0, i64 544
-  %241 = load ptr, ptr %240, align 8
-  switch i16 %1, label %251 [
-    i16 1024, label %_mail_type_str.exit66
-    i16 1, label %242
-    i16 2, label %243
-    i16 4, label %244
-    i16 8, label %245
-    i16 256, label %246
-    i16 16, label %247
-    i16 32, label %248
-    i16 64, label %249
-    i16 128, label %250
-  ]
-
-242:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-243:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-244:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-245:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-246:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-247:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-248:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-249:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-250:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-251:                                              ; preds = %237
-  br label %_mail_type_str.exit66
-
-_mail_type_str.exit66:                            ; preds = %237, %242, %243, %244, %245, %246, %247, %248, %249, %250, %251
-  %.0.i65 = phi ptr [ @.str.97, %242 ], [ @.str.98, %243 ], [ @.str.99, %244 ], [ @.str.100, %245 ], [ @.str.101, %246 ], [ @.str.102, %247 ], [ @.str.103, %248 ], [ @.str.104, %249 ], [ @.str.105, %250 ], [ @.str.106, %251 ], [ @.str.96, %237 ]
-  %252 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.25, i32 noundef %239, ptr noundef %241, ptr noundef nonnull %.0.i65, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  br label %253
-
-253:                                              ; preds = %_mail_type_str.exit64, %_mail_type_str.exit66, %_mail_type_str.exit
-  %.sink = phi ptr [ %236, %_mail_type_str.exit64 ], [ %252, %_mail_type_str.exit66 ], [ %215, %_mail_type_str.exit ]
-  %254 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %.sink, ptr %254, align 8
-  %255 = call i32 @get_log_level() #14
-  %256 = icmp sgt i32 %255, 4
-  br i1 %256, label %257, label %261
-
-257:                                              ; preds = %253
-  %258 = load ptr, ptr %12, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %260 = load ptr, ptr %259, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.26, ptr noundef %258, ptr noundef %260) #14
-  br label %261
-
-261:                                              ; preds = %253, %257
-  %262 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mail_mutex) #14
-  %.not57 = icmp eq i32 %262, 0
-  br i1 %.not57, label %265, label %263
-
-263:                                              ; preds = %261
-  %264 = tail call ptr @__errno_location() #15
-  store i32 %262, ptr %264, align 4
+233:                                              ; preds = %231
+  %234 = tail call ptr @__errno_location() #15
+  store i32 %232, ptr %234, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.mail_job_info) #16
   unreachable
 
-265:                                              ; preds = %261
-  %266 = load ptr, ptr @mail_list, align 8
-  %.not58 = icmp eq ptr %266, null
-  br i1 %.not58, label %267, label %269
+235:                                              ; preds = %231
+  %236 = load ptr, ptr @mail_list, align 8
+  %.not58 = icmp eq ptr %236, null
+  br i1 %.not58, label %237, label %239
 
-267:                                              ; preds = %265
-  %268 = call ptr @list_create(ptr noundef nonnull @_mail_free) #14
-  store ptr %268, ptr @mail_list, align 8
-  br label %269
+237:                                              ; preds = %235
+  %238 = call ptr @list_create(ptr noundef nonnull @_mail_free) #14
+  store ptr %238, ptr @mail_list, align 8
+  br label %239
 
-269:                                              ; preds = %267, %265
-  %270 = phi ptr [ %268, %267 ], [ %266, %265 ]
-  call void @list_enqueue(ptr noundef %270, ptr noundef nonnull %12) #14
-  %271 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mail_mutex) #14
-  %.not59 = icmp eq i32 %271, 0
-  br i1 %.not59, label %274, label %272
+239:                                              ; preds = %237, %235
+  %240 = phi ptr [ %238, %237 ], [ %236, %235 ]
+  call void @list_enqueue(ptr noundef %240, ptr noundef nonnull %12) #14
+  %241 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mail_mutex) #14
+  %.not59 = icmp eq i32 %241, 0
+  br i1 %.not59, label %244, label %242
 
-272:                                              ; preds = %269
-  %273 = tail call ptr @__errno_location() #15
-  store i32 %271, ptr %273, align 4
+242:                                              ; preds = %239
+  %243 = tail call ptr @__errno_location() #15
+  store i32 %241, ptr %243, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.mail_job_info) #16
   unreachable
 
-274:                                              ; preds = %269, %8
+244:                                              ; preds = %239, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -6272,6 +6149,12 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #13

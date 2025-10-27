@@ -5481,119 +5481,125 @@ define internal noundef ptr @array_array_byteswap(ptr noundef readonly captures(
   %4 = load ptr, ptr %3, align 8, !tbaa !76
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !49
-  switch i32 %6, label %59 [
-    i32 1, label %array_array_byteswap_impl.exit
-    i32 2, label %7
-    i32 4, label %19
-    i32 8, label %35
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %.split.i, label %62
+
+.split.i:                                         ; preds = %2
+  %9 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
+  switch i32 %9, label %62 [
+    i32 0, label %array_array_byteswap_impl.exit
+    i32 1, label %10
+    i32 2, label %22
+    i32 3, label %38
   ]
 
-7:                                                ; preds = %2
-  %8 = getelementptr i8, ptr %0, i64 16
-  %.val56.i = load i64, ptr %8, align 8, !tbaa !40
-  %9 = add i64 %.val56.i, -1
-  %10 = icmp sgt i64 %9, -1
-  br i1 %10, label %.lr.ph63.preheader.i, label %array_array_byteswap_impl.exit
+10:                                               ; preds = %.split.i
+  %11 = getelementptr i8, ptr %0, i64 16
+  %.val56.i = load i64, ptr %11, align 8, !tbaa !40
+  %12 = add i64 %.val56.i, -1
+  %13 = icmp sgt i64 %12, -1
+  br i1 %13, label %.lr.ph63.preheader.i, label %array_array_byteswap_impl.exit
 
-.lr.ph63.preheader.i:                             ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+.lr.ph63.preheader.i:                             ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   br label %.lr.ph63.i
 
 .lr.ph63.i:                                       ; preds = %.lr.ph63.i, %.lr.ph63.preheader.i
-  %13 = phi i64 [ %18, %.lr.ph63.i ], [ %9, %.lr.ph63.preheader.i ]
-  %.04862.i = phi ptr [ %17, %.lr.ph63.i ], [ %12, %.lr.ph63.preheader.i ]
-  %14 = load i8, ptr %.04862.i, align 1, !tbaa !17
-  %15 = getelementptr i8, ptr %.04862.i, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !17
-  store i8 %16, ptr %.04862.i, align 1, !tbaa !17
-  store i8 %14, ptr %15, align 1, !tbaa !17
-  %17 = getelementptr i8, ptr %.04862.i, i64 2
-  %18 = add nsw i64 %13, -1
-  %.not72.i = icmp eq i64 %13, 0
+  %16 = phi i64 [ %21, %.lr.ph63.i ], [ %12, %.lr.ph63.preheader.i ]
+  %.04862.i = phi ptr [ %20, %.lr.ph63.i ], [ %15, %.lr.ph63.preheader.i ]
+  %17 = load i8, ptr %.04862.i, align 1, !tbaa !17
+  %18 = getelementptr i8, ptr %.04862.i, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !17
+  store i8 %19, ptr %.04862.i, align 1, !tbaa !17
+  store i8 %17, ptr %18, align 1, !tbaa !17
+  %20 = getelementptr i8, ptr %.04862.i, i64 2
+  %21 = add nsw i64 %16, -1
+  %.not72.i = icmp eq i64 %16, 0
   br i1 %.not72.i, label %array_array_byteswap_impl.exit, label %.lr.ph63.i, !llvm.loop !118
 
-19:                                               ; preds = %2
-  %20 = getelementptr i8, ptr %0, i64 16
-  %.val55.i = load i64, ptr %20, align 8, !tbaa !40
-  %21 = add i64 %.val55.i, -1
-  %22 = icmp sgt i64 %21, -1
-  br i1 %22, label %.lr.ph61.preheader.i, label %array_array_byteswap_impl.exit
+22:                                               ; preds = %.split.i
+  %23 = getelementptr i8, ptr %0, i64 16
+  %.val55.i = load i64, ptr %23, align 8, !tbaa !40
+  %24 = add i64 %.val55.i, -1
+  %25 = icmp sgt i64 %24, -1
+  br i1 %25, label %.lr.ph61.preheader.i, label %array_array_byteswap_impl.exit
 
-.lr.ph61.preheader.i:                             ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+.lr.ph61.preheader.i:                             ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   br label %.lr.ph61.i
 
 .lr.ph61.i:                                       ; preds = %.lr.ph61.i, %.lr.ph61.preheader.i
-  %25 = phi i64 [ %34, %.lr.ph61.i ], [ %21, %.lr.ph61.preheader.i ]
-  %.160.i = phi ptr [ %33, %.lr.ph61.i ], [ %24, %.lr.ph61.preheader.i ]
-  %26 = load i8, ptr %.160.i, align 1, !tbaa !17
-  %27 = getelementptr i8, ptr %.160.i, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !17
-  %29 = getelementptr i8, ptr %.160.i, i64 3
-  %30 = load i8, ptr %29, align 1, !tbaa !17
-  store i8 %30, ptr %.160.i, align 1, !tbaa !17
-  %31 = getelementptr i8, ptr %.160.i, i64 2
-  %32 = load i8, ptr %31, align 1, !tbaa !17
-  store i8 %32, ptr %27, align 1, !tbaa !17
-  store i8 %28, ptr %31, align 1, !tbaa !17
-  store i8 %26, ptr %29, align 1, !tbaa !17
-  %33 = getelementptr i8, ptr %.160.i, i64 4
-  %34 = add nsw i64 %25, -1
-  %.not71.i = icmp eq i64 %25, 0
+  %28 = phi i64 [ %37, %.lr.ph61.i ], [ %24, %.lr.ph61.preheader.i ]
+  %.160.i = phi ptr [ %36, %.lr.ph61.i ], [ %27, %.lr.ph61.preheader.i ]
+  %29 = load i8, ptr %.160.i, align 1, !tbaa !17
+  %30 = getelementptr i8, ptr %.160.i, i64 1
+  %31 = load i8, ptr %30, align 1, !tbaa !17
+  %32 = getelementptr i8, ptr %.160.i, i64 3
+  %33 = load i8, ptr %32, align 1, !tbaa !17
+  store i8 %33, ptr %.160.i, align 1, !tbaa !17
+  %34 = getelementptr i8, ptr %.160.i, i64 2
+  %35 = load i8, ptr %34, align 1, !tbaa !17
+  store i8 %35, ptr %30, align 1, !tbaa !17
+  store i8 %31, ptr %34, align 1, !tbaa !17
+  store i8 %29, ptr %32, align 1, !tbaa !17
+  %36 = getelementptr i8, ptr %.160.i, i64 4
+  %37 = add nsw i64 %28, -1
+  %.not71.i = icmp eq i64 %28, 0
   br i1 %.not71.i, label %array_array_byteswap_impl.exit, label %.lr.ph61.i, !llvm.loop !119
 
-35:                                               ; preds = %2
-  %36 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i64, ptr %36, align 8, !tbaa !40
-  %37 = add i64 %.val.i, -1
-  %38 = icmp sgt i64 %37, -1
-  br i1 %38, label %.lr.ph.preheader.i, label %array_array_byteswap_impl.exit
+38:                                               ; preds = %.split.i
+  %39 = getelementptr i8, ptr %0, i64 16
+  %.val.i = load i64, ptr %39, align 8, !tbaa !40
+  %40 = add i64 %.val.i, -1
+  %41 = icmp sgt i64 %40, -1
+  br i1 %41, label %.lr.ph.preheader.i, label %array_array_byteswap_impl.exit
 
-.lr.ph.preheader.i:                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !53
+.lr.ph.preheader.i:                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !53
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %41 = phi i64 [ %58, %.lr.ph.i ], [ %37, %.lr.ph.preheader.i ]
-  %.259.i = phi ptr [ %57, %.lr.ph.i ], [ %40, %.lr.ph.preheader.i ]
-  %42 = load i8, ptr %.259.i, align 1, !tbaa !17
-  %43 = getelementptr i8, ptr %.259.i, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !17
-  %45 = getelementptr i8, ptr %.259.i, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !17
-  %47 = getelementptr i8, ptr %.259.i, i64 3
-  %48 = load i8, ptr %47, align 1, !tbaa !17
-  %49 = getelementptr i8, ptr %.259.i, i64 7
-  %50 = load i8, ptr %49, align 1, !tbaa !17
-  store i8 %50, ptr %.259.i, align 1, !tbaa !17
-  %51 = getelementptr i8, ptr %.259.i, i64 6
-  %52 = load i8, ptr %51, align 1, !tbaa !17
-  store i8 %52, ptr %43, align 1, !tbaa !17
-  %53 = getelementptr i8, ptr %.259.i, i64 5
-  %54 = load i8, ptr %53, align 1, !tbaa !17
-  store i8 %54, ptr %45, align 1, !tbaa !17
-  %55 = getelementptr i8, ptr %.259.i, i64 4
-  %56 = load i8, ptr %55, align 1, !tbaa !17
-  store i8 %56, ptr %47, align 1, !tbaa !17
-  store i8 %48, ptr %55, align 1, !tbaa !17
-  store i8 %46, ptr %53, align 1, !tbaa !17
-  store i8 %44, ptr %51, align 1, !tbaa !17
-  store i8 %42, ptr %49, align 1, !tbaa !17
-  %57 = getelementptr i8, ptr %.259.i, i64 8
-  %58 = add nsw i64 %41, -1
-  %.not.i = icmp eq i64 %41, 0
+  %44 = phi i64 [ %61, %.lr.ph.i ], [ %40, %.lr.ph.preheader.i ]
+  %.259.i = phi ptr [ %60, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
+  %45 = load i8, ptr %.259.i, align 1, !tbaa !17
+  %46 = getelementptr i8, ptr %.259.i, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !17
+  %48 = getelementptr i8, ptr %.259.i, i64 2
+  %49 = load i8, ptr %48, align 1, !tbaa !17
+  %50 = getelementptr i8, ptr %.259.i, i64 3
+  %51 = load i8, ptr %50, align 1, !tbaa !17
+  %52 = getelementptr i8, ptr %.259.i, i64 7
+  %53 = load i8, ptr %52, align 1, !tbaa !17
+  store i8 %53, ptr %.259.i, align 1, !tbaa !17
+  %54 = getelementptr i8, ptr %.259.i, i64 6
+  %55 = load i8, ptr %54, align 1, !tbaa !17
+  store i8 %55, ptr %46, align 1, !tbaa !17
+  %56 = getelementptr i8, ptr %.259.i, i64 5
+  %57 = load i8, ptr %56, align 1, !tbaa !17
+  store i8 %57, ptr %48, align 1, !tbaa !17
+  %58 = getelementptr i8, ptr %.259.i, i64 4
+  %59 = load i8, ptr %58, align 1, !tbaa !17
+  store i8 %59, ptr %50, align 1, !tbaa !17
+  store i8 %51, ptr %58, align 1, !tbaa !17
+  store i8 %49, ptr %56, align 1, !tbaa !17
+  store i8 %47, ptr %54, align 1, !tbaa !17
+  store i8 %45, ptr %52, align 1, !tbaa !17
+  %60 = getelementptr i8, ptr %.259.i, i64 8
+  %61 = add nsw i64 %44, -1
+  %.not.i = icmp eq i64 %44, 0
   br i1 %.not.i, label %array_array_byteswap_impl.exit, label %.lr.ph.i, !llvm.loop !120
 
-59:                                               ; preds = %2
-  %60 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !18
-  tail call void @PyErr_SetString(ptr noundef %60, ptr noundef nonnull @.str.102) #11
+62:                                               ; preds = %.split.i, %2
+  %63 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !18
+  tail call void @PyErr_SetString(ptr noundef %63, ptr noundef nonnull @.str.102) #11
   br label %array_array_byteswap_impl.exit
 
-array_array_byteswap_impl.exit:                   ; preds = %.lr.ph.i, %.lr.ph61.i, %.lr.ph63.i, %2, %7, %19, %35, %59
-  %.0.i = phi ptr [ null, %59 ], [ @_Py_NoneStruct, %2 ], [ @_Py_NoneStruct, %7 ], [ @_Py_NoneStruct, %19 ], [ @_Py_NoneStruct, %35 ], [ @_Py_NoneStruct, %.lr.ph63.i ], [ @_Py_NoneStruct, %.lr.ph61.i ], [ @_Py_NoneStruct, %.lr.ph.i ]
+array_array_byteswap_impl.exit:                   ; preds = %.lr.ph.i, %.lr.ph61.i, %.lr.ph63.i, %.split.i, %10, %22, %38, %62
+  %.0.i = phi ptr [ null, %62 ], [ @_Py_NoneStruct, %.split.i ], [ @_Py_NoneStruct, %10 ], [ @_Py_NoneStruct, %22 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %.lr.ph63.i ], [ @_Py_NoneStruct, %.lr.ph61.i ], [ @_Py_NoneStruct, %.lr.ph.i ]
   ret ptr %.0.i
 }
 
@@ -7608,6 +7614,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #10

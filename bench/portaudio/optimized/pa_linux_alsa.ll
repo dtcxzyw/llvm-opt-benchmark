@@ -248,6 +248,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.230 = private unnamed_addr constant [202 x i8] c"Expression 'PaUtil_ValidateStreamPointer( s )' failed in 'generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/portaudio/portaudio/src/hostapi/alsa/pa_linux_alsa.c', line: 4650\0A\00", align 1
 @.str.231 = private unnamed_addr constant [220 x i8] c"Expression 'PaUtil_GetHostApiRepresentation( &hostApi, paALSA )' failed in 'generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/portaudio/portaudio/src/hostapi/alsa/pa_linux_alsa.c', line: 4651\0A\00", align 1
 @.str.232 = private unnamed_addr constant [325 x i8] c"Expression 'PA_STREAM_REP( s )->streamInterface == &alsaHostApi->callbackStreamInterface || PA_STREAM_REP( s )->streamInterface == &alsaHostApi->blockingStreamInterface' failed in 'generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/portaudio/portaudio/src/hostapi/alsa/pa_linux_alsa.c', line: 4656\0A\00", align 1
+@switch.table.PaAlsaStreamComponent_Initialize = private unnamed_addr constant [6 x i32] [i32 14, i32 10, i32 32, i32 2, i32 0, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @PaAlsa_SetLibraryPathName(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -3322,7 +3323,7 @@ define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %
 26:                                               ; preds = %23
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.94) #25
   %27 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
-  br label %79
+  br label %77
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %5, align 8, !tbaa !153
@@ -3330,13 +3331,13 @@ define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %
   %31 = load ptr, ptr %5, align 8, !tbaa !153
   %32 = call fastcc i32 @SetApproximateSampleRate(ptr noundef %31, ptr noundef %7, double noundef %2)
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %79, label %34
+  br i1 %33, label %77, label %34
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %5, align 8, !tbaa !153
   %36 = call i32 @snd_pcm_hw_params_set_channels(ptr noundef %35, ptr noundef nonnull %7, i32 noundef %.046) #25, !callees !182
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %79, label %38
+  br i1 %37, label %77, label %38
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %5, align 8, !tbaa !153
@@ -3352,101 +3353,88 @@ define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %
 46:                                               ; preds = %38
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.95) #25
   %47 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
-  br label %79
+  br label %77
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %5, align 8, !tbaa !153
-  switch i64 %43, label %55 [
-    i64 1, label %Pa2AlsaFormat.exit
-    i64 8, label %50
-    i64 4, label %51
-    i64 2, label %52
-    i64 16, label %53
-    i64 32, label %54
-  ]
+  %50 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %43)
+  %51 = icmp eq i64 %50, 1
+  br i1 %51, label %.split.i, label %Pa2AlsaFormat.exit
 
-50:                                               ; preds = %48
+.split.i:                                         ; preds = %48
+  %52 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %43, i1 true)
+  %53 = icmp samesign ult i64 %52, 6
+  br i1 %53, label %switch.lookup, label %Pa2AlsaFormat.exit
+
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.PaAlsaStreamComponent_Initialize, i64 %52
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %Pa2AlsaFormat.exit
 
-51:                                               ; preds = %48
-  br label %Pa2AlsaFormat.exit
+Pa2AlsaFormat.exit:                               ; preds = %48, %.split.i, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %.split.i ], [ -1, %48 ]
+  %54 = call i32 @snd_pcm_hw_params_set_format(ptr noundef %49, ptr noundef nonnull %7, i32 noundef %.0.i) #25, !callees !183
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %63, !prof !9
 
-52:                                               ; preds = %48
-  br label %Pa2AlsaFormat.exit
+56:                                               ; preds = %Pa2AlsaFormat.exit
+  %57 = tail call i64 @pthread_self() #28
+  %58 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
+  %.not60 = icmp eq i64 %57, %58
+  br i1 %.not60, label %59, label %62
 
-53:                                               ; preds = %48
-  br label %Pa2AlsaFormat.exit
+59:                                               ; preds = %56
+  %60 = sext i32 %54 to i64
+  %61 = call ptr @snd_strerror(i32 noundef %54) #25, !callees !109
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %60, ptr noundef %61) #25
+  br label %62
 
-54:                                               ; preds = %48
-  br label %Pa2AlsaFormat.exit
-
-55:                                               ; preds = %48
-  br label %Pa2AlsaFormat.exit
-
-Pa2AlsaFormat.exit:                               ; preds = %48, %50, %51, %52, %53, %54, %55
-  %.0.i = phi i32 [ -1, %55 ], [ 2, %50 ], [ 32, %51 ], [ 10, %52 ], [ 0, %53 ], [ 1, %54 ], [ 14, %48 ]
-  %56 = call i32 @snd_pcm_hw_params_set_format(ptr noundef %49, ptr noundef nonnull %7, i32 noundef %.0.i) #25, !callees !183
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %58, label %65, !prof !9
-
-58:                                               ; preds = %Pa2AlsaFormat.exit
-  %59 = tail call i64 @pthread_self() #28
-  %60 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
-  %.not60 = icmp eq i64 %59, %60
-  br i1 %.not60, label %61, label %64
-
-61:                                               ; preds = %58
-  %62 = sext i32 %56 to i64
-  %63 = call ptr @snd_strerror(i32 noundef %56) #25, !callees !109
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %62, ptr noundef %63) #25
-  br label %64
-
-64:                                               ; preds = %58, %61
+62:                                               ; preds = %56, %59
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.96) #25
-  br label %79
+  br label %77
 
-65:                                               ; preds = %Pa2AlsaFormat.exit
-  %66 = load ptr, ptr %5, align 8, !tbaa !153
-  %67 = call i32 @snd_pcm_hw_params(ptr noundef %66, ptr noundef nonnull %7) #25, !callees !184
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %79
+63:                                               ; preds = %Pa2AlsaFormat.exit
+  %64 = load ptr, ptr %5, align 8, !tbaa !153
+  %65 = call i32 @snd_pcm_hw_params(ptr noundef %64, ptr noundef nonnull %7) #25, !callees !184
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %77
 
-69:                                               ; preds = %65
-  %70 = icmp eq i32 %67, -22
-  br i1 %70, label %79, label %71
+67:                                               ; preds = %63
+  %68 = icmp eq i32 %65, -22
+  br i1 %68, label %77, label %69
 
-71:                                               ; preds = %69
-  %.not52 = icmp eq i32 %67, -16
+69:                                               ; preds = %67
+  %.not52 = icmp eq i32 %65, -16
   %. = select i1 %.not52, i32 -9985, i32 -9999
-  br i1 %.not52, label %78, label %72
+  br i1 %.not52, label %76, label %70
 
-72:                                               ; preds = %71
-  %73 = tail call i64 @pthread_self() #28
-  %74 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
-  %.not59 = icmp eq i64 %73, %74
-  br i1 %.not59, label %75, label %78
+70:                                               ; preds = %69
+  %71 = tail call i64 @pthread_self() #28
+  %72 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
+  %.not59 = icmp eq i64 %71, %72
+  br i1 %.not59, label %73, label %76
 
-75:                                               ; preds = %72
-  %76 = sext i32 %67 to i64
-  %77 = call ptr @snd_strerror(i32 noundef %67) #25, !callees !109
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %76, ptr noundef %77) #25
-  br label %78
+73:                                               ; preds = %70
+  %74 = sext i32 %65 to i64
+  %75 = call ptr @snd_strerror(i32 noundef %65) #25, !callees !109
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %74, ptr noundef %75) #25
+  br label %76
 
-78:                                               ; preds = %75, %72, %71
+76:                                               ; preds = %73, %70, %69
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.97) #25
-  br label %79
+  br label %77
 
-79:                                               ; preds = %78, %69, %65, %64, %34, %28, %26, %46
-  %.5 = phi i32 [ %27, %26 ], [ %47, %46 ], [ -9999, %64 ], [ -9997, %28 ], [ -9998, %34 ], [ %., %78 ], [ -9993, %69 ], [ 0, %65 ]
-  %80 = load ptr, ptr %5, align 8, !tbaa !153
-  %.not54 = icmp eq ptr %80, null
-  br i1 %.not54, label %83, label %81
+77:                                               ; preds = %76, %67, %63, %62, %34, %28, %26, %46
+  %.5 = phi i32 [ %27, %26 ], [ %47, %46 ], [ -9999, %62 ], [ -9997, %28 ], [ -9998, %34 ], [ %., %76 ], [ -9993, %67 ], [ 0, %63 ]
+  %78 = load ptr, ptr %5, align 8, !tbaa !153
+  %.not54 = icmp eq ptr %78, null
+  br i1 %.not54, label %81, label %79
 
-81:                                               ; preds = %79
-  %82 = call i32 @snd_pcm_close(ptr noundef nonnull %80) #25, !callees !179
-  br label %83
+79:                                               ; preds = %77
+  %80 = call i32 @snd_pcm_close(ptr noundef nonnull %78) #25, !callees !179
+  br label %81
 
-83:                                               ; preds = %79, %81
+81:                                               ; preds = %77, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.5
 }
@@ -4484,90 +4472,77 @@ sub_2:                                            ; preds = %sub_1
   %65 = trunc i64 %64 to i32
   store i32 %65, ptr @paUtilErr_, align 4, !tbaa !3
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %93, label %67, !prof !9
+  br i1 %66, label %91, label %67, !prof !9
 
 67:                                               ; preds = %58
   store i64 %64, ptr %0, align 8, !tbaa !213
-  switch i64 %64, label %73 [
-    i64 1, label %Pa2AlsaFormat.exit
-    i64 8, label %68
-    i64 4, label %69
-    i64 2, label %70
-    i64 16, label %71
-    i64 32, label %72
-  ]
+  %68 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %64)
+  %69 = icmp eq i64 %68, 1
+  br i1 %69, label %.split.i, label %Pa2AlsaFormat.exit
 
-68:                                               ; preds = %67
+.split.i:                                         ; preds = %67
+  %70 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %64, i1 true)
+  %71 = icmp samesign ult i64 %70, 6
+  br i1 %71, label %switch.lookup, label %Pa2AlsaFormat.exit
+
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.PaAlsaStreamComponent_Initialize, i64 %70
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %Pa2AlsaFormat.exit
 
-69:                                               ; preds = %67
-  br label %Pa2AlsaFormat.exit
-
-70:                                               ; preds = %67
-  br label %Pa2AlsaFormat.exit
-
-71:                                               ; preds = %67
-  br label %Pa2AlsaFormat.exit
-
-72:                                               ; preds = %67
-  br label %Pa2AlsaFormat.exit
-
-73:                                               ; preds = %67
-  br label %Pa2AlsaFormat.exit
-
-Pa2AlsaFormat.exit:                               ; preds = %67, %68, %69, %70, %71, %72, %73
-  %.0.i = phi i32 [ -1, %73 ], [ 2, %68 ], [ 32, %69 ], [ 10, %70 ], [ 0, %71 ], [ 1, %72 ], [ 14, %67 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %.0.i, ptr %74, align 8, !tbaa !214
-  %75 = and i64 %7, 2147483648
-  %.not56 = icmp eq i64 %75, 0
-  %76 = zext i1 %.not56 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %76, ptr %77, align 8, !tbaa !215
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %76, ptr %78, align 4, !tbaa !216
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !39
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %80, ptr %81, align 8, !tbaa !217
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %3, ptr %82, align 8, !tbaa !218
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %83, align 8, !tbaa !219
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %84, align 8, !tbaa !206
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %85, align 8, !tbaa !220
+Pa2AlsaFormat.exit:                               ; preds = %67, %.split.i, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %.split.i ], [ -1, %67 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %.0.i, ptr %72, align 8, !tbaa !214
+  %73 = and i64 %7, 2147483648
+  %.not56 = icmp eq i64 %73, 0
+  %74 = zext i1 %.not56 to i32
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %74, ptr %75, align 8, !tbaa !215
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %74, ptr %76, align 4, !tbaa !216
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !39
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %78, ptr %79, align 8, !tbaa !217
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %3, ptr %80, align 8, !tbaa !218
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %81, align 8, !tbaa !219
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %82, align 8, !tbaa !206
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %83, align 8, !tbaa !220
   %.not57 = icmp ne i32 %4, 0
   %or.cond.not = select i1 %.not57, i1 true, i1 %.not56
-  br i1 %or.cond.not, label %.thread, label %86
+  br i1 %or.cond.not, label %.thread, label %84
 
-86:                                               ; preds = %Pa2AlsaFormat.exit
-  %87 = sext i32 %80 to i64
-  %88 = shl nsw i64 %87, 3
-  %89 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %88) #25
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %89, ptr %90, align 8, !tbaa !205
-  %91 = icmp eq ptr %89, null
-  br i1 %91, label %92, label %.thread, !prof !9
+84:                                               ; preds = %Pa2AlsaFormat.exit
+  %85 = sext i32 %78 to i64
+  %86 = shl nsw i64 %85, 3
+  %87 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %86) #25
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %87, ptr %88, align 8, !tbaa !205
+  %89 = icmp eq ptr %87, null
+  br i1 %89, label %90, label %.thread, !prof !9
 
-92:                                               ; preds = %86
+90:                                               ; preds = %84
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.113) #25
   br label %.thread
 
-93:                                               ; preds = %58
+91:                                               ; preds = %58
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.112) #25
-  %94 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
-  %95 = icmp eq i64 %64, -9994
-  br i1 %95, label %96, label %.thread
+  %92 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
+  %93 = icmp eq i64 %64, -9994
+  br i1 %93, label %94, label %.thread
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %53, align 8, !tbaa !147
-  tail call fastcc void @LogAllAvailableFormats(ptr noundef %97)
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %53, align 8, !tbaa !147
+  tail call fastcc void @LogAllAvailableFormats(ptr noundef %95)
   br label %.thread
 
-.thread:                                          ; preds = %86, %92, %Pa2AlsaFormat.exit, %56, %96, %93
-  %.061 = phi i32 [ %94, %96 ], [ %94, %93 ], [ 0, %86 ], [ -9992, %92 ], [ 0, %Pa2AlsaFormat.exit ], [ %57, %56 ]
+.thread:                                          ; preds = %84, %90, %Pa2AlsaFormat.exit, %56, %94, %91
+  %.061 = phi i32 [ %92, %94 ], [ %92, %91 ], [ 0, %84 ], [ -9992, %90 ], [ 0, %Pa2AlsaFormat.exit ], [ %57, %56 ]
   ret i32 %.061
 }
 
@@ -7923,13 +7898,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #24
 
 declare double @exp2(double) local_unnamed_addr
 

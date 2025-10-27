@@ -94,6 +94,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE = thread_local local_unnamed_addr global <{ [1 x i8] }> zeroinitializer, align 1
 @anon.832e62666b6255bc19293ed26de40573.54.llvm.9340333246167201960 = external hidden unnamed_addr constant <{ [43 x i8] }>, align 1
 @anon.832e62666b6255bc19293ed26de40573.56.llvm.9340333246167201960 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
+@switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE = private unnamed_addr constant [6 x i64] [i64 5, i64 10, i64 0, i64 0, i64 20, i64 32], align 8
 
 ; Function Attrs: cold nonlazybind uwtable
 define hidden void @_ZN3std10sys_common4once5futex4Once4call17h33c5f342f7e17fb1E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -7739,27 +7740,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1112
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -7911,27 +7907,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h24
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1145
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8083,27 +8074,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1178
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8255,27 +8241,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h48
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1211
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8427,27 +8408,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h5e
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1244
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8598,27 +8574,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h69
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1277
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -8767,27 +8738,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1308
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8938,27 +8904,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1341
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9107,27 +9068,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h87
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1374
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9278,27 +9234,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h8a
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1407
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9447,27 +9398,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hb3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1440
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9622,27 +9568,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc1
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1473
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9791,27 +9732,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1506
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9962,27 +9898,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hd3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1539
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10131,27 +10062,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1572
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10303,27 +10229,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1605
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10475,27 +10396,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hde
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1638
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10646,27 +10562,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17he7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1671
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10814,27 +10725,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hec
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %11, i8 noundef 2), !noalias !1704
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %13
-    i64 2, label %14
-    i64 16, label %15
-    i64 32, label %16
-  ]
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-13:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %16 = icmp samesign ult i64 %15, 6
+  br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10986,27 +10892,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hf2
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %16 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %15, i8 noundef 2), !noalias !1735
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %17
-    i64 2, label %18
-    i64 16, label %19
-    i64 32, label %20
-  ]
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-17:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %20 = icmp samesign ult i64 %19, 6
+  br i1 %20, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %19
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-18:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-19:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-20:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %17, %18, %19, %20
-  %.0.i.i = phi i64 [ 5, %17 ], [ 10, %18 ], [ 20, %19 ], [ 32, %20 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %21 = lshr i64 %16, 16
   %22 = trunc i64 %21 to i8
   %23 = and i64 %.0.i.i, %16
@@ -11208,27 +11109,22 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hff
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.4117860391599875382(ptr noundef nonnull %12, i8 noundef 2), !noalias !1780
-  switch i64 %2, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit [
-    i64 1, label %14
-    i64 2, label %15
-    i64 16, label %16
-    i64 32, label %17
-  ]
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-14:                                               ; preds = %4
+.split.i.i:                                       ; preds = %4
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %17 = icmp samesign ult i64 %16, 6
+  br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
-15:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-16:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-17:                                               ; preds = %4
-  br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
-
-_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
+_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
+  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %switch.load, %switch.lookup ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -12858,6 +12754,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24

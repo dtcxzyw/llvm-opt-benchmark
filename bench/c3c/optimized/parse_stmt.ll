@@ -84,14 +84,14 @@ define dso_local noundef zeroext i1 @parse_switch_body(ptr noundef %0, ptr nound
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = tail call ptr @token_type_to_string(i32 noundef 17) #5
+  %10 = tail call ptr @token_type_to_string(i32 noundef 17) #6
   %11 = load i64, ptr %9, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #6
   br label %.loopexit
 
 .critedge54:                                      ; preds = %4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %12 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %12 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #6
   br i1 %12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge54
@@ -121,12 +121,12 @@ define dso_local noundef zeroext i1 @parse_switch_body(ptr noundef %0, ptr nound
   br i1 %25, label %27, label %79
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %28 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %26, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i8 17, ptr %29, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %30 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.14) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %30 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.14) #6
   br i1 %30, label %31, label %parse_default_stmt.exit
 
 31:                                               ; preds = %27
@@ -173,7 +173,7 @@ switch.early.test:                                ; preds = %extend_span_with_to
 
 47:                                               ; preds = %switch.early.test
   %48 = load i64, ptr %13, align 8
-  %49 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %49 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i8 6, ptr %50, align 4
@@ -264,7 +264,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   br i1 %.not, label %.loopexit, label %.critedge
 
 79:                                               ; preds = %24
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %26, ptr noundef nonnull @.str) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %26, ptr noundef nonnull @.str) #6
   br label %.loopexit
 
 .critedge:                                        ; preds = %76, %parse_default_stmt.exit, %21, %18
@@ -274,7 +274,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   br i1 %.not.i55, label %81, label %84
 
 81:                                               ; preds = %.critedge
-  %82 = tail call ptr @calloc_arena(i64 noundef 72) #5
+  %82 = tail call ptr @calloc_arena(i64 noundef 72) #6
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 8, ptr %83, align 4
   br label %86
@@ -298,7 +298,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
   %95 = or disjoint i64 %94, 8
-  %96 = tail call ptr @calloc_arena(i64 noundef %95) #5
+  %96 = tail call ptr @calloc_arena(i64 noundef %95) #6
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 %92, ptr %97, align 4
   %98 = load i32, ptr %91, align 4
@@ -324,7 +324,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
   store ptr %.044, ptr %111, align 8
-  %112 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
+  %112 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #6
   br i1 %112, label %.loopexit, label %15, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %76, %104, %.critedge54, %8, %79
@@ -340,12 +340,12 @@ declare zeroext i1 @try_consume(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc ptr @parse_case_stmt(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %6 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 5, ptr %7, align 4
-  tail call void @advance(ptr noundef %0) #5
-  %8 = tail call ptr @parse_expr(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
+  %8 = tail call ptr @parse_expr(ptr noundef %0) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.critedge, label %10
 
@@ -385,11 +385,11 @@ define internal fastcc ptr @parse_case_stmt(ptr noundef %0, i32 noundef %1, i32 
   br label %26
 
 26:                                               ; preds = %24, %.critedge
-  %27 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 36) #5
+  %27 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 36) #6
   br i1 %27, label %28, label %41
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %29 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.critedge2, label %31
 
@@ -420,13 +420,13 @@ define internal fastcc ptr @parse_case_stmt(ptr noundef %0, i32 noundef %1, i32 
   br label %41
 
 41:                                               ; preds = %.critedge2, %26
-  %42 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  %42 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %42, label %47, label %44
 
 44:                                               ; preds = %41
   %45 = load i64, ptr %43, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %45, ptr noundef nonnull @.str.13) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %45, ptr noundef nonnull @.str.13) #6
   %46 = load ptr, ptr @poisoned_ast, align 8
   br label %92
 
@@ -475,7 +475,7 @@ switch.early.test.i:                              ; preds = %extend_span_with_to
 
 64:                                               ; preds = %switch.early.test.i
   %65 = load i64, ptr %4, align 8
-  %66 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %66 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %65, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i8 6, ptr %67, align 4
@@ -565,12 +565,12 @@ declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
 define dso_local ptr @parse_ct_assert_stmt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 8, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
-  %6 = tail call ptr @parse_constant_expr(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
+  %6 = tail call ptr @parse_constant_expr(ptr noundef %0) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %8
 
@@ -598,11 +598,11 @@ define dso_local ptr @parse_ct_assert_stmt(ptr noundef %0) local_unnamed_addr #0
   %phi.call = trunc i64 %phi.call.in to i32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %phi.call, ptr %17, align 8
-  %18 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  %18 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %.critedge
-  %20 = tail call ptr @parse_constant_expr(ptr noundef nonnull %0) #5
+  %20 = tail call ptr @parse_constant_expr(ptr noundef nonnull %0) #6
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.critedge2, label %22
 
@@ -633,14 +633,14 @@ define dso_local ptr @parse_ct_assert_stmt(ptr noundef %0) local_unnamed_addr #0
   br label %32
 
 32:                                               ; preds = %.critedge2, %.critedge
-  %33 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %33 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %33, label %consume_eos.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load i64, ptr %35, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %36, ptr noundef nonnull @.str.15) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %36, ptr noundef nonnull @.str.15) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %37 = load ptr, ptr @poisoned_ast, align 8
   br label %consume_eos.exit
 
@@ -655,14 +655,14 @@ declare ptr @parse_constant_expr(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @parse_ct_error_stmt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 8, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %6, align 8
-  %7 = tail call ptr @parse_constant_expr(ptr noundef %0) #5
+  %7 = tail call ptr @parse_constant_expr(ptr noundef %0) #6
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %9
 
@@ -690,14 +690,14 @@ define dso_local ptr @parse_ct_error_stmt(ptr noundef %0) local_unnamed_addr #0 
   %phi.call = trunc i64 %phi.call.in to i32
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %phi.call, ptr %18, align 4
-  %19 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %19 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %19, label %consume_eos.exit, label %20
 
 20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %21, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %22, ptr noundef nonnull @.str.15) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %22, ptr noundef nonnull @.str.15) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %23 = load ptr, ptr @poisoned_ast, align 8
   br label %consume_eos.exit
 
@@ -710,12 +710,12 @@ consume_eos.exit:                                 ; preds = %20, %.critedge, %14
 define dso_local ptr @parse_ct_echo_stmt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 9, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
-  %6 = tail call ptr @parse_constant_expr(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
+  %6 = tail call ptr @parse_constant_expr(ptr noundef %0) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %8
 
@@ -733,14 +733,14 @@ define dso_local ptr @parse_ct_echo_stmt(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %1, %8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %14, align 8
-  %15 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %15 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %15, label %consume_eos.exit, label %16
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i64, ptr %17, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %18, ptr noundef nonnull @.str.15) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %18, ptr noundef nonnull @.str.15) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %19 = load ptr, ptr @poisoned_ast, align 8
   br label %consume_eos.exit
 
@@ -951,7 +951,7 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
   br label %parse_decl_or_expr_stmt.exit
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %7 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %7 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %8 = icmp eq ptr %7, null
   br i1 %8, label %..critedge_crit_edge.i, label %9
 
@@ -989,7 +989,7 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %23, label %24, label %.thread.i
 
 24:                                               ; preds = %17
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse_decl_or_expr_stmt, ptr noundef nonnull @.str.10, i32 noundef 913) #6
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse_decl_or_expr_stmt, ptr noundef nonnull @.str.10, i32 noundef 913) #7
   unreachable
 
 25:                                               ; preds = %.critedge.i
@@ -1017,16 +1017,16 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %.critedge2.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %38, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %39, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %39, ptr noundef nonnull @.str.11) #6
   %40 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 41:                                               ; preds = %.critedge2.i
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_decl_or_expr_stmt.exit
 
 .thread.i:                                        ; preds = %17, %.critedge.i
-  %42 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %42 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %42, align 8
@@ -1048,19 +1048,19 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
 
 52:                                               ; preds = %48
   %53 = load i64, ptr %43, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %53, ptr noundef nonnull @.str.16) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %53, ptr noundef nonnull @.str.16) #6
   %54 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 .thread41.i:                                      ; preds = %48, %.thread.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i64, ptr %55, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %56, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %56, ptr noundef nonnull @.str.11) #6
   %57 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 58:                                               ; preds = %.thread.i
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_decl_or_expr_stmt.exit
 
 59:                                               ; preds = %1
@@ -1110,8 +1110,8 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
 81:                                               ; preds = %1
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load i64, ptr %82, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %83, ptr noundef nonnull @.str.1) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %83, ptr noundef nonnull @.str.1) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %84 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
@@ -1130,8 +1130,8 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
 91:                                               ; preds = %1
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %93 = load i64, ptr %92, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %93, ptr noundef nonnull @.str.2) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %93, ptr noundef nonnull @.str.2) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %94 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
@@ -1166,11 +1166,11 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
 109:                                              ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %111 = load i64, ptr %110, align 8
-  %112 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %112 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
   store i8 19, ptr %113, align 4
-  %114 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %114 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %115 = icmp eq ptr %114, null
   br i1 %115, label %.critedge.i52, label %116
 
@@ -1223,12 +1223,12 @@ extend_span_with_token.exit.i:                    ; preds = %127, %126
 
 138:                                              ; preds = %extend_span_with_token.exit.i
   %139 = load i64, ptr %123, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %139, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %139, ptr noundef nonnull @.str.11) #6
   %140 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 141:                                              ; preds = %extend_span_with_token.exit.i
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_decl_or_expr_stmt.exit
 
 142:                                              ; preds = %1
@@ -1236,44 +1236,44 @@ extend_span_with_token.exit.i:                    ; preds = %127, %126
   br label %parse_decl_or_expr_stmt.exit
 
 144:                                              ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %145 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 146:                                              ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %148 = tail call ptr @token_type_to_string(i32 noundef %3) #5
+  %148 = tail call ptr @token_type_to_string(i32 noundef %3) #6
   %149 = load i64, ptr %147, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %149, ptr noundef nonnull @.str.3, ptr noundef %148) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %149, ptr noundef nonnull @.str.3, ptr noundef %148) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %150 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 151:                                              ; preds = %1, %1, %1, %1
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %153 = tail call ptr @token_type_to_string(i32 noundef %3) #5
+  %153 = tail call ptr @token_type_to_string(i32 noundef %3) #6
   %154 = load i64, ptr %152, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %154, ptr noundef nonnull @.str.4, ptr noundef %153) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %154, ptr noundef nonnull @.str.4, ptr noundef %153) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %155 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 156:                                              ; preds = %1, %1
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %158 = tail call ptr @token_type_to_string(i32 noundef %3) #5
+  %158 = tail call ptr @token_type_to_string(i32 noundef %3) #6
   %159 = load i32, ptr %2, align 8
-  %160 = tail call ptr @token_type_to_string(i32 noundef %159) #5
+  %160 = tail call ptr @token_type_to_string(i32 noundef %159) #6
   %161 = load i64, ptr %157, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %161, ptr noundef nonnull @.str.5, ptr noundef %158, ptr noundef %160) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %161, ptr noundef nonnull @.str.5, ptr noundef %158, ptr noundef %160) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %162 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 163:                                              ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %165 = load i64, ptr %164, align 8
-  %166 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %166 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %165, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
   store i8 24, ptr %167, align 4
@@ -1282,19 +1282,19 @@ extend_span_with_token.exit.i:                    ; preds = %127, %126
 168:                                              ; preds = %1
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = load i64, ptr %169, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %170, ptr noundef nonnull @.str.6) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %170, ptr noundef nonnull @.str.6) #6
   %171 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 172:                                              ; preds = %1
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %174 = load i64, ptr %173, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %174, ptr noundef nonnull @.str.7) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %174, ptr noundef nonnull @.str.7) #6
   %175 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
 176:                                              ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse_stmt, ptr noundef nonnull @.str.10, i32 noundef 1414) #6
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse_stmt, ptr noundef nonnull @.str.10, i32 noundef 1414) #7
   unreachable
 
 parse_decl_or_expr_stmt.exit:                     ; preds = %141, %138, %120, %58, %.thread41.i, %52, %41, %37, %33, %13, %172, %168, %163, %156, %151, %146, %144, %142, %107, %105, %103, %101, %99, %97, %95, %91, %89, %87, %85, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %4
@@ -1306,7 +1306,7 @@ parse_decl_or_expr_stmt.exit:                     ; preds = %141, %138, %120, %5
 define dso_local ptr @parse_compound_stmt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 6, ptr %5, align 4
@@ -1316,15 +1316,15 @@ define dso_local ptr @parse_compound_stmt(ptr noundef %0) local_unnamed_addr #0 
   br i1 %8, label %.critedge38, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @token_type_to_string(i32 noundef 17) #5
+  %10 = tail call ptr @token_type_to_string(i32 noundef 17) #6
   %11 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #6
   %12 = load ptr, ptr @poisoned_ast, align 8
   br label %40
 
 .critedge38:                                      ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %13 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %13 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #6
   br i1 %13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge38
@@ -1360,7 +1360,7 @@ define dso_local ptr @parse_compound_stmt(ptr noundef %0) local_unnamed_addr #0 
   %phi.call = trunc i64 %phi.call.in to i32
   store i32 %phi.call, ptr %.03439, align 4
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %26 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
+  %26 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #6
   br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge38
@@ -1404,11 +1404,11 @@ extend_span_with_token.exit:                      ; preds = %30, %31
 define internal fastcc ptr @parse_var_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 15, ptr %5, align 4
-  %6 = tail call ptr @parse_var_decl(ptr noundef %0) #5
+  %6 = tail call ptr @parse_var_decl(ptr noundef %0) #6
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.critedge, label %7
 
@@ -1462,12 +1462,12 @@ extend_span_with_token.exit:                      ; preds = %17, %18
 
 30:                                               ; preds = %extend_span_with_token.exit
   %31 = load i64, ptr %14, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %31, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %31, ptr noundef nonnull @.str.11) #6
   %32 = load ptr, ptr @poisoned_ast, align 8
   br label %34
 
 33:                                               ; preds = %extend_span_with_token.exit
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %34
 
 34:                                               ; preds = %33, %30, %11
@@ -1485,11 +1485,11 @@ define internal fastcc ptr @parse_declaration_stmt(ptr noundef %0) unnamed_addr 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
-  %8 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %8 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 15, ptr %9, align 4
-  %10 = tail call ptr @parse_const_declaration(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #5
+  %10 = tail call ptr @parse_const_declaration(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #6
   %.not85 = icmp eq ptr %10, null
   br i1 %.not85, label %.critedge, label %11
 
@@ -1547,25 +1547,25 @@ extend_span_with_token.exit:                      ; preds = %25, %26
 
 37:                                               ; preds = %extend_span_with_token.exit
   %38 = load i64, ptr %22, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %38, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %38, ptr noundef nonnull @.str.11) #6
   %39 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 40:                                               ; preds = %extend_span_with_token.exit
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %.loopexit
 
 41:                                               ; preds = %1
-  %42 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 127) #5
+  %42 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 127) #6
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 137) #5
+  %44 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 137) #6
   br label %45
 
 45:                                               ; preds = %43, %41
   %46 = phi i1 [ true, %41 ], [ %44, %43 ]
-  %47 = tail call ptr @parse_optional_type(ptr noundef nonnull %0) #5
+  %47 = tail call ptr @parse_optional_type(ptr noundef nonnull %0) #6
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.critedge2, label %48
 
@@ -1603,12 +1603,12 @@ extend_span_with_token.exit:                      ; preds = %25, %26
 62:                                               ; preds = %.critedge4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load i64, ptr %63, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %64, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %64, ptr noundef nonnull @.str.11) #6
   %65 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 66:                                               ; preds = %.critedge4
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %68 = load i8, ptr %67, align 4
   %69 = icmp eq i8 %68, 15
@@ -1682,10 +1682,10 @@ extend_span_with_token.exit:                      ; preds = %25, %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_return_stmt(ptr noundef %0) unnamed_addr #0 {
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 25, ptr %5, align 4
@@ -1695,7 +1695,7 @@ define internal fastcc ptr @parse_return_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %10 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12
 
@@ -1720,12 +1720,12 @@ define internal fastcc ptr @parse_return_stmt(ptr noundef %0) unnamed_addr #0 {
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %23, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %23, ptr noundef nonnull @.str.11) #6
   %24 = load ptr, ptr @poisoned_ast, align 8
   br label %25
 
 .thread:                                          ; preds = %1, %18
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %25
 
 25:                                               ; preds = %.thread, %21, %16
@@ -1738,11 +1738,11 @@ define internal fastcc ptr @parse_if_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
-  %5 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %5 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 23, ptr %6, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 65
@@ -1752,7 +1752,7 @@ define internal fastcc ptr @parse_if_stmt(ptr noundef %0) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %3, align 8
-  %14 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %12, i64 %13) #5
+  %14 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %12, i64 %13) #6
   %15 = load ptr, ptr @ast_arena, align 8
   %16 = ptrtoint ptr %5 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -1761,14 +1761,14 @@ define internal fastcc ptr @parse_if_stmt(ptr noundef %0) unnamed_addr #0 {
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 108
   store i32 %20, ptr %21, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %22, label %parse_optional_label.exit.thread110, label %parse_optional_label.exit
 
 parse_optional_label.exit:                        ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %24 = load i64, ptr %23, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %24, ptr noundef nonnull @.str.19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %24, ptr noundef nonnull @.str.19) #6
   %25 = load ptr, ptr @poisoned_decl, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.critedge103, label %parse_optional_label.exit.thread110
@@ -1803,15 +1803,15 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br i1 %40, label %.critedge105, label %41
 
 41:                                               ; preds = %.critedge103
-  %42 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %42 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %43 = load i64, ptr %3, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.12, ptr noundef %42) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.12, ptr noundef %42) #6
   %44 = load ptr, ptr @poisoned_ast, align 8
   br label %120
 
 .critedge105:                                     ; preds = %.critedge103
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %45 = tail call ptr @parse_cond(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %45 = tail call ptr @parse_cond(ptr noundef nonnull %0) #6
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.critedge2, label %47
 
@@ -1846,14 +1846,14 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br i1 %60, label %.critedge107, label %61
 
 61:                                               ; preds = %.critedge2
-  %62 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %62 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %63 = load i64, ptr %3, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %63, ptr noundef nonnull @.str.12, ptr noundef %62) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %63, ptr noundef nonnull @.str.12, ptr noundef %62) #6
   %64 = load ptr, ptr @poisoned_ast, align 8
   br label %120
 
 .critedge107:                                     ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %65 = load i32, ptr %7, align 8
   %66 = icmp eq i32 %65, 17
   br i1 %66, label %67, label %87
@@ -1868,7 +1868,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 70:                                               ; preds = %67, %67
   %71 = load i64, ptr %3, align 8
-  %72 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %72 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i8 22, ptr %73, align 4
@@ -1939,7 +1939,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br label %106
 
 106:                                              ; preds = %.critedge4, %100, %105, %77
-  %107 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 118) #5
+  %107 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 118) #6
   br i1 %107, label %108, label %120
 
 108:                                              ; preds = %106
@@ -1981,11 +1981,11 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 define internal fastcc ptr @parse_while_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 20, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 65
@@ -1995,7 +1995,7 @@ define internal fastcc ptr @parse_while_stmt(ptr noundef %0) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %2, align 8
-  %13 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %11, i64 %12) #5
+  %13 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %11, i64 %12) #6
   %14 = load ptr, ptr @ast_arena, align 8
   %15 = ptrtoint ptr %4 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -2004,14 +2004,14 @@ define internal fastcc ptr @parse_while_stmt(ptr noundef %0) unnamed_addr #0 {
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 108
   store i32 %19, ptr %20, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %21, label %parse_optional_label.exit.thread74, label %parse_optional_label.exit
 
 parse_optional_label.exit:                        ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %23 = load i64, ptr %22, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.19) #6
   %24 = load ptr, ptr @poisoned_decl, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge67, label %parse_optional_label.exit.thread74
@@ -2046,15 +2046,15 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
   br i1 %39, label %.critedge69, label %40
 
 40:                                               ; preds = %.critedge67
-  %41 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %41 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %42 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %42, ptr noundef nonnull @.str.12, ptr noundef %41) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %42, ptr noundef nonnull @.str.12, ptr noundef %41) #6
   %43 = load ptr, ptr @poisoned_ast, align 8
   br label %85
 
 .critedge69:                                      ; preds = %.critedge67
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %44 = tail call ptr @parse_cond(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %44 = tail call ptr @parse_cond(ptr noundef nonnull %0) #6
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.critedge2, label %46
 
@@ -2087,14 +2087,14 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
   br i1 %57, label %.critedge71, label %58
 
 58:                                               ; preds = %.critedge2
-  %59 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %59 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %60 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull @.str.12, ptr noundef %59) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull @.str.12, ptr noundef %59) #6
   %61 = load ptr, ptr @poisoned_ast, align 8
   br label %85
 
 .critedge71:                                      ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %63 = load i32, ptr %62, align 4
   %64 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
@@ -2127,7 +2127,7 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
 
 74:                                               ; preds = %72
   %75 = load i64, ptr %64, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %75, ptr noundef nonnull @.str.20) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %75, ptr noundef nonnull @.str.20) #6
   %76 = load ptr, ptr @poisoned_ast, align 8
   br label %85
 
@@ -2149,18 +2149,18 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 18, ptr %5, align 4
-  %6 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 141) #5
+  %6 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 141) #6
   br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 110) #5
+  %8 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 110) #6
   br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %7
@@ -2176,20 +2176,20 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %16, label %17, label %86
 
 17:                                               ; preds = %13
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %18 = load i32, ptr %10, align 8
   %19 = icmp eq i32 %18, 110
   br i1 %19, label %.critedge100, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @token_type_to_string(i32 noundef 110) #5
+  %21 = tail call ptr @token_type_to_string(i32 noundef 110) #6
   %22 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.12, ptr noundef %21) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.12, ptr noundef %21) #6
   %23 = load ptr, ptr @poisoned_ast, align 8
   br label %98
 
 .critedge100:                                     ; preds = %17
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %24 = load i32, ptr %10, align 8
   switch i32 %24, label %25 [
     i32 64, label %29
@@ -2203,18 +2203,18 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
 26:                                               ; preds = %25, %.critedge100, %.critedge100
   %.str.23.sink.i = phi ptr [ @.str.23, %25 ], [ @.str.22, %.critedge100 ], [ @.str.22, %.critedge100 ]
   %27 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull %.str.23.sink.i, ptr noundef nonnull @.str.21) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull %.str.23.sink.i, ptr noundef nonnull @.str.21) #6
   %28 = load ptr, ptr @poisoned_ast, align 8
   br label %98
 
 29:                                               ; preds = %.critedge100
   %30 = load i64, ptr %2, align 8
-  %31 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %31 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i8 6, ptr %32, align 4
   %33 = load i64, ptr %2, align 8
-  %34 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %34 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i8 15, ptr %35, align 4
@@ -2222,7 +2222,7 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @type_anyfault, align 8
   %39 = load i64, ptr %2, align 8
-  %40 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #5
+  %40 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #6
   %41 = load i16, ptr %40, align 8
   %42 = and i16 %41, -512
   %43 = or disjoint i16 %42, 10
@@ -2232,32 +2232,32 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 %39, ptr %45, align 8
   %46 = load i64, ptr %2, align 8
-  %47 = tail call ptr @decl_new_var(ptr noundef %37, i64 %46, ptr noundef nonnull %40, i32 noundef 2) #5
+  %47 = tail call ptr @decl_new_var(ptr noundef %37, i64 %46, ptr noundef nonnull %40, i32 noundef 2) #6
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = load i8, ptr %48, align 8
   %50 = or i8 %49, 2
   store i8 %50, ptr %48, align 8
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %52 = load i64, ptr %51, align 8
-  %53 = tail call ptr @expr_new(i32 noundef 37, i64 %52) #5
+  %53 = tail call ptr @expr_new(i32 noundef 37, i64 %52) #6
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 88
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %47, ptr %55, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %56 = load i32, ptr %10, align 8
   %57 = icmp eq i32 %56, 26
   br i1 %57, label %.critedge102, label %58
 
 58:                                               ; preds = %29
-  %59 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %59 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %60 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull @.str.12, ptr noundef %59) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull @.str.12, ptr noundef %59) #6
   %61 = load ptr, ptr @poisoned_ast, align 8
   br label %98
 
 .critedge102:                                     ; preds = %29
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %62 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.critedge, label %64
@@ -2346,11 +2346,11 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
 define internal fastcc ptr @parse_switch_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 27, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 65
@@ -2360,7 +2360,7 @@ define internal fastcc ptr @parse_switch_stmt(ptr noundef %0) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %2, align 8
-  %13 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %11, i64 %12) #5
+  %13 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %11, i64 %12) #6
   %14 = load ptr, ptr @ast_arena, align 8
   %15 = ptrtoint ptr %4 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -2369,14 +2369,14 @@ define internal fastcc ptr @parse_switch_stmt(ptr noundef %0) unnamed_addr #0 {
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 108
   store i32 %19, ptr %20, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %21, label %parse_optional_label.exit.thread48, label %parse_optional_label.exit
 
 parse_optional_label.exit:                        ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %23 = load i64, ptr %22, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.19) #6
   %24 = load ptr, ptr @poisoned_decl, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge43, label %parse_optional_label.exit.thread48
@@ -2406,7 +2406,7 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
   %36 = phi i32 [ %35, %.critedge ], [ 0, %parse_optional_label.exit ], [ 0, %1 ]
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %36, ptr %37, align 8
-  %38 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 19) #5
+  %38 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 19) #6
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %.critedge43
@@ -2415,7 +2415,7 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
   br label %60
 
 41:                                               ; preds = %.critedge43
-  %42 = tail call ptr @parse_cond(ptr noundef nonnull %0) #5
+  %42 = tail call ptr @parse_cond(ptr noundef nonnull %0) #6
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.critedge2, label %44
 
@@ -2448,14 +2448,14 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
   br i1 %55, label %.critedge45, label %56
 
 56:                                               ; preds = %.critedge2
-  %57 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %57 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %58 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %58, ptr noundef nonnull @.str.12, ptr noundef %57) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %58, ptr noundef nonnull @.str.12, ptr noundef %57) #6
   %59 = load ptr, ptr @poisoned_ast, align 8
   br label %64
 
 .critedge45:                                      ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %60
 
 60:                                               ; preds = %.critedge45, %39
@@ -2474,11 +2474,11 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
 define internal fastcc ptr @parse_do_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 20, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i8, ptr %7, align 4
@@ -2493,7 +2493,7 @@ define internal fastcc ptr @parse_do_stmt(ptr noundef %0) unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %2, align 8
-  %17 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %15, i64 %16) #5
+  %17 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %15, i64 %16) #6
   %18 = load ptr, ptr @ast_arena, align 8
   %19 = ptrtoint ptr %4 to i64
   %20 = ptrtoint ptr %18 to i64
@@ -2502,14 +2502,14 @@ define internal fastcc ptr @parse_do_stmt(ptr noundef %0) unnamed_addr #0 {
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 %23, ptr %24, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %25, label %parse_optional_label.exit.thread90, label %parse_optional_label.exit
 
 parse_optional_label.exit:                        ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %27 = load i64, ptr %26, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.19) #6
   %28 = load ptr, ptr @poisoned_decl, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.critedge81, label %parse_optional_label.exit.thread90
@@ -2566,14 +2566,14 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %phi.call, ptr %52, align 4
-  %53 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %53 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %53, label %54, label %65
 
 54:                                               ; preds = %.critedge2
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load ptr, ptr @type_bool, align 8
   %57 = load i64, ptr %55, align 8
-  %58 = tail call ptr @expr_new_const_bool(i64 %57, ptr noundef %56, i1 noundef zeroext false) #5
+  %58 = tail call ptr @expr_new_const_bool(i64 %57, ptr noundef %56, i1 noundef zeroext false) #6
   %59 = load ptr, ptr @expr_arena, align 8
   %60 = ptrtoint ptr %58 to i64
   %61 = ptrtoint ptr %59 to i64
@@ -2589,28 +2589,28 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
   br i1 %67, label %.critedge83, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call ptr @token_type_to_string(i32 noundef 144) #5
+  %69 = tail call ptr @token_type_to_string(i32 noundef 144) #6
   %70 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %70, ptr noundef nonnull @.str.12, ptr noundef %69) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %70, ptr noundef nonnull @.str.12, ptr noundef %69) #6
   %71 = load ptr, ptr @poisoned_ast, align 8
   br label %102
 
 .critedge83:                                      ; preds = %65
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %72 = load i32, ptr %10, align 8
   %73 = icmp eq i32 %72, 19
   br i1 %73, label %.critedge85, label %74
 
 74:                                               ; preds = %.critedge83
-  %75 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %75 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %76 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %76, ptr noundef nonnull @.str.12, ptr noundef %75) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %76, ptr noundef nonnull @.str.12, ptr noundef %75) #6
   %77 = load ptr, ptr @poisoned_ast, align 8
   br label %102
 
 .critedge85:                                      ; preds = %.critedge83
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %78 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %78 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.critedge4, label %80
 
@@ -2642,14 +2642,14 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
   br i1 %90, label %.critedge87, label %91
 
 91:                                               ; preds = %.critedge4
-  %92 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %92 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %93 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %93, ptr noundef nonnull @.str.12, ptr noundef %92) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %93, ptr noundef nonnull @.str.12, ptr noundef %92) #6
   %94 = load ptr, ptr @poisoned_ast, align 8
   br label %102
 
 .critedge87:                                      ; preds = %.critedge4
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %95 = load i32, ptr %10, align 8
   %96 = icmp eq i32 %95, 9
   br i1 %96, label %101, label %97
@@ -2657,12 +2657,12 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
 97:                                               ; preds = %.critedge87
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %99 = load i64, ptr %98, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %99, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %99, ptr noundef nonnull @.str.11) #6
   %100 = load ptr, ptr @poisoned_ast, align 8
   br label %102
 
 101:                                              ; preds = %.critedge87
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %102
 
 102:                                              ; preds = %54, %101, %97, %91, %85, %74, %68, %47, %32
@@ -2674,11 +2674,11 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
 define internal fastcc ptr @parse_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 20, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 65
@@ -2688,7 +2688,7 @@ define internal fastcc ptr @parse_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %2, align 8
-  %13 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %11, i64 %12) #5
+  %13 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %11, i64 %12) #6
   %14 = load ptr, ptr @ast_arena, align 8
   %15 = ptrtoint ptr %4 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -2697,14 +2697,14 @@ define internal fastcc ptr @parse_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 108
   store i32 %19, ptr %20, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %21, label %parse_optional_label.exit.thread116, label %parse_optional_label.exit
 
 parse_optional_label.exit:                        ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %23 = load i64, ptr %22, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.19) #6
   %24 = load ptr, ptr @poisoned_decl, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge109, label %parse_optional_label.exit.thread116
@@ -2739,15 +2739,15 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br i1 %39, label %.critedge111, label %40
 
 40:                                               ; preds = %.critedge109
-  %41 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %41 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %42 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %42, ptr noundef nonnull @.str.12, ptr noundef %41) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %42, ptr noundef nonnull @.str.12, ptr noundef %41) #6
   %43 = load ptr, ptr @poisoned_ast, align 8
   br label %139
 
 .critedge111:                                     ; preds = %.critedge109
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %44 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %44 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.critedge111
@@ -2756,7 +2756,7 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br label %67
 
 47:                                               ; preds = %.critedge111
-  %48 = tail call ptr @parse_expression_list(ptr noundef nonnull %0, i1 noundef zeroext true) #5
+  %48 = tail call ptr @parse_expression_list(ptr noundef nonnull %0, i1 noundef zeroext true) #6
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.critedge2, label %50
 
@@ -2791,16 +2791,16 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
 62:                                               ; preds = %.critedge2
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load i64, ptr %63, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %64, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %64, ptr noundef nonnull @.str.11) #6
   %65 = load ptr, ptr @poisoned_ast, align 8
   br label %139
 
 66:                                               ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %67
 
 67:                                               ; preds = %66, %45
-  %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -2809,7 +2809,7 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br label %91
 
 71:                                               ; preds = %67
-  %72 = tail call ptr @parse_cond(ptr noundef nonnull %0) #5
+  %72 = tail call ptr @parse_cond(ptr noundef nonnull %0) #6
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.critedge4, label %74
 
@@ -2844,16 +2844,16 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
 86:                                               ; preds = %.critedge4
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %88 = load i64, ptr %87, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %88, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %88, ptr noundef nonnull @.str.11) #6
   %89 = load ptr, ptr @poisoned_ast, align 8
   br label %139
 
 90:                                               ; preds = %.critedge4
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %91
 
 91:                                               ; preds = %90, %69
-  %92 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #5
+  %92 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #6
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %91
@@ -2862,7 +2862,7 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br label %114
 
 95:                                               ; preds = %91
-  %96 = tail call ptr @parse_expression_list(ptr noundef nonnull %0, i1 noundef zeroext false) #5
+  %96 = tail call ptr @parse_expression_list(ptr noundef nonnull %0, i1 noundef zeroext false) #6
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.critedge6, label %98
 
@@ -2895,14 +2895,14 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br i1 %109, label %.critedge113, label %110
 
 110:                                              ; preds = %.critedge6
-  %111 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %111 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %112 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %112, ptr noundef nonnull @.str.12, ptr noundef %111) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %112, ptr noundef nonnull @.str.12, ptr noundef %111) #6
   %113 = load ptr, ptr @poisoned_ast, align 8
   br label %139
 
 .critedge113:                                     ; preds = %.critedge6
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %114
 
 114:                                              ; preds = %93, %.critedge113
@@ -2973,11 +2973,11 @@ extend_span_with_token.exit:                      ; preds = %118, %119
 define internal fastcc ptr @parse_foreach_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 21, ptr %5, align 4
-  %6 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 125) #5
+  %6 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 125) #6
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i16, ptr %8, align 8
@@ -2988,7 +2988,7 @@ define internal fastcc ptr @parse_foreach_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %6, label %14, label %13
 
 13:                                               ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %14
 
 14:                                               ; preds = %13, %1
@@ -3001,7 +3001,7 @@ define internal fastcc ptr @parse_foreach_stmt(ptr noundef %0) unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %2, align 8
-  %22 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %20, i64 %21) #5
+  %22 = tail call ptr @decl_new(i32 noundef 20, ptr noundef %20, i64 %21) #6
   %23 = load ptr, ptr @ast_arena, align 8
   %24 = ptrtoint ptr %4 to i64
   %25 = ptrtoint ptr %23 to i64
@@ -3010,14 +3010,14 @@ define internal fastcc ptr @parse_foreach_stmt(ptr noundef %0) unnamed_addr #0 {
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 108
   store i32 %28, ptr %29, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %30 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %30 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #6
   br i1 %30, label %parse_optional_label.exit.thread97, label %parse_optional_label.exit
 
 parse_optional_label.exit:                        ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %32 = load i64, ptr %31, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %32, ptr noundef nonnull @.str.19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %32, ptr noundef nonnull @.str.19) #6
   %33 = load ptr, ptr @poisoned_decl, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.critedge88, label %parse_optional_label.exit.thread97
@@ -3051,14 +3051,14 @@ parse_optional_label.exit.thread97:               ; preds = %18, %parse_optional
   br i1 %47, label %.critedge90, label %48
 
 48:                                               ; preds = %.critedge88
-  %49 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %49 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %50 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %50, ptr noundef nonnull @.str.12, ptr noundef %49) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %50, ptr noundef nonnull @.str.12, ptr noundef %49) #6
   %51 = load ptr, ptr @poisoned_ast, align 8
   br label %117
 
 .critedge90:                                      ; preds = %.critedge88
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %52 = tail call fastcc zeroext i1 @parse_foreach_var(ptr noundef nonnull %0, ptr noundef nonnull %4)
   br i1 %52, label %55, label %53
 
@@ -3067,7 +3067,7 @@ parse_optional_label.exit.thread97:               ; preds = %18, %parse_optional
   br label %117
 
 55:                                               ; preds = %.critedge90
-  %56 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %56 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %55
@@ -3094,15 +3094,15 @@ parse_optional_label.exit.thread97:               ; preds = %18, %parse_optional
   br i1 %70, label %.critedge92, label %71
 
 71:                                               ; preds = %68
-  %72 = tail call ptr @token_type_to_string(i32 noundef 7) #5
+  %72 = tail call ptr @token_type_to_string(i32 noundef 7) #6
   %73 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %73, ptr noundef nonnull @.str.12, ptr noundef %72) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %73, ptr noundef nonnull @.str.12, ptr noundef %72) #6
   %74 = load ptr, ptr @poisoned_ast, align 8
   br label %117
 
 .critedge92:                                      ; preds = %68
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %75 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %75 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.critedge2, label %77
 
@@ -3135,14 +3135,14 @@ parse_optional_label.exit.thread97:               ; preds = %18, %parse_optional
   br i1 %88, label %.critedge94, label %89
 
 89:                                               ; preds = %.critedge2
-  %90 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %90 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %91 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %91, ptr noundef nonnull @.str.12, ptr noundef %90) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %91, ptr noundef nonnull @.str.12, ptr noundef %90) #6
   %92 = load ptr, ptr @poisoned_ast, align 8
   br label %117
 
 .critedge94:                                      ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %4, align 8
   %95 = load i64, ptr %93, align 8
@@ -3210,11 +3210,11 @@ extend_span_with_token.exit:                      ; preds = %96, %97
 define internal fastcc ptr @parse_continue_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 7, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
@@ -3228,7 +3228,7 @@ define internal fastcc ptr @parse_continue_stmt(ptr noundef %0) unnamed_addr #0 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %6, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_optional_label_target.exit
 
 parse_optional_label_target.exit:                 ; preds = %1, %10
@@ -3279,12 +3279,12 @@ extend_span_with_token.exit:                      ; preds = %24, %25
 
 36:                                               ; preds = %extend_span_with_token.exit
   %37 = load i64, ptr %21, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %37, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %37, ptr noundef nonnull @.str.11) #6
   %38 = load ptr, ptr @poisoned_ast, align 8
   br label %40
 
 39:                                               ; preds = %extend_span_with_token.exit
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %40
 
 40:                                               ; preds = %39, %36
@@ -3296,11 +3296,11 @@ extend_span_with_token.exit:                      ; preds = %24, %25
 define internal fastcc ptr @parse_break_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 4, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
@@ -3314,7 +3314,7 @@ define internal fastcc ptr @parse_break_stmt(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %6, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_optional_label_target.exit
 
 parse_optional_label_target.exit:                 ; preds = %1, %10
@@ -3365,12 +3365,12 @@ extend_span_with_token.exit:                      ; preds = %24, %25
 
 36:                                               ; preds = %extend_span_with_token.exit
   %37 = load i64, ptr %21, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %37, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %37, ptr noundef nonnull @.str.11) #6
   %38 = load ptr, ptr @poisoned_ast, align 8
   br label %40
 
 39:                                               ; preds = %extend_span_with_token.exit
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %40
 
 40:                                               ; preds = %39, %36
@@ -3382,12 +3382,12 @@ extend_span_with_token.exit:                      ; preds = %24, %25
 define internal fastcc ptr @parse_nextcase_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 28, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
-  %6 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 9) #5
+  tail call void @advance(ptr noundef %0) #6
+  %6 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 9) #6
   br i1 %6, label %45, label %7
 
 7:                                                ; preds = %1
@@ -3410,12 +3410,12 @@ parse_optional_label_target.exit:                 ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %15, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %20
 
 20:                                               ; preds = %parse_optional_label_target.exit, %11, %7
-  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 114) #5
+  %21 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 114) #6
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
@@ -3424,7 +3424,7 @@ parse_optional_label_target.exit:                 ; preds = %11
   br label %37
 
 24:                                               ; preds = %20
-  %25 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %25 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge, label %27
 
@@ -3462,12 +3462,12 @@ parse_optional_label_target.exit:                 ; preds = %11
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i64, ptr %41, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %42, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %42, ptr noundef nonnull @.str.11) #6
   %43 = load ptr, ptr @poisoned_ast, align 8
   br label %45
 
 44:                                               ; preds = %37
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %45
 
 45:                                               ; preds = %1, %44, %40, %32
@@ -3479,11 +3479,11 @@ parse_optional_label_target.exit:                 ; preds = %11
 define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 2, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 73
@@ -3497,29 +3497,29 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %9
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %15 = load i32, ptr %6, align 8
   %16 = icmp eq i32 %15, 17
   br i1 %16, label %21, label %19
 
 17:                                               ; preds = %9
   %18 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %18, ptr noundef nonnull @.str.26) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %18, ptr noundef nonnull @.str.26) #6
   br label %170
 
 19:                                               ; preds = %14
   %20 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.27) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.27) #6
   br label %21
 
 21:                                               ; preds = %14, %19, %1
   %.084 = phi i8 [ 0, %14 ], [ 0, %19 ], [ 1, %1 ]
-  %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 17) #5
+  %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 17) #6
   br i1 %22, label %23, label %109
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @calloc_arena(i64 noundef 64) #5
-  %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
+  %24 = tail call ptr @calloc_arena(i64 noundef 64) #6
+  %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #6
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
@@ -3530,7 +3530,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
 28:                                               ; preds = %.lr.ph, %.critedge
   %.085102 = phi ptr [ %26, %.lr.ph ], [ %102, %.critedge ]
   %29 = load i64, ptr %2, align 8
-  %30 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %30 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i8 1, ptr %31, align 4
@@ -3542,15 +3542,15 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
 
 33:                                               ; preds = %28
   %34 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.28) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.28) #6
   br label %parse_asm_stmt.exit
 
 35:                                               ; preds = %28, %28
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %36, ptr %37, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %38 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 14) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %38 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 14) #6
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %35
@@ -3560,18 +3560,18 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.29) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.29) #6
   br label %parse_asm_stmt.exit
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %27, align 8
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %45, ptr %46, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %47
 
 47:                                               ; preds = %44, %35
-  %48 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %48 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %48, label %parse_asm_stmt.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47, %.critedge63.backedge.i
@@ -3592,7 +3592,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br i1 %.not.i.i, label %55, label %58
 
 55:                                               ; preds = %.critedge.i
-  %56 = tail call ptr @calloc_arena(i64 noundef 72) #5
+  %56 = tail call ptr @calloc_arena(i64 noundef 72) #6
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 8, ptr %57, align 4
   br label %60
@@ -3616,7 +3616,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   %67 = zext i32 %66 to i64
   %68 = shl nuw nsw i64 %67, 3
   %69 = or disjoint i64 %68, 8
-  %70 = tail call ptr @calloc_arena(i64 noundef %69) #5
+  %70 = tail call ptr @calloc_arena(i64 noundef %69) #6
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 %66, ptr %71, align 4
   %72 = load i32, ptr %65, align 4
@@ -3639,11 +3639,11 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   %82 = zext i32 %79 to i64
   %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
   store ptr %49, ptr %83, align 8
-  %84 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %84 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %84, label %.critedge63.backedge.i, label %86
 
 .critedge63.backedge.i:                           ; preds = %86, %78
-  %85 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %85 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %85, label %parse_asm_stmt.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 86:                                               ; preds = %78
@@ -3652,9 +3652,9 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br i1 %88, label %.critedge63.backedge.i, label %89
 
 89:                                               ; preds = %86
-  %90 = tail call ptr @token_type_to_string(i32 noundef 9) #5
+  %90 = tail call ptr @token_type_to_string(i32 noundef 9) #6
   %91 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %91, ptr noundef nonnull @.str.12, ptr noundef %90) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %91, ptr noundef nonnull @.str.12, ptr noundef %90) #6
   br label %parse_asm_stmt.exit
 
 parse_asm_stmt.exit.thread:                       ; preds = %.critedge63.backedge.i, %47
@@ -3693,7 +3693,7 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   %phi.call = trunc i64 %phi.call.in to i32
   store i32 %phi.call, ptr %.085102, align 4
   %102 = getelementptr inbounds nuw i8, ptr %.056.i99, i64 8
-  %103 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
+  %103 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #6
   br i1 %103, label %._crit_edge, label %28, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.critedge, %23
@@ -3716,15 +3716,15 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   br i1 %114, label %.critedge94, label %115
 
 115:                                              ; preds = %109
-  %116 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %116 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %117 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %117, ptr noundef nonnull @.str.12, ptr noundef %116) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %117, ptr noundef nonnull @.str.12, ptr noundef %116) #6
   %118 = load ptr, ptr @poisoned_ast, align 8
   br label %170
 
 .critedge94:                                      ; preds = %109
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %119 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %119 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %120 = icmp eq ptr %119, null
   br i1 %120, label %.critedge2, label %121
 
@@ -3757,14 +3757,14 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   br i1 %132, label %.critedge96, label %133
 
 133:                                              ; preds = %.critedge2
-  %134 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %134 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %135 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %135, ptr noundef nonnull @.str.12, ptr noundef %134) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %135, ptr noundef nonnull @.str.12, ptr noundef %134) #6
   %136 = load ptr, ptr @poisoned_ast, align 8
   br label %170
 
 .critedge96:                                      ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %137 = load i32, ptr %6, align 8
   %138 = icmp eq i32 %137, 73
   br i1 %138, label %139, label %147
@@ -3777,12 +3777,12 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %139
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %147
 
 145:                                              ; preds = %139
   %146 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %146, ptr noundef nonnull @.str.26) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %146, ptr noundef nonnull @.str.26) #6
   br label %170
 
 147:                                              ; preds = %144, %.critedge96
@@ -3826,12 +3826,12 @@ extend_span_with_token.exit:                      ; preds = %154, %155
 
 166:                                              ; preds = %extend_span_with_token.exit
   %167 = load i64, ptr %151, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %167, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %167, ptr noundef nonnull @.str.11) #6
   %168 = load ptr, ptr @poisoned_ast, align 8
   br label %170
 
 169:                                              ; preds = %extend_span_with_token.exit
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %170
 
 170:                                              ; preds = %169, %166, %145, %133, %126, %115, %._crit_edge, %98, %17
@@ -3843,12 +3843,12 @@ extend_span_with_token.exit:                      ; preds = %154, %155
 define internal fastcc ptr @parse_ct_if_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 13, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
-  %6 = tail call ptr @parse_expr(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
+  %6 = tail call ptr @parse_expr(ptr noundef %0) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %8
 
@@ -3872,14 +3872,14 @@ define internal fastcc ptr @parse_ct_if_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %17, label %.critedge51, label %18
 
 18:                                               ; preds = %.critedge
-  %19 = tail call ptr @token_type_to_string(i32 noundef 7) #5
+  %19 = tail call ptr @token_type_to_string(i32 noundef 7) #6
   %20 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.12, ptr noundef %19) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.12, ptr noundef %19) #6
   %21 = load ptr, ptr @poisoned_ast, align 8
   br label %79
 
 .critedge51:                                      ; preds = %.critedge
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %22 = load i32, ptr %15, align 8
   %23 = and i32 %22, -5
   %or.cond.i61 = icmp eq i32 %23, 153
@@ -3930,11 +3930,11 @@ parse_ct_compound_stmt.exit:                      ; preds = %27
 
 39:                                               ; preds = %._crit_edge
   %40 = load i64, ptr %2, align 8
-  %41 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %41 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i8 10, ptr %42, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %43 = load i32, ptr %15, align 8
   %44 = and i32 %43, -5
   %or.cond.i5363 = icmp eq i32 %44, 153
@@ -3994,7 +3994,7 @@ parse_ct_compound_stmt.exit59:                    ; preds = %48
   br label %65
 
 65:                                               ; preds = %._crit_edge67, %._crit_edge
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load i64, ptr %4, align 8
   %68 = load i64, ptr %66, align 8
@@ -4035,19 +4035,19 @@ extend_span_with_token.exit:                      ; preds = %69, %70
 define internal fastcc ptr @parse_ct_switch_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 14, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge28.i, label %34
 
 .critedge28.i:                                    ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %9 = tail call ptr @parse_constant_expr(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %9 = tail call ptr @parse_constant_expr(ptr noundef nonnull %0) #6
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge.i, label %11
 
@@ -4068,14 +4068,14 @@ define internal fastcc ptr @parse_ct_switch_stmt(ptr noundef %0) unnamed_addr #0
   br i1 %18, label %.critedge30.i, label %19
 
 19:                                               ; preds = %.critedge.i
-  %20 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %20 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %21 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %21, ptr noundef nonnull @.str.12, ptr noundef %20) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %21, ptr noundef nonnull @.str.12, ptr noundef %20) #6
   %22 = load ptr, ptr @poisoned_expr, align 8
   br label %parse_const_paren_expr.exit
 
 .critedge30.i:                                    ; preds = %.critedge.i
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_const_paren_expr.exit
 
 parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge30.i
@@ -4110,7 +4110,7 @@ parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge
   br label %34
 
 34:                                               ; preds = %.critedge, %1
-  %35 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #5
+  %35 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #6
   br i1 %35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
@@ -4142,12 +4142,12 @@ parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge
 
 47:                                               ; preds = %37
   %48 = load i64, ptr %2, align 8
-  %49 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %49 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i8 17, ptr %50, align 4
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %51 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.14) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %51 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.14) #6
   br i1 %51, label %52, label %parse_default_stmt.exit
 
 52:                                               ; preds = %47
@@ -4189,7 +4189,7 @@ extend_span_with_token.exit:                      ; preds = %55, %56
 
 66:                                               ; preds = %extend_span_with_token.exit
   %67 = load i64, ptr %2, align 8
-  %68 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %68 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i8 6, ptr %69, align 4
@@ -4273,7 +4273,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
 
 97:                                               ; preds = %37
   %98 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %98, ptr noundef nonnull @.str.40) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %98, ptr noundef nonnull @.str.40) #6
   %99 = load ptr, ptr @poisoned_ast, align 8
   br label %131
 
@@ -4283,7 +4283,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   br i1 %.not.i63, label %100, label %103
 
 100:                                              ; preds = %.critedge2
-  %101 = tail call ptr @calloc_arena(i64 noundef 72) #5
+  %101 = tail call ptr @calloc_arena(i64 noundef 72) #6
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 8, ptr %102, align 4
   br label %105
@@ -4307,7 +4307,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   %112 = zext i32 %111 to i64
   %113 = shl nuw nsw i64 %112, 3
   %114 = or disjoint i64 %113, 8
-  %115 = tail call ptr @calloc_arena(i64 noundef %114) #5
+  %115 = tail call ptr @calloc_arena(i64 noundef %114) #6
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 %111, ptr %116, align 4
   %117 = load i32, ptr %110, align 4
@@ -4330,7 +4330,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   %127 = zext i32 %124 to i64
   %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
   store ptr %.051, ptr %128, align 8
-  %129 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #5
+  %129 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #6
   br i1 %129, label %._crit_edge, label %37, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %123, %34
@@ -4348,25 +4348,25 @@ parse_default_stmt.exit:                          ; preds = %86, %47
 define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 11, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge81, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %10 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %11 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #6
   %12 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 .critedge81:                                      ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 8
@@ -4376,7 +4376,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %2, align 8
-  %20 = tail call ptr @decl_new_var(ptr noundef %18, i64 %19, ptr noundef null, i32 noundef 13) #5
+  %20 = tail call ptr @decl_new_var(ptr noundef %18, i64 %19, ptr noundef null, i32 noundef 13) #6
   %21 = load ptr, ptr @decl_arena, align 8
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %21 to i64
@@ -4385,7 +4385,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %26, ptr %27, align 8
-  %28 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 67, ptr noundef nonnull @.str.41) #5
+  %28 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 67, ptr noundef nonnull @.str.41) #6
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %16
@@ -4393,14 +4393,14 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br label %.loopexit
 
 31:                                               ; preds = %16
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %32
 
 32:                                               ; preds = %31, %.critedge81
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i64, ptr %2, align 8
-  %36 = tail call ptr @decl_new_var(ptr noundef %34, i64 %35, ptr noundef null, i32 noundef 13) #5
+  %36 = tail call ptr @decl_new_var(ptr noundef %34, i64 %35, ptr noundef null, i32 noundef 13) #6
   %37 = load ptr, ptr @decl_arena, align 8
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -4409,7 +4409,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %42, ptr %43, align 4
-  %44 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 67, ptr noundef nonnull @.str.42) #5
+  %44 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 67, ptr noundef nonnull @.str.42) #6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %32
@@ -4417,7 +4417,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br label %.loopexit
 
 47:                                               ; preds = %32
-  %48 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.43) #5
+  %48 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.43) #6
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %47
@@ -4425,7 +4425,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br label %.loopexit
 
 51:                                               ; preds = %47
-  %52 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %52 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.critedge, label %54
 
@@ -4458,16 +4458,16 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br i1 %65, label %.critedge83, label %66
 
 66:                                               ; preds = %.critedge
-  %67 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %67 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %68 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %68, ptr noundef nonnull @.str.12, ptr noundef %67) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %68, ptr noundef nonnull @.str.12, ptr noundef %67) #6
   %69 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 .critedge83:                                      ; preds = %.critedge
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %70 = load i64, ptr %4, align 8
-  %71 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %71 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i8 6, ptr %72, align 4
@@ -4479,7 +4479,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %78 = trunc i64 %77 to i32
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %78, ptr %79, align 8
-  %80 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 156) #5
+  %80 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 156) #6
   br i1 %80, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge83
@@ -4515,7 +4515,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %phi.call76 = trunc i64 %phi.call76.in to i32
   store i32 %phi.call76, ptr %.07184, align 4
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %93 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 156) #5
+  %93 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 156) #6
   br i1 %93, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.critedge2, %.critedge83, %88, %66, %59, %49, %45, %29, %9
@@ -4527,31 +4527,31 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
 define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 12, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge107, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @token_type_to_string(i32 noundef 19) #5
+  %10 = tail call ptr @token_type_to_string(i32 noundef 19) #6
   %11 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.12, ptr noundef %10) #6
   %12 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 .critedge107:                                     ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %13 = load i32, ptr %6, align 8
   %14 = icmp eq i32 %13, 9
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %.critedge107
-  %16 = tail call ptr @parse_ct_expression_list(ptr noundef nonnull %0, i1 noundef zeroext true) #5
+  %16 = tail call ptr @parse_ct_expression_list(ptr noundef nonnull %0, i1 noundef zeroext true) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.split89, label %18
 
@@ -4586,13 +4586,13 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
 29:                                               ; preds = %.split89
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i64, ptr %30, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %31, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %31, ptr noundef nonnull @.str.11) #6
   %32 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 .thread:                                          ; preds = %.critedge107, %.split89
-  tail call void @advance(ptr noundef nonnull %0) #5
-  %33 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
+  %33 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.critedge2, label %35
 
@@ -4627,18 +4627,18 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
 47:                                               ; preds = %.critedge2
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load i64, ptr %48, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %49, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %49, ptr noundef nonnull @.str.11) #6
   %50 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 51:                                               ; preds = %.critedge2
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %52 = load i32, ptr %6, align 8
   %53 = icmp eq i32 %52, 26
   br i1 %53, label %.critedge109, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call ptr @parse_ct_expression_list(ptr noundef nonnull %0, i1 noundef zeroext false) #5
+  %55 = tail call ptr @parse_ct_expression_list(ptr noundef nonnull %0, i1 noundef zeroext false) #6
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.split94, label %57
 
@@ -4671,16 +4671,16 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %67, label %.critedge109, label %68
 
 68:                                               ; preds = %.split94
-  %69 = tail call ptr @token_type_to_string(i32 noundef 26) #5
+  %69 = tail call ptr @token_type_to_string(i32 noundef 26) #6
   %70 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %70, ptr noundef nonnull @.str.12, ptr noundef %69) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %70, ptr noundef nonnull @.str.12, ptr noundef %69) #6
   %71 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
 .critedge109:                                     ; preds = %51, %.split94
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %72 = load i64, ptr %4, align 8
-  %73 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %73 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i8 6, ptr %74, align 4
@@ -4692,7 +4692,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %80 = trunc i64 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %80, ptr %81, align 4
-  %82 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 155) #5
+  %82 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 155) #6
   br i1 %82, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge109
@@ -4728,7 +4728,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %phi.call98 = trunc i64 %phi.call98.in to i32
   store i32 %phi.call98, ptr %.087112, align 4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %95 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 155) #5
+  %95 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 155) #6
   br i1 %95, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge109, %90, %68, %62, %47, %40, %29, %23, %9
@@ -4740,12 +4740,12 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
 define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 3, ptr %5, align 4
-  tail call void @advance(ptr noundef %0) #5
-  %6 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef %0, i32 noundef 19, ptr noundef nonnull @.str.44) #5
+  tail call void @advance(ptr noundef %0) #6
+  %6 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef %0, i32 noundef 19, ptr noundef nonnull @.str.44) #6
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
@@ -4753,7 +4753,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %10 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.critedge, label %12
 
@@ -4781,11 +4781,11 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %phi.call = trunc i64 %phi.call.in to i32
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %phi.call, ptr %21, align 8
-  %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %22, label %23, label %76
 
 23:                                               ; preds = %.critedge
-  %24 = tail call ptr @parse_constant_expr(ptr noundef nonnull %0) #5
+  %24 = tail call ptr @parse_constant_expr(ptr noundef nonnull %0) #6
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.critedge2, label %26
 
@@ -4813,12 +4813,12 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %phi.call52 = trunc i64 %phi.call52.in to i32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %phi.call52, ptr %35, align 4
-  %36 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %36 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge2, %68
   %.04862 = phi ptr [ %71, %68 ], [ null, %.critedge2 ]
-  %37 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %37 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge4, label %39
 
@@ -4838,7 +4838,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %45, label %48
 
 45:                                               ; preds = %.critedge4
-  %46 = tail call ptr @calloc_arena(i64 noundef 72) #5
+  %46 = tail call ptr @calloc_arena(i64 noundef 72) #6
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 8, ptr %47, align 4
   br label %50
@@ -4862,7 +4862,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %57 = zext i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 3
   %59 = or disjoint i64 %58, 8
-  %60 = tail call ptr @calloc_arena(i64 noundef %59) #5
+  %60 = tail call ptr @calloc_arena(i64 noundef %59) #6
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %56, ptr %61, align 4
   %62 = load i32, ptr %55, align 4
@@ -4885,7 +4885,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %72 = zext i32 %69 to i64
   %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
   store ptr %37, ptr %73, align 8
-  %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %68, %.critedge2
@@ -4895,7 +4895,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %76
 
 76:                                               ; preds = %.critedge, %._crit_edge
-  %77 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.45) #5
+  %77 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.45) #6
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %76
@@ -4903,14 +4903,14 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 80:                                               ; preds = %76
-  %81 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
+  %81 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #6
   br i1 %81, label %consume_eos.exit, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %84 = load i64, ptr %83, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %84, ptr noundef nonnull @.str.15) #5
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %84, ptr noundef nonnull @.str.15) #6
+  tail call void @advance(ptr noundef nonnull %0) #6
   %85 = load ptr, ptr @poisoned_ast, align 8
   br label %consume_eos.exit
 
@@ -4929,10 +4929,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_short_body(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %6 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 6, ptr %7, align 4
@@ -4958,7 +4958,7 @@ define dso_local ptr @parse_short_body(ptr noundef %0, i32 noundef %1, i1 nounde
 
 .thread:                                          ; preds = %3, %15, %9
   %19 = load i64, ptr %4, align 8
-  %20 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %20 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i8 25, ptr %21, align 4
@@ -4969,7 +4969,7 @@ define dso_local ptr @parse_short_body(ptr noundef %0, i32 noundef %1, i1 nounde
   %26 = sdiv exact i64 %25, 48
   %27 = trunc i64 %26 to i32
   store i32 %27, ptr %8, align 4
-  %28 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %28 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.critedge, label %30
 
@@ -4991,11 +4991,11 @@ define dso_local ptr @parse_short_body(ptr noundef %0, i32 noundef %1, i1 nounde
 
 37:                                               ; preds = %15
   %38 = load i64, ptr %4, align 8
-  %39 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %39 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   store i64 %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i8 19, ptr %40, align 4
-  %41 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %41 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.critedge2, label %43
 
@@ -5062,12 +5062,12 @@ extend_span_with_token.exit:                      ; preds = %60, %61
 
 74:                                               ; preds = %70
   %75 = load i64, ptr %57, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %75, ptr noundef nonnull @.str.11) #5
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %75, ptr noundef nonnull @.str.11) #6
   %76 = load ptr, ptr @poisoned_ast, align 8
   br label %78
 
 77:                                               ; preds = %70
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %78
 
 78:                                               ; preds = %extend_span_with_token.exit, %77, %74, %47, %34
@@ -5085,13 +5085,13 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_decl_stmt_after_type(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %3 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 15, ptr %6, align 4
-  %7 = tail call ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1) #5
+  %7 = tail call ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1) #6
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge, label %8
 
@@ -5145,7 +5145,7 @@ define internal fastcc ptr @parse_decl_stmt_after_type(ptr noundef %0, ptr nound
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %35, ptr noundef nonnull @.str.17) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %35, ptr noundef nonnull @.str.17) #6
   %36 = load ptr, ptr @poisoned_ast, align 8
   br label %159
 
@@ -5163,7 +5163,7 @@ define internal fastcc ptr @parse_decl_stmt_after_type(ptr noundef %0, ptr nound
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.18) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.18) #6
   %47 = load ptr, ptr @poisoned_ast, align 8
   br label %159
 
@@ -5200,7 +5200,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br label %159
 
 62:                                               ; preds = %21
-  %63 = tail call ptr @calloc_arena(i64 noundef 72) #5
+  %63 = tail call ptr @calloc_arena(i64 noundef 72) #6
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 8, ptr %64, align 4
   %65 = load i32, ptr %63, align 4
@@ -5208,7 +5208,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %66, label %67, label %76
 
 67:                                               ; preds = %62
-  %68 = tail call ptr @calloc_arena(i64 noundef 136) #5
+  %68 = tail call ptr @calloc_arena(i64 noundef 136) #6
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 16, ptr %69, align 4
   %70 = load i32, ptr %64, align 4
@@ -5231,14 +5231,14 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %80 = zext i32 %77 to i64
   %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
   store ptr %7, ptr %81, align 8
-  %82 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %82 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %82, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %76, %130
   %.0112164 = phi ptr [ %133, %130 ], [ %79, %76 ]
   %.0113163 = phi ptr [ %.1, %130 ], [ null, %76 ]
-  %83 = tail call ptr @copy_type_info_single(ptr noundef %1) #5
-  %84 = tail call ptr @parse_local_decl_after_type(ptr noundef nonnull %0, ptr noundef %83) #5
+  %83 = tail call ptr @copy_type_info_single(ptr noundef %1) #6
+  %84 = tail call ptr @parse_local_decl_after_type(ptr noundef nonnull %0, ptr noundef %83) #6
   %.not129 = icmp eq ptr %84, null
   br i1 %.not129, label %.critedge2, label %85
 
@@ -5262,7 +5262,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
 93:                                               ; preds = %.critedge2
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = load i64, ptr %94, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %95, ptr noundef nonnull @.str.17) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %95, ptr noundef nonnull @.str.17) #6
   %96 = load ptr, ptr @poisoned_ast, align 8
   br label %159
 
@@ -5288,7 +5288,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i64, ptr %110, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %111, ptr noundef nonnull @.str.18) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %111, ptr noundef nonnull @.str.18) #6
   %112 = load ptr, ptr @poisoned_ast, align 8
   br label %159
 
@@ -5306,7 +5306,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %119 = zext i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 3
   %121 = or disjoint i64 %120, 8
-  %122 = tail call ptr @calloc_arena(i64 noundef %121) #5
+  %122 = tail call ptr @calloc_arena(i64 noundef %121) #6
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 %118, ptr %123, align 4
   %124 = load i32, ptr %.phi.trans.insert.i, align 4
@@ -5329,7 +5329,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %134 = zext i32 %131 to i64
   %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
   store ptr %84, ptr %135, align 8
-  %136 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
+  %136 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #6
   br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %130
@@ -5353,7 +5353,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %141, label %145, label %142
 
 142:                                              ; preds = %.lr.ph169
-  %143 = tail call ptr @copy_attributes_single(ptr noundef nonnull %.1) #5
+  %143 = tail call ptr @copy_attributes_single(ptr noundef nonnull %.1) #6
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 64
   store ptr %143, ptr %144, align 8
   br label %145
@@ -5439,7 +5439,7 @@ define internal fastcc noundef zeroext i1 @parse_foreach_var(ptr noundef %0, ptr
   ]
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @parse_optional_type(ptr noundef nonnull %0) #5
+  %6 = tail call ptr @parse_optional_type(ptr noundef nonnull %0) #6
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.critedge, label %7
 
@@ -5484,7 +5484,7 @@ extend_span_with_token.exit:                      ; preds = %14, %15
 
 24:                                               ; preds = %2, %2, %extend_span_with_token.exit
   %.026 = phi ptr [ null, %2 ], [ %6, %extend_span_with_token.exit ], [ null, %2 ]
-  %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 1) #5
+  %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 1) #6
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
@@ -5499,8 +5499,8 @@ extend_span_with_token.exit:                      ; preds = %14, %15
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8
-  %35 = tail call ptr @decl_new_var(ptr noundef %32, i64 %34, ptr noundef %.026, i32 noundef 2) #5
-  %36 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #5
+  %35 = tail call ptr @decl_new_var(ptr noundef %32, i64 %34, ptr noundef %.026, i32 noundef 2) #6
+  %36 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #6
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %30
@@ -5509,11 +5509,11 @@ extend_span_with_token.exit:                      ; preds = %14, %15
   br i1 %.not30, label %40, label %39
 
 39:                                               ; preds = %37
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %38, ptr noundef nonnull @.str.24) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %38, ptr noundef nonnull @.str.24) #6
   br label %49
 
 40:                                               ; preds = %37
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %38, ptr noundef nonnull @.str.25) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %38, ptr noundef nonnull @.str.25) #6
   br label %49
 
 41:                                               ; preds = %30
@@ -5536,7 +5536,7 @@ extend_span_with_token.exit:                      ; preds = %14, %15
 define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @expr_new(i32 noundef 2, i64 %3) #5
+  %4 = tail call ptr @expr_new(i32 noundef 2, i64 %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %220 [
@@ -5553,7 +5553,7 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, -270582939904
@@ -5571,7 +5571,7 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %122, label %.critedge.i
 
 .critedge.i:                                      ; preds = %14, %7
-  %18 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 25) #5
+  %18 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 25) #6
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %.critedge.i
@@ -5616,13 +5616,13 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   ]
 
 45:                                               ; preds = %36, %36
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %46 = icmp eq i32 %44, 20
   br i1 %46, label %49, label %52
 
 47:                                               ; preds = %36
   %48 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %48, ptr noundef nonnull @.str.34) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %48, ptr noundef nonnull @.str.34) #6
   br label %122
 
 49:                                               ; preds = %45
@@ -5646,13 +5646,13 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   br i1 %59, label %.critedge102.i, label %60
 
 60:                                               ; preds = %57
-  %61 = tail call ptr @token_type_to_string(i32 noundef 25) #5
+  %61 = tail call ptr @token_type_to_string(i32 noundef 25) #6
   %62 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %62, ptr noundef nonnull @.str.12, ptr noundef %61) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %62, ptr noundef nonnull @.str.12, ptr noundef %61) #6
   br label %122
 
 .critedge102.i:                                   ; preds = %57
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_asm_addr.exit
 
 63:                                               ; preds = %52
@@ -5680,7 +5680,7 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   %phi.call.i = trunc i64 %phi.call.i.in to i32
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %phi.call.i, ptr %73, align 4
-  %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 25) #5
+  %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 25) #6
   br i1 %74, label %parse_asm_addr.exit, label %75
 
 75:                                               ; preds = %.critedge2.i
@@ -5692,12 +5692,12 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   ]
 
 77:                                               ; preds = %75
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %78 = tail call fastcc zeroext i1 @parse_asm_scale(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br i1 %78, label %101, label %122
 
 79:                                               ; preds = %75
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %80 = load i64, ptr %8, align 8
   %81 = and i64 %80, -270582939649
   %82 = or disjoint i64 %81, 17179869184
@@ -5711,13 +5711,13 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   br i1 %86, label %.critedge104.i, label %87
 
 87:                                               ; preds = %84
-  %88 = tail call ptr @token_type_to_string(i32 noundef 25) #5
+  %88 = tail call ptr @token_type_to_string(i32 noundef 25) #6
   %89 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %89, ptr noundef nonnull @.str.12, ptr noundef %88) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %89, ptr noundef nonnull @.str.12, ptr noundef %88) #6
   br label %122
 
 .critedge104.i:                                   ; preds = %84
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_asm_addr.exit
 
 90:                                               ; preds = %75
@@ -5734,17 +5734,17 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   br i1 %97, label %.critedge106.i, label %98
 
 98:                                               ; preds = %95
-  %99 = tail call ptr @token_type_to_string(i32 noundef 25) #5
+  %99 = tail call ptr @token_type_to_string(i32 noundef 25) #6
   %100 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %100, ptr noundef nonnull @.str.12, ptr noundef %99) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %100, ptr noundef nonnull @.str.12, ptr noundef %99) #6
   br label %122
 
 .critedge106.i:                                   ; preds = %95
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_asm_addr.exit
 
 101:                                              ; preds = %77, %75
-  %102 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 25) #5
+  %102 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 25) #6
   br i1 %102, label %parse_asm_addr.exit, label %103
 
 103:                                              ; preds = %101
@@ -5755,7 +5755,7 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
 
 106:                                              ; preds = %103
   %107 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %107, ptr noundef nonnull @.str.35) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %107, ptr noundef nonnull @.str.35) #6
   br label %122
 
 108:                                              ; preds = %103
@@ -5772,11 +5772,11 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
 
 112:                                              ; preds = %108
   %113 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %113, ptr noundef nonnull @.str.34) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %113, ptr noundef nonnull @.str.34) #6
   br label %122
 
 114:                                              ; preds = %110, %108
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %115 = tail call fastcc zeroext i1 @parse_asm_offset(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br i1 %115, label %116, label %122
 
@@ -5786,13 +5786,13 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   br i1 %118, label %.critedge108.i, label %119
 
 119:                                              ; preds = %116
-  %120 = tail call ptr @token_type_to_string(i32 noundef 25) #5
+  %120 = tail call ptr @token_type_to_string(i32 noundef 25) #6
   %121 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %121, ptr noundef nonnull @.str.12, ptr noundef %120) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %121, ptr noundef nonnull @.str.12, ptr noundef %120) #6
   br label %122
 
 .critedge108.i:                                   ; preds = %116
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %parse_asm_addr.exit
 
 122:                                              ; preds = %47, %106, %112, %14, %55, %60, %66, %77, %79, %87, %90, %98, %114, %119
@@ -5841,12 +5841,12 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %143, ptr %144, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %223
 
 145:                                              ; preds = %1
   %146 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %146, ptr noundef nonnull @.str.30) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %146, ptr noundef nonnull @.str.30) #6
   %147 = load ptr, ptr @poisoned_expr, align 8
   br label %223
 
@@ -5860,7 +5860,7 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %154, ptr %155, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   br label %223
 
 156:                                              ; preds = %1
@@ -5869,17 +5869,17 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   %159 = and i64 %158, -256
   %160 = or disjoint i64 %159, 3
   store i64 %160, ptr %157, align 8
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %162, ptr %163, align 8
-  %164 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #5
+  %164 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #6
   br i1 %164, label %223, label %165
 
 165:                                              ; preds = %156
   %166 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %166, ptr noundef nonnull @.str.31) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %166, ptr noundef nonnull @.str.31) #6
   %167 = load ptr, ptr @poisoned_expr, align 8
   br label %223
 
@@ -5889,7 +5889,7 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   %171 = and i64 %170, -256
   %172 = or disjoint i64 %171, 5
   store i64 %172, ptr %169, align 8
-  %173 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %173 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %174 = icmp eq ptr %173, null
   br i1 %174, label %.critedge, label %175
 
@@ -5920,13 +5920,13 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   br label %223
 
 185:                                              ; preds = %1
-  tail call void @advance(ptr noundef nonnull %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #6
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %187 = load i64, ptr %186, align 8
   %188 = and i64 %187, -256
   %189 = or disjoint i64 %188, 5
   store i64 %189, ptr %186, align 8
-  %190 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %190 = tail call ptr @parse_expr(ptr noundef nonnull %0) #6
   %191 = icmp eq ptr %190, null
   br i1 %191, label %.critedge2, label %192
 
@@ -5954,7 +5954,7 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   %phi.call56 = trunc i64 %phi.call56.in to i32
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %phi.call56, ptr %201, align 8
-  %202 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.32) #5
+  %202 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.32) #6
   br i1 %202, label %205, label %203
 
 203:                                              ; preds = %.critedge2
@@ -5996,7 +5996,7 @@ extend_span_with_token.exit69:                    ; preds = %210, %211
 
 220:                                              ; preds = %1
   %221 = load i64, ptr %2, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %221, ptr noundef nonnull @.str.33) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %221, ptr noundef nonnull @.str.33) #6
   %222 = load ptr, ptr @poisoned_expr, align 8
   br label %223
 
@@ -6015,11 +6015,11 @@ define internal fastcc noundef zeroext i1 @parse_asm_offset(ptr noundef %0, ptr 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %8, ptr noundef nonnull @.str.36) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %8, ptr noundef nonnull @.str.36) #6
   br label %17
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @parse_integer(ptr noundef nonnull %0, ptr noundef null) #5
+  %10 = tail call ptr @parse_integer(ptr noundef nonnull %0, ptr noundef null) #6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
   %.not = icmp eq i64 %.sroa.0.0.copyload, 0
@@ -6028,7 +6028,7 @@ define internal fastcc noundef zeroext i1 @parse_asm_offset(ptr noundef %0, ptr 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %14, ptr noundef nonnull @.str.37) #5
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %14, ptr noundef nonnull @.str.37) #6
   br label %17
 
 15:                                               ; preds = %9
@@ -6053,68 +6053,74 @@ define internal fastcc noundef zeroext i1 @parse_asm_scale(ptr noundef %0, ptr n
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %8, ptr noundef nonnull @.str.36) #5
-  br label %35
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %8, ptr noundef nonnull @.str.36) #6
+  br label %38
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @parse_integer(ptr noundef nonnull %0, ptr noundef null) #5
+  %10 = tail call ptr @parse_integer(ptr noundef nonnull %0, ptr noundef null) #6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = tail call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %11, i32 noundef 10) #5
+  %14 = tail call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %11, i32 noundef 10) #6
   %15 = load i64, ptr %13, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %15, ptr noundef nonnull @.str.38, ptr noundef %14) #5
-  br label %35
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %15, ptr noundef nonnull @.str.38, ptr noundef %14) #6
+  br label %38
 
 16:                                               ; preds = %9
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  switch i64 %.sroa.2.0.copyload, label %32 [
-    i64 1, label %17
-    i64 2, label %20
-    i64 4, label %24
-    i64 8, label %28
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.2.0.copyload)
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %.split, label %35
+
+.split:                                           ; preds = %16
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.2.0.copyload, i1 true)
+  switch i64 %19, label %35 [
+    i64 0, label %20
+    i64 1, label %23
+    i64 2, label %27
+    i64 3, label %31
   ]
 
-17:                                               ; preds = %16
-  %18 = load i64, ptr %1, align 8
-  %19 = and i64 %18, -270582939649
-  store i64 %19, ptr %1, align 8
-  br label %35
-
-20:                                               ; preds = %16
+20:                                               ; preds = %.split
   %21 = load i64, ptr %1, align 8
   %22 = and i64 %21, -270582939649
-  %23 = or disjoint i64 %22, 4294967296
-  store i64 %23, ptr %1, align 8
-  br label %35
+  store i64 %22, ptr %1, align 8
+  br label %38
 
-24:                                               ; preds = %16
-  %25 = load i64, ptr %1, align 8
-  %26 = and i64 %25, -270582939649
-  %27 = or disjoint i64 %26, 8589934592
-  store i64 %27, ptr %1, align 8
-  br label %35
+23:                                               ; preds = %.split
+  %24 = load i64, ptr %1, align 8
+  %25 = and i64 %24, -270582939649
+  %26 = or disjoint i64 %25, 4294967296
+  store i64 %26, ptr %1, align 8
+  br label %38
 
-28:                                               ; preds = %16
-  %29 = load i64, ptr %1, align 8
-  %30 = and i64 %29, -270582939649
-  %31 = or disjoint i64 %30, 12884901888
-  store i64 %31, ptr %1, align 8
-  br label %35
+27:                                               ; preds = %.split
+  %28 = load i64, ptr %1, align 8
+  %29 = and i64 %28, -270582939649
+  %30 = or disjoint i64 %29, 8589934592
+  store i64 %30, ptr %1, align 8
+  br label %38
 
-32:                                               ; preds = %16
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.39) #5
-  br label %35
+31:                                               ; preds = %.split
+  %32 = load i64, ptr %1, align 8
+  %33 = and i64 %32, -270582939649
+  %34 = or disjoint i64 %33, 12884901888
+  store i64 %34, ptr %1, align 8
+  br label %38
 
-35:                                               ; preds = %17, %20, %24, %28, %32, %12, %6
-  %.0 = phi i1 [ false, %12 ], [ false, %32 ], [ false, %6 ], [ true, %28 ], [ true, %24 ], [ true, %20 ], [ true, %17 ]
+35:                                               ; preds = %16, %.split
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i64, ptr %36, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %37, ptr noundef nonnull @.str.39) #6
+  br label %38
+
+38:                                               ; preds = %20, %23, %27, %31, %35, %12, %6
+  %.0 = phi i1 [ false, %12 ], [ false, %35 ], [ false, %6 ], [ true, %31 ], [ true, %27 ], [ true, %23 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -6124,16 +6130,23 @@ declare ptr @int_to_str(ptr noundef byval(%struct.Int) align 8, i32 noundef) loc
 
 declare ptr @parse_ct_expression_list(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

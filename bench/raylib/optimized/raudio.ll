@@ -883,6 +883,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ma_device__pa_buffer_attr_new = private unnamed_addr constant [10 x i64] [i64 1, i64 0, i64 0, i64 2, i64 0, i64 5, i64 0, i64 4, i64 0, i64 3], align 8
 @switch.table.ma_channel_position_from_pulse = private unnamed_addr constant [51 x i8] c"\01\02\03\04\0A\06\07\05\08\09\0B\0C\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\0D\0E\10\0F\11\13\12", align 1
 @switch.table.ma_convert_alsa_channel_position_to_ma_channel = private unnamed_addr constant [26 x i8] c"\01\02\03\06\07\04\05\0B\0C\0A\08\09\00\00\00\00\00\00\00\0D\0E\10\0F\11\13\12", align 1
+@switch.table.drwav__write_or_count_metadata = private unnamed_addr constant [9 x ptr] [ptr @.str.607, ptr @.str.608, ptr @.str.609, ptr @.str.610, ptr @.str.611, ptr @.str.612, ptr @.str.613, ptr @.str.614, ptr @.str.615], align 8
 @switch.table.drwav_result_from_errno = private unnamed_addr constant [126 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -110865,25 +110866,25 @@ define internal fastcc i64 @drwav__write_or_count_metadata(ptr noundef readonly 
   %71 = icmp eq ptr %1, null
   %72 = icmp eq i32 %2, 0
   %or.cond = or i1 %71, %72
-  br i1 %or.cond, label %.loopexit, label %.preheader1061
+  br i1 %or.cond, label %.loopexit, label %.preheader1048
 
-.preheader1061:                                   ; preds = %3
+.preheader1048:                                   ; preds = %3
   %73 = icmp eq ptr %0, null
   %74 = getelementptr i8, ptr %0, i64 8
   %75 = getelementptr i8, ptr %0, i64 24
   %wide.trip.count = zext i32 %2 to i64
   br label %76
 
-76:                                               ; preds = %.preheader1061, %.thread962
-  %indvars.iv1107 = phi i64 [ 0, %.preheader1061 ], [ %indvars.iv.next1108, %.thread962 ]
-  %.04161073 = phi i64 [ 0, %.preheader1061 ], [ %.6, %.thread962 ]
-  %.04241072 = phi i32 [ 0, %.preheader1061 ], [ %.1425903968, %.thread962 ]
-  %.04261071 = phi i32 [ 0, %.preheader1061 ], [ %.1427891901969, %.thread962 ]
-  %77 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1107
+76:                                               ; preds = %.preheader1048, %.thread957
+  %indvars.iv1094 = phi i64 [ 0, %.preheader1048 ], [ %indvars.iv.next1095, %.thread957 ]
+  %.04191060 = phi i64 [ 0, %.preheader1048 ], [ %.6, %.thread957 ]
+  %.04271059 = phi i32 [ 0, %.preheader1048 ], [ %.1428, %.thread957 ]
+  %.04291058 = phi i32 [ 0, %.preheader1048 ], [ %.1430894, %.thread957 ]
+  %77 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1094
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 261632
-  %.not464 = icmp eq i32 %79, 0
-  br i1 %.not464, label %80, label %86
+  %.not467 = icmp eq i32 %79, 0
+  br i1 %.not467, label %80, label %86
 
 80:                                               ; preds = %76
   %81 = icmp eq i32 %78, 1
@@ -110893,1538 +110894,1522 @@ define internal fastcc i64 @drwav__write_or_count_metadata(ptr noundef readonly 
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, 2
-  %spec.select1054 = select i1 %85, i32 1, i32 %.04261071
-  br label %.thread894
+  %spec.select1041 = select i1 %85, i32 1, i32 %.04291058
+  br label %.thread897
 
 86:                                               ; preds = %76, %80
-  %.1427 = phi i32 [ %.04261071, %80 ], [ 1, %76 ]
+  %.1430 = phi i32 [ %.04291058, %80 ], [ 1, %76 ]
   %87 = and i32 %78, 448
-  %.not465 = icmp eq i32 %87, 0
-  br i1 %.not465, label %88, label %92
+  %.not468 = icmp eq i32 %87, 0
+  br i1 %.not468, label %88, label %92
 
 88:                                               ; preds = %86
   %89 = icmp eq i32 %78, 1
-  br i1 %89, label %..thread894_crit_edge, label %92
+  br i1 %89, label %..thread897_crit_edge, label %92
 
-..thread894_crit_edge:                            ; preds = %88
+..thread897_crit_edge:                            ; preds = %88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %.pre1132 = load i32, ptr %.phi.trans.insert, align 4
-  br label %.thread894
-
-.thread894:                                       ; preds = %..thread894_crit_edge, %82
-  %90 = phi i32 [ %.pre1132, %..thread894_crit_edge ], [ %84, %82 ]
-  %.1427893896 = phi i32 [ %.1427, %..thread894_crit_edge ], [ %spec.select1054, %82 ]
-  %91 = icmp eq i32 %90, 3
-  %spec.select1055 = select i1 %91, i32 1, i32 %.04241072
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread897
 
-92:                                               ; preds = %86, %88
-  %.1425 = phi i32 [ %.04241072, %88 ], [ 1, %86 ]
-  switch i32 %78, label %.thread962 [
-    i32 2, label %93
-    i32 4, label %195
-    i32 8, label %224
-    i32 16, label %280
-    i32 32, label %320
-    i32 1, label %..thread897_crit_edge
+.thread897:                                       ; preds = %..thread897_crit_edge, %82
+  %90 = phi i32 [ %.pre, %..thread897_crit_edge ], [ %84, %82 ]
+  %.1430896899 = phi i32 [ %.1430, %..thread897_crit_edge ], [ %spec.select1041, %82 ]
+  %91 = icmp eq i32 %90, 3
+  %spec.select1042 = select i1 %91, i32 1, i32 %.04271059
+  br label %92
+
+92:                                               ; preds = %.thread897, %86, %88
+  %.1430894 = phi i32 [ %.1430, %88 ], [ %.1430, %86 ], [ %.1430896899, %.thread897 ]
+  %.1428 = phi i32 [ %.04271059, %88 ], [ 1, %86 ], [ %spec.select1042, %.thread897 ]
+  %93 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %78)
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %.split, label %.thread957
+
+.split:                                           ; preds = %92
+  %95 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %78, i1 true)
+  switch i32 %95, label %.thread957 [
+    i32 1, label %96
+    i32 2, label %198
+    i32 3, label %227
+    i32 4, label %283
+    i32 5, label %323
+    i32 0, label %435
   ]
 
-..thread897_crit_edge:                            ; preds = %92
-  %.phi.trans.insert1133 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %.pre1134 = load i32, ptr %.phi.trans.insert1133, align 4
-  br label %.thread897
+96:                                               ; preds = %.split
+  %97 = getelementptr inbounds nuw i8, ptr %77, i64 36
+  %98 = load i32, ptr %97, align 4
+  %99 = mul i32 %98, 24
+  %100 = add i32 %99, 36
+  %101 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  %102 = load i32, ptr %101, align 8
+  %103 = add i32 %100, %102
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit509.thread, label %105
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %77, i64 36
-  %95 = load i32, ptr %94, align 4
-  %96 = mul i32 %95, 24
-  %97 = add i32 %96, 36
-  %98 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %99 = load i32, ptr %98, align 8
-  %100 = add i32 %97, %99
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit506.thread, label %102
+drwav__write_or_count_u32ne_to_le.exit509.thread: ; preds = %96
+  %104 = add i64 %.04191060, 40
+  br label %drwav__write_or_count_u32ne_to_le.exit513
 
-drwav__write_or_count_u32ne_to_le.exit506.thread: ; preds = %93
-  %101 = add i64 %.04161073, 40
-  br label %drwav__write_or_count_u32ne_to_le.exit510
-
-102:                                              ; preds = %93
-  %103 = getelementptr inbounds nuw i8, ptr %77, i64 8
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.val.i = load ptr, ptr %74, align 8
   %.val6.i = load ptr, ptr %75, align 8
-  %104 = call i64 %.val.i(ptr noundef %.val6.i, ptr noundef nonnull @.str.596, i64 noundef 4) #69
-  %105 = add i64 %104, %.04161073
-  %.val.i473 = load ptr, ptr %74, align 8
+  %107 = call i64 %.val.i(ptr noundef %.val6.i, ptr noundef nonnull @.str.596, i64 noundef 4) #69
+  %108 = add i64 %107, %.04191060
+  %.val.i476 = load ptr, ptr %74, align 8
   %.val4.i = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  store i32 %100, ptr %69, align 4
-  %106 = call i64 %.val.i473(ptr noundef %.val4.i, ptr noundef nonnull %69, i64 noundef 4) #69
+  store i32 %103, ptr %69, align 4
+  %109 = call i64 %.val.i476(ptr noundef %.val4.i, ptr noundef nonnull %69, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  %107 = add i64 %105, %106
-  %108 = load i32, ptr %103, align 8
-  %.val.i475 = load ptr, ptr %74, align 8
-  %.val4.i476 = load ptr, ptr %75, align 8
+  %110 = add i64 %108, %109
+  %111 = load i32, ptr %106, align 8
+  %.val.i478 = load ptr, ptr %74, align 8
+  %.val4.i479 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  store i32 %108, ptr %68, align 4
-  %109 = call i64 %.val.i475(ptr noundef %.val4.i476, ptr noundef nonnull %68, i64 noundef 4) #69
+  store i32 %111, ptr %68, align 4
+  %112 = call i64 %.val.i478(ptr noundef %.val4.i479, ptr noundef nonnull %68, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  %110 = add i64 %107, %109
-  %111 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %112 = load i32, ptr %111, align 4
-  %.val.i479 = load ptr, ptr %74, align 8
-  %.val4.i480 = load ptr, ptr %75, align 8
+  %113 = add i64 %110, %112
+  %114 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %115 = load i32, ptr %114, align 4
+  %.val.i482 = load ptr, ptr %74, align 8
+  %.val4.i483 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  store i32 %112, ptr %67, align 4
-  %113 = call i64 %.val.i479(ptr noundef %.val4.i480, ptr noundef nonnull %67, i64 noundef 4) #69
+  store i32 %115, ptr %67, align 4
+  %116 = call i64 %.val.i482(ptr noundef %.val4.i483, ptr noundef nonnull %67, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  %114 = add i64 %110, %113
-  %115 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %116 = load i32, ptr %115, align 8
-  %.val.i483 = load ptr, ptr %74, align 8
-  %.val4.i484 = load ptr, ptr %75, align 8
+  %117 = add i64 %113, %116
+  %118 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %119 = load i32, ptr %118, align 8
+  %.val.i486 = load ptr, ptr %74, align 8
+  %.val4.i487 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  store i32 %116, ptr %66, align 4
-  %117 = call i64 %.val.i483(ptr noundef %.val4.i484, ptr noundef nonnull %66, i64 noundef 4) #69
+  store i32 %119, ptr %66, align 4
+  %120 = call i64 %.val.i486(ptr noundef %.val4.i487, ptr noundef nonnull %66, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  %118 = add i64 %114, %117
-  %119 = getelementptr inbounds nuw i8, ptr %77, i64 20
-  %120 = load i32, ptr %119, align 4
-  %.val.i487 = load ptr, ptr %74, align 8
-  %.val4.i488 = load ptr, ptr %75, align 8
+  %121 = add i64 %117, %120
+  %122 = getelementptr inbounds nuw i8, ptr %77, i64 20
+  %123 = load i32, ptr %122, align 4
+  %.val.i490 = load ptr, ptr %74, align 8
+  %.val4.i491 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  store i32 %120, ptr %65, align 4
-  %121 = call i64 %.val.i487(ptr noundef %.val4.i488, ptr noundef nonnull %65, i64 noundef 4) #69
+  store i32 %123, ptr %65, align 4
+  %124 = call i64 %.val.i490(ptr noundef %.val4.i491, ptr noundef nonnull %65, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  %122 = add i64 %118, %121
-  %123 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %124 = load i32, ptr %123, align 8
-  %.val.i491 = load ptr, ptr %74, align 8
-  %.val4.i492 = load ptr, ptr %75, align 8
+  %125 = add i64 %121, %124
+  %126 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %127 = load i32, ptr %126, align 8
+  %.val.i494 = load ptr, ptr %74, align 8
+  %.val4.i495 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  store i32 %124, ptr %64, align 4
-  %125 = call i64 %.val.i491(ptr noundef %.val4.i492, ptr noundef nonnull %64, i64 noundef 4) #69
+  store i32 %127, ptr %64, align 4
+  %128 = call i64 %.val.i494(ptr noundef %.val4.i495, ptr noundef nonnull %64, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  %126 = add i64 %122, %125
-  %127 = getelementptr inbounds nuw i8, ptr %77, i64 28
-  %128 = load i32, ptr %127, align 4
-  %.val.i495 = load ptr, ptr %74, align 8
-  %.val4.i496 = load ptr, ptr %75, align 8
+  %129 = add i64 %125, %128
+  %130 = getelementptr inbounds nuw i8, ptr %77, i64 28
+  %131 = load i32, ptr %130, align 4
+  %.val.i498 = load ptr, ptr %74, align 8
+  %.val4.i499 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  store i32 %128, ptr %63, align 4
-  %129 = call i64 %.val.i495(ptr noundef %.val4.i496, ptr noundef nonnull %63, i64 noundef 4) #69
+  store i32 %131, ptr %63, align 4
+  %132 = call i64 %.val.i498(ptr noundef %.val4.i499, ptr noundef nonnull %63, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  %130 = add i64 %126, %129
-  %131 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %132 = load i32, ptr %131, align 8
-  %.val.i499 = load ptr, ptr %74, align 8
-  %.val4.i500 = load ptr, ptr %75, align 8
+  %133 = add i64 %129, %132
+  %134 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %135 = load i32, ptr %134, align 8
+  %.val.i502 = load ptr, ptr %74, align 8
+  %.val4.i503 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
-  store i32 %132, ptr %62, align 4
-  %133 = call i64 %.val.i499(ptr noundef %.val4.i500, ptr noundef nonnull %62, i64 noundef 4) #69
+  store i32 %135, ptr %62, align 4
+  %136 = call i64 %.val.i502(ptr noundef %.val4.i503, ptr noundef nonnull %62, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  %134 = add i64 %130, %133
-  %135 = load i32, ptr %94, align 4
-  %.val.i503 = load ptr, ptr %74, align 8
-  %.val4.i504 = load ptr, ptr %75, align 8
+  %137 = add i64 %133, %136
+  %138 = load i32, ptr %97, align 4
+  %.val.i506 = load ptr, ptr %74, align 8
+  %.val4.i507 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  store i32 %135, ptr %61, align 4
-  %136 = call i64 %.val.i503(ptr noundef %.val4.i504, ptr noundef nonnull %61, i64 noundef 4) #69
+  store i32 %138, ptr %61, align 4
+  %139 = call i64 %.val.i506(ptr noundef %.val4.i507, ptr noundef nonnull %61, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  %137 = add i64 %134, %136
-  %138 = load i32, ptr %98, align 8
-  %.val.i507 = load ptr, ptr %74, align 8
-  %.val4.i508 = load ptr, ptr %75, align 8
+  %140 = add i64 %137, %139
+  %141 = load i32, ptr %101, align 8
+  %.val.i510 = load ptr, ptr %74, align 8
+  %.val4.i511 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  store i32 %138, ptr %60, align 4
-  %139 = call i64 %.val.i507(ptr noundef %.val4.i508, ptr noundef nonnull %60, i64 noundef 4) #69
+  store i32 %141, ptr %60, align 4
+  %142 = call i64 %.val.i510(ptr noundef %.val4.i511, ptr noundef nonnull %60, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %.pre1130 = load i32, ptr %94, align 4
-  br label %drwav__write_or_count_u32ne_to_le.exit510
+  %.pre1118 = load i32, ptr %97, align 4
+  br label %drwav__write_or_count_u32ne_to_le.exit513
 
-drwav__write_or_count_u32ne_to_le.exit510:        ; preds = %drwav__write_or_count_u32ne_to_le.exit506.thread, %102
-  %140 = phi i32 [ %.pre1130, %102 ], [ %95, %drwav__write_or_count_u32ne_to_le.exit506.thread ]
-  %141 = phi i64 [ %137, %102 ], [ %101, %drwav__write_or_count_u32ne_to_le.exit506.thread ]
-  %.0.i509 = phi i64 [ %139, %102 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit506.thread ]
-  %142 = add i64 %.0.i509, %141
-  %.not1093 = icmp eq i32 %140, 0
-  br i1 %.not1093, label %._crit_edge, label %.lr.ph1068
+drwav__write_or_count_u32ne_to_le.exit513:        ; preds = %drwav__write_or_count_u32ne_to_le.exit509.thread, %105
+  %143 = phi i32 [ %.pre1118, %105 ], [ %98, %drwav__write_or_count_u32ne_to_le.exit509.thread ]
+  %144 = phi i64 [ %140, %105 ], [ %104, %drwav__write_or_count_u32ne_to_le.exit509.thread ]
+  %.0.i512 = phi i64 [ %142, %105 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit509.thread ]
+  %145 = add i64 %.0.i512, %144
+  %.not1080 = icmp eq i32 %143, 0
+  br i1 %.not1080, label %._crit_edge, label %.lr.ph1055
 
-.lr.ph1068:                                       ; preds = %drwav__write_or_count_u32ne_to_le.exit510
-  %143 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  br label %144
+.lr.ph1055:                                       ; preds = %drwav__write_or_count_u32ne_to_le.exit513
+  %146 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  br label %147
 
-144:                                              ; preds = %.lr.ph1068, %drwav__write_or_count_u32ne_to_le.exit534
-  %145 = phi i32 [ %140, %.lr.ph1068 ], [ %182, %drwav__write_or_count_u32ne_to_le.exit534 ]
-  %indvars.iv1104 = phi i64 [ 0, %.lr.ph1068 ], [ %indvars.iv.next1105, %drwav__write_or_count_u32ne_to_le.exit534 ]
-  %.14171067 = phi i64 [ %142, %.lr.ph1068 ], [ %184, %drwav__write_or_count_u32ne_to_le.exit534 ]
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit530.thread, label %147
+147:                                              ; preds = %.lr.ph1055, %drwav__write_or_count_u32ne_to_le.exit537
+  %148 = phi i32 [ %143, %.lr.ph1055 ], [ %185, %drwav__write_or_count_u32ne_to_le.exit537 ]
+  %indvars.iv1091 = phi i64 [ 0, %.lr.ph1055 ], [ %indvars.iv.next1092, %drwav__write_or_count_u32ne_to_le.exit537 ]
+  %.14201054 = phi i64 [ %145, %.lr.ph1055 ], [ %187, %drwav__write_or_count_u32ne_to_le.exit537 ]
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit533.thread, label %150
 
-drwav__write_or_count_u32ne_to_le.exit530.thread: ; preds = %144
-  %146 = add i64 %.14171067, 20
-  br label %drwav__write_or_count_u32ne_to_le.exit534
+drwav__write_or_count_u32ne_to_le.exit533.thread: ; preds = %147
+  %149 = add i64 %.14201054, 20
+  br label %drwav__write_or_count_u32ne_to_le.exit537
 
-147:                                              ; preds = %144
-  %148 = load ptr, ptr %143, align 8
-  %149 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %148, i64 %indvars.iv1104
-  %150 = load i32, ptr %149, align 4
-  %.val.i511 = load ptr, ptr %74, align 8
-  %.val4.i512 = load ptr, ptr %75, align 8
+150:                                              ; preds = %147
+  %151 = load ptr, ptr %146, align 8
+  %152 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %151, i64 %indvars.iv1091
+  %153 = load i32, ptr %152, align 4
+  %.val.i514 = load ptr, ptr %74, align 8
+  %.val4.i515 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  store i32 %150, ptr %59, align 4
-  %151 = call i64 %.val.i511(ptr noundef %.val4.i512, ptr noundef nonnull %59, i64 noundef 4) #69
+  store i32 %153, ptr %59, align 4
+  %154 = call i64 %.val.i514(ptr noundef %.val4.i515, ptr noundef nonnull %59, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  %152 = add i64 %151, %.14171067
-  %153 = load ptr, ptr %143, align 8
-  %154 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %153, i64 %indvars.iv1104
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %156 = load i32, ptr %155, align 4
-  %.val.i515 = load ptr, ptr %74, align 8
-  %.val4.i516 = load ptr, ptr %75, align 8
+  %155 = add i64 %154, %.14201054
+  %156 = load ptr, ptr %146, align 8
+  %157 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %156, i64 %indvars.iv1091
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  %159 = load i32, ptr %158, align 4
+  %.val.i518 = load ptr, ptr %74, align 8
+  %.val4.i519 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  store i32 %156, ptr %58, align 4
-  %157 = call i64 %.val.i515(ptr noundef %.val4.i516, ptr noundef nonnull %58, i64 noundef 4) #69
+  store i32 %159, ptr %58, align 4
+  %160 = call i64 %.val.i518(ptr noundef %.val4.i519, ptr noundef nonnull %58, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  %158 = add i64 %152, %157
-  %159 = load ptr, ptr %143, align 8
-  %160 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %159, i64 %indvars.iv1104
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load i32, ptr %161, align 4
-  %.val.i519 = load ptr, ptr %74, align 8
-  %.val4.i520 = load ptr, ptr %75, align 8
+  %161 = add i64 %155, %160
+  %162 = load ptr, ptr %146, align 8
+  %163 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %162, i64 %indvars.iv1091
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load i32, ptr %164, align 4
+  %.val.i522 = load ptr, ptr %74, align 8
+  %.val4.i523 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  store i32 %162, ptr %57, align 4
-  %163 = call i64 %.val.i519(ptr noundef %.val4.i520, ptr noundef nonnull %57, i64 noundef 4) #69
+  store i32 %165, ptr %57, align 4
+  %166 = call i64 %.val.i522(ptr noundef %.val4.i523, ptr noundef nonnull %57, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  %164 = add i64 %158, %163
-  %165 = load ptr, ptr %143, align 8
-  %166 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %165, i64 %indvars.iv1104
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
-  %168 = load i32, ptr %167, align 4
-  %.val.i523 = load ptr, ptr %74, align 8
-  %.val4.i524 = load ptr, ptr %75, align 8
+  %167 = add i64 %161, %166
+  %168 = load ptr, ptr %146, align 8
+  %169 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %168, i64 %indvars.iv1091
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 12
+  %171 = load i32, ptr %170, align 4
+  %.val.i526 = load ptr, ptr %74, align 8
+  %.val4.i527 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  store i32 %168, ptr %56, align 4
-  %169 = call i64 %.val.i523(ptr noundef %.val4.i524, ptr noundef nonnull %56, i64 noundef 4) #69
+  store i32 %171, ptr %56, align 4
+  %172 = call i64 %.val.i526(ptr noundef %.val4.i527, ptr noundef nonnull %56, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  %170 = add i64 %164, %169
-  %171 = load ptr, ptr %143, align 8
-  %172 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %171, i64 %indvars.iv1104
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load i32, ptr %173, align 4
-  %.val.i527 = load ptr, ptr %74, align 8
-  %.val4.i528 = load ptr, ptr %75, align 8
+  %173 = add i64 %167, %172
+  %174 = load ptr, ptr %146, align 8
+  %175 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %174, i64 %indvars.iv1091
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %177 = load i32, ptr %176, align 4
+  %.val.i530 = load ptr, ptr %74, align 8
+  %.val4.i531 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  store i32 %174, ptr %55, align 4
-  %175 = call i64 %.val.i527(ptr noundef %.val4.i528, ptr noundef nonnull %55, i64 noundef 4) #69
+  store i32 %177, ptr %55, align 4
+  %178 = call i64 %.val.i530(ptr noundef %.val4.i531, ptr noundef nonnull %55, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  %176 = add i64 %170, %175
-  %177 = load ptr, ptr %143, align 8
-  %178 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %177, i64 %indvars.iv1104
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 20
-  %180 = load i32, ptr %179, align 4
-  %.val.i531 = load ptr, ptr %74, align 8
-  %.val4.i532 = load ptr, ptr %75, align 8
+  %179 = add i64 %173, %178
+  %180 = load ptr, ptr %146, align 8
+  %181 = getelementptr inbounds nuw %struct.drwav_smpl_loop, ptr %180, i64 %indvars.iv1091
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 20
+  %183 = load i32, ptr %182, align 4
+  %.val.i534 = load ptr, ptr %74, align 8
+  %.val4.i535 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
-  store i32 %180, ptr %54, align 4
-  %181 = call i64 %.val.i531(ptr noundef %.val4.i532, ptr noundef nonnull %54, i64 noundef 4) #69
+  store i32 %183, ptr %54, align 4
+  %184 = call i64 %.val.i534(ptr noundef %.val4.i535, ptr noundef nonnull %54, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  %.pre1131 = load i32, ptr %94, align 4
-  br label %drwav__write_or_count_u32ne_to_le.exit534
+  %.pre1119 = load i32, ptr %97, align 4
+  br label %drwav__write_or_count_u32ne_to_le.exit537
 
-drwav__write_or_count_u32ne_to_le.exit534:        ; preds = %drwav__write_or_count_u32ne_to_le.exit530.thread, %147
-  %182 = phi i32 [ %.pre1131, %147 ], [ %145, %drwav__write_or_count_u32ne_to_le.exit530.thread ]
-  %183 = phi i64 [ %176, %147 ], [ %146, %drwav__write_or_count_u32ne_to_le.exit530.thread ]
-  %.0.i533 = phi i64 [ %181, %147 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit530.thread ]
-  %184 = add i64 %.0.i533, %183
-  %indvars.iv.next1105 = add nuw nsw i64 %indvars.iv1104, 1
-  %185 = zext i32 %182 to i64
-  %186 = icmp samesign ult i64 %indvars.iv.next1105, %185
-  br i1 %186, label %144, label %._crit_edge
+drwav__write_or_count_u32ne_to_le.exit537:        ; preds = %drwav__write_or_count_u32ne_to_le.exit533.thread, %150
+  %185 = phi i32 [ %.pre1119, %150 ], [ %148, %drwav__write_or_count_u32ne_to_le.exit533.thread ]
+  %186 = phi i64 [ %179, %150 ], [ %149, %drwav__write_or_count_u32ne_to_le.exit533.thread ]
+  %.0.i536 = phi i64 [ %184, %150 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit533.thread ]
+  %187 = add i64 %.0.i536, %186
+  %indvars.iv.next1092 = add nuw nsw i64 %indvars.iv1091, 1
+  %188 = zext i32 %185 to i64
+  %189 = icmp samesign ult i64 %indvars.iv.next1092, %188
+  br i1 %189, label %147, label %._crit_edge
 
-._crit_edge:                                      ; preds = %drwav__write_or_count_u32ne_to_le.exit534, %drwav__write_or_count_u32ne_to_le.exit510
-  %.1417.lcssa = phi i64 [ %142, %drwav__write_or_count_u32ne_to_le.exit510 ], [ %184, %drwav__write_or_count_u32ne_to_le.exit534 ]
-  %187 = load i32, ptr %98, align 8
-  %.not467 = icmp eq i32 %187, 0
-  br i1 %.not467, label %.loopexit1058, label %188
+._crit_edge:                                      ; preds = %drwav__write_or_count_u32ne_to_le.exit537, %drwav__write_or_count_u32ne_to_le.exit513
+  %.1420.lcssa = phi i64 [ %145, %drwav__write_or_count_u32ne_to_le.exit513 ], [ %187, %drwav__write_or_count_u32ne_to_le.exit537 ]
+  %190 = load i32, ptr %101, align 8
+  %.not470 = icmp eq i32 %190, 0
+  br i1 %.not470, label %.loopexit1045, label %191
 
-188:                                              ; preds = %._crit_edge
-  %189 = zext i32 %187 to i64
-  br i1 %73, label %drwav__write_or_count.exit538, label %190
+191:                                              ; preds = %._crit_edge
+  %192 = zext i32 %190 to i64
+  br i1 %73, label %drwav__write_or_count.exit541, label %193
 
-190:                                              ; preds = %188
-  %191 = getelementptr inbounds nuw i8, ptr %77, i64 56
-  %192 = load ptr, ptr %191, align 8
-  %.val.i535 = load ptr, ptr %74, align 8
-  %.val6.i536 = load ptr, ptr %75, align 8
-  %193 = call i64 %.val.i535(ptr noundef %.val6.i536, ptr noundef %192, i64 noundef %189) #69
-  br label %drwav__write_or_count.exit538
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %77, i64 56
+  %195 = load ptr, ptr %194, align 8
+  %.val.i538 = load ptr, ptr %74, align 8
+  %.val6.i539 = load ptr, ptr %75, align 8
+  %196 = call i64 %.val.i538(ptr noundef %.val6.i539, ptr noundef %195, i64 noundef %192) #69
+  br label %drwav__write_or_count.exit541
 
-drwav__write_or_count.exit538:                    ; preds = %188, %190
-  %.0.i537 = phi i64 [ %193, %190 ], [ %189, %188 ]
-  %194 = add i64 %.0.i537, %.1417.lcssa
-  br label %.loopexit1058
+drwav__write_or_count.exit541:                    ; preds = %191, %193
+  %.0.i540 = phi i64 [ %196, %193 ], [ %192, %191 ]
+  %197 = add i64 %.0.i540, %.1420.lcssa
+  br label %.loopexit1045
 
-195:                                              ; preds = %92
-  br i1 %73, label %drwav__write_or_count.exit570.thread, label %197
+198:                                              ; preds = %.split
+  br i1 %73, label %drwav__write_or_count.exit573.thread, label %200
 
-drwav__write_or_count.exit570.thread:             ; preds = %195
-  %196 = add i64 %.04161073, 14
-  br label %.thread970
+drwav__write_or_count.exit573.thread:             ; preds = %198
+  %199 = add i64 %.04191060, 14
+  br label %.thread961
 
-197:                                              ; preds = %195
-  %.val.i539 = load ptr, ptr %74, align 8
-  %.val6.i540 = load ptr, ptr %75, align 8
-  %198 = call i64 %.val.i539(ptr noundef %.val6.i540, ptr noundef nonnull @.str.597, i64 noundef 4) #69
-  %199 = add i64 %198, %.04161073
-  %.val.i543 = load ptr, ptr %74, align 8
-  %.val4.i544 = load ptr, ptr %75, align 8
+200:                                              ; preds = %198
+  %.val.i542 = load ptr, ptr %74, align 8
+  %.val6.i543 = load ptr, ptr %75, align 8
+  %201 = call i64 %.val.i542(ptr noundef %.val6.i543, ptr noundef nonnull @.str.597, i64 noundef 4) #69
+  %202 = add i64 %201, %.04191060
+  %.val.i546 = load ptr, ptr %74, align 8
+  %.val4.i547 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i32 7, ptr %53, align 4
-  %200 = call i64 %.val.i543(ptr noundef %.val4.i544, ptr noundef nonnull %53, i64 noundef 4) #69
+  %203 = call i64 %.val.i546(ptr noundef %.val4.i547, ptr noundef nonnull %53, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  %201 = add i64 %199, %200
-  %202 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %.val.i547 = load ptr, ptr %74, align 8
-  %.val6.i548 = load ptr, ptr %75, align 8
-  %203 = call i64 %.val.i547(ptr noundef %.val6.i548, ptr noundef nonnull %202, i64 noundef 1) #69
-  %204 = add i64 %201, %203
-  %205 = getelementptr inbounds nuw i8, ptr %77, i64 9
-  %.val.i551 = load ptr, ptr %74, align 8
-  %.val6.i552 = load ptr, ptr %75, align 8
-  %206 = call i64 %.val.i551(ptr noundef %.val6.i552, ptr noundef nonnull %205, i64 noundef 1) #69
+  %204 = add i64 %202, %203
+  %205 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %.val.i550 = load ptr, ptr %74, align 8
+  %.val6.i551 = load ptr, ptr %75, align 8
+  %206 = call i64 %.val.i550(ptr noundef %.val6.i551, ptr noundef nonnull %205, i64 noundef 1) #69
   %207 = add i64 %204, %206
-  %208 = getelementptr inbounds nuw i8, ptr %77, i64 10
-  %.val.i555 = load ptr, ptr %74, align 8
-  %.val6.i556 = load ptr, ptr %75, align 8
-  %209 = call i64 %.val.i555(ptr noundef %.val6.i556, ptr noundef nonnull %208, i64 noundef 1) #69
+  %208 = getelementptr inbounds nuw i8, ptr %77, i64 9
+  %.val.i554 = load ptr, ptr %74, align 8
+  %.val6.i555 = load ptr, ptr %75, align 8
+  %209 = call i64 %.val.i554(ptr noundef %.val6.i555, ptr noundef nonnull %208, i64 noundef 1) #69
   %210 = add i64 %207, %209
-  %211 = getelementptr inbounds nuw i8, ptr %77, i64 11
-  %.val.i559 = load ptr, ptr %74, align 8
-  %.val6.i560 = load ptr, ptr %75, align 8
-  %212 = call i64 %.val.i559(ptr noundef %.val6.i560, ptr noundef nonnull %211, i64 noundef 1) #69
+  %211 = getelementptr inbounds nuw i8, ptr %77, i64 10
+  %.val.i558 = load ptr, ptr %74, align 8
+  %.val6.i559 = load ptr, ptr %75, align 8
+  %212 = call i64 %.val.i558(ptr noundef %.val6.i559, ptr noundef nonnull %211, i64 noundef 1) #69
   %213 = add i64 %210, %212
-  %214 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %.val.i563 = load ptr, ptr %74, align 8
-  %.val6.i564 = load ptr, ptr %75, align 8
-  %215 = call i64 %.val.i563(ptr noundef %.val6.i564, ptr noundef nonnull %214, i64 noundef 1) #69
+  %214 = getelementptr inbounds nuw i8, ptr %77, i64 11
+  %.val.i562 = load ptr, ptr %74, align 8
+  %.val6.i563 = load ptr, ptr %75, align 8
+  %215 = call i64 %.val.i562(ptr noundef %.val6.i563, ptr noundef nonnull %214, i64 noundef 1) #69
   %216 = add i64 %213, %215
-  %217 = getelementptr inbounds nuw i8, ptr %77, i64 13
-  %.val.i567 = load ptr, ptr %74, align 8
-  %.val6.i568 = load ptr, ptr %75, align 8
-  %218 = call i64 %.val.i567(ptr noundef %.val6.i568, ptr noundef nonnull %217, i64 noundef 1) #69
+  %217 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %.val.i566 = load ptr, ptr %74, align 8
+  %.val6.i567 = load ptr, ptr %75, align 8
+  %218 = call i64 %.val.i566(ptr noundef %.val6.i567, ptr noundef nonnull %217, i64 noundef 1) #69
   %219 = add i64 %216, %218
-  %220 = getelementptr inbounds nuw i8, ptr %77, i64 14
-  %.val.i571 = load ptr, ptr %74, align 8
-  %.val6.i572 = load ptr, ptr %75, align 8
-  %221 = call i64 %.val.i571(ptr noundef %.val6.i572, ptr noundef nonnull %220, i64 noundef 1) #69
-  br label %.thread970
+  %220 = getelementptr inbounds nuw i8, ptr %77, i64 13
+  %.val.i570 = load ptr, ptr %74, align 8
+  %.val6.i571 = load ptr, ptr %75, align 8
+  %221 = call i64 %.val.i570(ptr noundef %.val6.i571, ptr noundef nonnull %220, i64 noundef 1) #69
+  %222 = add i64 %219, %221
+  %223 = getelementptr inbounds nuw i8, ptr %77, i64 14
+  %.val.i574 = load ptr, ptr %74, align 8
+  %.val6.i575 = load ptr, ptr %75, align 8
+  %224 = call i64 %.val.i574(ptr noundef %.val6.i575, ptr noundef nonnull %223, i64 noundef 1) #69
+  br label %.thread961
 
-.thread970:                                       ; preds = %197, %drwav__write_or_count.exit570.thread
-  %222 = phi i64 [ %219, %197 ], [ %196, %drwav__write_or_count.exit570.thread ]
-  %.0.i573 = phi i64 [ %221, %197 ], [ 1, %drwav__write_or_count.exit570.thread ]
-  %223 = add i64 %.0.i573, %222
-  br label %453
+.thread961:                                       ; preds = %200, %drwav__write_or_count.exit573.thread
+  %225 = phi i64 [ %222, %200 ], [ %199, %drwav__write_or_count.exit573.thread ]
+  %.0.i576 = phi i64 [ %224, %200 ], [ 1, %drwav__write_or_count.exit573.thread ]
+  %226 = add i64 %.0.i576, %225
+  br label %458
 
-224:                                              ; preds = %92
-  %225 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %226 = load i32, ptr %225, align 8
-  %227 = mul i32 %226, 24
-  %228 = or disjoint i32 %227, 4
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit586, label %drwav__write_or_count_u32ne_to_le.exit586.thread
+227:                                              ; preds = %.split
+  %228 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %229 = load i32, ptr %228, align 8
+  %230 = mul i32 %229, 24
+  %231 = or disjoint i32 %230, 4
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit589, label %drwav__write_or_count_u32ne_to_le.exit589.thread
 
-drwav__write_or_count_u32ne_to_le.exit586:        ; preds = %224
-  %229 = add i64 %.04161073, 12
-  %.not1092 = icmp eq i32 %226, 0
-  br i1 %.not1092, label %.loopexit1058, label %.lr.ph.split.us
+drwav__write_or_count_u32ne_to_le.exit589:        ; preds = %227
+  %232 = add i64 %.04191060, 12
+  %.not1079 = icmp eq i32 %229, 0
+  br i1 %.not1079, label %.loopexit1045, label %.lr.ph.split.us
 
-drwav__write_or_count_u32ne_to_le.exit586.thread: ; preds = %224
-  %.val.i575 = load ptr, ptr %74, align 8
-  %.val6.i576 = load ptr, ptr %75, align 8
-  %230 = call i64 %.val.i575(ptr noundef %.val6.i576, ptr noundef nonnull @.str.599, i64 noundef 4) #69
-  %231 = add i64 %230, %.04161073
-  %.val.i579 = load ptr, ptr %74, align 8
-  %.val4.i580 = load ptr, ptr %75, align 8
+drwav__write_or_count_u32ne_to_le.exit589.thread: ; preds = %227
+  %.val.i578 = load ptr, ptr %74, align 8
+  %.val6.i579 = load ptr, ptr %75, align 8
+  %233 = call i64 %.val.i578(ptr noundef %.val6.i579, ptr noundef nonnull @.str.599, i64 noundef 4) #69
+  %234 = add i64 %233, %.04191060
+  %.val.i582 = load ptr, ptr %74, align 8
+  %.val4.i583 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  store i32 %228, ptr %52, align 4
-  %232 = call i64 %.val.i579(ptr noundef %.val4.i580, ptr noundef nonnull %52, i64 noundef 4) #69
+  store i32 %231, ptr %52, align 4
+  %235 = call i64 %.val.i582(ptr noundef %.val4.i583, ptr noundef nonnull %52, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  %233 = add i64 %231, %232
-  %234 = load i32, ptr %225, align 8
-  %.val.i583 = load ptr, ptr %74, align 8
-  %.val4.i584 = load ptr, ptr %75, align 8
+  %236 = add i64 %234, %235
+  %237 = load i32, ptr %228, align 8
+  %.val.i586 = load ptr, ptr %74, align 8
+  %.val4.i587 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  store i32 %234, ptr %51, align 4
-  %235 = call i64 %.val.i583(ptr noundef %.val4.i584, ptr noundef nonnull %51, i64 noundef 4) #69
+  store i32 %237, ptr %51, align 4
+  %238 = call i64 %.val.i586(ptr noundef %.val4.i587, ptr noundef nonnull %51, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  %.pre = load i32, ptr %225, align 8
-  %236 = add i64 %235, %233
-  %.not10921149 = icmp eq i32 %.pre, 0
-  br i1 %.not10921149, label %.loopexit1058, label %drwav__write_or_count_u32ne_to_le.exit610.preheader
+  %.pre1117 = load i32, ptr %228, align 8
+  %239 = add i64 %238, %236
+  %.not10791134 = icmp eq i32 %.pre1117, 0
+  br i1 %.not10791134, label %.loopexit1045, label %drwav__write_or_count_u32ne_to_le.exit613.preheader
 
-drwav__write_or_count_u32ne_to_le.exit610.preheader: ; preds = %drwav__write_or_count_u32ne_to_le.exit586.thread
-  %237 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  br label %drwav__write_or_count_u32ne_to_le.exit610
+drwav__write_or_count_u32ne_to_le.exit613.preheader: ; preds = %drwav__write_or_count_u32ne_to_le.exit589.thread
+  %240 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  br label %drwav__write_or_count_u32ne_to_le.exit613
 
-.lr.ph.split.us:                                  ; preds = %drwav__write_or_count_u32ne_to_le.exit586
-  %238 = add i64 %.04161073, 36
-  %239 = add i32 %226, -1
-  %240 = zext i32 %239 to i64
-  %241 = mul nuw nsw i64 %240, 24
-  %242 = add i64 %238, %241
-  br label %.loopexit1058
+.lr.ph.split.us:                                  ; preds = %drwav__write_or_count_u32ne_to_le.exit589
+  %241 = add i64 %.04191060, 36
+  %242 = add i32 %229, -1
+  %243 = zext i32 %242 to i64
+  %244 = mul nuw nsw i64 %243, 24
+  %245 = add i64 %241, %244
+  br label %.loopexit1045
 
-drwav__write_or_count_u32ne_to_le.exit610:        ; preds = %drwav__write_or_count_u32ne_to_le.exit610.preheader, %drwav__write_or_count_u32ne_to_le.exit610
-  %indvars.iv = phi i64 [ 0, %drwav__write_or_count_u32ne_to_le.exit610.preheader ], [ %indvars.iv.next, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.41065 = phi i64 [ %236, %drwav__write_or_count_u32ne_to_le.exit610.preheader ], [ %276, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %243 = load ptr, ptr %237, align 8
-  %244 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %243, i64 %indvars.iv
-  %245 = load i32, ptr %244, align 4
-  %.val.i587 = load ptr, ptr %74, align 8
-  %.val4.i588 = load ptr, ptr %75, align 8
+drwav__write_or_count_u32ne_to_le.exit613:        ; preds = %drwav__write_or_count_u32ne_to_le.exit613.preheader, %drwav__write_or_count_u32ne_to_le.exit613
+  %indvars.iv = phi i64 [ 0, %drwav__write_or_count_u32ne_to_le.exit613.preheader ], [ %indvars.iv.next, %drwav__write_or_count_u32ne_to_le.exit613 ]
+  %.41052 = phi i64 [ %239, %drwav__write_or_count_u32ne_to_le.exit613.preheader ], [ %279, %drwav__write_or_count_u32ne_to_le.exit613 ]
+  %246 = load ptr, ptr %240, align 8
+  %247 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %246, i64 %indvars.iv
+  %248 = load i32, ptr %247, align 4
+  %.val.i590 = load ptr, ptr %74, align 8
+  %.val4.i591 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  store i32 %245, ptr %50, align 4
-  %246 = call i64 %.val.i587(ptr noundef %.val4.i588, ptr noundef nonnull %50, i64 noundef 4) #69
+  store i32 %248, ptr %50, align 4
+  %249 = call i64 %.val.i590(ptr noundef %.val4.i591, ptr noundef nonnull %50, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  %247 = add i64 %246, %.41065
-  %248 = load ptr, ptr %237, align 8
-  %249 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %248, i64 %indvars.iv
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
-  %251 = load i32, ptr %250, align 4
-  %.val.i591 = load ptr, ptr %74, align 8
-  %.val4.i592 = load ptr, ptr %75, align 8
+  %250 = add i64 %249, %.41052
+  %251 = load ptr, ptr %240, align 8
+  %252 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %251, i64 %indvars.iv
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
+  %254 = load i32, ptr %253, align 4
+  %.val.i594 = load ptr, ptr %74, align 8
+  %.val4.i595 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  store i32 %251, ptr %49, align 4
-  %252 = call i64 %.val.i591(ptr noundef %.val4.i592, ptr noundef nonnull %49, i64 noundef 4) #69
+  store i32 %254, ptr %49, align 4
+  %255 = call i64 %.val.i594(ptr noundef %.val4.i595, ptr noundef nonnull %49, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %253 = add i64 %247, %252
-  %254 = load ptr, ptr %237, align 8
-  %255 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %254, i64 %indvars.iv
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
-  %.val.i595 = load ptr, ptr %74, align 8
-  %.val6.i596 = load ptr, ptr %75, align 8
-  %257 = call i64 %.val.i595(ptr noundef %.val6.i596, ptr noundef nonnull %256, i64 noundef 4) #69
-  %258 = add i64 %253, %257
-  %259 = load ptr, ptr %237, align 8
-  %260 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %259, i64 %indvars.iv
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  %262 = load i32, ptr %261, align 4
-  %.val.i599 = load ptr, ptr %74, align 8
-  %.val4.i600 = load ptr, ptr %75, align 8
+  %256 = add i64 %250, %255
+  %257 = load ptr, ptr %240, align 8
+  %258 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %257, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %.val.i598 = load ptr, ptr %74, align 8
+  %.val6.i599 = load ptr, ptr %75, align 8
+  %260 = call i64 %.val.i598(ptr noundef %.val6.i599, ptr noundef nonnull %259, i64 noundef 4) #69
+  %261 = add i64 %256, %260
+  %262 = load ptr, ptr %240, align 8
+  %263 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %262, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 12
+  %265 = load i32, ptr %264, align 4
+  %.val.i602 = load ptr, ptr %74, align 8
+  %.val4.i603 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  store i32 %262, ptr %48, align 4
-  %263 = call i64 %.val.i599(ptr noundef %.val4.i600, ptr noundef nonnull %48, i64 noundef 4) #69
+  store i32 %265, ptr %48, align 4
+  %266 = call i64 %.val.i602(ptr noundef %.val4.i603, ptr noundef nonnull %48, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %264 = add i64 %258, %263
-  %265 = load ptr, ptr %237, align 8
-  %266 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %265, i64 %indvars.iv
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
-  %268 = load i32, ptr %267, align 4
-  %.val.i603 = load ptr, ptr %74, align 8
-  %.val4.i604 = load ptr, ptr %75, align 8
+  %267 = add i64 %261, %266
+  %268 = load ptr, ptr %240, align 8
+  %269 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %268, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
+  %271 = load i32, ptr %270, align 4
+  %.val.i606 = load ptr, ptr %74, align 8
+  %.val4.i607 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  store i32 %268, ptr %47, align 4
-  %269 = call i64 %.val.i603(ptr noundef %.val4.i604, ptr noundef nonnull %47, i64 noundef 4) #69
+  store i32 %271, ptr %47, align 4
+  %272 = call i64 %.val.i606(ptr noundef %.val4.i607, ptr noundef nonnull %47, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  %270 = add i64 %264, %269
-  %271 = load ptr, ptr %237, align 8
-  %272 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %271, i64 %indvars.iv
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 20
-  %274 = load i32, ptr %273, align 4
-  %.val.i607 = load ptr, ptr %74, align 8
-  %.val4.i608 = load ptr, ptr %75, align 8
+  %273 = add i64 %267, %272
+  %274 = load ptr, ptr %240, align 8
+  %275 = getelementptr inbounds nuw %struct.drwav_cue_point, ptr %274, i64 %indvars.iv
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 20
+  %277 = load i32, ptr %276, align 4
+  %.val.i610 = load ptr, ptr %74, align 8
+  %.val4.i611 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  store i32 %274, ptr %46, align 4
-  %275 = call i64 %.val.i607(ptr noundef %.val4.i608, ptr noundef nonnull %46, i64 noundef 4) #69
+  store i32 %277, ptr %46, align 4
+  %278 = call i64 %.val.i610(ptr noundef %.val4.i611, ptr noundef nonnull %46, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  %276 = add i64 %275, %270
+  %279 = add i64 %278, %273
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %277 = load i32, ptr %225, align 8
-  %278 = zext i32 %277 to i64
-  %279 = icmp samesign ult i64 %indvars.iv.next, %278
-  br i1 %279, label %drwav__write_or_count_u32ne_to_le.exit610, label %.loopexit1058
+  %280 = load i32, ptr %228, align 8
+  %281 = zext i32 %280 to i64
+  %282 = icmp samesign ult i64 %indvars.iv.next, %281
+  br i1 %282, label %drwav__write_or_count_u32ne_to_le.exit613, label %.loopexit1045
 
-280:                                              ; preds = %92
-  br i1 %73, label %drwav__write_or_count_u16ne_to_le.exit644.thread, label %282
+283:                                              ; preds = %.split
+  br i1 %73, label %drwav__write_or_count_u16ne_to_le.exit647.thread, label %285
 
-drwav__write_or_count_u16ne_to_le.exit644.thread: ; preds = %280
-  %281 = add i64 %.04161073, 28
-  br label %drwav__write_or_count_f32ne_to_le.exit648
+drwav__write_or_count_u16ne_to_le.exit647.thread: ; preds = %283
+  %284 = add i64 %.04191060, 28
+  br label %drwav__write_or_count_f32ne_to_le.exit651
 
-282:                                              ; preds = %280
-  %.val.i611 = load ptr, ptr %74, align 8
-  %.val6.i612 = load ptr, ptr %75, align 8
-  %283 = call i64 %.val.i611(ptr noundef %.val6.i612, ptr noundef nonnull @.str.598, i64 noundef 4) #69
-  %284 = add i64 %283, %.04161073
-  %.val.i615 = load ptr, ptr %74, align 8
-  %.val4.i616 = load ptr, ptr %75, align 8
+285:                                              ; preds = %283
+  %.val.i614 = load ptr, ptr %74, align 8
+  %.val6.i615 = load ptr, ptr %75, align 8
+  %286 = call i64 %.val.i614(ptr noundef %.val6.i615, ptr noundef nonnull @.str.598, i64 noundef 4) #69
+  %287 = add i64 %286, %.04191060
+  %.val.i618 = load ptr, ptr %74, align 8
+  %.val4.i619 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 24, ptr %45, align 4
-  %285 = call i64 %.val.i615(ptr noundef %.val4.i616, ptr noundef nonnull %45, i64 noundef 4) #69
+  %288 = call i64 %.val.i618(ptr noundef %.val4.i619, ptr noundef nonnull %45, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %286 = add i64 %284, %285
-  %287 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %288 = load i32, ptr %287, align 8
-  %.val.i619 = load ptr, ptr %74, align 8
-  %.val4.i620 = load ptr, ptr %75, align 8
+  %289 = add i64 %287, %288
+  %290 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %291 = load i32, ptr %290, align 8
+  %.val.i622 = load ptr, ptr %74, align 8
+  %.val4.i623 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  store i32 %288, ptr %44, align 4
-  %289 = call i64 %.val.i619(ptr noundef %.val4.i620, ptr noundef nonnull %44, i64 noundef 4) #69
+  store i32 %291, ptr %44, align 4
+  %292 = call i64 %.val.i622(ptr noundef %.val4.i623, ptr noundef nonnull %44, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  %290 = add i64 %286, %289
-  %291 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %292 = load i16, ptr %291, align 4
-  %.val.i623 = load ptr, ptr %74, align 8
-  %.val4.i624 = load ptr, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  store i16 %292, ptr %43, align 2
-  %293 = call i64 %.val.i623(ptr noundef %.val4.i624, ptr noundef nonnull %43, i64 noundef 2) #69
-  call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %294 = add i64 %290, %293
-  %295 = getelementptr inbounds nuw i8, ptr %77, i64 14
-  %296 = load i16, ptr %295, align 2
+  %293 = add i64 %289, %292
+  %294 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %295 = load i16, ptr %294, align 4
   %.val.i626 = load ptr, ptr %74, align 8
   %.val4.i627 = load ptr, ptr %75, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  store i16 %295, ptr %43, align 2
+  %296 = call i64 %.val.i626(ptr noundef %.val4.i627, ptr noundef nonnull %43, i64 noundef 2) #69
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  %297 = add i64 %293, %296
+  %298 = getelementptr inbounds nuw i8, ptr %77, i64 14
+  %299 = load i16, ptr %298, align 2
+  %.val.i629 = load ptr, ptr %74, align 8
+  %.val4.i630 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  store i16 %296, ptr %42, align 2
-  %297 = call i64 %.val.i626(ptr noundef %.val4.i627, ptr noundef nonnull %42, i64 noundef 2) #69
+  store i16 %299, ptr %42, align 2
+  %300 = call i64 %.val.i629(ptr noundef %.val4.i630, ptr noundef nonnull %42, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  %298 = add i64 %294, %297
-  %299 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %300 = load float, ptr %299, align 8
-  %.val.i630 = load ptr, ptr %74, align 8
-  %.val4.i631 = load ptr, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  store float %300, ptr %41, align 4
-  %301 = call i64 %.val.i630(ptr noundef %.val4.i631, ptr noundef nonnull %41, i64 noundef 4) #69
-  call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  %302 = add i64 %298, %301
-  %303 = getelementptr inbounds nuw i8, ptr %77, i64 20
-  %304 = load i32, ptr %303, align 4
+  %301 = add i64 %297, %300
+  %302 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %303 = load float, ptr %302, align 8
   %.val.i633 = load ptr, ptr %74, align 8
   %.val4.i634 = load ptr, ptr %75, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  store float %303, ptr %41, align 4
+  %304 = call i64 %.val.i633(ptr noundef %.val4.i634, ptr noundef nonnull %41, i64 noundef 4) #69
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  %305 = add i64 %301, %304
+  %306 = getelementptr inbounds nuw i8, ptr %77, i64 20
+  %307 = load i32, ptr %306, align 4
+  %.val.i636 = load ptr, ptr %74, align 8
+  %.val4.i637 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  store i32 %304, ptr %40, align 4
-  %305 = call i64 %.val.i633(ptr noundef %.val4.i634, ptr noundef nonnull %40, i64 noundef 4) #69
+  store i32 %307, ptr %40, align 4
+  %308 = call i64 %.val.i636(ptr noundef %.val4.i637, ptr noundef nonnull %40, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  %306 = add i64 %302, %305
-  %307 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %308 = load i16, ptr %307, align 8
-  %.val.i637 = load ptr, ptr %74, align 8
-  %.val4.i638 = load ptr, ptr %75, align 8
+  %309 = add i64 %305, %308
+  %310 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %311 = load i16, ptr %310, align 8
+  %.val.i640 = load ptr, ptr %74, align 8
+  %.val4.i641 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  store i16 %308, ptr %39, align 2
-  %309 = call i64 %.val.i637(ptr noundef %.val4.i638, ptr noundef nonnull %39, i64 noundef 2) #69
+  store i16 %311, ptr %39, align 2
+  %312 = call i64 %.val.i640(ptr noundef %.val4.i641, ptr noundef nonnull %39, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %310 = add i64 %306, %309
-  %311 = getelementptr inbounds nuw i8, ptr %77, i64 26
-  %312 = load i16, ptr %311, align 2
-  %.val.i641 = load ptr, ptr %74, align 8
-  %.val4.i642 = load ptr, ptr %75, align 8
+  %313 = add i64 %309, %312
+  %314 = getelementptr inbounds nuw i8, ptr %77, i64 26
+  %315 = load i16, ptr %314, align 2
+  %.val.i644 = load ptr, ptr %74, align 8
+  %.val4.i645 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  store i16 %312, ptr %38, align 2
-  %313 = call i64 %.val.i641(ptr noundef %.val4.i642, ptr noundef nonnull %38, i64 noundef 2) #69
+  store i16 %315, ptr %38, align 2
+  %316 = call i64 %.val.i644(ptr noundef %.val4.i645, ptr noundef nonnull %38, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  %314 = add i64 %310, %313
-  %315 = getelementptr inbounds nuw i8, ptr %77, i64 28
-  %316 = load float, ptr %315, align 4
-  %.val.i645 = load ptr, ptr %74, align 8
-  %.val4.i646 = load ptr, ptr %75, align 8
+  %317 = add i64 %313, %316
+  %318 = getelementptr inbounds nuw i8, ptr %77, i64 28
+  %319 = load float, ptr %318, align 4
+  %.val.i648 = load ptr, ptr %74, align 8
+  %.val4.i649 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  store float %316, ptr %37, align 4
-  %317 = call i64 %.val.i645(ptr noundef %.val4.i646, ptr noundef nonnull %37, i64 noundef 4) #69
+  store float %319, ptr %37, align 4
+  %320 = call i64 %.val.i648(ptr noundef %.val4.i649, ptr noundef nonnull %37, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br label %drwav__write_or_count_f32ne_to_le.exit648
+  br label %drwav__write_or_count_f32ne_to_le.exit651
 
-drwav__write_or_count_f32ne_to_le.exit648:        ; preds = %drwav__write_or_count_u16ne_to_le.exit644.thread, %282
-  %318 = phi i64 [ %314, %282 ], [ %281, %drwav__write_or_count_u16ne_to_le.exit644.thread ]
-  %.0.i647 = phi i64 [ %317, %282 ], [ 4, %drwav__write_or_count_u16ne_to_le.exit644.thread ]
-  %319 = add i64 %.0.i647, %318
-  br label %.thread962
+drwav__write_or_count_f32ne_to_le.exit651:        ; preds = %drwav__write_or_count_u16ne_to_le.exit647.thread, %285
+  %321 = phi i64 [ %317, %285 ], [ %284, %drwav__write_or_count_u16ne_to_le.exit647.thread ]
+  %.0.i650 = phi i64 [ %320, %285 ], [ 4, %drwav__write_or_count_u16ne_to_le.exit647.thread ]
+  %322 = add i64 %.0.i650, %321
+  br label %.thread957
 
-320:                                              ; preds = %92
+323:                                              ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %321 = getelementptr inbounds nuw i8, ptr %77, i64 80
-  %322 = load i32, ptr %321, align 8
-  %323 = add i32 %322, 602
-  br i1 %73, label %drwav__write_or_count.exit733, label %324
+  %324 = getelementptr inbounds nuw i8, ptr %77, i64 80
+  %325 = load i32, ptr %324, align 8
+  %326 = add i32 %325, 602
+  br i1 %73, label %drwav__write_or_count.exit736, label %327
 
-324:                                              ; preds = %320
-  %325 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %.val.i649 = load ptr, ptr %74, align 8
-  %.val6.i650 = load ptr, ptr %75, align 8
-  %326 = call i64 %.val.i649(ptr noundef %.val6.i650, ptr noundef nonnull @.str.600, i64 noundef 4) #69
-  %.val.i653 = load ptr, ptr %74, align 8
-  %.val4.i654 = load ptr, ptr %75, align 8
+327:                                              ; preds = %323
+  %328 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %.val.i652 = load ptr, ptr %74, align 8
+  %.val6.i653 = load ptr, ptr %75, align 8
+  %329 = call i64 %.val.i652(ptr noundef %.val6.i653, ptr noundef nonnull @.str.600, i64 noundef 4) #69
+  %.val.i656 = load ptr, ptr %74, align 8
+  %.val4.i657 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i32 %323, ptr %36, align 4
-  %327 = call i64 %.val.i653(ptr noundef %.val4.i654, ptr noundef nonnull %36, i64 noundef 4) #69
+  store i32 %326, ptr %36, align 4
+  %330 = call i64 %.val.i656(ptr noundef %.val4.i657, ptr noundef nonnull %36, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %328 = load ptr, ptr %325, align 8
-  %329 = load i8, ptr %328, align 1
-  %.not.i.i = icmp eq i8 %329, 0
+  %331 = load ptr, ptr %328, align 8
+  %332 = load i8, ptr %331, align 1
+  %.not.i.i = icmp eq i8 %332, 0
   br i1 %.not.i.i, label %drwav__write_or_count.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %324, %.lr.ph.i.i
-  %.06.i.i = phi i64 [ %331, %.lr.ph.i.i ], [ 0, %324 ]
-  %.045.i.i = phi ptr [ %330, %.lr.ph.i.i ], [ %328, %324 ]
-  %330 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 1
-  %331 = add nuw nsw i64 %.06.i.i, 1
-  %332 = load i8, ptr %330, align 1
-  %333 = icmp ne i8 %332, 0
-  %334 = icmp samesign ult i64 %.06.i.i, 255
-  %335 = select i1 %333, i1 %334, i1 false
-  br i1 %335, label %.lr.ph.i.i, label %drwav__write_or_count.exit.i
+.lr.ph.i.i:                                       ; preds = %327, %.lr.ph.i.i
+  %.06.i.i = phi i64 [ %334, %.lr.ph.i.i ], [ 0, %327 ]
+  %.045.i.i = phi ptr [ %333, %.lr.ph.i.i ], [ %331, %327 ]
+  %333 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 1
+  %334 = add nuw nsw i64 %.06.i.i, 1
+  %335 = load i8, ptr %333, align 1
+  %336 = icmp ne i8 %335, 0
+  %337 = icmp samesign ult i64 %.06.i.i, 255
+  %338 = select i1 %336, i1 %337, i1 false
+  br i1 %338, label %.lr.ph.i.i, label %drwav__write_or_count.exit.i
 
-drwav__write_or_count.exit.i:                     ; preds = %.lr.ph.i.i, %324
-  %.0.lcssa.i.i = phi i64 [ 0, %324 ], [ %331, %.lr.ph.i.i ]
+drwav__write_or_count.exit.i:                     ; preds = %.lr.ph.i.i, %327
+  %.0.lcssa.i.i = phi i64 [ 0, %327 ], [ %334, %.lr.ph.i.i ]
   %.val.i.i = load ptr, ptr %74, align 8
   %.val6.i.i = load ptr, ptr %75, align 8
-  %336 = call i64 %.val.i.i(ptr noundef %.val6.i.i, ptr noundef nonnull %328, i64 noundef %.0.lcssa.i.i) #69
-  %337 = icmp samesign ult i64 %.0.lcssa.i.i, 256
-  br i1 %337, label %.lr.ph.i, label %.loopexit1060
+  %339 = call i64 %.val.i.i(ptr noundef %.val6.i.i, ptr noundef nonnull %331, i64 noundef %.0.lcssa.i.i) #69
+  %340 = icmp samesign ult i64 %.0.lcssa.i.i, 256
+  br i1 %340, label %.lr.ph.i, label %.loopexit1047
 
 .lr.ph.i:                                         ; preds = %drwav__write_or_count.exit.i
-  %338 = sub nuw nsw i64 256, %.0.lcssa.i.i
-  br label %339
+  %341 = sub nuw nsw i64 256, %.0.lcssa.i.i
+  br label %342
 
-339:                                              ; preds = %339, %.lr.ph.i
-  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %341, %339 ]
-  %.val.i657 = load ptr, ptr %74, align 8
+342:                                              ; preds = %342, %.lr.ph.i
+  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %344, %342 ]
+  %.val.i660 = load ptr, ptr %74, align 8
   %.val19.i = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i8 0, ptr %35, align 1
-  %340 = call i64 %.val.i657(ptr noundef %.val19.i, ptr noundef nonnull %35, i64 noundef 1) #69
+  %343 = call i64 %.val.i660(ptr noundef %.val19.i, ptr noundef nonnull %35, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %341 = add nuw nsw i64 %.020.i, 1
-  %exitcond.not.i = icmp eq i64 %341, %338
-  br i1 %exitcond.not.i, label %.loopexit1060, label %339
+  %344 = add nuw nsw i64 %.020.i, 1
+  %exitcond.not.i = icmp eq i64 %344, %341
+  br i1 %exitcond.not.i, label %.loopexit1047, label %342
 
-.loopexit1060:                                    ; preds = %339, %drwav__write_or_count.exit.i
-  %342 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %343 = load ptr, ptr %342, align 8
-  %344 = load i8, ptr %343, align 1
-  %.not.i.i658 = icmp eq i8 %344, 0
-  br i1 %.not.i.i658, label %drwav__write_or_count.exit.i662, label %.lr.ph.i.i659
+.loopexit1047:                                    ; preds = %342, %drwav__write_or_count.exit.i
+  %345 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %346 = load ptr, ptr %345, align 8
+  %347 = load i8, ptr %346, align 1
+  %.not.i.i661 = icmp eq i8 %347, 0
+  br i1 %.not.i.i661, label %drwav__write_or_count.exit.i665, label %.lr.ph.i.i662
 
-.lr.ph.i.i659:                                    ; preds = %.loopexit1060, %.lr.ph.i.i659
-  %.06.i.i660 = phi i64 [ %346, %.lr.ph.i.i659 ], [ 0, %.loopexit1060 ]
-  %.045.i.i661 = phi ptr [ %345, %.lr.ph.i.i659 ], [ %343, %.loopexit1060 ]
-  %345 = getelementptr inbounds nuw i8, ptr %.045.i.i661, i64 1
-  %346 = add nuw nsw i64 %.06.i.i660, 1
-  %347 = load i8, ptr %345, align 1
-  %348 = icmp ne i8 %347, 0
-  %349 = icmp samesign ult i64 %.06.i.i660, 31
-  %350 = select i1 %348, i1 %349, i1 false
-  br i1 %350, label %.lr.ph.i.i659, label %drwav__write_or_count.exit.i662
+.lr.ph.i.i662:                                    ; preds = %.loopexit1047, %.lr.ph.i.i662
+  %.06.i.i663 = phi i64 [ %349, %.lr.ph.i.i662 ], [ 0, %.loopexit1047 ]
+  %.045.i.i664 = phi ptr [ %348, %.lr.ph.i.i662 ], [ %346, %.loopexit1047 ]
+  %348 = getelementptr inbounds nuw i8, ptr %.045.i.i664, i64 1
+  %349 = add nuw nsw i64 %.06.i.i663, 1
+  %350 = load i8, ptr %348, align 1
+  %351 = icmp ne i8 %350, 0
+  %352 = icmp samesign ult i64 %.06.i.i663, 31
+  %353 = select i1 %351, i1 %352, i1 false
+  br i1 %353, label %.lr.ph.i.i662, label %drwav__write_or_count.exit.i665
 
-drwav__write_or_count.exit.i662:                  ; preds = %.lr.ph.i.i659, %.loopexit1060
-  %.0.lcssa.i.i663 = phi i64 [ 0, %.loopexit1060 ], [ %346, %.lr.ph.i.i659 ]
-  %.val.i.i664 = load ptr, ptr %74, align 8
-  %.val6.i.i665 = load ptr, ptr %75, align 8
-  %351 = call i64 %.val.i.i664(ptr noundef %.val6.i.i665, ptr noundef nonnull %343, i64 noundef %.0.lcssa.i.i663) #69
-  %352 = icmp samesign ult i64 %.0.lcssa.i.i663, 32
-  br i1 %352, label %.lr.ph.i666, label %.loopexit1059
+drwav__write_or_count.exit.i665:                  ; preds = %.lr.ph.i.i662, %.loopexit1047
+  %.0.lcssa.i.i666 = phi i64 [ 0, %.loopexit1047 ], [ %349, %.lr.ph.i.i662 ]
+  %.val.i.i667 = load ptr, ptr %74, align 8
+  %.val6.i.i668 = load ptr, ptr %75, align 8
+  %354 = call i64 %.val.i.i667(ptr noundef %.val6.i.i668, ptr noundef nonnull %346, i64 noundef %.0.lcssa.i.i666) #69
+  %355 = icmp samesign ult i64 %.0.lcssa.i.i666, 32
+  br i1 %355, label %.lr.ph.i669, label %.loopexit1046
 
-.lr.ph.i666:                                      ; preds = %drwav__write_or_count.exit.i662
-  %353 = sub nuw nsw i64 32, %.0.lcssa.i.i663
-  br label %354
+.lr.ph.i669:                                      ; preds = %drwav__write_or_count.exit.i665
+  %356 = sub nuw nsw i64 32, %.0.lcssa.i.i666
+  br label %357
 
-354:                                              ; preds = %354, %.lr.ph.i666
-  %.020.i667 = phi i64 [ 0, %.lr.ph.i666 ], [ %356, %354 ]
-  %.val.i668 = load ptr, ptr %74, align 8
-  %.val19.i669 = load ptr, ptr %75, align 8
+357:                                              ; preds = %357, %.lr.ph.i669
+  %.020.i670 = phi i64 [ 0, %.lr.ph.i669 ], [ %359, %357 ]
+  %.val.i671 = load ptr, ptr %74, align 8
+  %.val19.i672 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 0, ptr %34, align 1
-  %355 = call i64 %.val.i668(ptr noundef %.val19.i669, ptr noundef nonnull %34, i64 noundef 1) #69
+  %358 = call i64 %.val.i671(ptr noundef %.val19.i672, ptr noundef nonnull %34, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %356 = add nuw nsw i64 %.020.i667, 1
-  %exitcond.not.i670 = icmp eq i64 %356, %353
-  br i1 %exitcond.not.i670, label %.loopexit1059, label %354
+  %359 = add nuw nsw i64 %.020.i670, 1
+  %exitcond.not.i673 = icmp eq i64 %359, %356
+  br i1 %exitcond.not.i673, label %.loopexit1046, label %357
 
-.loopexit1059:                                    ; preds = %354, %drwav__write_or_count.exit.i662
-  %357 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %358 = load ptr, ptr %357, align 8
-  %359 = load i8, ptr %358, align 1
-  %.not.i.i672 = icmp eq i8 %359, 0
-  br i1 %.not.i.i672, label %drwav__write_or_count.exit.i676, label %.lr.ph.i.i673
+.loopexit1046:                                    ; preds = %357, %drwav__write_or_count.exit.i665
+  %360 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %361 = load ptr, ptr %360, align 8
+  %362 = load i8, ptr %361, align 1
+  %.not.i.i675 = icmp eq i8 %362, 0
+  br i1 %.not.i.i675, label %drwav__write_or_count.exit.i679, label %.lr.ph.i.i676
 
-.lr.ph.i.i673:                                    ; preds = %.loopexit1059, %.lr.ph.i.i673
-  %.06.i.i674 = phi i64 [ %361, %.lr.ph.i.i673 ], [ 0, %.loopexit1059 ]
-  %.045.i.i675 = phi ptr [ %360, %.lr.ph.i.i673 ], [ %358, %.loopexit1059 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.045.i.i675, i64 1
-  %361 = add nuw nsw i64 %.06.i.i674, 1
-  %362 = load i8, ptr %360, align 1
-  %363 = icmp ne i8 %362, 0
-  %364 = icmp samesign ult i64 %.06.i.i674, 31
-  %365 = select i1 %363, i1 %364, i1 false
-  br i1 %365, label %.lr.ph.i.i673, label %drwav__write_or_count.exit.i676
+.lr.ph.i.i676:                                    ; preds = %.loopexit1046, %.lr.ph.i.i676
+  %.06.i.i677 = phi i64 [ %364, %.lr.ph.i.i676 ], [ 0, %.loopexit1046 ]
+  %.045.i.i678 = phi ptr [ %363, %.lr.ph.i.i676 ], [ %361, %.loopexit1046 ]
+  %363 = getelementptr inbounds nuw i8, ptr %.045.i.i678, i64 1
+  %364 = add nuw nsw i64 %.06.i.i677, 1
+  %365 = load i8, ptr %363, align 1
+  %366 = icmp ne i8 %365, 0
+  %367 = icmp samesign ult i64 %.06.i.i677, 31
+  %368 = select i1 %366, i1 %367, i1 false
+  br i1 %368, label %.lr.ph.i.i676, label %drwav__write_or_count.exit.i679
 
-drwav__write_or_count.exit.i676:                  ; preds = %.lr.ph.i.i673, %.loopexit1059
-  %.0.lcssa.i.i677 = phi i64 [ 0, %.loopexit1059 ], [ %361, %.lr.ph.i.i673 ]
-  %.val.i.i678 = load ptr, ptr %74, align 8
-  %.val6.i.i679 = load ptr, ptr %75, align 8
-  %366 = call i64 %.val.i.i678(ptr noundef %.val6.i.i679, ptr noundef nonnull %358, i64 noundef %.0.lcssa.i.i677) #69
-  %367 = icmp samesign ult i64 %.0.lcssa.i.i677, 32
-  br i1 %367, label %.lr.ph.i680, label %drwav__write_or_count.exit733.thread
+drwav__write_or_count.exit.i679:                  ; preds = %.lr.ph.i.i676, %.loopexit1046
+  %.0.lcssa.i.i680 = phi i64 [ 0, %.loopexit1046 ], [ %364, %.lr.ph.i.i676 ]
+  %.val.i.i681 = load ptr, ptr %74, align 8
+  %.val6.i.i682 = load ptr, ptr %75, align 8
+  %369 = call i64 %.val.i.i681(ptr noundef %.val6.i.i682, ptr noundef nonnull %361, i64 noundef %.0.lcssa.i.i680) #69
+  %370 = icmp samesign ult i64 %.0.lcssa.i.i680, 32
+  br i1 %370, label %.lr.ph.i683, label %drwav__write_or_count.exit736.thread
 
-.lr.ph.i680:                                      ; preds = %drwav__write_or_count.exit.i676
-  %368 = sub nuw nsw i64 32, %.0.lcssa.i.i677
-  br label %369
+.lr.ph.i683:                                      ; preds = %drwav__write_or_count.exit.i679
+  %371 = sub nuw nsw i64 32, %.0.lcssa.i.i680
+  br label %372
 
-369:                                              ; preds = %369, %.lr.ph.i680
-  %.020.i681 = phi i64 [ 0, %.lr.ph.i680 ], [ %371, %369 ]
-  %.val.i682 = load ptr, ptr %74, align 8
-  %.val19.i683 = load ptr, ptr %75, align 8
+372:                                              ; preds = %372, %.lr.ph.i683
+  %.020.i684 = phi i64 [ 0, %.lr.ph.i683 ], [ %374, %372 ]
+  %.val.i685 = load ptr, ptr %74, align 8
+  %.val19.i686 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 0, ptr %33, align 1
-  %370 = call i64 %.val.i682(ptr noundef %.val19.i683, ptr noundef nonnull %33, i64 noundef 1) #69
+  %373 = call i64 %.val.i685(ptr noundef %.val19.i686, ptr noundef nonnull %33, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %371 = add nuw nsw i64 %.020.i681, 1
-  %exitcond.not.i684 = icmp eq i64 %371, %368
-  br i1 %exitcond.not.i684, label %drwav__write_or_count.exit733.thread, label %369
+  %374 = add nuw nsw i64 %.020.i684, 1
+  %exitcond.not.i687 = icmp eq i64 %374, %371
+  br i1 %exitcond.not.i687, label %drwav__write_or_count.exit736.thread, label %372
 
-drwav__write_or_count.exit733:                    ; preds = %320
-  %372 = add i64 %.04161073, 610
-  %.not466 = icmp eq i32 %322, 0
-  br i1 %.not466, label %431, label %422
+drwav__write_or_count.exit736:                    ; preds = %323
+  %375 = add i64 %.04191060, 610
+  %.not469 = icmp eq i32 %325, 0
+  br i1 %.not469, label %434, label %425
 
-drwav__write_or_count.exit733.thread:             ; preds = %369, %drwav__write_or_count.exit.i676
-  %373 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %.val.i686 = load ptr, ptr %74, align 8
-  %.val6.i687 = load ptr, ptr %75, align 8
-  %374 = call i64 %.val.i686(ptr noundef %.val6.i687, ptr noundef nonnull %373, i64 noundef 10) #69
-  %375 = getelementptr inbounds nuw i8, ptr %77, i64 42
-  %.val.i690 = load ptr, ptr %74, align 8
-  %.val6.i691 = load ptr, ptr %75, align 8
-  %376 = call i64 %.val.i690(ptr noundef %.val6.i691, ptr noundef nonnull %375, i64 noundef 8) #69
-  %377 = getelementptr inbounds nuw i8, ptr %77, i64 56
-  %378 = load i64, ptr %377, align 8
-  %379 = trunc i64 %378 to i32
-  %380 = lshr i64 %378, 32
-  %381 = trunc nuw i64 %380 to i32
-  %.val.i694 = load ptr, ptr %74, align 8
-  %.val4.i695 = load ptr, ptr %75, align 8
+drwav__write_or_count.exit736.thread:             ; preds = %372, %drwav__write_or_count.exit.i679
+  %376 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %.val.i689 = load ptr, ptr %74, align 8
+  %.val6.i690 = load ptr, ptr %75, align 8
+  %377 = call i64 %.val.i689(ptr noundef %.val6.i690, ptr noundef nonnull %376, i64 noundef 10) #69
+  %378 = getelementptr inbounds nuw i8, ptr %77, i64 42
+  %.val.i693 = load ptr, ptr %74, align 8
+  %.val6.i694 = load ptr, ptr %75, align 8
+  %379 = call i64 %.val.i693(ptr noundef %.val6.i694, ptr noundef nonnull %378, i64 noundef 8) #69
+  %380 = getelementptr inbounds nuw i8, ptr %77, i64 56
+  %381 = load i64, ptr %380, align 8
+  %382 = trunc i64 %381 to i32
+  %383 = lshr i64 %381, 32
+  %384 = trunc nuw i64 %383 to i32
+  %.val.i697 = load ptr, ptr %74, align 8
+  %.val4.i698 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store i32 %379, ptr %32, align 4
-  %382 = call i64 %.val.i694(ptr noundef %.val4.i695, ptr noundef nonnull %32, i64 noundef 4) #69
+  store i32 %382, ptr %32, align 4
+  %385 = call i64 %.val.i697(ptr noundef %.val4.i698, ptr noundef nonnull %32, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.val.i698 = load ptr, ptr %74, align 8
-  %.val4.i699 = load ptr, ptr %75, align 8
+  %.val.i701 = load ptr, ptr %74, align 8
+  %.val4.i702 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  store i32 %381, ptr %31, align 4
-  %383 = call i64 %.val.i698(ptr noundef %.val4.i699, ptr noundef nonnull %31, i64 noundef 4) #69
+  store i32 %384, ptr %31, align 4
+  %386 = call i64 %.val.i701(ptr noundef %.val4.i702, ptr noundef nonnull %31, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %384 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %385 = load i16, ptr %384, align 8
-  %.val.i702 = load ptr, ptr %74, align 8
-  %.val4.i703 = load ptr, ptr %75, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %388 = load i16, ptr %387, align 8
+  %.val.i705 = load ptr, ptr %74, align 8
+  %.val4.i706 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  store i16 %385, ptr %30, align 2
-  %386 = call i64 %.val.i702(ptr noundef %.val4.i703, ptr noundef nonnull %30, i64 noundef 2) #69
+  store i16 %388, ptr %30, align 2
+  %389 = call i64 %.val.i705(ptr noundef %.val4.i706, ptr noundef nonnull %30, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %387 = getelementptr inbounds nuw i8, ptr %77, i64 88
-  %388 = load ptr, ptr %387, align 8
-  %.val.i706 = load ptr, ptr %74, align 8
-  %.val6.i707 = load ptr, ptr %75, align 8
-  %389 = call i64 %.val.i706(ptr noundef %.val6.i707, ptr noundef %388, i64 noundef 64) #69
-  %390 = getelementptr inbounds nuw i8, ptr %77, i64 96
-  %391 = load i16, ptr %390, align 8
-  %.val.i710 = load ptr, ptr %74, align 8
-  %.val4.i711 = load ptr, ptr %75, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %77, i64 88
+  %391 = load ptr, ptr %390, align 8
+  %.val.i709 = load ptr, ptr %74, align 8
+  %.val6.i710 = load ptr, ptr %75, align 8
+  %392 = call i64 %.val.i709(ptr noundef %.val6.i710, ptr noundef %391, i64 noundef 64) #69
+  %393 = getelementptr inbounds nuw i8, ptr %77, i64 96
+  %394 = load i16, ptr %393, align 8
+  %.val.i713 = load ptr, ptr %74, align 8
+  %.val4.i714 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  store i16 %391, ptr %29, align 2
-  %392 = call i64 %.val.i710(ptr noundef %.val4.i711, ptr noundef nonnull %29, i64 noundef 2) #69
+  store i16 %394, ptr %29, align 2
+  %395 = call i64 %.val.i713(ptr noundef %.val4.i714, ptr noundef nonnull %29, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %393 = getelementptr inbounds nuw i8, ptr %77, i64 98
-  %394 = load i16, ptr %393, align 2
-  %.val.i714 = load ptr, ptr %74, align 8
-  %.val4.i715 = load ptr, ptr %75, align 8
+  %396 = getelementptr inbounds nuw i8, ptr %77, i64 98
+  %397 = load i16, ptr %396, align 2
+  %.val.i717 = load ptr, ptr %74, align 8
+  %.val4.i718 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  store i16 %394, ptr %28, align 2
-  %395 = call i64 %.val.i714(ptr noundef %.val4.i715, ptr noundef nonnull %28, i64 noundef 2) #69
+  store i16 %397, ptr %28, align 2
+  %398 = call i64 %.val.i717(ptr noundef %.val4.i718, ptr noundef nonnull %28, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %396 = getelementptr inbounds nuw i8, ptr %77, i64 100
-  %397 = load i16, ptr %396, align 4
-  %.val.i718 = load ptr, ptr %74, align 8
-  %.val4.i719 = load ptr, ptr %75, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %77, i64 100
+  %400 = load i16, ptr %399, align 4
+  %.val.i721 = load ptr, ptr %74, align 8
+  %.val4.i722 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  store i16 %397, ptr %27, align 2
-  %398 = call i64 %.val.i718(ptr noundef %.val4.i719, ptr noundef nonnull %27, i64 noundef 2) #69
+  store i16 %400, ptr %27, align 2
+  %401 = call i64 %.val.i721(ptr noundef %.val4.i722, ptr noundef nonnull %27, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %399 = getelementptr inbounds nuw i8, ptr %77, i64 102
-  %400 = load i16, ptr %399, align 2
-  %.val.i722 = load ptr, ptr %74, align 8
-  %.val4.i723 = load ptr, ptr %75, align 8
+  %402 = getelementptr inbounds nuw i8, ptr %77, i64 102
+  %403 = load i16, ptr %402, align 2
+  %.val.i725 = load ptr, ptr %74, align 8
+  %.val4.i726 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  store i16 %400, ptr %26, align 2
-  %401 = call i64 %.val.i722(ptr noundef %.val4.i723, ptr noundef nonnull %26, i64 noundef 2) #69
+  store i16 %403, ptr %26, align 2
+  %404 = call i64 %.val.i725(ptr noundef %.val4.i726, ptr noundef nonnull %26, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %402 = getelementptr inbounds nuw i8, ptr %77, i64 104
-  %403 = load i16, ptr %402, align 8
-  %.val.i726 = load ptr, ptr %74, align 8
-  %.val4.i727 = load ptr, ptr %75, align 8
+  %405 = getelementptr inbounds nuw i8, ptr %77, i64 104
+  %406 = load i16, ptr %405, align 8
+  %.val.i729 = load ptr, ptr %74, align 8
+  %.val4.i730 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store i16 %403, ptr %25, align 2
-  %404 = call i64 %.val.i726(ptr noundef %.val4.i727, ptr noundef nonnull %25, i64 noundef 2) #69
+  store i16 %406, ptr %25, align 2
+  %407 = call i64 %.val.i729(ptr noundef %.val4.i730, ptr noundef nonnull %25, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(180) %70, i8 0, i64 180, i1 false)
-  %.val.i730 = load ptr, ptr %74, align 8
-  %.val6.i731 = load ptr, ptr %75, align 8
-  %405 = call i64 %.val.i730(ptr noundef %.val6.i731, ptr noundef nonnull %70, i64 noundef 180) #69
-  %406 = add i64 %.04161073, 320
-  %407 = add i64 %406, %326
-  %408 = add i64 %407, %327
-  %409 = add i64 %408, %374
-  %410 = add i64 %409, %376
-  %411 = add i64 %410, %382
-  %412 = add i64 %411, %383
-  %413 = add i64 %412, %386
-  %414 = add i64 %413, %389
-  %415 = add i64 %414, %392
-  %416 = add i64 %415, %395
-  %417 = add i64 %416, %398
-  %418 = add i64 %417, %401
-  %419 = add i64 %418, %404
-  %420 = add i64 %419, %405
-  %421 = load i32, ptr %321, align 8
-  %.not466957 = icmp eq i32 %421, 0
-  br i1 %.not466957, label %431, label %424
+  %.val.i733 = load ptr, ptr %74, align 8
+  %.val6.i734 = load ptr, ptr %75, align 8
+  %408 = call i64 %.val.i733(ptr noundef %.val6.i734, ptr noundef nonnull %70, i64 noundef 180) #69
+  %409 = add i64 %.04191060, 320
+  %410 = add i64 %409, %329
+  %411 = add i64 %410, %330
+  %412 = add i64 %411, %377
+  %413 = add i64 %412, %379
+  %414 = add i64 %413, %385
+  %415 = add i64 %414, %386
+  %416 = add i64 %415, %389
+  %417 = add i64 %416, %392
+  %418 = add i64 %417, %395
+  %419 = add i64 %418, %398
+  %420 = add i64 %419, %401
+  %421 = add i64 %420, %404
+  %422 = add i64 %421, %407
+  %423 = add i64 %422, %408
+  %424 = load i32, ptr %324, align 8
+  %.not469953 = icmp eq i32 %424, 0
+  br i1 %.not469953, label %434, label %427
 
-422:                                              ; preds = %drwav__write_or_count.exit733
-  %423 = zext i32 %322 to i64
-  br label %drwav__write_or_count.exit737
+425:                                              ; preds = %drwav__write_or_count.exit736
+  %426 = zext i32 %325 to i64
+  br label %drwav__write_or_count.exit740
 
-424:                                              ; preds = %drwav__write_or_count.exit733.thread
-  %425 = getelementptr inbounds nuw i8, ptr %77, i64 72
-  %426 = load ptr, ptr %425, align 8
-  %427 = zext i32 %421 to i64
-  %.val.i734 = load ptr, ptr %74, align 8
-  %.val6.i735 = load ptr, ptr %75, align 8
-  %428 = call i64 %.val.i734(ptr noundef %.val6.i735, ptr noundef %426, i64 noundef %427) #69
-  br label %drwav__write_or_count.exit737
+427:                                              ; preds = %drwav__write_or_count.exit736.thread
+  %428 = getelementptr inbounds nuw i8, ptr %77, i64 72
+  %429 = load ptr, ptr %428, align 8
+  %430 = zext i32 %424 to i64
+  %.val.i737 = load ptr, ptr %74, align 8
+  %.val6.i738 = load ptr, ptr %75, align 8
+  %431 = call i64 %.val.i737(ptr noundef %.val6.i738, ptr noundef %429, i64 noundef %430) #69
+  br label %drwav__write_or_count.exit740
 
-drwav__write_or_count.exit737:                    ; preds = %422, %424
-  %429 = phi i64 [ %420, %424 ], [ %372, %422 ]
-  %.0.i736 = phi i64 [ %428, %424 ], [ %423, %422 ]
-  %430 = add i64 %.0.i736, %429
-  br label %431
+drwav__write_or_count.exit740:                    ; preds = %425, %427
+  %432 = phi i64 [ %423, %427 ], [ %375, %425 ]
+  %.0.i739 = phi i64 [ %431, %427 ], [ %426, %425 ]
+  %433 = add i64 %.0.i739, %432
+  br label %434
 
-431:                                              ; preds = %drwav__write_or_count.exit733.thread, %drwav__write_or_count.exit737, %drwav__write_or_count.exit733
-  %.5 = phi i64 [ %430, %drwav__write_or_count.exit737 ], [ %372, %drwav__write_or_count.exit733 ], [ %420, %drwav__write_or_count.exit733.thread ]
+434:                                              ; preds = %drwav__write_or_count.exit736.thread, %drwav__write_or_count.exit740, %drwav__write_or_count.exit736
+  %.5 = phi i64 [ %433, %drwav__write_or_count.exit740 ], [ %375, %drwav__write_or_count.exit736 ], [ %423, %drwav__write_or_count.exit736.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  br label %.loopexit1058
+  br label %.loopexit1045
 
-.thread897:                                       ; preds = %..thread897_crit_edge, %.thread894
-  %432 = phi i32 [ %.pre1134, %..thread897_crit_edge ], [ %90, %.thread894 ]
-  %.1425902 = phi i32 [ %.1425, %..thread897_crit_edge ], [ %spec.select1055, %.thread894 ]
-  %.1427891900 = phi i32 [ %.1427, %..thread897_crit_edge ], [ %.1427893896, %.thread894 ]
-  %433 = icmp eq i32 %432, 1
-  br i1 %433, label %434, label %.thread962
+435:                                              ; preds = %.split
+  %436 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  %437 = load i32, ptr %436, align 4
+  %438 = icmp eq i32 %437, 1
+  br i1 %438, label %439, label %.thread957
 
-434:                                              ; preds = %.thread897
-  %435 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %436 = load i32, ptr %435, align 8
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit745.thread, label %439
+439:                                              ; preds = %435
+  %440 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %441 = load i32, ptr %440, align 8
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit748.thread, label %444
 
-drwav__write_or_count_u32ne_to_le.exit745.thread: ; preds = %434
-  %437 = add i64 %.04161073, 8
-  %438 = zext i32 %436 to i64
-  br label %drwav__write_or_count.exit749
+drwav__write_or_count_u32ne_to_le.exit748.thread: ; preds = %439
+  %442 = add i64 %.04191060, 8
+  %443 = zext i32 %441 to i64
+  br label %drwav__write_or_count.exit752
 
-439:                                              ; preds = %434
-  %440 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %.val.i738 = load ptr, ptr %74, align 8
-  %.val6.i739 = load ptr, ptr %75, align 8
-  %441 = call i64 %.val.i738(ptr noundef %.val6.i739, ptr noundef nonnull %440, i64 noundef 4) #69
-  %442 = add i64 %441, %.04161073
-  %.val.i742 = load ptr, ptr %74, align 8
-  %.val4.i743 = load ptr, ptr %75, align 8
+444:                                              ; preds = %439
+  %445 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %.val.i741 = load ptr, ptr %74, align 8
+  %.val6.i742 = load ptr, ptr %75, align 8
+  %446 = call i64 %.val.i741(ptr noundef %.val6.i742, ptr noundef nonnull %445, i64 noundef 4) #69
+  %447 = add i64 %446, %.04191060
+  %.val.i745 = load ptr, ptr %74, align 8
+  %.val4.i746 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  store i32 %436, ptr %24, align 4
-  %443 = call i64 %.val.i742(ptr noundef %.val4.i743, ptr noundef nonnull %24, i64 noundef 4) #69
+  store i32 %441, ptr %24, align 4
+  %448 = call i64 %.val.i745(ptr noundef %.val4.i746, ptr noundef nonnull %24, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %444 = add i64 %442, %443
-  %445 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %446 = load ptr, ptr %445, align 8
-  %447 = load i32, ptr %435, align 8
-  %448 = zext i32 %447 to i64
-  %.val.i746 = load ptr, ptr %74, align 8
-  %.val6.i747 = load ptr, ptr %75, align 8
-  %449 = call i64 %.val.i746(ptr noundef %.val6.i747, ptr noundef %446, i64 noundef %448) #69
-  br label %drwav__write_or_count.exit749
+  %449 = add i64 %447, %448
+  %450 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %451 = load ptr, ptr %450, align 8
+  %452 = load i32, ptr %440, align 8
+  %453 = zext i32 %452 to i64
+  %.val.i749 = load ptr, ptr %74, align 8
+  %.val6.i750 = load ptr, ptr %75, align 8
+  %454 = call i64 %.val.i749(ptr noundef %.val6.i750, ptr noundef %451, i64 noundef %453) #69
+  br label %drwav__write_or_count.exit752
 
-drwav__write_or_count.exit749:                    ; preds = %drwav__write_or_count_u32ne_to_le.exit745.thread, %439
-  %450 = phi i64 [ %444, %439 ], [ %437, %drwav__write_or_count_u32ne_to_le.exit745.thread ]
-  %.0.i748 = phi i64 [ %449, %439 ], [ %438, %drwav__write_or_count_u32ne_to_le.exit745.thread ]
-  %451 = add i64 %.0.i748, %450
-  br label %.loopexit1058
+drwav__write_or_count.exit752:                    ; preds = %drwav__write_or_count_u32ne_to_le.exit748.thread, %444
+  %455 = phi i64 [ %449, %444 ], [ %442, %drwav__write_or_count_u32ne_to_le.exit748.thread ]
+  %.0.i751 = phi i64 [ %454, %444 ], [ %443, %drwav__write_or_count_u32ne_to_le.exit748.thread ]
+  %456 = add i64 %.0.i751, %455
+  br label %.loopexit1045
 
-.loopexit1058:                                    ; preds = %drwav__write_or_count_u32ne_to_le.exit610, %drwav__write_or_count_u32ne_to_le.exit586.thread, %.lr.ph.split.us, %drwav__write_or_count_u32ne_to_le.exit586, %._crit_edge, %drwav__write_or_count.exit538, %drwav__write_or_count.exit749, %431
-  %.1425903 = phi i32 [ %.1425, %431 ], [ %.1425902, %drwav__write_or_count.exit749 ], [ %.1425, %drwav__write_or_count.exit538 ], [ %.1425, %._crit_edge ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %.1425, %.lr.ph.split.us ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.1427891901 = phi i32 [ %.1427, %431 ], [ %.1427891900, %drwav__write_or_count.exit749 ], [ %.1427, %drwav__write_or_count.exit538 ], [ %.1427, %._crit_edge ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %.1427, %.lr.ph.split.us ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.0438 = phi i32 [ %323, %431 ], [ %436, %drwav__write_or_count.exit749 ], [ %100, %drwav__write_or_count.exit538 ], [ %100, %._crit_edge ], [ %228, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %228, %.lr.ph.split.us ], [ %228, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %228, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.3 = phi i64 [ %.5, %431 ], [ %451, %drwav__write_or_count.exit749 ], [ %194, %drwav__write_or_count.exit538 ], [ %.1417.lcssa, %._crit_edge ], [ %229, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %242, %.lr.ph.split.us ], [ %236, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %276, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %452 = and i32 %.0438, 1
-  %.not468 = icmp eq i32 %452, 0
-  br i1 %.not468, label %.thread962, label %453
+.loopexit1045:                                    ; preds = %drwav__write_or_count_u32ne_to_le.exit613, %drwav__write_or_count_u32ne_to_le.exit589.thread, %.lr.ph.split.us, %drwav__write_or_count_u32ne_to_le.exit589, %._crit_edge, %drwav__write_or_count.exit541, %drwav__write_or_count.exit752, %434
+  %.0441 = phi i32 [ %326, %434 ], [ %441, %drwav__write_or_count.exit752 ], [ %103, %drwav__write_or_count.exit541 ], [ %103, %._crit_edge ], [ %231, %drwav__write_or_count_u32ne_to_le.exit589 ], [ %231, %.lr.ph.split.us ], [ %231, %drwav__write_or_count_u32ne_to_le.exit589.thread ], [ %231, %drwav__write_or_count_u32ne_to_le.exit613 ]
+  %.3 = phi i64 [ %.5, %434 ], [ %456, %drwav__write_or_count.exit752 ], [ %197, %drwav__write_or_count.exit541 ], [ %.1420.lcssa, %._crit_edge ], [ %232, %drwav__write_or_count_u32ne_to_le.exit589 ], [ %245, %.lr.ph.split.us ], [ %239, %drwav__write_or_count_u32ne_to_le.exit589.thread ], [ %279, %drwav__write_or_count_u32ne_to_le.exit613 ]
+  %457 = and i32 %.0441, 1
+  %.not471 = icmp eq i32 %457, 0
+  br i1 %.not471, label %.thread957, label %458
 
-453:                                              ; preds = %.thread970, %.loopexit1058
-  %.3978 = phi i64 [ %223, %.thread970 ], [ %.3, %.loopexit1058 ]
-  %.1427891901977 = phi i32 [ %.1427, %.thread970 ], [ %.1427891901, %.loopexit1058 ]
-  %.1425903976 = phi i32 [ %.1425, %.thread970 ], [ %.1425903, %.loopexit1058 ]
-  br i1 %73, label %drwav__write_or_count_byte.exit, label %454
+458:                                              ; preds = %.thread961, %.loopexit1045
+  %.3965 = phi i64 [ %226, %.thread961 ], [ %.3, %.loopexit1045 ]
+  br i1 %73, label %drwav__write_or_count_byte.exit, label %459
 
-454:                                              ; preds = %453
-  %.val.i750 = load ptr, ptr %74, align 8
-  %.val4.i751 = load ptr, ptr %75, align 8
+459:                                              ; preds = %458
+  %.val.i753 = load ptr, ptr %74, align 8
+  %.val4.i754 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 0, ptr %23, align 1
-  %455 = call i64 %.val.i750(ptr noundef %.val4.i751, ptr noundef nonnull %23, i64 noundef 1) #69
+  %460 = call i64 %.val.i753(ptr noundef %.val4.i754, ptr noundef nonnull %23, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %drwav__write_or_count_byte.exit
 
-drwav__write_or_count_byte.exit:                  ; preds = %453, %454
-  %.0.i752 = phi i64 [ %455, %454 ], [ 1, %453 ]
-  %456 = add i64 %.0.i752, %.3978
-  br label %.thread962
+drwav__write_or_count_byte.exit:                  ; preds = %458, %459
+  %.0.i755 = phi i64 [ %460, %459 ], [ 1, %458 ]
+  %461 = add i64 %.0.i755, %.3965
+  br label %.thread957
 
-.thread962:                                       ; preds = %.thread897, %drwav__write_or_count_f32ne_to_le.exit648, %92, %drwav__write_or_count_byte.exit, %.loopexit1058
-  %.1427891901969 = phi i32 [ %.1427891901977, %drwav__write_or_count_byte.exit ], [ %.1427891901, %.loopexit1058 ], [ %.1427891900, %.thread897 ], [ %.1427, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.1427, %92 ]
-  %.1425903968 = phi i32 [ %.1425903976, %drwav__write_or_count_byte.exit ], [ %.1425903, %.loopexit1058 ], [ %.1425902, %.thread897 ], [ %.1425, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.1425, %92 ]
-  %.6 = phi i64 [ %456, %drwav__write_or_count_byte.exit ], [ %.3, %.loopexit1058 ], [ %.04161073, %.thread897 ], [ %319, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.04161073, %92 ]
-  %indvars.iv.next1108 = add nuw nsw i64 %indvars.iv1107, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1108, %wide.trip.count
-  br i1 %exitcond.not, label %457, label %76
+.thread957:                                       ; preds = %92, %435, %drwav__write_or_count_f32ne_to_le.exit651, %.split, %drwav__write_or_count_byte.exit, %.loopexit1045
+  %.6 = phi i64 [ %461, %drwav__write_or_count_byte.exit ], [ %.3, %.loopexit1045 ], [ %.04191060, %92 ], [ %.04191060, %435 ], [ %322, %drwav__write_or_count_f32ne_to_le.exit651 ], [ %.04191060, %.split ]
+  %indvars.iv.next1095 = add nuw nsw i64 %indvars.iv1094, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1095, %wide.trip.count
+  br i1 %exitcond.not, label %462, label %76
 
-457:                                              ; preds = %.thread962
-  %.not = icmp eq i32 %.1427891901969, 0
-  br i1 %.not, label %.loopexit1056, label %.lr.ph1076
+462:                                              ; preds = %.thread957
+  %.not = icmp eq i32 %.1430894, 0
+  br i1 %.not, label %.loopexit1043, label %.lr.ph1063
 
-.lr.ph1076:                                       ; preds = %457, %477
-  %indvars.iv1110 = phi i64 [ %indvars.iv.next1111, %477 ], [ 0, %457 ]
-  %.04281075 = phi i32 [ %spec.select, %477 ], [ 4, %457 ]
-  %458 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1110
-  %459 = load i32, ptr %458, align 8
-  %460 = and i32 %459, 261632
-  %.not462 = icmp eq i32 %460, 0
-  br i1 %.not462, label %466, label %461
+.lr.ph1063:                                       ; preds = %462, %482
+  %indvars.iv1097 = phi i64 [ %indvars.iv.next1098, %482 ], [ 0, %462 ]
+  %.04311062 = phi i32 [ %spec.select, %482 ], [ 4, %462 ]
+  %463 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1097
+  %464 = load i32, ptr %463, align 8
+  %465 = and i32 %464, 261632
+  %.not465 = icmp eq i32 %465, 0
+  br i1 %.not465, label %471, label %466
 
-461:                                              ; preds = %.lr.ph1076
-  %462 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %463 = load i32, ptr %462, align 8
-  %464 = add i32 %.04281075, 9
-  %465 = add i32 %464, %463
-  br label %477
+466:                                              ; preds = %.lr.ph1063
+  %467 = getelementptr inbounds nuw i8, ptr %463, i64 8
+  %468 = load i32, ptr %467, align 8
+  %469 = add i32 %.04311062, 9
+  %470 = add i32 %469, %468
+  br label %482
 
-466:                                              ; preds = %.lr.ph1076
-  %467 = icmp eq i32 %459, 1
-  br i1 %467, label %468, label %477
+471:                                              ; preds = %.lr.ph1063
+  %472 = icmp eq i32 %464, 1
+  br i1 %472, label %473, label %482
 
-468:                                              ; preds = %466
-  %469 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %470 = load i32, ptr %469, align 4
-  %471 = icmp eq i32 %470, 2
-  br i1 %471, label %472, label %477
+473:                                              ; preds = %471
+  %474 = getelementptr inbounds nuw i8, ptr %463, i64 12
+  %475 = load i32, ptr %474, align 4
+  %476 = icmp eq i32 %475, 2
+  br i1 %476, label %477, label %482
 
-472:                                              ; preds = %468
-  %473 = add i32 %.04281075, 8
-  %474 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %475 = load i32, ptr %474, align 8
-  %476 = add i32 %473, %475
-  br label %477
+477:                                              ; preds = %473
+  %478 = add i32 %.04311062, 8
+  %479 = getelementptr inbounds nuw i8, ptr %463, i64 16
+  %480 = load i32, ptr %479, align 8
+  %481 = add i32 %478, %480
+  br label %482
 
-477:                                              ; preds = %466, %468, %472, %461
-  %.1429 = phi i32 [ %465, %461 ], [ %476, %472 ], [ %.04281075, %468 ], [ %.04281075, %466 ]
-  %478 = and i32 %.1429, 1
-  %spec.select = add i32 %478, %.1429
-  %indvars.iv.next1111 = add nuw nsw i64 %indvars.iv1110, 1
-  %exitcond1114.not = icmp eq i64 %indvars.iv.next1111, %wide.trip.count
-  br i1 %exitcond1114.not, label %._crit_edge1077, label %.lr.ph1076
+482:                                              ; preds = %471, %473, %477, %466
+  %.1432 = phi i32 [ %470, %466 ], [ %481, %477 ], [ %.04311062, %473 ], [ %.04311062, %471 ]
+  %483 = and i32 %.1432, 1
+  %spec.select = add i32 %483, %.1432
+  %indvars.iv.next1098 = add nuw nsw i64 %indvars.iv1097, 1
+  %exitcond1101.not = icmp eq i64 %indvars.iv.next1098, %wide.trip.count
+  br i1 %exitcond1101.not, label %._crit_edge1064, label %.lr.ph1063
 
-._crit_edge1077:                                  ; preds = %477
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit760.thread, label %480
+._crit_edge1064:                                  ; preds = %482
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit763.thread, label %485
 
-drwav__write_or_count_u32ne_to_le.exit760.thread: ; preds = %._crit_edge1077
-  %479 = add i64 %.6, 8
-  br label %.lr.ph1081
+drwav__write_or_count_u32ne_to_le.exit763.thread: ; preds = %._crit_edge1064
+  %484 = add i64 %.6, 8
+  br label %.lr.ph1068
 
-480:                                              ; preds = %._crit_edge1077
-  %.val.i753 = load ptr, ptr %74, align 8
-  %.val6.i754 = load ptr, ptr %75, align 8
-  %481 = call i64 %.val.i753(ptr noundef %.val6.i754, ptr noundef nonnull @.str.601, i64 noundef 4) #69
-  %482 = add i64 %481, %.6
-  %.val.i757 = load ptr, ptr %74, align 8
-  %.val4.i758 = load ptr, ptr %75, align 8
+485:                                              ; preds = %._crit_edge1064
+  %.val.i756 = load ptr, ptr %74, align 8
+  %.val6.i757 = load ptr, ptr %75, align 8
+  %486 = call i64 %.val.i756(ptr noundef %.val6.i757, ptr noundef nonnull @.str.601, i64 noundef 4) #69
+  %487 = add i64 %486, %.6
+  %.val.i760 = load ptr, ptr %74, align 8
+  %.val4.i761 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 %spec.select, ptr %22, align 4
-  %483 = call i64 %.val.i757(ptr noundef %.val4.i758, ptr noundef nonnull %22, i64 noundef 4) #69
+  %488 = call i64 %.val.i760(ptr noundef %.val4.i761, ptr noundef nonnull %22, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %484 = add i64 %482, %483
-  %.val.i761 = load ptr, ptr %74, align 8
-  %.val6.i762 = load ptr, ptr %75, align 8
-  %485 = call i64 %.val.i761(ptr noundef %.val6.i762, ptr noundef nonnull @.str.2, i64 noundef 4) #69
-  br label %.lr.ph1081
+  %489 = add i64 %487, %488
+  %.val.i764 = load ptr, ptr %74, align 8
+  %.val6.i765 = load ptr, ptr %75, align 8
+  %490 = call i64 %.val.i764(ptr noundef %.val6.i765, ptr noundef nonnull @.str.2, i64 noundef 4) #69
+  br label %.lr.ph1068
 
-.lr.ph1081:                                       ; preds = %480, %drwav__write_or_count_u32ne_to_le.exit760.thread
-  %486 = phi i64 [ %484, %480 ], [ %479, %drwav__write_or_count_u32ne_to_le.exit760.thread ]
-  %.0.i763 = phi i64 [ %485, %480 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit760.thread ]
-  %487 = add i64 %.0.i763, %486
-  br label %488
+.lr.ph1068:                                       ; preds = %485, %drwav__write_or_count_u32ne_to_le.exit763.thread
+  %491 = phi i64 [ %489, %485 ], [ %484, %drwav__write_or_count_u32ne_to_le.exit763.thread ]
+  %.0.i766 = phi i64 [ %490, %485 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit763.thread ]
+  %492 = add i64 %.0.i766, %491
+  br label %493
 
-488:                                              ; preds = %.lr.ph1081, %.thread987
-  %indvars.iv1115 = phi i64 [ 0, %.lr.ph1081 ], [ %indvars.iv.next1116, %.thread987 ]
-  %.81080 = phi i64 [ %487, %.lr.ph1081 ], [ %.11, %.thread987 ]
-  %489 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1115
-  %490 = load i32, ptr %489, align 8
-  %491 = and i32 %490, 261632
-  %.not458 = icmp eq i32 %491, 0
-  br i1 %.not458, label %524, label %492
+493:                                              ; preds = %.lr.ph1068, %.thread974
+  %indvars.iv1102 = phi i64 [ 0, %.lr.ph1068 ], [ %indvars.iv.next1103, %.thread974 ]
+  %.81067 = phi i64 [ %492, %.lr.ph1068 ], [ %.11, %.thread974 ]
+  %494 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1102
+  %495 = load i32, ptr %494, align 8
+  %496 = and i32 %495, 261632
+  %.not461 = icmp eq i32 %496, 0
+  br i1 %.not461, label %525, label %497
 
-492:                                              ; preds = %488
-  switch i32 %490, label %502 [
-    i32 512, label %493
-    i32 1024, label %494
-    i32 2048, label %495
-    i32 4096, label %496
-    i32 8192, label %497
-    i32 16384, label %498
-    i32 32768, label %499
-    i32 65536, label %500
-    i32 131072, label %501
-  ]
+497:                                              ; preds = %493
+  %498 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %495)
+  %499 = icmp eq i32 %498, 1
+  br i1 %499, label %.split2, label %503
 
-493:                                              ; preds = %492
-  br label %502
+.split2:                                          ; preds = %497
+  %500 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %495, i1 true)
+  %switch.tableidx = add nsw i32 %500, -9
+  %501 = icmp ult i32 %switch.tableidx, 9
+  br i1 %501, label %switch.lookup, label %503
 
-494:                                              ; preds = %492
-  br label %502
+switch.lookup:                                    ; preds = %.split2
+  %502 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.drwav__write_or_count_metadata, i64 %502
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %503
 
-495:                                              ; preds = %492
-  br label %502
+503:                                              ; preds = %switch.lookup, %.split2, %497
+  %.0424 = phi ptr [ null, %.split2 ], [ null, %497 ], [ %switch.load, %switch.lookup ]
+  %504 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  %505 = load i32, ptr %504, align 8
+  %.not463 = icmp eq i32 %505, 0
+  br i1 %.not463, label %.thread974, label %506
 
-496:                                              ; preds = %492
-  br label %502
+506:                                              ; preds = %503
+  %507 = add i32 %505, 1
+  br i1 %73, label %drwav__write_or_count.exit779.thread, label %511
 
-497:                                              ; preds = %492
-  br label %502
+drwav__write_or_count.exit779.thread:             ; preds = %506
+  %508 = add i64 %.81067, 8
+  %509 = zext i32 %505 to i64
+  %510 = add i64 %508, %509
+  br label %drwav__write_or_count_byte.exit783
 
-498:                                              ; preds = %492
-  br label %502
-
-499:                                              ; preds = %492
-  br label %502
-
-500:                                              ; preds = %492
-  br label %502
-
-501:                                              ; preds = %492
-  br label %502
-
-502:                                              ; preds = %492, %501, %500, %499, %498, %497, %496, %495, %494, %493
-  %.0421 = phi ptr [ null, %492 ], [ @.str.607, %493 ], [ @.str.608, %494 ], [ @.str.609, %495 ], [ @.str.610, %496 ], [ @.str.611, %497 ], [ @.str.612, %498 ], [ @.str.613, %499 ], [ @.str.614, %500 ], [ @.str.615, %501 ]
-  %503 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  %504 = load i32, ptr %503, align 8
-  %.not460 = icmp eq i32 %504, 0
-  br i1 %.not460, label %.thread987, label %505
-
-505:                                              ; preds = %502
-  %506 = add i32 %504, 1
-  br i1 %73, label %drwav__write_or_count.exit776.thread, label %510
-
-drwav__write_or_count.exit776.thread:             ; preds = %505
-  %507 = add i64 %.81080, 8
-  %508 = zext i32 %504 to i64
-  %509 = add i64 %507, %508
-  br label %drwav__write_or_count_byte.exit780
-
-510:                                              ; preds = %505
-  %.val.i765 = load ptr, ptr %74, align 8
-  %.val6.i766 = load ptr, ptr %75, align 8
-  %511 = call i64 %.val.i765(ptr noundef %.val6.i766, ptr noundef %.0421, i64 noundef 4) #69
-  %512 = add i64 %511, %.81080
-  %.val.i769 = load ptr, ptr %74, align 8
-  %.val4.i770 = load ptr, ptr %75, align 8
+511:                                              ; preds = %506
+  %.val.i768 = load ptr, ptr %74, align 8
+  %.val6.i769 = load ptr, ptr %75, align 8
+  %512 = call i64 %.val.i768(ptr noundef %.val6.i769, ptr noundef %.0424, i64 noundef 4) #69
+  %513 = add i64 %512, %.81067
+  %.val.i772 = load ptr, ptr %74, align 8
+  %.val4.i773 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store i32 %506, ptr %21, align 4
-  %513 = call i64 %.val.i769(ptr noundef %.val4.i770, ptr noundef nonnull %21, i64 noundef 4) #69
+  store i32 %507, ptr %21, align 4
+  %514 = call i64 %.val.i772(ptr noundef %.val4.i773, ptr noundef nonnull %21, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %514 = add i64 %512, %513
-  %515 = getelementptr inbounds nuw i8, ptr %489, i64 16
-  %516 = load ptr, ptr %515, align 8
-  %517 = load i32, ptr %503, align 8
-  %518 = zext i32 %517 to i64
-  %.val.i773 = load ptr, ptr %74, align 8
-  %.val6.i774 = load ptr, ptr %75, align 8
-  %519 = call i64 %.val.i773(ptr noundef %.val6.i774, ptr noundef %516, i64 noundef %518) #69
-  %520 = add i64 %514, %519
-  %.val.i777 = load ptr, ptr %74, align 8
-  %.val4.i778 = load ptr, ptr %75, align 8
+  %515 = add i64 %513, %514
+  %516 = getelementptr inbounds nuw i8, ptr %494, i64 16
+  %517 = load ptr, ptr %516, align 8
+  %518 = load i32, ptr %504, align 8
+  %519 = zext i32 %518 to i64
+  %.val.i776 = load ptr, ptr %74, align 8
+  %.val6.i777 = load ptr, ptr %75, align 8
+  %520 = call i64 %.val.i776(ptr noundef %.val6.i777, ptr noundef %517, i64 noundef %519) #69
+  %521 = add i64 %515, %520
+  %.val.i780 = load ptr, ptr %74, align 8
+  %.val4.i781 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 0, ptr %20, align 1
-  %521 = call i64 %.val.i777(ptr noundef %.val4.i778, ptr noundef nonnull %20, i64 noundef 1) #69
+  %522 = call i64 %.val.i780(ptr noundef %.val4.i781, ptr noundef nonnull %20, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %drwav__write_or_count_byte.exit780
+  br label %drwav__write_or_count_byte.exit783
 
-drwav__write_or_count_byte.exit780:               ; preds = %drwav__write_or_count.exit776.thread, %510
-  %522 = phi i64 [ %520, %510 ], [ %509, %drwav__write_or_count.exit776.thread ]
-  %.0.i779 = phi i64 [ %521, %510 ], [ 1, %drwav__write_or_count.exit776.thread ]
-  %523 = add i64 %.0.i779, %522
-  br label %549
+drwav__write_or_count_byte.exit783:               ; preds = %drwav__write_or_count.exit779.thread, %511
+  %523 = phi i64 [ %521, %511 ], [ %510, %drwav__write_or_count.exit779.thread ]
+  %.0.i782 = phi i64 [ %522, %511 ], [ 1, %drwav__write_or_count.exit779.thread ]
+  %524 = add i64 %.0.i782, %523
+  br label %550
 
-524:                                              ; preds = %488
-  %525 = icmp eq i32 %490, 1
-  br i1 %525, label %526, label %.thread987
+525:                                              ; preds = %493
+  %526 = icmp eq i32 %495, 1
+  br i1 %526, label %527, label %.thread974
 
-526:                                              ; preds = %524
-  %527 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  %528 = getelementptr inbounds nuw i8, ptr %489, i64 12
-  %529 = load i32, ptr %528, align 4
-  %530 = icmp eq i32 %529, 2
-  br i1 %530, label %531, label %.thread987
+527:                                              ; preds = %525
+  %528 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  %529 = getelementptr inbounds nuw i8, ptr %494, i64 12
+  %530 = load i32, ptr %529, align 4
+  %531 = icmp eq i32 %530, 2
+  br i1 %531, label %532, label %.thread974
 
-531:                                              ; preds = %526
-  %532 = getelementptr inbounds nuw i8, ptr %489, i64 16
-  %533 = load i32, ptr %532, align 8
-  %.not459 = icmp eq i32 %533, 0
-  br i1 %.not459, label %.thread987, label %534
+532:                                              ; preds = %527
+  %533 = getelementptr inbounds nuw i8, ptr %494, i64 16
+  %534 = load i32, ptr %533, align 8
+  %.not462 = icmp eq i32 %534, 0
+  br i1 %.not462, label %.thread974, label %535
 
-534:                                              ; preds = %531
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit788.thread, label %537
+535:                                              ; preds = %532
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit791.thread, label %538
 
-drwav__write_or_count_u32ne_to_le.exit788.thread: ; preds = %534
-  %535 = add i64 %.81080, 8
-  %536 = zext i32 %533 to i64
-  br label %drwav__write_or_count.exit792
+drwav__write_or_count_u32ne_to_le.exit791.thread: ; preds = %535
+  %536 = add i64 %.81067, 8
+  %537 = zext i32 %534 to i64
+  br label %drwav__write_or_count.exit795
 
-537:                                              ; preds = %534
-  %.val.i781 = load ptr, ptr %74, align 8
-  %.val6.i782 = load ptr, ptr %75, align 8
-  %538 = call i64 %.val.i781(ptr noundef %.val6.i782, ptr noundef nonnull %527, i64 noundef 4) #69
-  %539 = add i64 %538, %.81080
-  %540 = load i32, ptr %532, align 8
-  %.val.i785 = load ptr, ptr %74, align 8
-  %.val4.i786 = load ptr, ptr %75, align 8
+538:                                              ; preds = %535
+  %.val.i784 = load ptr, ptr %74, align 8
+  %.val6.i785 = load ptr, ptr %75, align 8
+  %539 = call i64 %.val.i784(ptr noundef %.val6.i785, ptr noundef nonnull %528, i64 noundef 4) #69
+  %540 = add i64 %539, %.81067
+  %541 = load i32, ptr %533, align 8
+  %.val.i788 = load ptr, ptr %74, align 8
+  %.val4.i789 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store i32 %540, ptr %19, align 4
-  %541 = call i64 %.val.i785(ptr noundef %.val4.i786, ptr noundef nonnull %19, i64 noundef 4) #69
+  store i32 %541, ptr %19, align 4
+  %542 = call i64 %.val.i788(ptr noundef %.val4.i789, ptr noundef nonnull %19, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %542 = add i64 %539, %541
-  %543 = getelementptr inbounds nuw i8, ptr %489, i64 24
-  %544 = load ptr, ptr %543, align 8
-  %545 = zext i32 %533 to i64
-  %.val.i789 = load ptr, ptr %74, align 8
-  %.val6.i790 = load ptr, ptr %75, align 8
-  %546 = call i64 %.val.i789(ptr noundef %.val6.i790, ptr noundef %544, i64 noundef %545) #69
-  br label %drwav__write_or_count.exit792
+  %543 = add i64 %540, %542
+  %544 = getelementptr inbounds nuw i8, ptr %494, i64 24
+  %545 = load ptr, ptr %544, align 8
+  %546 = zext i32 %534 to i64
+  %.val.i792 = load ptr, ptr %74, align 8
+  %.val6.i793 = load ptr, ptr %75, align 8
+  %547 = call i64 %.val.i792(ptr noundef %.val6.i793, ptr noundef %545, i64 noundef %546) #69
+  br label %drwav__write_or_count.exit795
 
-drwav__write_or_count.exit792:                    ; preds = %drwav__write_or_count_u32ne_to_le.exit788.thread, %537
-  %547 = phi i64 [ %542, %537 ], [ %535, %drwav__write_or_count_u32ne_to_le.exit788.thread ]
-  %.0.i791 = phi i64 [ %546, %537 ], [ %536, %drwav__write_or_count_u32ne_to_le.exit788.thread ]
-  %548 = add i64 %.0.i791, %547
-  br label %549
+drwav__write_or_count.exit795:                    ; preds = %drwav__write_or_count_u32ne_to_le.exit791.thread, %538
+  %548 = phi i64 [ %543, %538 ], [ %536, %drwav__write_or_count_u32ne_to_le.exit791.thread ]
+  %.0.i794 = phi i64 [ %547, %538 ], [ %537, %drwav__write_or_count_u32ne_to_le.exit791.thread ]
+  %549 = add i64 %.0.i794, %548
+  br label %550
 
-549:                                              ; preds = %drwav__write_or_count_byte.exit780, %drwav__write_or_count.exit792
-  %.1423 = phi i32 [ %533, %drwav__write_or_count.exit792 ], [ %506, %drwav__write_or_count_byte.exit780 ]
-  %.10 = phi i64 [ %548, %drwav__write_or_count.exit792 ], [ %523, %drwav__write_or_count_byte.exit780 ]
-  %550 = and i32 %.1423, 1
-  %.not461 = icmp eq i32 %550, 0
-  br i1 %.not461, label %.thread987, label %551
+550:                                              ; preds = %drwav__write_or_count_byte.exit783, %drwav__write_or_count.exit795
+  %.1426 = phi i32 [ %534, %drwav__write_or_count.exit795 ], [ %507, %drwav__write_or_count_byte.exit783 ]
+  %.10 = phi i64 [ %549, %drwav__write_or_count.exit795 ], [ %524, %drwav__write_or_count_byte.exit783 ]
+  %551 = and i32 %.1426, 1
+  %.not464 = icmp eq i32 %551, 0
+  br i1 %.not464, label %.thread974, label %552
 
-551:                                              ; preds = %549
-  br i1 %73, label %drwav__write_or_count_byte.exit796, label %552
+552:                                              ; preds = %550
+  br i1 %73, label %drwav__write_or_count_byte.exit799, label %553
 
-552:                                              ; preds = %551
-  %.val.i793 = load ptr, ptr %74, align 8
-  %.val4.i794 = load ptr, ptr %75, align 8
+553:                                              ; preds = %552
+  %.val.i796 = load ptr, ptr %74, align 8
+  %.val4.i797 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1
-  %553 = call i64 %.val.i793(ptr noundef %.val4.i794, ptr noundef nonnull %18, i64 noundef 1) #69
+  %554 = call i64 %.val.i796(ptr noundef %.val4.i797, ptr noundef nonnull %18, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %drwav__write_or_count_byte.exit796
+  br label %drwav__write_or_count_byte.exit799
 
-drwav__write_or_count_byte.exit796:               ; preds = %551, %552
-  %.0.i795 = phi i64 [ %553, %552 ], [ 1, %551 ]
-  %554 = add i64 %.0.i795, %.10
-  br label %.thread987
+drwav__write_or_count_byte.exit799:               ; preds = %552, %553
+  %.0.i798 = phi i64 [ %554, %553 ], [ 1, %552 ]
+  %555 = add i64 %.0.i798, %.10
+  br label %.thread974
 
-.thread987:                                       ; preds = %502, %524, %526, %531, %drwav__write_or_count_byte.exit796, %549
-  %.11 = phi i64 [ %554, %drwav__write_or_count_byte.exit796 ], [ %.10, %549 ], [ %.81080, %531 ], [ %.81080, %526 ], [ %.81080, %524 ], [ %.81080, %502 ]
-  %indvars.iv.next1116 = add nuw nsw i64 %indvars.iv1115, 1
-  %exitcond1119.not = icmp eq i64 %indvars.iv.next1116, %wide.trip.count
-  br i1 %exitcond1119.not, label %.loopexit1056, label %488
+.thread974:                                       ; preds = %503, %525, %527, %532, %drwav__write_or_count_byte.exit799, %550
+  %.11 = phi i64 [ %555, %drwav__write_or_count_byte.exit799 ], [ %.10, %550 ], [ %.81067, %532 ], [ %.81067, %527 ], [ %.81067, %525 ], [ %.81067, %503 ]
+  %indvars.iv.next1103 = add nuw nsw i64 %indvars.iv1102, 1
+  %exitcond1106.not = icmp eq i64 %indvars.iv.next1103, %wide.trip.count
+  br i1 %exitcond1106.not, label %.loopexit1043, label %493
 
-.loopexit1056:                                    ; preds = %.thread987, %457
-  %.7 = phi i64 [ %.6, %457 ], [ %.11, %.thread987 ]
-  %.not450 = icmp eq i32 %.1425903968, 0
-  br i1 %.not450, label %.loopexit, label %.lr.ph1085
+.loopexit1043:                                    ; preds = %.thread974, %462
+  %.7 = phi i64 [ %.6, %462 ], [ %.11, %.thread974 ]
+  %.not453 = icmp eq i32 %.1428, 0
+  br i1 %.not453, label %.loopexit, label %.lr.ph1072
 
-.lr.ph1085:                                       ; preds = %.loopexit1056, %580
-  %indvars.iv1120 = phi i64 [ %indvars.iv.next1121, %580 ], [ 0, %.loopexit1056 ]
-  %.04181084 = phi i32 [ %spec.select469, %580 ], [ 4, %.loopexit1056 ]
-  %555 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1120
-  %556 = load i32, ptr %555, align 8
-  switch i32 %556, label %580 [
-    i32 64, label %557
-    i32 128, label %557
-    i32 256, label %564
-    i32 1, label %571
+.lr.ph1072:                                       ; preds = %.loopexit1043, %584
+  %indvars.iv1107 = phi i64 [ %indvars.iv.next1108, %584 ], [ 0, %.loopexit1043 ]
+  %.04211071 = phi i32 [ %spec.select472, %584 ], [ 4, %.loopexit1043 ]
+  %556 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1107
+  %557 = load i32, ptr %556, align 8
+  %558 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %557)
+  %559 = icmp eq i32 %558, 1
+  br i1 %559, label %.split3, label %584
+
+.split3:                                          ; preds = %.lr.ph1072
+  %560 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %557, i1 true)
+  switch i32 %560, label %584 [
+    i32 6, label %561
+    i32 7, label %561
+    i32 8, label %568
+    i32 0, label %575
   ]
 
-557:                                              ; preds = %.lr.ph1085, %.lr.ph1085
-  %558 = add i32 %.04181084, 12
-  %559 = getelementptr inbounds nuw i8, ptr %555, i64 12
-  %560 = load i32, ptr %559, align 4
-  %.not456 = icmp eq i32 %560, 0
-  br i1 %.not456, label %580, label %561
+561:                                              ; preds = %.split3, %.split3
+  %562 = add i32 %.04211071, 12
+  %563 = getelementptr inbounds nuw i8, ptr %556, i64 12
+  %564 = load i32, ptr %563, align 4
+  %.not459 = icmp eq i32 %564, 0
+  br i1 %.not459, label %584, label %565
 
-561:                                              ; preds = %557
-  %562 = add i32 %.04181084, 13
-  %563 = add i32 %562, %560
-  br label %580
+565:                                              ; preds = %561
+  %566 = add i32 %.04211071, 13
+  %567 = add i32 %566, %564
+  br label %584
 
-564:                                              ; preds = %.lr.ph1085
-  %565 = add i32 %.04181084, 28
-  %566 = getelementptr inbounds nuw i8, ptr %555, i64 28
-  %567 = load i32, ptr %566, align 4
-  %.not455 = icmp eq i32 %567, 0
-  br i1 %.not455, label %580, label %568
+568:                                              ; preds = %.split3
+  %569 = add i32 %.04211071, 28
+  %570 = getelementptr inbounds nuw i8, ptr %556, i64 28
+  %571 = load i32, ptr %570, align 4
+  %.not458 = icmp eq i32 %571, 0
+  br i1 %.not458, label %584, label %572
 
-568:                                              ; preds = %564
-  %569 = add i32 %.04181084, 29
-  %570 = add i32 %569, %567
-  br label %580
+572:                                              ; preds = %568
+  %573 = add i32 %.04211071, 29
+  %574 = add i32 %573, %571
+  br label %584
 
-571:                                              ; preds = %.lr.ph1085
-  %572 = getelementptr inbounds nuw i8, ptr %555, i64 12
-  %573 = load i32, ptr %572, align 4
-  %574 = icmp eq i32 %573, 3
-  br i1 %574, label %575, label %580
+575:                                              ; preds = %.split3
+  %576 = getelementptr inbounds nuw i8, ptr %556, i64 12
+  %577 = load i32, ptr %576, align 4
+  %578 = icmp eq i32 %577, 3
+  br i1 %578, label %579, label %584
 
-575:                                              ; preds = %571
-  %576 = add i32 %.04181084, 8
-  %577 = getelementptr inbounds nuw i8, ptr %555, i64 16
-  %578 = load i32, ptr %577, align 8
-  %579 = add i32 %576, %578
-  br label %580
+579:                                              ; preds = %575
+  %580 = add i32 %.04211071, 8
+  %581 = getelementptr inbounds nuw i8, ptr %556, i64 16
+  %582 = load i32, ptr %581, align 8
+  %583 = add i32 %580, %582
+  br label %584
 
-580:                                              ; preds = %.lr.ph1085, %571, %575, %564, %568, %557, %561
-  %.1419 = phi i32 [ %.04181084, %.lr.ph1085 ], [ %563, %561 ], [ %558, %557 ], [ %570, %568 ], [ %565, %564 ], [ %579, %575 ], [ %.04181084, %571 ]
-  %581 = and i32 %.1419, 1
-  %spec.select469 = add i32 %581, %.1419
-  %indvars.iv.next1121 = add nuw nsw i64 %indvars.iv1120, 1
-  %exitcond1124.not = icmp eq i64 %indvars.iv.next1121, %wide.trip.count
-  br i1 %exitcond1124.not, label %._crit_edge1086, label %.lr.ph1085
+584:                                              ; preds = %.split3, %.lr.ph1072, %575, %579, %568, %572, %561, %565
+  %.1422 = phi i32 [ %.04211071, %.split3 ], [ %567, %565 ], [ %562, %561 ], [ %574, %572 ], [ %569, %568 ], [ %583, %579 ], [ %.04211071, %575 ], [ %.04211071, %.lr.ph1072 ]
+  %585 = and i32 %.1422, 1
+  %spec.select472 = add i32 %585, %.1422
+  %indvars.iv.next1108 = add nuw nsw i64 %indvars.iv1107, 1
+  %exitcond1111.not = icmp eq i64 %indvars.iv.next1108, %wide.trip.count
+  br i1 %exitcond1111.not, label %._crit_edge1073, label %.lr.ph1072
 
-._crit_edge1086:                                  ; preds = %580
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit804.thread, label %583
+._crit_edge1073:                                  ; preds = %584
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit807.thread, label %587
 
-drwav__write_or_count_u32ne_to_le.exit804.thread: ; preds = %._crit_edge1086
-  %582 = add i64 %.7, 8
-  br label %.lr.ph1090
+drwav__write_or_count_u32ne_to_le.exit807.thread: ; preds = %._crit_edge1073
+  %586 = add i64 %.7, 8
+  br label %.lr.ph1077
 
-583:                                              ; preds = %._crit_edge1086
-  %.val.i797 = load ptr, ptr %74, align 8
-  %.val6.i798 = load ptr, ptr %75, align 8
-  %584 = call i64 %.val.i797(ptr noundef %.val6.i798, ptr noundef nonnull @.str.601, i64 noundef 4) #69
-  %585 = add i64 %584, %.7
-  %.val.i801 = load ptr, ptr %74, align 8
-  %.val4.i802 = load ptr, ptr %75, align 8
+587:                                              ; preds = %._crit_edge1073
+  %.val.i800 = load ptr, ptr %74, align 8
+  %.val6.i801 = load ptr, ptr %75, align 8
+  %588 = call i64 %.val.i800(ptr noundef %.val6.i801, ptr noundef nonnull @.str.601, i64 noundef 4) #69
+  %589 = add i64 %588, %.7
+  %.val.i804 = load ptr, ptr %74, align 8
+  %.val4.i805 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i32 %spec.select469, ptr %17, align 4
-  %586 = call i64 %.val.i801(ptr noundef %.val4.i802, ptr noundef nonnull %17, i64 noundef 4) #69
+  store i32 %spec.select472, ptr %17, align 4
+  %590 = call i64 %.val.i804(ptr noundef %.val4.i805, ptr noundef nonnull %17, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %587 = add i64 %585, %586
-  %.val.i805 = load ptr, ptr %74, align 8
-  %.val6.i806 = load ptr, ptr %75, align 8
-  %588 = call i64 %.val.i805(ptr noundef %.val6.i806, ptr noundef nonnull @.str.603, i64 noundef 4) #69
-  br label %.lr.ph1090
+  %591 = add i64 %589, %590
+  %.val.i808 = load ptr, ptr %74, align 8
+  %.val6.i809 = load ptr, ptr %75, align 8
+  %592 = call i64 %.val.i808(ptr noundef %.val6.i809, ptr noundef nonnull @.str.603, i64 noundef 4) #69
+  br label %.lr.ph1077
 
-.lr.ph1090:                                       ; preds = %583, %drwav__write_or_count_u32ne_to_le.exit804.thread
-  %589 = phi i64 [ %587, %583 ], [ %582, %drwav__write_or_count_u32ne_to_le.exit804.thread ]
-  %.0.i807 = phi i64 [ %588, %583 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit804.thread ]
-  %590 = add i64 %.0.i807, %589
-  br label %591
+.lr.ph1077:                                       ; preds = %587, %drwav__write_or_count_u32ne_to_le.exit807.thread
+  %593 = phi i64 [ %591, %587 ], [ %586, %drwav__write_or_count_u32ne_to_le.exit807.thread ]
+  %.0.i810 = phi i64 [ %592, %587 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit807.thread ]
+  %594 = add i64 %.0.i810, %593
+  br label %595
 
-591:                                              ; preds = %.lr.ph1090, %.thread1036
-  %indvars.iv1125 = phi i64 [ 0, %.lr.ph1090 ], [ %indvars.iv.next1126, %.thread1036 ]
-  %.131089 = phi i64 [ %590, %.lr.ph1090 ], [ %.15, %.thread1036 ]
-  %592 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1125
-  %593 = load i32, ptr %592, align 8
-  switch i32 %593, label %.thread1036 [
-    i32 64, label %594
-    i32 128, label %594
-    i32 256, label %623
-    i32 1, label %674
+595:                                              ; preds = %.lr.ph1077, %.thread1023
+  %indvars.iv1112 = phi i64 [ 0, %.lr.ph1077 ], [ %indvars.iv.next1113, %.thread1023 ]
+  %.131076 = phi i64 [ %594, %.lr.ph1077 ], [ %.15, %.thread1023 ]
+  %596 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %1, i64 %indvars.iv1112
+  %597 = load i32, ptr %596, align 8
+  %598 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %597)
+  %599 = icmp eq i32 %598, 1
+  br i1 %599, label %.split4, label %.thread1023
+
+.split4:                                          ; preds = %595
+  %600 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %597, i1 true)
+  switch i32 %600, label %.thread1023 [
+    i32 6, label %601
+    i32 7, label %601
+    i32 8, label %630
+    i32 0, label %681
   ]
 
-594:                                              ; preds = %591, %591
-  %595 = getelementptr inbounds nuw i8, ptr %592, i64 8
-  %596 = getelementptr inbounds nuw i8, ptr %592, i64 12
-  %597 = load i32, ptr %596, align 4
-  %.not453 = icmp eq i32 %597, 0
-  br i1 %.not453, label %.thread1036, label %598
+601:                                              ; preds = %.split4, %.split4
+  %602 = getelementptr inbounds nuw i8, ptr %596, i64 8
+  %603 = getelementptr inbounds nuw i8, ptr %596, i64 12
+  %604 = load i32, ptr %603, align 4
+  %.not456 = icmp eq i32 %604, 0
+  br i1 %.not456, label %.thread1023, label %605
 
-598:                                              ; preds = %594
-  br i1 %73, label %drwav__write_or_count.exit824.thread, label %603
+605:                                              ; preds = %601
+  br i1 %73, label %drwav__write_or_count.exit827.thread, label %610
 
-drwav__write_or_count.exit824.thread:             ; preds = %598
-  %599 = add i32 %597, 5
-  %600 = add i64 %.131089, 12
-  %601 = zext i32 %597 to i64
-  %602 = add i64 %600, %601
-  br label %drwav__write_or_count_byte.exit828
+drwav__write_or_count.exit827.thread:             ; preds = %605
+  %606 = add i32 %604, 5
+  %607 = add i64 %.131076, 12
+  %608 = zext i32 %604 to i64
+  %609 = add i64 %607, %608
+  br label %drwav__write_or_count_byte.exit831
 
-603:                                              ; preds = %598
-  %switch.selectcmp471 = icmp eq i32 %593, 64
-  %switch.selectcmp = icmp eq i32 %593, 128
+610:                                              ; preds = %605
+  %switch.selectcmp474 = icmp eq i32 %597, 64
+  %switch.selectcmp = icmp eq i32 %597, 128
   %switch.select = select i1 %switch.selectcmp, ptr @.str.605, ptr null
-  %switch.select472 = select i1 %switch.selectcmp471, ptr @.str.604, ptr %switch.select
-  %.val.i809 = load ptr, ptr %74, align 8
-  %.val6.i810 = load ptr, ptr %75, align 8
-  %604 = call i64 %.val.i809(ptr noundef %.val6.i810, ptr noundef %switch.select472, i64 noundef 4) #69
-  %605 = add i64 %604, %.131089
-  %606 = load i32, ptr %596, align 4
-  %607 = add i32 %606, 5
-  %.val.i813 = load ptr, ptr %74, align 8
-  %.val4.i814 = load ptr, ptr %75, align 8
+  %switch.select475 = select i1 %switch.selectcmp474, ptr @.str.604, ptr %switch.select
+  %.val.i812 = load ptr, ptr %74, align 8
+  %.val6.i813 = load ptr, ptr %75, align 8
+  %611 = call i64 %.val.i812(ptr noundef %.val6.i813, ptr noundef %switch.select475, i64 noundef 4) #69
+  %612 = add i64 %611, %.131076
+  %613 = load i32, ptr %603, align 4
+  %614 = add i32 %613, 5
+  %.val.i816 = load ptr, ptr %74, align 8
+  %.val4.i817 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i32 %607, ptr %16, align 4
-  %608 = call i64 %.val.i813(ptr noundef %.val4.i814, ptr noundef nonnull %16, i64 noundef 4) #69
+  store i32 %614, ptr %16, align 4
+  %615 = call i64 %.val.i816(ptr noundef %.val4.i817, ptr noundef nonnull %16, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %609 = add i64 %605, %608
-  %610 = load i32, ptr %595, align 8
-  %.val.i817 = load ptr, ptr %74, align 8
-  %.val4.i818 = load ptr, ptr %75, align 8
+  %616 = add i64 %612, %615
+  %617 = load i32, ptr %602, align 8
+  %.val.i820 = load ptr, ptr %74, align 8
+  %.val4.i821 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i32 %610, ptr %15, align 4
-  %611 = call i64 %.val.i817(ptr noundef %.val4.i818, ptr noundef nonnull %15, i64 noundef 4) #69
+  store i32 %617, ptr %15, align 4
+  %618 = call i64 %.val.i820(ptr noundef %.val4.i821, ptr noundef nonnull %15, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %612 = add i64 %609, %611
-  %613 = getelementptr inbounds nuw i8, ptr %592, i64 16
-  %614 = load ptr, ptr %613, align 8
-  %615 = load i32, ptr %596, align 4
-  %616 = zext i32 %615 to i64
-  %.val.i821 = load ptr, ptr %74, align 8
-  %.val6.i822 = load ptr, ptr %75, align 8
-  %617 = call i64 %.val.i821(ptr noundef %.val6.i822, ptr noundef %614, i64 noundef %616) #69
-  %618 = add i64 %612, %617
-  %.val.i825 = load ptr, ptr %74, align 8
-  %.val4.i826 = load ptr, ptr %75, align 8
+  %619 = add i64 %616, %618
+  %620 = getelementptr inbounds nuw i8, ptr %596, i64 16
+  %621 = load ptr, ptr %620, align 8
+  %622 = load i32, ptr %603, align 4
+  %623 = zext i32 %622 to i64
+  %.val.i824 = load ptr, ptr %74, align 8
+  %.val6.i825 = load ptr, ptr %75, align 8
+  %624 = call i64 %.val.i824(ptr noundef %.val6.i825, ptr noundef %621, i64 noundef %623) #69
+  %625 = add i64 %619, %624
+  %.val.i828 = load ptr, ptr %74, align 8
+  %.val4.i829 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %14, align 1
-  %619 = call i64 %.val.i825(ptr noundef %.val4.i826, ptr noundef nonnull %14, i64 noundef 1) #69
+  %626 = call i64 %.val.i828(ptr noundef %.val4.i829, ptr noundef nonnull %14, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %drwav__write_or_count_byte.exit828
+  br label %drwav__write_or_count_byte.exit831
 
-drwav__write_or_count_byte.exit828:               ; preds = %drwav__write_or_count.exit824.thread, %603
-  %620 = phi i64 [ %618, %603 ], [ %602, %drwav__write_or_count.exit824.thread ]
-  %621 = phi i32 [ %607, %603 ], [ %599, %drwav__write_or_count.exit824.thread ]
-  %.0.i827 = phi i64 [ %619, %603 ], [ 1, %drwav__write_or_count.exit824.thread ]
-  %622 = add i64 %.0.i827, %620
-  br label %695
+drwav__write_or_count_byte.exit831:               ; preds = %drwav__write_or_count.exit827.thread, %610
+  %627 = phi i64 [ %625, %610 ], [ %609, %drwav__write_or_count.exit827.thread ]
+  %628 = phi i32 [ %614, %610 ], [ %606, %drwav__write_or_count.exit827.thread ]
+  %.0.i830 = phi i64 [ %626, %610 ], [ 1, %drwav__write_or_count.exit827.thread ]
+  %629 = add i64 %.0.i830, %627
+  br label %702
 
-623:                                              ; preds = %591
-  br i1 %73, label %drwav__write_or_count_u16ne_to_le.exit864, label %drwav__write_or_count_u16ne_to_le.exit864.thread
+630:                                              ; preds = %.split4
+  br i1 %73, label %drwav__write_or_count_u16ne_to_le.exit867, label %drwav__write_or_count_u16ne_to_le.exit867.thread
 
-drwav__write_or_count_u16ne_to_le.exit864:        ; preds = %623
-  %624 = getelementptr inbounds nuw i8, ptr %592, i64 28
-  %625 = load i32, ptr %624, align 4
-  %.not451998 = icmp eq i32 %625, 0
-  %626 = add i64 %.131089, 28
-  br i1 %.not451998, label %.thread1036, label %drwav__write_or_count.exit868.thread
+drwav__write_or_count_u16ne_to_le.exit867:        ; preds = %630
+  %631 = getelementptr inbounds nuw i8, ptr %596, i64 28
+  %632 = load i32, ptr %631, align 4
+  %.not454985 = icmp eq i32 %632, 0
+  %633 = add i64 %.131076, 28
+  br i1 %.not454985, label %.thread1023, label %drwav__write_or_count.exit871.thread
 
-drwav__write_or_count_u16ne_to_le.exit864.thread: ; preds = %623
-  %.val.i829 = load ptr, ptr %74, align 8
-  %.val6.i830 = load ptr, ptr %75, align 8
-  %627 = call i64 %.val.i829(ptr noundef %.val6.i830, ptr noundef nonnull @.str.606, i64 noundef 4) #69
-  %628 = add i64 %627, %.131089
-  %629 = getelementptr inbounds nuw i8, ptr %592, i64 8
-  %630 = getelementptr inbounds nuw i8, ptr %592, i64 28
-  %631 = load i32, ptr %630, align 4
-  %.not451 = icmp eq i32 %631, 0
-  %632 = add i32 %631, 21
-  %spec.select470 = select i1 %.not451, i32 20, i32 %632
-  %.val.i833 = load ptr, ptr %74, align 8
-  %.val4.i834 = load ptr, ptr %75, align 8
+drwav__write_or_count_u16ne_to_le.exit867.thread: ; preds = %630
+  %.val.i832 = load ptr, ptr %74, align 8
+  %.val6.i833 = load ptr, ptr %75, align 8
+  %634 = call i64 %.val.i832(ptr noundef %.val6.i833, ptr noundef nonnull @.str.606, i64 noundef 4) #69
+  %635 = add i64 %634, %.131076
+  %636 = getelementptr inbounds nuw i8, ptr %596, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %596, i64 28
+  %638 = load i32, ptr %637, align 4
+  %.not454 = icmp eq i32 %638, 0
+  %639 = add i32 %638, 21
+  %spec.select473 = select i1 %.not454, i32 20, i32 %639
+  %.val.i836 = load ptr, ptr %74, align 8
+  %.val4.i837 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i32 %spec.select470, ptr %13, align 4
-  %633 = call i64 %.val.i833(ptr noundef %.val4.i834, ptr noundef nonnull %13, i64 noundef 4) #69
+  store i32 %spec.select473, ptr %13, align 4
+  %640 = call i64 %.val.i836(ptr noundef %.val4.i837, ptr noundef nonnull %13, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %634 = add i64 %628, %633
-  %635 = load i32, ptr %629, align 8
-  %.val.i837 = load ptr, ptr %74, align 8
-  %.val4.i838 = load ptr, ptr %75, align 8
+  %641 = add i64 %635, %640
+  %642 = load i32, ptr %636, align 8
+  %.val.i840 = load ptr, ptr %74, align 8
+  %.val4.i841 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i32 %635, ptr %12, align 4
-  %636 = call i64 %.val.i837(ptr noundef %.val4.i838, ptr noundef nonnull %12, i64 noundef 4) #69
+  store i32 %642, ptr %12, align 4
+  %643 = call i64 %.val.i840(ptr noundef %.val4.i841, ptr noundef nonnull %12, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %637 = add i64 %634, %636
-  %638 = getelementptr inbounds nuw i8, ptr %592, i64 12
-  %639 = load i32, ptr %638, align 4
-  %.val.i841 = load ptr, ptr %74, align 8
-  %.val4.i842 = load ptr, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i32 %639, ptr %11, align 4
-  %640 = call i64 %.val.i841(ptr noundef %.val4.i842, ptr noundef nonnull %11, i64 noundef 4) #69
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %641 = add i64 %637, %640
-  %642 = getelementptr inbounds nuw i8, ptr %592, i64 16
-  %.val.i845 = load ptr, ptr %74, align 8
-  %.val6.i846 = load ptr, ptr %75, align 8
-  %643 = call i64 %.val.i845(ptr noundef %.val6.i846, ptr noundef nonnull %642, i64 noundef 4) #69
   %644 = add i64 %641, %643
-  %645 = getelementptr inbounds nuw i8, ptr %592, i64 20
-  %646 = load i16, ptr %645, align 4
-  %.val.i849 = load ptr, ptr %74, align 8
-  %.val4.i850 = load ptr, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i16 %646, ptr %10, align 2
-  %647 = call i64 %.val.i849(ptr noundef %.val4.i850, ptr noundef nonnull %10, i64 noundef 2) #69
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %645 = getelementptr inbounds nuw i8, ptr %596, i64 12
+  %646 = load i32, ptr %645, align 4
+  %.val.i844 = load ptr, ptr %74, align 8
+  %.val4.i845 = load ptr, ptr %75, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  store i32 %646, ptr %11, align 4
+  %647 = call i64 %.val.i844(ptr noundef %.val4.i845, ptr noundef nonnull %11, i64 noundef 4) #69
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %648 = add i64 %644, %647
-  %649 = getelementptr inbounds nuw i8, ptr %592, i64 22
-  %650 = load i16, ptr %649, align 2
-  %.val.i853 = load ptr, ptr %74, align 8
-  %.val4.i854 = load ptr, ptr %75, align 8
+  %649 = getelementptr inbounds nuw i8, ptr %596, i64 16
+  %.val.i848 = load ptr, ptr %74, align 8
+  %.val6.i849 = load ptr, ptr %75, align 8
+  %650 = call i64 %.val.i848(ptr noundef %.val6.i849, ptr noundef nonnull %649, i64 noundef 4) #69
+  %651 = add i64 %648, %650
+  %652 = getelementptr inbounds nuw i8, ptr %596, i64 20
+  %653 = load i16, ptr %652, align 4
+  %.val.i852 = load ptr, ptr %74, align 8
+  %.val4.i853 = load ptr, ptr %75, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  store i16 %653, ptr %10, align 2
+  %654 = call i64 %.val.i852(ptr noundef %.val4.i853, ptr noundef nonnull %10, i64 noundef 2) #69
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %655 = add i64 %651, %654
+  %656 = getelementptr inbounds nuw i8, ptr %596, i64 22
+  %657 = load i16, ptr %656, align 2
+  %.val.i856 = load ptr, ptr %74, align 8
+  %.val4.i857 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i16 %650, ptr %9, align 2
-  %651 = call i64 %.val.i853(ptr noundef %.val4.i854, ptr noundef nonnull %9, i64 noundef 2) #69
+  store i16 %657, ptr %9, align 2
+  %658 = call i64 %.val.i856(ptr noundef %.val4.i857, ptr noundef nonnull %9, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %652 = add i64 %648, %651
-  %653 = getelementptr inbounds nuw i8, ptr %592, i64 24
-  %654 = load i16, ptr %653, align 8
-  %.val.i857 = load ptr, ptr %74, align 8
-  %.val4.i858 = load ptr, ptr %75, align 8
+  %659 = add i64 %655, %658
+  %660 = getelementptr inbounds nuw i8, ptr %596, i64 24
+  %661 = load i16, ptr %660, align 8
+  %.val.i860 = load ptr, ptr %74, align 8
+  %.val4.i861 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i16 %654, ptr %8, align 2
-  %655 = call i64 %.val.i857(ptr noundef %.val4.i858, ptr noundef nonnull %8, i64 noundef 2) #69
+  store i16 %661, ptr %8, align 2
+  %662 = call i64 %.val.i860(ptr noundef %.val4.i861, ptr noundef nonnull %8, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %656 = add i64 %652, %655
-  %657 = getelementptr inbounds nuw i8, ptr %592, i64 26
-  %658 = load i16, ptr %657, align 2
-  %.val.i861 = load ptr, ptr %74, align 8
-  %.val4.i862 = load ptr, ptr %75, align 8
+  %663 = add i64 %659, %662
+  %664 = getelementptr inbounds nuw i8, ptr %596, i64 26
+  %665 = load i16, ptr %664, align 2
+  %.val.i864 = load ptr, ptr %74, align 8
+  %.val4.i865 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i16 %658, ptr %7, align 2
-  %659 = call i64 %.val.i861(ptr noundef %.val4.i862, ptr noundef nonnull %7, i64 noundef 2) #69
+  store i16 %665, ptr %7, align 2
+  %666 = call i64 %.val.i864(ptr noundef %.val4.i865, ptr noundef nonnull %7, i64 noundef 2) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %660 = add i64 %656, %659
-  %661 = load i32, ptr %630, align 4
-  %.not4521024 = icmp eq i32 %661, 0
-  br i1 %.not4521024, label %.thread1040, label %665
+  %667 = add i64 %663, %666
+  %668 = load i32, ptr %637, align 4
+  %.not4551011 = icmp eq i32 %668, 0
+  br i1 %.not4551011, label %.thread1027, label %672
 
-drwav__write_or_count.exit868.thread:             ; preds = %drwav__write_or_count_u16ne_to_le.exit864
-  %662 = add i32 %625, 21
-  %663 = zext i32 %625 to i64
-  %664 = add i64 %626, %663
-  br label %drwav__write_or_count_byte.exit872
+drwav__write_or_count.exit871.thread:             ; preds = %drwav__write_or_count_u16ne_to_le.exit867
+  %669 = add i32 %632, 21
+  %670 = zext i32 %632 to i64
+  %671 = add i64 %633, %670
+  br label %drwav__write_or_count_byte.exit875
 
-665:                                              ; preds = %drwav__write_or_count_u16ne_to_le.exit864.thread
-  %666 = getelementptr inbounds nuw i8, ptr %592, i64 32
-  %667 = load ptr, ptr %666, align 8
-  %668 = zext i32 %661 to i64
-  %.val.i865 = load ptr, ptr %74, align 8
-  %.val6.i866 = load ptr, ptr %75, align 8
-  %669 = call i64 %.val.i865(ptr noundef %.val6.i866, ptr noundef %667, i64 noundef %668) #69
-  %670 = add i64 %669, %660
-  %.val.i869 = load ptr, ptr %74, align 8
-  %.val4.i870 = load ptr, ptr %75, align 8
+672:                                              ; preds = %drwav__write_or_count_u16ne_to_le.exit867.thread
+  %673 = getelementptr inbounds nuw i8, ptr %596, i64 32
+  %674 = load ptr, ptr %673, align 8
+  %675 = zext i32 %668 to i64
+  %.val.i868 = load ptr, ptr %74, align 8
+  %.val6.i869 = load ptr, ptr %75, align 8
+  %676 = call i64 %.val.i868(ptr noundef %.val6.i869, ptr noundef %674, i64 noundef %675) #69
+  %677 = add i64 %676, %667
+  %.val.i872 = load ptr, ptr %74, align 8
+  %.val4.i873 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
-  %671 = call i64 %.val.i869(ptr noundef %.val4.i870, ptr noundef nonnull %6, i64 noundef 1) #69
+  %678 = call i64 %.val.i872(ptr noundef %.val4.i873, ptr noundef nonnull %6, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %drwav__write_or_count_byte.exit872
+  br label %drwav__write_or_count_byte.exit875
 
-drwav__write_or_count_byte.exit872:               ; preds = %drwav__write_or_count.exit868.thread, %665
-  %672 = phi i64 [ %670, %665 ], [ %664, %drwav__write_or_count.exit868.thread ]
-  %spec.select47010001003100610091012101510181021102510291032 = phi i32 [ %spec.select470, %665 ], [ %662, %drwav__write_or_count.exit868.thread ]
-  %.0.i871 = phi i64 [ %671, %665 ], [ 1, %drwav__write_or_count.exit868.thread ]
-  %673 = add i64 %.0.i871, %672
-  br label %695
+drwav__write_or_count_byte.exit875:               ; preds = %drwav__write_or_count.exit871.thread, %672
+  %679 = phi i64 [ %677, %672 ], [ %671, %drwav__write_or_count.exit871.thread ]
+  %spec.select473987990993996999100210051008101210161019 = phi i32 [ %spec.select473, %672 ], [ %669, %drwav__write_or_count.exit871.thread ]
+  %.0.i874 = phi i64 [ %678, %672 ], [ 1, %drwav__write_or_count.exit871.thread ]
+  %680 = add i64 %.0.i874, %679
+  br label %702
 
-674:                                              ; preds = %591
-  %675 = getelementptr inbounds nuw i8, ptr %592, i64 12
-  %676 = load i32, ptr %675, align 4
-  %677 = icmp eq i32 %676, 3
-  br i1 %677, label %678, label %.thread1036
+681:                                              ; preds = %.split4
+  %682 = getelementptr inbounds nuw i8, ptr %596, i64 12
+  %683 = load i32, ptr %682, align 4
+  %684 = icmp eq i32 %683, 3
+  br i1 %684, label %685, label %.thread1023
 
-678:                                              ; preds = %674
-  %679 = getelementptr inbounds nuw i8, ptr %592, i64 16
-  %680 = load i32, ptr %679, align 8
-  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit880.thread, label %683
+685:                                              ; preds = %681
+  %686 = getelementptr inbounds nuw i8, ptr %596, i64 16
+  %687 = load i32, ptr %686, align 8
+  br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit883.thread, label %690
 
-drwav__write_or_count_u32ne_to_le.exit880.thread: ; preds = %678
-  %681 = add i64 %.131089, 8
-  %682 = zext i32 %680 to i64
-  br label %drwav__write_or_count.exit884
+drwav__write_or_count_u32ne_to_le.exit883.thread: ; preds = %685
+  %688 = add i64 %.131076, 8
+  %689 = zext i32 %687 to i64
+  br label %drwav__write_or_count.exit887
 
-683:                                              ; preds = %678
-  %684 = getelementptr inbounds nuw i8, ptr %592, i64 8
-  %.val.i873 = load ptr, ptr %74, align 8
-  %.val6.i874 = load ptr, ptr %75, align 8
-  %685 = call i64 %.val.i873(ptr noundef %.val6.i874, ptr noundef nonnull %684, i64 noundef 4) #69
-  %686 = add i64 %685, %.131089
-  %.val.i877 = load ptr, ptr %74, align 8
-  %.val4.i878 = load ptr, ptr %75, align 8
+690:                                              ; preds = %685
+  %691 = getelementptr inbounds nuw i8, ptr %596, i64 8
+  %.val.i876 = load ptr, ptr %74, align 8
+  %.val6.i877 = load ptr, ptr %75, align 8
+  %692 = call i64 %.val.i876(ptr noundef %.val6.i877, ptr noundef nonnull %691, i64 noundef 4) #69
+  %693 = add i64 %692, %.131076
+  %.val.i880 = load ptr, ptr %74, align 8
+  %.val4.i881 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 %680, ptr %5, align 4
-  %687 = call i64 %.val.i877(ptr noundef %.val4.i878, ptr noundef nonnull %5, i64 noundef 4) #69
+  store i32 %687, ptr %5, align 4
+  %694 = call i64 %.val.i880(ptr noundef %.val4.i881, ptr noundef nonnull %5, i64 noundef 4) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %688 = add i64 %686, %687
-  %689 = getelementptr inbounds nuw i8, ptr %592, i64 24
-  %690 = load ptr, ptr %689, align 8
-  %691 = zext i32 %680 to i64
-  %.val.i881 = load ptr, ptr %74, align 8
-  %.val6.i882 = load ptr, ptr %75, align 8
-  %692 = call i64 %.val.i881(ptr noundef %.val6.i882, ptr noundef %690, i64 noundef %691) #69
-  br label %drwav__write_or_count.exit884
+  %695 = add i64 %693, %694
+  %696 = getelementptr inbounds nuw i8, ptr %596, i64 24
+  %697 = load ptr, ptr %696, align 8
+  %698 = zext i32 %687 to i64
+  %.val.i884 = load ptr, ptr %74, align 8
+  %.val6.i885 = load ptr, ptr %75, align 8
+  %699 = call i64 %.val.i884(ptr noundef %.val6.i885, ptr noundef %697, i64 noundef %698) #69
+  br label %drwav__write_or_count.exit887
 
-drwav__write_or_count.exit884:                    ; preds = %drwav__write_or_count_u32ne_to_le.exit880.thread, %683
-  %693 = phi i64 [ %688, %683 ], [ %681, %drwav__write_or_count_u32ne_to_le.exit880.thread ]
-  %.0.i883 = phi i64 [ %692, %683 ], [ %682, %drwav__write_or_count_u32ne_to_le.exit880.thread ]
-  %694 = add i64 %.0.i883, %693
-  br label %695
+drwav__write_or_count.exit887:                    ; preds = %drwav__write_or_count_u32ne_to_le.exit883.thread, %690
+  %700 = phi i64 [ %695, %690 ], [ %688, %drwav__write_or_count_u32ne_to_le.exit883.thread ]
+  %.0.i886 = phi i64 [ %699, %690 ], [ %689, %drwav__write_or_count_u32ne_to_le.exit883.thread ]
+  %701 = add i64 %.0.i886, %700
+  br label %702
 
-695:                                              ; preds = %drwav__write_or_count.exit884, %drwav__write_or_count_byte.exit872, %drwav__write_or_count_byte.exit828
-  %.14 = phi i64 [ %622, %drwav__write_or_count_byte.exit828 ], [ %673, %drwav__write_or_count_byte.exit872 ], [ %694, %drwav__write_or_count.exit884 ]
-  %.0414 = phi i32 [ %621, %drwav__write_or_count_byte.exit828 ], [ %spec.select47010001003100610091012101510181021102510291032, %drwav__write_or_count_byte.exit872 ], [ %680, %drwav__write_or_count.exit884 ]
-  %696 = and i32 %.0414, 1
-  %.not454 = icmp eq i32 %696, 0
-  br i1 %.not454, label %.thread1036, label %698
+702:                                              ; preds = %drwav__write_or_count.exit887, %drwav__write_or_count_byte.exit875, %drwav__write_or_count_byte.exit831
+  %.14 = phi i64 [ %629, %drwav__write_or_count_byte.exit831 ], [ %680, %drwav__write_or_count_byte.exit875 ], [ %701, %drwav__write_or_count.exit887 ]
+  %.0417 = phi i32 [ %628, %drwav__write_or_count_byte.exit831 ], [ %spec.select473987990993996999100210051008101210161019, %drwav__write_or_count_byte.exit875 ], [ %687, %drwav__write_or_count.exit887 ]
+  %703 = and i32 %.0417, 1
+  %.not457 = icmp eq i32 %703, 0
+  br i1 %.not457, label %.thread1023, label %705
 
-.thread1040:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit864.thread
-  %697 = and i32 %spec.select470, 1
-  %.not4541043 = icmp eq i32 %697, 0
-  br i1 %.not4541043, label %.thread1036, label %.thread1045
+.thread1027:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit867.thread
+  %704 = and i32 %spec.select473, 1
+  %.not4571030 = icmp eq i32 %704, 0
+  br i1 %.not4571030, label %.thread1023, label %.thread1032
 
-698:                                              ; preds = %695
-  br i1 %73, label %drwav__write_or_count_byte.exit888, label %.thread1045
+705:                                              ; preds = %702
+  br i1 %73, label %drwav__write_or_count_byte.exit891, label %.thread1032
 
-.thread1045:                                      ; preds = %.thread1040, %698
-  %.1410441047 = phi i64 [ %.14, %698 ], [ %660, %.thread1040 ]
-  %.val.i885 = load ptr, ptr %74, align 8
-  %.val4.i886 = load ptr, ptr %75, align 8
+.thread1032:                                      ; preds = %.thread1027, %705
+  %.1410311034 = phi i64 [ %.14, %705 ], [ %667, %.thread1027 ]
+  %.val.i888 = load ptr, ptr %74, align 8
+  %.val4.i889 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %699 = call i64 %.val.i885(ptr noundef %.val4.i886, ptr noundef nonnull %4, i64 noundef 1) #69
+  %706 = call i64 %.val.i888(ptr noundef %.val4.i889, ptr noundef nonnull %4, i64 noundef 1) #69
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %drwav__write_or_count_byte.exit888
+  br label %drwav__write_or_count_byte.exit891
 
-drwav__write_or_count_byte.exit888:               ; preds = %698, %.thread1045
-  %.1410441048 = phi i64 [ %.1410441047, %.thread1045 ], [ %.14, %698 ]
-  %.0.i887 = phi i64 [ %699, %.thread1045 ], [ 1, %698 ]
-  %700 = add i64 %.0.i887, %.1410441048
-  br label %.thread1036
+drwav__write_or_count_byte.exit891:               ; preds = %705, %.thread1032
+  %.1410311035 = phi i64 [ %.1410311034, %.thread1032 ], [ %.14, %705 ]
+  %.0.i890 = phi i64 [ %706, %.thread1032 ], [ 1, %705 ]
+  %707 = add i64 %.0.i890, %.1410311035
+  br label %.thread1023
 
-.thread1036:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit864, %674, %594, %591, %.thread1040, %drwav__write_or_count_byte.exit888, %695
-  %.15 = phi i64 [ %700, %drwav__write_or_count_byte.exit888 ], [ %.14, %695 ], [ %660, %.thread1040 ], [ %.131089, %591 ], [ %.131089, %594 ], [ %.131089, %674 ], [ %626, %drwav__write_or_count_u16ne_to_le.exit864 ]
-  %indvars.iv.next1126 = add nuw nsw i64 %indvars.iv1125, 1
-  %exitcond1129.not = icmp eq i64 %indvars.iv.next1126, %wide.trip.count
-  br i1 %exitcond1129.not, label %.loopexit, label %591
+.thread1023:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit867, %595, %681, %601, %.split4, %.thread1027, %drwav__write_or_count_byte.exit891, %702
+  %.15 = phi i64 [ %707, %drwav__write_or_count_byte.exit891 ], [ %.14, %702 ], [ %667, %.thread1027 ], [ %.131076, %.split4 ], [ %.131076, %601 ], [ %.131076, %681 ], [ %.131076, %595 ], [ %633, %drwav__write_or_count_u16ne_to_le.exit867 ]
+  %indvars.iv.next1113 = add nuw nsw i64 %indvars.iv1112, 1
+  %exitcond1116.not = icmp eq i64 %indvars.iv.next1113, %wide.trip.count
+  br i1 %exitcond1116.not, label %.loopexit, label %595
 
-.loopexit:                                        ; preds = %.thread1036, %.loopexit1056, %3
-  %.0415 = phi i64 [ 0, %3 ], [ %.7, %.loopexit1056 ], [ %.15, %.thread1036 ]
-  ret i64 %.0415
+.loopexit:                                        ; preds = %.thread1023, %.loopexit1043, %3
+  %.0418 = phi i64 [ 0, %3 ], [ %.7, %.loopexit1043 ], [ %.15, %.thread1023 ]
+  ret i64 %.0418
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -122520,6 +122505,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #77
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #77
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #78
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #78
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #78

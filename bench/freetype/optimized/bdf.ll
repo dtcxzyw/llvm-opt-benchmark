@@ -1465,124 +1465,131 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr noundef 
   %8 = load ptr, ptr %7, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = load i16, ptr %9, align 8, !tbaa !119
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !81
-  %13 = trunc i64 %12 to i32
-  %.not43 = icmp ult i32 %2, %13
-  br i1 %.not43, label %14, label %68
+  %11 = zext i16 %10 to i32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %13 = load i64, ptr %12, align 8, !tbaa !81
+  %14 = trunc i64 %13 to i32
+  %.not43 = icmp ult i32 %2, %14
+  br i1 %.not43, label %15, label %72
 
-14:                                               ; preds = %4
-  %15 = icmp eq i32 %2, 0
-  br i1 %15, label %16, label %19
+15:                                               ; preds = %4
+  %16 = icmp eq i32 %2, 0
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  %18 = load i32, ptr %17, align 8, !tbaa !96
-  br label %21
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 280
+  %19 = load i32, ptr %18, align 8, !tbaa !96
+  br label %22
 
-19:                                               ; preds = %14
-  %20 = add i32 %2, -1
-  br label %21
+20:                                               ; preds = %15
+  %21 = add i32 %2, -1
+  br label %22
 
-21:                                               ; preds = %19, %16
-  %.0 = phi i32 [ %18, %16 ], [ %20, %19 ]
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %23 = load ptr, ptr %22, align 8, !tbaa !94
-  %24 = zext i32 %.0 to i64
-  %25 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %23, i64 %24
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 18
+22:                                               ; preds = %20, %17
+  %.0 = phi i32 [ %19, %17 ], [ %21, %20 ]
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %25 = zext i32 %.0 to i64
+  %26 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %24, i64 %25
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 18
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !120
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 20
   %.sroa.4.0.copyload = load i16, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !120
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 22
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 22
   %.sroa.5.0.copyload = load i16, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !120
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 24
   %.sroa.6.0.copyload = load i16, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !120
-  %.sroa.82.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 28
+  %.sroa.82.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 28
   %.sroa.82.0.copyload = load i16, ptr %.sroa.82.0..sroa_idx, align 4, !tbaa !120
-  %.sroa.104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %.sroa.104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.sroa.104.0.copyload = load ptr, ptr %.sroa.104.0..sroa_idx, align 8, !tbaa !75
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 40
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !69
-  %26 = zext i16 %.sroa.5.0.copyload to i32
-  store i32 %26, ptr %6, align 8, !tbaa !121
-  %27 = zext i16 %.sroa.4.0.copyload to i32
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %27, ptr %28, align 4, !tbaa !123
-  %29 = trunc i64 %.sroa.11.0.copyload to i32
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %29, ptr %30, align 8, !tbaa !124
+  %27 = zext i16 %.sroa.5.0.copyload to i32
+  store i32 %27, ptr %6, align 8, !tbaa !121
+  %28 = zext i16 %.sroa.4.0.copyload to i32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i32 %28, ptr %29, align 4, !tbaa !123
+  %30 = trunc i64 %.sroa.11.0.copyload to i32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 %30, ptr %31, align 8, !tbaa !124
   tail call void @ft_glyphslot_set_bitmap(ptr noundef %0, ptr noundef %.sroa.104.0.copyload) #17
-  switch i16 %10, label %40 [
-    i16 1, label %31
-    i16 2, label %33
-    i16 4, label %35
-    i16 8, label %37
+  %32 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %11)
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %.split, label %44
+
+.split:                                           ; preds = %22
+  %34 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %11, i1 true)
+  switch i32 %34, label %44 [
+    i32 0, label %35
+    i32 1, label %37
+    i32 2, label %39
+    i32 3, label %41
   ]
 
-31:                                               ; preds = %21
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 1, ptr %32, align 2, !tbaa !125
-  br label %40
-
-33:                                               ; preds = %21
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 3, ptr %34, align 2, !tbaa !125
-  br label %40
-
-35:                                               ; preds = %21
+35:                                               ; preds = %.split
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 4, ptr %36, align 2, !tbaa !125
-  br label %40
+  store i8 1, ptr %36, align 2, !tbaa !125
+  br label %44
 
-37:                                               ; preds = %21
+37:                                               ; preds = %.split
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 2, ptr %38, align 2, !tbaa !125
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i16 256, ptr %39, align 8, !tbaa !126
-  br label %40
+  store i8 3, ptr %38, align 2, !tbaa !125
+  br label %44
 
-40:                                               ; preds = %37, %35, %33, %31, %21
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 1651078259, ptr %41, align 8, !tbaa !127
-  %42 = sext i16 %.sroa.6.0.copyload to i32
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %42, ptr %43, align 8, !tbaa !137
-  %44 = sext i16 %.sroa.82.0.copyload to i32
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 %44, ptr %45, align 4, !tbaa !138
-  %46 = zext i16 %.sroa.3.0.copyload to i64
-  %47 = shl nuw nsw i64 %46, 6
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %47, ptr %49, align 8, !tbaa !139
-  %50 = shl nsw i32 %42, 6
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %51, ptr %52, align 8, !tbaa !140
-  %53 = shl nsw i32 %44, 6
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %54, ptr %55, align 8, !tbaa !141
-  %56 = load i32, ptr %28, align 4, !tbaa !123
-  %57 = shl i32 %56, 6
-  %58 = zext i32 %57 to i64
-  store i64 %58, ptr %48, align 8, !tbaa !142
-  %59 = load i32, ptr %6, align 8, !tbaa !121
-  %60 = shl i32 %59, 6
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %61, ptr %62, align 8, !tbaa !143
-  %63 = load ptr, ptr %7, align 8, !tbaa !60
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 10
-  %65 = load i16, ptr %64, align 2, !tbaa !58
-  %66 = zext i16 %65 to i64
-  %67 = shl nuw nsw i64 %66, 6
-  tail call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %48, i64 noundef %67) #17
-  br label %68
+39:                                               ; preds = %.split
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 178
+  store i8 4, ptr %40, align 2, !tbaa !125
+  br label %44
 
-68:                                               ; preds = %4, %40
-  %.040 = phi i32 [ 0, %40 ], [ 6, %4 ]
+41:                                               ; preds = %.split
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 178
+  store i8 2, ptr %42, align 2, !tbaa !125
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i16 256, ptr %43, align 8, !tbaa !126
+  br label %44
+
+44:                                               ; preds = %22, %41, %39, %37, %35, %.split
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 1651078259, ptr %45, align 8, !tbaa !127
+  %46 = sext i16 %.sroa.6.0.copyload to i32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i32 %46, ptr %47, align 8, !tbaa !137
+  %48 = sext i16 %.sroa.82.0.copyload to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  store i32 %48, ptr %49, align 4, !tbaa !138
+  %50 = zext i16 %.sroa.3.0.copyload to i64
+  %51 = shl nuw nsw i64 %50, 6
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %51, ptr %53, align 8, !tbaa !139
+  %54 = shl nsw i32 %46, 6
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %55, ptr %56, align 8, !tbaa !140
+  %57 = shl nsw i32 %48, 6
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %58, ptr %59, align 8, !tbaa !141
+  %60 = load i32, ptr %29, align 4, !tbaa !123
+  %61 = shl i32 %60, 6
+  %62 = zext i32 %61 to i64
+  store i64 %62, ptr %52, align 8, !tbaa !142
+  %63 = load i32, ptr %6, align 8, !tbaa !121
+  %64 = shl i32 %63, 6
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %65, ptr %66, align 8, !tbaa !143
+  %67 = load ptr, ptr %7, align 8, !tbaa !60
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 10
+  %69 = load i16, ptr %68, align 2, !tbaa !58
+  %70 = zext i16 %69 to i64
+  %71 = shl nuw nsw i64 %70, 6
+  tail call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %52, i64 noundef %71) #17
+  br label %72
+
+72:                                               ; preds = %4, %44
+  %.040 = phi i32 [ 0, %44 ], [ 6, %4 ]
   ret i32 %.040
 }
 
@@ -5309,6 +5316,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #16

@@ -2311,54 +2311,63 @@ SDL_SurfaceValid.exit:                            ; preds = %4
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
-  br label %21
+  br label %24
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
-  br i1 %.not, label %21, label %10
+  br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1008
-  switch i32 %13, label %20 [
-    i32 16, label %14
-    i32 32, label %15
-    i32 64, label %16
-    i32 128, label %17
-    i32 256, label %18
-    i32 512, label %19
+  %14 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %13)
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %.split, label %23
+
+.split:                                           ; preds = %10
+  %16 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %13, i1 true)
+  switch i32 %16, label %default.unreachable [
+    i32 4, label %17
+    i32 5, label %18
+    i32 6, label %19
+    i32 7, label %20
+    i32 8, label %21
+    i32 9, label %22
   ]
 
-14:                                               ; preds = %10
+17:                                               ; preds = %.split
   store i32 1, ptr %1, align 4
-  br label %21
+  br label %24
 
-15:                                               ; preds = %10
+18:                                               ; preds = %.split
   store i32 16, ptr %1, align 4
-  br label %21
+  br label %24
 
-16:                                               ; preds = %10
+19:                                               ; preds = %.split
   store i32 2, ptr %1, align 4
-  br label %21
+  br label %24
 
-17:                                               ; preds = %10
+20:                                               ; preds = %.split
   store i32 32, ptr %1, align 4
-  br label %21
+  br label %24
 
-18:                                               ; preds = %10
+21:                                               ; preds = %.split
   store i32 4, ptr %1, align 4
-  br label %21
+  br label %24
 
-19:                                               ; preds = %10
+22:                                               ; preds = %.split
   store i32 8, ptr %1, align 4
-  br label %21
+  br label %24
 
-20:                                               ; preds = %10
+default.unreachable:                              ; preds = %.split
+  unreachable
+
+23:                                               ; preds = %10
   store i32 0, ptr %1, align 4
-  br label %21
+  br label %24
 
-21:                                               ; preds = %14, %15, %16, %17, %18, %19, %20, %9, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %8, %SDL_SurfaceValid.exit.thread ], [ true, %9 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ]
+24:                                               ; preds = %17, %18, %19, %20, %21, %22, %23, %9, %SDL_SurfaceValid.exit.thread
+  %.0 = phi i1 [ %8, %SDL_SurfaceValid.exit.thread ], [ true, %9 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ]
   ret i1 %.0
 }
 
@@ -7672,6 +7681,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

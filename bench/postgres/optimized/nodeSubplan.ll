@@ -1810,7 +1810,7 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %71
+  br i1 %5, label %6, label %74
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1833,7 +1833,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %.val.val.i = load i16, ptr %17, align 4
   %18 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %18, 0
-  br i1 %.not.i.i, label %19, label %57
+  br i1 %.not.i.i, label %19, label %60
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
@@ -1841,7 +1841,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %55
+  br i1 %24, label %25, label %58
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
@@ -1855,78 +1855,84 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %34 = trunc nuw i8 %33 to i1
   %35 = getelementptr i8, ptr %21, i64 12
   %36 = load i16, ptr %35, align 4
-  br i1 %34, label %37, label %53
+  %37 = sext i16 %36 to i32
+  br i1 %34, label %38, label %56
 
-37:                                               ; preds = %25
-  switch i16 %36, label %49 [
-    i16 1, label %38
-    i16 2, label %41
-    i16 4, label %44
-    i16 8, label %47
+38:                                               ; preds = %25
+  %39 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %37)
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %.split.i.i, label %53
+
+.split.i.i:                                       ; preds = %38
+  %41 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %37, i1 true)
+  switch i32 %41, label %53 [
+    i32 0, label %42
+    i32 1, label %45
+    i32 2, label %48
+    i32 3, label %51
   ]
 
-38:                                               ; preds = %37
-  %39 = load i8, ptr %31, align 1
-  %40 = sext i8 %39 to i64
+42:                                               ; preds = %.split.i.i
+  %43 = load i8, ptr %31, align 1
+  %44 = sext i8 %43 to i64
   br label %fastgetattr.exit
 
-41:                                               ; preds = %37
-  %42 = load i16, ptr %31, align 2
-  %43 = sext i16 %42 to i64
+45:                                               ; preds = %.split.i.i
+  %46 = load i16, ptr %31, align 2
+  %47 = sext i16 %46 to i64
   br label %fastgetattr.exit
 
-44:                                               ; preds = %37
-  %45 = load i32, ptr %31, align 4
-  %46 = sext i32 %45 to i64
+48:                                               ; preds = %.split.i.i
+  %49 = load i32, ptr %31, align 4
+  %50 = sext i32 %49 to i64
   br label %fastgetattr.exit
 
-47:                                               ; preds = %37
-  %48 = load i64, ptr %31, align 8
+51:                                               ; preds = %.split.i.i
+  %52 = load i64, ptr %31, align 8
   br label %fastgetattr.exit
 
-49:                                               ; preds = %37
-  %50 = sext i16 %36 to i32
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %50) #7
+53:                                               ; preds = %.split.i.i, %38
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %37) #7
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
-53:                                               ; preds = %25
-  %54 = ptrtoint ptr %31 to i64
+56:                                               ; preds = %25
+  %57 = ptrtoint ptr %31 to i64
   br label %fastgetattr.exit
 
-55:                                               ; preds = %19
-  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #7
+58:                                               ; preds = %19
+  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #7
   br label %fastgetattr.exit
 
-57:                                               ; preds = %16
-  %58 = add nsw i32 %1, -1
-  %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
-  %60 = lshr i32 %58, 3
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = and i32 %58, 7
-  %66 = shl nuw nsw i32 1, %65
-  %67 = and i32 %66, %64
-  %.not.i20.i = icmp eq i32 %67, 0
-  br i1 %.not.i20.i, label %68, label %69
+60:                                               ; preds = %16
+  %61 = add nsw i32 %1, -1
+  %62 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %63 = lshr i32 %61, 3
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = and i32 %61, 7
+  %69 = shl nuw nsw i32 1, %68
+  %70 = and i32 %69, %67
+  %.not.i20.i = icmp eq i32 %70, 0
+  br i1 %.not.i20.i, label %71, label %72
 
-68:                                               ; preds = %57
+71:                                               ; preds = %60
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-69:                                               ; preds = %57
-  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #7
+72:                                               ; preds = %60
+  %73 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #7
   br label %fastgetattr.exit
 
-71:                                               ; preds = %4
-  %72 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
+74:                                               ; preds = %4
+  %75 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %69, %68, %55, %53, %47, %44, %41, %38, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %56, %55 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ], [ %54, %53 ]
+fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -2241,6 +2247,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5

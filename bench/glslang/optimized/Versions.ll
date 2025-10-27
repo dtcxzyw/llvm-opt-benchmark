@@ -381,7 +381,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.288 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @switch.table._ZN7glslang14TParseVersions11getPreambleERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = private unnamed_addr constant [14 x ptr] [ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219], align 8
 @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1 = private unnamed_addr constant [14 x ptr] [ptr @.str.220, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.221, ptr @.str.222, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.233, ptr @.str.232], align 8
-@switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb = private unnamed_addr constant [8 x ptr] [ptr @.str.271, ptr @.str.272, ptr @.str.275, ptr @.str.273, ptr @.str.275, ptr @.str.275, ptr @.str.275, ptr @.str.274], align 8
+@switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb = private unnamed_addr constant [4 x ptr] [ptr @.str.271, ptr @.str.272, ptr @.str.273, ptr @.str.274], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang14TParseVersions27initializeExtensionBehaviorEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
@@ -4081,28 +4081,33 @@ define void @_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc(
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, %2
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %14
+  br i1 %.not, label %8, label %17
 
 8:                                                ; preds = %4
-  %switch.tableidx = add i32 %6, -1
-  %9 = icmp ult i32 %switch.tableidx, 8
-  br i1 %9, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %.split.i, label %_ZN7glslang11ProfileNameE8EProfile.exit
 
-switch.lookup:                                    ; preds = %8
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %10
+.split.i:                                         ; preds = %8
+  %11 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
+  %12 = icmp samesign ult i32 %11, 4
+  br i1 %12, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit
+
+switch.lookup:                                    ; preds = %.split.i
+  %13 = zext nneg i32 %11 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit
 
-_ZN7glslang11ProfileNameE8EProfile.exit:          ; preds = %8, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %8 ]
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %13 = load ptr, ptr %12, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %13(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %3, ptr noundef nonnull %.0.i) #15
-  br label %14
+_ZN7glslang11ProfileNameE8EProfile.exit:          ; preds = %8, %.split.i, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %.split.i ], [ @.str.275, %8 ]
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 344
+  %16 = load ptr, ptr %15, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %16(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %3, ptr noundef nonnull %.0.i) #15
+  br label %17
 
-14:                                               ; preds = %_ZN7glslang11ProfileNameE8EProfile.exit, %4
+17:                                               ; preds = %_ZN7glslang11ProfileNameE8EProfile.exit, %4
   ret void
 }
 
@@ -4703,29 +4708,34 @@ define void @_ZN7glslang14TParseVersions17requireNotRemovedERKNS_10TSourceLocEii
   %11 = load i32, ptr %10, align 8
   %.not5 = icmp slt i32 %11, %3
   %or.cond = select i1 %.not, i1 true, i1 %.not5
-  br i1 %or.cond, label %19, label %12
+  br i1 %or.cond, label %22, label %12
 
 12:                                               ; preds = %5
-  %switch.tableidx = add i32 %8, -1
-  %13 = icmp ult i32 %switch.tableidx, 8
-  br i1 %13, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %.split.i, label %_ZN7glslang11ProfileNameE8EProfile.exit
 
-switch.lookup:                                    ; preds = %12
-  %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %14
+.split.i:                                         ; preds = %12
+  %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
+  %16 = icmp samesign ult i32 %15, 4
+  br i1 %16, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit
+
+switch.lookup:                                    ; preds = %.split.i
+  %17 = zext nneg i32 %15 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit
 
-_ZN7glslang11ProfileNameE8EProfile.exit:          ; preds = %12, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %12 ]
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 60, ptr noundef nonnull @.str.245, ptr noundef nonnull %.0.i, i32 noundef %3) #15
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  %18 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %18(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.246, ptr noundef %4, ptr noundef nonnull %6) #15
-  br label %19
+_ZN7glslang11ProfileNameE8EProfile.exit:          ; preds = %12, %.split.i, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %.split.i ], [ @.str.275, %12 ]
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 60, ptr noundef nonnull @.str.245, ptr noundef nonnull %.0.i, i32 noundef %3) #15
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 344
+  %21 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %21(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.246, ptr noundef %4, ptr noundef nonnull %6) #15
+  br label %22
 
-19:                                               ; preds = %_ZN7glslang11ProfileNameE8EProfile.exit, %5
+22:                                               ; preds = %_ZN7glslang11ProfileNameE8EProfile.exit, %5
   ret void
 }
 
@@ -7371,43 +7381,48 @@ define void @_ZN7glslang14TParseVersions20explicitFloat64CheckERKNS_10TSourceLoc
   br i1 %.not.i, label %13, label %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
 
 13:                                               ; preds = %6
-  %switch.tableidx = add i32 %11, -1
-  %14 = icmp ult i32 %switch.tableidx, 8
-  br i1 %14, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
+  %14 = call range(i32 0, 31) i32 @llvm.ctpop.i32(i32 %11)
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
-switch.lookup:                                    ; preds = %13
-  %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %15
+.split.i.i:                                       ; preds = %13
+  %16 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %11, i1 true)
+  %17 = icmp samesign ult i32 %16, 4
+  br i1 %17, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %18 = zext nneg i32 %16 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
-_ZN7glslang11ProfileNameE8EProfile.exit.i:        ; preds = %13, %switch.lookup
-  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %13 ]
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  %18 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %18(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %2, ptr noundef nonnull %.0.i.i) #15
+_ZN7glslang11ProfileNameE8EProfile.exit.i:        ; preds = %13, %.split.i.i, %switch.lookup
+  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %.split.i.i ], [ @.str.275, %13 ]
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 344
+  %21 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %21(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %2, ptr noundef nonnull %.0.i.i) #15
   %.pre = load i32, ptr %10, align 4
   %.pre10 = and i32 %.pre, 6
-  %19 = icmp eq i32 %.pre10, 0
+  %22 = icmp eq i32 %.pre10, 0
   br label %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
 
 _ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit: ; preds = %6, %_ZN7glslang11ProfileNameE8EProfile.exit.i
-  %.pre-phi = phi i1 [ false, %6 ], [ %19, %_ZN7glslang11ProfileNameE8EProfile.exit.i ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp sgt i32 %21, 399
-  %or.cond = select i1 %.pre-phi, i1 true, i1 %22
-  br i1 %or.cond, label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit, label %23
+  %.pre-phi = phi i1 [ false, %6 ], [ %22, %_ZN7glslang11ProfileNameE8EProfile.exit.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp sgt i32 %24, 399
+  %or.cond = select i1 %.pre-phi, i1 true, i1 %25
+  br i1 %or.cond, label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit, label %26
 
-23:                                               ; preds = %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 344
-  %26 = load ptr, ptr %25, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %26(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.239, ptr noundef %2, ptr noundef nonnull @.str.240) #15
+26:                                               ; preds = %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 344
+  %29 = load ptr, ptr %28, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %29(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.239, ptr noundef %2, ptr noundef nonnull @.str.240) #15
   br label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit
 
-_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit: ; preds = %23, %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit, %4
+_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit: ; preds = %26, %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit, %4
   ret void
 }
 
@@ -7444,43 +7459,48 @@ define void @_ZN7glslang14TParseVersions18float16OpaqueCheckERKNS_10TSourceLocEP
   br i1 %.not.i, label %12, label %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
 
 12:                                               ; preds = %5
-  %switch.tableidx = add i32 %10, -1
-  %13 = icmp ult i32 %switch.tableidx, 8
-  br i1 %13, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
+  %13 = tail call range(i32 0, 31) i32 @llvm.ctpop.i32(i32 %10)
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %.split.i.i, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
-switch.lookup:                                    ; preds = %12
-  %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %14
+.split.i.i:                                       ; preds = %12
+  %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
+  %16 = icmp samesign ult i32 %15, 4
+  br i1 %16, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %17 = zext nneg i32 %15 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
-_ZN7glslang11ProfileNameE8EProfile.exit.i:        ; preds = %12, %switch.lookup
-  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %12 ]
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 344
-  %17 = load ptr, ptr %16, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %17(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %2, ptr noundef nonnull %.0.i.i) #15
+_ZN7glslang11ProfileNameE8EProfile.exit.i:        ; preds = %12, %.split.i.i, %switch.lookup
+  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %.split.i.i ], [ @.str.275, %12 ]
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 344
+  %20 = load ptr, ptr %19, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %20(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %2, ptr noundef nonnull %.0.i.i) #15
   %.pre = load i32, ptr %9, align 4
   %.pre10 = and i32 %.pre, 6
-  %18 = icmp eq i32 %.pre10, 0
+  %21 = icmp eq i32 %.pre10, 0
   br label %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
 
 _ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit: ; preds = %5, %_ZN7glslang11ProfileNameE8EProfile.exit.i
-  %.pre-phi = phi i1 [ false, %5 ], [ %18, %_ZN7glslang11ProfileNameE8EProfile.exit.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, 399
-  %or.cond = select i1 %.pre-phi, i1 true, i1 %21
-  br i1 %or.cond, label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit, label %22
+  %.pre-phi = phi i1 [ false, %5 ], [ %21, %_ZN7glslang11ProfileNameE8EProfile.exit.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp sgt i32 %23, 399
+  %or.cond = select i1 %.pre-phi, i1 true, i1 %24
+  br i1 %or.cond, label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit, label %25
 
-22:                                               ; preds = %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 344
-  %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %25(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.239, ptr noundef %2, ptr noundef nonnull @.str.240) #15
+25:                                               ; preds = %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 344
+  %28 = load ptr, ptr %27, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %28(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.239, ptr noundef %2, ptr noundef nonnull @.str.240) #15
   br label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit
 
-_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit: ; preds = %22, %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit, %4
+_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit: ; preds = %25, %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit, %4
   ret void
 }
 
@@ -7570,43 +7590,48 @@ define void @_ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb(ptr 
   br i1 %.not.i, label %13, label %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
 
 13:                                               ; preds = %6
-  %switch.tableidx = add i32 %11, -1
-  %14 = icmp ult i32 %switch.tableidx, 8
-  br i1 %14, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
+  %14 = call range(i32 0, 31) i32 @llvm.ctpop.i32(i32 %11)
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %.split.i.i, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
-switch.lookup:                                    ; preds = %13
-  %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %15
+.split.i.i:                                       ; preds = %13
+  %16 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %11, i1 true)
+  %17 = icmp samesign ult i32 %16, 4
+  br i1 %17, label %switch.lookup, label %_ZN7glslang11ProfileNameE8EProfile.exit.i
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %18 = zext nneg i32 %16 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
-_ZN7glslang11ProfileNameE8EProfile.exit.i:        ; preds = %13, %switch.lookup
-  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %13 ]
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  %18 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %18(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %2, ptr noundef nonnull %.0.i.i) #15
+_ZN7glslang11ProfileNameE8EProfile.exit.i:        ; preds = %13, %.split.i.i, %switch.lookup
+  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.275, %.split.i.i ], [ @.str.275, %13 ]
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 344
+  %21 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %21(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.236, ptr noundef %2, ptr noundef nonnull %.0.i.i) #15
   %.pre = load i32, ptr %10, align 4
   %.pre10 = and i32 %.pre, 6
-  %19 = icmp eq i32 %.pre10, 0
+  %22 = icmp eq i32 %.pre10, 0
   br label %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
 
 _ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit: ; preds = %6, %_ZN7glslang11ProfileNameE8EProfile.exit.i
-  %.pre-phi = phi i1 [ false, %6 ], [ %19, %_ZN7glslang11ProfileNameE8EProfile.exit.i ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp sgt i32 %21, 399
-  %or.cond = select i1 %.pre-phi, i1 true, i1 %22
-  br i1 %or.cond, label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit, label %23
+  %.pre-phi = phi i1 [ false, %6 ], [ %22, %_ZN7glslang11ProfileNameE8EProfile.exit.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp sgt i32 %24, 399
+  %or.cond = select i1 %.pre-phi, i1 true, i1 %25
+  br i1 %or.cond, label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit, label %26
 
-23:                                               ; preds = %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 344
-  %26 = load ptr, ptr %25, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %26(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.239, ptr noundef %2, ptr noundef nonnull @.str.240) #15
+26:                                               ; preds = %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 344
+  %29 = load ptr, ptr %28, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %29(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.239, ptr noundef %2, ptr noundef nonnull @.str.240) #15
   br label %_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit
 
-_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit: ; preds = %23, %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit, %4
+_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit: ; preds = %26, %_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc.exit, %4
   ret void
 }
 
@@ -9986,26 +10011,32 @@ _ZSt34__uninitialized_move_if_noexcept_aIPNSt7__cxx1112basic_stringIcSt11char_tr
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #12
+declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
@@ -10014,10 +10045,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -10030,8 +10061,8 @@ attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }

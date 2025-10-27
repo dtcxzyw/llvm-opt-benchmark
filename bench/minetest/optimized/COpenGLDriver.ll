@@ -11548,55 +11548,55 @@ for.body12:                                       ; preds = %if.end292, %for.con
   %shl = shl nuw i32 1, %f.0409
   %16 = load i32, ptr %EnableProps, align 8, !tbaa !405
   %and = and i32 %16, %shl
-  %tobool13.not = icmp eq i32 %and, 0
-  br i1 %tobool13.not, label %if.end292, label %if.then14
+  %tobool13.not.not = icmp eq i32 %and, 0
+  br i1 %tobool13.not.not, label %if.end292, label %if.then14.split
 
-if.then14:                                        ; preds = %for.body12
-  switch i32 %shl, label %if.end292 [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb18
-    i32 4, label %sw.bb27
-    i32 8, label %sw.bb38
-    i32 16, label %sw.bb49
-    i32 32, label %sw.bb52
-    i32 64, label %sw.bb63
-    i32 128, label %sw.bb74
-    i32 256, label %for.body90.preheader
-    i32 512, label %for.body109.preheader
-    i32 1024, label %for.body132.preheader
-    i32 2048, label %sw.bb150
-    i32 4096, label %sw.bb161
-    i32 8192, label %for.body177.preheader
-    i32 16384, label %sw.bb236
-    i32 32768, label %sw.bb239
-    i32 65536, label %sw.bb249
-    i32 131072, label %sw.bb261
-    i32 262144, label %sw.bb272
-    i32 1048576, label %sw.bb284
-    i32 524288, label %sw.bb287
+if.then14.split:                                  ; preds = %for.body12
+  switch i32 %f.0409, label %if.end292 [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb18
+    i32 2, label %sw.bb27
+    i32 3, label %sw.bb38
+    i32 4, label %sw.bb49
+    i32 5, label %sw.bb52
+    i32 6, label %sw.bb63
+    i32 7, label %sw.bb74
+    i32 8, label %for.body90.preheader
+    i32 9, label %for.body109.preheader
+    i32 10, label %for.body132.preheader
+    i32 11, label %sw.bb150
+    i32 12, label %sw.bb161
+    i32 13, label %for.body177.preheader
+    i32 14, label %sw.bb236
+    i32 15, label %sw.bb239
+    i32 16, label %sw.bb249
+    i32 17, label %sw.bb261
+    i32 18, label %sw.bb272
+    i32 20, label %sw.bb284
+    i32 19, label %sw.bb287
   ]
 
-for.body177.preheader:                            ; preds = %if.then14
+for.body177.preheader:                            ; preds = %if.then14.split
   %17 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
   %tobool181.not = icmp eq i8 %17, 0
   br i1 %tobool181.not, label %for.inc233, label %if.then182
 
-for.body132.preheader:                            ; preds = %if.then14
+for.body132.preheader:                            ; preds = %if.then14.split
   %18 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
   %tobool136.not = icmp eq i8 %18, 0
   br i1 %tobool136.not, label %for.inc147, label %if.then137
 
-for.body109.preheader:                            ; preds = %if.then14
+for.body109.preheader:                            ; preds = %if.then14.split
   %19 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
   %tobool113.not = icmp eq i8 %19, 0
   br i1 %tobool113.not, label %for.inc124, label %if.then114
 
-for.body90.preheader:                             ; preds = %if.then14
+for.body90.preheader:                             ; preds = %if.then14.split
   %20 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
   %tobool91.not = icmp eq i8 %20, 0
   br i1 %tobool91.not, label %for.inc101, label %if.then92
 
-sw.bb:                                            ; preds = %if.then14
+sw.bb:                                            ; preds = %if.then14.split
   %bf.load = load i16, ptr %UseMipMaps, align 8
   %21 = and i16 %bf.load, 1
   %bf.load16 = load i16, ptr %UseMipMaps267, align 8
@@ -11605,7 +11605,7 @@ sw.bb:                                            ; preds = %if.then14
   store i16 %bf.set, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb18:                                          ; preds = %if.then14
+sw.bb18:                                          ; preds = %if.then14.split
   %bf.load20 = load i16, ptr %UseMipMaps, align 8
   %.lobit398 = and i16 %bf.load20, 2
   %bf.load24 = load i16, ptr %UseMipMaps267, align 8
@@ -11614,7 +11614,7 @@ sw.bb18:                                          ; preds = %if.then14
   store i16 %bf.set26, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb27:                                          ; preds = %if.then14
+sw.bb27:                                          ; preds = %if.then14.split
   %bf.load29 = load i16, ptr %UseMipMaps, align 8
   %.lobit397 = and i16 %bf.load29, 4
   %bf.load34 = load i16, ptr %UseMipMaps267, align 8
@@ -11623,7 +11623,7 @@ sw.bb27:                                          ; preds = %if.then14
   store i16 %bf.set37, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb38:                                          ; preds = %if.then14
+sw.bb38:                                          ; preds = %if.then14.split
   %bf.load40 = load i16, ptr %UseMipMaps, align 8
   %.lobit396 = and i16 %bf.load40, 8
   %bf.load45 = load i16, ptr %UseMipMaps267, align 8
@@ -11632,12 +11632,12 @@ sw.bb38:                                          ; preds = %if.then14
   store i16 %bf.set48, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb49:                                          ; preds = %if.then14
+sw.bb49:                                          ; preds = %if.then14.split
   %22 = load i8, ptr %ZBuffer, align 8, !tbaa !406
   store i8 %22, ptr %ZBuffer51, align 8, !tbaa !121
   br label %if.end292
 
-sw.bb52:                                          ; preds = %if.then14
+sw.bb52:                                          ; preds = %if.then14.split
   %bf.load54 = load i16, ptr %UseMipMaps, align 8
   %bf.clear56 = and i16 %bf.load54, 48
   %bf.load59 = load i16, ptr %UseMipMaps267, align 8
@@ -11646,7 +11646,7 @@ sw.bb52:                                          ; preds = %if.then14
   store i16 %bf.set62, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb63:                                          ; preds = %if.then14
+sw.bb63:                                          ; preds = %if.then14.split
   %bf.load65 = load i16, ptr %UseMipMaps, align 8
   %.lobit395 = and i16 %bf.load65, 64
   %bf.load70 = load i16, ptr %UseMipMaps267, align 8
@@ -11655,7 +11655,7 @@ sw.bb63:                                          ; preds = %if.then14
   store i16 %bf.set73, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb74:                                          ; preds = %if.then14
+sw.bb74:                                          ; preds = %if.then14.split
   %bf.load76 = load i16, ptr %UseMipMaps, align 8
   %.lobit394 = and i16 %bf.load76, 128
   %bf.load81 = load i16, ptr %UseMipMaps267, align 8
@@ -11769,7 +11769,7 @@ if.then137.3:                                     ; preds = %for.inc147.2
   store i8 %43, ptr %AnisotropicFilter145.3, align 4, !tbaa !116
   br label %if.end292
 
-sw.bb150:                                         ; preds = %if.then14
+sw.bb150:                                         ; preds = %if.then14.split
   %bf.load152 = load i16, ptr %UseMipMaps, align 8
   %.lobit393 = and i16 %bf.load152, 256
   %bf.load157 = load i16, ptr %UseMipMaps267, align 8
@@ -11778,7 +11778,7 @@ sw.bb150:                                         ; preds = %if.then14
   store i16 %bf.set160, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb161:                                         ; preds = %if.then14
+sw.bb161:                                         ; preds = %if.then14.split
   %bf.load163 = load i16, ptr %UseMipMaps, align 8
   %.lobit392 = and i16 %bf.load163, 512
   %bf.load168 = load i16, ptr %UseMipMaps267, align 8
@@ -11878,12 +11878,12 @@ if.then182.3:                                     ; preds = %for.inc233.2
   store i16 %bf.set231.3, ptr %TextureWrapU193.3, align 8
   br label %if.end292
 
-sw.bb236:                                         ; preds = %if.then14
+sw.bb236:                                         ; preds = %if.then14.split
   %51 = load i8, ptr %AntiAliasing, align 1, !tbaa !407
   store i8 %51, ptr %AntiAliasing238, align 1, !tbaa !122
   br label %if.end292
 
-sw.bb239:                                         ; preds = %if.then14
+sw.bb239:                                         ; preds = %if.then14.split
   %bf.load241 = load i16, ptr %BlendOperation, align 2
   %bf.cast243 = and i16 %bf.load241, 15
   %bf.load245 = load i16, ptr %BlendOperation278, align 2
@@ -11892,7 +11892,7 @@ sw.bb239:                                         ; preds = %if.then14
   store i16 %bf.set248, ptr %BlendOperation278, align 2
   br label %if.end292
 
-sw.bb249:                                         ; preds = %if.then14
+sw.bb249:                                         ; preds = %if.then14.split
   %bf.load251 = load i16, ptr %BlendOperation, align 2
   %bf.cast254 = and i16 %bf.load251, 112
   %bf.load256 = load i16, ptr %BlendOperation278, align 2
@@ -11901,7 +11901,7 @@ sw.bb249:                                         ; preds = %if.then14
   store i16 %bf.set260, ptr %BlendOperation278, align 2
   br label %if.end292
 
-sw.bb261:                                         ; preds = %if.then14
+sw.bb261:                                         ; preds = %if.then14.split
   %bf.load263 = load i16, ptr %UseMipMaps, align 8
   %.lobit = and i16 %bf.load263, 1024
   %bf.load268 = load i16, ptr %UseMipMaps267, align 8
@@ -11910,7 +11910,7 @@ sw.bb261:                                         ; preds = %if.then14
   store i16 %bf.set271, ptr %UseMipMaps267, align 8
   br label %if.end292
 
-sw.bb272:                                         ; preds = %if.then14
+sw.bb272:                                         ; preds = %if.then14.split
   %bf.load274 = load i16, ptr %BlendOperation, align 2
   %bf.clear276 = and i16 %bf.load274, 1920
   %bf.load279 = load i16, ptr %BlendOperation278, align 2
@@ -11919,17 +11919,17 @@ sw.bb272:                                         ; preds = %if.then14
   store i16 %bf.set283, ptr %BlendOperation278, align 2
   br label %if.end292
 
-sw.bb284:                                         ; preds = %if.then14
+sw.bb284:                                         ; preds = %if.then14.split
   %52 = load float, ptr %BlendFactor, align 4, !tbaa !408
   store float %52, ptr %BlendFactor286, align 4, !tbaa !409
   br label %if.end292
 
-sw.bb287:                                         ; preds = %if.then14
+sw.bb287:                                         ; preds = %if.then14.split
   %53 = load <2 x float>, ptr %PolygonOffsetDepthBias, align 8, !tbaa !103
   store <2 x float> %53, ptr %PolygonOffsetDepthBias289, align 8, !tbaa !103
   br label %if.end292
 
-if.end292:                                        ; preds = %sw.bb287, %sw.bb284, %sw.bb272, %sw.bb261, %sw.bb249, %sw.bb239, %sw.bb236, %if.then182.3, %for.inc233.2, %sw.bb161, %sw.bb150, %if.then137.3, %for.inc147.2, %if.then114.3, %for.inc124.2, %if.then92.3, %for.inc101.2, %sw.bb74, %sw.bb63, %sw.bb52, %sw.bb49, %sw.bb38, %sw.bb27, %sw.bb18, %sw.bb, %if.then14, %for.body12
+if.end292:                                        ; preds = %sw.bb287, %sw.bb284, %sw.bb272, %sw.bb261, %sw.bb249, %sw.bb239, %sw.bb236, %if.then182.3, %for.inc233.2, %sw.bb161, %sw.bb150, %if.then137.3, %for.inc147.2, %if.then114.3, %for.inc124.2, %if.then92.3, %for.inc101.2, %sw.bb74, %sw.bb63, %sw.bb52, %sw.bb49, %sw.bb38, %sw.bb27, %sw.bb18, %sw.bb, %if.then14.split, %for.body12
   %inc294 = add nuw nsw i32 %f.0409, 1
   %exitcond432.not = icmp eq i32 %inc294, 32
   br i1 %exitcond432.not, label %for.cond297.preheader, label %for.body12, !llvm.loop !410

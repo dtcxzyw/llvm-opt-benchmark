@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [44 x i8] c"Haptic: Unable to get device's features: %s\00", align 1
 @.str.14 = private unnamed_addr constant [29 x i8] c"Haptic: Unknown effect type.\00", align 1
 @.str.15 = private unnamed_addr constant [36 x i8] c"Haptic: Unsupported direction type.\00", align 1
-@switch.table.SDL_SYS_ToFFEffect = private unnamed_addr constant [8 x i16] [i16 83, i16 85, i16 poison, i16 86, i16 poison, i16 poison, i16 poison, i16 84], align 2
+@switch.table.SDL_SYS_ToFFEffect = private unnamed_addr constant [5 x i16] [i16 90, i16 88, i16 89, i16 91, i16 92], align 2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticInit() local_unnamed_addr #0 {
@@ -851,382 +851,383 @@ declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_add
 define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeonly initializes((0, 48)) %0, ptr noundef readonly %1) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %3 = load i16, ptr %1, align 8
-  switch i16 %3, label %227 [
-    i16 1, label %4
-    i16 2, label %44
-    i16 4, label %44
-    i16 8, label %44
-    i16 16, label %44
-    i16 32, label %44
-    i16 128, label %104
-    i16 256, label %104
-    i16 512, label %104
-    i16 1024, label %104
-    i16 64, label %166
-    i16 2048, label %209
+  %4 = zext i16 %3 to i32
+  %5 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %233
+
+.split:                                           ; preds = %2
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4, i1 true)
+  switch i32 %7, label %233 [
+    i32 0, label %8
+    i32 1, label %48
+    i32 2, label %48
+    i32 3, label %48
+    i32 4, label %48
+    i32 5, label %48
+    i32 7, label %109
+    i32 8, label %109
+    i32 9, label %109
+    i32 10, label %109
+    i32 6, label %172
+    i32 11, label %215
   ]
 
-4:                                                ; preds = %2
+8:                                                ; preds = %.split
   store i16 82, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %5, ptr noundef nonnull %6)
-  br i1 %7, label %8, label %229
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %9, ptr noundef nonnull %10)
+  br i1 %11, label %12, label %235
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, -1
-  %spec.select224 = tail call i32 @llvm.umin.i32(i32 %10, i32 32767)
-  %spec.select = trunc nuw nsw i32 %spec.select224 to i16
-  %12 = select i1 %11, i16 0, i16 %spec.select
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %12, ptr %13, align 2
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i16, ptr %14, align 4
-  %spec.select204 = tail call i16 @llvm.umin.i16(i16 %15, i16 32767)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %spec.select204, ptr %16, align 2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %18 = load i16, ptr %17, align 2
-  %.not.i = icmp eq i16 %18, 0
-  %19 = add i16 %18, 303
-  %spec.select.i = select i1 %.not.i, i16 0, i16 %19
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %spec.select.i, ptr %20, align 2
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %22 = load i16, ptr %21, align 4
-  %23 = tail call i16 @llvm.umin.i16(i16 %22, i16 32767)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %23, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %26 = load i16, ptr %25, align 2
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %29 = load i16, ptr %28, align 4
-  %30 = tail call i16 @llvm.umin.i16(i16 %29, i16 32767)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %30, ptr %31, align 2
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %33 = load i16, ptr %32, align 2
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, -1
+  %spec.select226 = tail call i32 @llvm.umin.i32(i32 %14, i32 32767)
+  %spec.select = trunc nuw nsw i32 %spec.select226 to i16
+  %16 = select i1 %15, i16 0, i16 %spec.select
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %16, ptr %17, align 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i16, ptr %18, align 4
+  %spec.select204 = tail call i16 @llvm.umin.i16(i16 %19, i16 32767)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %spec.select204, ptr %20, align 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %22 = load i16, ptr %21, align 2
+  %.not.i = icmp eq i16 %22, 0
+  %23 = add i16 %22, 303
+  %spec.select.i = select i1 %.not.i, i16 0, i16 %23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i16 %spec.select.i, ptr %24, align 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %26 = load i16, ptr %25, align 4
+  %27 = tail call i16 @llvm.umin.i16(i16 %26, i16 32767)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 %27, ptr %28, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %30 = load i16, ptr %29, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %33 = load i16, ptr %32, align 4
   %34 = tail call i16 @llvm.umin.i16(i16 %33, i16 32767)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %34, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %37 = load i16, ptr %36, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %34, ptr %35, align 2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %37 = load i16, ptr %36, align 2
   %38 = tail call i16 @llvm.umin.i16(i16 %37, i16 32767)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %38, ptr %39, align 2
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %41 = load i16, ptr %40, align 2
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %38, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %41 = load i16, ptr %40, align 4
   %42 = tail call i16 @llvm.umin.i16(i16 %41, i16 32767)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %42, ptr %43, align 8
-  br label %229
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %42, ptr %43, align 2
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 38
+  %45 = load i16, ptr %44, align 2
+  %46 = tail call i16 @llvm.umin.i16(i16 %45, i16 32767)
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %46, ptr %47, align 8
+  br label %235
 
-44:                                               ; preds = %2, %2, %2, %2, %2
+48:                                               ; preds = %.split, %.split, %.split, %.split, %.split
   store i16 81, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %47 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %45, ptr noundef nonnull %46)
-  br i1 %47, label %48, label %229
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %51 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %49, ptr noundef nonnull %50)
+  br i1 %51, label %52, label %235
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, -1
-  %spec.select205223 = tail call i32 @llvm.umin.i32(i32 %50, i32 32767)
-  %spec.select205 = trunc nuw nsw i32 %spec.select205223 to i16
-  %52 = select i1 %51, i16 0, i16 %spec.select205
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %52, ptr %53, align 2
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %55 = load i16, ptr %54, align 4
-  %spec.select206 = tail call i16 @llvm.umin.i16(i16 %55, i16 32767)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %spec.select206, ptr %56, align 2
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %58 = load i16, ptr %57, align 2
-  %.not.i214 = icmp eq i16 %58, 0
-  %59 = add i16 %58, 303
-  %spec.select.i215 = select i1 %.not.i214, i16 0, i16 %59
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %spec.select.i215, ptr %60, align 2
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %62 = load i16, ptr %61, align 4
-  %63 = tail call i16 @llvm.umin.i16(i16 %62, i16 32767)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %63, ptr %64, align 2
-  %65 = load i16, ptr %1, align 4
-  switch i16 %65, label %71 [
-    i16 2, label %.sink.split
-    i16 4, label %66
-    i16 8, label %67
-    i16 16, label %68
-    i16 32, label %69
-  ]
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, -1
+  %spec.select205225 = tail call i32 @llvm.umin.i32(i32 %54, i32 32767)
+  %spec.select205 = trunc nuw nsw i32 %spec.select205225 to i16
+  %56 = select i1 %55, i16 0, i16 %spec.select205
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %56, ptr %57, align 2
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %59 = load i16, ptr %58, align 4
+  %spec.select206 = tail call i16 @llvm.umin.i16(i16 %59, i16 32767)
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %spec.select206, ptr %60, align 2
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %62 = load i16, ptr %61, align 2
+  %.not.i216 = icmp eq i16 %62, 0
+  %63 = add i16 %62, 303
+  %spec.select.i217 = select i1 %.not.i216, i16 0, i16 %63
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i16 %spec.select.i217, ptr %64, align 2
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %66 = load i16, ptr %65, align 4
+  %67 = tail call i16 @llvm.umin.i16(i16 %66, i16 32767)
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 %67, ptr %68, align 2
+  %69 = load i16, ptr %1, align 4
+  %70 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %69)
+  %71 = icmp eq i16 %70, 1
+  br i1 %71, label %.split215, label %76
 
-66:                                               ; preds = %48
-  br label %.sink.split
+.split215:                                        ; preds = %52
+  %72 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %69, i1 true)
+  %switch.tableidx = add nsw i16 %72, -1
+  %73 = icmp ult i16 %switch.tableidx, 5
+  br i1 %73, label %switch.lookup, label %76
 
-67:                                               ; preds = %48
-  br label %.sink.split
-
-68:                                               ; preds = %48
-  br label %.sink.split
-
-69:                                               ; preds = %48
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %48, %67, %69, %68, %66
-  %.sink = phi i16 [ 88, %66 ], [ 91, %68 ], [ 92, %69 ], [ 89, %67 ], [ 90, %48 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sink, ptr %70, align 8
-  br label %71
-
-71:                                               ; preds = %.sink.split, %48
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %73 = load i16, ptr %72, align 2
-  %spec.select207 = tail call i16 @llvm.umin.i16(i16 %73, i16 32767)
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %spec.select207, ptr %74, align 2
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %76 = load i16, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %76, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %79 = load i16, ptr %78, align 2
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %79, ptr %80, align 2
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %82 = load i16, ptr %81, align 4
-  %83 = zext i16 %82 to i32
-  %84 = shl nuw i32 %83, 16
-  %85 = udiv i32 %84, 36000
-  %86 = trunc i32 %85 to i16
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %86, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %89 = load i16, ptr %88, align 2
-  %90 = tail call i16 @llvm.umin.i16(i16 %89, i16 32767)
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %90, ptr %91, align 2
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %93 = load i16, ptr %92, align 4
-  %94 = tail call i16 @llvm.umin.i16(i16 %93, i16 32767)
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i16 %94, ptr %95, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %97 = load i16, ptr %96, align 2
-  %98 = tail call i16 @llvm.umin.i16(i16 %97, i16 32767)
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  store i16 %98, ptr %99, align 2
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %101 = load i16, ptr %100, align 4
-  %102 = tail call i16 @llvm.umin.i16(i16 %101, i16 32767)
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %102, ptr %103, align 8
-  br label %229
-
-104:                                              ; preds = %2, %2, %2, %2
-  %105 = add nsw i16 %3, -128
-  %106 = tail call i16 @llvm.fshl.i16(i16 %105, i16 %105, i16 9)
-  %107 = icmp ult i16 %106, 8
-  %switch.maskindex = trunc i16 %106 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %107, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %109
-
-switch.lookup:                                    ; preds = %104
-  %108 = zext nneg i16 %106 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.SDL_SYS_ToFFEffect, i64 %108
+switch.lookup:                                    ; preds = %.split215
+  %74 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.SDL_SYS_ToFFEffect, i64 %74
   %switch.load = load i16, ptr %switch.gep, align 2
-  store i16 %switch.load, ptr %0, align 8
-  br label %109
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %switch.load, ptr %75, align 8
+  br label %76
 
-109:                                              ; preds = %104, %switch.lookup
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %112 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %110, ptr noundef nonnull %111)
-  br i1 %112, label %113, label %229
+76:                                               ; preds = %.split215, %switch.lookup, %52
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %78 = load i16, ptr %77, align 2
+  %spec.select207 = tail call i16 @llvm.umin.i16(i16 %78, i16 32767)
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %spec.select207, ptr %79, align 2
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %81 = load i16, ptr %80, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %81, ptr %82, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %84 = load i16, ptr %83, align 2
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %84, ptr %85, align 2
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %87 = load i16, ptr %86, align 4
+  %88 = zext i16 %87 to i32
+  %89 = shl nuw i32 %88, 16
+  %90 = udiv i32 %89, 36000
+  %91 = trunc i32 %90 to i16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %91, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 38
+  %94 = load i16, ptr %93, align 2
+  %95 = tail call i16 @llvm.umin.i16(i16 %94, i16 32767)
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  store i16 %95, ptr %96, align 2
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %98 = load i16, ptr %97, align 4
+  %99 = tail call i16 @llvm.umin.i16(i16 %98, i16 32767)
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i16 %99, ptr %100, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %102 = load i16, ptr %101, align 2
+  %103 = tail call i16 @llvm.umin.i16(i16 %102, i16 32767)
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  store i16 %103, ptr %104, align 2
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %106 = load i16, ptr %105, align 4
+  %107 = tail call i16 @llvm.umin.i16(i16 %106, i16 32767)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %107, ptr %108, align 8
+  br label %235
 
-113:                                              ; preds = %109
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp eq i32 %115, -1
-  %spec.select208222 = tail call i32 @llvm.umin.i32(i32 %115, i32 32767)
-  %spec.select208 = trunc nuw nsw i32 %spec.select208222 to i16
-  %117 = select i1 %116, i16 0, i16 %spec.select208
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %117, ptr %118, align 2
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %120 = load i16, ptr %119, align 4
-  %spec.select209 = tail call i16 @llvm.umin.i16(i16 %120, i16 32767)
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %spec.select209, ptr %121, align 2
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %123 = load i16, ptr %122, align 2
-  %.not.i216 = icmp eq i16 %123, 0
-  %124 = add i16 %123, 303
-  %spec.select.i217 = select i1 %.not.i216, i16 0, i16 %124
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %spec.select.i217, ptr %125, align 2
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %127 = load i16, ptr %126, align 4
-  %128 = tail call i16 @llvm.umin.i16(i16 %127, i16 32767)
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %128, ptr %129, align 2
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %131 = load i16, ptr %130, align 2
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %131, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %134 = load i16, ptr %133, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 18
+109:                                              ; preds = %.split, %.split, %.split, %.split
+  %110 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %3)
+  %111 = icmp eq i16 %110, 1
+  br i1 %111, label %.split214, label %115
+
+.split214:                                        ; preds = %109
+  %112 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %3, i1 true)
+  %switch.tableidx230 = add nsw i16 %112, -7
+  %113 = icmp ult i16 %switch.tableidx230, 4
+  br i1 %113, label %switch.lookup231, label %115
+
+switch.lookup231:                                 ; preds = %.split214
+  %114 = shl nuw nsw i16 %switch.tableidx230, 4
+  %switch.shiftamt = zext nneg i16 %114 to i64
+  %switch.downshift = lshr i64 23644267416453203, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i16
+  store i16 %switch.masked, ptr %0, align 8
+  br label %115
+
+115:                                              ; preds = %.split214, %switch.lookup231, %109
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %118 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %116, ptr noundef nonnull %117)
+  br i1 %118, label %119, label %235
+
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp eq i32 %121, -1
+  %spec.select208224 = tail call i32 @llvm.umin.i32(i32 %121, i32 32767)
+  %spec.select208 = trunc nuw nsw i32 %spec.select208224 to i16
+  %123 = select i1 %122, i16 0, i16 %spec.select208
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %123, ptr %124, align 2
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %126 = load i16, ptr %125, align 4
+  %spec.select209 = tail call i16 @llvm.umin.i16(i16 %126, i16 32767)
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %spec.select209, ptr %127, align 2
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %129 = load i16, ptr %128, align 2
+  %.not.i218 = icmp eq i16 %129, 0
+  %130 = add i16 %129, 303
+  %spec.select.i219 = select i1 %.not.i218, i16 0, i16 %130
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i16 %spec.select.i219, ptr %131, align 2
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %133 = load i16, ptr %132, align 4
+  %134 = tail call i16 @llvm.umin.i16(i16 %133, i16 32767)
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %134, ptr %135, align 2
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %137 = load i16, ptr %136, align 2
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %137, ptr %138, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %137, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %140 = load i16, ptr %139, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %140, ptr %141, align 2
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 54
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %143 = load i16, ptr %142, align 2
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %143, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %143, ptr %144, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %146 = load i16, ptr %145, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %146, ptr %147, align 2
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %149 = load i16, ptr %148, align 4
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i16 %149, ptr %150, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %152 = load i16, ptr %151, align 2
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 54
+  %149 = load i16, ptr %148, align 2
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %149, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %152 = load i16, ptr %151, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 %152, ptr %153, align 2
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %155 = load i16, ptr %154, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i16 %155, ptr %156, align 4
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %158 = load i16, ptr %157, align 2
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i16 %158, ptr %159, align 2
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %161 = load i16, ptr %160, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i16 %161, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 62
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %161, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %164 = load i16, ptr %163, align 2
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i16 %164, ptr %165, align 2
-  br label %229
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %167 = load i16, ptr %166, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i16 %167, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 62
+  %170 = load i16, ptr %169, align 2
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  store i16 %170, ptr %171, align 2
+  br label %235
 
-166:                                              ; preds = %2
+172:                                              ; preds = %.split
   store i16 87, ptr %0, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %169 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %167, ptr noundef nonnull %168)
-  br i1 %169, label %170, label %229
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %175 = tail call fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef %173, ptr noundef nonnull %174)
+  br i1 %175, label %176, label %235
 
-170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp eq i32 %172, -1
-  %spec.select210221 = tail call i32 @llvm.umin.i32(i32 %172, i32 32767)
-  %spec.select210 = trunc nuw nsw i32 %spec.select210221 to i16
-  %174 = select i1 %173, i16 0, i16 %spec.select210
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %174, ptr %175, align 2
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %177 = load i16, ptr %176, align 4
-  %spec.select211 = tail call i16 @llvm.umin.i16(i16 %177, i16 32767)
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %spec.select211, ptr %178, align 2
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %180 = load i16, ptr %179, align 2
-  %.not.i218 = icmp eq i16 %180, 0
-  %181 = add i16 %180, 303
-  %spec.select.i219 = select i1 %.not.i218, i16 0, i16 %181
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %spec.select.i219, ptr %182, align 2
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %184 = load i16, ptr %183, align 4
-  %185 = tail call i16 @llvm.umin.i16(i16 %184, i16 32767)
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %185, ptr %186, align 2
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %188 = load i16, ptr %187, align 2
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %188, ptr %189, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %191 = load i16, ptr %190, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 18
+176:                                              ; preds = %172
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp eq i32 %178, -1
+  %spec.select210223 = tail call i32 @llvm.umin.i32(i32 %178, i32 32767)
+  %spec.select210 = trunc nuw nsw i32 %spec.select210223 to i16
+  %180 = select i1 %179, i16 0, i16 %spec.select210
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %180, ptr %181, align 2
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %183 = load i16, ptr %182, align 4
+  %spec.select211 = tail call i16 @llvm.umin.i16(i16 %183, i16 32767)
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %spec.select211, ptr %184, align 2
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %186 = load i16, ptr %185, align 2
+  %.not.i220 = icmp eq i16 %186, 0
+  %187 = add i16 %186, 303
+  %spec.select.i221 = select i1 %.not.i220, i16 0, i16 %187
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i16 %spec.select.i221, ptr %188, align 2
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %190 = load i16, ptr %189, align 4
+  %191 = tail call i16 @llvm.umin.i16(i16 %190, i16 32767)
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %191, ptr %192, align 2
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %194 = load i16, ptr %193, align 2
-  %195 = tail call i16 @llvm.umin.i16(i16 %194, i16 32767)
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %195, ptr %196, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %198 = load i16, ptr %197, align 4
-  %199 = tail call i16 @llvm.umin.i16(i16 %198, i16 32767)
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %199, ptr %200, align 2
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %202 = load i16, ptr %201, align 2
-  %203 = tail call i16 @llvm.umin.i16(i16 %202, i16 32767)
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %203, ptr %204, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %206 = load i16, ptr %205, align 4
-  %207 = tail call i16 @llvm.umin.i16(i16 %206, i16 32767)
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %207, ptr %208, align 2
-  br label %229
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %194, ptr %195, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %197 = load i16, ptr %196, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %197, ptr %198, align 2
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %200 = load i16, ptr %199, align 2
+  %201 = tail call i16 @llvm.umin.i16(i16 %200, i16 32767)
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %201, ptr %202, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %204 = load i16, ptr %203, align 4
+  %205 = tail call i16 @llvm.umin.i16(i16 %204, i16 32767)
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %205, ptr %206, align 2
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 38
+  %208 = load i16, ptr %207, align 2
+  %209 = tail call i16 @llvm.umin.i16(i16 %208, i16 32767)
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %209, ptr %210, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %212 = load i16, ptr %211, align 4
+  %213 = tail call i16 @llvm.umin.i16(i16 %212, i16 32767)
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  store i16 %213, ptr %214, align 2
+  br label %235
 
-209:                                              ; preds = %2
+215:                                              ; preds = %.split
   store i16 80, ptr %0, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 16384, ptr %210, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %212 = load i32, ptr %211, align 4
-  %213 = icmp eq i32 %212, -1
-  %spec.select212220 = tail call i32 @llvm.umin.i32(i32 %212, i32 32767)
-  %spec.select212 = trunc nuw nsw i32 %spec.select212220 to i16
-  %214 = select i1 %213, i16 0, i16 %spec.select212
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %214, ptr %215, align 2
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 0, ptr %216, align 2
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 0, ptr %217, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %219 = load i16, ptr %218, align 4
-  %220 = tail call i16 @llvm.smax.i16(i16 %219, i16 -1)
-  %spec.select213 = shl i16 %220, 1
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %spec.select213, ptr %221, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %223 = load i16, ptr %222, align 2
-  %224 = tail call i16 @llvm.smax.i16(i16 %223, i16 -1)
-  %225 = shl i16 %224, 1
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %225, ptr %226, align 2
-  br label %229
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 16384, ptr %216, align 4
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %218 = load i32, ptr %217, align 4
+  %219 = icmp eq i32 %218, -1
+  %spec.select212222 = tail call i32 @llvm.umin.i32(i32 %218, i32 32767)
+  %spec.select212 = trunc nuw nsw i32 %spec.select212222 to i16
+  %220 = select i1 %219, i16 0, i16 %spec.select212
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %220, ptr %221, align 2
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i16 0, ptr %222, align 2
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 0, ptr %223, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %225 = load i16, ptr %224, align 4
+  %226 = tail call i16 @llvm.smax.i16(i16 %225, i16 -1)
+  %spec.select213 = shl i16 %226, 1
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %spec.select213, ptr %227, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %229 = load i16, ptr %228, align 2
+  %230 = tail call i16 @llvm.smax.i16(i16 %229, i16 -1)
+  %231 = shl i16 %230, 1
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %231, ptr %232, align 2
+  br label %235
 
-227:                                              ; preds = %2
-  %228 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #13
-  br label %229
+233:                                              ; preds = %2, %.split
+  %234 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #13
+  br label %235
 
-229:                                              ; preds = %8, %71, %113, %170, %209, %166, %109, %44, %4, %227
-  %.0 = phi i1 [ %228, %227 ], [ false, %4 ], [ false, %44 ], [ false, %109 ], [ false, %166 ], [ true, %209 ], [ true, %170 ], [ true, %113 ], [ true, %71 ], [ true, %8 ]
+235:                                              ; preds = %12, %76, %119, %176, %215, %172, %115, %48, %8, %233
+  %.0 = phi i1 [ %234, %233 ], [ false, %8 ], [ false, %48 ], [ false, %115 ], [ false, %172 ], [ true, %215 ], [ true, %176 ], [ true, %119 ], [ true, %76 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -1620,7 +1621,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #12
+declare i32 @llvm.ctpop.i32(i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

@@ -184,6 +184,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.127 = private unnamed_addr constant [45 x i8] c"unexpected result of econv_primitive_convert\00", align 1
 @.str.128 = private unnamed_addr constant [15 x i8] c"too big string\00", align 1
 @.str.129 = private unnamed_addr constant [35 x i8] c"replacement character setup failed\00", align 1
+@switch.table.rb_econv_binmode = private unnamed_addr constant [7 x ptr] [ptr @.str.4, ptr poison, ptr poison, ptr poison, ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_free_transcoder_table() local_unnamed_addr #0 {
@@ -2878,143 +2879,143 @@ define dso_local void @rb_econv_binmode(ptr noundef captures(none) %0) local_unn
   %2 = alloca i64, align 8
   %3 = load i32, ptr %0, align 8, !tbaa !55
   %4 = and i32 %3, 32512
-  switch i32 %4, label %.critedge [
-    i32 256, label %get_transcoder_entry.exit
-    i32 4096, label %5
-    i32 8192, label %6
-    i32 16384, label %7
-  ]
+  %5 = tail call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %.critedge
 
-5:                                                ; preds = %1
-  br label %get_transcoder_entry.exit
+.split:                                           ; preds = %1
+  %7 = tail call range(i32 8, 33) i32 @llvm.cttz.i32(i32 %4, i1 true)
+  %switch.tableidx = add nsw i32 %7, -8
+  %8 = icmp samesign ult i32 %7, 15
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 113, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.critedge
 
-6:                                                ; preds = %1
-  br label %get_transcoder_entry.exit
-
-7:                                                ; preds = %1
-  br label %get_transcoder_entry.exit
-
-get_transcoder_entry.exit:                        ; preds = %1, %5, %6, %7
-  %.020 = phi ptr [ @.str.5, %5 ], [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.4, %1 ]
+switch.lookup:                                    ; preds = %.split
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_econv_binmode, i64 %9
+  %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %8 = load ptr, ptr @transcoder_table, align 8, !tbaa !7
-  %9 = call i32 @rb_st_lookup(ptr noundef %8, i64 noundef ptrtoint (ptr @.str.2 to i64), ptr noundef nonnull %2) #21
-  %10 = load i64, ptr %2, align 8, !tbaa !22
-  %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %.020 to i64
-  %13 = call i32 @rb_st_lookup(ptr noundef %11, i64 noundef %12, ptr noundef nonnull %2) #21
-  %14 = load i64, ptr %2, align 8, !tbaa !22
-  %15 = inttoptr i64 %14 to ptr
+  %10 = load ptr, ptr @transcoder_table, align 8, !tbaa !7
+  %11 = call i32 @rb_st_lookup(ptr noundef %10, i64 noundef ptrtoint (ptr @.str.2 to i64), ptr noundef nonnull %2) #21
+  %12 = load i64, ptr %2, align 8, !tbaa !22
+  %13 = inttoptr i64 %12 to ptr
+  %14 = ptrtoint ptr %switch.load to i64
+  %15 = call i32 @rb_st_lookup(ptr noundef %13, i64 noundef %14, ptr noundef nonnull %2) #21
+  %16 = load i64, ptr %2, align 8, !tbaa !22
+  %17 = inttoptr i64 %16 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %19 = load i32, ptr %18, align 8, !tbaa !46
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %.critedge
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = load i32, ptr %20, align 8, !tbaa !46
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %get_transcoder_entry.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %wide.trip.count = zext nneg i32 %19 to i64
-  br label %22
+.lr.ph:                                           ; preds = %switch.lookup
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %wide.trip.count = zext nneg i32 %21 to i64
+  br label %24
 
-22:                                               ; preds = %.lr.ph, %72
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %.1, %72 ]
-  %23 = load ptr, ptr %21, align 8, !tbaa !47
-  %24 = getelementptr %struct.rb_econv_elem_t, ptr %23, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %26 = load ptr, ptr %25, align 8, !tbaa !65
-  %27 = icmp eq ptr %17, %26
-  br i1 %27, label %28, label %68
+24:                                               ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
+  %.023 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
+  %25 = load ptr, ptr %23, align 8, !tbaa !47
+  %26 = getelementptr %struct.rb_econv_elem_t, ptr %25, i64 %indvars.iv
+  %27 = load ptr, ptr %26, align 8, !tbaa !63
+  %28 = load ptr, ptr %27, align 8, !tbaa !65
+  %29 = icmp eq ptr %19, %28
+  br i1 %29, label %30, label %70
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 88
-  %30 = load ptr, ptr %29, align 8, !tbaa !75
-  %.not.i21 = icmp eq ptr %30, null
-  br i1 %.not.i21, label %41, label %31
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 88
+  %32 = load ptr, ptr %31, align 8, !tbaa !75
+  %.not.i21 = icmp eq ptr %32, null
+  br i1 %.not.i21, label %43, label %33
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %33 = load i64, ptr %32, align 8, !tbaa !76
-  %34 = icmp ult i64 %33, 9
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  br i1 %34, label %38, label %36
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %35 = load i64, ptr %34, align 8, !tbaa !76
+  %36 = icmp ult i64 %35, 9
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  br i1 %36, label %40, label %38
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %35, align 8, !tbaa !27
-  br label %38
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %37, align 8, !tbaa !27
+  br label %40
 
-38:                                               ; preds = %36, %31
-  %39 = phi ptr [ %37, %36 ], [ %35, %31 ]
-  %40 = call i32 %30(ptr noundef %39) #21
-  br label %41
+40:                                               ; preds = %38, %33
+  %41 = phi ptr [ %39, %38 ], [ %37, %33 ]
+  %42 = call i32 %32(ptr noundef %41) #21
+  br label %43
 
-41:                                               ; preds = %38, %28
-  %42 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %43 = load i64, ptr %42, align 8, !tbaa !76
-  %44 = icmp ugt i64 %43, 8
-  br i1 %44, label %45, label %48
+43:                                               ; preds = %40, %30
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %45 = load i64, ptr %44, align 8, !tbaa !76
+  %46 = icmp ugt i64 %45, 8
+  br i1 %46, label %47, label %50
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %47 = load ptr, ptr %46, align 8, !tbaa !27
-  call void @ruby_xfree(ptr noundef %47) #21
-  br label %48
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  call void @ruby_xfree(ptr noundef %49) #21
+  br label %50
 
-48:                                               ; preds = %45, %41
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 60
-  %50 = load i32, ptr %49, align 4, !tbaa !77
-  %51 = icmp sgt i32 %50, 8
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %47, %43
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 60
+  %52 = load i32, ptr %51, align 4, !tbaa !77
+  %53 = icmp sgt i32 %52, 8
+  br i1 %53, label %54, label %57
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !27
-  call void @ruby_xfree(ptr noundef %54) #21
-  br label %55
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %56 = load ptr, ptr %55, align 8, !tbaa !27
+  call void @ruby_xfree(ptr noundef %56) #21
+  br label %57
 
-55:                                               ; preds = %52, %48
-  %56 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %57 = load i32, ptr %56, align 8, !tbaa !78
-  %58 = icmp sgt i32 %57, 8
-  br i1 %58, label %59, label %rb_transcoding_close.exit
+57:                                               ; preds = %54, %50
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %59 = load i32, ptr %58, align 8, !tbaa !78
+  %60 = icmp sgt i32 %59, 8
+  br i1 %60, label %61, label %rb_transcoding_close.exit
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  %61 = load ptr, ptr %60, align 8, !tbaa !27
-  call void @ruby_xfree(ptr noundef %61) #21
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %63 = load ptr, ptr %62, align 8, !tbaa !27
+  call void @ruby_xfree(ptr noundef %63) #21
   br label %rb_transcoding_close.exit
 
-rb_transcoding_close.exit:                        ; preds = %55, %59
-  call void @ruby_xfree(ptr noundef nonnull %25) #21
-  %62 = load ptr, ptr %21, align 8, !tbaa !47
-  %63 = getelementptr %struct.rb_econv_elem_t, ptr %62, i64 %indvars.iv
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !79
-  call void @ruby_xfree(ptr noundef %65) #21
-  %66 = load i32, ptr %18, align 8, !tbaa !46
-  %67 = add i32 %66, -1
-  store i32 %67, ptr %18, align 8, !tbaa !46
-  br label %72
+rb_transcoding_close.exit:                        ; preds = %57, %61
+  call void @ruby_xfree(ptr noundef nonnull %27) #21
+  %64 = load ptr, ptr %23, align 8, !tbaa !47
+  %65 = getelementptr %struct.rb_econv_elem_t, ptr %64, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !79
+  call void @ruby_xfree(ptr noundef %67) #21
+  %68 = load i32, ptr %20, align 8, !tbaa !46
+  %69 = add i32 %68, -1
+  store i32 %69, ptr %20, align 8, !tbaa !46
+  br label %74
 
-68:                                               ; preds = %22
-  %69 = add i32 %.023, 1
-  %70 = sext i32 %.023 to i64
-  %71 = getelementptr %struct.rb_econv_elem_t, ptr %23, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false), !tbaa.struct !143
-  br label %72
+70:                                               ; preds = %24
+  %71 = add i32 %.023, 1
+  %72 = sext i32 %.023 to i64
+  %73 = getelementptr %struct.rb_econv_elem_t, ptr %25, i64 %72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false), !tbaa.struct !143
+  br label %74
 
-72:                                               ; preds = %rb_transcoding_close.exit, %68
-  %.1 = phi i32 [ %.023, %rb_transcoding_close.exit ], [ %69, %68 ]
+74:                                               ; preds = %rb_transcoding_close.exit, %70
+  %.1 = phi i32 [ %.023, %rb_transcoding_close.exit ], [ %71, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %22, !llvm.loop !145
+  br i1 %exitcond.not, label %.critedge, label %24, !llvm.loop !145
 
-.critedge:                                        ; preds = %72, %get_transcoder_entry.exit, %1
-  %73 = load i32, ptr %0, align 8, !tbaa !55
-  %74 = and i32 %73, -32513
-  store i32 %74, ptr %0, align 8, !tbaa !55
+.critedge:                                        ; preds = %74, %.split, %switch.lookup, %1
+  %75 = load i32, ptr %0, align 8, !tbaa !55
+  %76 = and i32 %75, -32513
+  store i32 %76, ptr %0, align 8, !tbaa !55
   ret void
 }
 
@@ -11492,6 +11493,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19

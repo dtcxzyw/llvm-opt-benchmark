@@ -25,6 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.4 = private unnamed_addr constant [4 x i8] c"\EF\81\B8\00", align 1
 @.str.5 = private unnamed_addr constant [27 x i8] c"Option 1\0AOption 2\0AOption 3\00", align 1
+@switch.table.lv_dropdown_open = private unnamed_addr constant [4 x i32] [i32 16, i32 19, i32 10, i32 13], align 4
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_dropdown_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 112)) %1) #0 {
@@ -1636,140 +1637,129 @@ get_label.exit:                                   ; preds = %2, %10
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load i8, ptr %39, align 8
   %41 = and i8 %40, 15
-  switch i8 %41, label %86 [
-    i8 8, label %42
-    i8 4, label %66
-  ]
+  %42 = icmp eq i8 %41, 8
+  br i1 %42, label %43, label %67
 
-42:                                               ; preds = %25
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %44 = load i32, ptr %43, align 4, !tbaa !41
-  %45 = add nsw i32 %44, %38
-  %46 = tail call ptr @lv_display_get_default() #7
-  %47 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %46) #7
-  %48 = icmp sgt i32 %45, %47
-  br i1 %48, label %49, label %.thread
+43:                                               ; preds = %25
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %45 = load i32, ptr %44, align 4, !tbaa !41
+  %46 = add nsw i32 %45, %38
+  %47 = tail call ptr @lv_display_get_default() #7
+  %48 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %47) #7
+  %49 = icmp sgt i32 %46, %48
+  br i1 %49, label %50, label %88
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !31
-  %52 = tail call ptr @lv_display_get_default() #7
-  %53 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %52) #7
-  %54 = load i32, ptr %43, align 4, !tbaa !41
-  %55 = sub nsw i32 %53, %54
-  %56 = icmp sgt i32 %51, %55
-  br i1 %56, label %57, label %60
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %52 = load i32, ptr %51, align 4, !tbaa !31
+  %53 = tail call ptr @lv_display_get_default() #7
+  %54 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %53) #7
+  %55 = load i32, ptr %44, align 4, !tbaa !41
+  %56 = sub nsw i32 %54, %55
+  %57 = icmp sgt i32 %52, %56
+  br i1 %57, label %58, label %61
 
-57:                                               ; preds = %49
-  %58 = load i32, ptr %50, align 4, !tbaa !31
-  %59 = add nsw i32 %58, -1
-  br label %.thread93
+58:                                               ; preds = %50
+  %59 = load i32, ptr %51, align 4, !tbaa !31
+  %60 = add nsw i32 %59, -1
+  br label %88
 
-60:                                               ; preds = %49
-  %61 = tail call ptr @lv_display_get_default() #7
-  %62 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %61) #7
-  %63 = load i32, ptr %43, align 4, !tbaa !41
-  %64 = xor i32 %63, -1
-  %65 = add i32 %62, %64
-  br label %.thread
+61:                                               ; preds = %50
+  %62 = tail call ptr @lv_display_get_default() #7
+  %63 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %62) #7
+  %64 = load i32, ptr %44, align 4, !tbaa !41
+  %65 = xor i32 %64, -1
+  %66 = add i32 %63, %65
+  br label %88
 
-66:                                               ; preds = %25
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %68 = load i32, ptr %67, align 4, !tbaa !31
-  %69 = icmp slt i32 %68, %38
-  br i1 %69, label %70, label %.thread93
+67:                                               ; preds = %25
+  %68 = zext nneg i8 %41 to i32
+  %69 = icmp eq i8 %41, 4
+  br i1 %69, label %70, label %88
 
-70:                                               ; preds = %66
-  %71 = tail call ptr @lv_display_get_default() #7
-  %72 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %71) #7
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %74 = load i32, ptr %73, align 4, !tbaa !41
-  %75 = sub nsw i32 %72, %74
-  %76 = icmp slt i32 %68, %75
-  br i1 %76, label %77, label %82
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %72 = load i32, ptr %71, align 4, !tbaa !31
+  %73 = icmp slt i32 %72, %38
+  br i1 %73, label %74, label %88
 
-77:                                               ; preds = %70
-  %78 = tail call ptr @lv_display_get_default() #7
-  %79 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %78) #7
-  %80 = load i32, ptr %73, align 4, !tbaa !41
-  %81 = sub nsw i32 %79, %80
-  br label %.thread
+74:                                               ; preds = %70
+  %75 = tail call ptr @lv_display_get_default() #7
+  %76 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %75) #7
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %78 = load i32, ptr %77, align 4, !tbaa !41
+  %79 = sub nsw i32 %76, %78
+  %80 = icmp slt i32 %72, %79
+  br i1 %80, label %81, label %86
 
-82:                                               ; preds = %70
-  %83 = load i32, ptr %67, align 4, !tbaa !31
-  br label %.thread93
+81:                                               ; preds = %74
+  %82 = tail call ptr @lv_display_get_default() #7
+  %83 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %82) #7
+  %84 = load i32, ptr %77, align 4, !tbaa !41
+  %85 = sub nsw i32 %83, %84
+  br label %88
 
-.thread:                                          ; preds = %60, %42, %77
-  %.0.ph = phi i32 [ %81, %77 ], [ %38, %42 ], [ %65, %60 ]
-  %spec.select90 = tail call i32 @llvm.smin.i32(i32 %.0.ph, i32 %38)
-  %84 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_set_height(ptr noundef %84, i32 noundef %spec.select90) #7
-  tail call fastcc void @position_to_selected(ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %.sink.split
+86:                                               ; preds = %74
+  %87 = load i32, ptr %71, align 4, !tbaa !31
+  br label %88
 
-.thread93:                                        ; preds = %57, %82, %66
-  %.0.ph92 = phi i32 [ %38, %66 ], [ %83, %82 ], [ %59, %57 ]
-  %spec.select96 = tail call i32 @llvm.smin.i32(i32 %.0.ph92, i32 %38)
-  %85 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_set_height(ptr noundef %85, i32 noundef %spec.select96) #7
-  tail call fastcc void @position_to_selected(ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %.sink.split
-
-86:                                               ; preds = %25
-  %87 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_set_height(ptr noundef %87, i32 noundef %38) #7
-  tail call fastcc void @position_to_selected(ptr noundef nonnull %0, i1 noundef zeroext false)
-  switch i8 %41, label %90 [
-    i8 1, label %.sink.split
-    i8 2, label %88
-  ]
-
-88:                                               ; preds = %86
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %86, %.thread, %88, %.thread93
-  %.sink101 = phi i32 [ 10, %.thread93 ], [ 19, %88 ], [ 13, %.thread ], [ 16, %86 ]
+88:                                               ; preds = %67, %81, %86, %70, %43, %61, %58
+  %.076 = phi i32 [ 4, %58 ], [ 8, %61 ], [ 8, %43 ], [ 8, %81 ], [ 4, %86 ], [ 4, %70 ], [ %68, %67 ]
+  %.0 = phi i32 [ %60, %58 ], [ %66, %61 ], [ %38, %43 ], [ %85, %81 ], [ %87, %86 ], [ %38, %70 ], [ %38, %67 ]
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 %38)
   %89 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_align_to(ptr noundef %89, ptr noundef nonnull %0, i32 noundef %.sink101, i32 noundef 0, i32 noundef 0) #7
-  br label %90
+  tail call void @lv_obj_set_height(ptr noundef %89, i32 noundef %spec.select) #7
+  tail call fastcc void @position_to_selected(ptr noundef nonnull %0, i1 noundef zeroext false)
+  %90 = tail call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %.076)
+  %91 = icmp eq i32 %90, 1
+  br i1 %91, label %.split, label %95
 
-90:                                               ; preds = %.sink.split, %86
-  %91 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_update_layout(ptr noundef %91) #7
-  %92 = load i8, ptr %39, align 8
-  %93 = and i8 %92, 15
-  %.off = add nsw i8 %93, -1
+.split:                                           ; preds = %88
+  %92 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.076, i1 true)
+  %93 = load ptr, ptr %3, align 8, !tbaa !3
+  %94 = zext nneg i32 %92 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_dropdown_open, i64 %94
+  %switch.load = load i32, ptr %switch.gep, align 4
+  tail call void @lv_obj_align_to(ptr noundef %93, ptr noundef nonnull %0, i32 noundef %switch.load, i32 noundef 0, i32 noundef 0) #7
+  br label %95
+
+95:                                               ; preds = %.split, %88
+  %96 = load ptr, ptr %3, align 8, !tbaa !3
+  tail call void @lv_obj_update_layout(ptr noundef %96) #7
+  %97 = load i8, ptr %39, align 8
+  %98 = and i8 %97, 15
+  %.off = add nsw i8 %98, -1
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %94, label %108
+  br i1 %switch, label %99, label %113
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %3, align 8, !tbaa !3
-  %96 = tail call i32 @lv_obj_get_y(ptr noundef %95) #7
-  %97 = load ptr, ptr %3, align 8, !tbaa !3
-  %98 = tail call i32 @lv_obj_get_y2(ptr noundef %97) #7
-  %99 = tail call ptr @lv_display_get_default() #7
-  %100 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %99) #7
-  %.not85 = icmp slt i32 %98, %100
-  br i1 %.not85, label %108, label %101
-
-101:                                              ; preds = %94
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %3, align 8, !tbaa !3
+  %101 = tail call i32 @lv_obj_get_y(ptr noundef %100) #7
   %102 = load ptr, ptr %3, align 8, !tbaa !3
-  %103 = tail call ptr @lv_display_get_default() #7
-  %104 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %103) #7
-  %105 = xor i32 %98, -1
-  %106 = add i32 %96, %105
-  %107 = add i32 %106, %104
-  tail call void @lv_obj_set_y(ptr noundef %102, i32 noundef %107) #7
-  br label %108
+  %103 = tail call i32 @lv_obj_get_y2(ptr noundef %102) #7
+  %104 = tail call ptr @lv_display_get_default() #7
+  %105 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %104) #7
+  %.not85 = icmp slt i32 %103, %105
+  br i1 %.not85, label %113, label %106
 
-108:                                              ; preds = %90, %94, %101
-  %109 = load ptr, ptr %12, align 8, !tbaa !17
-  %110 = tail call i32 @lv_obj_calculate_style_text_align(ptr noundef %.0.i, i32 noundef 0, ptr noundef %109) #7
-  %switch.selectcmp = icmp eq i32 %110, 3
+106:                                              ; preds = %99
+  %107 = load ptr, ptr %3, align 8, !tbaa !3
+  %108 = tail call ptr @lv_display_get_default() #7
+  %109 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %108) #7
+  %110 = xor i32 %103, -1
+  %111 = add i32 %101, %110
+  %112 = add i32 %111, %109
+  tail call void @lv_obj_set_y(ptr noundef %107, i32 noundef %112) #7
+  br label %113
+
+113:                                              ; preds = %95, %99, %106
+  %114 = load ptr, ptr %12, align 8, !tbaa !17
+  %115 = tail call i32 @lv_obj_calculate_style_text_align(ptr noundef %.0.i, i32 noundef 0, ptr noundef %114) #7
+  %switch.selectcmp = icmp eq i32 %115, 3
   %switch.select = select i1 %switch.selectcmp, i32 3, i32 1
-  %switch.selectcmp102 = icmp eq i32 %110, 2
-  %switch.select103 = select i1 %switch.selectcmp102, i32 2, i32 %switch.select
-  tail call void @lv_obj_align(ptr noundef %.0.i, i32 noundef %switch.select103, i32 noundef 0, i32 noundef 0) #7
+  %switch.selectcmp96 = icmp eq i32 %115, 2
+  %switch.select97 = select i1 %switch.selectcmp96, i32 2, i32 %switch.select
+  tail call void @lv_obj_align(ptr noundef %.0.i, i32 noundef %switch.select97, i32 noundef 0, i32 noundef 0) #7
   ret void
 }
 
@@ -2512,6 +2502,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

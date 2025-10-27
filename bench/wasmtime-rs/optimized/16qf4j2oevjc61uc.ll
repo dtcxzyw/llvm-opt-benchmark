@@ -22286,15 +22286,15 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen2i
 define noundef i16 @_ZN17cranelift_codegen2ir11globalvalue15GlobalValueData11global_type17hb028c4deaedd5093E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = load i8, ptr %0, align 8, !range !1717, !noundef !4
-  switch i8 %5, label %default.unreachable5 [
+  switch i8 %5, label %default.unreachable4 [
     i8 0, label %6
-    i8 1, label %13
-    i8 2, label %16
+    i8 1, label %14
+    i8 2, label %17
     i8 3, label %6
-    i8 4, label %19
+    i8 4, label %20
   ]
 
-default.unreachable5:                             ; preds = %19, %6, %3
+default.unreachable4:                             ; preds = %20, %6, %3
   unreachable
 
 6:                                                ; preds = %3, %3
@@ -22305,11 +22305,11 @@ default.unreachable5:                             ; preds = %19, %6, %3
   %8 = load ptr, ptr %7, align 8, !invariant.load !4, !alias.scope !3672, !nonnull !4
   %9 = tail call noundef align 8 dereferenceable(40) ptr %8(ptr noundef nonnull align 1 %1), !noalias !3672
   %10 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9), !range !568, !noalias !3672
-  switch i8 %10, label %default.unreachable5 [
+  switch i8 %10, label %default.unreachable4 [
     i8 3, label %11
     i8 0, label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
     i8 1, label %12
-    i8 2, label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i"
+    i8 2, label %13
   ]
 
 11:                                               ; preds = %6
@@ -22319,46 +22319,46 @@ default.unreachable5:                             ; preds = %19, %6, %3
 12:                                               ; preds = %6
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i": ; preds = %6
+13:                                               ; preds = %6
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %15 = load i16, ptr %14, align 2, !noundef !4
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %16 = load i16, ptr %15, align 2, !noundef !4
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %18 = load i16, ptr %17, align 2, !noundef !4
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = load i16, ptr %18, align 2, !noundef !4
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-19:                                               ; preds = %3
+20:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3673)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3676)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3679)
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %21 = load ptr, ptr %20, align 8, !invariant.load !4, !alias.scope !3682, !nonnull !4
-  %22 = tail call noundef align 8 dereferenceable(40) ptr %21(ptr noundef nonnull align 1 %1), !noalias !3682
-  %23 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %22), !range !568, !noalias !3682
-  switch i8 %23, label %default.unreachable5 [
-    i8 3, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %22 = load ptr, ptr %21, align 8, !invariant.load !4, !alias.scope !3682, !nonnull !4
+  %23 = tail call noundef align 8 dereferenceable(40) ptr %22(ptr noundef nonnull align 1 %1), !noalias !3682
+  %24 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %23), !range !568, !noalias !3682
+  switch i8 %24, label %default.unreachable4 [
+    i8 3, label %25
     i8 0, label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
-    i8 1, label %25
-    i8 2, label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i1"
+    i8 1, label %26
+    i8 2, label %27
   ]
 
-24:                                               ; preds = %19
+25:                                               ; preds = %20
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.44.llvm.6092180546091225645, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.46.llvm.6092180546091225645, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.829.llvm.6092180546091225645) #38, !noalias !3682
   unreachable
 
-25:                                               ; preds = %19
+26:                                               ; preds = %20
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i1": ; preds = %19
+27:                                               ; preds = %20
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit": ; preds = %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i1", %25, %19, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i", %12, %6, %16, %13
-  %.0 = phi i16 [ %15, %13 ], [ %18, %16 ], [ 120, %12 ], [ 121, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i" ], [ 119, %6 ], [ 120, %25 ], [ 121, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i1" ], [ 119, %19 ]
+"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit": ; preds = %27, %26, %20, %13, %12, %6, %17, %14
+  %.0 = phi i16 [ %16, %14 ], [ %19, %17 ], [ 120, %12 ], [ 121, %13 ], [ 119, %6 ], [ 120, %26 ], [ 121, %27 ], [ 119, %20 ]
   ret i16 %.0
 }
 

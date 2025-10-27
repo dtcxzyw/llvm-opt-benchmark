@@ -1838,383 +1838,410 @@ zend_vm_calc_used_stack.exit:                     ; preds = %1, %22
   br label %zend_vm_stack_push_call_frame_ex.exit
 
 zend_vm_stack_push_call_frame_ex.exit:            ; preds = %37, %39
-  %.sink93 = phi ptr [ %38, %37 ], [ %30, %39 ]
+  %.sink95 = phi ptr [ %38, %37 ], [ %30, %39 ]
   %.sink = phi i32 [ 262144, %37 ], [ 0, %39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink93, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.sink95, i64 24
   store ptr %11, ptr %41, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw i8, ptr %.sink93, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sink95, i64 32
   store ptr null, ptr %42, align 8, !tbaa !55
-  %43 = getelementptr inbounds nuw i8, ptr %.sink93, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.sink95, i64 40
   store i32 %.sink, ptr %43, align 8, !tbaa !55
-  %44 = getelementptr inbounds nuw i8, ptr %.sink93, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %.sink95, i64 44
   store i32 %16, ptr %44, align 4, !tbaa !55
-  %45 = getelementptr inbounds nuw i8, ptr %.sink93, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %.sink95, i64 48
   store ptr %0, ptr %45, align 8, !tbaa !57
-  switch i8 %4, label %140 [
+  switch i8 %4, label %152 [
     i8 -49, label %46
-    i8 -50, label %78
-    i8 -51, label %109
+    i8 -50, label %82
+    i8 -51, label %117
   ]
 
 46:                                               ; preds = %zend_vm_stack_push_call_frame_ex.exit
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 61
-  %49 = load i8, ptr %48, align 1, !tbaa !128
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 61
+  %48 = load i8, ptr %47, align 1, !tbaa !128
+  %49 = zext i8 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  switch i8 %49, label %zend_get_zval_ptr.exit [
-    i8 1, label %.sink.split.i
-    i8 2, label %51
-    i8 4, label %51
-    i8 8, label %51
+  %51 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %49)
+  %52 = icmp eq i32 %51, 1
+  br i1 %52, label %.split.i, label %zend_get_zval_ptr.exit
+
+.split.i:                                         ; preds = %46
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %54 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %49, i1 true)
+  switch i32 %54, label %zend_get_zval_ptr.exit [
+    i32 0, label %.sink.split.i
+    i32 1, label %55
+    i32 2, label %55
+    i32 3, label %55
   ]
 
-51:                                               ; preds = %46, %46, %46
+55:                                               ; preds = %.split.i, %.split.i, %.split.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %51, %46
-  %.sink.i = phi ptr [ %0, %51 ], [ %47, %46 ]
-  %52 = load i32, ptr %50, align 4, !tbaa !55
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %.sink.i, i64 %53
+.sink.split.i:                                    ; preds = %55, %.split.i
+  %.sink.i = phi ptr [ %0, %55 ], [ %53, %.split.i ]
+  %56 = load i32, ptr %50, align 4, !tbaa !55
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %.sink.i, i64 %57
   br label %zend_get_zval_ptr.exit
 
-zend_get_zval_ptr.exit:                           ; preds = %46, %.sink.split.i
-  %.0.i56 = phi ptr [ null, %46 ], [ %54, %.sink.split.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 8
-  %56 = load i8, ptr %55, align 8, !tbaa !55
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %frameless_observed_call_copy.exit, label %58
+zend_get_zval_ptr.exit:                           ; preds = %46, %.split.i, %.sink.split.i
+  %.0.i56 = phi ptr [ null, %46 ], [ null, %.split.i ], [ %58, %.sink.split.i ]
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 8
+  %60 = load i8, ptr %59, align 8, !tbaa !55
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %frameless_observed_call_copy.exit, label %62
 
-58:                                               ; preds = %zend_get_zval_ptr.exit
-  %59 = load i32, ptr %55, align 8
-  %60 = and i32 %59, 65280
-  %.not.i57 = icmp eq i32 %60, 0
-  br i1 %.not.i57, label %72, label %61
+62:                                               ; preds = %zend_get_zval_ptr.exit
+  %63 = load i32, ptr %59, align 8
+  %64 = and i32 %63, 65280
+  %.not.i57 = icmp eq i32 %64, 0
+  br i1 %.not.i57, label %76, label %65
 
-61:                                               ; preds = %58
-  %62 = and i32 %59, 255
-  %63 = icmp eq i32 %62, 10
-  br i1 %63, label %64, label %.sink.split.i58, !prof !60
+65:                                               ; preds = %62
+  %66 = and i32 %63, 255
+  %67 = icmp eq i32 %66, 10
+  br i1 %67, label %68, label %.sink.split.i58, !prof !60
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %.0.i56, align 8, !tbaa !55
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %68 = load i32, ptr %67, align 8
-  %69 = and i32 %68, 65280
-  %.not18.i = icmp eq i32 %69, 0
-  br i1 %.not18.i, label %72, label %.sink.split.i58
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %.0.i56, align 8, !tbaa !55
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %72 = load i32, ptr %71, align 8
+  %73 = and i32 %72, 65280
+  %.not18.i = icmp eq i32 %73, 0
+  br i1 %.not18.i, label %76, label %.sink.split.i58
 
-.sink.split.i58:                                  ; preds = %61, %64
-  %.sink.in.i = phi ptr [ %66, %64 ], [ %.0.i56, %61 ]
+.sink.split.i58:                                  ; preds = %65, %68
+  %.sink.in.i = phi ptr [ %70, %68 ], [ %.0.i56, %65 ]
   %.sink.i59 = load ptr, ptr %.sink.in.i, align 8, !tbaa !55
-  %70 = load i32, ptr %.sink.i59, align 4, !tbaa !56
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %.sink.i59, align 4, !tbaa !56
-  br label %72
+  %74 = load i32, ptr %.sink.i59, align 4, !tbaa !56
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %.sink.i59, align 4, !tbaa !56
+  br label %76
 
-72:                                               ; preds = %.sink.split.i58, %64, %58
-  %.0.i60 = phi ptr [ %66, %64 ], [ %.0.i56, %58 ], [ %.sink.in.i, %.sink.split.i58 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sink93, i64 112
-  %74 = load ptr, ptr %.0.i60, align 8, !tbaa !55
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i60, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !55
-  store ptr %74, ptr %73, align 8, !tbaa !55
+76:                                               ; preds = %.sink.split.i58, %68, %62
+  %.0.i60 = phi ptr [ %70, %68 ], [ %.0.i56, %62 ], [ %.sink.in.i, %.sink.split.i58 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.sink95, i64 112
+  %78 = load ptr, ptr %.0.i60, align 8, !tbaa !55
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i60, i64 8
+  %80 = load i32, ptr %79, align 8, !tbaa !55
+  store ptr %78, ptr %77, align 8, !tbaa !55
   br label %frameless_observed_call_copy.exit
 
-frameless_observed_call_copy.exit:                ; preds = %zend_get_zval_ptr.exit, %72
-  %.sink21.i = phi i32 [ %76, %72 ], [ 1, %zend_get_zval_ptr.exit ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sink93, i64 120
-  store i32 %.sink21.i, ptr %77, align 8, !tbaa !55
-  br label %78
+frameless_observed_call_copy.exit:                ; preds = %zend_get_zval_ptr.exit, %76
+  %.sink21.i = phi i32 [ %80, %76 ], [ 1, %zend_get_zval_ptr.exit ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sink95, i64 120
+  store i32 %.sink21.i, ptr %81, align 8, !tbaa !55
+  br label %82
 
-78:                                               ; preds = %frameless_observed_call_copy.exit, %zend_vm_stack_push_call_frame_ex.exit
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %80 = load i8, ptr %79, align 2, !tbaa !129
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  switch i8 %80, label %zend_get_zval_ptr.exit64 [
-    i8 1, label %.sink.split.i61
-    i8 2, label %82
-    i8 4, label %82
-    i8 8, label %82
+82:                                               ; preds = %frameless_observed_call_copy.exit, %zend_vm_stack_push_call_frame_ex.exit
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %84 = load i8, ptr %83, align 2, !tbaa !129
+  %85 = zext i8 %84 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %87 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %85)
+  %88 = icmp eq i32 %87, 1
+  br i1 %88, label %.split.i62, label %zend_get_zval_ptr.exit65
+
+.split.i62:                                       ; preds = %82
+  %89 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %85, i1 true)
+  switch i32 %89, label %zend_get_zval_ptr.exit65 [
+    i32 0, label %.sink.split.i63
+    i32 1, label %90
+    i32 2, label %90
+    i32 3, label %90
   ]
 
-82:                                               ; preds = %78, %78, %78
-  br label %.sink.split.i61
+90:                                               ; preds = %.split.i62, %.split.i62, %.split.i62
+  br label %.sink.split.i63
 
-.sink.split.i61:                                  ; preds = %82, %78
-  %.sink.i62 = phi ptr [ %0, %82 ], [ %2, %78 ]
-  %83 = load i32, ptr %81, align 4, !tbaa !55
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %.sink.i62, i64 %84
-  br label %zend_get_zval_ptr.exit64
+.sink.split.i63:                                  ; preds = %90, %.split.i62
+  %.sink.i64 = phi ptr [ %0, %90 ], [ %2, %.split.i62 ]
+  %91 = load i32, ptr %86, align 4, !tbaa !55
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %.sink.i64, i64 %92
+  br label %zend_get_zval_ptr.exit65
 
-zend_get_zval_ptr.exit64:                         ; preds = %78, %.sink.split.i61
-  %.0.i63 = phi ptr [ null, %78 ], [ %85, %.sink.split.i61 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i63, i64 8
-  %87 = load i8, ptr %86, align 8, !tbaa !55
-  %88 = icmp eq i8 %87, 0
-  br i1 %88, label %frameless_observed_call_copy.exit72, label %89
+zend_get_zval_ptr.exit65:                         ; preds = %82, %.split.i62, %.sink.split.i63
+  %.0.i61 = phi ptr [ null, %82 ], [ null, %.split.i62 ], [ %93, %.sink.split.i63 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 8
+  %95 = load i8, ptr %94, align 8, !tbaa !55
+  %96 = icmp eq i8 %95, 0
+  br i1 %96, label %frameless_observed_call_copy.exit73, label %97
 
-89:                                               ; preds = %zend_get_zval_ptr.exit64
-  %90 = load i32, ptr %86, align 8
-  %91 = and i32 %90, 65280
-  %.not.i65 = icmp eq i32 %91, 0
-  br i1 %.not.i65, label %103, label %92
+97:                                               ; preds = %zend_get_zval_ptr.exit65
+  %98 = load i32, ptr %94, align 8
+  %99 = and i32 %98, 65280
+  %.not.i66 = icmp eq i32 %99, 0
+  br i1 %.not.i66, label %111, label %100
 
-92:                                               ; preds = %89
-  %93 = and i32 %90, 255
-  %94 = icmp eq i32 %93, 10
-  br i1 %94, label %95, label %.sink.split.i66, !prof !60
+100:                                              ; preds = %97
+  %101 = and i32 %98, 255
+  %102 = icmp eq i32 %101, 10
+  br i1 %102, label %103, label %.sink.split.i67, !prof !60
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %.0.i63, align 8, !tbaa !55
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %99 = load i32, ptr %98, align 8
-  %100 = and i32 %99, 65280
-  %.not18.i71 = icmp eq i32 %100, 0
-  br i1 %.not18.i71, label %103, label %.sink.split.i66
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %.0.i61, align 8, !tbaa !55
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %107 = load i32, ptr %106, align 8
+  %108 = and i32 %107, 65280
+  %.not18.i72 = icmp eq i32 %108, 0
+  br i1 %.not18.i72, label %111, label %.sink.split.i67
 
-.sink.split.i66:                                  ; preds = %92, %95
-  %.sink.in.i67 = phi ptr [ %97, %95 ], [ %.0.i63, %92 ]
-  %.sink.i68 = load ptr, ptr %.sink.in.i67, align 8, !tbaa !55
-  %101 = load i32, ptr %.sink.i68, align 4, !tbaa !56
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %.sink.i68, align 4, !tbaa !56
-  br label %103
+.sink.split.i67:                                  ; preds = %100, %103
+  %.sink.in.i68 = phi ptr [ %105, %103 ], [ %.0.i61, %100 ]
+  %.sink.i69 = load ptr, ptr %.sink.in.i68, align 8, !tbaa !55
+  %109 = load i32, ptr %.sink.i69, align 4, !tbaa !56
+  %110 = add i32 %109, 1
+  store i32 %110, ptr %.sink.i69, align 4, !tbaa !56
+  br label %111
 
-103:                                              ; preds = %.sink.split.i66, %95, %89
-  %.0.i69 = phi ptr [ %97, %95 ], [ %.0.i63, %89 ], [ %.sink.in.i67, %.sink.split.i66 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sink93, i64 96
-  %105 = load ptr, ptr %.0.i69, align 8, !tbaa !55
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 8
-  %107 = load i32, ptr %106, align 8, !tbaa !55
-  store ptr %105, ptr %104, align 8, !tbaa !55
-  br label %frameless_observed_call_copy.exit72
+111:                                              ; preds = %.sink.split.i67, %103, %97
+  %.0.i70 = phi ptr [ %105, %103 ], [ %.0.i61, %97 ], [ %.sink.in.i68, %.sink.split.i67 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.sink95, i64 96
+  %113 = load ptr, ptr %.0.i70, align 8, !tbaa !55
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 8
+  %115 = load i32, ptr %114, align 8, !tbaa !55
+  store ptr %113, ptr %112, align 8, !tbaa !55
+  br label %frameless_observed_call_copy.exit73
 
-frameless_observed_call_copy.exit72:              ; preds = %zend_get_zval_ptr.exit64, %103
-  %.sink21.i70 = phi i32 [ %107, %103 ], [ 1, %zend_get_zval_ptr.exit64 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sink93, i64 104
-  store i32 %.sink21.i70, ptr %108, align 8, !tbaa !55
-  br label %109
+frameless_observed_call_copy.exit73:              ; preds = %zend_get_zval_ptr.exit65, %111
+  %.sink21.i71 = phi i32 [ %115, %111 ], [ 1, %zend_get_zval_ptr.exit65 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.sink95, i64 104
+  store i32 %.sink21.i71, ptr %116, align 8, !tbaa !55
+  br label %117
 
-109:                                              ; preds = %frameless_observed_call_copy.exit72, %zend_vm_stack_push_call_frame_ex.exit
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 29
-  %111 = load i8, ptr %110, align 1, !tbaa !128
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  switch i8 %111, label %zend_get_zval_ptr.exit76 [
-    i8 1, label %.sink.split.i73
-    i8 2, label %113
-    i8 4, label %113
-    i8 8, label %113
+117:                                              ; preds = %frameless_observed_call_copy.exit73, %zend_vm_stack_push_call_frame_ex.exit
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 29
+  %119 = load i8, ptr %118, align 1, !tbaa !128
+  %120 = zext i8 %119 to i32
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %122 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %120)
+  %123 = icmp eq i32 %122, 1
+  br i1 %123, label %.split.i75, label %zend_get_zval_ptr.exit78
+
+.split.i75:                                       ; preds = %117
+  %124 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %120, i1 true)
+  switch i32 %124, label %zend_get_zval_ptr.exit78 [
+    i32 0, label %.sink.split.i76
+    i32 1, label %125
+    i32 2, label %125
+    i32 3, label %125
   ]
 
-113:                                              ; preds = %109, %109, %109
-  br label %.sink.split.i73
+125:                                              ; preds = %.split.i75, %.split.i75, %.split.i75
+  br label %.sink.split.i76
 
-.sink.split.i73:                                  ; preds = %113, %109
-  %.sink.i74 = phi ptr [ %0, %113 ], [ %2, %109 ]
-  %114 = load i32, ptr %112, align 4, !tbaa !55
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %.sink.i74, i64 %115
-  br label %zend_get_zval_ptr.exit76
+.sink.split.i76:                                  ; preds = %125, %.split.i75
+  %.sink.i77 = phi ptr [ %0, %125 ], [ %2, %.split.i75 ]
+  %126 = load i32, ptr %121, align 4, !tbaa !55
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %.sink.i77, i64 %127
+  br label %zend_get_zval_ptr.exit78
 
-zend_get_zval_ptr.exit76:                         ; preds = %109, %.sink.split.i73
-  %.0.i75 = phi ptr [ null, %109 ], [ %116, %.sink.split.i73 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i75, i64 8
-  %118 = load i8, ptr %117, align 8, !tbaa !55
-  %119 = icmp eq i8 %118, 0
-  br i1 %119, label %frameless_observed_call_copy.exit84, label %120
+zend_get_zval_ptr.exit78:                         ; preds = %117, %.split.i75, %.sink.split.i76
+  %.0.i74 = phi ptr [ null, %117 ], [ null, %.split.i75 ], [ %128, %.sink.split.i76 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i74, i64 8
+  %130 = load i8, ptr %129, align 8, !tbaa !55
+  %131 = icmp eq i8 %130, 0
+  br i1 %131, label %frameless_observed_call_copy.exit86, label %132
 
-120:                                              ; preds = %zend_get_zval_ptr.exit76
-  %121 = load i32, ptr %117, align 8
-  %122 = and i32 %121, 65280
-  %.not.i77 = icmp eq i32 %122, 0
-  br i1 %.not.i77, label %134, label %123
+132:                                              ; preds = %zend_get_zval_ptr.exit78
+  %133 = load i32, ptr %129, align 8
+  %134 = and i32 %133, 65280
+  %.not.i79 = icmp eq i32 %134, 0
+  br i1 %.not.i79, label %146, label %135
 
-123:                                              ; preds = %120
-  %124 = and i32 %121, 255
-  %125 = icmp eq i32 %124, 10
-  br i1 %125, label %126, label %.sink.split.i78, !prof !60
+135:                                              ; preds = %132
+  %136 = and i32 %133, 255
+  %137 = icmp eq i32 %136, 10
+  br i1 %137, label %138, label %.sink.split.i80, !prof !60
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr %.0.i75, align 8, !tbaa !55
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %130 = load i32, ptr %129, align 8
-  %131 = and i32 %130, 65280
-  %.not18.i83 = icmp eq i32 %131, 0
-  br i1 %.not18.i83, label %134, label %.sink.split.i78
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %.0.i74, align 8, !tbaa !55
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %142 = load i32, ptr %141, align 8
+  %143 = and i32 %142, 65280
+  %.not18.i85 = icmp eq i32 %143, 0
+  br i1 %.not18.i85, label %146, label %.sink.split.i80
 
-.sink.split.i78:                                  ; preds = %123, %126
-  %.sink.in.i79 = phi ptr [ %128, %126 ], [ %.0.i75, %123 ]
-  %.sink.i80 = load ptr, ptr %.sink.in.i79, align 8, !tbaa !55
-  %132 = load i32, ptr %.sink.i80, align 4, !tbaa !56
-  %133 = add i32 %132, 1
-  store i32 %133, ptr %.sink.i80, align 4, !tbaa !56
-  br label %134
+.sink.split.i80:                                  ; preds = %135, %138
+  %.sink.in.i81 = phi ptr [ %140, %138 ], [ %.0.i74, %135 ]
+  %.sink.i82 = load ptr, ptr %.sink.in.i81, align 8, !tbaa !55
+  %144 = load i32, ptr %.sink.i82, align 4, !tbaa !56
+  %145 = add i32 %144, 1
+  store i32 %145, ptr %.sink.i82, align 4, !tbaa !56
+  br label %146
 
-134:                                              ; preds = %.sink.split.i78, %126, %120
-  %.0.i81 = phi ptr [ %128, %126 ], [ %.0.i75, %120 ], [ %.sink.in.i79, %.sink.split.i78 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sink93, i64 80
-  %136 = load ptr, ptr %.0.i81, align 8, !tbaa !55
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 8
-  %138 = load i32, ptr %137, align 8, !tbaa !55
-  store ptr %136, ptr %135, align 8, !tbaa !55
-  br label %frameless_observed_call_copy.exit84
+146:                                              ; preds = %.sink.split.i80, %138, %132
+  %.0.i83 = phi ptr [ %140, %138 ], [ %.0.i74, %132 ], [ %.sink.in.i81, %.sink.split.i80 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.sink95, i64 80
+  %148 = load ptr, ptr %.0.i83, align 8, !tbaa !55
+  %149 = getelementptr inbounds nuw i8, ptr %.0.i83, i64 8
+  %150 = load i32, ptr %149, align 8, !tbaa !55
+  store ptr %148, ptr %147, align 8, !tbaa !55
+  br label %frameless_observed_call_copy.exit86
 
-frameless_observed_call_copy.exit84:              ; preds = %zend_get_zval_ptr.exit76, %134
-  %.sink21.i82 = phi i32 [ %138, %134 ], [ 1, %zend_get_zval_ptr.exit76 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sink93, i64 88
-  store i32 %.sink21.i82, ptr %139, align 8, !tbaa !55
-  br label %140
+frameless_observed_call_copy.exit86:              ; preds = %zend_get_zval_ptr.exit78, %146
+  %.sink21.i84 = phi i32 [ %150, %146 ], [ 1, %zend_get_zval_ptr.exit78 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sink95, i64 88
+  store i32 %.sink21.i84, ptr %151, align 8, !tbaa !55
+  br label %152
 
-140:                                              ; preds = %frameless_observed_call_copy.exit84, %zend_vm_stack_push_call_frame_ex.exit
-  store ptr %.sink93, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %141 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %142 = load ptr, ptr %141, align 8, !tbaa !55
-  %143 = ptrtoint ptr %142 to i64
-  %144 = and i64 %143, 1
-  %.not = icmp eq i64 %144, 0
-  br i1 %.not, label %149, label %145
+152:                                              ; preds = %frameless_observed_call_copy.exit86, %zend_vm_stack_push_call_frame_ex.exit
+  store ptr %.sink95, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  %153 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %154 = load ptr, ptr %153, align 8, !tbaa !55
+  %155 = ptrtoint ptr %154 to i64
+  %156 = and i64 %155, 1
+  %.not = icmp eq i64 %156, 0
+  br i1 %.not, label %161, label %157
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !121
-  %147 = getelementptr inbounds i8, ptr %146, i64 %143
-  %148 = load ptr, ptr %147, align 8, !tbaa !102
-  br label %149
+157:                                              ; preds = %152
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !121
+  %159 = getelementptr inbounds i8, ptr %158, i64 %155
+  %160 = load ptr, ptr %159, align 8, !tbaa !102
+  br label %161
 
-149:                                              ; preds = %140, %145
-  %150 = phi ptr [ %148, %145 ], [ %142, %140 ]
-  %151 = load i8, ptr %11, align 8, !tbaa !55
-  %.not45 = icmp eq i8 %151, 1
-  %152 = load i32, ptr @zend_observer_fcall_op_array_extension, align 4
-  %153 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
-  %154 = select i1 %.not45, i32 %153, i32 %152
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %150, i64 %155
-  tail call void @zend_observer_fcall_begin_prechecked(ptr noundef nonnull %.sink93, ptr noundef %156) #31
-  %157 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %158 = load ptr, ptr %157, align 8, !tbaa !55
-  tail call void %158(ptr noundef nonnull %.sink93, ptr noundef nonnull %15) #31
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !130
-  %160 = icmp eq ptr %.sink93, %159
-  br i1 %160, label %161, label %zend_observer_fcall_end.exit
+161:                                              ; preds = %152, %157
+  %162 = phi ptr [ %160, %157 ], [ %154, %152 ]
+  %163 = load i8, ptr %11, align 8, !tbaa !55
+  %.not45 = icmp eq i8 %163, 1
+  %164 = load i32, ptr @zend_observer_fcall_op_array_extension, align 4
+  %165 = load i32, ptr @zend_observer_fcall_internal_function_extension, align 4
+  %166 = select i1 %.not45, i32 %165, i32 %164
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds ptr, ptr %162, i64 %167
+  tail call void @zend_observer_fcall_begin_prechecked(ptr noundef nonnull %.sink95, ptr noundef %168) #31
+  %169 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %170 = load ptr, ptr %169, align 8, !tbaa !55
+  tail call void %170(ptr noundef nonnull %.sink95, ptr noundef nonnull %15) #31
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !130
+  %172 = icmp eq ptr %.sink95, %171
+  br i1 %172, label %173, label %zend_observer_fcall_end.exit
 
-161:                                              ; preds = %149
-  tail call void @zend_observer_fcall_end_prechecked(ptr noundef nonnull %.sink93, ptr noundef nonnull %15) #31
+173:                                              ; preds = %161
+  tail call void @zend_observer_fcall_end_prechecked(ptr noundef nonnull %.sink95, ptr noundef nonnull %15) #31
   br label %zend_observer_fcall_end.exit
 
-zend_observer_fcall_end.exit:                     ; preds = %149, %161
+zend_observer_fcall_end.exit:                     ; preds = %161, %173
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
-  %.not46 = icmp eq ptr %162, null
-  br i1 %.not46, label %zend_rethrow_exception.exit, label %163, !prof !49
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
+  %.not46 = icmp eq ptr %174, null
+  br i1 %.not46, label %zend_rethrow_exception.exit, label %175, !prof !49
 
-163:                                              ; preds = %zend_observer_fcall_end.exit
-  %164 = load ptr, ptr %0, align 8, !tbaa !58
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 28
-  %166 = load i8, ptr %165, align 4, !tbaa !124
-  %.not.i49 = icmp eq i8 %166, -107
-  br i1 %.not.i49, label %zend_rethrow_exception.exit, label %167
+175:                                              ; preds = %zend_observer_fcall_end.exit
+  %176 = load ptr, ptr %0, align 8, !tbaa !58
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 28
+  %178 = load i8, ptr %177, align 4, !tbaa !124
+  %.not.i49 = icmp eq i8 %178, -107
+  br i1 %.not.i49, label %zend_rethrow_exception.exit, label %179
 
-167:                                              ; preds = %163
-  store ptr %164, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
+179:                                              ; preds = %175
+  store ptr %176, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
   store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %0, align 8, !tbaa !58
   br label %zend_rethrow_exception.exit
 
-zend_rethrow_exception.exit:                      ; preds = %167, %163, %zend_observer_fcall_end.exit
-  %168 = getelementptr inbounds nuw i8, ptr %.sink93, i64 44
-  %169 = load i32, ptr %168, align 4, !tbaa !55
-  %.not.i50 = icmp eq i32 %169, 0
-  br i1 %.not.i50, label %zend_vm_stack_free_args.exit, label %170, !prof !60
+zend_rethrow_exception.exit:                      ; preds = %179, %175, %zend_observer_fcall_end.exit
+  %180 = getelementptr inbounds nuw i8, ptr %.sink95, i64 44
+  %181 = load i32, ptr %180, align 4, !tbaa !55
+  %.not.i50 = icmp eq i32 %181, 0
+  br i1 %.not.i50, label %zend_vm_stack_free_args.exit, label %182, !prof !60
 
-170:                                              ; preds = %zend_rethrow_exception.exit
-  %171 = getelementptr inbounds nuw i8, ptr %.sink93, i64 80
-  br label %172
+182:                                              ; preds = %zend_rethrow_exception.exit
+  %183 = getelementptr inbounds nuw i8, ptr %.sink95, i64 80
+  br label %184
 
-172:                                              ; preds = %zval_ptr_dtor_nogc.exit, %170
-  %.05.i = phi i32 [ %169, %170 ], [ %183, %zval_ptr_dtor_nogc.exit ]
-  %.0.i51 = phi ptr [ %171, %170 ], [ %182, %zval_ptr_dtor_nogc.exit ]
-  %173 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 9
-  %174 = load i8, ptr %173, align 1, !tbaa !55
-  %.not.i53 = icmp eq i8 %174, 0
-  br i1 %.not.i53, label %zval_ptr_dtor_nogc.exit, label %175
+184:                                              ; preds = %zval_ptr_dtor_nogc.exit, %182
+  %.05.i = phi i32 [ %181, %182 ], [ %195, %zval_ptr_dtor_nogc.exit ]
+  %.0.i51 = phi ptr [ %183, %182 ], [ %194, %zval_ptr_dtor_nogc.exit ]
+  %185 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 9
+  %186 = load i8, ptr %185, align 1, !tbaa !55
+  %.not.i53 = icmp eq i8 %186, 0
+  br i1 %.not.i53, label %zval_ptr_dtor_nogc.exit, label %187
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %.0.i51, align 8, !tbaa !55
-  %177 = load i32, ptr %176, align 4, !tbaa !56
-  %178 = icmp ne i32 %177, 0
-  tail call void @llvm.assume(i1 %178)
-  %179 = add i32 %177, -1
-  store i32 %179, ptr %176, align 4, !tbaa !56
-  %.not3.i = icmp eq i32 %179, 0
-  br i1 %.not3.i, label %180, label %zval_ptr_dtor_nogc.exit
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %.0.i51, align 8, !tbaa !55
+  %189 = load i32, ptr %188, align 4, !tbaa !56
+  %190 = icmp ne i32 %189, 0
+  tail call void @llvm.assume(i1 %190)
+  %191 = add i32 %189, -1
+  store i32 %191, ptr %188, align 4, !tbaa !56
+  %.not3.i = icmp eq i32 %191, 0
+  br i1 %.not3.i, label %192, label %zval_ptr_dtor_nogc.exit
 
-180:                                              ; preds = %175
-  %181 = load ptr, ptr %.0.i51, align 8, !tbaa !55
-  tail call void @rc_dtor_func(ptr noundef %181) #31
+192:                                              ; preds = %187
+  %193 = load ptr, ptr %.0.i51, align 8, !tbaa !55
+  tail call void @rc_dtor_func(ptr noundef %193) #31
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %172, %175, %180
-  %182 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 16
-  %183 = add i32 %.05.i, -1
-  %.not7.i = icmp eq i32 %183, 0
-  br i1 %.not7.i, label %zend_vm_stack_free_args.exit, label %172
+zval_ptr_dtor_nogc.exit:                          ; preds = %184, %187, %192
+  %194 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 16
+  %195 = add i32 %.05.i, -1
+  %.not7.i = icmp eq i32 %195, 0
+  br i1 %.not7.i, label %zend_vm_stack_free_args.exit, label %184
 
 zend_vm_stack_free_args.exit:                     ; preds = %zval_ptr_dtor_nogc.exit, %zend_rethrow_exception.exit
-  %184 = getelementptr inbounds nuw i8, ptr %.sink93, i64 40
-  %185 = load i32, ptr %184, align 8, !tbaa !55
-  %186 = and i32 %185, 262144
-  %.not47 = icmp eq i32 %186, 0
-  br i1 %.not47, label %195, label %zend_vm_stack_free_call_frame_ex.exit, !prof !49
+  %196 = getelementptr inbounds nuw i8, ptr %.sink95, i64 40
+  %197 = load i32, ptr %196, align 8, !tbaa !55
+  %198 = and i32 %197, 262144
+  %.not47 = icmp eq i32 %198, 0
+  br i1 %.not47, label %207, label %zend_vm_stack_free_call_frame_ex.exit, !prof !49
 
 zend_vm_stack_free_call_frame_ex.exit:            ; preds = %zend_vm_stack_free_args.exit
-  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !46
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %189 = load ptr, ptr %188, align 8, !tbaa !45
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 32
-  %191 = icmp eq ptr %.sink93, %190
-  tail call void @llvm.assume(i1 %191)
-  %192 = load ptr, ptr %189, align 8, !tbaa !42
-  store ptr %192, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !47
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  %194 = load ptr, ptr %193, align 8, !tbaa !44
-  store ptr %194, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8, !tbaa !48
-  store ptr %189, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !46
-  tail call void @_efree(ptr noundef %187) #31
-  br label %196
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !46
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %201 = load ptr, ptr %200, align 8, !tbaa !45
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %203 = icmp eq ptr %.sink95, %202
+  tail call void @llvm.assume(i1 %203)
+  %204 = load ptr, ptr %201, align 8, !tbaa !42
+  store ptr %204, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !47
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %206 = load ptr, ptr %205, align 8, !tbaa !44
+  store ptr %206, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8, !tbaa !48
+  store ptr %201, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !46
+  tail call void @_efree(ptr noundef %199) #31
+  br label %208
 
-195:                                              ; preds = %zend_vm_stack_free_args.exit
-  store ptr %.sink93, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !47
-  br label %196
+207:                                              ; preds = %zend_vm_stack_free_args.exit
+  store ptr %.sink95, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !47
+  br label %208
 
-196:                                              ; preds = %195, %zend_vm_stack_free_call_frame_ex.exit
+208:                                              ; preds = %207, %zend_vm_stack_free_call_frame_ex.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @zend_get_zval_ptr(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(ret: address, provenance) %3) local_unnamed_addr #6 {
-  switch i32 %1, label %9 [
-    i32 1, label %.sink.split
-    i32 2, label %5
-    i32 4, label %5
-    i32 8, label %5
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %12
+
+.split:                                           ; preds = %4
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %7, label %12 [
+    i32 0, label %.sink.split
+    i32 1, label %8
+    i32 2, label %8
+    i32 3, label %8
   ]
 
-5:                                                ; preds = %4, %4, %4
+8:                                                ; preds = %.split, %.split, %.split
   br label %.sink.split
 
-.sink.split:                                      ; preds = %4, %5
-  %.sink = phi ptr [ %3, %5 ], [ %0, %4 ]
-  %6 = load i32, ptr %2, align 4, !tbaa !55
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %.sink, i64 %7
-  br label %9
+.sink.split:                                      ; preds = %.split, %8
+  %.sink = phi ptr [ %3, %8 ], [ %0, %.split ]
+  %9 = load i32, ptr %2, align 4, !tbaa !55
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds i8, ptr %.sink, i64 %10
+  br label %12
 
-9:                                                ; preds = %.sink.split, %4
-  %.0 = phi ptr [ null, %4 ], [ %8, %.sink.split ]
+12:                                               ; preds = %.sink.split, %.split, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %.split ], [ %11, %.sink.split ]
   ret ptr %.0
 }
 
@@ -173373,6 +173400,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #28

@@ -85,7 +85,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c99d10738715c65bad44182c6f678d15.53.llvm.14842887858627331974 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @"switch.table._ZN67_$LT$regex_syntax..hir..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17h71c9be994aad9b21E" = private unnamed_addr constant [7 x i64] [i64 24, i64 31, i64 38, i64 26, i64 32, i64 82, i64 106], align 8
 @"switch.table._ZN67_$LT$regex_syntax..hir..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17h71c9be994aad9b21E.29" = private unnamed_addr constant [7 x ptr] [ptr @anon.e7a22afab2d73454c3fec61b403322c0.31.llvm.5188572562200175411, ptr @anon.e7a22afab2d73454c3fec61b403322c0.32.llvm.5188572562200175411, ptr @anon.e7a22afab2d73454c3fec61b403322c0.33.llvm.5188572562200175411, ptr @anon.e7a22afab2d73454c3fec61b403322c0.34.llvm.5188572562200175411, ptr @anon.e7a22afab2d73454c3fec61b403322c0.35.llvm.5188572562200175411, ptr @anon.e7a22afab2d73454c3fec61b403322c0.36.llvm.5188572562200175411, ptr @anon.e7a22afab2d73454c3fec61b403322c0.37.llvm.5188572562200175411], align 8
-@"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E" = private unnamed_addr constant [18 x i32] [i32 65, i32 122, i32 94, i32 36, i32 114, i32 82, i32 98, i32 66, i32 120515, i32 120489, i32 60, i32 62, i32 12296, i32 12297, i32 9665, i32 9655, i32 9664, i32 9654], align 4
+@"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E" = private unnamed_addr constant [18 x i32] [i32 1, i32 2, i32 4, i32 8, i32 16, i32 32, i32 64, i32 128, i32 256, i32 512, i32 1024, i32 2048, i32 4096, i32 8192, i32 16384, i32 32768, i32 65536, i32 131072], align 4
+@"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E.30" = private unnamed_addr constant [18 x i32] [i32 65, i32 122, i32 94, i32 36, i32 114, i32 82, i32 98, i32 66, i32 120515, i32 120489, i32 60, i32 62, i32 12296, i32 12297, i32 9665, i32 9655, i32 9664, i32 9654], align 4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hd6833b5698f2fd36E.llvm.5188572562200175411"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -8008,44 +8009,28 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %switch.lookup, %.split13.i, %24, %14
-  %.0 = phi i1 [ %19, %14 ], [ false, %24 ], [ false, %.split13.i ], [ true, %switch.lookup ]
+.loopexit:                                        ; preds = %.split13.i, %switch.lookup, %26, %14
+  %.0 = phi i1 [ %19, %14 ], [ false, %26 ], [ false, %.split13.i ], [ true, %switch.lookup ]
   ret i1 %.0
 
-.split13.i:                                       ; preds = %.preheader, %24
-  %.01417 = phi i32 [ %7, %.preheader ], [ %25, %24 ]
-  %neg.i = sub i32 0, %.01417
-  %20 = and i32 %.01417, %neg.i
-  switch i32 %20, label %.loopexit [
-    i32 1, label %switch.lookup
-    i32 2, label %switch.lookup
-    i32 4, label %switch.lookup
-    i32 8, label %switch.lookup
-    i32 16, label %switch.lookup
-    i32 32, label %switch.lookup
-    i32 64, label %switch.lookup
-    i32 128, label %switch.lookup
-    i32 256, label %switch.lookup
-    i32 512, label %switch.lookup
-    i32 1024, label %switch.lookup
-    i32 2048, label %switch.lookup
-    i32 4096, label %switch.lookup
-    i32 8192, label %switch.lookup
-    i32 16384, label %switch.lookup
-    i32 32768, label %switch.lookup
-    i32 65536, label %switch.lookup
-    i32 131072, label %switch.lookup
-  ]
+.split13.i:                                       ; preds = %.preheader, %26
+  %.01417 = phi i32 [ %7, %.preheader ], [ %28, %26 ]
+  %20 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.01417, i1 true)
+  %21 = icmp samesign ult i32 %20, 18
+  br i1 %21, label %switch.lookup, label %.loopexit
 
-switch.lookup:                                    ; preds = %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i
+switch.lookup:                                    ; preds = %.split13.i
+  %22 = zext nneg i32 %20 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E", i64 %22
+  %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.01417, i1 true)
-  %22 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E", i64 %22
-  %switch.load = load i32, ptr %switch.gep, align 4
-  store i32 %switch.load, ptr %3, align 4
+  %23 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %switch.load, i1 true)
+  %24 = zext nneg i32 %23 to i64
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E.30", i64 %24
+  %switch.load22 = load i32, ptr %switch.gep21, align 4
+  store i32 %switch.load22, ptr %3, align 4
   store ptr %3, ptr %4, align 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17he4f8681ce2737fc3E", ptr %9, align 8
   store ptr @anon.e7a22afab2d73454c3fec61b403322c0.73, ptr %5, align 8, !alias.scope !1339, !noalias !1342
@@ -8053,16 +8038,17 @@ switch.lookup:                                    ; preds = %.split13.i, %.split
   store ptr null, ptr %11, align 8, !alias.scope !1339, !noalias !1342
   store ptr %4, ptr %12, align 8, !alias.scope !1339, !noalias !1342
   store i64 1, ptr %13, align 8, !alias.scope !1339, !noalias !1342
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %23, label %.loopexit, label %24
+  br i1 %25, label %.loopexit, label %26
 
-24:                                               ; preds = %switch.lookup
-  %25 = xor i32 %20, %.01417
-  %26 = icmp eq i32 %20, %.01417
-  br i1 %26, label %.loopexit, label %.split13.i
+26:                                               ; preds = %switch.lookup
+  %27 = xor i32 %switch.load, -1
+  %28 = and i32 %.01417, %27
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.loopexit, label %.split13.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

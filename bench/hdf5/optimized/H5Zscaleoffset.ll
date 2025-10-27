@@ -53,8 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 @H5E_NOSPACE_g = external local_unnamed_addr global i64, align 8
 @.str.26 = private unnamed_addr constant [55 x i8] c"memory allocation failed for scaleoffset decompression\00", align 1
 @.str.29 = private unnamed_addr constant [53 x i8] c"memory allocation failed for scaleoffset compression\00", align 1
-@switch.table.H5Z__scaleoffset_get_type = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 4], align 4
-@switch.table.H5Z__scaleoffset_get_type.3 = private unnamed_addr constant [8 x i32] [i32 6, i32 7, i32 poison, i32 8, i32 poison, i32 poison, i32 poison, i32 9], align 4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5Z__can_apply_scaleoffset(i64 %0, i64 noundef %1, i64 %2) #0 {
@@ -867,79 +865,77 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %.thread25, !prof !9
+  br i1 %9, label %10, label %.thread26, !prof !9
 
 10:                                               ; preds = %3
-  switch i32 %0, label %.thread25 [
+  switch i32 %0, label %.thread26 [
     i32 0, label %11
-    i32 1, label %24
+    i32 1, label %30
   ]
 
 11:                                               ; preds = %10
-  switch i32 %2, label %.thread25 [
+  switch i32 %2, label %.thread26 [
     i32 0, label %12
-    i32 1, label %18
+    i32 1, label %21
   ]
 
 12:                                               ; preds = %11
-  %switch.tableidx = add i32 %1, -1
-  %13 = icmp ult i32 %switch.tableidx, 8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %14
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %.split, label %17
 
-14:                                               ; preds = %12
-  %15 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
-  %16 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
-  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 825, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.18) #13
-  br label %.thread25
+.split:                                           ; preds = %12
+  %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  %16 = icmp samesign ult i32 %15, 4
+  br i1 %16, label %switch.lookup, label %17
 
-18:                                               ; preds = %11
-  %switch.tableidx27 = add i32 %1, -1
-  %19 = icmp ult i32 %switch.tableidx27, 8
-  %switch.maskindex31 = trunc i32 %switch.tableidx27 to i8
-  %switch.shifted32 = lshr i8 -117, %switch.maskindex31
-  %switch.lobit33 = trunc i8 %switch.shifted32 to i1
-  %or.cond36 = select i1 %19, i1 %switch.lobit33, i1 false
-  br i1 %or.cond36, label %switch.lookup30, label %20
+17:                                               ; preds = %.split, %12
+  %18 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
+  %19 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 825, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.18) #13
+  br label %.thread26
 
-20:                                               ; preds = %18
-  %21 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
-  %22 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
-  %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 842, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.18) #13
-  br label %.thread25
+21:                                               ; preds = %11
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %23 = icmp eq i32 %22, 1
+  br i1 %23, label %.split23, label %26
 
-24:                                               ; preds = %10
-  switch i32 %1, label %26 [
-    i32 4, label %.thread25
-    i32 8, label %25
-  ]
+.split23:                                         ; preds = %21
+  %24 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  %25 = icmp samesign ult i32 %24, 4
+  br i1 %25, label %switch.lookup28, label %26
 
-25:                                               ; preds = %24
-  br label %.thread25
-
-26:                                               ; preds = %24
+26:                                               ; preds = %.split23, %21
   %27 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %28 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
-  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 852, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.18) #13
-  br label %.thread25
+  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 842, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.18) #13
+  br label %.thread26
 
-switch.lookup:                                    ; preds = %12
-  %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5Z__scaleoffset_get_type, i64 %30
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.thread25
+30:                                               ; preds = %10
+  switch i32 %1, label %32 [
+    i32 4, label %.thread26
+    i32 8, label %31
+  ]
 
-switch.lookup30:                                  ; preds = %18
-  %31 = zext nneg i32 %switch.tableidx27 to i64
-  %switch.gep34 = getelementptr inbounds nuw i32, ptr @switch.table.H5Z__scaleoffset_get_type.3, i64 %31
-  %switch.load35 = load i32, ptr %switch.gep34, align 4
-  br label %.thread25
+31:                                               ; preds = %30
+  br label %.thread26
 
-.thread25:                                        ; preds = %switch.lookup30, %switch.lookup, %10, %11, %25, %24, %14, %20, %26, %3
-  %.0 = phi i32 [ 0, %26 ], [ 0, %20 ], [ 0, %14 ], [ 0, %3 ], [ 12, %25 ], [ 11, %24 ], [ 0, %11 ], [ 0, %10 ], [ %switch.load, %switch.lookup ], [ %switch.load35, %switch.lookup30 ]
+32:                                               ; preds = %30
+  %33 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
+  %34 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
+  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 852, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.18) #13
+  br label %.thread26
+
+switch.lookup:                                    ; preds = %.split
+  %switch.offset = add nuw nsw i32 %15, 1
+  br label %.thread26
+
+switch.lookup28:                                  ; preds = %.split23
+  %switch.offset29 = add nuw nsw i32 %24, 6
+  br label %.thread26
+
+.thread26:                                        ; preds = %switch.lookup28, %switch.lookup, %10, %11, %31, %30, %17, %26, %32, %3
+  %.0 = phi i32 [ 0, %32 ], [ 0, %26 ], [ 0, %17 ], [ 0, %3 ], [ 12, %31 ], [ 11, %30 ], [ 0, %11 ], [ 0, %10 ], [ %switch.offset, %switch.lookup ], [ %switch.offset29, %switch.lookup28 ]
   ret i32 %.0
 }
 
@@ -6662,6 +6658,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12

@@ -5426,7 +5426,7 @@ define dso_local void @popup_all_job(ptr noundef %0, ptr noundef %1, i32 noundef
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 36, ptr noundef nonnull %11, i32 noundef -1) #17
   %13 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %162, label %14
+  br i1 %.not, label %165, label %14
 
 14:                                               ; preds = %3
   %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 40) #20
@@ -5486,257 +5486,263 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br label %34
 
 34:                                               ; preds = %32, %31
-  switch i32 %2, label %67 [
-    i32 1, label %35
-    i32 2, label %43
-    i32 4, label %51
-    i32 8, label %59
+  %35 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %.split, label %70
+
+.split:                                           ; preds = %34
+  %37 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  switch i32 %37, label %70 [
+    i32 0, label %38
+    i32 1, label %46
+    i32 2, label %54
+    i32 3, label %62
   ]
 
-35:                                               ; preds = %34
-  %36 = load i32, ptr %9, align 4
-  %37 = icmp eq i32 %36, -2
-  %38 = load ptr, ptr %11, align 8
-  br i1 %37, label %39, label %41
+38:                                               ; preds = %.split
+  %39 = load i32, ptr %9, align 4
+  %40 = icmp eq i32 %39, -2
+  %41 = load ptr, ptr %11, align 8
+  br i1 %40, label %42, label %44
 
-39:                                               ; preds = %35
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.50, ptr noundef %38) #17
-  br label %68
+42:                                               ; preds = %38
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.50, ptr noundef %41) #17
+  br label %71
 
-41:                                               ; preds = %35
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.51, ptr noundef %38) #17
-  br label %68
+44:                                               ; preds = %38
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.51, ptr noundef %41) #17
+  br label %71
 
-43:                                               ; preds = %34
-  %44 = load i32, ptr %9, align 4
-  %45 = icmp eq i32 %44, -2
-  %46 = load ptr, ptr %11, align 8
-  br i1 %45, label %47, label %49
+46:                                               ; preds = %.split
+  %47 = load i32, ptr %9, align 4
+  %48 = icmp eq i32 %47, -2
+  %49 = load ptr, ptr %11, align 8
+  br i1 %48, label %50, label %52
 
-47:                                               ; preds = %43
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.52, ptr noundef %46) #17
-  br label %68
+50:                                               ; preds = %46
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.52, ptr noundef %49) #17
+  br label %71
 
-49:                                               ; preds = %43
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.53, ptr noundef %46) #17
-  br label %68
+52:                                               ; preds = %46
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.53, ptr noundef %49) #17
+  br label %71
 
-51:                                               ; preds = %34
-  %52 = load i32, ptr %9, align 4
-  %53 = icmp eq i32 %52, -2
-  %54 = load ptr, ptr %11, align 8
-  br i1 %53, label %55, label %57
+54:                                               ; preds = %.split
+  %55 = load i32, ptr %9, align 4
+  %56 = icmp eq i32 %55, -2
+  %57 = load ptr, ptr %11, align 8
+  br i1 %56, label %58, label %60
 
-55:                                               ; preds = %51
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.54, ptr noundef %54) #17
-  br label %68
+58:                                               ; preds = %54
+  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.54, ptr noundef %57) #17
+  br label %71
 
-57:                                               ; preds = %51
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.55, ptr noundef %54) #17
-  br label %68
+60:                                               ; preds = %54
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.55, ptr noundef %57) #17
+  br label %71
 
-59:                                               ; preds = %34
-  %60 = load i32, ptr %9, align 4
-  %61 = icmp eq i32 %60, -2
-  %62 = load ptr, ptr %11, align 8
-  br i1 %61, label %63, label %65
+62:                                               ; preds = %.split
+  %63 = load i32, ptr %9, align 4
+  %64 = icmp eq i32 %63, -2
+  %65 = load ptr, ptr %11, align 8
+  br i1 %64, label %66, label %68
 
-63:                                               ; preds = %59
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.56, ptr noundef %62) #17
-  br label %68
+66:                                               ; preds = %62
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.56, ptr noundef %65) #17
+  br label %71
 
-65:                                               ; preds = %59
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.57, ptr noundef %62) #17
-  br label %68
+68:                                               ; preds = %62
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.57, ptr noundef %65) #17
+  br label %71
 
-67:                                               ; preds = %34
+70:                                               ; preds = %34, %.split
   call void (ptr, ...) @g_print(ptr noundef nonnull @.str.58, i32 noundef %2) #17
-  br label %68
+  br label %71
 
-68:                                               ; preds = %63, %65, %55, %57, %47, %49, %39, %41, %67
-  %69 = load ptr, ptr %6, align 8
-  %70 = icmp ne ptr %69, null
-  %71 = load ptr, ptr @federation_name, align 8
-  %72 = icmp ne ptr %71, null
-  %or.cond = select i1 %70, i1 %72, i1 false
-  br i1 %or.cond, label %73, label %81
+71:                                               ; preds = %66, %68, %58, %60, %50, %52, %42, %44, %70
+  %72 = load ptr, ptr %6, align 8
+  %73 = icmp ne ptr %72, null
+  %74 = load ptr, ptr @federation_name, align 8
+  %75 = icmp ne ptr %74, null
+  %or.cond = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond, label %76, label %84
 
-73:                                               ; preds = %68
-  %74 = load i32, ptr @cluster_flags, align 4
-  %75 = and i32 %74, 2048
-  %.not54 = icmp eq i32 %75, 0
-  br i1 %.not54, label %81, label %76
+76:                                               ; preds = %71
+  %77 = load i32, ptr @cluster_flags, align 4
+  %78 = and i32 %77, 2048
+  %.not54 = icmp eq i32 %78, 0
+  br i1 %.not54, label %84, label %79
 
-76:                                               ; preds = %73
+79:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %77 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.59, ptr noundef nonnull %71, ptr noundef nonnull %69) #17
-  store ptr %77, ptr %12, align 8
-  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
-  %79 = sub i64 99, %78
-  %80 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %77, i64 noundef %79) #17
+  %80 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.59, ptr noundef nonnull %74, ptr noundef nonnull %72) #17
+  store ptr %80, ptr %12, align 8
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
+  %82 = sub i64 99, %81
+  %83 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %80, i64 noundef %82) #17
   call void @slurm_xfree(ptr noundef nonnull %12) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %81
-
-81:                                               ; preds = %76, %73, %68
-  %82 = load ptr, ptr %11, align 8
-  %.not55 = icmp eq ptr %82, null
-  br i1 %.not55, label %84, label %83
-
-83:                                               ; preds = %81
-  call void @g_free(ptr noundef nonnull %82) #17
   br label %84
 
-84:                                               ; preds = %83, %81
-  %85 = load ptr, ptr @popup_list, align 8
-  %86 = call ptr @list_iterator_create(ptr noundef %85) #17
-  %87 = call ptr @list_next(ptr noundef %86) #17
-  %.not5661 = icmp eq ptr %87, null
+84:                                               ; preds = %79, %76, %71
+  %85 = load ptr, ptr %11, align 8
+  %.not55 = icmp eq ptr %85, null
+  br i1 %.not55, label %87, label %86
+
+86:                                               ; preds = %84
+  call void @g_free(ptr noundef nonnull %85) #17
+  br label %87
+
+87:                                               ; preds = %86, %84
+  %88 = load ptr, ptr @popup_list, align 8
+  %89 = call ptr @list_iterator_create(ptr noundef %88) #17
+  %90 = call ptr @list_next(ptr noundef %89) #17
+  %.not5661 = icmp eq ptr %90, null
   br i1 %.not5661, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %84, %95
-  %88 = phi ptr [ %96, %95 ], [ %87, %84 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 128
-  %90 = load ptr, ptr %89, align 8
-  %.not57 = icmp eq ptr %90, null
-  br i1 %.not57, label %95, label %91
-
-91:                                               ; preds = %.lr.ph
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
+.lr.ph:                                           ; preds = %87, %98
+  %91 = phi ptr [ %99, %98 ], [ %90, %87 ]
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 128
   %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @xstrcmp(ptr noundef %93, ptr noundef nonnull %7) #17
-  %.not58 = icmp eq i32 %94, 0
-  br i1 %.not58, label %102, label %95
+  %.not57 = icmp eq ptr %93, null
+  br i1 %.not57, label %98, label %94
 
-95:                                               ; preds = %91, %.lr.ph
-  %96 = call ptr @list_next(ptr noundef %86) #17
-  %.not56 = icmp eq ptr %96, null
+94:                                               ; preds = %.lr.ph
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = call i32 @xstrcmp(ptr noundef %96, ptr noundef nonnull %7) #17
+  %.not58 = icmp eq i32 %97, 0
+  br i1 %.not58, label %105, label %98
+
+98:                                               ; preds = %94, %.lr.ph
+  %99 = call ptr @list_next(ptr noundef %89) #17
+  %.not56 = icmp eq ptr %99, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %95, %84
-  call void @list_iterator_destroy(ptr noundef %86) #17
-  %97 = icmp eq i32 %2, 8
-  br i1 %97, label %98, label %100
+._crit_edge:                                      ; preds = %98, %87
+  call void @list_iterator_destroy(ptr noundef %89) #17
+  %100 = icmp eq i32 %2, 8
+  br i1 %100, label %101, label %103
 
-98:                                               ; preds = %._crit_edge
-  %99 = call ptr @create_popup_info(i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7) #17
-  br label %108
+101:                                              ; preds = %._crit_edge
+  %102 = call ptr @create_popup_info(i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7) #17
+  br label %111
 
-100:                                              ; preds = %._crit_edge
-  %101 = call ptr @create_popup_info(i32 noundef 0, i32 noundef %2, ptr noundef nonnull %7) #17
-  br label %108
+103:                                              ; preds = %._crit_edge
+  %104 = call ptr @create_popup_info(i32 noundef 0, i32 noundef %2, ptr noundef nonnull %7) #17
+  br label %111
 
-102:                                              ; preds = %91
-  call void @list_iterator_destroy(ptr noundef %86) #17
-  %103 = getelementptr inbounds nuw i8, ptr %88, i64 104
-  %104 = load ptr, ptr %103, align 8
-  %105 = tail call i64 @gtk_window_get_type() #18
-  %106 = call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %105) #17
-  call void @gtk_window_present(ptr noundef %106) #17
-  %107 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %107) #17
-  br label %162
+105:                                              ; preds = %94
+  call void @list_iterator_destroy(ptr noundef %89) #17
+  %106 = getelementptr inbounds nuw i8, ptr %91, i64 104
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call i64 @gtk_window_get_type() #18
+  %109 = call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %108) #17
+  call void @gtk_window_present(ptr noundef %109) #17
+  %110 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %110) #17
+  br label %165
 
-108:                                              ; preds = %98, %100
-  %.044 = phi ptr [ %99, %98 ], [ %101, %100 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.044, i64 80
-  store ptr %0, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %.044, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %111 = getelementptr inbounds nuw i8, ptr %.044, i64 96
-  store i32 52, ptr %111, align 8
-  %112 = load i32, ptr @cluster_flags, align 4
-  %113 = and i32 %112, 2048
-  %.not59 = icmp eq i32 %113, 0
+111:                                              ; preds = %101, %103
+  %.044 = phi ptr [ %102, %101 ], [ %104, %103 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.044, i64 80
+  store ptr %0, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.044, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %114 = getelementptr inbounds nuw i8, ptr %.044, i64 96
+  store i32 52, ptr %114, align 8
+  %115 = load i32, ptr @cluster_flags, align 4
+  %116 = and i32 %115, 2048
+  %.not59 = icmp eq i32 %116, 0
   %.pre = load ptr, ptr %6, align 8
-  br i1 %.not59, label %120, label %114
+  br i1 %.not59, label %123, label %117
 
-114:                                              ; preds = %108
-  %115 = getelementptr inbounds nuw i8, ptr %.044, i64 128
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store ptr %.pre, ptr %119, align 8
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds nuw i8, ptr %.044, i64 128
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store ptr %.pre, ptr %122, align 8
   store ptr null, ptr %6, align 8
-  br label %120
+  br label %123
 
-120:                                              ; preds = %114, %108
-  %121 = phi ptr [ null, %114 ], [ %.pre, %108 ]
-  call void @g_free(ptr noundef %121) #17
-  switch i32 %2, label %155 [
-    i32 4, label %122
-    i32 1, label %129
-    i32 2, label %136
-    i32 6, label %156
-    i32 8, label %143
+123:                                              ; preds = %117, %111
+  %124 = phi ptr [ null, %117 ], [ %.pre, %111 ]
+  call void @g_free(ptr noundef %124) #17
+  switch i32 %2, label %158 [
+    i32 4, label %125
+    i32 1, label %132
+    i32 2, label %139
+    i32 6, label %159
+    i32 8, label %146
   ]
 
-122:                                              ; preds = %120
+125:                                              ; preds = %123
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull %5, i32 noundef -1) #17
-  %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %.044, i64 128
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr %123, ptr %128, align 8
-  br label %156
+  %126 = load ptr, ptr %5, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %.044, i64 128
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  store ptr %126, ptr %131, align 8
+  br label %159
 
-129:                                              ; preds = %120
+132:                                              ; preds = %123
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 57, ptr noundef nonnull %5, i32 noundef -1) #17
-  %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %.044, i64 128
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store ptr %130, ptr %135, align 8
-  br label %156
+  %133 = load ptr, ptr %5, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %.044, i64 128
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store ptr %133, ptr %138, align 8
+  br label %159
 
-136:                                              ; preds = %120
+139:                                              ; preds = %123
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 65, ptr noundef nonnull %5, i32 noundef -1) #17
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %.044, i64 128
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  store ptr %137, ptr %142, align 8
-  br label %156
+  %140 = load ptr, ptr %5, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %.044, i64 128
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  store ptr %140, ptr %145, align 8
+  br label %159
 
-143:                                              ; preds = %120
-  %144 = load i32, ptr %8, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %.044, i64 128
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  store i32 %144, ptr %149, align 8
-  %150 = load i32, ptr %9, align 4
-  %151 = load ptr, ptr %145, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 28
-  store i32 %150, ptr %154, align 4
-  br label %156
+146:                                              ; preds = %123
+  %147 = load i32, ptr %8, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %.044, i64 128
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  store i32 %147, ptr %152, align 8
+  %153 = load i32, ptr %9, align 4
+  %154 = load ptr, ptr %148, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 28
+  store i32 %153, ptr %157, align 4
+  br label %159
 
-155:                                              ; preds = %120
+158:                                              ; preds = %123
   call void (ptr, ...) @g_print(ptr noundef nonnull @.str.60, i32 noundef %2) #17
-  br label %156
+  br label %159
 
-156:                                              ; preds = %155, %143, %136, %129, %122, %120
-  %157 = call zeroext i1 @sview_thread_new(ptr noundef nonnull @popup_thr, ptr noundef nonnull %.044, ptr noundef nonnull %10) #17
-  br i1 %157, label %162, label %158
+159:                                              ; preds = %158, %146, %139, %132, %125, %123
+  %160 = call zeroext i1 @sview_thread_new(ptr noundef nonnull @popup_thr, ptr noundef nonnull %.044, ptr noundef nonnull %10) #17
+  br i1 %160, label %165, label %161
 
-158:                                              ; preds = %156
-  %159 = load ptr, ptr %10, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %161 = load ptr, ptr %160, align 8
-  call void (ptr, ...) @g_printerr(ptr noundef nonnull @.str.61, ptr noundef %161) #17
-  br label %162
+161:                                              ; preds = %159
+  %162 = load ptr, ptr %10, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  call void (ptr, ...) @g_printerr(ptr noundef nonnull @.str.61, ptr noundef %164) #17
+  br label %165
 
-162:                                              ; preds = %156, %3, %158, %102
+165:                                              ; preds = %159, %3, %161, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -8104,6 +8110,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

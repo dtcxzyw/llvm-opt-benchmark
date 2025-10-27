@@ -3334,13 +3334,13 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   %.val.val.i.i = load i16, ptr %91, align 4
   %92 = and i16 %.val.val.i.i, 1
   %.not.i.i.i = icmp eq i16 %92, 0
-  br i1 %.not.i.i.i, label %93, label %129
+  br i1 %.not.i.i.i, label %93, label %132
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %95 = load i32, ptr %94, align 4
   %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %97, label %127
+  br i1 %96, label %97, label %130
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %85, i64 22
@@ -3354,105 +3354,111 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   %106 = trunc nuw i8 %105 to i1
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 188
   %108 = load i16, ptr %107, align 4
-  br i1 %106, label %109, label %125
+  %109 = sext i16 %108 to i32
+  br i1 %106, label %110, label %128
 
-109:                                              ; preds = %97
-  switch i16 %108, label %121 [
-    i16 1, label %110
-    i16 2, label %113
-    i16 4, label %116
-    i16 8, label %119
+110:                                              ; preds = %97
+  %111 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %109)
+  %112 = icmp eq i32 %111, 1
+  br i1 %112, label %.split.i.i.i, label %125
+
+.split.i.i.i:                                     ; preds = %110
+  %113 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %109, i1 true)
+  switch i32 %113, label %125 [
+    i32 0, label %114
+    i32 1, label %117
+    i32 2, label %120
+    i32 3, label %123
   ]
 
-110:                                              ; preds = %109
-  %111 = load i8, ptr %103, align 1
-  %112 = sext i8 %111 to i64
+114:                                              ; preds = %.split.i.i.i
+  %115 = load i8, ptr %103, align 1
+  %116 = sext i8 %115 to i64
   br label %heap_getattr.exit.thread
 
-113:                                              ; preds = %109
-  %114 = load i16, ptr %103, align 2
-  %115 = sext i16 %114 to i64
+117:                                              ; preds = %.split.i.i.i
+  %118 = load i16, ptr %103, align 2
+  %119 = sext i16 %118 to i64
   br label %heap_getattr.exit.thread
 
-116:                                              ; preds = %109
-  %117 = load i32, ptr %103, align 4
-  %118 = sext i32 %117 to i64
+120:                                              ; preds = %.split.i.i.i
+  %121 = load i32, ptr %103, align 4
+  %122 = sext i32 %121 to i64
   br label %heap_getattr.exit.thread
 
-119:                                              ; preds = %109
-  %120 = load i64, ptr %103, align 8
+123:                                              ; preds = %.split.i.i.i
+  %124 = load i64, ptr %103, align 8
   br label %heap_getattr.exit.thread
 
-121:                                              ; preds = %109
-  %122 = sext i16 %108 to i32
-  %123 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %124 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, i32 noundef range(i32 -32768, 32768) %122) #10
+125:                                              ; preds = %.split.i.i.i, %110
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %127 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, i32 noundef range(i32 -32768, 32768) %109) #10
   tail call void @errfinish(ptr noundef nonnull @.str.76, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
-125:                                              ; preds = %97
-  %126 = ptrtoint ptr %103 to i64
+128:                                              ; preds = %97
+  %129 = ptrtoint ptr %103 to i64
   br label %heap_getattr.exit.thread
 
-127:                                              ; preds = %93
-  %128 = tail call i64 @nocachegetattr(ptr noundef nonnull %11, i32 noundef 11, ptr noundef nonnull %9) #10
+130:                                              ; preds = %93
+  %131 = tail call i64 @nocachegetattr(ptr noundef nonnull %11, i32 noundef 11, ptr noundef nonnull %9) #10
   br label %heap_getattr.exit.thread
 
-129:                                              ; preds = %90
-  %130 = getelementptr i8, ptr %85, i64 24
-  %.val20.i.i = load i8, ptr %130, align 1
-  %131 = and i8 %.val20.i.i, 4
-  %.not.i21.i.i = icmp eq i8 %131, 0
-  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread43, label %132
+132:                                              ; preds = %90
+  %133 = getelementptr i8, ptr %85, i64 24
+  %.val20.i.i = load i8, ptr %133, align 1
+  %134 = and i8 %.val20.i.i, 4
+  %.not.i21.i.i = icmp eq i8 %134, 0
+  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread43, label %135
 
-heap_getattr.exit.thread43:                       ; preds = %129
+heap_getattr.exit.thread43:                       ; preds = %132
   store i8 1, ptr %3, align 1
-  br label %146
+  br label %149
 
-132:                                              ; preds = %129
-  %133 = tail call i64 @nocachegetattr(ptr noundef nonnull %11, i32 noundef 11, ptr noundef %9) #10
+135:                                              ; preds = %132
+  %136 = tail call i64 @nocachegetattr(ptr noundef nonnull %11, i32 noundef 11, ptr noundef %9) #10
   br label %heap_getattr.exit.thread
 
 heap_getattr.exit:                                ; preds = %80
-  %134 = call i64 @getmissingattr(ptr noundef %9, i32 noundef 11, ptr noundef nonnull %3) #10
+  %137 = call i64 @getmissingattr(ptr noundef %9, i32 noundef 11, ptr noundef nonnull %3) #10
   %.pre = load i8, ptr %3, align 1, !range !4
-  %135 = trunc nuw i8 %.pre to i1
-  br i1 %135, label %146, label %heap_getattr.exit.thread
+  %138 = trunc nuw i8 %.pre to i1
+  br i1 %138, label %149, label %heap_getattr.exit.thread
 
-heap_getattr.exit.thread:                         ; preds = %125, %119, %116, %113, %110, %127, %132, %heap_getattr.exit
-  %.0.i42 = phi i64 [ %134, %heap_getattr.exit ], [ %126, %125 ], [ %120, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %128, %127 ], [ %133, %132 ]
-  %136 = inttoptr i64 %.0.i42 to ptr
-  %137 = call ptr @text_to_cstring(ptr noundef %136) #10
-  %138 = call i32 @get_password_type(ptr noundef %137) #10
-  %139 = icmp eq i32 %138, 1
-  br i1 %139, label %140, label %146
+heap_getattr.exit.thread:                         ; preds = %128, %123, %120, %117, %114, %130, %135, %heap_getattr.exit
+  %.0.i42 = phi i64 [ %137, %heap_getattr.exit ], [ %129, %128 ], [ %124, %123 ], [ %122, %120 ], [ %119, %117 ], [ %116, %114 ], [ %131, %130 ], [ %136, %135 ]
+  %139 = inttoptr i64 %.0.i42 to ptr
+  %140 = call ptr @text_to_cstring(ptr noundef %139) #10
+  %141 = call i32 @get_password_type(ptr noundef %140) #10
+  %142 = icmp eq i32 %141, 1
+  br i1 %142, label %143, label %149
 
-140:                                              ; preds = %heap_getattr.exit.thread
-  %141 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 1, ptr %141, align 1
-  %142 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 1, ptr %142, align 1
-  %143 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #10
-  br i1 %143, label %144, label %146
+143:                                              ; preds = %heap_getattr.exit.thread
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 1, ptr %144, align 1
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  store i8 1, ptr %145, align 1
+  %146 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #10
+  br i1 %146, label %147, label %149
 
-144:                                              ; preds = %140
-  %145 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60) #10
+147:                                              ; preds = %143
+  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60) #10
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1454, ptr noundef nonnull @__func__.RenameRole) #10
-  br label %146
+  br label %149
 
-146:                                              ; preds = %heap_getattr.exit.thread43, %140, %144, %heap_getattr.exit.thread, %heap_getattr.exit
-  %147 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  %148 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %7, ptr noundef nonnull %148, ptr noundef %147) #10
-  %149 = load ptr, ptr @object_access_hook, align 8
-  %.not36 = icmp eq ptr %149, null
-  br i1 %.not36, label %151, label %150
+149:                                              ; preds = %heap_getattr.exit.thread43, %143, %147, %heap_getattr.exit.thread, %heap_getattr.exit
+  %150 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %151 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  call void @CatalogTupleUpdate(ptr noundef nonnull %7, ptr noundef nonnull %151, ptr noundef %150) #10
+  %152 = load ptr, ptr @object_access_hook, align 8
+  %.not36 = icmp eq ptr %152, null
+  br i1 %.not36, label %154, label %153
 
-150:                                              ; preds = %146
+153:                                              ; preds = %149
   call void @RunObjectPostAlterHook(i32 noundef 1260, i32 noundef %22, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
-  br label %151
+  br label %154
 
-151:                                              ; preds = %146, %150
+154:                                              ; preds = %149, %153
   call void @ReleaseSysCache(ptr noundef nonnull %11) #10
   call void @table_close(ptr noundef nonnull %7, i32 noundef 0) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4245,6 +4251,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

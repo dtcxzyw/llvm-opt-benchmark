@@ -63,6 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mi_size_high = internal unnamed_addr constant [22 x i8] c"\01\02\01\02\04\02\04\08\04\08\10\08\10 \10 \04\01\08\02\10\04", align 16
 @mi_size_wide = internal unnamed_addr constant [22 x i8] c"\01\01\02\02\02\04\04\04\08\08\08\10\10\10  \01\04\02\08\04\10", align 16
 @ss_size_lookup = internal unnamed_addr constant [22 x [2 x [2 x i8]]] [[2 x [2 x i8]] zeroinitializer, [2 x [2 x i8]] [[2 x i8] c"\01\00", [2 x i8] c"\FF\00"], [2 x [2 x i8]] [[2 x i8] c"\02\FF", [2 x i8] zeroinitializer], [2 x [2 x i8]] [[2 x i8] c"\03\02", [2 x i8] c"\01\00"], [2 x [2 x i8]] [[2 x i8] c"\04\03", [2 x i8] c"\FF\01"], [2 x [2 x i8]] [[2 x i8] c"\05\FF", [2 x i8] c"\03\02"], [2 x [2 x i8]] [[2 x i8] c"\06\05", [2 x i8] c"\04\03"], [2 x [2 x i8]] [[2 x i8] c"\07\06", [2 x i8] c"\FF\04"], [2 x [2 x i8]] [[2 x i8] c"\08\FF", [2 x i8] c"\06\05"], [2 x [2 x i8]] [[2 x i8] c"\09\08", [2 x i8] c"\07\06"], [2 x [2 x i8]] [[2 x i8] c"\0A\09", [2 x i8] c"\FF\07"], [2 x [2 x i8]] [[2 x i8] c"\0B\FF", [2 x i8] c"\09\08"], [2 x [2 x i8]] [[2 x i8] c"\0C\0B", [2 x i8] c"\0A\09"], [2 x [2 x i8]] [[2 x i8] c"\0D\0C", [2 x i8] c"\FF\0A"], [2 x [2 x i8]] [[2 x i8] c"\0E\FF", [2 x i8] c"\0C\0B"], [2 x [2 x i8]] [[2 x i8] c"\0F\0E", [2 x i8] c"\0D\0C"], [2 x [2 x i8]] [[2 x i8] c"\10\01", [2 x i8] c"\FF\01"], [2 x [2 x i8]] [[2 x i8] c"\11\FF", [2 x i8] c"\02\02"], [2 x [2 x i8]] [[2 x i8] c"\12\04", [2 x i8] c"\FF\10"], [2 x [2 x i8]] [[2 x i8] c"\13\FF", [2 x i8] c"\05\11"], [2 x [2 x i8]] [[2 x i8] c"\14\07", [2 x i8] c"\FF\12"], [2 x [2 x i8]] [[2 x i8] c"\15\FF", [2 x i8] c"\08\13"]], align 16
+@switch.table.av1_build_obmc_inter_prediction.8 = private unnamed_addr constant [7 x ptr] [ptr @obmc_mask_1, ptr @obmc_mask_2, ptr @obmc_mask_4, ptr @obmc_mask_8, ptr @obmc_mask_16, ptr @obmc_mask_32, ptr @obmc_mask_64], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @av1_allow_warp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -2821,39 +2822,23 @@ setup_pred_plane.exit:                            ; preds = %172, %171
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @av1_get_obmc_mask(i32 noundef %0) local_unnamed_addr #10 {
-  switch i32 %0, label %8 [
-    i32 1, label %9
-    i32 2, label %2
-    i32 4, label %3
-    i32 8, label %4
-    i32 16, label %5
-    i32 32, label %6
-    i32 64, label %7
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %9
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 7
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %9
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.av1_build_obmc_inter_prediction.8, i64 %6
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %7
 
-4:                                                ; preds = %1
-  br label %9
-
-5:                                                ; preds = %1
-  br label %9
-
-6:                                                ; preds = %1
-  br label %9
-
-7:                                                ; preds = %1
-  br label %9
-
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %1, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %8 ], [ @obmc_mask_2, %2 ], [ @obmc_mask_4, %3 ], [ @obmc_mask_8, %4 ], [ @obmc_mask_16, %5 ], [ @obmc_mask_32, %6 ], [ @obmc_mask_64, %7 ], [ @obmc_mask_1, %1 ]
+7:                                                ; preds = %1, %.split, %switch.lookup
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %.split ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -3141,7 +3126,7 @@ define hidden void @av1_build_obmc_inter_prediction(ptr noundef readonly capture
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %build_obmc_inter_pred_above.exit
-  %.03951.i = phi i32 [ %129, %build_obmc_inter_pred_above.exit ], [ %22, %.lr.ph.i.preheader ]
+  %.03951.i = phi i32 [ %127, %build_obmc_inter_pred_above.exit ], [ %22, %.lr.ph.i.preheader ]
   %.04150.i = phi i32 [ %.142.i, %build_obmc_inter_pred_above.exit ], [ 0, %.lr.ph.i.preheader ]
   %46 = sext i32 %.03951.i to i64
   %47 = getelementptr inbounds ptr, ptr %30, i64 %46
@@ -3210,8 +3195,8 @@ is_neighbor_overlappable.exit.thread.i:           ; preds = %is_neighbor_overlap
   %88 = shl nsw i32 %70, 2
   br label %89
 
-89:                                               ; preds = %127, %83
-  %indvars.iv.i = phi i64 [ 0, %83 ], [ %indvars.iv.next.i, %127 ]
+89:                                               ; preds = %125, %83
+  %indvars.iv.i = phi i64 [ 0, %83 ], [ %indvars.iv.next.i, %125 ]
   %90 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %43, i64 %indvars.iv.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
@@ -3225,7 +3210,7 @@ is_neighbor_overlappable.exit.thread.i:           ; preds = %is_neighbor_overlap
   %100 = getelementptr inbounds i8, ptr %98, i64 %99
   %101 = load i8, ptr %100, align 1
   %switch.i.i = icmp ugt i8 %101, 2
-  br i1 %switch.i.i, label %102, label %127
+  br i1 %switch.i.i, label %102, label %125
 
 102:                                              ; preds = %89
   %103 = ashr i32 %88, %92
@@ -3240,277 +3225,239 @@ is_neighbor_overlappable.exit.thread.i:           ; preds = %is_neighbor_overlap
   %112 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 %108
-  switch i32 %96, label %121 [
-    i32 1, label %av1_get_obmc_mask.exit
-    i32 2, label %115
-    i32 4, label %116
-    i32 8, label %117
-    i32 16, label %118
-    i32 32, label %119
-    i32 64, label %120
-  ]
+  %115 = tail call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %96)
+  %116 = icmp eq i32 %115, 1
+  br i1 %116, label %.split.i.i, label %av1_get_obmc_mask.exit.i
 
-115:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
+.split.i.i:                                       ; preds = %102
+  %117 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %96, i1 true)
+  %118 = icmp samesign ult i32 %117, 7
+  tail call void @llvm.assume(i1 %118)
+  %119 = zext nneg i32 %117 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.av1_build_obmc_inter_prediction.8, i64 %119
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %av1_get_obmc_mask.exit.i
 
-116:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
-
-117:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
-
-118:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
-
-119:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
-
-120:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
-
-121:                                              ; preds = %102
-  br label %av1_get_obmc_mask.exit
-
-av1_get_obmc_mask.exit:                           ; preds = %102, %115, %116, %117, %118, %119, %120, %121
-  %.0.i31 = phi ptr [ null, %121 ], [ @obmc_mask_2, %115 ], [ @obmc_mask_4, %116 ], [ @obmc_mask_8, %117 ], [ @obmc_mask_16, %118 ], [ @obmc_mask_32, %119 ], [ @obmc_mask_64, %120 ], [ @obmc_mask_1, %102 ]
+av1_get_obmc_mask.exit.i:                         ; preds = %.split.i.i, %102
+  %.0.i49.i = phi ptr [ null, %102 ], [ %switch.load, %.split.i.i ]
   %.val.i22 = load ptr, ptr %44, align 8
-  %122 = getelementptr i8, ptr %.val.i22, i64 192
-  %.val.val.i = load i32, ptr %122, align 8
-  %123 = and i32 %.val.val.i, 8
-  %.not48.i = icmp eq i32 %123, 0
-  br i1 %.not48.i, label %126, label %124
+  %120 = getelementptr i8, ptr %.val.i22, i64 192
+  %.val.val.i = load i32, ptr %120, align 8
+  %121 = and i32 %.val.val.i, 8
+  %.not48.i = icmp eq i32 %121, 0
+  br i1 %.not48.i, label %124, label %122
 
-124:                                              ; preds = %av1_get_obmc_mask.exit
-  %125 = load i32, ptr %45, align 16
-  tail call void @aom_highbd_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i31, i32 noundef %93, i32 noundef %96, i32 noundef %125) #18
-  br label %127
+122:                                              ; preds = %av1_get_obmc_mask.exit.i
+  %123 = load i32, ptr %45, align 16
+  tail call void @aom_highbd_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i49.i, i32 noundef %93, i32 noundef %96, i32 noundef %123) #18
+  br label %125
 
-126:                                              ; preds = %av1_get_obmc_mask.exit
-  tail call void @aom_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i31, i32 noundef %93, i32 noundef %96) #18
-  br label %127
+124:                                              ; preds = %av1_get_obmc_mask.exit.i
+  tail call void @aom_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i49.i, i32 noundef %93, i32 noundef %96) #18
+  br label %125
 
-127:                                              ; preds = %126, %124, %89
+125:                                              ; preds = %124, %122, %89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %build_obmc_inter_pred_above.exit, label %89, !llvm.loop !40
 
-build_obmc_inter_pred_above.exit:                 ; preds = %127, %is_neighbor_overlappable.exit.i
-  %.142.i = phi i32 [ %.04150.i, %is_neighbor_overlappable.exit.i ], [ %69, %127 ]
-  %128 = zext nneg i8 %.040.i to i32
-  %129 = add nsw i32 %.1.i, %128
-  %130 = icmp slt i32 %129, %..i
-  %131 = icmp slt i32 %.142.i, %16
-  %132 = select i1 %130, i1 %131, i1 false
-  br i1 %132, label %.lr.ph.i, label %foreach_overlappable_nb_above.exit, !llvm.loop !38
+build_obmc_inter_pred_above.exit:                 ; preds = %125, %is_neighbor_overlappable.exit.i
+  %.142.i = phi i32 [ %.04150.i, %is_neighbor_overlappable.exit.i ], [ %69, %125 ]
+  %126 = zext nneg i8 %.040.i to i32
+  %127 = add nsw i32 %.1.i, %126
+  %128 = icmp slt i32 %127, %..i
+  %129 = icmp slt i32 %.142.i, %16
+  %130 = select i1 %128, i1 %129, i1 false
+  br i1 %130, label %.lr.ph.i, label %foreach_overlappable_nb_above.exit, !llvm.loop !38
 
 foreach_overlappable_nb_above.exit:               ; preds = %build_obmc_inter_pred_above.exit, %6, %20
-  %133 = getelementptr inbounds nuw i8, ptr @mi_size_high_log2, i64 %11
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr @max_neighbor_obmc, i64 %135
-  %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 7873
-  %139 = load i8, ptr %138, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %141, label %foreach_overlappable_nb_left.exit
+  %131 = getelementptr inbounds nuw i8, ptr @mi_size_high_log2, i64 %11
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i64
+  %134 = getelementptr inbounds nuw i32, ptr @max_neighbor_obmc, i64 %133
+  %135 = load i32, ptr %134, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 7873
+  %137 = load i8, ptr %136, align 1
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %foreach_overlappable_nb_left.exit
 
-141:                                              ; preds = %foreach_overlappable_nb_above.exit
-  %142 = load i32, ptr %1, align 16
-  %143 = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 -8
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %146 = load i32, ptr %145, align 8
-  %147 = mul nsw i32 %146, %142
-  %148 = sext i32 %147 to i64
-  %149 = sub nsw i64 0, %148
-  %150 = getelementptr inbounds ptr, ptr %144, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 8309
-  %152 = load i8, ptr %151, align 1
-  %153 = zext i8 %152 to i32
-  %154 = add nsw i32 %142, %153
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 1076
-  %156 = load i32, ptr %155, align 4
-  %..i12 = tail call i32 @llvm.smin.i32(i32 %154, i32 %156)
-  %157 = icmp slt i32 %142, %..i12
-  %158 = shl nuw i64 1, %11
-  %159 = and i64 %158, 4063226
-  %160 = icmp ne i64 %159, 0
-  %161 = and i1 %160, %157
-  br i1 %161, label %.lr.ph.i13.preheader, label %foreach_overlappable_nb_left.exit
+139:                                              ; preds = %foreach_overlappable_nb_above.exit
+  %140 = load i32, ptr %1, align 16
+  %141 = load ptr, ptr %7, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 -8
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %144 = load i32, ptr %143, align 8
+  %145 = mul nsw i32 %144, %140
+  %146 = sext i32 %145 to i64
+  %147 = sub nsw i64 0, %146
+  %148 = getelementptr inbounds ptr, ptr %142, i64 %147
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8309
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  %152 = add nsw i32 %140, %151
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1076
+  %154 = load i32, ptr %153, align 4
+  %..i12 = tail call i32 @llvm.smin.i32(i32 %152, i32 %154)
+  %155 = icmp slt i32 %140, %..i12
+  %156 = shl nuw i64 1, %11
+  %157 = and i64 %156, 4063226
+  %158 = icmp ne i64 %157, 0
+  %159 = and i1 %158, %155
+  br i1 %159, label %.lr.ph.i13.preheader, label %foreach_overlappable_nb_left.exit
 
-.lr.ph.i13.preheader:                             ; preds = %141
-  %162 = getelementptr i8, ptr %0, i64 25261
-  %.val.i10 = load i8, ptr %162, align 1
+.lr.ph.i13.preheader:                             ; preds = %139
+  %160 = getelementptr i8, ptr %0, i64 25261
+  %.val.i10 = load i8, ptr %160, align 1
   %.not.i.i11 = icmp eq i8 %.val.i10, 0
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %164 = getelementptr i8, ptr %1, i64 7960
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 10656
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %162 = getelementptr i8, ptr %1, i64 7960
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 10656
   %wide.trip.count.i25 = select i1 %.not.i.i11, i64 3, i64 1
   br label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13.preheader, %build_obmc_inter_pred_left.exit
-  %.04154.i = phi i32 [ %247, %build_obmc_inter_pred_left.exit ], [ %142, %.lr.ph.i13.preheader ]
+  %.04154.i = phi i32 [ %242, %build_obmc_inter_pred_left.exit ], [ %140, %.lr.ph.i13.preheader ]
   %.04353.i = phi i32 [ %.144.i, %build_obmc_inter_pred_left.exit ], [ 0, %.lr.ph.i13.preheader ]
-  %166 = load i32, ptr %145, align 8
-  %167 = mul nsw i32 %166, %.04154.i
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %150, i64 %168
-  %170 = load ptr, ptr %169, align 8
-  %171 = load i8, ptr %170, align 8
-  %172 = zext i8 %171 to i64
-  %173 = shl nuw i64 1, %172
-  %174 = and i64 %173, 3083263
-  %.not.i14 = icmp eq i64 %174, 0
-  br i1 %.not.i14, label %.thread.i, label %175
+  %164 = load i32, ptr %143, align 8
+  %165 = mul nsw i32 %164, %.04154.i
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds ptr, ptr %148, i64 %166
+  %168 = load ptr, ptr %167, align 8
+  %169 = load i8, ptr %168, align 8
+  %170 = zext i8 %169 to i64
+  %171 = shl nuw i64 1, %170
+  %172 = and i64 %171, 3083263
+  %.not.i14 = icmp eq i64 %172, 0
+  br i1 %.not.i14, label %.thread.i, label %173
 
-175:                                              ; preds = %.lr.ph.i13
-  %176 = getelementptr inbounds nuw i8, ptr @mi_size_high, i64 %172
-  %177 = load i8, ptr %176, align 1
-  %178 = and i64 %173, 131077
-  %.not52.i = icmp eq i64 %178, 0
-  br i1 %.not52.i, label %.thread.i, label %179
+173:                                              ; preds = %.lr.ph.i13
+  %174 = getelementptr inbounds nuw i8, ptr @mi_size_high, i64 %170
+  %175 = load i8, ptr %174, align 1
+  %176 = and i64 %171, 131077
+  %.not52.i = icmp eq i64 %176, 0
+  br i1 %.not52.i, label %.thread.i, label %177
 
-179:                                              ; preds = %175
-  %180 = and i32 %.04154.i, -2
-  %181 = or i32 %.04154.i, 1
-  %182 = mul nsw i32 %166, %181
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds ptr, ptr %150, i64 %183
-  %.pre.i = load ptr, ptr %184, align 8
+177:                                              ; preds = %173
+  %178 = and i32 %.04154.i, -2
+  %179 = or i32 %.04154.i, 1
+  %180 = mul nsw i32 %164, %179
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds ptr, ptr %148, i64 %181
+  %.pre.i = load ptr, ptr %182, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %179, %175, %.lr.ph.i13
-  %185 = phi ptr [ %.pre.i, %179 ], [ %170, %175 ], [ %170, %.lr.ph.i13 ]
-  %.042.i = phi i8 [ 2, %179 ], [ %177, %175 ], [ 16, %.lr.ph.i13 ]
-  %.1.i15 = phi i32 [ %180, %179 ], [ %.04154.i, %175 ], [ %.04154.i, %.lr.ph.i13 ]
-  %186 = getelementptr i8, ptr %185, i64 175
-  %.val.i.i.i16 = load i16, ptr %186, align 1
-  %187 = and i16 %.val.i.i.i16, 128
-  %.not.i.i.i17 = icmp eq i16 %187, 0
+.thread.i:                                        ; preds = %177, %173, %.lr.ph.i13
+  %183 = phi ptr [ %.pre.i, %177 ], [ %168, %173 ], [ %168, %.lr.ph.i13 ]
+  %.042.i = phi i8 [ 2, %177 ], [ %175, %173 ], [ 16, %.lr.ph.i13 ]
+  %.1.i15 = phi i32 [ %178, %177 ], [ %.04154.i, %173 ], [ %.04154.i, %.lr.ph.i13 ]
+  %184 = getelementptr i8, ptr %183, i64 175
+  %.val.i.i.i16 = load i16, ptr %184, align 1
+  %185 = and i16 %.val.i.i.i16, 128
+  %.not.i.i.i17 = icmp eq i16 %185, 0
   br i1 %.not.i.i.i17, label %is_neighbor_overlappable.exit.i19, label %is_neighbor_overlappable.exit.thread.i18
 
 is_neighbor_overlappable.exit.i19:                ; preds = %.thread.i
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %189 = load i8, ptr %188, align 8
-  %190 = icmp slt i8 %189, 1
-  br i1 %190, label %build_obmc_inter_pred_left.exit, label %is_neighbor_overlappable.exit.thread.i18
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %187 = load i8, ptr %186, align 8
+  %188 = icmp slt i8 %187, 1
+  br i1 %188, label %build_obmc_inter_pred_left.exit, label %is_neighbor_overlappable.exit.thread.i18
 
 is_neighbor_overlappable.exit.thread.i18:         ; preds = %is_neighbor_overlappable.exit.i19, %.thread.i
-  %191 = add nsw i32 %.04353.i, 1
-  %192 = sub nsw i32 %.1.i15, %142
-  %193 = load i8, ptr %151, align 1
-  %..042.i = tail call i8 @llvm.umin.i8(i8 %193, i8 %.042.i)
-  %194 = load ptr, ptr %7, align 8
-  %195 = load ptr, ptr %194, align 8
-  %196 = load i8, ptr %195, align 8
-  %197 = zext i8 %196 to i64
-  %198 = shl nuw i64 1, %197
-  %199 = and i64 %198, 2033663
-  %.not.i23 = icmp eq i64 %199, 0
-  br i1 %.not.i23, label %205, label %200
+  %189 = add nsw i32 %.04353.i, 1
+  %190 = sub nsw i32 %.1.i15, %140
+  %191 = load i8, ptr %149, align 1
+  %..042.i = tail call i8 @llvm.umin.i8(i8 %191, i8 %.042.i)
+  %192 = load ptr, ptr %7, align 8
+  %193 = load ptr, ptr %192, align 8
+  %194 = load i8, ptr %193, align 8
+  %195 = zext i8 %194 to i64
+  %196 = shl nuw i64 1, %195
+  %197 = and i64 %196, 2033663
+  %.not.i23 = icmp eq i64 %197, 0
+  br i1 %.not.i23, label %203, label %198
 
-200:                                              ; preds = %is_neighbor_overlappable.exit.thread.i18
-  %201 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %197
-  %202 = load i8, ptr %201, align 1
-  %203 = lshr i8 %202, 1
-  %204 = zext nneg i8 %203 to i32
-  br label %205
+198:                                              ; preds = %is_neighbor_overlappable.exit.thread.i18
+  %199 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %195
+  %200 = load i8, ptr %199, align 1
+  %201 = lshr i8 %200, 1
+  %202 = zext nneg i8 %201 to i32
+  br label %203
 
-205:                                              ; preds = %200, %is_neighbor_overlappable.exit.thread.i18
-  %206 = phi i32 [ %204, %200 ], [ 32, %is_neighbor_overlappable.exit.thread.i18 ]
-  %207 = zext i8 %..042.i to i32
-  %208 = shl nuw nsw i32 %207, 2
-  %209 = shl nsw i32 %192, 2
-  br label %210
+203:                                              ; preds = %198, %is_neighbor_overlappable.exit.thread.i18
+  %204 = phi i32 [ %202, %198 ], [ 32, %is_neighbor_overlappable.exit.thread.i18 ]
+  %205 = zext i8 %..042.i to i32
+  %206 = shl nuw nsw i32 %205, 2
+  %207 = shl nsw i32 %190, 2
+  br label %208
 
-210:                                              ; preds = %245, %205
-  %indvars.iv.i26 = phi i64 [ 0, %205 ], [ %indvars.iv.next.i29, %245 ]
-  %211 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %163, i64 %indvars.iv.i26
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
-  %213 = load i32, ptr %212, align 4
-  %214 = lshr i32 %206, %213
-  %215 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  %216 = load i32, ptr %215, align 8
-  %217 = lshr i32 %208, %216
-  %218 = ashr i32 %209, %216
-  %219 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %220 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %221 = load i32, ptr %220, align 8
-  %222 = load ptr, ptr %219, align 8
-  %223 = mul nsw i32 %218, %221
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i8, ptr %222, i64 %224
-  %226 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i26
-  %227 = load i32, ptr %226, align 4
-  %228 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i26
-  %229 = load ptr, ptr %228, align 8
-  %230 = mul nsw i32 %227, %218
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds i8, ptr %229, i64 %231
-  switch i32 %214, label %239 [
-    i32 1, label %av1_get_obmc_mask.exit33
-    i32 2, label %233
-    i32 4, label %234
-    i32 8, label %235
-    i32 16, label %236
-    i32 32, label %237
-    i32 64, label %238
-  ]
+208:                                              ; preds = %240, %203
+  %indvars.iv.i26 = phi i64 [ 0, %203 ], [ %indvars.iv.next.i30, %240 ]
+  %209 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %161, i64 %indvars.iv.i26
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
+  %211 = load i32, ptr %210, align 4
+  %212 = lshr i32 %204, %211
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %214 = load i32, ptr %213, align 8
+  %215 = lshr i32 %206, %214
+  %216 = ashr i32 %207, %214
+  %217 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %209, i64 40
+  %219 = load i32, ptr %218, align 8
+  %220 = load ptr, ptr %217, align 8
+  %221 = mul nsw i32 %216, %219
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds i8, ptr %220, i64 %222
+  %224 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i26
+  %225 = load i32, ptr %224, align 4
+  %226 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i26
+  %227 = load ptr, ptr %226, align 8
+  %228 = mul nsw i32 %225, %216
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds i8, ptr %227, i64 %229
+  %231 = tail call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %212)
+  %232 = icmp eq i32 %231, 1
+  br i1 %232, label %.split.i.i32, label %av1_get_obmc_mask.exit.i27
 
-233:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
+.split.i.i32:                                     ; preds = %208
+  %233 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %212, i1 true)
+  %234 = zext nneg i32 %233 to i64
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table.av1_build_obmc_inter_prediction.8, i64 %234
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
+  br label %av1_get_obmc_mask.exit.i27
 
-234:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
+av1_get_obmc_mask.exit.i27:                       ; preds = %.split.i.i32, %208
+  %.0.i.i = phi ptr [ null, %208 ], [ %switch.load42, %.split.i.i32 ]
+  %.val.i28 = load ptr, ptr %162, align 8
+  %235 = getelementptr i8, ptr %.val.i28, i64 192
+  %.val.val.i29 = load i32, ptr %235, align 8
+  %236 = and i32 %.val.val.i29, 8
+  %.not50.i = icmp eq i32 %236, 0
+  br i1 %.not50.i, label %239, label %237
 
-235:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
+237:                                              ; preds = %av1_get_obmc_mask.exit.i27
+  %238 = load i32, ptr %163, align 16
+  tail call void @aom_highbd_blend_a64_hmask_c(ptr noundef %223, i32 noundef %219, ptr noundef %223, i32 noundef %219, ptr noundef %230, i32 noundef %225, ptr noundef %.0.i.i, i32 noundef %212, i32 noundef %215, i32 noundef %238) #18
+  br label %240
 
-236:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
+239:                                              ; preds = %av1_get_obmc_mask.exit.i27
+  tail call void @aom_blend_a64_hmask_c(ptr noundef %223, i32 noundef %219, ptr noundef %223, i32 noundef %219, ptr noundef %230, i32 noundef %225, ptr noundef %.0.i.i, i32 noundef %212, i32 noundef %215) #18
+  br label %240
 
-237:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
+240:                                              ; preds = %239, %237
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i26, 1
+  %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i25
+  br i1 %exitcond.not.i31, label %build_obmc_inter_pred_left.exit, label %208, !llvm.loop !41
 
-238:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
+build_obmc_inter_pred_left.exit:                  ; preds = %240, %is_neighbor_overlappable.exit.i19
+  %.144.i = phi i32 [ %.04353.i, %is_neighbor_overlappable.exit.i19 ], [ %189, %240 ]
+  %241 = zext nneg i8 %.042.i to i32
+  %242 = add nsw i32 %.1.i15, %241
+  %243 = icmp slt i32 %242, %..i12
+  %244 = icmp slt i32 %.144.i, %135
+  %245 = select i1 %243, i1 %244, i1 false
+  br i1 %245, label %.lr.ph.i13, label %foreach_overlappable_nb_left.exit, !llvm.loop !39
 
-239:                                              ; preds = %210
-  br label %av1_get_obmc_mask.exit33
-
-av1_get_obmc_mask.exit33:                         ; preds = %210, %233, %234, %235, %236, %237, %238, %239
-  %.0.i32 = phi ptr [ null, %239 ], [ @obmc_mask_2, %233 ], [ @obmc_mask_4, %234 ], [ @obmc_mask_8, %235 ], [ @obmc_mask_16, %236 ], [ @obmc_mask_32, %237 ], [ @obmc_mask_64, %238 ], [ @obmc_mask_1, %210 ]
-  %.val.i27 = load ptr, ptr %164, align 8
-  %240 = getelementptr i8, ptr %.val.i27, i64 192
-  %.val.val.i28 = load i32, ptr %240, align 8
-  %241 = and i32 %.val.val.i28, 8
-  %.not50.i = icmp eq i32 %241, 0
-  br i1 %.not50.i, label %244, label %242
-
-242:                                              ; preds = %av1_get_obmc_mask.exit33
-  %243 = load i32, ptr %165, align 16
-  tail call void @aom_highbd_blend_a64_hmask_c(ptr noundef %225, i32 noundef %221, ptr noundef %225, i32 noundef %221, ptr noundef %232, i32 noundef %227, ptr noundef %.0.i32, i32 noundef %214, i32 noundef %217, i32 noundef %243) #18
-  br label %245
-
-244:                                              ; preds = %av1_get_obmc_mask.exit33
-  tail call void @aom_blend_a64_hmask_c(ptr noundef %225, i32 noundef %221, ptr noundef %225, i32 noundef %221, ptr noundef %232, i32 noundef %227, ptr noundef %.0.i32, i32 noundef %214, i32 noundef %217) #18
-  br label %245
-
-245:                                              ; preds = %244, %242
-  %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i25
-  br i1 %exitcond.not.i30, label %build_obmc_inter_pred_left.exit, label %210, !llvm.loop !41
-
-build_obmc_inter_pred_left.exit:                  ; preds = %245, %is_neighbor_overlappable.exit.i19
-  %.144.i = phi i32 [ %.04353.i, %is_neighbor_overlappable.exit.i19 ], [ %191, %245 ]
-  %246 = zext nneg i8 %.042.i to i32
-  %247 = add nsw i32 %.1.i15, %246
-  %248 = icmp slt i32 %247, %..i12
-  %249 = icmp slt i32 %.144.i, %137
-  %250 = select i1 %248, i1 %249, i1 false
-  br i1 %250, label %.lr.ph.i13, label %foreach_overlappable_nb_left.exit, !llvm.loop !39
-
-foreach_overlappable_nb_left.exit:                ; preds = %build_obmc_inter_pred_left.exit, %foreach_overlappable_nb_above.exit, %141
+foreach_overlappable_nb_left.exit:                ; preds = %build_obmc_inter_pred_left.exit, %foreach_overlappable_nb_above.exit, %139
   ret void
 }
 
@@ -4376,6 +4323,12 @@ declare void @aom_blend_a64_hmask_c(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare void @aom_highbd_blend_a64_mask_c(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 declare void @aom_blend_a64_mask_c(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

@@ -578,7 +578,7 @@ define dso_local void @_ZN4llvm16X86LegalizerInfoC2ERKNS_12X86SubtargetERKNS_16X
 
 _ZN4llvm13LegalizerInfoC2Ev.exit:                 ; preds = %389
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 42512
-  tail call void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(82992) %396) #16
+  tail call void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(82992) %396) #17
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16X86LegalizerInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 125504
   store ptr %1, ptr %397, align 8, !tbaa !22
@@ -622,7 +622,7 @@ _ZN4llvm13LegalizerInfoC2Ev.exit:                 ; preds = %389
   %433 = load i8, ptr %432, align 1, !range !157
   %434 = select i1 %431, i8 0, i8 %433
   %435 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %436 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %435, i32 noundef 0) #16
+  %436 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %435, i32 noundef 0) #17
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 4
   %438 = load i32, ptr %437, align 4, !tbaa !162
   %439 = zext i32 %438 to i64
@@ -638,12 +638,12 @@ _ZN4llvm13LegalizerInfoC2Ev.exit:                 ; preds = %389
   %447 = select i1 %spec.select.i.i.i.i.not, i64 516, i64 %446
   %448 = or disjoint i64 %440, 1030
   %449 = select i1 %spec.select.i.i.i.i.not, i64 1028, i64 %448
-  %450 = tail call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 67) #16
+  %450 = tail call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 67) #17
   %451 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %452 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %453 = getelementptr inbounds nuw i8, ptr %319, i64 8
   store i64 0, ptr %453, align 8
-  %454 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %454 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   store i64 %storemerge.i.i.i, ptr %454, align 16, !tbaa !168
   %.sroa.41583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %454, i64 8
   store i64 4294967297, ptr %.sroa.41583.0..sroa_idx, align 8, !tbaa !168
@@ -667,7 +667,7 @@ _ZN4llvm13LegalizerInfoC2Ev.exit:                 ; preds = %389
   store i64 0, ptr %455, align 8
   %456 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %457 = getelementptr inbounds nuw i8, ptr %318, i64 16
-  %458 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %458 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %458, ptr noundef nonnull readonly align 8 dereferenceable(64) %454, i64 64, i1 false), !tbaa.struct !175
   store ptr %458, ptr %318, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %456, align 8, !tbaa !171
@@ -678,7 +678,7 @@ _ZN4llvm13LegalizerInfoC2Ev.exit:                 ; preds = %389
   br i1 %.not.i.i, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit, label %461
 
 461:                                              ; preds = %_ZN4llvm13LegalizerInfoC2Ev.exit
-  %462 = call noundef zeroext i1 %460(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull align 8 dereferenceable(32) %318, i32 noundef 3) #16
+  %462 = call noundef zeroext i1 %460(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull align 8 dereferenceable(32) %318, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; preds = %_ZN4llvm13LegalizerInfoC2Ev.exit, %461
@@ -688,16 +688,16 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; 
   br i1 %.not.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622, label %464
 
 464:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
-  %465 = call noundef zeroext i1 %463(ptr noundef nonnull align 8 dereferenceable(32) %319, ptr noundef nonnull align 8 dereferenceable(32) %319, i32 noundef 3) #16
+  %465 = call noundef zeroext i1 %463(ptr noundef nonnull align 8 dereferenceable(32) %319, ptr noundef nonnull align 8 dereferenceable(32) %319, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit, %464
-  %466 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 133) #16
+  %466 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 133) #17
   %467 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %468 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %469 = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i64 0, ptr %469, align 8
-  %470 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %470 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   store i64 %storemerge.i.i.i, ptr %470, align 16, !tbaa !168
   %.sroa.41576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %470, i64 8
   store i64 34359738369, ptr %.sroa.41576.0..sroa_idx, align 8, !tbaa !168
@@ -717,7 +717,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622: ; preds = %_ZN4ll
   store i64 0, ptr %471, align 8
   %472 = getelementptr inbounds nuw i8, ptr %317, i64 24
   %473 = getelementptr inbounds nuw i8, ptr %317, i64 16
-  %474 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %474 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %474, ptr noundef nonnull readonly align 8 dereferenceable(48) %470, i64 48, i1 false), !tbaa.struct !176
   store ptr %474, ptr %317, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %472, align 8, !tbaa !171
@@ -728,15 +728,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622: ; preds = %_ZN4ll
   br i1 %.not.i.i623, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit624, label %477
 
 477:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622
-  %478 = call noundef zeroext i1 %476(ptr noundef nonnull align 8 dereferenceable(32) %317, ptr noundef nonnull align 8 dereferenceable(32) %317, i32 noundef 3) #16
+  %478 = call noundef zeroext i1 %476(ptr noundef nonnull align 8 dereferenceable(32) %317, ptr noundef nonnull align 8 dereferenceable(32) %317, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit624
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit624: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i622, %477
   call void @llvm.lifetime.end.p0(ptr nonnull %317)
   call void @llvm.lifetime.start.p0(ptr nonnull %315)
   call void @llvm.lifetime.start.p0(ptr nonnull %316)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %315, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %316, i32 noundef 0, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %315, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %316, i32 noundef 0, i32 noundef 8) #17
   %479 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %475, i8 noundef zeroext 2, ptr noundef nonnull %315, ptr noundef nonnull %316)
   %480 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %481 = load ptr, ptr %480, align 8, !tbaa !174
@@ -744,7 +744,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit624:
   br i1 %.not.i.i625, label %_ZNSt14_Function_baseD2Ev.exit.i, label %482
 
 482:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit624
-  %483 = call noundef zeroext i1 %481(ptr noundef nonnull align 8 dereferenceable(32) %316, ptr noundef nonnull align 8 dereferenceable(32) %316, i32 noundef 3) #16
+  %483 = call noundef zeroext i1 %481(ptr noundef nonnull align 8 dereferenceable(32) %316, ptr noundef nonnull align 8 dereferenceable(32) %316, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %482, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit624
@@ -754,7 +754,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %482, %_ZN4llvm15Leg
   br i1 %.not.i3.i, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit, label %486
 
 486:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
-  %487 = call noundef zeroext i1 %485(ptr noundef nonnull align 8 dereferenceable(32) %315, ptr noundef nonnull align 8 dereferenceable(32) %315, i32 noundef 3) #16
+  %487 = call noundef zeroext i1 %485(ptr noundef nonnull align 8 dereferenceable(32) %315, ptr noundef nonnull align 8 dereferenceable(32) %315, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %486
@@ -766,10 +766,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit: ; preds = %_ZNSt14_Fun
   store i64 8, ptr %116, align 8
   %.sroa.2.0..sroa_idx.i2156 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2156, align 8
-  %488 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %116) #16
+  %488 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %116) #17
   %489 = trunc i64 %488 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %115, i32 noundef 0, i32 noundef %489) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %117, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %115, i32 noundef 0, i32 noundef %489) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %117, i32 noundef 0, i64 34359738369) #17
   %490 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %479, i8 noundef zeroext 2, ptr noundef nonnull %115, ptr noundef nonnull %117)
   %491 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %492 = load ptr, ptr %491, align 8, !tbaa !174
@@ -777,7 +777,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit: ; preds = %_ZNSt14_Fun
   br i1 %.not.i.i2157, label %_ZNSt14_Function_baseD2Ev.exit.i2158, label %493
 
 493:                                              ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit
-  %494 = call noundef zeroext i1 %492(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %117, i32 noundef 3) #16
+  %494 = call noundef zeroext i1 %492(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %117, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2158
 
 _ZNSt14_Function_baseD2Ev.exit.i2158:             ; preds = %493, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit
@@ -787,7 +787,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2158:             ; preds = %493, %_ZN4llvm15Leg
   br i1 %.not.i3.i2159, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2160, label %497
 
 497:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2158
-  %498 = call noundef zeroext i1 %496(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 noundef 3) #16
+  %498 = call noundef zeroext i1 %496(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2160
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2160: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2158, %497
@@ -800,11 +800,11 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2160: ; preds = %_ZNSt14_Funct
   br i1 %.not.i626, label %_ZNSt14_Function_baseD2Ev.exit627, label %501
 
 501:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2160
-  %502 = call noundef zeroext i1 %500(ptr noundef nonnull align 8 dereferenceable(32) %320, ptr noundef nonnull align 8 dereferenceable(32) %320, i32 noundef 3) #16
+  %502 = call noundef zeroext i1 %500(ptr noundef nonnull align 8 dereferenceable(32) %320, ptr noundef nonnull align 8 dereferenceable(32) %320, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit627
 
 _ZNSt14_Function_baseD2Ev.exit627:                ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2160, %501
-  %503 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 227) #16
+  %503 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 227) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %314)
   %504 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %505 = getelementptr inbounds nuw i8, ptr %314, i64 24
@@ -819,12 +819,12 @@ _ZNSt14_Function_baseD2Ev.exit627:                ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i628, label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit, label %509
 
 509:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit627
-  %510 = call noundef zeroext i1 %508(ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %314, i32 noundef 3) #16
+  %510 = call noundef zeroext i1 %508(ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %314, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit
 
 _ZN4llvm15LegalizeRuleSet7libcallEv.exit:         ; preds = %_ZNSt14_Function_baseD2Ev.exit627, %509
   call void @llvm.lifetime.end.p0(ptr nonnull %314)
-  %511 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 228) #16
+  %511 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 228) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %313)
   %512 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %513 = getelementptr inbounds nuw i8, ptr %313, i64 24
@@ -839,7 +839,7 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit:         ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i.i630, label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit632, label %517
 
 517:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit
-  %518 = call noundef zeroext i1 %516(ptr noundef nonnull align 8 dereferenceable(32) %313, ptr noundef nonnull align 8 dereferenceable(32) %313, i32 noundef 3) #16
+  %518 = call noundef zeroext i1 %516(ptr noundef nonnull align 8 dereferenceable(32) %313, ptr noundef nonnull align 8 dereferenceable(32) %313, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit632
 
 _ZN4llvm15LegalizeRuleSet7libcallEv.exit632:      ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit, %517
@@ -872,12 +872,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i634: ; preds = %_ZNSt1
   store i32 53, ptr %323, align 4, !tbaa !177
   %534 = getelementptr inbounds nuw i8, ptr %323, i64 4
   store i32 54, ptr %534, align 4, !tbaa !177
-  %535 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %323, i64 2) #16
+  %535 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %323, i64 2) #17
   %536 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %537 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %538 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i64 0, ptr %538, align 8
-  %539 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
+  %539 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   store i64 34359738369, ptr %539, align 16, !tbaa !168
   %.sroa.41546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %539, i64 8
   store i64 68719476737, ptr %.sroa.41546.0..sroa_idx, align 8, !tbaa !168
@@ -927,7 +927,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i634: ; preds = %_ZNSt1
   store i64 0, ptr %540, align 8
   %541 = getelementptr inbounds nuw i8, ptr %312, i64 24
   %542 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  %543 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
+  %543 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %543, ptr noundef nonnull readonly align 8 dereferenceable(168) %539, i64 168, i1 false), !tbaa.struct !178
   store ptr %543, ptr %312, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_3E9_M_invokeERKSt9_Any_dataS3_", ptr %541, align 8, !tbaa !171
@@ -938,7 +938,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i634: ; preds = %_ZNSt1
   br i1 %.not.i.i635, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637, label %546
 
 546:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i634
-  %547 = call noundef zeroext i1 %545(ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef nonnull align 8 dereferenceable(32) %312, i32 noundef 3) #16
+  %547 = call noundef zeroext i1 %545(ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef nonnull align 8 dereferenceable(32) %312, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i634, %546
@@ -949,7 +949,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637:
   %549 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %550 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store i64 0, ptr %550, align 8
-  %551 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %551 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %551, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %551, i64 8
   store i64 34359738369, ptr %.sroa.49.0..sroa_idx.i, align 8, !tbaa !168
@@ -971,7 +971,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637:
   br i1 %.not.i.i638, label %_ZNSt14_Function_baseD2Ev.exit.i639, label %557
 
 557:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637
-  %558 = call noundef zeroext i1 %556(ptr noundef nonnull align 8 dereferenceable(32) %311, ptr noundef nonnull align 8 dereferenceable(32) %311, i32 noundef 3) #16
+  %558 = call noundef zeroext i1 %556(ptr noundef nonnull align 8 dereferenceable(32) %311, ptr noundef nonnull align 8 dereferenceable(32) %311, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i639
 
 _ZNSt14_Function_baseD2Ev.exit.i639:              ; preds = %557, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit637
@@ -980,7 +980,7 @@ _ZNSt14_Function_baseD2Ev.exit.i639:              ; preds = %557, %_ZN4llvm15Leg
   br i1 %.not.i5.i, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit, label %560
 
 560:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i639
-  %561 = call noundef zeroext i1 %559(ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 8 dereferenceable(32) %310, i32 noundef 3) #16
+  %561 = call noundef zeroext i1 %559(ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 8 dereferenceable(32) %310, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i639, %560
@@ -992,7 +992,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt
   %563 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %564 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i64 0, ptr %564, align 8
-  %565 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %565 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %565, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i640 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i640, align 8, !tbaa !168
@@ -1014,7 +1014,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt
   br i1 %.not.i.i642, label %_ZNSt14_Function_baseD2Ev.exit.i643, label %571
 
 571:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit
-  %572 = call noundef zeroext i1 %570(ptr noundef nonnull align 8 dereferenceable(32) %309, ptr noundef nonnull align 8 dereferenceable(32) %309, i32 noundef 3) #16
+  %572 = call noundef zeroext i1 %570(ptr noundef nonnull align 8 dereferenceable(32) %309, ptr noundef nonnull align 8 dereferenceable(32) %309, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i643
 
 _ZNSt14_Function_baseD2Ev.exit.i643:              ; preds = %571, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit
@@ -1023,7 +1023,7 @@ _ZNSt14_Function_baseD2Ev.exit.i643:              ; preds = %571, %_ZN4llvm15Leg
   br i1 %.not.i5.i644, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645, label %574
 
 574:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i643
-  %575 = call noundef zeroext i1 %573(ptr noundef nonnull align 8 dereferenceable(32) %308, ptr noundef nonnull align 8 dereferenceable(32) %308, i32 noundef 3) #16
+  %575 = call noundef zeroext i1 %573(ptr noundef nonnull align 8 dereferenceable(32) %308, ptr noundef nonnull align 8 dereferenceable(32) %308, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i643, %574
@@ -1035,7 +1035,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645: ; preds = %_Z
   %577 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %578 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i64 0, ptr %578, align 8
-  %579 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %579 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %579, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i646 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i646, align 8, !tbaa !168
@@ -1057,7 +1057,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645: ; preds = %_Z
   br i1 %.not.i.i648, label %_ZNSt14_Function_baseD2Ev.exit.i649, label %585
 
 585:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645
-  %586 = call noundef zeroext i1 %584(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef nonnull align 8 dereferenceable(32) %307, i32 noundef 3) #16
+  %586 = call noundef zeroext i1 %584(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef nonnull align 8 dereferenceable(32) %307, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i649
 
 _ZNSt14_Function_baseD2Ev.exit.i649:              ; preds = %585, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit645
@@ -1066,7 +1066,7 @@ _ZNSt14_Function_baseD2Ev.exit.i649:              ; preds = %585, %_ZN4llvm15Leg
   br i1 %.not.i5.i650, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651, label %588
 
 588:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i649
-  %589 = call noundef zeroext i1 %587(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull align 8 dereferenceable(32) %306, i32 noundef 3) #16
+  %589 = call noundef zeroext i1 %587(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull align 8 dereferenceable(32) %306, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i649, %588
@@ -1078,7 +1078,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651: ; preds = %_Z
   %591 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %592 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store i64 0, ptr %592, align 8
-  %593 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %593 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %593, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i652 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i652, align 8, !tbaa !168
@@ -1100,7 +1100,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651: ; preds = %_Z
   br i1 %.not.i.i654, label %_ZNSt14_Function_baseD2Ev.exit.i655, label %599
 
 599:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651
-  %600 = call noundef zeroext i1 %598(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %305, i32 noundef 3) #16
+  %600 = call noundef zeroext i1 %598(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %305, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i655
 
 _ZNSt14_Function_baseD2Ev.exit.i655:              ; preds = %599, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit651
@@ -1109,7 +1109,7 @@ _ZNSt14_Function_baseD2Ev.exit.i655:              ; preds = %599, %_ZN4llvm15Leg
   br i1 %.not.i5.i656, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657, label %602
 
 602:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i655
-  %603 = call noundef zeroext i1 %601(ptr noundef nonnull align 8 dereferenceable(32) %304, ptr noundef nonnull align 8 dereferenceable(32) %304, i32 noundef 3) #16
+  %603 = call noundef zeroext i1 %601(ptr noundef nonnull align 8 dereferenceable(32) %304, ptr noundef nonnull align 8 dereferenceable(32) %304, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i655, %602
@@ -1123,7 +1123,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657: ; preds = %_Z
   %607 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %608 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i64 0, ptr %608, align 8
-  %609 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %609 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %609, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i658 = getelementptr inbounds nuw i8, ptr %609, i64 8
   store i64 34359738369, ptr %.sroa.49.0..sroa_idx.i658, align 8, !tbaa !168
@@ -1147,7 +1147,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657: ; preds = %_Z
   br i1 %.not.i.i660, label %_ZNSt14_Function_baseD2Ev.exit.i661, label %615
 
 615:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657
-  %616 = call noundef zeroext i1 %614(ptr noundef nonnull align 8 dereferenceable(32) %303, ptr noundef nonnull align 8 dereferenceable(32) %303, i32 noundef 3) #16
+  %616 = call noundef zeroext i1 %614(ptr noundef nonnull align 8 dereferenceable(32) %303, ptr noundef nonnull align 8 dereferenceable(32) %303, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i661
 
 _ZNSt14_Function_baseD2Ev.exit.i661:              ; preds = %615, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit657
@@ -1156,7 +1156,7 @@ _ZNSt14_Function_baseD2Ev.exit.i661:              ; preds = %615, %_ZN4llvm15Leg
   br i1 %.not.i5.i662, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit, label %618
 
 618:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i661
-  %619 = call noundef zeroext i1 %617(ptr noundef nonnull align 8 dereferenceable(32) %302, ptr noundef nonnull align 8 dereferenceable(32) %302, i32 noundef 3) #16
+  %619 = call noundef zeroext i1 %617(ptr noundef nonnull align 8 dereferenceable(32) %302, ptr noundef nonnull align 8 dereferenceable(32) %302, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i661, %618
@@ -1170,7 +1170,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt
   %623 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %624 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i64 0, ptr %624, align 8
-  %625 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %625 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %625, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i663 = getelementptr inbounds nuw i8, ptr %625, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i663, align 8, !tbaa !168
@@ -1194,7 +1194,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt
   br i1 %.not.i.i667, label %_ZNSt14_Function_baseD2Ev.exit.i668, label %631
 
 631:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit
-  %632 = call noundef zeroext i1 %630(ptr noundef nonnull align 8 dereferenceable(32) %301, ptr noundef nonnull align 8 dereferenceable(32) %301, i32 noundef 3) #16
+  %632 = call noundef zeroext i1 %630(ptr noundef nonnull align 8 dereferenceable(32) %301, ptr noundef nonnull align 8 dereferenceable(32) %301, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i668
 
 _ZNSt14_Function_baseD2Ev.exit.i668:              ; preds = %631, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit
@@ -1203,7 +1203,7 @@ _ZNSt14_Function_baseD2Ev.exit.i668:              ; preds = %631, %_ZN4llvm15Leg
   br i1 %.not.i5.i669, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670, label %634
 
 634:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i668
-  %635 = call noundef zeroext i1 %633(ptr noundef nonnull align 8 dereferenceable(32) %300, ptr noundef nonnull align 8 dereferenceable(32) %300, i32 noundef 3) #16
+  %635 = call noundef zeroext i1 %633(ptr noundef nonnull align 8 dereferenceable(32) %300, ptr noundef nonnull align 8 dereferenceable(32) %300, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i668, %634
@@ -1217,7 +1217,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670: ; preds = %_Z
   %639 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %640 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i64 0, ptr %640, align 8
-  %641 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %641 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %641, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i671 = getelementptr inbounds nuw i8, ptr %641, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i671, align 8, !tbaa !168
@@ -1241,7 +1241,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670: ; preds = %_Z
   br i1 %.not.i.i675, label %_ZNSt14_Function_baseD2Ev.exit.i676, label %647
 
 647:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670
-  %648 = call noundef zeroext i1 %646(ptr noundef nonnull align 8 dereferenceable(32) %299, ptr noundef nonnull align 8 dereferenceable(32) %299, i32 noundef 3) #16
+  %648 = call noundef zeroext i1 %646(ptr noundef nonnull align 8 dereferenceable(32) %299, ptr noundef nonnull align 8 dereferenceable(32) %299, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i676
 
 _ZNSt14_Function_baseD2Ev.exit.i676:              ; preds = %647, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit670
@@ -1250,7 +1250,7 @@ _ZNSt14_Function_baseD2Ev.exit.i676:              ; preds = %647, %_ZN4llvm15Leg
   br i1 %.not.i5.i677, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678, label %650
 
 650:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i676
-  %651 = call noundef zeroext i1 %649(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull align 8 dereferenceable(32) %298, i32 noundef 3) #16
+  %651 = call noundef zeroext i1 %649(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull align 8 dereferenceable(32) %298, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i676, %650
@@ -1264,7 +1264,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678: ; preds = %_Z
   %655 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %656 = getelementptr inbounds nuw i8, ptr %296, i64 8
   store i64 0, ptr %656, align 8
-  %657 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %657 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %657, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i679 = getelementptr inbounds nuw i8, ptr %657, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i679, align 8, !tbaa !168
@@ -1288,7 +1288,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678: ; preds = %_Z
   br i1 %.not.i.i683, label %_ZNSt14_Function_baseD2Ev.exit.i684, label %663
 
 663:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678
-  %664 = call noundef zeroext i1 %662(ptr noundef nonnull align 8 dereferenceable(32) %297, ptr noundef nonnull align 8 dereferenceable(32) %297, i32 noundef 3) #16
+  %664 = call noundef zeroext i1 %662(ptr noundef nonnull align 8 dereferenceable(32) %297, ptr noundef nonnull align 8 dereferenceable(32) %297, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i684
 
 _ZNSt14_Function_baseD2Ev.exit.i684:              ; preds = %663, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit678
@@ -1297,7 +1297,7 @@ _ZNSt14_Function_baseD2Ev.exit.i684:              ; preds = %663, %_ZN4llvm15Leg
   br i1 %.not.i5.i685, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686, label %666
 
 666:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i684
-  %667 = call noundef zeroext i1 %665(ptr noundef nonnull align 8 dereferenceable(32) %296, ptr noundef nonnull align 8 dereferenceable(32) %296, i32 noundef 3) #16
+  %667 = call noundef zeroext i1 %665(ptr noundef nonnull align 8 dereferenceable(32) %296, ptr noundef nonnull align 8 dereferenceable(32) %296, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i684, %666
@@ -1305,8 +1305,8 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %297)
   call void @llvm.lifetime.start.p0(ptr nonnull %294)
   call void @llvm.lifetime.start.p0(ptr nonnull %295)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %294, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %295, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %294, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %295, i32 noundef 0, i32 noundef 32) #17
   %668 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %661, i8 noundef zeroext 2, ptr noundef nonnull %294, ptr noundef nonnull %295)
   %669 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %670 = load ptr, ptr %669, align 8, !tbaa !174
@@ -1314,7 +1314,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686: ; preds = %_Z
   br i1 %.not.i.i687, label %_ZNSt14_Function_baseD2Ev.exit.i688, label %671
 
 671:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686
-  %672 = call noundef zeroext i1 %670(ptr noundef nonnull align 8 dereferenceable(32) %295, ptr noundef nonnull align 8 dereferenceable(32) %295, i32 noundef 3) #16
+  %672 = call noundef zeroext i1 %670(ptr noundef nonnull align 8 dereferenceable(32) %295, ptr noundef nonnull align 8 dereferenceable(32) %295, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i688
 
 _ZNSt14_Function_baseD2Ev.exit.i688:              ; preds = %671, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit686
@@ -1324,7 +1324,7 @@ _ZNSt14_Function_baseD2Ev.exit.i688:              ; preds = %671, %_ZN4llvm15Leg
   br i1 %.not.i3.i689, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690, label %675
 
 675:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i688
-  %676 = call noundef zeroext i1 %674(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %294, i32 noundef 3) #16
+  %676 = call noundef zeroext i1 %674(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %294, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i688, %675
@@ -1336,10 +1336,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690: ; preds = %_ZNSt14_
   store i64 8, ptr %113, align 8
   %.sroa.2.0..sroa_idx.i2162 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2162, align 8
-  %677 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %113) #16
+  %677 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %113) #17
   %678 = trunc i64 %677 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %112, i32 noundef 0, i32 noundef %678) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %114, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %112, i32 noundef 0, i32 noundef %678) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %114, i32 noundef 0, i64 34359738369) #17
   %679 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %668, i8 noundef zeroext 2, ptr noundef nonnull %112, ptr noundef nonnull %114)
   %680 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %681 = load ptr, ptr %680, align 8, !tbaa !174
@@ -1347,7 +1347,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690: ; preds = %_ZNSt14_
   br i1 %.not.i.i2163, label %_ZNSt14_Function_baseD2Ev.exit.i2164, label %682
 
 682:                                              ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690
-  %683 = call noundef zeroext i1 %681(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %114, i32 noundef 3) #16
+  %683 = call noundef zeroext i1 %681(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %114, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2164
 
 _ZNSt14_Function_baseD2Ev.exit.i2164:             ; preds = %682, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit690
@@ -1357,7 +1357,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2164:             ; preds = %682, %_ZN4llvm15Leg
   br i1 %.not.i3.i2165, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166, label %686
 
 686:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2164
-  %687 = call noundef zeroext i1 %685(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %112, i32 noundef 3) #16
+  %687 = call noundef zeroext i1 %685(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %112, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2164, %686
@@ -1367,8 +1367,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166: ; preds = %_ZNSt14_Funct
   %688 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %679, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %292)
   call void @llvm.lifetime.start.p0(ptr nonnull %293)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %292, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %293, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %292, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %293, i32 noundef 0) #17
   %689 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %688, i8 noundef zeroext 3, ptr noundef nonnull %292, ptr noundef nonnull %293)
   %690 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %691 = load ptr, ptr %690, align 8, !tbaa !174
@@ -1376,7 +1376,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i691, label %_ZNSt14_Function_baseD2Ev.exit.i692, label %692
 
 692:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166
-  %693 = call noundef zeroext i1 %691(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %293, i32 noundef 3) #16
+  %693 = call noundef zeroext i1 %691(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %293, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i692
 
 _ZNSt14_Function_baseD2Ev.exit.i692:              ; preds = %692, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2166
@@ -1386,7 +1386,7 @@ _ZNSt14_Function_baseD2Ev.exit.i692:              ; preds = %692, %_ZN4llvm15Leg
   br i1 %.not.i2.i, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit, label %696
 
 696:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i692
-  %697 = call noundef zeroext i1 %695(ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef nonnull align 8 dereferenceable(32) %292, i32 noundef 3) #16
+  %697 = call noundef zeroext i1 %695(ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef nonnull align 8 dereferenceable(32) %292, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit:       ; preds = %_ZNSt14_Function_baseD2Ev.exit.i692, %696
@@ -1397,7 +1397,7 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit:       ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i693, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696, label %699
 
 699:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit
-  %700 = call noundef zeroext i1 %698(ptr noundef nonnull align 8 dereferenceable(32) %324, ptr noundef nonnull align 8 dereferenceable(32) %324, i32 noundef 3) #16
+  %700 = call noundef zeroext i1 %698(ptr noundef nonnull align 8 dereferenceable(32) %324, ptr noundef nonnull align 8 dereferenceable(32) %324, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696: ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit, %699
@@ -1410,12 +1410,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696: ; preds = %_ZN4ll
   store i32 155, ptr %702, align 4, !tbaa !177
   %703 = getelementptr inbounds nuw i8, ptr %325, i64 12
   store i32 154, ptr %703, align 4, !tbaa !177
-  %704 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %325, i64 4) #16
+  %704 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %325, i64 4) #17
   %705 = getelementptr inbounds nuw i8, ptr %326, i64 16
   %706 = getelementptr inbounds nuw i8, ptr %326, i64 24
   %707 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i64 0, ptr %707, align 8
-  %708 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %708 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   store i64 34359738369, ptr %708, align 16, !tbaa !168
   %.sroa.41539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %708, i64 8
   store i64 4294967297, ptr %.sroa.41539.0..sroa_idx, align 8, !tbaa !168
@@ -1435,7 +1435,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696: ; preds = %_ZN4ll
   store i64 0, ptr %709, align 8
   %710 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %711 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  %712 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %712 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %712, ptr noundef nonnull readonly align 8 dereferenceable(48) %708, i64 48, i1 false), !tbaa.struct !176
   store ptr %712, ptr %291, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_4E9_M_invokeERKSt9_Any_dataS3_", ptr %710, align 8, !tbaa !171
@@ -1446,15 +1446,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696: ; preds = %_ZN4ll
   br i1 %.not.i.i697, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit699, label %715
 
 715:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696
-  %716 = call noundef zeroext i1 %714(ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(32) %291, i32 noundef 3) #16
+  %716 = call noundef zeroext i1 %714(ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(32) %291, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit699
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit699: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i696, %715
   call void @llvm.lifetime.end.p0(ptr nonnull %291)
   call void @llvm.lifetime.start.p0(ptr nonnull %289)
   call void @llvm.lifetime.start.p0(ptr nonnull %290)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %289, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %290, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %289, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %290, i32 noundef 0, i32 noundef 32) #17
   %717 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %713, i8 noundef zeroext 2, ptr noundef nonnull %289, ptr noundef nonnull %290)
   %718 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %719 = load ptr, ptr %718, align 8, !tbaa !174
@@ -1462,7 +1462,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit699:
   br i1 %.not.i.i700, label %_ZNSt14_Function_baseD2Ev.exit.i701, label %720
 
 720:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit699
-  %721 = call noundef zeroext i1 %719(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %290, i32 noundef 3) #16
+  %721 = call noundef zeroext i1 %719(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %290, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i701
 
 _ZNSt14_Function_baseD2Ev.exit.i701:              ; preds = %720, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit699
@@ -1472,7 +1472,7 @@ _ZNSt14_Function_baseD2Ev.exit.i701:              ; preds = %720, %_ZN4llvm15Leg
   br i1 %.not.i3.i702, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703, label %724
 
 724:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i701
-  %725 = call noundef zeroext i1 %723(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef nonnull align 8 dereferenceable(32) %289, i32 noundef 3) #16
+  %725 = call noundef zeroext i1 %723(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef nonnull align 8 dereferenceable(32) %289, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i701, %724
@@ -1484,10 +1484,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703: ; preds = %_ZNSt14_
   store i64 8, ptr %110, align 8
   %.sroa.2.0..sroa_idx.i2168 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2168, align 8
-  %726 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %110) #16
+  %726 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %110) #17
   %727 = trunc i64 %726 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %109, i32 noundef 0, i32 noundef %727) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %111, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %109, i32 noundef 0, i32 noundef %727) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %111, i32 noundef 0, i64 34359738369) #17
   %728 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %717, i8 noundef zeroext 2, ptr noundef nonnull %109, ptr noundef nonnull %111)
   %729 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %730 = load ptr, ptr %729, align 8, !tbaa !174
@@ -1495,7 +1495,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703: ; preds = %_ZNSt14_
   br i1 %.not.i.i2169, label %_ZNSt14_Function_baseD2Ev.exit.i2170, label %731
 
 731:                                              ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703
-  %732 = call noundef zeroext i1 %730(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef 3) #16
+  %732 = call noundef zeroext i1 %730(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2170
 
 _ZNSt14_Function_baseD2Ev.exit.i2170:             ; preds = %731, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit703
@@ -1505,7 +1505,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2170:             ; preds = %731, %_ZN4llvm15Leg
   br i1 %.not.i3.i2171, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172, label %735
 
 735:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2170
-  %736 = call noundef zeroext i1 %734(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3) #16
+  %736 = call noundef zeroext i1 %734(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2170, %735
@@ -1519,10 +1519,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172: ; preds = %_ZNSt14_Funct
   store i64 1, ptr %119, align 8
   %.sroa.2.0..sroa_idx.i1252 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i1252, align 8
-  %738 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %119) #16
+  %738 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %119) #17
   %739 = trunc i64 %738 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %118, i32 noundef 1, i32 noundef %739) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %120, i32 noundef 1, i64 4294967297) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %118, i32 noundef 1, i32 noundef %739) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %120, i32 noundef 1, i64 4294967297) #17
   %740 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %737, i8 noundef zeroext 2, ptr noundef nonnull %118, ptr noundef nonnull %120)
   %741 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %742 = load ptr, ptr %741, align 8, !tbaa !174
@@ -1530,7 +1530,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1253, label %_ZNSt14_Function_baseD2Ev.exit.i1254, label %743
 
 743:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172
-  %744 = call noundef zeroext i1 %742(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 8 dereferenceable(32) %120, i32 noundef 3) #16
+  %744 = call noundef zeroext i1 %742(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 8 dereferenceable(32) %120, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1254
 
 _ZNSt14_Function_baseD2Ev.exit.i1254:             ; preds = %743, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2172
@@ -1540,7 +1540,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1254:             ; preds = %743, %_ZN4llvm15Leg
   br i1 %.not.i3.i1255, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256, label %747
 
 747:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1254
-  %748 = call noundef zeroext i1 %746(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %118, i32 noundef 3) #16
+  %748 = call noundef zeroext i1 %746(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %118, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1254, %747
@@ -1553,10 +1553,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256: ; preds = %_ZNSt14_Funct
   store i64 1, ptr %122, align 8
   %.sroa.2.0..sroa_idx.i1248 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i1248, align 8
-  %749 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %122) #16
+  %749 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %122) #17
   %750 = trunc i64 %749 to i32
-  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %121, i32 noundef 1, i32 noundef %750) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %123, i32 noundef 1, i64 4294967297) #16
+  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %121, i32 noundef 1, i32 noundef %750) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %123, i32 noundef 1, i64 4294967297) #17
   %751 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %740, i8 noundef zeroext 1, ptr noundef nonnull %121, ptr noundef nonnull %123)
   %752 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %753 = load ptr, ptr %752, align 8, !tbaa !174
@@ -1564,7 +1564,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1249, label %_ZNSt14_Function_baseD2Ev.exit.i1250, label %754
 
 754:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256
-  %755 = call noundef zeroext i1 %753(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef 3) #16
+  %755 = call noundef zeroext i1 %753(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1250
 
 _ZNSt14_Function_baseD2Ev.exit.i1250:             ; preds = %754, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit1256
@@ -1574,7 +1574,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1250:             ; preds = %754, %_ZN4llvm15Leg
   br i1 %.not.i3.i1251, label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit, label %758
 
 758:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1250
-  %759 = call noundef zeroext i1 %757(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef 3) #16
+  %759 = call noundef zeroext i1 %757(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit
 
 _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1250, %758
@@ -1583,8 +1583,8 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit: ; preds = %_ZNSt14_Function_
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.start.p0(ptr nonnull %287)
   call void @llvm.lifetime.start.p0(ptr nonnull %288)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %287, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %288, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %287, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %288, i32 noundef 0) #17
   %760 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %751, i8 noundef zeroext 3, ptr noundef nonnull %287, ptr noundef nonnull %288)
   %761 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %762 = load ptr, ptr %761, align 8, !tbaa !174
@@ -1592,7 +1592,7 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit: ; preds = %_ZNSt14_Function_
   br i1 %.not.i.i704, label %_ZNSt14_Function_baseD2Ev.exit.i705, label %763
 
 763:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit
-  %764 = call noundef zeroext i1 %762(ptr noundef nonnull align 8 dereferenceable(32) %288, ptr noundef nonnull align 8 dereferenceable(32) %288, i32 noundef 3) #16
+  %764 = call noundef zeroext i1 %762(ptr noundef nonnull align 8 dereferenceable(32) %288, ptr noundef nonnull align 8 dereferenceable(32) %288, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i705
 
 _ZNSt14_Function_baseD2Ev.exit.i705:              ; preds = %763, %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit
@@ -1602,7 +1602,7 @@ _ZNSt14_Function_baseD2Ev.exit.i705:              ; preds = %763, %_ZN4llvm15Leg
   br i1 %.not.i2.i706, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit707, label %767
 
 767:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i705
-  %768 = call noundef zeroext i1 %766(ptr noundef nonnull align 8 dereferenceable(32) %287, ptr noundef nonnull align 8 dereferenceable(32) %287, i32 noundef 3) #16
+  %768 = call noundef zeroext i1 %766(ptr noundef nonnull align 8 dereferenceable(32) %287, ptr noundef nonnull align 8 dereferenceable(32) %287, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit707
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit707:    ; preds = %_ZNSt14_Function_baseD2Ev.exit.i705, %767
@@ -1613,17 +1613,17 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit707:    ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i708, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711, label %770
 
 770:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit707
-  %771 = call noundef zeroext i1 %769(ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef nonnull align 8 dereferenceable(32) %326, i32 noundef 3) #16
+  %771 = call noundef zeroext i1 %769(ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef nonnull align 8 dereferenceable(32) %326, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711: ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit707, %770
   call void @llvm.lifetime.end.p0(ptr nonnull %325)
-  %772 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 55) #16
+  %772 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 55) #17
   %773 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %774 = getelementptr inbounds nuw i8, ptr %327, i64 24
   %775 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store i64 0, ptr %775, align 8
-  %776 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
+  %776 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   store i64 34359738369, ptr %776, align 16, !tbaa !168
   %.sroa.41510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %776, i64 8
   store i64 68719476737, ptr %.sroa.41510.0..sroa_idx, align 8, !tbaa !168
@@ -1673,7 +1673,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711: ; preds = %_ZN4ll
   store i64 0, ptr %777, align 8
   %778 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %779 = getelementptr inbounds nuw i8, ptr %286, i64 16
-  %780 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
+  %780 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %780, ptr noundef nonnull readonly align 8 dereferenceable(168) %776, i64 168, i1 false), !tbaa.struct !181
   store ptr %780, ptr %286, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_5E9_M_invokeERKSt9_Any_dataS3_", ptr %778, align 8, !tbaa !171
@@ -1684,7 +1684,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711: ; preds = %_ZN4ll
   br i1 %.not.i.i712, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714, label %783
 
 783:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711
-  %784 = call noundef zeroext i1 %782(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %286, i32 noundef 3) #16
+  %784 = call noundef zeroext i1 %782(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %286, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i711, %783
@@ -1695,7 +1695,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714:
   %786 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %787 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store i64 0, ptr %787, align 8
-  %788 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %788 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %788, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i715 = getelementptr inbounds nuw i8, ptr %788, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i715, align 8, !tbaa !168
@@ -1717,7 +1717,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714:
   br i1 %.not.i.i717, label %_ZNSt14_Function_baseD2Ev.exit.i718, label %794
 
 794:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714
-  %795 = call noundef zeroext i1 %793(ptr noundef nonnull align 8 dereferenceable(32) %285, ptr noundef nonnull align 8 dereferenceable(32) %285, i32 noundef 3) #16
+  %795 = call noundef zeroext i1 %793(ptr noundef nonnull align 8 dereferenceable(32) %285, ptr noundef nonnull align 8 dereferenceable(32) %285, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i718
 
 _ZNSt14_Function_baseD2Ev.exit.i718:              ; preds = %794, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit714
@@ -1726,7 +1726,7 @@ _ZNSt14_Function_baseD2Ev.exit.i718:              ; preds = %794, %_ZN4llvm15Leg
   br i1 %.not.i5.i719, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720, label %797
 
 797:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i718
-  %798 = call noundef zeroext i1 %796(ptr noundef nonnull align 8 dereferenceable(32) %284, ptr noundef nonnull align 8 dereferenceable(32) %284, i32 noundef 3) #16
+  %798 = call noundef zeroext i1 %796(ptr noundef nonnull align 8 dereferenceable(32) %284, ptr noundef nonnull align 8 dereferenceable(32) %284, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i718, %797
@@ -1738,7 +1738,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720: ; preds = %_Z
   %800 = getelementptr inbounds nuw i8, ptr %282, i64 24
   %801 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i64 0, ptr %801, align 8
-  %802 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %802 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %802, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i721 = getelementptr inbounds nuw i8, ptr %802, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i721, align 8, !tbaa !168
@@ -1760,7 +1760,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720: ; preds = %_Z
   br i1 %.not.i.i723, label %_ZNSt14_Function_baseD2Ev.exit.i724, label %808
 
 808:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720
-  %809 = call noundef zeroext i1 %807(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull align 8 dereferenceable(32) %283, i32 noundef 3) #16
+  %809 = call noundef zeroext i1 %807(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull align 8 dereferenceable(32) %283, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i724
 
 _ZNSt14_Function_baseD2Ev.exit.i724:              ; preds = %808, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit720
@@ -1769,7 +1769,7 @@ _ZNSt14_Function_baseD2Ev.exit.i724:              ; preds = %808, %_ZN4llvm15Leg
   br i1 %.not.i5.i725, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726, label %811
 
 811:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i724
-  %812 = call noundef zeroext i1 %810(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull align 8 dereferenceable(32) %282, i32 noundef 3) #16
+  %812 = call noundef zeroext i1 %810(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull align 8 dereferenceable(32) %282, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i724, %811
@@ -1782,7 +1782,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726: ; preds = %_Z
   %815 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %816 = getelementptr inbounds nuw i8, ptr %280, i64 8
   store i64 0, ptr %816, align 8
-  %817 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %817 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %817, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i727 = getelementptr inbounds nuw i8, ptr %817, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i727, align 8, !tbaa !168
@@ -1806,7 +1806,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726: ; preds = %_Z
   br i1 %.not.i.i731, label %_ZNSt14_Function_baseD2Ev.exit.i732, label %823
 
 823:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726
-  %824 = call noundef zeroext i1 %822(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull align 8 dereferenceable(32) %281, i32 noundef 3) #16
+  %824 = call noundef zeroext i1 %822(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull align 8 dereferenceable(32) %281, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i732
 
 _ZNSt14_Function_baseD2Ev.exit.i732:              ; preds = %823, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit726
@@ -1815,7 +1815,7 @@ _ZNSt14_Function_baseD2Ev.exit.i732:              ; preds = %823, %_ZN4llvm15Leg
   br i1 %.not.i5.i733, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734, label %826
 
 826:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i732
-  %827 = call noundef zeroext i1 %825(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull align 8 dereferenceable(32) %280, i32 noundef 3) #16
+  %827 = call noundef zeroext i1 %825(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull align 8 dereferenceable(32) %280, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i732, %826
@@ -1827,7 +1827,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734: ; preds = %_Z
   %829 = getelementptr inbounds nuw i8, ptr %278, i64 24
   %830 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i64 0, ptr %830, align 8
-  %831 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %831 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %831, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i735 = getelementptr inbounds nuw i8, ptr %831, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i735, align 8, !tbaa !168
@@ -1849,7 +1849,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734: ; preds = %_Z
   br i1 %.not.i.i739, label %_ZNSt14_Function_baseD2Ev.exit.i740, label %837
 
 837:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734
-  %838 = call noundef zeroext i1 %836(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef nonnull align 8 dereferenceable(32) %279, i32 noundef 3) #16
+  %838 = call noundef zeroext i1 %836(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef nonnull align 8 dereferenceable(32) %279, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i740
 
 _ZNSt14_Function_baseD2Ev.exit.i740:              ; preds = %837, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit734
@@ -1858,7 +1858,7 @@ _ZNSt14_Function_baseD2Ev.exit.i740:              ; preds = %837, %_ZN4llvm15Leg
   br i1 %.not.i5.i741, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742, label %840
 
 840:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i740
-  %841 = call noundef zeroext i1 %839(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(32) %278, i32 noundef 3) #16
+  %841 = call noundef zeroext i1 %839(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(32) %278, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i740, %840
@@ -1870,7 +1870,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742: ; preds = %_Z
   %843 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %844 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store i64 0, ptr %844, align 8
-  %845 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %845 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %845, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i743 = getelementptr inbounds nuw i8, ptr %845, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i743, align 8, !tbaa !168
@@ -1892,7 +1892,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742: ; preds = %_Z
   br i1 %.not.i.i747, label %_ZNSt14_Function_baseD2Ev.exit.i748, label %851
 
 851:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742
-  %852 = call noundef zeroext i1 %850(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(32) %277, i32 noundef 3) #16
+  %852 = call noundef zeroext i1 %850(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(32) %277, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i748
 
 _ZNSt14_Function_baseD2Ev.exit.i748:              ; preds = %851, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit742
@@ -1901,7 +1901,7 @@ _ZNSt14_Function_baseD2Ev.exit.i748:              ; preds = %851, %_ZN4llvm15Leg
   br i1 %.not.i5.i749, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750, label %854
 
 854:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i748
-  %855 = call noundef zeroext i1 %853(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(32) %276, i32 noundef 3) #16
+  %855 = call noundef zeroext i1 %853(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(32) %276, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i748, %854
@@ -1913,7 +1913,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750: ; preds = %_Z
   %857 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %858 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i64 0, ptr %858, align 8
-  %859 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %859 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %859, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i751 = getelementptr inbounds nuw i8, ptr %859, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i751, align 8, !tbaa !168
@@ -1935,7 +1935,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750: ; preds = %_Z
   br i1 %.not.i.i753, label %_ZNSt14_Function_baseD2Ev.exit.i754, label %865
 
 865:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750
-  %866 = call noundef zeroext i1 %864(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(32) %275, i32 noundef 3) #16
+  %866 = call noundef zeroext i1 %864(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(32) %275, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i754
 
 _ZNSt14_Function_baseD2Ev.exit.i754:              ; preds = %865, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit750
@@ -1944,7 +1944,7 @@ _ZNSt14_Function_baseD2Ev.exit.i754:              ; preds = %865, %_ZN4llvm15Leg
   br i1 %.not.i5.i755, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756, label %868
 
 868:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i754
-  %869 = call noundef zeroext i1 %867(ptr noundef nonnull align 8 dereferenceable(32) %274, ptr noundef nonnull align 8 dereferenceable(32) %274, i32 noundef 3) #16
+  %869 = call noundef zeroext i1 %867(ptr noundef nonnull align 8 dereferenceable(32) %274, ptr noundef nonnull align 8 dereferenceable(32) %274, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i754, %868
@@ -1952,8 +1952,8 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %275)
   call void @llvm.lifetime.start.p0(ptr nonnull %272)
   call void @llvm.lifetime.start.p0(ptr nonnull %273)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %272, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %273, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %272, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %273, i32 noundef 0, i32 noundef 32) #17
   %870 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %863, i8 noundef zeroext 2, ptr noundef nonnull %272, ptr noundef nonnull %273)
   %871 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %872 = load ptr, ptr %871, align 8, !tbaa !174
@@ -1961,7 +1961,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756: ; preds = %_Z
   br i1 %.not.i.i757, label %_ZNSt14_Function_baseD2Ev.exit.i758, label %873
 
 873:                                              ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756
-  %874 = call noundef zeroext i1 %872(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef nonnull align 8 dereferenceable(32) %273, i32 noundef 3) #16
+  %874 = call noundef zeroext i1 %872(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef nonnull align 8 dereferenceable(32) %273, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i758
 
 _ZNSt14_Function_baseD2Ev.exit.i758:              ; preds = %873, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit756
@@ -1971,7 +1971,7 @@ _ZNSt14_Function_baseD2Ev.exit.i758:              ; preds = %873, %_ZN4llvm15Leg
   br i1 %.not.i3.i759, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760, label %877
 
 877:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i758
-  %878 = call noundef zeroext i1 %876(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef nonnull align 8 dereferenceable(32) %272, i32 noundef 3) #16
+  %878 = call noundef zeroext i1 %876(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef nonnull align 8 dereferenceable(32) %272, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i758, %877
@@ -1983,10 +1983,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760: ; preds = %_ZNSt14_
   store i64 8, ptr %107, align 8
   %.sroa.2.0..sroa_idx.i2174 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2174, align 8
-  %879 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %107) #16
+  %879 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %107) #17
   %880 = trunc i64 %879 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %106, i32 noundef 0, i32 noundef %880) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %108, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %106, i32 noundef 0, i32 noundef %880) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %108, i32 noundef 0, i64 34359738369) #17
   %881 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %870, i8 noundef zeroext 2, ptr noundef nonnull %106, ptr noundef nonnull %108)
   %882 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %883 = load ptr, ptr %882, align 8, !tbaa !174
@@ -1994,7 +1994,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760: ; preds = %_ZNSt14_
   br i1 %.not.i.i2175, label %_ZNSt14_Function_baseD2Ev.exit.i2176, label %884
 
 884:                                              ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760
-  %885 = call noundef zeroext i1 %883(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %108, i32 noundef 3) #16
+  %885 = call noundef zeroext i1 %883(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %108, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2176
 
 _ZNSt14_Function_baseD2Ev.exit.i2176:             ; preds = %884, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit760
@@ -2004,7 +2004,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2176:             ; preds = %884, %_ZN4llvm15Leg
   br i1 %.not.i3.i2177, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178, label %888
 
 888:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2176
-  %889 = call noundef zeroext i1 %887(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %106, i32 noundef 3) #16
+  %889 = call noundef zeroext i1 %887(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %106, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2176, %888
@@ -2014,8 +2014,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178: ; preds = %_ZNSt14_Funct
   %890 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %881, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %270)
   call void @llvm.lifetime.start.p0(ptr nonnull %271)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %270, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %271, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %270, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %271, i32 noundef 0) #17
   %891 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %890, i8 noundef zeroext 3, ptr noundef nonnull %270, ptr noundef nonnull %271)
   %892 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %893 = load ptr, ptr %892, align 8, !tbaa !174
@@ -2023,7 +2023,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i761, label %_ZNSt14_Function_baseD2Ev.exit.i762, label %894
 
 894:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178
-  %895 = call noundef zeroext i1 %893(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(32) %271, i32 noundef 3) #16
+  %895 = call noundef zeroext i1 %893(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(32) %271, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i762
 
 _ZNSt14_Function_baseD2Ev.exit.i762:              ; preds = %894, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2178
@@ -2033,7 +2033,7 @@ _ZNSt14_Function_baseD2Ev.exit.i762:              ; preds = %894, %_ZN4llvm15Leg
   br i1 %.not.i2.i763, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit764, label %898
 
 898:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i762
-  %899 = call noundef zeroext i1 %897(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %270, i32 noundef 3) #16
+  %899 = call noundef zeroext i1 %897(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %270, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit764
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit764:    ; preds = %_ZNSt14_Function_baseD2Ev.exit.i762, %898
@@ -2044,7 +2044,7 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit764:    ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i765, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768, label %901
 
 901:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit764
-  %902 = call noundef zeroext i1 %900(ptr noundef nonnull align 8 dereferenceable(32) %327, ptr noundef nonnull align 8 dereferenceable(32) %327, i32 noundef 3) #16
+  %902 = call noundef zeroext i1 %900(ptr noundef nonnull align 8 dereferenceable(32) %327, ptr noundef nonnull align 8 dereferenceable(32) %327, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768: ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit764, %901
@@ -2052,12 +2052,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768: ; preds = %_ZN4ll
   store i32 163, ptr %328, align 4, !tbaa !177
   %903 = getelementptr inbounds nuw i8, ptr %328, i64 4
   store i32 162, ptr %903, align 4, !tbaa !177
-  %904 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %328, i64 2) #16
+  %904 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %328, i64 2) #17
   %905 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %906 = getelementptr inbounds nuw i8, ptr %329, i64 24
   %907 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i64 0, ptr %907, align 8
-  %908 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %908 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i64 34359738369, ptr %908, align 16, !tbaa !168
   %.sroa.41504.0..sroa_idx = getelementptr inbounds nuw i8, ptr %908, i64 8
   store i64 68719476737, ptr %.sroa.41504.0..sroa_idx, align 8, !tbaa !168
@@ -2075,7 +2075,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768: ; preds = %_ZN4ll
   store i64 0, ptr %909, align 8
   %910 = getelementptr inbounds nuw i8, ptr %269, i64 24
   %911 = getelementptr inbounds nuw i8, ptr %269, i64 16
-  %912 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %912 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %912, ptr noundef nonnull readonly align 8 dereferenceable(40) %908, i64 40, i1 false), !tbaa.struct !182
   store ptr %912, ptr %269, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_6E9_M_invokeERKSt9_Any_dataS3_", ptr %910, align 8, !tbaa !171
@@ -2086,15 +2086,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768: ; preds = %_ZN4ll
   br i1 %.not.i.i769, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit771, label %915
 
 915:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768
-  %916 = call noundef zeroext i1 %914(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(32) %269, i32 noundef 3) #16
+  %916 = call noundef zeroext i1 %914(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(32) %269, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit771
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit771: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i768, %915
   call void @llvm.lifetime.end.p0(ptr nonnull %269)
   call void @llvm.lifetime.start.p0(ptr nonnull %267)
   call void @llvm.lifetime.start.p0(ptr nonnull %268)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %267, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %268, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %267, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %268, i32 noundef 0, i32 noundef 32) #17
   %917 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %913, i8 noundef zeroext 2, ptr noundef nonnull %267, ptr noundef nonnull %268)
   %918 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %919 = load ptr, ptr %918, align 8, !tbaa !174
@@ -2102,7 +2102,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit771:
   br i1 %.not.i.i772, label %_ZNSt14_Function_baseD2Ev.exit.i773, label %920
 
 920:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit771
-  %921 = call noundef zeroext i1 %919(ptr noundef nonnull align 8 dereferenceable(32) %268, ptr noundef nonnull align 8 dereferenceable(32) %268, i32 noundef 3) #16
+  %921 = call noundef zeroext i1 %919(ptr noundef nonnull align 8 dereferenceable(32) %268, ptr noundef nonnull align 8 dereferenceable(32) %268, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i773
 
 _ZNSt14_Function_baseD2Ev.exit.i773:              ; preds = %920, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit771
@@ -2112,7 +2112,7 @@ _ZNSt14_Function_baseD2Ev.exit.i773:              ; preds = %920, %_ZN4llvm15Leg
   br i1 %.not.i3.i774, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775, label %924
 
 924:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i773
-  %925 = call noundef zeroext i1 %923(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef nonnull align 8 dereferenceable(32) %267, i32 noundef 3) #16
+  %925 = call noundef zeroext i1 %923(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef nonnull align 8 dereferenceable(32) %267, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i773, %924
@@ -2124,10 +2124,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775: ; preds = %_ZNSt14_
   store i64 8, ptr %104, align 8
   %.sroa.2.0..sroa_idx.i2180 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2180, align 8
-  %926 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %104) #16
+  %926 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %104) #17
   %927 = trunc i64 %926 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %103, i32 noundef 0, i32 noundef %927) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %105, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %103, i32 noundef 0, i32 noundef %927) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %105, i32 noundef 0, i64 34359738369) #17
   %928 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %917, i8 noundef zeroext 2, ptr noundef nonnull %103, ptr noundef nonnull %105)
   %929 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %930 = load ptr, ptr %929, align 8, !tbaa !174
@@ -2135,7 +2135,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775: ; preds = %_ZNSt14_
   br i1 %.not.i.i2181, label %_ZNSt14_Function_baseD2Ev.exit.i2182, label %931
 
 931:                                              ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775
-  %932 = call noundef zeroext i1 %930(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %105, i32 noundef 3) #16
+  %932 = call noundef zeroext i1 %930(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %105, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2182
 
 _ZNSt14_Function_baseD2Ev.exit.i2182:             ; preds = %931, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit775
@@ -2145,7 +2145,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2182:             ; preds = %931, %_ZN4llvm15Leg
   br i1 %.not.i3.i2183, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184, label %935
 
 935:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2182
-  %936 = call noundef zeroext i1 %934(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3) #16
+  %936 = call noundef zeroext i1 %934(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2182, %935
@@ -2155,8 +2155,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184: ; preds = %_ZNSt14_Funct
   %937 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %928, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %265)
   call void @llvm.lifetime.start.p0(ptr nonnull %266)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %265, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %266, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %265, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %266, i32 noundef 0) #17
   %938 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %937, i8 noundef zeroext 3, ptr noundef nonnull %265, ptr noundef nonnull %266)
   %939 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %940 = load ptr, ptr %939, align 8, !tbaa !174
@@ -2164,7 +2164,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i776, label %_ZNSt14_Function_baseD2Ev.exit.i777, label %941
 
 941:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184
-  %942 = call noundef zeroext i1 %940(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(32) %266, i32 noundef 3) #16
+  %942 = call noundef zeroext i1 %940(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(32) %266, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i777
 
 _ZNSt14_Function_baseD2Ev.exit.i777:              ; preds = %941, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2184
@@ -2174,7 +2174,7 @@ _ZNSt14_Function_baseD2Ev.exit.i777:              ; preds = %941, %_ZN4llvm15Leg
   br i1 %.not.i2.i778, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit779, label %945
 
 945:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i777
-  %946 = call noundef zeroext i1 %944(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull align 8 dereferenceable(32) %265, i32 noundef 3) #16
+  %946 = call noundef zeroext i1 %944(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull align 8 dereferenceable(32) %265, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit779
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit779:    ; preds = %_ZNSt14_Function_baseD2Ev.exit.i777, %945
@@ -2185,7 +2185,7 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit779:    ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i780, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783, label %948
 
 948:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit779
-  %949 = call noundef zeroext i1 %947(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull align 8 dereferenceable(32) %329, i32 noundef 3) #16
+  %949 = call noundef zeroext i1 %947(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull align 8 dereferenceable(32) %329, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783: ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit779, %948
@@ -2198,12 +2198,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783: ; preds = %_ZN4ll
   store i32 57, ptr %951, align 4, !tbaa !177
   %952 = getelementptr inbounds nuw i8, ptr %330, i64 12
   store i32 59, ptr %952, align 4, !tbaa !177
-  %953 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %330, i64 4) #16
+  %953 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %330, i64 4) #17
   %954 = getelementptr inbounds nuw i8, ptr %331, i64 16
   %955 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %956 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store i64 0, ptr %956, align 8
-  %957 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %957 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i64 34359738369, ptr %957, align 16, !tbaa !168
   %.sroa.41498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %957, i64 8
   store i64 68719476737, ptr %.sroa.41498.0..sroa_idx, align 8, !tbaa !168
@@ -2221,7 +2221,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783: ; preds = %_ZN4ll
   store i64 0, ptr %958, align 8
   %959 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %960 = getelementptr inbounds nuw i8, ptr %264, i64 16
-  %961 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %961 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %961, ptr noundef nonnull readonly align 8 dereferenceable(40) %957, i64 40, i1 false), !tbaa.struct !182
   store ptr %961, ptr %264, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_7E9_M_invokeERKSt9_Any_dataS3_", ptr %959, align 8, !tbaa !171
@@ -2232,7 +2232,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783: ; preds = %_ZN4ll
   br i1 %.not.i.i784, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786, label %964
 
 964:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783
-  %965 = call noundef zeroext i1 %963(ptr noundef nonnull align 8 dereferenceable(32) %264, ptr noundef nonnull align 8 dereferenceable(32) %264, i32 noundef 3) #16
+  %965 = call noundef zeroext i1 %963(ptr noundef nonnull align 8 dereferenceable(32) %264, ptr noundef nonnull align 8 dereferenceable(32) %264, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i783, %964
@@ -2240,7 +2240,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786:
   call void @llvm.lifetime.start.p0(ptr nonnull %332)
   store i64 274877906945, ptr %332, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %263)
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %263, i32 noundef 0, ptr nonnull %332, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %263, i32 noundef 0, ptr nonnull %332, i64 1) #17
   %966 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %962, i8 noundef zeroext 7, ptr noundef nonnull %263)
   %967 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %968 = load ptr, ptr %967, align 8, !tbaa !174
@@ -2248,7 +2248,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786:
   br i1 %.not.i.i.i787, label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit, label %969
 
 969:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786
-  %970 = call noundef zeroext i1 %968(ptr noundef nonnull align 8 dereferenceable(32) %263, ptr noundef nonnull align 8 dereferenceable(32) %263, i32 noundef 3) #16
+  %970 = call noundef zeroext i1 %968(ptr noundef nonnull align 8 dereferenceable(32) %263, ptr noundef nonnull align 8 dereferenceable(32) %263, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit786, %969
@@ -2259,10 +2259,10 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit: ; pre
   store i64 8, ptr %101, align 8
   %.sroa.2.0..sroa_idx.i2186 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2186, align 8
-  %971 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %101) #16
+  %971 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %101) #17
   %972 = trunc i64 %971 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %100, i32 noundef 0, i32 noundef %972) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %102, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %100, i32 noundef 0, i32 noundef %972) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %102, i32 noundef 0, i64 34359738369) #17
   %973 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %966, i8 noundef zeroext 2, ptr noundef nonnull %100, ptr noundef nonnull %102)
   %974 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %975 = load ptr, ptr %974, align 8, !tbaa !174
@@ -2270,7 +2270,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit: ; pre
   br i1 %.not.i.i2187, label %_ZNSt14_Function_baseD2Ev.exit.i2188, label %976
 
 976:                                              ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit
-  %977 = call noundef zeroext i1 %975(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 3) #16
+  %977 = call noundef zeroext i1 %975(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2188
 
 _ZNSt14_Function_baseD2Ev.exit.i2188:             ; preds = %976, %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit
@@ -2280,7 +2280,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2188:             ; preds = %976, %_ZN4llvm15Leg
   br i1 %.not.i3.i2189, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2190, label %980
 
 980:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2188
-  %981 = call noundef zeroext i1 %979(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef 3) #16
+  %981 = call noundef zeroext i1 %979(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2190
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2190: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2188, %980
@@ -2294,7 +2294,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2190: ; preds = %_ZNSt14_Funct
   br i1 %.not.i788, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791, label %984
 
 984:                                              ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2190
-  %985 = call noundef zeroext i1 %983(ptr noundef nonnull align 8 dereferenceable(32) %331, ptr noundef nonnull align 8 dereferenceable(32) %331, i32 noundef 3) #16
+  %985 = call noundef zeroext i1 %983(ptr noundef nonnull align 8 dereferenceable(32) %331, ptr noundef nonnull align 8 dereferenceable(32) %331, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2190, %984
@@ -2305,12 +2305,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791: ; preds = %_ZN4ll
   store i32 141, ptr %986, align 4, !tbaa !177
   %987 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i32 142, ptr %987, align 4, !tbaa !177
-  %988 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %333, i64 3) #16
+  %988 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %333, i64 3) #17
   %989 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %990 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %991 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store i64 0, ptr %991, align 8
-  %992 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %992 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i64 34359738369, ptr %992, align 16, !tbaa !168
   %.sroa.41492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %992, i64 8
   store i64 68719476737, ptr %.sroa.41492.0..sroa_idx, align 8, !tbaa !168
@@ -2328,7 +2328,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791: ; preds = %_ZN4ll
   store i64 0, ptr %993, align 8
   %994 = getelementptr inbounds nuw i8, ptr %262, i64 24
   %995 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  %996 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %996 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %996, ptr noundef nonnull readonly align 8 dereferenceable(40) %992, i64 40, i1 false), !tbaa.struct !182
   store ptr %996, ptr %262, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_8E9_M_invokeERKSt9_Any_dataS3_", ptr %994, align 8, !tbaa !171
@@ -2339,7 +2339,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791: ; preds = %_ZN4ll
   br i1 %.not.i.i792, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794, label %999
 
 999:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791
-  %1000 = call noundef zeroext i1 %998(ptr noundef nonnull align 8 dereferenceable(32) %262, ptr noundef nonnull align 8 dereferenceable(32) %262, i32 noundef 3) #16
+  %1000 = call noundef zeroext i1 %998(ptr noundef nonnull align 8 dereferenceable(32) %262, ptr noundef nonnull align 8 dereferenceable(32) %262, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i791, %999
@@ -2350,10 +2350,10 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794:
   store i64 8, ptr %98, align 8
   %.sroa.2.0..sroa_idx.i2192 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2192, align 8
-  %1001 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %98) #16
+  %1001 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %98) #17
   %1002 = trunc i64 %1001 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %97, i32 noundef 0, i32 noundef %1002) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %99, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %97, i32 noundef 0, i32 noundef %1002) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %99, i32 noundef 0, i64 34359738369) #17
   %1003 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %997, i8 noundef zeroext 2, ptr noundef nonnull %97, ptr noundef nonnull %99)
   %1004 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1005 = load ptr, ptr %1004, align 8, !tbaa !174
@@ -2361,7 +2361,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794:
   br i1 %.not.i.i2193, label %_ZNSt14_Function_baseD2Ev.exit.i2194, label %1006
 
 1006:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794
-  %1007 = call noundef zeroext i1 %1005(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef 3) #16
+  %1007 = call noundef zeroext i1 %1005(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2194
 
 _ZNSt14_Function_baseD2Ev.exit.i2194:             ; preds = %1006, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit794
@@ -2371,7 +2371,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2194:             ; preds = %1006, %_ZN4llvm15Le
   br i1 %.not.i3.i2195, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196, label %1010
 
 1010:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2194
-  %1011 = call noundef zeroext i1 %1009(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3) #16
+  %1011 = call noundef zeroext i1 %1009(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2194, %1010
@@ -2385,10 +2385,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196: ; preds = %_ZNSt14_Funct
   store i64 8, ptr %95, align 8
   %.sroa.2.0..sroa_idx.i2197 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2197, align 8
-  %1013 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %95) #16
+  %1013 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %95) #17
   %1014 = trunc i64 %1013 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %94, i32 noundef 1, i32 noundef %1014) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %96, i32 noundef 1, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %94, i32 noundef 1, i32 noundef %1014) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %96, i32 noundef 1, i64 34359738369) #17
   %1015 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1012, i8 noundef zeroext 2, ptr noundef nonnull %94, ptr noundef nonnull %96)
   %1016 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %1017 = load ptr, ptr %1016, align 8, !tbaa !174
@@ -2396,7 +2396,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2198, label %_ZNSt14_Function_baseD2Ev.exit.i2199, label %1018
 
 1018:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196
-  %1019 = call noundef zeroext i1 %1017(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef 3) #16
+  %1019 = call noundef zeroext i1 %1017(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2199
 
 _ZNSt14_Function_baseD2Ev.exit.i2199:             ; preds = %1018, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2196
@@ -2406,7 +2406,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2199:             ; preds = %1018, %_ZN4llvm15Le
   br i1 %.not.i3.i2200, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201, label %1022
 
 1022:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2199
-  %1023 = call noundef zeroext i1 %1021(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %94, i32 noundef 3) #16
+  %1023 = call noundef zeroext i1 %1021(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %94, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2199, %1022
@@ -2419,10 +2419,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201: ; preds = %_ZNSt14_Funct
   store i64 8, ptr %92, align 8
   %.sroa.2.0..sroa_idx.i2202 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2202, align 8
-  %1024 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %92) #16
+  %1024 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %92) #17
   %1025 = trunc i64 %1024 to i32
-  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %91, i32 noundef 1, i32 noundef %1025) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %93, i32 noundef 1, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %91, i32 noundef 1, i32 noundef %1025) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %93, i32 noundef 1, i64 34359738369) #17
   %1026 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1015, i8 noundef zeroext 1, ptr noundef nonnull %91, ptr noundef nonnull %93)
   %1027 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %1028 = load ptr, ptr %1027, align 8, !tbaa !174
@@ -2430,7 +2430,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2203, label %_ZNSt14_Function_baseD2Ev.exit.i2204, label %1029
 
 1029:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201
-  %1030 = call noundef zeroext i1 %1028(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %93, i32 noundef 3) #16
+  %1030 = call noundef zeroext i1 %1028(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %93, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2204
 
 _ZNSt14_Function_baseD2Ev.exit.i2204:             ; preds = %1029, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2201
@@ -2440,7 +2440,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2204:             ; preds = %1029, %_ZN4llvm15Le
   br i1 %.not.i3.i2205, label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2206, label %1033
 
 1033:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2204
-  %1034 = call noundef zeroext i1 %1032(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %91, i32 noundef 3) #16
+  %1034 = call noundef zeroext i1 %1032(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %91, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2206
 
 _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2206: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2204, %1033
@@ -2452,7 +2452,7 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2206: ; preds = %_ZNSt14_Funct
   br i1 %.not.i795, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798, label %1036
 
 1036:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2206
-  %1037 = call noundef zeroext i1 %1035(ptr noundef nonnull align 8 dereferenceable(32) %334, ptr noundef nonnull align 8 dereferenceable(32) %334, i32 noundef 3) #16
+  %1037 = call noundef zeroext i1 %1035(ptr noundef nonnull align 8 dereferenceable(32) %334, ptr noundef nonnull align 8 dereferenceable(32) %334, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798: ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2206, %1036
@@ -2463,12 +2463,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798: ; preds = %_ZN4ll
   store i32 63, ptr %1038, align 4, !tbaa !177
   %1039 = getelementptr inbounds nuw i8, ptr %335, i64 8
   store i32 64, ptr %1039, align 4, !tbaa !177
-  %1040 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %335, i64 3) #16
+  %1040 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %335, i64 3) #17
   %1041 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %1042 = getelementptr inbounds nuw i8, ptr %336, i64 24
   %1043 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i64 0, ptr %1043, align 8
-  %1044 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #17
+  %1044 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18
   store i64 34359738369, ptr %1044, align 16, !tbaa !168
   %.sroa.41468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1044, i64 8
   store i64 68719476737, ptr %.sroa.41468.0..sroa_idx, align 8, !tbaa !168
@@ -2516,7 +2516,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798: ; preds = %_ZN4ll
   store i64 0, ptr %1045, align 8
   %1046 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %1047 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  %1048 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #17
+  %1048 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %1048, ptr noundef nonnull readonly align 8 dereferenceable(160) %1044, i64 160, i1 false), !tbaa.struct !183
   store ptr %1048, ptr %261, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_9E9_M_invokeERKSt9_Any_dataS3_", ptr %1046, align 8, !tbaa !171
@@ -2527,7 +2527,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798: ; preds = %_ZN4ll
   br i1 %.not.i.i799, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801, label %1051
 
 1051:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798
-  %1052 = call noundef zeroext i1 %1050(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull align 8 dereferenceable(32) %261, i32 noundef 3) #16
+  %1052 = call noundef zeroext i1 %1050(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull align 8 dereferenceable(32) %261, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i798, %1051
@@ -2538,7 +2538,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801:
   %1054 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %1055 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i64 0, ptr %1055, align 8
-  %1056 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1056 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1056, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i802 = getelementptr inbounds nuw i8, ptr %1056, i64 8
   store i64 34359738369, ptr %.sroa.49.0..sroa_idx.i802, align 8, !tbaa !168
@@ -2560,7 +2560,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801:
   br i1 %.not.i.i804, label %_ZNSt14_Function_baseD2Ev.exit.i805, label %1062
 
 1062:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801
-  %1063 = call noundef zeroext i1 %1061(ptr noundef nonnull align 8 dereferenceable(32) %260, ptr noundef nonnull align 8 dereferenceable(32) %260, i32 noundef 3) #16
+  %1063 = call noundef zeroext i1 %1061(ptr noundef nonnull align 8 dereferenceable(32) %260, ptr noundef nonnull align 8 dereferenceable(32) %260, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i805
 
 _ZNSt14_Function_baseD2Ev.exit.i805:              ; preds = %1062, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit801
@@ -2569,7 +2569,7 @@ _ZNSt14_Function_baseD2Ev.exit.i805:              ; preds = %1062, %_ZN4llvm15Le
   br i1 %.not.i5.i806, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807, label %1065
 
 1065:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i805
-  %1066 = call noundef zeroext i1 %1064(ptr noundef nonnull align 8 dereferenceable(32) %259, ptr noundef nonnull align 8 dereferenceable(32) %259, i32 noundef 3) #16
+  %1066 = call noundef zeroext i1 %1064(ptr noundef nonnull align 8 dereferenceable(32) %259, ptr noundef nonnull align 8 dereferenceable(32) %259, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i805, %1065
@@ -2581,7 +2581,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807: ; preds = %_Z
   %1068 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %1069 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i64 0, ptr %1069, align 8
-  %1070 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1070 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1070, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i808 = getelementptr inbounds nuw i8, ptr %1070, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i808, align 8, !tbaa !168
@@ -2603,7 +2603,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807: ; preds = %_Z
   br i1 %.not.i.i810, label %_ZNSt14_Function_baseD2Ev.exit.i811, label %1076
 
 1076:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807
-  %1077 = call noundef zeroext i1 %1075(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull align 8 dereferenceable(32) %258, i32 noundef 3) #16
+  %1077 = call noundef zeroext i1 %1075(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull align 8 dereferenceable(32) %258, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i811
 
 _ZNSt14_Function_baseD2Ev.exit.i811:              ; preds = %1076, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit807
@@ -2612,7 +2612,7 @@ _ZNSt14_Function_baseD2Ev.exit.i811:              ; preds = %1076, %_ZN4llvm15Le
   br i1 %.not.i5.i812, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813, label %1079
 
 1079:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i811
-  %1080 = call noundef zeroext i1 %1078(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef nonnull align 8 dereferenceable(32) %257, i32 noundef 3) #16
+  %1080 = call noundef zeroext i1 %1078(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef nonnull align 8 dereferenceable(32) %257, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i811, %1079
@@ -2624,7 +2624,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813: ; preds = %_Z
   %1082 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %1083 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 0, ptr %1083, align 8
-  %1084 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1084 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1084, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i814 = getelementptr inbounds nuw i8, ptr %1084, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i814, align 8, !tbaa !168
@@ -2646,7 +2646,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813: ; preds = %_Z
   br i1 %.not.i.i816, label %_ZNSt14_Function_baseD2Ev.exit.i817, label %1090
 
 1090:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813
-  %1091 = call noundef zeroext i1 %1089(ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull align 8 dereferenceable(32) %256, i32 noundef 3) #16
+  %1091 = call noundef zeroext i1 %1089(ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull align 8 dereferenceable(32) %256, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i817
 
 _ZNSt14_Function_baseD2Ev.exit.i817:              ; preds = %1090, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit813
@@ -2655,7 +2655,7 @@ _ZNSt14_Function_baseD2Ev.exit.i817:              ; preds = %1090, %_ZN4llvm15Le
   br i1 %.not.i5.i818, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819, label %1093
 
 1093:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i817
-  %1094 = call noundef zeroext i1 %1092(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef nonnull align 8 dereferenceable(32) %255, i32 noundef 3) #16
+  %1094 = call noundef zeroext i1 %1092(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef nonnull align 8 dereferenceable(32) %255, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i817, %1093
@@ -2667,7 +2667,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819: ; preds = %_Z
   %1096 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %1097 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i64 0, ptr %1097, align 8
-  %1098 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1098 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1098, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i820 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i820, align 8, !tbaa !168
@@ -2689,7 +2689,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819: ; preds = %_Z
   br i1 %.not.i.i822, label %_ZNSt14_Function_baseD2Ev.exit.i823, label %1104
 
 1104:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819
-  %1105 = call noundef zeroext i1 %1103(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(32) %254, i32 noundef 3) #16
+  %1105 = call noundef zeroext i1 %1103(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(32) %254, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i823
 
 _ZNSt14_Function_baseD2Ev.exit.i823:              ; preds = %1104, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit819
@@ -2698,7 +2698,7 @@ _ZNSt14_Function_baseD2Ev.exit.i823:              ; preds = %1104, %_ZN4llvm15Le
   br i1 %.not.i5.i824, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825, label %1107
 
 1107:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i823
-  %1108 = call noundef zeroext i1 %1106(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 8 dereferenceable(32) %253, i32 noundef 3) #16
+  %1108 = call noundef zeroext i1 %1106(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 8 dereferenceable(32) %253, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i823, %1107
@@ -2712,7 +2712,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825: ; preds = %_Z
   %1112 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %1113 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i64 0, ptr %1113, align 8
-  %1114 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1114 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1114, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i826 = getelementptr inbounds nuw i8, ptr %1114, i64 8
   store i64 34359738369, ptr %.sroa.49.0..sroa_idx.i826, align 8, !tbaa !168
@@ -2736,7 +2736,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825: ; preds = %_Z
   br i1 %.not.i.i830, label %_ZNSt14_Function_baseD2Ev.exit.i831, label %1120
 
 1120:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825
-  %1121 = call noundef zeroext i1 %1119(ptr noundef nonnull align 8 dereferenceable(32) %252, ptr noundef nonnull align 8 dereferenceable(32) %252, i32 noundef 3) #16
+  %1121 = call noundef zeroext i1 %1119(ptr noundef nonnull align 8 dereferenceable(32) %252, ptr noundef nonnull align 8 dereferenceable(32) %252, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i831
 
 _ZNSt14_Function_baseD2Ev.exit.i831:              ; preds = %1120, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit825
@@ -2745,7 +2745,7 @@ _ZNSt14_Function_baseD2Ev.exit.i831:              ; preds = %1120, %_ZN4llvm15Le
   br i1 %.not.i5.i832, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833, label %1123
 
 1123:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i831
-  %1124 = call noundef zeroext i1 %1122(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull align 8 dereferenceable(32) %251, i32 noundef 3) #16
+  %1124 = call noundef zeroext i1 %1122(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull align 8 dereferenceable(32) %251, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i831, %1123
@@ -2759,7 +2759,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833: ; preds = %_Z
   %1128 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %1129 = getelementptr inbounds nuw i8, ptr %249, i64 8
   store i64 0, ptr %1129, align 8
-  %1130 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1130 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1130, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i834 = getelementptr inbounds nuw i8, ptr %1130, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i834, align 8, !tbaa !168
@@ -2783,7 +2783,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833: ; preds = %_Z
   br i1 %.not.i.i838, label %_ZNSt14_Function_baseD2Ev.exit.i839, label %1136
 
 1136:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833
-  %1137 = call noundef zeroext i1 %1135(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(32) %250, i32 noundef 3) #16
+  %1137 = call noundef zeroext i1 %1135(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(32) %250, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i839
 
 _ZNSt14_Function_baseD2Ev.exit.i839:              ; preds = %1136, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit833
@@ -2792,7 +2792,7 @@ _ZNSt14_Function_baseD2Ev.exit.i839:              ; preds = %1136, %_ZN4llvm15Le
   br i1 %.not.i5.i840, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841, label %1139
 
 1139:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i839
-  %1140 = call noundef zeroext i1 %1138(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(32) %249, i32 noundef 3) #16
+  %1140 = call noundef zeroext i1 %1138(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(32) %249, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i839, %1139
@@ -2806,7 +2806,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841: ; preds = %_Z
   %1144 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %1145 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i64 0, ptr %1145, align 8
-  %1146 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1146 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1146, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i842 = getelementptr inbounds nuw i8, ptr %1146, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i842, align 8, !tbaa !168
@@ -2830,7 +2830,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841: ; preds = %_Z
   br i1 %.not.i.i846, label %_ZNSt14_Function_baseD2Ev.exit.i847, label %1152
 
 1152:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841
-  %1153 = call noundef zeroext i1 %1151(ptr noundef nonnull align 8 dereferenceable(32) %248, ptr noundef nonnull align 8 dereferenceable(32) %248, i32 noundef 3) #16
+  %1153 = call noundef zeroext i1 %1151(ptr noundef nonnull align 8 dereferenceable(32) %248, ptr noundef nonnull align 8 dereferenceable(32) %248, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i847
 
 _ZNSt14_Function_baseD2Ev.exit.i847:              ; preds = %1152, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit841
@@ -2839,7 +2839,7 @@ _ZNSt14_Function_baseD2Ev.exit.i847:              ; preds = %1152, %_ZN4llvm15Le
   br i1 %.not.i5.i848, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849, label %1155
 
 1155:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i847
-  %1156 = call noundef zeroext i1 %1154(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef nonnull align 8 dereferenceable(32) %247, i32 noundef 3) #16
+  %1156 = call noundef zeroext i1 %1154(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef nonnull align 8 dereferenceable(32) %247, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i847, %1155
@@ -2853,7 +2853,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849: ; preds = %_Z
   %1160 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %1161 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i64 0, ptr %1161, align 8
-  %1162 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1162 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1162, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i850 = getelementptr inbounds nuw i8, ptr %1162, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i850, align 8, !tbaa !168
@@ -2877,7 +2877,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849: ; preds = %_Z
   br i1 %.not.i.i854, label %_ZNSt14_Function_baseD2Ev.exit.i855, label %1168
 
 1168:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849
-  %1169 = call noundef zeroext i1 %1167(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull align 8 dereferenceable(32) %246, i32 noundef 3) #16
+  %1169 = call noundef zeroext i1 %1167(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull align 8 dereferenceable(32) %246, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i855
 
 _ZNSt14_Function_baseD2Ev.exit.i855:              ; preds = %1168, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit849
@@ -2886,7 +2886,7 @@ _ZNSt14_Function_baseD2Ev.exit.i855:              ; preds = %1168, %_ZN4llvm15Le
   br i1 %.not.i5.i856, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857, label %1171
 
 1171:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i855
-  %1172 = call noundef zeroext i1 %1170(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef nonnull align 8 dereferenceable(32) %245, i32 noundef 3) #16
+  %1172 = call noundef zeroext i1 %1170(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef nonnull align 8 dereferenceable(32) %245, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i855, %1171
@@ -2894,8 +2894,8 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %246)
   call void @llvm.lifetime.start.p0(ptr nonnull %243)
   call void @llvm.lifetime.start.p0(ptr nonnull %244)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %243, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %244, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %243, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %244, i32 noundef 0, i32 noundef 32) #17
   %1173 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1166, i8 noundef zeroext 2, ptr noundef nonnull %243, ptr noundef nonnull %244)
   %1174 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %1175 = load ptr, ptr %1174, align 8, !tbaa !174
@@ -2903,7 +2903,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857: ; preds = %_Z
   br i1 %.not.i.i858, label %_ZNSt14_Function_baseD2Ev.exit.i859, label %1176
 
 1176:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857
-  %1177 = call noundef zeroext i1 %1175(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %244, i32 noundef 3) #16
+  %1177 = call noundef zeroext i1 %1175(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %244, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i859
 
 _ZNSt14_Function_baseD2Ev.exit.i859:              ; preds = %1176, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit857
@@ -2913,7 +2913,7 @@ _ZNSt14_Function_baseD2Ev.exit.i859:              ; preds = %1176, %_ZN4llvm15Le
   br i1 %.not.i3.i860, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861, label %1180
 
 1180:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i859
-  %1181 = call noundef zeroext i1 %1179(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %243, i32 noundef 3) #16
+  %1181 = call noundef zeroext i1 %1179(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %243, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i859, %1180
@@ -2925,10 +2925,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861: ; preds = %_ZNSt14_
   store i64 8, ptr %89, align 8
   %.sroa.2.0..sroa_idx.i2208 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2208, align 8
-  %1182 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %89) #16
+  %1182 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %89) #17
   %1183 = trunc i64 %1182 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %88, i32 noundef 0, i32 noundef %1183) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %90, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %88, i32 noundef 0, i32 noundef %1183) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %90, i32 noundef 0, i64 34359738369) #17
   %1184 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1173, i8 noundef zeroext 2, ptr noundef nonnull %88, ptr noundef nonnull %90)
   %1185 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %1186 = load ptr, ptr %1185, align 8, !tbaa !174
@@ -2936,7 +2936,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861: ; preds = %_ZNSt14_
   br i1 %.not.i.i2209, label %_ZNSt14_Function_baseD2Ev.exit.i2210, label %1187
 
 1187:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861
-  %1188 = call noundef zeroext i1 %1186(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %90, i32 noundef 3) #16
+  %1188 = call noundef zeroext i1 %1186(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %90, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2210
 
 _ZNSt14_Function_baseD2Ev.exit.i2210:             ; preds = %1187, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit861
@@ -2946,7 +2946,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2210:             ; preds = %1187, %_ZN4llvm15Le
   br i1 %.not.i3.i2211, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212, label %1191
 
 1191:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2210
-  %1192 = call noundef zeroext i1 %1190(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef 3) #16
+  %1192 = call noundef zeroext i1 %1190(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2210, %1191
@@ -2956,8 +2956,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212: ; preds = %_ZNSt14_Funct
   %1193 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1184, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %241)
   call void @llvm.lifetime.start.p0(ptr nonnull %242)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %241, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %242, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %241, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %242, i32 noundef 0) #17
   %1194 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1193, i8 noundef zeroext 3, ptr noundef nonnull %241, ptr noundef nonnull %242)
   %1195 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %1196 = load ptr, ptr %1195, align 8, !tbaa !174
@@ -2965,7 +2965,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i862, label %_ZNSt14_Function_baseD2Ev.exit.i863, label %1197
 
 1197:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212
-  %1198 = call noundef zeroext i1 %1196(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(32) %242, i32 noundef 3) #16
+  %1198 = call noundef zeroext i1 %1196(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(32) %242, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i863
 
 _ZNSt14_Function_baseD2Ev.exit.i863:              ; preds = %1197, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2212
@@ -2975,7 +2975,7 @@ _ZNSt14_Function_baseD2Ev.exit.i863:              ; preds = %1197, %_ZN4llvm15Le
   br i1 %.not.i2.i864, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit865, label %1201
 
 1201:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i863
-  %1202 = call noundef zeroext i1 %1200(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(32) %241, i32 noundef 3) #16
+  %1202 = call noundef zeroext i1 %1200(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(32) %241, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit865
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit865:    ; preds = %_ZNSt14_Function_baseD2Ev.exit.i863, %1201
@@ -2986,7 +2986,7 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit865:    ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i866, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869, label %1204
 
 1204:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit865
-  %1205 = call noundef zeroext i1 %1203(ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef nonnull align 8 dereferenceable(32) %336, i32 noundef 3) #16
+  %1205 = call noundef zeroext i1 %1203(ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef nonnull align 8 dereferenceable(32) %336, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869: ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit865, %1204
@@ -3009,7 +3009,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869: ; preds = %_ZN4ll
   store i64 274877906945, ptr %1211, align 8, !tbaa !168
   %1212 = getelementptr inbounds nuw i8, ptr %338, i64 32
   store i64 %storemerge.i.i.i, ptr %1212, align 8, !tbaa !168
-  %1213 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 147) #16
+  %1213 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 147) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %339)
   store i64 34359738369, ptr %339, align 8, !tbaa !168
   %.sroa.0142.0.copyload.sroa.speculated = select i1 %400, ptr %338, ptr %337
@@ -3021,10 +3021,10 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869: ; preds = %_ZN4ll
   store i64 8, ptr %86, align 8
   %.sroa.2.0..sroa_idx.i2213 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2213, align 8
-  %1215 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %86) #16
+  %1215 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %86) #17
   %1216 = trunc i64 %1215 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %85, i32 noundef 0, i32 noundef %1216) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %87, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %85, i32 noundef 0, i32 noundef %1216) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %87, i32 noundef 0, i64 34359738369) #17
   %1217 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1214, i8 noundef zeroext 2, ptr noundef nonnull %85, ptr noundef nonnull %87)
   %1218 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %1219 = load ptr, ptr %1218, align 8, !tbaa !174
@@ -3032,7 +3032,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869: ; preds = %_ZN4ll
   br i1 %.not.i.i2214, label %_ZNSt14_Function_baseD2Ev.exit.i2215, label %1220
 
 1220:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869
-  %1221 = call noundef zeroext i1 %1219(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef 3) #16
+  %1221 = call noundef zeroext i1 %1219(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2215
 
 _ZNSt14_Function_baseD2Ev.exit.i2215:             ; preds = %1220, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i869
@@ -3042,7 +3042,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2215:             ; preds = %1220, %_ZNSt8functi
   br i1 %.not.i3.i2216, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217, label %1224
 
 1224:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2215
-  %1225 = call noundef zeroext i1 %1223(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3) #16
+  %1225 = call noundef zeroext i1 %1223(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2215, %1224
@@ -3055,10 +3055,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217: ; preds = %_ZNSt14_Funct
   store i64 8, ptr %83, align 8
   %.sroa.2.0..sroa_idx.i2218 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2218, align 8
-  %1226 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %83) #16
+  %1226 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %83) #17
   %1227 = trunc i64 %1226 to i32
-  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %82, i32 noundef 0, i32 noundef %1227) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %84, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %82, i32 noundef 0, i32 noundef %1227) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %84, i32 noundef 0, i64 34359738369) #17
   %1228 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1217, i8 noundef zeroext 1, ptr noundef nonnull %82, ptr noundef nonnull %84)
   %1229 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %1230 = load ptr, ptr %1229, align 8, !tbaa !174
@@ -3066,7 +3066,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2219, label %_ZNSt14_Function_baseD2Ev.exit.i2220, label %1231
 
 1231:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217
-  %1232 = call noundef zeroext i1 %1230(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %84, i32 noundef 3) #16
+  %1232 = call noundef zeroext i1 %1230(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %84, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2220
 
 _ZNSt14_Function_baseD2Ev.exit.i2220:             ; preds = %1231, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2217
@@ -3076,7 +3076,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2220:             ; preds = %1231, %_ZN4llvm15Le
   br i1 %.not.i3.i2221, label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222, label %1235
 
 1235:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2220
-  %1236 = call noundef zeroext i1 %1234(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %82, i32 noundef 3) #16
+  %1236 = call noundef zeroext i1 %1234(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %82, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222
 
 _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2220, %1235
@@ -3089,10 +3089,10 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222: ; preds = %_ZNSt14_Funct
   store i64 8, ptr %80, align 8
   %.sroa.2.0..sroa_idx.i2223 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2223, align 8
-  %1237 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %80) #16
+  %1237 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %80) #17
   %1238 = trunc i64 %1237 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %79, i32 noundef 1, i32 noundef %1238) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %81, i32 noundef 1, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %79, i32 noundef 1, i32 noundef %1238) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %81, i32 noundef 1, i64 34359738369) #17
   %1239 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1228, i8 noundef zeroext 2, ptr noundef nonnull %79, ptr noundef nonnull %81)
   %1240 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %1241 = load ptr, ptr %1240, align 8, !tbaa !174
@@ -3100,7 +3100,7 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2224, label %_ZNSt14_Function_baseD2Ev.exit.i2225, label %1242
 
 1242:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222
-  %1243 = call noundef zeroext i1 %1241(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %81, i32 noundef 3) #16
+  %1243 = call noundef zeroext i1 %1241(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %81, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2225
 
 _ZNSt14_Function_baseD2Ev.exit.i2225:             ; preds = %1242, %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2222
@@ -3110,7 +3110,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2225:             ; preds = %1242, %_ZN4llvm15Le
   br i1 %.not.i3.i2226, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227, label %1246
 
 1246:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2225
-  %1247 = call noundef zeroext i1 %1245(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3) #16
+  %1247 = call noundef zeroext i1 %1245(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2225, %1246
@@ -3119,12 +3119,12 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227: ; preds = %_ZNSt14_Funct
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %1248 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1239, i32 noundef 1, i64 %445)
   call void @llvm.lifetime.end.p0(ptr nonnull %339)
-  %1249 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 245) #16
+  %1249 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 245) #17
   %1250 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %1251 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %1252 = getelementptr inbounds nuw i8, ptr %340, i64 8
   store i64 0, ptr %1252, align 8
-  %1253 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1253 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i64 137438953473, ptr %1253, align 16, !tbaa !168
   %.sroa.41465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1253, i64 8
   store ptr %0, ptr %.sroa.41465.0..sroa_idx, align 8, !tbaa !184
@@ -3138,7 +3138,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227: ; preds = %_ZNSt14_Funct
   store i64 0, ptr %1254, align 8
   %1255 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %1256 = getelementptr inbounds nuw i8, ptr %240, i64 16
-  %1257 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1257 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %1257, ptr noundef nonnull readonly align 8 dereferenceable(24) %1253, i64 24, i1 false), !tbaa.struct !186
   store ptr %1257, ptr %240, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_10E9_M_invokeERKSt9_Any_dataS3_", ptr %1255, align 8, !tbaa !171
@@ -3149,15 +3149,15 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i870, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit872, label %1260
 
 1260:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227
-  %1261 = call noundef zeroext i1 %1259(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(32) %240, i32 noundef 3) #16
+  %1261 = call noundef zeroext i1 %1259(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(32) %240, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit872
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit872: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2227, %1260
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
   call void @llvm.lifetime.start.p0(ptr nonnull %238)
   call void @llvm.lifetime.start.p0(ptr nonnull %239)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %238, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %239, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %238, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %239, i32 noundef 0, i32 noundef 32) #17
   %1262 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1258, i8 noundef zeroext 2, ptr noundef nonnull %238, ptr noundef nonnull %239)
   %1263 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %1264 = load ptr, ptr %1263, align 8, !tbaa !174
@@ -3165,7 +3165,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit872:
   br i1 %.not.i.i873, label %_ZNSt14_Function_baseD2Ev.exit.i874, label %1265
 
 1265:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit872
-  %1266 = call noundef zeroext i1 %1264(ptr noundef nonnull align 8 dereferenceable(32) %239, ptr noundef nonnull align 8 dereferenceable(32) %239, i32 noundef 3) #16
+  %1266 = call noundef zeroext i1 %1264(ptr noundef nonnull align 8 dereferenceable(32) %239, ptr noundef nonnull align 8 dereferenceable(32) %239, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i874
 
 _ZNSt14_Function_baseD2Ev.exit.i874:              ; preds = %1265, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit872
@@ -3175,7 +3175,7 @@ _ZNSt14_Function_baseD2Ev.exit.i874:              ; preds = %1265, %_ZN4llvm15Le
   br i1 %.not.i3.i875, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876, label %1269
 
 1269:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i874
-  %1270 = call noundef zeroext i1 %1268(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull align 8 dereferenceable(32) %238, i32 noundef 3) #16
+  %1270 = call noundef zeroext i1 %1268(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull align 8 dereferenceable(32) %238, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i874, %1269
@@ -3187,10 +3187,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876: ; preds = %_ZNSt14_
   store i64 32, ptr %77, align 8
   %.sroa.2.0..sroa_idx.i2229 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2229, align 8
-  %1271 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %77) #16
+  %1271 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %77) #17
   %1272 = trunc i64 %1271 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %76, i32 noundef 0, i32 noundef %1272) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %78, i32 noundef 0, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %76, i32 noundef 0, i32 noundef %1272) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %78, i32 noundef 0, i64 137438953473) #17
   %1273 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1262, i8 noundef zeroext 2, ptr noundef nonnull %76, ptr noundef nonnull %78)
   %1274 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %1275 = load ptr, ptr %1274, align 8, !tbaa !174
@@ -3198,7 +3198,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876: ; preds = %_ZNSt14_
   br i1 %.not.i.i2230, label %_ZNSt14_Function_baseD2Ev.exit.i2231, label %1276
 
 1276:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876
-  %1277 = call noundef zeroext i1 %1275(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 3) #16
+  %1277 = call noundef zeroext i1 %1275(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2231
 
 _ZNSt14_Function_baseD2Ev.exit.i2231:             ; preds = %1276, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit876
@@ -3208,7 +3208,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2231:             ; preds = %1276, %_ZN4llvm15Le
   br i1 %.not.i3.i2232, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2233, label %1280
 
 1280:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2231
-  %1281 = call noundef zeroext i1 %1279(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %76, i32 noundef 3) #16
+  %1281 = call noundef zeroext i1 %1279(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %76, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2233
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2233: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2231, %1280
@@ -3221,16 +3221,16 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2233: ; preds = %_ZNSt14_Funct
   br i1 %.not.i877, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880, label %1284
 
 1284:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2233
-  %1285 = call noundef zeroext i1 %1283(ptr noundef nonnull align 8 dereferenceable(32) %340, ptr noundef nonnull align 8 dereferenceable(32) %340, i32 noundef 3) #16
+  %1285 = call noundef zeroext i1 %1283(ptr noundef nonnull align 8 dereferenceable(32) %340, ptr noundef nonnull align 8 dereferenceable(32) %340, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2233, %1284
-  %1286 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 244) #16
+  %1286 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 244) #17
   %1287 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %1288 = getelementptr inbounds nuw i8, ptr %341, i64 24
   %1289 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store i64 0, ptr %1289, align 8
-  %1290 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %1290 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store ptr %0, ptr %1290, align 16, !tbaa !184
   %.sroa.41459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1290, i64 8
   store i64 68719476737, ptr %.sroa.41459.0..sroa_idx, align 8, !tbaa !168
@@ -3248,7 +3248,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880: ; preds = %_ZN4ll
   store i64 0, ptr %1291, align 8
   %1292 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %1293 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %1294 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %1294 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1294, ptr noundef nonnull readonly align 8 dereferenceable(40) %1290, i64 40, i1 false), !tbaa.struct !187
   store ptr %1294, ptr %237, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_11E9_M_invokeERKSt9_Any_dataS3_", ptr %1292, align 8, !tbaa !171
@@ -3259,15 +3259,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880: ; preds = %_ZN4ll
   br i1 %.not.i.i881, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit883, label %1297
 
 1297:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880
-  %1298 = call noundef zeroext i1 %1296(ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef nonnull align 8 dereferenceable(32) %237, i32 noundef 3) #16
+  %1298 = call noundef zeroext i1 %1296(ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef nonnull align 8 dereferenceable(32) %237, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit883
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit883: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i880, %1297
   call void @llvm.lifetime.end.p0(ptr nonnull %237)
   call void @llvm.lifetime.start.p0(ptr nonnull %235)
   call void @llvm.lifetime.start.p0(ptr nonnull %236)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %235, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %236, i32 noundef 1, i32 noundef 16) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %235, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %236, i32 noundef 1, i32 noundef 16) #17
   %1299 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1295, i8 noundef zeroext 2, ptr noundef nonnull %235, ptr noundef nonnull %236)
   %1300 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %1301 = load ptr, ptr %1300, align 8, !tbaa !174
@@ -3275,7 +3275,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit883:
   br i1 %.not.i.i884, label %_ZNSt14_Function_baseD2Ev.exit.i885, label %1302
 
 1302:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit883
-  %1303 = call noundef zeroext i1 %1301(ptr noundef nonnull align 8 dereferenceable(32) %236, ptr noundef nonnull align 8 dereferenceable(32) %236, i32 noundef 3) #16
+  %1303 = call noundef zeroext i1 %1301(ptr noundef nonnull align 8 dereferenceable(32) %236, ptr noundef nonnull align 8 dereferenceable(32) %236, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i885
 
 _ZNSt14_Function_baseD2Ev.exit.i885:              ; preds = %1302, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit883
@@ -3285,7 +3285,7 @@ _ZNSt14_Function_baseD2Ev.exit.i885:              ; preds = %1302, %_ZN4llvm15Le
   br i1 %.not.i3.i886, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887, label %1306
 
 1306:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i885
-  %1307 = call noundef zeroext i1 %1305(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(32) %235, i32 noundef 3) #16
+  %1307 = call noundef zeroext i1 %1305(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(32) %235, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i885, %1306
@@ -3297,10 +3297,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887: ; preds = %_ZNSt14_
   store i64 16, ptr %74, align 8
   %.sroa.2.0..sroa_idx.i2235 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2235, align 8
-  %1308 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %74) #16
+  %1308 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %74) #17
   %1309 = trunc i64 %1308 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %73, i32 noundef 1, i32 noundef %1309) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %75, i32 noundef 1, i64 68719476737) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %73, i32 noundef 1, i32 noundef %1309) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %75, i32 noundef 1, i64 68719476737) #17
   %1310 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1299, i8 noundef zeroext 2, ptr noundef nonnull %73, ptr noundef nonnull %75)
   %1311 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %1312 = load ptr, ptr %1311, align 8, !tbaa !174
@@ -3308,7 +3308,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887: ; preds = %_ZNSt14_
   br i1 %.not.i.i2236, label %_ZNSt14_Function_baseD2Ev.exit.i2237, label %1313
 
 1313:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887
-  %1314 = call noundef zeroext i1 %1312(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %75, i32 noundef 3) #16
+  %1314 = call noundef zeroext i1 %1312(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %75, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2237
 
 _ZNSt14_Function_baseD2Ev.exit.i2237:             ; preds = %1313, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit887
@@ -3318,7 +3318,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2237:             ; preds = %1313, %_ZN4llvm15Le
   br i1 %.not.i3.i2238, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2239, label %1317
 
 1317:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2237
-  %1318 = call noundef zeroext i1 %1316(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef 3) #16
+  %1318 = call noundef zeroext i1 %1316(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2239
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2239: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2237, %1317
@@ -3332,16 +3332,16 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2239: ; preds = %_ZNSt14_Funct
   br i1 %.not.i888, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891, label %1322
 
 1322:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2239
-  %1323 = call noundef zeroext i1 %1321(ptr noundef nonnull align 8 dereferenceable(32) %341, ptr noundef nonnull align 8 dereferenceable(32) %341, i32 noundef 3) #16
+  %1323 = call noundef zeroext i1 %1321(ptr noundef nonnull align 8 dereferenceable(32) %341, ptr noundef nonnull align 8 dereferenceable(32) %341, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2239, %1322
-  %1324 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 242) #16
+  %1324 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 242) #17
   %1325 = getelementptr inbounds nuw i8, ptr %342, i64 16
   %1326 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %1327 = getelementptr inbounds nuw i8, ptr %342, i64 8
   store i64 0, ptr %1327, align 8
-  %1328 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %1328 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store ptr %0, ptr %1328, align 16, !tbaa !184
   %.sroa.41453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1328, i64 8
   store i64 68719476737, ptr %.sroa.41453.0..sroa_idx, align 8, !tbaa !168
@@ -3359,7 +3359,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891: ; preds = %_ZN4ll
   store i64 0, ptr %1329, align 8
   %1330 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %1331 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  %1332 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %1332 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1332, ptr noundef nonnull readonly align 8 dereferenceable(40) %1328, i64 40, i1 false), !tbaa.struct !187
   store ptr %1332, ptr %234, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_12E9_M_invokeERKSt9_Any_dataS3_", ptr %1330, align 8, !tbaa !171
@@ -3370,15 +3370,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891: ; preds = %_ZN4ll
   br i1 %.not.i.i892, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit894, label %1335
 
 1335:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891
-  %1336 = call noundef zeroext i1 %1334(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull align 8 dereferenceable(32) %234, i32 noundef 3) #16
+  %1336 = call noundef zeroext i1 %1334(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull align 8 dereferenceable(32) %234, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit894
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit894: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i891, %1335
   call void @llvm.lifetime.end.p0(ptr nonnull %234)
   call void @llvm.lifetime.start.p0(ptr nonnull %232)
   call void @llvm.lifetime.start.p0(ptr nonnull %233)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %232, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %233, i32 noundef 1, i32 noundef 16) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %232, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %233, i32 noundef 1, i32 noundef 16) #17
   %1337 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1333, i8 noundef zeroext 2, ptr noundef nonnull %232, ptr noundef nonnull %233)
   %1338 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %1339 = load ptr, ptr %1338, align 8, !tbaa !174
@@ -3386,7 +3386,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit894:
   br i1 %.not.i.i895, label %_ZNSt14_Function_baseD2Ev.exit.i896, label %1340
 
 1340:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit894
-  %1341 = call noundef zeroext i1 %1339(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull align 8 dereferenceable(32) %233, i32 noundef 3) #16
+  %1341 = call noundef zeroext i1 %1339(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull align 8 dereferenceable(32) %233, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i896
 
 _ZNSt14_Function_baseD2Ev.exit.i896:              ; preds = %1340, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit894
@@ -3396,7 +3396,7 @@ _ZNSt14_Function_baseD2Ev.exit.i896:              ; preds = %1340, %_ZN4llvm15Le
   br i1 %.not.i3.i897, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898, label %1344
 
 1344:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i896
-  %1345 = call noundef zeroext i1 %1343(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull align 8 dereferenceable(32) %232, i32 noundef 3) #16
+  %1345 = call noundef zeroext i1 %1343(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull align 8 dereferenceable(32) %232, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i896, %1344
@@ -3408,10 +3408,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898: ; preds = %_ZNSt14_
   store i64 16, ptr %71, align 8
   %.sroa.2.0..sroa_idx.i2241 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2241, align 8
-  %1346 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %71) #16
+  %1346 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %71) #17
   %1347 = trunc i64 %1346 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %70, i32 noundef 1, i32 noundef %1347) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %72, i32 noundef 1, i64 68719476737) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %70, i32 noundef 1, i32 noundef %1347) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %72, i32 noundef 1, i64 68719476737) #17
   %1348 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1337, i8 noundef zeroext 2, ptr noundef nonnull %70, ptr noundef nonnull %72)
   %1349 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %1350 = load ptr, ptr %1349, align 8, !tbaa !174
@@ -3419,7 +3419,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898: ; preds = %_ZNSt14_
   br i1 %.not.i.i2242, label %_ZNSt14_Function_baseD2Ev.exit.i2243, label %1351
 
 1351:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898
-  %1352 = call noundef zeroext i1 %1350(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %72, i32 noundef 3) #16
+  %1352 = call noundef zeroext i1 %1350(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %72, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2243
 
 _ZNSt14_Function_baseD2Ev.exit.i2243:             ; preds = %1351, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit898
@@ -3429,7 +3429,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2243:             ; preds = %1351, %_ZN4llvm15Le
   br i1 %.not.i3.i2244, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2245, label %1355
 
 1355:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2243
-  %1356 = call noundef zeroext i1 %1354(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 3) #16
+  %1356 = call noundef zeroext i1 %1354(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2245
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2245: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2243, %1355
@@ -3443,7 +3443,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2245: ; preds = %_ZNSt14_Funct
   br i1 %.not.i899, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902, label %1360
 
 1360:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2245
-  %1361 = call noundef zeroext i1 %1359(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef nonnull align 8 dereferenceable(32) %342, i32 noundef 3) #16
+  %1361 = call noundef zeroext i1 %1359(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef nonnull align 8 dereferenceable(32) %342, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2245, %1360
@@ -3451,12 +3451,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902: ; preds = %_ZN4ll
   store i32 241, ptr %343, align 4, !tbaa !177
   %1362 = getelementptr inbounds nuw i8, ptr %343, i64 4
   store i32 240, ptr %1362, align 4, !tbaa !177
-  %1363 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %343, i64 2) #16
+  %1363 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %343, i64 2) #17
   %1364 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %1365 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %1366 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store i64 0, ptr %1366, align 8
-  %1367 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %1367 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store ptr %0, ptr %1367, align 16, !tbaa !184
   %.sroa.41447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1367, i64 8
   store i64 68719476737, ptr %.sroa.41447.0..sroa_idx, align 8, !tbaa !168
@@ -3474,7 +3474,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902: ; preds = %_ZN4ll
   store i64 0, ptr %1368, align 8
   %1369 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %1370 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  %1371 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %1371 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1371, ptr noundef nonnull readonly align 8 dereferenceable(40) %1367, i64 40, i1 false), !tbaa.struct !187
   store ptr %1371, ptr %231, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_13E9_M_invokeERKSt9_Any_dataS3_", ptr %1369, align 8, !tbaa !171
@@ -3485,15 +3485,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902: ; preds = %_ZN4ll
   br i1 %.not.i.i903, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit905, label %1374
 
 1374:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902
-  %1375 = call noundef zeroext i1 %1373(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(32) %231, i32 noundef 3) #16
+  %1375 = call noundef zeroext i1 %1373(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(32) %231, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit905
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit905: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i902, %1374
   call void @llvm.lifetime.end.p0(ptr nonnull %231)
   call void @llvm.lifetime.start.p0(ptr nonnull %229)
   call void @llvm.lifetime.start.p0(ptr nonnull %230)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %229, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %230, i32 noundef 1, i32 noundef 16) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %229, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %230, i32 noundef 1, i32 noundef 16) #17
   %1376 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1372, i8 noundef zeroext 2, ptr noundef nonnull %229, ptr noundef nonnull %230)
   %1377 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %1378 = load ptr, ptr %1377, align 8, !tbaa !174
@@ -3501,7 +3501,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit905:
   br i1 %.not.i.i906, label %_ZNSt14_Function_baseD2Ev.exit.i907, label %1379
 
 1379:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit905
-  %1380 = call noundef zeroext i1 %1378(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull align 8 dereferenceable(32) %230, i32 noundef 3) #16
+  %1380 = call noundef zeroext i1 %1378(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull align 8 dereferenceable(32) %230, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i907
 
 _ZNSt14_Function_baseD2Ev.exit.i907:              ; preds = %1379, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit905
@@ -3511,7 +3511,7 @@ _ZNSt14_Function_baseD2Ev.exit.i907:              ; preds = %1379, %_ZN4llvm15Le
   br i1 %.not.i3.i908, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909, label %1383
 
 1383:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i907
-  %1384 = call noundef zeroext i1 %1382(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(32) %229, i32 noundef 3) #16
+  %1384 = call noundef zeroext i1 %1382(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(32) %229, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i907, %1383
@@ -3523,10 +3523,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909: ; preds = %_ZNSt14_
   store i64 16, ptr %68, align 8
   %.sroa.2.0..sroa_idx.i2247 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2247, align 8
-  %1385 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %68) #16
+  %1385 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %68) #17
   %1386 = trunc i64 %1385 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %67, i32 noundef 1, i32 noundef %1386) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %69, i32 noundef 1, i64 68719476737) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %67, i32 noundef 1, i32 noundef %1386) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %69, i32 noundef 1, i64 68719476737) #17
   %1387 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1376, i8 noundef zeroext 2, ptr noundef nonnull %67, ptr noundef nonnull %69)
   %1388 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %1389 = load ptr, ptr %1388, align 8, !tbaa !174
@@ -3534,7 +3534,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909: ; preds = %_ZNSt14_
   br i1 %.not.i.i2248, label %_ZNSt14_Function_baseD2Ev.exit.i2249, label %1390
 
 1390:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909
-  %1391 = call noundef zeroext i1 %1389(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3) #16
+  %1391 = call noundef zeroext i1 %1389(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2249
 
 _ZNSt14_Function_baseD2Ev.exit.i2249:             ; preds = %1390, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit909
@@ -3544,7 +3544,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2249:             ; preds = %1390, %_ZN4llvm15Le
   br i1 %.not.i3.i2250, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2251, label %1394
 
 1394:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2249
-  %1395 = call noundef zeroext i1 %1393(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3) #16
+  %1395 = call noundef zeroext i1 %1393(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2251
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2251: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2249, %1394
@@ -3558,17 +3558,17 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2251: ; preds = %_ZNSt14_Funct
   br i1 %.not.i910, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913, label %1399
 
 1399:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2251
-  %1400 = call noundef zeroext i1 %1398(ptr noundef nonnull align 8 dereferenceable(32) %344, ptr noundef nonnull align 8 dereferenceable(32) %344, i32 noundef 3) #16
+  %1400 = call noundef zeroext i1 %1398(ptr noundef nonnull align 8 dereferenceable(32) %344, ptr noundef nonnull align 8 dereferenceable(32) %344, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2251, %1399
   call void @llvm.lifetime.end.p0(ptr nonnull %343)
-  %1401 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 68) #16
+  %1401 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 68) #17
   %1402 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %1403 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %1404 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i64 0, ptr %1404, align 8
-  %1405 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #17
+  %1405 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18
   store i64 34359738369, ptr %1405, align 16, !tbaa !168
   %.sroa.41426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1405, i64 8
   store i64 68719476737, ptr %.sroa.41426.0..sroa_idx, align 8, !tbaa !168
@@ -3622,7 +3622,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913: ; preds = %_ZN4ll
   store i64 0, ptr %1406, align 8
   %1407 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %1408 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  %1409 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #17
+  %1409 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %1409, ptr noundef nonnull readonly align 8 dereferenceable(184) %1405, i64 184, i1 false), !tbaa.struct !188
   store ptr %1409, ptr %228, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_14E9_M_invokeERKSt9_Any_dataS3_", ptr %1407, align 8, !tbaa !171
@@ -3633,7 +3633,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913: ; preds = %_ZN4ll
   br i1 %.not.i.i914, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916, label %1412
 
 1412:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913
-  %1413 = call noundef zeroext i1 %1411(ptr noundef nonnull align 8 dereferenceable(32) %228, ptr noundef nonnull align 8 dereferenceable(32) %228, i32 noundef 3) #16
+  %1413 = call noundef zeroext i1 %1411(ptr noundef nonnull align 8 dereferenceable(32) %228, ptr noundef nonnull align 8 dereferenceable(32) %228, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i913, %1412
@@ -3644,7 +3644,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916:
   %1415 = getelementptr inbounds nuw i8, ptr %226, i64 24
   %1416 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i64 0, ptr %1416, align 8
-  %1417 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1417 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1417, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i917 = getelementptr inbounds nuw i8, ptr %1417, i64 8
   store i64 34359738369, ptr %.sroa.49.0..sroa_idx.i917, align 8, !tbaa !168
@@ -3666,7 +3666,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916:
   br i1 %.not.i.i919, label %_ZNSt14_Function_baseD2Ev.exit.i920, label %1423
 
 1423:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916
-  %1424 = call noundef zeroext i1 %1422(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(32) %227, i32 noundef 3) #16
+  %1424 = call noundef zeroext i1 %1422(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(32) %227, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i920
 
 _ZNSt14_Function_baseD2Ev.exit.i920:              ; preds = %1423, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit916
@@ -3675,7 +3675,7 @@ _ZNSt14_Function_baseD2Ev.exit.i920:              ; preds = %1423, %_ZN4llvm15Le
   br i1 %.not.i5.i921, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922, label %1426
 
 1426:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i920
-  %1427 = call noundef zeroext i1 %1425(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(32) %226, i32 noundef 3) #16
+  %1427 = call noundef zeroext i1 %1425(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(32) %226, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i920, %1426
@@ -3687,7 +3687,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922: ; preds = %_Z
   %1429 = getelementptr inbounds nuw i8, ptr %224, i64 24
   %1430 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store i64 0, ptr %1430, align 8
-  %1431 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1431 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1431, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i923 = getelementptr inbounds nuw i8, ptr %1431, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i923, align 8, !tbaa !168
@@ -3709,7 +3709,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922: ; preds = %_Z
   br i1 %.not.i.i925, label %_ZNSt14_Function_baseD2Ev.exit.i926, label %1437
 
 1437:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922
-  %1438 = call noundef zeroext i1 %1436(ptr noundef nonnull align 8 dereferenceable(32) %225, ptr noundef nonnull align 8 dereferenceable(32) %225, i32 noundef 3) #16
+  %1438 = call noundef zeroext i1 %1436(ptr noundef nonnull align 8 dereferenceable(32) %225, ptr noundef nonnull align 8 dereferenceable(32) %225, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i926
 
 _ZNSt14_Function_baseD2Ev.exit.i926:              ; preds = %1437, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit922
@@ -3718,7 +3718,7 @@ _ZNSt14_Function_baseD2Ev.exit.i926:              ; preds = %1437, %_ZN4llvm15Le
   br i1 %.not.i5.i927, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928, label %1440
 
 1440:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i926
-  %1441 = call noundef zeroext i1 %1439(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %224, i32 noundef 3) #16
+  %1441 = call noundef zeroext i1 %1439(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %224, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i926, %1440
@@ -3730,7 +3730,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928: ; preds = %_Z
   %1443 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %1444 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i64 0, ptr %1444, align 8
-  %1445 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1445 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1445, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i929 = getelementptr inbounds nuw i8, ptr %1445, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i929, align 8, !tbaa !168
@@ -3752,7 +3752,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928: ; preds = %_Z
   br i1 %.not.i.i931, label %_ZNSt14_Function_baseD2Ev.exit.i932, label %1451
 
 1451:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928
-  %1452 = call noundef zeroext i1 %1450(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %223, i32 noundef 3) #16
+  %1452 = call noundef zeroext i1 %1450(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %223, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i932
 
 _ZNSt14_Function_baseD2Ev.exit.i932:              ; preds = %1451, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit928
@@ -3761,7 +3761,7 @@ _ZNSt14_Function_baseD2Ev.exit.i932:              ; preds = %1451, %_ZN4llvm15Le
   br i1 %.not.i5.i933, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934, label %1454
 
 1454:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i932
-  %1455 = call noundef zeroext i1 %1453(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %222, i32 noundef 3) #16
+  %1455 = call noundef zeroext i1 %1453(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %222, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i932, %1454
@@ -3773,7 +3773,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934: ; preds = %_Z
   %1457 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %1458 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 0, ptr %1458, align 8
-  %1459 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1459 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1459, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i935 = getelementptr inbounds nuw i8, ptr %1459, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i935, align 8, !tbaa !168
@@ -3795,7 +3795,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934: ; preds = %_Z
   br i1 %.not.i.i937, label %_ZNSt14_Function_baseD2Ev.exit.i938, label %1465
 
 1465:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934
-  %1466 = call noundef zeroext i1 %1464(ptr noundef nonnull align 8 dereferenceable(32) %221, ptr noundef nonnull align 8 dereferenceable(32) %221, i32 noundef 3) #16
+  %1466 = call noundef zeroext i1 %1464(ptr noundef nonnull align 8 dereferenceable(32) %221, ptr noundef nonnull align 8 dereferenceable(32) %221, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i938
 
 _ZNSt14_Function_baseD2Ev.exit.i938:              ; preds = %1465, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit934
@@ -3804,7 +3804,7 @@ _ZNSt14_Function_baseD2Ev.exit.i938:              ; preds = %1465, %_ZN4llvm15Le
   br i1 %.not.i5.i939, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940, label %1468
 
 1468:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i938
-  %1469 = call noundef zeroext i1 %1467(ptr noundef nonnull align 8 dereferenceable(32) %220, ptr noundef nonnull align 8 dereferenceable(32) %220, i32 noundef 3) #16
+  %1469 = call noundef zeroext i1 %1467(ptr noundef nonnull align 8 dereferenceable(32) %220, ptr noundef nonnull align 8 dereferenceable(32) %220, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i938, %1468
@@ -3816,7 +3816,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940: ; preds = %_Z
   %1471 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %1472 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i64 0, ptr %1472, align 8
-  %1473 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1473 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1473, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i941 = getelementptr inbounds nuw i8, ptr %1473, i64 8
   store i64 34359738369, ptr %.sroa.49.0..sroa_idx.i941, align 8, !tbaa !168
@@ -3838,7 +3838,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940: ; preds = %_Z
   br i1 %.not.i.i945, label %_ZNSt14_Function_baseD2Ev.exit.i946, label %1479
 
 1479:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940
-  %1480 = call noundef zeroext i1 %1478(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef nonnull align 8 dereferenceable(32) %219, i32 noundef 3) #16
+  %1480 = call noundef zeroext i1 %1478(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef nonnull align 8 dereferenceable(32) %219, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i946
 
 _ZNSt14_Function_baseD2Ev.exit.i946:              ; preds = %1479, %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit940
@@ -3847,7 +3847,7 @@ _ZNSt14_Function_baseD2Ev.exit.i946:              ; preds = %1479, %_ZN4llvm15Le
   br i1 %.not.i5.i947, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948, label %1482
 
 1482:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i946
-  %1483 = call noundef zeroext i1 %1481(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(32) %218, i32 noundef 3) #16
+  %1483 = call noundef zeroext i1 %1481(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(32) %218, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i946, %1482
@@ -3859,7 +3859,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948: ; preds = %_Z
   %1485 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %1486 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i64 0, ptr %1486, align 8
-  %1487 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1487 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1487, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i949 = getelementptr inbounds nuw i8, ptr %1487, i64 8
   store i64 68719476737, ptr %.sroa.49.0..sroa_idx.i949, align 8, !tbaa !168
@@ -3881,7 +3881,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948: ; preds = %_Z
   br i1 %.not.i.i953, label %_ZNSt14_Function_baseD2Ev.exit.i954, label %1493
 
 1493:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948
-  %1494 = call noundef zeroext i1 %1492(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 8 dereferenceable(32) %217, i32 noundef 3) #16
+  %1494 = call noundef zeroext i1 %1492(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 8 dereferenceable(32) %217, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i954
 
 _ZNSt14_Function_baseD2Ev.exit.i954:              ; preds = %1493, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit948
@@ -3890,7 +3890,7 @@ _ZNSt14_Function_baseD2Ev.exit.i954:              ; preds = %1493, %_ZN4llvm15Le
   br i1 %.not.i5.i955, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956, label %1496
 
 1496:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i954
-  %1497 = call noundef zeroext i1 %1495(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(32) %216, i32 noundef 3) #16
+  %1497 = call noundef zeroext i1 %1495(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(32) %216, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i954, %1496
@@ -3902,7 +3902,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956: ; preds = %_Z
   %1499 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %1500 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i64 0, ptr %1500, align 8
-  %1501 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1501 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1501, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i957 = getelementptr inbounds nuw i8, ptr %1501, i64 8
   store i64 137438953473, ptr %.sroa.49.0..sroa_idx.i957, align 8, !tbaa !168
@@ -3924,7 +3924,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956: ; preds = %_Z
   br i1 %.not.i.i961, label %_ZNSt14_Function_baseD2Ev.exit.i962, label %1507
 
 1507:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956
-  %1508 = call noundef zeroext i1 %1506(ptr noundef nonnull align 8 dereferenceable(32) %215, ptr noundef nonnull align 8 dereferenceable(32) %215, i32 noundef 3) #16
+  %1508 = call noundef zeroext i1 %1506(ptr noundef nonnull align 8 dereferenceable(32) %215, ptr noundef nonnull align 8 dereferenceable(32) %215, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i962
 
 _ZNSt14_Function_baseD2Ev.exit.i962:              ; preds = %1507, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit956
@@ -3933,7 +3933,7 @@ _ZNSt14_Function_baseD2Ev.exit.i962:              ; preds = %1507, %_ZN4llvm15Le
   br i1 %.not.i5.i963, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964, label %1510
 
 1510:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i962
-  %1511 = call noundef zeroext i1 %1509(ptr noundef nonnull align 8 dereferenceable(32) %214, ptr noundef nonnull align 8 dereferenceable(32) %214, i32 noundef 3) #16
+  %1511 = call noundef zeroext i1 %1509(ptr noundef nonnull align 8 dereferenceable(32) %214, ptr noundef nonnull align 8 dereferenceable(32) %214, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i962, %1510
@@ -3945,7 +3945,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964: ; preds = %_Z
   %1513 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %1514 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i64 0, ptr %1514, align 8
-  %1515 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %1515 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 0, ptr %1515, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i965 = getelementptr inbounds nuw i8, ptr %1515, i64 8
   store i64 274877906945, ptr %.sroa.49.0..sroa_idx.i965, align 8, !tbaa !168
@@ -3967,7 +3967,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964: ; preds = %_Z
   br i1 %.not.i.i969, label %_ZNSt14_Function_baseD2Ev.exit.i970, label %1521
 
 1521:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964
-  %1522 = call noundef zeroext i1 %1520(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef nonnull align 8 dereferenceable(32) %213, i32 noundef 3) #16
+  %1522 = call noundef zeroext i1 %1520(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef nonnull align 8 dereferenceable(32) %213, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i970
 
 _ZNSt14_Function_baseD2Ev.exit.i970:              ; preds = %1521, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit964
@@ -3976,7 +3976,7 @@ _ZNSt14_Function_baseD2Ev.exit.i970:              ; preds = %1521, %_ZN4llvm15Le
   br i1 %.not.i5.i971, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972, label %1524
 
 1524:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i970
-  %1525 = call noundef zeroext i1 %1523(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %212, i32 noundef 3) #16
+  %1525 = call noundef zeroext i1 %1523(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %212, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i970, %1524
@@ -3984,8 +3984,8 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %213)
   call void @llvm.lifetime.start.p0(ptr nonnull %210)
   call void @llvm.lifetime.start.p0(ptr nonnull %211)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %210, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %211, i32 noundef 0, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %210, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %211, i32 noundef 0, i32 noundef 32) #17
   %1526 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1519, i8 noundef zeroext 2, ptr noundef nonnull %210, ptr noundef nonnull %211)
   %1527 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %1528 = load ptr, ptr %1527, align 8, !tbaa !174
@@ -3993,7 +3993,7 @@ _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972: ; preds = %_Z
   br i1 %.not.i.i973, label %_ZNSt14_Function_baseD2Ev.exit.i974, label %1529
 
 1529:                                             ; preds = %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972
-  %1530 = call noundef zeroext i1 %1528(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %211, i32 noundef 3) #16
+  %1530 = call noundef zeroext i1 %1528(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %211, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i974
 
 _ZNSt14_Function_baseD2Ev.exit.i974:              ; preds = %1529, %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit972
@@ -4003,7 +4003,7 @@ _ZNSt14_Function_baseD2Ev.exit.i974:              ; preds = %1529, %_ZN4llvm15Le
   br i1 %.not.i3.i975, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976, label %1533
 
 1533:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i974
-  %1534 = call noundef zeroext i1 %1532(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull align 8 dereferenceable(32) %210, i32 noundef 3) #16
+  %1534 = call noundef zeroext i1 %1532(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull align 8 dereferenceable(32) %210, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i974, %1533
@@ -4015,10 +4015,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976: ; preds = %_ZNSt14_
   store i64 8, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i2253 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2253, align 8
-  %1535 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %65) #16
+  %1535 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %65) #17
   %1536 = trunc i64 %1535 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %64, i32 noundef 0, i32 noundef %1536) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %66, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %64, i32 noundef 0, i32 noundef %1536) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %66, i32 noundef 0, i64 34359738369) #17
   %1537 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1526, i8 noundef zeroext 2, ptr noundef nonnull %64, ptr noundef nonnull %66)
   %1538 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %1539 = load ptr, ptr %1538, align 8, !tbaa !174
@@ -4026,7 +4026,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976: ; preds = %_ZNSt14_
   br i1 %.not.i.i2254, label %_ZNSt14_Function_baseD2Ev.exit.i2255, label %1540
 
 1540:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976
-  %1541 = call noundef zeroext i1 %1539(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef 3) #16
+  %1541 = call noundef zeroext i1 %1539(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2255
 
 _ZNSt14_Function_baseD2Ev.exit.i2255:             ; preds = %1540, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit976
@@ -4036,7 +4036,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2255:             ; preds = %1540, %_ZN4llvm15Le
   br i1 %.not.i3.i2256, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257, label %1544
 
 1544:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2255
-  %1545 = call noundef zeroext i1 %1543(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 3) #16
+  %1545 = call noundef zeroext i1 %1543(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2255, %1544
@@ -4046,8 +4046,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257: ; preds = %_ZNSt14_Funct
   %1546 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1537, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %208)
   call void @llvm.lifetime.start.p0(ptr nonnull %209)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %208, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %209, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %208, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %209, i32 noundef 0) #17
   %1547 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1546, i8 noundef zeroext 3, ptr noundef nonnull %208, ptr noundef nonnull %209)
   %1548 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %1549 = load ptr, ptr %1548, align 8, !tbaa !174
@@ -4055,7 +4055,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i977, label %_ZNSt14_Function_baseD2Ev.exit.i978, label %1550
 
 1550:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257
-  %1551 = call noundef zeroext i1 %1549(ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(32) %209, i32 noundef 3) #16
+  %1551 = call noundef zeroext i1 %1549(ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(32) %209, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i978
 
 _ZNSt14_Function_baseD2Ev.exit.i978:              ; preds = %1550, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2257
@@ -4065,7 +4065,7 @@ _ZNSt14_Function_baseD2Ev.exit.i978:              ; preds = %1550, %_ZN4llvm15Le
   br i1 %.not.i2.i979, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit980, label %1554
 
 1554:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i978
-  %1555 = call noundef zeroext i1 %1553(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(32) %208, i32 noundef 3) #16
+  %1555 = call noundef zeroext i1 %1553(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(32) %208, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit980
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit980:    ; preds = %_ZNSt14_Function_baseD2Ev.exit.i978, %1554
@@ -4076,15 +4076,15 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit980:    ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i981, label %_ZNSt14_Function_baseD2Ev.exit982, label %1557
 
 1557:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit980
-  %1558 = call noundef zeroext i1 %1556(ptr noundef nonnull align 8 dereferenceable(32) %345, ptr noundef nonnull align 8 dereferenceable(32) %345, i32 noundef 3) #16
+  %1558 = call noundef zeroext i1 %1556(ptr noundef nonnull align 8 dereferenceable(32) %345, ptr noundef nonnull align 8 dereferenceable(32) %345, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit982
 
 _ZNSt14_Function_baseD2Ev.exit982:                ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit980, %1557
-  %1559 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 124) #16
+  %1559 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 124) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %346)
   store i64 4294967297, ptr %346, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %207)
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %207, i32 noundef 0, ptr nonnull %346, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %207, i32 noundef 0, ptr nonnull %346, i64 1) #17
   %1560 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1559, i8 noundef zeroext 0, ptr noundef nonnull %207)
   %1561 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %1562 = load ptr, ptr %1561, align 8, !tbaa !174
@@ -4092,7 +4092,7 @@ _ZNSt14_Function_baseD2Ev.exit982:                ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i.i983, label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit, label %1563
 
 1563:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit982
-  %1564 = call noundef zeroext i1 %1562(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(32) %207, i32 noundef 3) #16
+  %1564 = call noundef zeroext i1 %1562(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(32) %207, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit982, %1563
@@ -4102,7 +4102,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %347, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false), !tbaa.struct !189
   call void @llvm.lifetime.start.p0(ptr nonnull %348)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %348, ptr noundef nonnull align 8 dereferenceable(40) @constinit.1, i64 40, i1 false), !tbaa.struct !190
-  %1565 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 80) #16
+  %1565 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 80) #17
   %.sroa.0110.0.copyload.sroa.speculated = select i1 %400, ptr %348, ptr %347
   call void @llvm.lifetime.start.p0(ptr nonnull %349)
   store i64 %storemerge.i.i.i, ptr %349, align 8, !tbaa !168
@@ -4110,8 +4110,8 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds 
   %1567 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1566, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %205)
   call void @llvm.lifetime.start.p0(ptr nonnull %206)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %205, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %206, i32 noundef 0, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %205, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %206, i32 noundef 0, i32 noundef 8) #17
   %1568 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1567, i8 noundef zeroext 2, ptr noundef nonnull %205, ptr noundef nonnull %206)
   %1569 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %1570 = load ptr, ptr %1569, align 8, !tbaa !174
@@ -4119,7 +4119,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds 
   br i1 %.not.i.i984, label %_ZNSt14_Function_baseD2Ev.exit.i985, label %1571
 
 1571:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit
-  %1572 = call noundef zeroext i1 %1570(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %206, i32 noundef 3) #16
+  %1572 = call noundef zeroext i1 %1570(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %206, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i985
 
 _ZNSt14_Function_baseD2Ev.exit.i985:              ; preds = %1571, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit
@@ -4129,20 +4129,20 @@ _ZNSt14_Function_baseD2Ev.exit.i985:              ; preds = %1571, %_ZN4llvm15Le
   br i1 %.not.i3.i986, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit987, label %1575
 
 1575:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i985
-  %1576 = call noundef zeroext i1 %1574(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(32) %205, i32 noundef 3) #16
+  %1576 = call noundef zeroext i1 %1574(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(32) %205, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit987
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit987: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i985, %1575
   call void @llvm.lifetime.end.p0(ptr nonnull %205)
   call void @llvm.lifetime.end.p0(ptr nonnull %206)
   call void @llvm.lifetime.end.p0(ptr nonnull %349)
-  %1577 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 81) #16
+  %1577 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 81) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %350)
   store i64 %storemerge.i.i.i, ptr %350, align 8, !tbaa !168
   %1578 = getelementptr inbounds nuw i8, ptr %350, i64 8
   store i64 %445, ptr %1578, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %204)
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %204, i32 noundef 0, i32 noundef 1, ptr nonnull %350, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %204, i32 noundef 0, i32 noundef 1, ptr nonnull %350, i64 1) #17
   %1579 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1577, i8 noundef zeroext 0, ptr noundef nonnull %204)
   %1580 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %1581 = load ptr, ptr %1580, align 8, !tbaa !174
@@ -4150,17 +4150,17 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit987: ; preds = %_ZNSt14_
   br i1 %.not.i.i.i988, label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit, label %1582
 
 1582:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit987
-  %1583 = call noundef zeroext i1 %1581(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(32) %204, i32 noundef 3) #16
+  %1583 = call noundef zeroext i1 %1581(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(32) %204, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit987, %1582
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
   call void @llvm.lifetime.end.p0(ptr nonnull %350)
-  %1584 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 72) #16
+  %1584 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 72) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %351)
   store i64 %storemerge.i.i.i, ptr %351, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %203)
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %203, i32 noundef 0, ptr nonnull %351, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %203, i32 noundef 0, ptr nonnull %351, i64 1) #17
   %1585 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1584, i8 noundef zeroext 0, ptr noundef nonnull %203)
   %1586 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %1587 = load ptr, ptr %1586, align 8, !tbaa !174
@@ -4168,18 +4168,18 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br i1 %.not.i.i.i989, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992, label %1588
 
 1588:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
-  %1589 = call noundef zeroext i1 %1587(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef nonnull align 8 dereferenceable(32) %203, i32 noundef 3) #16
+  %1589 = call noundef zeroext i1 %1587(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef nonnull align 8 dereferenceable(32) %203, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit, %1588
   call void @llvm.lifetime.end.p0(ptr nonnull %203)
   call void @llvm.lifetime.end.p0(ptr nonnull %351)
-  %1590 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 220) #16
+  %1590 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 220) #17
   %1591 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %1592 = getelementptr inbounds nuw i8, ptr %352, i64 24
   %1593 = getelementptr inbounds nuw i8, ptr %352, i64 8
   store i64 0, ptr %1593, align 8
-  %1594 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %1594 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store i64 %storemerge.i.i.i, ptr %1594, align 16, !tbaa !168
   %.sroa.41421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1594, i64 8
   store i64 137438953473, ptr %.sroa.41421.0..sroa_idx, align 8, !tbaa !168
@@ -4195,7 +4195,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992: ; preds = %_ZN4ll
   store i64 0, ptr %1595, align 8
   %1596 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %1597 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %1598 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %1598 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1598, ptr noundef nonnull readonly align 8 dereferenceable(32) %1594, i64 32, i1 false), !tbaa.struct !191
   store ptr %1598, ptr %202, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_15E9_M_invokeERKSt9_Any_dataS3_", ptr %1596, align 8, !tbaa !171
@@ -4206,15 +4206,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992: ; preds = %_ZN4ll
   br i1 %.not.i.i993, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit995, label %1601
 
 1601:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992
-  %1602 = call noundef zeroext i1 %1600(ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(32) %202, i32 noundef 3) #16
+  %1602 = call noundef zeroext i1 %1600(ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(32) %202, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit995
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit995: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i992, %1601
   call void @llvm.lifetime.end.p0(ptr nonnull %202)
   call void @llvm.lifetime.start.p0(ptr nonnull %200)
   call void @llvm.lifetime.start.p0(ptr nonnull %201)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %200, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %201, i32 noundef 1, i32 noundef 32) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %200, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %201, i32 noundef 1, i32 noundef 32) #17
   %1603 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1599, i8 noundef zeroext 2, ptr noundef nonnull %200, ptr noundef nonnull %201)
   %1604 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %1605 = load ptr, ptr %1604, align 8, !tbaa !174
@@ -4222,7 +4222,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit995:
   br i1 %.not.i.i996, label %_ZNSt14_Function_baseD2Ev.exit.i997, label %1606
 
 1606:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit995
-  %1607 = call noundef zeroext i1 %1605(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(32) %201, i32 noundef 3) #16
+  %1607 = call noundef zeroext i1 %1605(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(32) %201, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i997
 
 _ZNSt14_Function_baseD2Ev.exit.i997:              ; preds = %1606, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit995
@@ -4232,7 +4232,7 @@ _ZNSt14_Function_baseD2Ev.exit.i997:              ; preds = %1606, %_ZN4llvm15Le
   br i1 %.not.i3.i998, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999, label %1610
 
 1610:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i997
-  %1611 = call noundef zeroext i1 %1609(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(32) %200, i32 noundef 3) #16
+  %1611 = call noundef zeroext i1 %1609(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(32) %200, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i997, %1610
@@ -4244,10 +4244,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999: ; preds = %_ZNSt14_
   store i64 32, ptr %62, align 8
   %.sroa.2.0..sroa_idx.i2259 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2259, align 8
-  %1612 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %62) #16
+  %1612 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %62) #17
   %1613 = trunc i64 %1612 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %61, i32 noundef 1, i32 noundef %1613) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %63, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %61, i32 noundef 1, i32 noundef %1613) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %63, i32 noundef 1, i64 137438953473) #17
   %1614 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1603, i8 noundef zeroext 2, ptr noundef nonnull %61, ptr noundef nonnull %63)
   %1615 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %1616 = load ptr, ptr %1615, align 8, !tbaa !174
@@ -4255,7 +4255,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999: ; preds = %_ZNSt14_
   br i1 %.not.i.i2260, label %_ZNSt14_Function_baseD2Ev.exit.i2261, label %1617
 
 1617:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999
-  %1618 = call noundef zeroext i1 %1616(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %63, i32 noundef 3) #16
+  %1618 = call noundef zeroext i1 %1616(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %63, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2261
 
 _ZNSt14_Function_baseD2Ev.exit.i2261:             ; preds = %1617, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit999
@@ -4265,7 +4265,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2261:             ; preds = %1617, %_ZN4llvm15Le
   br i1 %.not.i3.i2262, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2263, label %1621
 
 1621:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2261
-  %1622 = call noundef zeroext i1 %1620(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef 3) #16
+  %1622 = call noundef zeroext i1 %1620(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2263
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2263: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2261, %1621
@@ -4278,7 +4278,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2263: ; preds = %_ZNSt14_Funct
   br i1 %.not.i1000, label %_ZNSt14_Function_baseD2Ev.exit1001, label %1625
 
 1625:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2263
-  %1626 = call noundef zeroext i1 %1624(ptr noundef nonnull align 8 dereferenceable(32) %352, ptr noundef nonnull align 8 dereferenceable(32) %352, i32 noundef 3) #16
+  %1626 = call noundef zeroext i1 %1624(ptr noundef nonnull align 8 dereferenceable(32) %352, ptr noundef nonnull align 8 dereferenceable(32) %352, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1001
 
 _ZNSt14_Function_baseD2Ev.exit1001:               ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2263, %1625
@@ -4286,11 +4286,11 @@ _ZNSt14_Function_baseD2Ev.exit1001:               ; preds = %_ZN4llvm15LegalizeR
   store i32 69, ptr %353, align 4, !tbaa !177
   %1627 = getelementptr inbounds nuw i8, ptr %353, i64 4
   store i32 70, ptr %1627, align 4, !tbaa !177
-  %1628 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %353, i64 2) #16
+  %1628 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %353, i64 2) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %354)
   store i64 %storemerge.i.i.i, ptr %354, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %199)
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %199, i32 noundef 0, ptr nonnull %354, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %199, i32 noundef 0, ptr nonnull %354, i64 1) #17
   %1629 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1628, i8 noundef zeroext 0, ptr noundef nonnull %199)
   %1630 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %1631 = load ptr, ptr %1630, align 8, !tbaa !174
@@ -4298,7 +4298,7 @@ _ZNSt14_Function_baseD2Ev.exit1001:               ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i.i1002, label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1003, label %1632
 
 1632:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1001
-  %1633 = call noundef zeroext i1 %1631(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(32) %199, i32 noundef 3) #16
+  %1633 = call noundef zeroext i1 %1631(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(32) %199, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1003
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1003: ; preds = %_ZNSt14_Function_baseD2Ev.exit1001, %1632
@@ -4442,18 +4442,18 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1003: ; pr
   %1760 = zext i1 %1759 to i32
   %not. = xor i1 %1759, true
   %1761 = zext i1 %not. to i32
-  %1762 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef %1758) #16
+  %1762 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef %1758) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %197)
   call void @llvm.lifetime.start.p0(ptr nonnull %198)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %197, i32 noundef %1761) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %198, i32 noundef %1761, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %197, i32 noundef %1761) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %198, i32 noundef %1761, i32 noundef 8) #17
   %1763 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1762, i8 noundef zeroext 2, ptr noundef nonnull %197, ptr noundef nonnull %198)
   %1764 = load ptr, ptr %520, align 8, !tbaa !174
   %.not.i.i1004 = icmp eq ptr %1764, null
   br i1 %.not.i.i1004, label %_ZNSt14_Function_baseD2Ev.exit.i1005, label %1765
 
 1765:                                             ; preds = %1757
-  %1766 = call noundef zeroext i1 %1764(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(32) %198, i32 noundef 3) #16
+  %1766 = call noundef zeroext i1 %1764(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(32) %198, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1005
 
 _ZNSt14_Function_baseD2Ev.exit.i1005:             ; preds = %1765, %1757
@@ -4462,7 +4462,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1005:             ; preds = %1765, %1757
   br i1 %.not.i3.i1006, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1007, label %1768
 
 1768:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1005
-  %1769 = call noundef zeroext i1 %1767(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %197, i32 noundef 3) #16
+  %1769 = call noundef zeroext i1 %1767(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %197, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1007
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1007: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1005, %1768
@@ -4470,15 +4470,15 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1007: ; preds = %_ZNSt14
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
   call void @llvm.lifetime.start.p0(ptr nonnull %195)
   call void @llvm.lifetime.start.p0(ptr nonnull %196)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %195, i32 noundef %1760) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %196, i32 noundef %1760, i32 noundef 16) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %195, i32 noundef %1760) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %196, i32 noundef %1760, i32 noundef 16) #17
   %1770 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1763, i8 noundef zeroext 2, ptr noundef nonnull %195, ptr noundef nonnull %196)
   %1771 = load ptr, ptr %522, align 8, !tbaa !174
   %.not.i.i1008 = icmp eq ptr %1771, null
   br i1 %.not.i.i1008, label %_ZNSt14_Function_baseD2Ev.exit.i1009, label %1772
 
 1772:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1007
-  %1773 = call noundef zeroext i1 %1771(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %196, i32 noundef 3) #16
+  %1773 = call noundef zeroext i1 %1771(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %196, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1009
 
 _ZNSt14_Function_baseD2Ev.exit.i1009:             ; preds = %1772, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1007
@@ -4487,7 +4487,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1009:             ; preds = %1772, %_ZN4llvm15Le
   br i1 %.not.i3.i1010, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1013, label %1775
 
 1775:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1009
-  %1776 = call noundef zeroext i1 %1774(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef 3) #16
+  %1776 = call noundef zeroext i1 %1774(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1013
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1013: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1009, %1775
@@ -4498,17 +4498,17 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1013: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i64 8, ptr %59, align 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2264, align 8
-  %1777 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %59) #16
+  %1777 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %59) #17
   %1778 = trunc i64 %1777 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %58, i32 noundef %1761, i32 noundef %1778) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %60, i32 noundef %1761, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %58, i32 noundef %1761, i32 noundef %1778) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %60, i32 noundef %1761, i64 34359738369) #17
   %1779 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1770, i8 noundef zeroext 2, ptr noundef nonnull %58, ptr noundef nonnull %60)
   %1780 = load ptr, ptr %529, align 8, !tbaa !174
   %.not.i.i2265 = icmp eq ptr %1780, null
   br i1 %.not.i.i2265, label %_ZNSt14_Function_baseD2Ev.exit.i2266, label %1781
 
 1781:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1013
-  %1782 = call noundef zeroext i1 %1780(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3) #16
+  %1782 = call noundef zeroext i1 %1780(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2266
 
 _ZNSt14_Function_baseD2Ev.exit.i2266:             ; preds = %1781, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1013
@@ -4517,7 +4517,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2266:             ; preds = %1781, %_ZNSt8functi
   br i1 %.not.i3.i2267, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2268, label %1784
 
 1784:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2266
-  %1785 = call noundef zeroext i1 %1783(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef 3) #16
+  %1785 = call noundef zeroext i1 %1783(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2268
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2268: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2266, %1784
@@ -4529,17 +4529,17 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2268: ; preds = %_ZNSt14_Funct
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i64 32, ptr %56, align 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2269, align 8
-  %1786 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %56) #16
+  %1786 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %56) #17
   %1787 = trunc i64 %1786 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %55, i32 noundef %1760, i32 noundef %1787) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %57, i32 noundef %1760, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %55, i32 noundef %1760, i32 noundef %1787) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %57, i32 noundef %1760, i64 137438953473) #17
   %1788 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1779, i8 noundef zeroext 2, ptr noundef nonnull %55, ptr noundef nonnull %57)
   %1789 = load ptr, ptr %531, align 8, !tbaa !174
   %.not.i.i2270 = icmp eq ptr %1789, null
   br i1 %.not.i.i2270, label %_ZNSt14_Function_baseD2Ev.exit.i2271, label %1790
 
 1790:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2268
-  %1791 = call noundef zeroext i1 %1789(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef 3) #16
+  %1791 = call noundef zeroext i1 %1789(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2271
 
 _ZNSt14_Function_baseD2Ev.exit.i2271:             ; preds = %1790, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2268
@@ -4548,7 +4548,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2271:             ; preds = %1790, %_ZN4llvm15Le
   br i1 %.not.i3.i2272, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273, label %1793
 
 1793:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2271
-  %1794 = call noundef zeroext i1 %1792(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %55, i32 noundef 3) #16
+  %1794 = call noundef zeroext i1 %1792(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %55, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2271, %1793
@@ -4573,7 +4573,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1014, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1016, label %1797
 
 1797:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273
-  %1798 = call noundef zeroext i1 %1796(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(32) %194, i32 noundef 3) #16
+  %1798 = call noundef zeroext i1 %1796(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(32) %194, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1016
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1016: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273, %1797
@@ -4583,7 +4583,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1016
   br i1 %.not.i1017, label %_ZNSt14_Function_baseD2Ev.exit1018, label %1800
 
 1800:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1016
-  %1801 = call noundef zeroext i1 %1799(ptr noundef nonnull align 8 dereferenceable(32) %322, ptr noundef nonnull align 8 dereferenceable(32) %322, i32 noundef 3) #16
+  %1801 = call noundef zeroext i1 %1799(ptr noundef nonnull align 8 dereferenceable(32) %322, ptr noundef nonnull align 8 dereferenceable(32) %322, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1018
 
 _ZNSt14_Function_baseD2Ev.exit1018:               ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1016, %1800
@@ -4627,7 +4627,7 @@ _ZNSt14_Function_baseD2Ev.exit1018:               ; preds = %_ZN4llvm15LegalizeR
   %.0587.idx1924 = phi i64 [ 0, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1003 ], [ %.0587.add, %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1043 ]
   %.0587.ptr = getelementptr inbounds nuw i8, ptr %355, i64 %.0587.idx1924
   %1829 = load i32, ptr %.0587.ptr, align 4, !tbaa !168
-  %1830 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef %1829) #16
+  %1830 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef %1829) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %356)
   store i64 34359738369, ptr %356, align 8, !tbaa !168
   store i64 %storemerge.i.i.i, ptr %1635, align 8, !tbaa !168
@@ -4670,14 +4670,14 @@ _ZNSt14_Function_baseD2Ev.exit1018:               ; preds = %_ZN4llvm15LegalizeR
   store i64 34359739396, ptr %1672, align 8, !tbaa !168
   store i64 1, ptr %1673, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %193)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %193, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %356, i64 10) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %193, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %356, i64 10) #17
   %1831 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 0, ptr noundef nonnull %193)
   %1832 = load ptr, ptr %1674, align 8, !tbaa !174
   %.not.i.i1019 = icmp eq ptr %1832, null
   br i1 %.not.i.i1019, label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit, label %1833
 
 1833:                                             ; preds = %1828
-  %1834 = call noundef zeroext i1 %1832(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(32) %193, i32 noundef 3) #16
+  %1834 = call noundef zeroext i1 %1832(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(32) %193, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit: ; preds = %1828, %1833
@@ -4708,14 +4708,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438953988, ptr %1692, align 8, !tbaa !168
   store i64 1, ptr %1693, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %192)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %192, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %357, i64 5) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %192, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %357, i64 5) #17
   %1836 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 0, ptr noundef nonnull %192)
   %1837 = load ptr, ptr %1694, align 8, !tbaa !174
   %.not.i.i1021 = icmp eq ptr %1837, null
   br i1 %.not.i.i1021, label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1023, label %1838
 
 1838:                                             ; preds = %1835
-  %1839 = call noundef zeroext i1 %1837(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(32) %192, i32 noundef 3) #16
+  %1839 = call noundef zeroext i1 %1837(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(32) %192, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1023
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1023: ; preds = %1835, %1838
@@ -4733,14 +4733,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438954500, ptr %1696, align 8, !tbaa !168
   store i64 1, ptr %1697, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %191)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %191, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %358, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %191, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %358, i64 1) #17
   %1842 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 0, ptr noundef nonnull %191)
   %1843 = load ptr, ptr %1698, align 8, !tbaa !174
   %.not.i.i1024 = icmp eq ptr %1843, null
   br i1 %.not.i.i1024, label %1846, label %1844
 
 1844:                                             ; preds = %1841
-  %1845 = call noundef zeroext i1 %1843(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(32) %191, i32 noundef 3) #16
+  %1845 = call noundef zeroext i1 %1843(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(32) %191, i32 noundef 3) #17
   br label %1846
 
 1846:                                             ; preds = %1844, %1841
@@ -4767,14 +4767,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 %447, ptr %1712, align 8, !tbaa !168
   store i64 1, ptr %1713, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %190)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %190, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %359, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %190, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %359, i64 4) #17
   %1848 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 0, ptr noundef nonnull %190)
   %1849 = load ptr, ptr %1714, align 8, !tbaa !174
   %.not.i.i1027 = icmp eq ptr %1849, null
   br i1 %.not.i.i1027, label %1852, label %1850
 
 1850:                                             ; preds = %1847
-  %1851 = call noundef zeroext i1 %1849(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %190, i32 noundef 3) #16
+  %1851 = call noundef zeroext i1 %1849(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %190, i32 noundef 3) #17
   br label %1852
 
 1852:                                             ; preds = %1850, %1847
@@ -4805,14 +4805,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 %449, ptr %1732, align 8, !tbaa !168
   store i64 1, ptr %1733, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %189)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %189, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %360, i64 5) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %189, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %360, i64 5) #17
   %1854 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 0, ptr noundef nonnull %189)
   %1855 = load ptr, ptr %1734, align 8, !tbaa !174
   %.not.i.i1030 = icmp eq ptr %1855, null
   br i1 %.not.i.i1030, label %1858, label %1856
 
 1856:                                             ; preds = %1853
-  %1857 = call noundef zeroext i1 %1855(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull align 8 dereferenceable(32) %189, i32 noundef 3) #16
+  %1857 = call noundef zeroext i1 %1855(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull align 8 dereferenceable(32) %189, i32 noundef 3) #17
   br label %1858
 
 1858:                                             ; preds = %1856, %1853
@@ -4839,14 +4839,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 274877908996, ptr %1748, align 8, !tbaa !168
   store i64 1, ptr %1749, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %188)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %188, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %361, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %188, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %361, i64 4) #17
   %1860 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 0, ptr noundef nonnull %188)
   %1861 = load ptr, ptr %1750, align 8, !tbaa !174
   %.not.i.i1033 = icmp eq ptr %1861, null
   br i1 %.not.i.i1033, label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1035, label %1862
 
 1862:                                             ; preds = %1859
-  %1863 = call noundef zeroext i1 %1861(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(32) %188, i32 noundef 3) #16
+  %1863 = call noundef zeroext i1 %1861(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(32) %188, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1035
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1035: ; preds = %1859, %1862
@@ -4857,15 +4857,15 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
 .thread1921:                                      ; preds = %1840, %1846, %1852, %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1035, %1858
   call void @llvm.lifetime.start.p0(ptr nonnull %186)
   call void @llvm.lifetime.start.p0(ptr nonnull %187)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %186, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %187, i32 noundef 0, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %186, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %187, i32 noundef 0, i32 noundef 8) #17
   %1864 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1830, i8 noundef zeroext 2, ptr noundef nonnull %186, ptr noundef nonnull %187)
   %1865 = load ptr, ptr %1751, align 8, !tbaa !174
   %.not.i.i1036 = icmp eq ptr %1865, null
   br i1 %.not.i.i1036, label %_ZNSt14_Function_baseD2Ev.exit.i1037, label %1866
 
 1866:                                             ; preds = %.thread1921
-  %1867 = call noundef zeroext i1 %1865(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(32) %187, i32 noundef 3) #16
+  %1867 = call noundef zeroext i1 %1865(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(32) %187, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1037
 
 _ZNSt14_Function_baseD2Ev.exit.i1037:             ; preds = %1866, %.thread1921
@@ -4874,7 +4874,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1037:             ; preds = %1866, %.thread1921
   br i1 %.not.i3.i1038, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1039, label %1869
 
 1869:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1037
-  %1870 = call noundef zeroext i1 %1868(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %186, i32 noundef 3) #16
+  %1870 = call noundef zeroext i1 %1868(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %186, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1039
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1039: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1037, %1869
@@ -4885,17 +4885,17 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1039: ; preds = %_ZNSt14
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i64 8, ptr %53, align 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2274, align 8
-  %1871 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %53) #16
+  %1871 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %53) #17
   %1872 = trunc i64 %1871 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %52, i32 noundef 0, i32 noundef %1872) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %54, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %52, i32 noundef 0, i32 noundef %1872) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %54, i32 noundef 0, i64 34359738369) #17
   %1873 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1864, i8 noundef zeroext 2, ptr noundef nonnull %52, ptr noundef nonnull %54)
   %1874 = load ptr, ptr %1755, align 8, !tbaa !174
   %.not.i.i2275 = icmp eq ptr %1874, null
   br i1 %.not.i.i2275, label %_ZNSt14_Function_baseD2Ev.exit.i2276, label %1875
 
 1875:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1039
-  %1876 = call noundef zeroext i1 %1874(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 3) #16
+  %1876 = call noundef zeroext i1 %1874(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2276
 
 _ZNSt14_Function_baseD2Ev.exit.i2276:             ; preds = %1875, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1039
@@ -4904,7 +4904,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2276:             ; preds = %1875, %_ZN4llvm15Le
   br i1 %.not.i3.i2277, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2278, label %1878
 
 1878:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2276
-  %1879 = call noundef zeroext i1 %1877(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3) #16
+  %1879 = call noundef zeroext i1 %1877(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2278
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2278: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2276, %1878
@@ -4914,15 +4914,15 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2278: ; preds = %_ZNSt14_Funct
   %1880 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1873, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %184)
   call void @llvm.lifetime.start.p0(ptr nonnull %185)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %184, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %185, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %184, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %185, i32 noundef 0) #17
   %1881 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1880, i8 noundef zeroext 3, ptr noundef nonnull %184, ptr noundef nonnull %185)
   %1882 = load ptr, ptr %1753, align 8, !tbaa !174
   %.not.i.i1040 = icmp eq ptr %1882, null
   br i1 %.not.i.i1040, label %_ZNSt14_Function_baseD2Ev.exit.i1041, label %1883
 
 1883:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2278
-  %1884 = call noundef zeroext i1 %1882(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(32) %185, i32 noundef 3) #16
+  %1884 = call noundef zeroext i1 %1882(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(32) %185, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1041
 
 _ZNSt14_Function_baseD2Ev.exit.i1041:             ; preds = %1883, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2278
@@ -4931,7 +4931,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1041:             ; preds = %1883, %_ZN4llvm15Le
   br i1 %.not.i2.i1042, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1043, label %1886
 
 1886:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1041
-  %1887 = call noundef zeroext i1 %1885(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(32) %184, i32 noundef 3) #16
+  %1887 = call noundef zeroext i1 %1885(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(32) %184, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1043
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1043:   ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1041, %1886
@@ -4957,12 +4957,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1045: ; preds = %2580
   store i32 139, ptr %1888, align 4, !tbaa !177
   %1889 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i32 131, ptr %1889, align 4, !tbaa !177
-  %1890 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %365, i64 3) #16
+  %1890 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %365, i64 3) #17
   %1891 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %1892 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %1893 = getelementptr inbounds nuw i8, ptr %366, i64 8
   store i64 0, ptr %1893, align 8
-  %1894 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %1894 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   store i64 34359738369, ptr %1894, align 16, !tbaa !168
   %.sroa.41410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1894, i64 8
   store i64 68719476737, ptr %.sroa.41410.0..sroa_idx, align 8, !tbaa !168
@@ -4982,7 +4982,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1045: ; preds = %2580
   store i64 0, ptr %1895, align 8
   %1896 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %1897 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %1898 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %1898 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1898, ptr noundef nonnull readonly align 8 dereferenceable(48) %1894, i64 48, i1 false), !tbaa.struct !176
   store ptr %1898, ptr %183, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_16E9_M_invokeERKSt9_Any_dataS3_", ptr %1896, align 8, !tbaa !171
@@ -4993,15 +4993,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1045: ; preds = %2580
   br i1 %.not.i.i1046, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1048, label %1901
 
 1901:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1045
-  %1902 = call noundef zeroext i1 %1900(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(32) %183, i32 noundef 3) #16
+  %1902 = call noundef zeroext i1 %1900(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(32) %183, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1048
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1048: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1045, %1901
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   call void @llvm.lifetime.start.p0(ptr nonnull %181)
   call void @llvm.lifetime.start.p0(ptr nonnull %182)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %181, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %182, i32 noundef 0, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %181, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %182, i32 noundef 0, i32 noundef 8) #17
   %1903 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1899, i8 noundef zeroext 2, ptr noundef nonnull %181, ptr noundef nonnull %182)
   %1904 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %1905 = load ptr, ptr %1904, align 8, !tbaa !174
@@ -5009,7 +5009,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1048
   br i1 %.not.i.i1049, label %_ZNSt14_Function_baseD2Ev.exit.i1050, label %1906
 
 1906:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1048
-  %1907 = call noundef zeroext i1 %1905(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(32) %182, i32 noundef 3) #16
+  %1907 = call noundef zeroext i1 %1905(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(32) %182, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1050
 
 _ZNSt14_Function_baseD2Ev.exit.i1050:             ; preds = %1906, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1048
@@ -5019,7 +5019,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1050:             ; preds = %1906, %_ZN4llvm15Le
   br i1 %.not.i3.i1051, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052, label %1910
 
 1910:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1050
-  %1911 = call noundef zeroext i1 %1909(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull align 8 dereferenceable(32) %181, i32 noundef 3) #16
+  %1911 = call noundef zeroext i1 %1909(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull align 8 dereferenceable(32) %181, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1050, %1910
@@ -5031,10 +5031,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052: ; preds = %_ZNSt14
   store i64 8, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i2280 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2280, align 8
-  %1912 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %50) #16
+  %1912 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %50) #17
   %1913 = trunc i64 %1912 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %49, i32 noundef 0, i32 noundef %1913) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %51, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %49, i32 noundef 0, i32 noundef %1913) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %51, i32 noundef 0, i64 34359738369) #17
   %1914 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1903, i8 noundef zeroext 2, ptr noundef nonnull %49, ptr noundef nonnull %51)
   %1915 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %1916 = load ptr, ptr %1915, align 8, !tbaa !174
@@ -5042,7 +5042,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052: ; preds = %_ZNSt14
   br i1 %.not.i.i2281, label %_ZNSt14_Function_baseD2Ev.exit.i2282, label %1917
 
 1917:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052
-  %1918 = call noundef zeroext i1 %1916(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3) #16
+  %1918 = call noundef zeroext i1 %1916(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2282
 
 _ZNSt14_Function_baseD2Ev.exit.i2282:             ; preds = %1917, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1052
@@ -5052,7 +5052,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2282:             ; preds = %1917, %_ZN4llvm15Le
   br i1 %.not.i3.i2283, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284, label %1921
 
 1921:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2282
-  %1922 = call noundef zeroext i1 %1920(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3) #16
+  %1922 = call noundef zeroext i1 %1920(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2282, %1921
@@ -5062,8 +5062,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284: ; preds = %_ZNSt14_Funct
   %1923 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1914, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %179)
   call void @llvm.lifetime.start.p0(ptr nonnull %180)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %179, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %180, i32 noundef 1, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %179, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %180, i32 noundef 1, i32 noundef 8) #17
   %1924 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1923, i8 noundef zeroext 2, ptr noundef nonnull %179, ptr noundef nonnull %180)
   %1925 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %1926 = load ptr, ptr %1925, align 8, !tbaa !174
@@ -5071,7 +5071,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1053, label %_ZNSt14_Function_baseD2Ev.exit.i1054, label %1927
 
 1927:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284
-  %1928 = call noundef zeroext i1 %1926(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(32) %180, i32 noundef 3) #16
+  %1928 = call noundef zeroext i1 %1926(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(32) %180, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1054
 
 _ZNSt14_Function_baseD2Ev.exit.i1054:             ; preds = %1927, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2284
@@ -5081,7 +5081,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1054:             ; preds = %1927, %_ZN4llvm15Le
   br i1 %.not.i3.i1055, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056, label %1931
 
 1931:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1054
-  %1932 = call noundef zeroext i1 %1930(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(32) %179, i32 noundef 3) #16
+  %1932 = call noundef zeroext i1 %1930(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(32) %179, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1054, %1931
@@ -5093,10 +5093,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056: ; preds = %_ZNSt14
   store i64 8, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i2285 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2285, align 8
-  %1933 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %47) #16
+  %1933 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %47) #17
   %1934 = trunc i64 %1933 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %46, i32 noundef 1, i32 noundef %1934) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %48, i32 noundef 1, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %46, i32 noundef 1, i32 noundef %1934) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %48, i32 noundef 1, i64 34359738369) #17
   %1935 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1924, i8 noundef zeroext 2, ptr noundef nonnull %46, ptr noundef nonnull %48)
   %1936 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %1937 = load ptr, ptr %1936, align 8, !tbaa !174
@@ -5104,7 +5104,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056: ; preds = %_ZNSt14
   br i1 %.not.i.i2286, label %_ZNSt14_Function_baseD2Ev.exit.i2287, label %1938
 
 1938:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056
-  %1939 = call noundef zeroext i1 %1937(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3) #16
+  %1939 = call noundef zeroext i1 %1937(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2287
 
 _ZNSt14_Function_baseD2Ev.exit.i2287:             ; preds = %1938, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1056
@@ -5114,7 +5114,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2287:             ; preds = %1938, %_ZN4llvm15Le
   br i1 %.not.i3.i2288, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289, label %1942
 
 1942:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2287
-  %1943 = call noundef zeroext i1 %1941(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3) #16
+  %1943 = call noundef zeroext i1 %1941(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2287, %1942
@@ -5124,8 +5124,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289: ; preds = %_ZNSt14_Funct
   %1944 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1935, i32 noundef 1, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %177)
   call void @llvm.lifetime.start.p0(ptr nonnull %178)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %177, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %178, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %177, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %178, i32 noundef 0) #17
   %1945 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1944, i8 noundef zeroext 3, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %1946 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %1947 = load ptr, ptr %1946, align 8, !tbaa !174
@@ -5133,7 +5133,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1057, label %_ZNSt14_Function_baseD2Ev.exit.i1058, label %1948
 
 1948:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289
-  %1949 = call noundef zeroext i1 %1947(ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(32) %178, i32 noundef 3) #16
+  %1949 = call noundef zeroext i1 %1947(ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(32) %178, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1058
 
 _ZNSt14_Function_baseD2Ev.exit.i1058:             ; preds = %1948, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2289
@@ -5143,7 +5143,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1058:             ; preds = %1948, %_ZN4llvm15Le
   br i1 %.not.i2.i1059, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1060, label %1952
 
 1952:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1058
-  %1953 = call noundef zeroext i1 %1951(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(32) %177, i32 noundef 3) #16
+  %1953 = call noundef zeroext i1 %1951(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(32) %177, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1060
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1060:   ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1058, %1952
@@ -5154,12 +5154,12 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1060:   ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i1061, label %_ZNSt14_Function_baseD2Ev.exit1062, label %1955
 
 1955:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1060
-  %1956 = call noundef zeroext i1 %1954(ptr noundef nonnull align 8 dereferenceable(32) %366, ptr noundef nonnull align 8 dereferenceable(32) %366, i32 noundef 3) #16
+  %1956 = call noundef zeroext i1 %1954(ptr noundef nonnull align 8 dereferenceable(32) %366, ptr noundef nonnull align 8 dereferenceable(32) %366, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1062
 
 _ZNSt14_Function_baseD2Ev.exit1062:               ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1060, %1955
   call void @llvm.lifetime.end.p0(ptr nonnull %365)
-  %1957 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 138) #16
+  %1957 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 138) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %1958 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %1959 = getelementptr inbounds nuw i8, ptr %176, i64 24
@@ -5174,17 +5174,17 @@ _ZNSt14_Function_baseD2Ev.exit1062:               ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i1063, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066, label %1963
 
 1963:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1062
-  %1964 = call noundef zeroext i1 %1962(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(32) %176, i32 noundef 3) #16
+  %1964 = call noundef zeroext i1 %1962(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(32) %176, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066: ; preds = %_ZNSt14_Function_baseD2Ev.exit1062, %1963
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
-  %1965 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 134) #16
+  %1965 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 134) #17
   %1966 = getelementptr inbounds nuw i8, ptr %367, i64 16
   %1967 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %1968 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store i64 0, ptr %1968, align 8
-  %1969 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %1969 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store i64 137438953473, ptr %1969, align 16, !tbaa !168
   %.sroa.41405.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1969, i64 8
   store i64 274877906945, ptr %.sroa.41405.0..sroa_idx, align 8, !tbaa !168
@@ -5200,7 +5200,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066: ; preds = %_ZNSt
   store i64 0, ptr %1970, align 8
   %1971 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %1972 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %1973 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %1973 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1973, ptr noundef nonnull readonly align 8 dereferenceable(32) %1969, i64 32, i1 false), !tbaa.struct !191
   store ptr %1973, ptr %175, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_17E9_M_invokeERKSt9_Any_dataS3_", ptr %1971, align 8, !tbaa !171
@@ -5211,7 +5211,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066: ; preds = %_ZNSt
   br i1 %.not.i.i1067, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1069, label %1976
 
 1976:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066
-  %1977 = call noundef zeroext i1 %1975(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %175, i32 noundef 3) #16
+  %1977 = call noundef zeroext i1 %1975(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %175, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1069
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1069: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1066, %1976
@@ -5221,7 +5221,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1069
   br i1 %.not.i1070, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073, label %1979
 
 1979:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1069
-  %1980 = call noundef zeroext i1 %1978(ptr noundef nonnull align 8 dereferenceable(32) %367, ptr noundef nonnull align 8 dereferenceable(32) %367, i32 noundef 3) #16
+  %1980 = call noundef zeroext i1 %1978(ptr noundef nonnull align 8 dereferenceable(32) %367, ptr noundef nonnull align 8 dereferenceable(32) %367, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1069, %1979
@@ -5233,12 +5233,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073: ; preds = %_ZN4l
   store i32 180, ptr %1982, align 4, !tbaa !177
   %1983 = getelementptr inbounds nuw i8, ptr %368, i64 12
   store i32 183, ptr %1983, align 4, !tbaa !177
-  %1984 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %368, i64 4) #16
+  %1984 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %368, i64 4) #17
   %1985 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %1986 = getelementptr inbounds nuw i8, ptr %369, i64 24
   %1987 = getelementptr inbounds nuw i8, ptr %369, i64 8
   store i64 0, ptr %1987, align 8
-  %1988 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %1988 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   store i64 137438953473, ptr %1988, align 16, !tbaa !168
   %.sroa.41386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1988, i64 8
   store i64 274877906945, ptr %.sroa.41386.0..sroa_idx, align 8, !tbaa !168
@@ -5274,7 +5274,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073: ; preds = %_ZN4l
   store i64 0, ptr %1989, align 8
   %1990 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %1991 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %1992 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %1992 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %1992, ptr noundef nonnull readonly align 8 dereferenceable(112) %1988, i64 112, i1 false), !tbaa.struct !195
   store ptr %1992, ptr %174, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_18E9_M_invokeERKSt9_Any_dataS3_", ptr %1990, align 8, !tbaa !171
@@ -5285,7 +5285,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073: ; preds = %_ZN4l
   br i1 %.not.i.i1074, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1076, label %1995
 
 1995:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073
-  %1996 = call noundef zeroext i1 %1994(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %174, i32 noundef 3) #16
+  %1996 = call noundef zeroext i1 %1994(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %174, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1076
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1076: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1073, %1995
@@ -5295,17 +5295,17 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1076
   br i1 %.not.i1077, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080, label %1998
 
 1998:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1076
-  %1999 = call noundef zeroext i1 %1997(ptr noundef nonnull align 8 dereferenceable(32) %369, ptr noundef nonnull align 8 dereferenceable(32) %369, i32 noundef 3) #16
+  %1999 = call noundef zeroext i1 %1997(ptr noundef nonnull align 8 dereferenceable(32) %369, ptr noundef nonnull align 8 dereferenceable(32) %369, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1076, %1998
   call void @llvm.lifetime.end.p0(ptr nonnull %368)
-  %2000 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 148) #16
+  %2000 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 148) #17
   %2001 = getelementptr inbounds nuw i8, ptr %370, i64 16
   %2002 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %2003 = getelementptr inbounds nuw i8, ptr %370, i64 8
   store i64 0, ptr %2003, align 8
-  %2004 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2004 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %407, ptr %2004, align 16, !tbaa !169
   %.sroa.41380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2004, i64 8
   store i64 34359738369, ptr %.sroa.41380.0..sroa_idx, align 8, !tbaa !168
@@ -5323,7 +5323,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080: ; preds = %_ZN4l
   store i64 0, ptr %2005, align 8
   %2006 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %2007 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %2008 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2008 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2008, ptr noundef nonnull readonly align 8 dereferenceable(40) %2004, i64 40, i1 false), !tbaa.struct !196
   store ptr %2008, ptr %173, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_19E9_M_invokeERKSt9_Any_dataS3_", ptr %2006, align 8, !tbaa !171
@@ -5334,7 +5334,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080: ; preds = %_ZN4l
   br i1 %.not.i.i1081, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083, label %2011
 
 2011:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080
-  %2012 = call noundef zeroext i1 %2010(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) %173, i32 noundef 3) #16
+  %2012 = call noundef zeroext i1 %2010(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) %173, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1080, %2011
@@ -5345,10 +5345,10 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083
   store i64 8, ptr %44, align 8
   %.sroa.2.0..sroa_idx.i2293 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2293, align 8
-  %2013 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %44) #16
+  %2013 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %44) #17
   %2014 = trunc i64 %2013 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %43, i32 noundef 0, i32 noundef %2014) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %45, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %43, i32 noundef 0, i32 noundef %2014) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %45, i32 noundef 0, i64 34359738369) #17
   %2015 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2009, i8 noundef zeroext 2, ptr noundef nonnull %43, ptr noundef nonnull %45)
   %2016 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %2017 = load ptr, ptr %2016, align 8, !tbaa !174
@@ -5356,7 +5356,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083
   br i1 %.not.i.i2294, label %_ZNSt14_Function_baseD2Ev.exit.i2295, label %2018
 
 2018:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083
-  %2019 = call noundef zeroext i1 %2017(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 3) #16
+  %2019 = call noundef zeroext i1 %2017(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2295
 
 _ZNSt14_Function_baseD2Ev.exit.i2295:             ; preds = %2018, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1083
@@ -5366,7 +5366,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2295:             ; preds = %2018, %_ZN4llvm15Le
   br i1 %.not.i3.i2296, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297, label %2022
 
 2022:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2295
-  %2023 = call noundef zeroext i1 %2021(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 3) #16
+  %2023 = call noundef zeroext i1 %2021(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2295, %2022
@@ -5379,10 +5379,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297: ; preds = %_ZNSt14_Funct
   store i64 8, ptr %41, align 8
   %.sroa.2.0..sroa_idx.i2298 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2298, align 8
-  %2024 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %41) #16
+  %2024 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %41) #17
   %2025 = trunc i64 %2024 to i32
-  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %40, i32 noundef 0, i32 noundef %2025) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %42, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %40, i32 noundef 0, i32 noundef %2025) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %42, i32 noundef 0, i64 34359738369) #17
   %2026 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2015, i8 noundef zeroext 1, ptr noundef nonnull %40, ptr noundef nonnull %42)
   %2027 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %2028 = load ptr, ptr %2027, align 8, !tbaa !174
@@ -5390,7 +5390,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2299, label %_ZNSt14_Function_baseD2Ev.exit.i2300, label %2029
 
 2029:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297
-  %2030 = call noundef zeroext i1 %2028(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 3) #16
+  %2030 = call noundef zeroext i1 %2028(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2300
 
 _ZNSt14_Function_baseD2Ev.exit.i2300:             ; preds = %2029, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2297
@@ -5400,7 +5400,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2300:             ; preds = %2029, %_ZN4llvm15Le
   br i1 %.not.i3.i2301, label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302, label %2033
 
 2033:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2300
-  %2034 = call noundef zeroext i1 %2032(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 3) #16
+  %2034 = call noundef zeroext i1 %2032(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302
 
 _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2300, %2033
@@ -5414,10 +5414,10 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302: ; preds = %_ZNSt14_Funct
   store i64 32, ptr %38, align 8
   %.sroa.2.0..sroa_idx.i2303 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2303, align 8
-  %2035 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %38) #16
+  %2035 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %38) #17
   %2036 = trunc i64 %2035 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %37, i32 noundef 1, i32 noundef %2036) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %39, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %37, i32 noundef 1, i32 noundef %2036) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %39, i32 noundef 1, i64 137438953473) #17
   %2037 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2026, i8 noundef zeroext 2, ptr noundef nonnull %37, ptr noundef nonnull %39)
   %2038 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %2039 = load ptr, ptr %2038, align 8, !tbaa !174
@@ -5425,7 +5425,7 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2304, label %_ZNSt14_Function_baseD2Ev.exit.i2305, label %2040
 
 2040:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302
-  %2041 = call noundef zeroext i1 %2039(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3) #16
+  %2041 = call noundef zeroext i1 %2039(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2305
 
 _ZNSt14_Function_baseD2Ev.exit.i2305:             ; preds = %2040, %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2302
@@ -5435,7 +5435,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2305:             ; preds = %2040, %_ZN4llvm15Le
   br i1 %.not.i3.i2306, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307, label %2044
 
 2044:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2305
-  %2045 = call noundef zeroext i1 %2043(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3) #16
+  %2045 = call noundef zeroext i1 %2043(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2305, %2044
@@ -5445,8 +5445,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307: ; preds = %_ZNSt14_Funct
   %2046 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2037, i32 noundef 1, i64 %.sroa.046.0.copyload.sroa.speculated)
   call void @llvm.lifetime.start.p0(ptr nonnull %171)
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %171, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %172, i32 noundef 1, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %171, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %172, i32 noundef 1, i32 noundef 0) #17
   %2047 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2046, i8 noundef zeroext 2, ptr noundef nonnull %171, ptr noundef nonnull %172)
   %2048 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %2049 = load ptr, ptr %2048, align 8, !tbaa !174
@@ -5454,7 +5454,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1084, label %_ZNSt14_Function_baseD2Ev.exit.i1085, label %2050
 
 2050:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307
-  %2051 = call noundef zeroext i1 %2049(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %172, i32 noundef 3) #16
+  %2051 = call noundef zeroext i1 %2049(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(32) %172, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1085
 
 _ZNSt14_Function_baseD2Ev.exit.i1085:             ; preds = %2050, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2307
@@ -5464,7 +5464,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1085:             ; preds = %2050, %_ZN4llvm15Le
   br i1 %.not.i3.i1086, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1087, label %2054
 
 2054:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1085
-  %2055 = call noundef zeroext i1 %2053(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(32) %171, i32 noundef 3) #16
+  %2055 = call noundef zeroext i1 %2053(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(32) %171, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1087
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1087: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1085, %2054
@@ -5475,16 +5475,16 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1087: ; preds = %_ZNSt14
   br i1 %.not.i1088, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091, label %2057
 
 2057:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1087
-  %2058 = call noundef zeroext i1 %2056(ptr noundef nonnull align 8 dereferenceable(32) %370, ptr noundef nonnull align 8 dereferenceable(32) %370, i32 noundef 3) #16
+  %2058 = call noundef zeroext i1 %2056(ptr noundef nonnull align 8 dereferenceable(32) %370, ptr noundef nonnull align 8 dereferenceable(32) %370, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1087, %2057
-  %2059 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 196) #16
+  %2059 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 196) #17
   %2060 = getelementptr inbounds nuw i8, ptr %371, i64 16
   %2061 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %2062 = getelementptr inbounds nuw i8, ptr %371, i64 8
   store i64 0, ptr %2062, align 8
-  %2063 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %2063 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   store i8 %409, ptr %2063, align 16, !tbaa !169
   %.sroa.41368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2063, i64 8
   store i64 274877906945, ptr %.sroa.41368.0..sroa_idx, align 8, !tbaa !168
@@ -5510,7 +5510,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091: ; preds = %_ZN4l
   store i64 0, ptr %2064, align 8
   %2065 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %2066 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %2067 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %2067 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2067, ptr noundef nonnull readonly align 8 dereferenceable(72) %2063, i64 72, i1 false), !tbaa.struct !197
   store ptr %2067, ptr %170, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_20E9_M_invokeERKSt9_Any_dataS3_", ptr %2065, align 8, !tbaa !171
@@ -5521,7 +5521,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091: ; preds = %_ZN4l
   br i1 %.not.i.i1092, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1094, label %2070
 
 2070:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091
-  %2071 = call noundef zeroext i1 %2069(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull align 8 dereferenceable(32) %170, i32 noundef 3) #16
+  %2071 = call noundef zeroext i1 %2069(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull align 8 dereferenceable(32) %170, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1094
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1094: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1091, %2070
@@ -5531,16 +5531,16 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1094
   br i1 %.not.i1095, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098, label %2073
 
 2073:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1094
-  %2074 = call noundef zeroext i1 %2072(ptr noundef nonnull align 8 dereferenceable(32) %371, ptr noundef nonnull align 8 dereferenceable(32) %371, i32 noundef 3) #16
+  %2074 = call noundef zeroext i1 %2072(ptr noundef nonnull align 8 dereferenceable(32) %371, ptr noundef nonnull align 8 dereferenceable(32) %371, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1094, %2073
-  %2075 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 197) #16
+  %2075 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 197) #17
   %2076 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %2077 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %2078 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i64 0, ptr %2078, align 8
-  %2079 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %2079 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   store i8 %409, ptr %2079, align 16, !tbaa !169
   %.sroa.41356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2079, i64 8
   store i64 137438953473, ptr %.sroa.41356.0..sroa_idx, align 8, !tbaa !168
@@ -5566,7 +5566,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098: ; preds = %_ZN4l
   store i64 0, ptr %2080, align 8
   %2081 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %2082 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %2083 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %2083 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2083, ptr noundef nonnull readonly align 8 dereferenceable(72) %2079, i64 72, i1 false), !tbaa.struct !197
   store ptr %2083, ptr %169, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_21E9_M_invokeERKSt9_Any_dataS3_", ptr %2081, align 8, !tbaa !171
@@ -5577,7 +5577,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098: ; preds = %_ZN4l
   br i1 %.not.i.i1099, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1101, label %2086
 
 2086:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098
-  %2087 = call noundef zeroext i1 %2085(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull align 8 dereferenceable(32) %169, i32 noundef 3) #16
+  %2087 = call noundef zeroext i1 %2085(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull align 8 dereferenceable(32) %169, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1101
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1101: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1098, %2086
@@ -5587,16 +5587,16 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1101
   br i1 %.not.i1102, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105, label %2089
 
 2089:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1101
-  %2090 = call noundef zeroext i1 %2088(ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 8 dereferenceable(32) %372, i32 noundef 3) #16
+  %2090 = call noundef zeroext i1 %2088(ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 8 dereferenceable(32) %372, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1101, %2089
-  %2091 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 200) #16
+  %2091 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 200) #17
   %2092 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %2093 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %2094 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i64 0, ptr %2094, align 8
-  %2095 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2095 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %407, ptr %2095, align 16, !tbaa !169
   %.sroa.41348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2095, i64 8
   store i64 137438953473, ptr %.sroa.41348.0..sroa_idx, align 8, !tbaa !168
@@ -5614,7 +5614,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105: ; preds = %_ZN4l
   store i64 0, ptr %2096, align 8
   %2097 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %2098 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %2099 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2099 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2099, ptr noundef nonnull readonly align 8 dereferenceable(40) %2095, i64 40, i1 false), !tbaa.struct !198
   store ptr %2099, ptr %168, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_22E9_M_invokeERKSt9_Any_dataS3_", ptr %2097, align 8, !tbaa !171
@@ -5625,7 +5625,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105: ; preds = %_ZN4l
   br i1 %.not.i.i1106, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108, label %2102
 
 2102:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105
-  %2103 = call noundef zeroext i1 %2101(ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef nonnull align 8 dereferenceable(32) %168, i32 noundef 3) #16
+  %2103 = call noundef zeroext i1 %2101(ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef nonnull align 8 dereferenceable(32) %168, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1105, %2102
@@ -5636,10 +5636,10 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108
   store i64 32, ptr %35, align 8
   %.sroa.2.0..sroa_idx.i2311 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2311, align 8
-  %2104 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %35) #16
+  %2104 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %35) #17
   %2105 = trunc i64 %2104 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %34, i32 noundef 1, i32 noundef %2105) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %36, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %34, i32 noundef 1, i32 noundef %2105) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %36, i32 noundef 1, i64 137438953473) #17
   %2106 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2100, i8 noundef zeroext 2, ptr noundef nonnull %34, ptr noundef nonnull %36)
   %2107 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %2108 = load ptr, ptr %2107, align 8, !tbaa !174
@@ -5647,7 +5647,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108
   br i1 %.not.i.i2312, label %_ZNSt14_Function_baseD2Ev.exit.i2313, label %2109
 
 2109:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108
-  %2110 = call noundef zeroext i1 %2108(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3) #16
+  %2110 = call noundef zeroext i1 %2108(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2313
 
 _ZNSt14_Function_baseD2Ev.exit.i2313:             ; preds = %2109, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1108
@@ -5657,7 +5657,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2313:             ; preds = %2109, %_ZN4llvm15Le
   br i1 %.not.i3.i2314, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315, label %2113
 
 2113:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2313
-  %2114 = call noundef zeroext i1 %2112(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 3) #16
+  %2114 = call noundef zeroext i1 %2112(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2313, %2113
@@ -5667,8 +5667,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315: ; preds = %_ZNSt14_Funct
   %2115 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2106, i32 noundef 1, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %166)
   call void @llvm.lifetime.start.p0(ptr nonnull %167)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %166, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %167, i32 noundef 1, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %166, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %167, i32 noundef 1, i32 noundef 0) #17
   %2116 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2115, i8 noundef zeroext 2, ptr noundef nonnull %166, ptr noundef nonnull %167)
   %2117 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %2118 = load ptr, ptr %2117, align 8, !tbaa !174
@@ -5676,7 +5676,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1109, label %_ZNSt14_Function_baseD2Ev.exit.i1110, label %2119
 
 2119:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315
-  %2120 = call noundef zeroext i1 %2118(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %167, i32 noundef 3) #16
+  %2120 = call noundef zeroext i1 %2118(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %167, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1110
 
 _ZNSt14_Function_baseD2Ev.exit.i1110:             ; preds = %2119, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2315
@@ -5686,7 +5686,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1110:             ; preds = %2119, %_ZN4llvm15Le
   br i1 %.not.i3.i1111, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112, label %2123
 
 2123:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1110
-  %2124 = call noundef zeroext i1 %2122(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %166, i32 noundef 3) #16
+  %2124 = call noundef zeroext i1 %2122(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %166, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1110, %2123
@@ -5698,10 +5698,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112: ; preds = %_ZNSt14
   store i64 32, ptr %32, align 8
   %.sroa.2.0..sroa_idx.i2316 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2316, align 8
-  %2125 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %32) #16
+  %2125 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %32) #17
   %2126 = trunc i64 %2125 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %31, i32 noundef 0, i32 noundef %2126) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %33, i32 noundef 0, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %31, i32 noundef 0, i32 noundef %2126) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %33, i32 noundef 0, i64 137438953473) #17
   %2127 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2116, i8 noundef zeroext 2, ptr noundef nonnull %31, ptr noundef nonnull %33)
   %2128 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %2129 = load ptr, ptr %2128, align 8, !tbaa !174
@@ -5709,7 +5709,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112: ; preds = %_ZNSt14
   br i1 %.not.i.i2317, label %_ZNSt14_Function_baseD2Ev.exit.i2318, label %2130
 
 2130:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112
-  %2131 = call noundef zeroext i1 %2129(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3) #16
+  %2131 = call noundef zeroext i1 %2129(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2318
 
 _ZNSt14_Function_baseD2Ev.exit.i2318:             ; preds = %2130, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1112
@@ -5719,7 +5719,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2318:             ; preds = %2130, %_ZN4llvm15Le
   br i1 %.not.i3.i2319, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320, label %2134
 
 2134:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2318
-  %2135 = call noundef zeroext i1 %2133(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef 3) #16
+  %2135 = call noundef zeroext i1 %2133(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2318, %2134
@@ -5729,8 +5729,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320: ; preds = %_ZNSt14_Funct
   %2136 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2127, i32 noundef 0, i64 %.sroa.046.0.copyload.sroa.speculated)
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @llvm.lifetime.start.p0(ptr nonnull %165)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %164, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %165, i32 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %164, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %165, i32 noundef 0, i32 noundef 0) #17
   %2137 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2136, i8 noundef zeroext 2, ptr noundef nonnull %164, ptr noundef nonnull %165)
   %2138 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %2139 = load ptr, ptr %2138, align 8, !tbaa !174
@@ -5738,7 +5738,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1113, label %_ZNSt14_Function_baseD2Ev.exit.i1114, label %2140
 
 2140:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320
-  %2141 = call noundef zeroext i1 %2139(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 3) #16
+  %2141 = call noundef zeroext i1 %2139(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1114
 
 _ZNSt14_Function_baseD2Ev.exit.i1114:             ; preds = %2140, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2320
@@ -5748,7 +5748,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1114:             ; preds = %2140, %_ZN4llvm15Le
   br i1 %.not.i3.i1115, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1116, label %2144
 
 2144:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1114
-  %2145 = call noundef zeroext i1 %2143(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %164, i32 noundef 3) #16
+  %2145 = call noundef zeroext i1 %2143(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %164, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1116
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1116: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1114, %2144
@@ -5759,16 +5759,16 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1116: ; preds = %_ZNSt14
   br i1 %.not.i1117, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120, label %2147
 
 2147:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1116
-  %2148 = call noundef zeroext i1 %2146(ptr noundef nonnull align 8 dereferenceable(32) %373, ptr noundef nonnull align 8 dereferenceable(32) %373, i32 noundef 3) #16
+  %2148 = call noundef zeroext i1 %2146(ptr noundef nonnull align 8 dereferenceable(32) %373, ptr noundef nonnull align 8 dereferenceable(32) %373, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1116, %2147
-  %2149 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 198) #16
+  %2149 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 198) #17
   %2150 = getelementptr inbounds nuw i8, ptr %374, i64 16
   %2151 = getelementptr inbounds nuw i8, ptr %374, i64 24
   %2152 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store i64 0, ptr %2152, align 8
-  %2153 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2153 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %407, ptr %2153, align 16, !tbaa !169
   %.sroa.41340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2153, i64 8
   store i64 137438953473, ptr %.sroa.41340.0..sroa_idx, align 8, !tbaa !168
@@ -5786,7 +5786,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120: ; preds = %_ZN4l
   store i64 0, ptr %2154, align 8
   %2155 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %2156 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %2157 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2157 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2157, ptr noundef nonnull readonly align 8 dereferenceable(40) %2153, i64 40, i1 false), !tbaa.struct !198
   store ptr %2157, ptr %163, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_23E9_M_invokeERKSt9_Any_dataS3_", ptr %2155, align 8, !tbaa !171
@@ -5797,7 +5797,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120: ; preds = %_ZN4l
   br i1 %.not.i.i1121, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123, label %2160
 
 2160:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120
-  %2161 = call noundef zeroext i1 %2159(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(32) %163, i32 noundef 3) #16
+  %2161 = call noundef zeroext i1 %2159(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(32) %163, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1120, %2160
@@ -5808,10 +5808,10 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123
   store i64 32, ptr %29, align 8
   %.sroa.2.0..sroa_idx.i2322 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2322, align 8
-  %2162 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %29) #16
+  %2162 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %29) #17
   %2163 = trunc i64 %2162 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %28, i32 noundef 1, i32 noundef %2163) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %30, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %28, i32 noundef 1, i32 noundef %2163) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %30, i32 noundef 1, i64 137438953473) #17
   %2164 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2158, i8 noundef zeroext 2, ptr noundef nonnull %28, ptr noundef nonnull %30)
   %2165 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %2166 = load ptr, ptr %2165, align 8, !tbaa !174
@@ -5819,7 +5819,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123
   br i1 %.not.i.i2323, label %_ZNSt14_Function_baseD2Ev.exit.i2324, label %2167
 
 2167:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123
-  %2168 = call noundef zeroext i1 %2166(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3) #16
+  %2168 = call noundef zeroext i1 %2166(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2324
 
 _ZNSt14_Function_baseD2Ev.exit.i2324:             ; preds = %2167, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1123
@@ -5829,7 +5829,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2324:             ; preds = %2167, %_ZN4llvm15Le
   br i1 %.not.i3.i2325, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326, label %2171
 
 2171:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2324
-  %2172 = call noundef zeroext i1 %2170(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3) #16
+  %2172 = call noundef zeroext i1 %2170(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2324, %2171
@@ -5839,8 +5839,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326: ; preds = %_ZNSt14_Funct
   %2173 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2164, i32 noundef 1, i64 %.sroa.046.0.copyload.sroa.speculated)
   call void @llvm.lifetime.start.p0(ptr nonnull %161)
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %161, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %162, i32 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %161, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %162, i32 noundef 0, i32 noundef 0) #17
   %2174 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2173, i8 noundef zeroext 2, ptr noundef nonnull %161, ptr noundef nonnull %162)
   %2175 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %2176 = load ptr, ptr %2175, align 8, !tbaa !174
@@ -5848,7 +5848,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1124, label %_ZNSt14_Function_baseD2Ev.exit.i1125, label %2177
 
 2177:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326
-  %2178 = call noundef zeroext i1 %2176(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %162, i32 noundef 3) #16
+  %2178 = call noundef zeroext i1 %2176(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %162, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1125
 
 _ZNSt14_Function_baseD2Ev.exit.i1125:             ; preds = %2177, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2326
@@ -5858,7 +5858,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1125:             ; preds = %2177, %_ZN4llvm15Le
   br i1 %.not.i3.i1126, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127, label %2181
 
 2181:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1125
-  %2182 = call noundef zeroext i1 %2180(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 3) #16
+  %2182 = call noundef zeroext i1 %2180(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1125, %2181
@@ -5870,10 +5870,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127: ; preds = %_ZNSt14
   store i64 32, ptr %26, align 8
   %.sroa.2.0..sroa_idx.i2327 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2327, align 8
-  %2183 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %26) #16
+  %2183 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %26) #17
   %2184 = trunc i64 %2183 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %25, i32 noundef 0, i32 noundef %2184) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %27, i32 noundef 0, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %25, i32 noundef 0, i32 noundef %2184) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %27, i32 noundef 0, i64 137438953473) #17
   %2185 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2174, i8 noundef zeroext 2, ptr noundef nonnull %25, ptr noundef nonnull %27)
   %2186 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %2187 = load ptr, ptr %2186, align 8, !tbaa !174
@@ -5881,7 +5881,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127: ; preds = %_ZNSt14
   br i1 %.not.i.i2328, label %_ZNSt14_Function_baseD2Ev.exit.i2329, label %2188
 
 2188:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127
-  %2189 = call noundef zeroext i1 %2187(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3) #16
+  %2189 = call noundef zeroext i1 %2187(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2329
 
 _ZNSt14_Function_baseD2Ev.exit.i2329:             ; preds = %2188, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1127
@@ -5891,7 +5891,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2329:             ; preds = %2188, %_ZN4llvm15Le
   br i1 %.not.i3.i2330, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331, label %2192
 
 2192:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2329
-  %2193 = call noundef zeroext i1 %2191(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3) #16
+  %2193 = call noundef zeroext i1 %2191(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2329, %2192
@@ -5901,8 +5901,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331: ; preds = %_ZNSt14_Funct
   %2194 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2185, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %159)
   call void @llvm.lifetime.start.p0(ptr nonnull %160)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %159, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %160, i32 noundef 1, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %159, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %160, i32 noundef 1, i32 noundef 0) #17
   %2195 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2194, i8 noundef zeroext 2, ptr noundef nonnull %159, ptr noundef nonnull %160)
   %2196 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %2197 = load ptr, ptr %2196, align 8, !tbaa !174
@@ -5910,7 +5910,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1128, label %_ZNSt14_Function_baseD2Ev.exit.i1129, label %2198
 
 2198:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331
-  %2199 = call noundef zeroext i1 %2197(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %160, i32 noundef 3) #16
+  %2199 = call noundef zeroext i1 %2197(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %160, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1129
 
 _ZNSt14_Function_baseD2Ev.exit.i1129:             ; preds = %2198, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2331
@@ -5920,7 +5920,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1129:             ; preds = %2198, %_ZN4llvm15Le
   br i1 %.not.i3.i1130, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1131, label %2202
 
 2202:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1129
-  %2203 = call noundef zeroext i1 %2201(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %159, i32 noundef 3) #16
+  %2203 = call noundef zeroext i1 %2201(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %159, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1131
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1131: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1129, %2202
@@ -5931,16 +5931,16 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1131: ; preds = %_ZNSt14
   br i1 %.not.i1132, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135, label %2205
 
 2205:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1131
-  %2206 = call noundef zeroext i1 %2204(ptr noundef nonnull align 8 dereferenceable(32) %374, ptr noundef nonnull align 8 dereferenceable(32) %374, i32 noundef 3) #16
+  %2206 = call noundef zeroext i1 %2204(ptr noundef nonnull align 8 dereferenceable(32) %374, ptr noundef nonnull align 8 dereferenceable(32) %374, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1131, %2205
-  %2207 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 201) #16
+  %2207 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 201) #17
   %2208 = getelementptr inbounds nuw i8, ptr %375, i64 16
   %2209 = getelementptr inbounds nuw i8, ptr %375, i64 24
   %2210 = getelementptr inbounds nuw i8, ptr %375, i64 8
   store i64 0, ptr %2210, align 8
-  %2211 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %2211 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i8 %417, ptr %2211, align 16, !tbaa !169
   %.sroa.41336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2211, i64 8
   store i64 137438953473, ptr %.sroa.41336.0..sroa_idx, align 8, !tbaa !168
@@ -5954,7 +5954,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135: ; preds = %_ZN4l
   store i64 0, ptr %2212, align 8
   %2213 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %2214 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %2215 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %2215 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2215, ptr noundef nonnull readonly align 8 dereferenceable(24) %2211, i64 24, i1 false), !tbaa.struct !199
   store ptr %2215, ptr %158, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_24E9_M_invokeERKSt9_Any_dataS3_", ptr %2213, align 8, !tbaa !171
@@ -5965,7 +5965,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135: ; preds = %_ZN4l
   br i1 %.not.i.i1136, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140, label %2218
 
 2218:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135
-  %2219 = call noundef zeroext i1 %2217(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(32) %158, i32 noundef 3) #16
+  %2219 = call noundef zeroext i1 %2217(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(32) %158, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1135, %2218
@@ -5974,7 +5974,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140: ; preds = %_ZNSt
   %2221 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %2222 = getelementptr inbounds nuw i8, ptr %376, i64 8
   store i64 0, ptr %2222, align 8
-  %2223 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2223 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %417, ptr %2223, align 16, !tbaa !169
   %.sroa.41326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2223, i64 1
   store i8 %407, ptr %.sroa.41326.0..sroa_idx, align 1, !tbaa !169
@@ -5994,7 +5994,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140: ; preds = %_ZNSt
   store i64 0, ptr %2224, align 8
   %2225 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %2226 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %2227 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2227 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2227, ptr noundef nonnull readonly align 8 dereferenceable(40) %2223, i64 40, i1 false), !tbaa.struct !200
   store ptr %2227, ptr %157, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_25E9_M_invokeERKSt9_Any_dataS3_", ptr %2225, align 8, !tbaa !171
@@ -6005,7 +6005,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140: ; preds = %_ZNSt
   br i1 %.not.i.i1141, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144, label %2230
 
 2230:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140
-  %2231 = call noundef zeroext i1 %2229(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %157, i32 noundef 3) #16
+  %2231 = call noundef zeroext i1 %2229(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %157, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1140, %2230
@@ -6014,7 +6014,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144: ; preds = %_ZNSt
   %2233 = getelementptr inbounds nuw i8, ptr %377, i64 24
   %2234 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i64 0, ptr %2234, align 8
-  %2235 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2235 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %417, ptr %2235, align 16, !tbaa !169
   %.sroa.41317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2235, i64 1
   store i8 %407, ptr %.sroa.41317.0..sroa_idx, align 1, !tbaa !169
@@ -6034,7 +6034,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144: ; preds = %_ZNSt
   store i64 0, ptr %2236, align 8
   %2237 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %2238 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %2239 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2239 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2239, ptr noundef nonnull readonly align 8 dereferenceable(40) %2235, i64 40, i1 false), !tbaa.struct !200
   store ptr %2239, ptr %156, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_26E9_M_invokeERKSt9_Any_dataS3_", ptr %2237, align 8, !tbaa !171
@@ -6045,7 +6045,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144: ; preds = %_ZNSt
   br i1 %.not.i.i1145, label %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit, label %2242
 
 2242:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144
-  %2243 = call noundef zeroext i1 %2241(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %156, i32 noundef 3) #16
+  %2243 = call noundef zeroext i1 %2241(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %156, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
 
 _ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1144, %2242
@@ -6056,10 +6056,10 @@ _ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; 
   store i64 32, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i2335 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2335, align 8
-  %2244 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %23) #16
+  %2244 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %23) #17
   %2245 = trunc i64 %2244 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %22, i32 noundef 0, i32 noundef %2245) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %24, i32 noundef 0, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %22, i32 noundef 0, i32 noundef %2245) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %24, i32 noundef 0, i64 137438953473) #17
   %2246 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2240, i8 noundef zeroext 2, ptr noundef nonnull %22, ptr noundef nonnull %24)
   %2247 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %2248 = load ptr, ptr %2247, align 8, !tbaa !174
@@ -6067,7 +6067,7 @@ _ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; 
   br i1 %.not.i.i2336, label %_ZNSt14_Function_baseD2Ev.exit.i2337, label %2249
 
 2249:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
-  %2250 = call noundef zeroext i1 %2248(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3) #16
+  %2250 = call noundef zeroext i1 %2248(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2337
 
 _ZNSt14_Function_baseD2Ev.exit.i2337:             ; preds = %2249, %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
@@ -6077,7 +6077,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2337:             ; preds = %2249, %_ZN4llvm15Le
   br i1 %.not.i3.i2338, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339, label %2253
 
 2253:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2337
-  %2254 = call noundef zeroext i1 %2252(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3) #16
+  %2254 = call noundef zeroext i1 %2252(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2337, %2253
@@ -6087,8 +6087,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339: ; preds = %_ZNSt14_Funct
   %2255 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2246, i32 noundef 0, i64 %.sroa.046.0.copyload.sroa.speculated)
   call void @llvm.lifetime.start.p0(ptr nonnull %154)
   call void @llvm.lifetime.start.p0(ptr nonnull %155)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %154, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %155, i32 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %154, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %155, i32 noundef 0, i32 noundef 0) #17
   %2256 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2255, i8 noundef zeroext 2, ptr noundef nonnull %154, ptr noundef nonnull %155)
   %2257 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %2258 = load ptr, ptr %2257, align 8, !tbaa !174
@@ -6096,7 +6096,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1147, label %_ZNSt14_Function_baseD2Ev.exit.i1148, label %2259
 
 2259:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339
-  %2260 = call noundef zeroext i1 %2258(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(32) %155, i32 noundef 3) #16
+  %2260 = call noundef zeroext i1 %2258(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(32) %155, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1148
 
 _ZNSt14_Function_baseD2Ev.exit.i1148:             ; preds = %2259, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2339
@@ -6106,7 +6106,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1148:             ; preds = %2259, %_ZN4llvm15Le
   br i1 %.not.i3.i1149, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150, label %2263
 
 2263:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1148
-  %2264 = call noundef zeroext i1 %2262(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %154, i32 noundef 3) #16
+  %2264 = call noundef zeroext i1 %2262(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %154, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1148, %2263
@@ -6118,10 +6118,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150: ; preds = %_ZNSt14
   store i64 32, ptr %20, align 8
   %.sroa.2.0..sroa_idx.i2340 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2340, align 8
-  %2265 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %20) #16
+  %2265 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %20) #17
   %2266 = trunc i64 %2265 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %19, i32 noundef 1, i32 noundef %2266) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %21, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %19, i32 noundef 1, i32 noundef %2266) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %21, i32 noundef 1, i64 137438953473) #17
   %2267 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2256, i8 noundef zeroext 2, ptr noundef nonnull %19, ptr noundef nonnull %21)
   %2268 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %2269 = load ptr, ptr %2268, align 8, !tbaa !174
@@ -6129,7 +6129,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150: ; preds = %_ZNSt14
   br i1 %.not.i.i2341, label %_ZNSt14_Function_baseD2Ev.exit.i2342, label %2270
 
 2270:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150
-  %2271 = call noundef zeroext i1 %2269(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3) #16
+  %2271 = call noundef zeroext i1 %2269(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2342
 
 _ZNSt14_Function_baseD2Ev.exit.i2342:             ; preds = %2270, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1150
@@ -6139,7 +6139,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2342:             ; preds = %2270, %_ZN4llvm15Le
   br i1 %.not.i3.i2343, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344, label %2274
 
 2274:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2342
-  %2275 = call noundef zeroext i1 %2273(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3) #16
+  %2275 = call noundef zeroext i1 %2273(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2342, %2274
@@ -6149,8 +6149,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344: ; preds = %_ZNSt14_Funct
   %2276 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2267, i32 noundef 1, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
   call void @llvm.lifetime.start.p0(ptr nonnull %153)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %152, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %153, i32 noundef 1, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %152, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %153, i32 noundef 1, i32 noundef 0) #17
   %2277 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2276, i8 noundef zeroext 2, ptr noundef nonnull %152, ptr noundef nonnull %153)
   %2278 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %2279 = load ptr, ptr %2278, align 8, !tbaa !174
@@ -6158,7 +6158,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1151, label %_ZNSt14_Function_baseD2Ev.exit.i1152, label %2280
 
 2280:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344
-  %2281 = call noundef zeroext i1 %2279(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(32) %153, i32 noundef 3) #16
+  %2281 = call noundef zeroext i1 %2279(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(32) %153, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1152
 
 _ZNSt14_Function_baseD2Ev.exit.i1152:             ; preds = %2280, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2344
@@ -6168,7 +6168,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1152:             ; preds = %2280, %_ZN4llvm15Le
   br i1 %.not.i3.i1153, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1154, label %2284
 
 2284:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1152
-  %2285 = call noundef zeroext i1 %2283(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %152, i32 noundef 3) #16
+  %2285 = call noundef zeroext i1 %2283(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %152, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1154
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1154: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1152, %2284
@@ -6179,7 +6179,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1154: ; preds = %_ZNSt14
   br i1 %.not.i1155, label %_ZNSt14_Function_baseD2Ev.exit1156, label %2287
 
 2287:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1154
-  %2288 = call noundef zeroext i1 %2286(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull align 8 dereferenceable(32) %377, i32 noundef 3) #16
+  %2288 = call noundef zeroext i1 %2286(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull align 8 dereferenceable(32) %377, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1156
 
 _ZNSt14_Function_baseD2Ev.exit1156:               ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1154, %2287
@@ -6188,7 +6188,7 @@ _ZNSt14_Function_baseD2Ev.exit1156:               ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i1157, label %_ZNSt14_Function_baseD2Ev.exit1158, label %2290
 
 2290:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1156
-  %2291 = call noundef zeroext i1 %2289(ptr noundef nonnull align 8 dereferenceable(32) %376, ptr noundef nonnull align 8 dereferenceable(32) %376, i32 noundef 3) #16
+  %2291 = call noundef zeroext i1 %2289(ptr noundef nonnull align 8 dereferenceable(32) %376, ptr noundef nonnull align 8 dereferenceable(32) %376, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1158
 
 _ZNSt14_Function_baseD2Ev.exit1158:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1156, %2290
@@ -6197,16 +6197,16 @@ _ZNSt14_Function_baseD2Ev.exit1158:               ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i1159, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162, label %2293
 
 2293:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1158
-  %2294 = call noundef zeroext i1 %2292(ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %375, i32 noundef 3) #16
+  %2294 = call noundef zeroext i1 %2292(ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %375, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162: ; preds = %_ZNSt14_Function_baseD2Ev.exit1158, %2293
-  %2295 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 199) #16
+  %2295 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 199) #17
   %2296 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %2297 = getelementptr inbounds nuw i8, ptr %378, i64 24
   %2298 = getelementptr inbounds nuw i8, ptr %378, i64 8
   store i64 0, ptr %2298, align 8
-  %2299 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %2299 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i8 %417, ptr %2299, align 16, !tbaa !169
   %.sroa.41314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2299, i64 8
   store i64 137438953473, ptr %.sroa.41314.0..sroa_idx, align 8, !tbaa !168
@@ -6220,7 +6220,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162: ; preds = %_ZNSt
   store i64 0, ptr %2300, align 8
   %2301 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %2302 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %2303 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %2303 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2303, ptr noundef nonnull readonly align 8 dereferenceable(24) %2299, i64 24, i1 false), !tbaa.struct !199
   store ptr %2303, ptr %151, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_27E9_M_invokeERKSt9_Any_dataS3_", ptr %2301, align 8, !tbaa !171
@@ -6231,7 +6231,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162: ; preds = %_ZNSt
   br i1 %.not.i.i1163, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167, label %2306
 
 2306:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162
-  %2307 = call noundef zeroext i1 %2305(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %151, i32 noundef 3) #16
+  %2307 = call noundef zeroext i1 %2305(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %151, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1162, %2306
@@ -6240,7 +6240,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167: ; preds = %_ZNSt
   %2309 = getelementptr inbounds nuw i8, ptr %379, i64 24
   %2310 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i64 0, ptr %2310, align 8
-  %2311 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2311 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %417, ptr %2311, align 16, !tbaa !169
   %.sroa.41304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2311, i64 1
   store i8 %407, ptr %.sroa.41304.0..sroa_idx, align 1, !tbaa !169
@@ -6260,7 +6260,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167: ; preds = %_ZNSt
   store i64 0, ptr %2312, align 8
   %2313 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %2314 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %2315 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2315 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2315, ptr noundef nonnull readonly align 8 dereferenceable(40) %2311, i64 40, i1 false), !tbaa.struct !200
   store ptr %2315, ptr %150, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_28E9_M_invokeERKSt9_Any_dataS3_", ptr %2313, align 8, !tbaa !171
@@ -6271,7 +6271,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167: ; preds = %_ZNSt
   br i1 %.not.i.i1168, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172, label %2318
 
 2318:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167
-  %2319 = call noundef zeroext i1 %2317(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %150, i32 noundef 3) #16
+  %2319 = call noundef zeroext i1 %2317(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %150, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1167, %2318
@@ -6280,7 +6280,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172: ; preds = %_ZNSt
   %2321 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %2322 = getelementptr inbounds nuw i8, ptr %380, i64 8
   store i64 0, ptr %2322, align 8
-  %2323 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2323 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store i8 %417, ptr %2323, align 16, !tbaa !169
   %.sroa.41295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2323, i64 1
   store i8 %407, ptr %.sroa.41295.0..sroa_idx, align 1, !tbaa !169
@@ -6300,7 +6300,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172: ; preds = %_ZNSt
   store i64 0, ptr %2324, align 8
   %2325 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %2326 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %2327 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %2327 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2327, ptr noundef nonnull readonly align 8 dereferenceable(40) %2323, i64 40, i1 false), !tbaa.struct !200
   store ptr %2327, ptr %149, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_29E9_M_invokeERKSt9_Any_dataS3_", ptr %2325, align 8, !tbaa !171
@@ -6311,7 +6311,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172: ; preds = %_ZNSt
   br i1 %.not.i.i1173, label %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175, label %2330
 
 2330:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172
-  %2331 = call noundef zeroext i1 %2329(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(32) %149, i32 noundef 3) #16
+  %2331 = call noundef zeroext i1 %2329(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(32) %149, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175
 
 _ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1172, %2330
@@ -6322,10 +6322,10 @@ _ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175
   store i64 32, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i2348 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2348, align 8
-  %2332 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %17) #16
+  %2332 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %17) #17
   %2333 = trunc i64 %2332 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %16, i32 noundef 0, i32 noundef %2333) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %18, i32 noundef 0, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %16, i32 noundef 0, i32 noundef %2333) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %18, i32 noundef 0, i64 137438953473) #17
   %2334 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2328, i8 noundef zeroext 2, ptr noundef nonnull %16, ptr noundef nonnull %18)
   %2335 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %2336 = load ptr, ptr %2335, align 8, !tbaa !174
@@ -6333,7 +6333,7 @@ _ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175
   br i1 %.not.i.i2349, label %_ZNSt14_Function_baseD2Ev.exit.i2350, label %2337
 
 2337:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175
-  %2338 = call noundef zeroext i1 %2336(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3) #16
+  %2338 = call noundef zeroext i1 %2336(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2350
 
 _ZNSt14_Function_baseD2Ev.exit.i2350:             ; preds = %2337, %_ZN4llvm15LegalizeRuleSet7lowerIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1175
@@ -6343,7 +6343,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2350:             ; preds = %2337, %_ZN4llvm15Le
   br i1 %.not.i3.i2351, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352, label %2341
 
 2341:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2350
-  %2342 = call noundef zeroext i1 %2340(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3) #16
+  %2342 = call noundef zeroext i1 %2340(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2350, %2341
@@ -6353,8 +6353,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352: ; preds = %_ZNSt14_Funct
   %2343 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2334, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.start.p0(ptr nonnull %147)
   call void @llvm.lifetime.start.p0(ptr nonnull %148)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %147, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %148, i32 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %147, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %148, i32 noundef 0, i32 noundef 0) #17
   %2344 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2343, i8 noundef zeroext 2, ptr noundef nonnull %147, ptr noundef nonnull %148)
   %2345 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %2346 = load ptr, ptr %2345, align 8, !tbaa !174
@@ -6362,7 +6362,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1176, label %_ZNSt14_Function_baseD2Ev.exit.i1177, label %2347
 
 2347:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352
-  %2348 = call noundef zeroext i1 %2346(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %148, i32 noundef 3) #16
+  %2348 = call noundef zeroext i1 %2346(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %148, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1177
 
 _ZNSt14_Function_baseD2Ev.exit.i1177:             ; preds = %2347, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2352
@@ -6372,7 +6372,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1177:             ; preds = %2347, %_ZN4llvm15Le
   br i1 %.not.i3.i1178, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179, label %2351
 
 2351:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1177
-  %2352 = call noundef zeroext i1 %2350(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %147, i32 noundef 3) #16
+  %2352 = call noundef zeroext i1 %2350(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %147, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1177, %2351
@@ -6384,10 +6384,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179: ; preds = %_ZNSt14
   store i64 32, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i2353 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2353, align 8
-  %2353 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %14) #16
+  %2353 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %14) #17
   %2354 = trunc i64 %2353 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 1, i32 noundef %2354) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %15, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 1, i32 noundef %2354) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %15, i32 noundef 1, i64 137438953473) #17
   %2355 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2344, i8 noundef zeroext 2, ptr noundef nonnull %13, ptr noundef nonnull %15)
   %2356 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %2357 = load ptr, ptr %2356, align 8, !tbaa !174
@@ -6395,7 +6395,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179: ; preds = %_ZNSt14
   br i1 %.not.i.i2354, label %_ZNSt14_Function_baseD2Ev.exit.i2355, label %2358
 
 2358:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179
-  %2359 = call noundef zeroext i1 %2357(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #16
+  %2359 = call noundef zeroext i1 %2357(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2355
 
 _ZNSt14_Function_baseD2Ev.exit.i2355:             ; preds = %2358, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1179
@@ -6405,7 +6405,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2355:             ; preds = %2358, %_ZN4llvm15Le
   br i1 %.not.i3.i2356, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357, label %2362
 
 2362:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2355
-  %2363 = call noundef zeroext i1 %2361(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #16
+  %2363 = call noundef zeroext i1 %2361(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2355, %2362
@@ -6415,8 +6415,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357: ; preds = %_ZNSt14_Funct
   %2364 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2355, i32 noundef 1, i64 %.sroa.046.0.copyload.sroa.speculated)
   call void @llvm.lifetime.start.p0(ptr nonnull %145)
   call void @llvm.lifetime.start.p0(ptr nonnull %146)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %145, i32 noundef 1) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %146, i32 noundef 1, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %145, i32 noundef 1) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %146, i32 noundef 1, i32 noundef 0) #17
   %2365 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2364, i8 noundef zeroext 2, ptr noundef nonnull %145, ptr noundef nonnull %146)
   %2366 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %2367 = load ptr, ptr %2366, align 8, !tbaa !174
@@ -6424,7 +6424,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1180, label %_ZNSt14_Function_baseD2Ev.exit.i1181, label %2368
 
 2368:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357
-  %2369 = call noundef zeroext i1 %2367(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %146, i32 noundef 3) #16
+  %2369 = call noundef zeroext i1 %2367(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %146, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1181
 
 _ZNSt14_Function_baseD2Ev.exit.i1181:             ; preds = %2368, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2357
@@ -6434,7 +6434,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1181:             ; preds = %2368, %_ZN4llvm15Le
   br i1 %.not.i3.i1182, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1183, label %2372
 
 2372:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1181
-  %2373 = call noundef zeroext i1 %2371(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %145, i32 noundef 3) #16
+  %2373 = call noundef zeroext i1 %2371(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %145, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1183
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1183: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1181, %2372
@@ -6445,7 +6445,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1183: ; preds = %_ZNSt14
   br i1 %.not.i1184, label %_ZNSt14_Function_baseD2Ev.exit1185, label %2375
 
 2375:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1183
-  %2376 = call noundef zeroext i1 %2374(ptr noundef nonnull align 8 dereferenceable(32) %380, ptr noundef nonnull align 8 dereferenceable(32) %380, i32 noundef 3) #16
+  %2376 = call noundef zeroext i1 %2374(ptr noundef nonnull align 8 dereferenceable(32) %380, ptr noundef nonnull align 8 dereferenceable(32) %380, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1185
 
 _ZNSt14_Function_baseD2Ev.exit1185:               ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1183, %2375
@@ -6454,7 +6454,7 @@ _ZNSt14_Function_baseD2Ev.exit1185:               ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i1186, label %_ZNSt14_Function_baseD2Ev.exit1187, label %2378
 
 2378:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1185
-  %2379 = call noundef zeroext i1 %2377(ptr noundef nonnull align 8 dereferenceable(32) %379, ptr noundef nonnull align 8 dereferenceable(32) %379, i32 noundef 3) #16
+  %2379 = call noundef zeroext i1 %2377(ptr noundef nonnull align 8 dereferenceable(32) %379, ptr noundef nonnull align 8 dereferenceable(32) %379, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit1187
 
 _ZNSt14_Function_baseD2Ev.exit1187:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1185, %2378
@@ -6463,16 +6463,16 @@ _ZNSt14_Function_baseD2Ev.exit1187:               ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i1188, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191, label %2381
 
 2381:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1187
-  %2382 = call noundef zeroext i1 %2380(ptr noundef nonnull align 8 dereferenceable(32) %378, ptr noundef nonnull align 8 dereferenceable(32) %378, i32 noundef 3) #16
+  %2382 = call noundef zeroext i1 %2380(ptr noundef nonnull align 8 dereferenceable(32) %378, ptr noundef nonnull align 8 dereferenceable(32) %378, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191: ; preds = %_ZNSt14_Function_baseD2Ev.exit1187, %2381
-  %2383 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 77) #16
+  %2383 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 77) #17
   %2384 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %2385 = getelementptr inbounds nuw i8, ptr %381, i64 24
   %2386 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store i64 0, ptr %2386, align 8
-  %2387 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #17
+  %2387 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #18
   store i8 %407, ptr %2387, align 16, !tbaa !169
   %.sroa.41278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2387, i64 8
   store i64 137438954500, ptr %.sroa.41278.0..sroa_idx, align 8, !tbaa !168
@@ -6512,7 +6512,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191: ; preds = %_ZNSt
   store i64 0, ptr %2388, align 8
   %2389 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %2390 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %2391 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #17
+  %2391 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2391, ptr noundef nonnull readonly align 8 dereferenceable(128) %2387, i64 128, i1 false), !tbaa.struct !201
   store ptr %2391, ptr %144, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_30E9_M_invokeERKSt9_Any_dataS3_", ptr %2389, align 8, !tbaa !171
@@ -6523,7 +6523,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191: ; preds = %_ZNSt
   br i1 %.not.i.i1192, label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1194, label %2394
 
 2394:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191
-  %2395 = call noundef zeroext i1 %2393(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(32) %144, i32 noundef 3) #16
+  %2395 = call noundef zeroext i1 %2393(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(32) %144, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1194
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1194: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1191, %2394
@@ -6534,8 +6534,8 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit119
   %2399 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16clampNumElementsEjNS_3LLTES1_(ptr noundef nonnull align 8 dereferenceable(168) %2398, i32 noundef 0, i64 274877907460, i64 %.sroa.0224.0.copyload.sroa.speculated)
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
-  call void @_ZN4llvm18LegalityPredicates18numElementsNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %142, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations22moreElementsToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %143, i32 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates18numElementsNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %142, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations22moreElementsToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %143, i32 noundef 0, i32 noundef 0) #17
   %2400 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2399, i8 noundef zeroext 4, ptr noundef nonnull %142, ptr noundef nonnull %143)
   %2401 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %2402 = load ptr, ptr %2401, align 8, !tbaa !174
@@ -6543,7 +6543,7 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit119
   br i1 %.not.i.i1195, label %_ZNSt14_Function_baseD2Ev.exit.i1196, label %2403
 
 2403:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1194
-  %2404 = call noundef zeroext i1 %2402(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %143, i32 noundef 3) #16
+  %2404 = call noundef zeroext i1 %2402(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %143, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1196
 
 _ZNSt14_Function_baseD2Ev.exit.i1196:             ; preds = %2403, %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1194
@@ -6553,7 +6553,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1196:             ; preds = %2403, %_ZN4llvm15Le
   br i1 %.not.i2.i1197, label %_ZN4llvm15LegalizeRuleSet22moreElementsToNextPow2Ej.exit, label %2407
 
 2407:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1196
-  %2408 = call noundef zeroext i1 %2406(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %142, i32 noundef 3) #16
+  %2408 = call noundef zeroext i1 %2406(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %142, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet22moreElementsToNextPow2Ej.exit
 
 _ZN4llvm15LegalizeRuleSet22moreElementsToNextPow2Ej.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1196, %2407
@@ -6564,7 +6564,7 @@ _ZN4llvm15LegalizeRuleSet22moreElementsToNextPow2Ej.exit: ; preds = %_ZNSt14_Fun
   br i1 %.not.i1198, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201, label %2410
 
 2410:                                             ; preds = %_ZN4llvm15LegalizeRuleSet22moreElementsToNextPow2Ej.exit
-  %2411 = call noundef zeroext i1 %2409(ptr noundef nonnull align 8 dereferenceable(32) %381, ptr noundef nonnull align 8 dereferenceable(32) %381, i32 noundef 3) #16
+  %2411 = call noundef zeroext i1 %2409(ptr noundef nonnull align 8 dereferenceable(32) %381, ptr noundef nonnull align 8 dereferenceable(32) %381, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201: ; preds = %_ZN4llvm15LegalizeRuleSet22moreElementsToNextPow2Ej.exit, %2410
@@ -6572,12 +6572,12 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201: ; preds = %_ZN4l
   store i32 73, ptr %382, align 4, !tbaa !177
   %2412 = getelementptr inbounds nuw i8, ptr %382, i64 4
   store i32 75, ptr %2412, align 4, !tbaa !177
-  %2413 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %382, i64 2) #16
+  %2413 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %382, i64 2) #17
   %2414 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %2415 = getelementptr inbounds nuw i8, ptr %383, i64 24
   %2416 = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i64 0, ptr %2416, align 8
-  %2417 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %2417 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   store i8 %413, ptr %2417, align 16, !tbaa !169
   %.sroa.41262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2417, i64 8
   store i64 34359742468, ptr %.sroa.41262.0..sroa_idx, align 8, !tbaa !168
@@ -6613,7 +6613,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201: ; preds = %_ZN4l
   store i64 0, ptr %2418, align 8
   %2419 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %2420 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %2421 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %2421 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %2421, ptr noundef nonnull readonly align 8 dereferenceable(112) %2417, i64 112, i1 false), !tbaa.struct !202
   store ptr %2421, ptr %141, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_31E9_M_invokeERKSt9_Any_dataS3_", ptr %2419, align 8, !tbaa !171
@@ -6624,7 +6624,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201: ; preds = %_ZN4l
   br i1 %.not.i.i1202, label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1204, label %2424
 
 2424:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201
-  %2425 = call noundef zeroext i1 %2423(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %141, i32 noundef 3) #16
+  %2425 = call noundef zeroext i1 %2423(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %141, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1204
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1204: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1201, %2424
@@ -6634,13 +6634,13 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1204
   br i1 %.not.i1205, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208, label %2427
 
 2427:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1204
-  %2428 = call noundef zeroext i1 %2426(ptr noundef nonnull align 8 dereferenceable(32) %383, ptr noundef nonnull align 8 dereferenceable(32) %383, i32 noundef 3) #16
+  %2428 = call noundef zeroext i1 %2426(ptr noundef nonnull align 8 dereferenceable(32) %383, ptr noundef nonnull align 8 dereferenceable(32) %383, i32 noundef 3) #17
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1204, %2427
   call void @llvm.lifetime.end.p0(ptr nonnull %382)
-  %2429 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 79) #16
-  %2430 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %2429 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 79) #17
+  %2430 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   store i8 %407, ptr %2430, align 16, !tbaa !169
   %.sroa.41258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2430, i64 8
   store i64 34359742468, ptr %.sroa.41258.0..sroa_idx, align 8, !tbaa !168
@@ -6673,7 +6673,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208: ; preds = %_ZN4l
   store i64 0, ptr %2431, align 8
   %2432 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %2433 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %2434 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %2434 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %2434, ptr noundef nonnull readonly align 8 dereferenceable(112) %2430, i64 112, i1 false), !tbaa.struct !202
   store ptr %2434, ptr %140, align 8, !tbaa !170
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32E9_M_invokeERKSt9_Any_dataS3_", ptr %2432, align 8, !tbaa !171
@@ -6684,13 +6684,13 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208: ; preds = %_ZN4l
   br i1 %.not.i.i1209, label %"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %2437
 
 2437:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208
-  %2438 = call noundef zeroext i1 %2436(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull align 8 dereferenceable(32) %140, i32 noundef 3) #16
+  %2438 = call noundef zeroext i1 %2436(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull align 8 dereferenceable(32) %140, i32 noundef 3) #17
   br label %"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 "_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208, %2437
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
-  call void @_ZdlPvm(ptr noundef nonnull %2430, i64 noundef 112) #18
-  %2439 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 151) #16
+  call void @_ZdlPvm(ptr noundef nonnull %2430, i64 noundef 112) #19
+  %2439 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 151) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %384)
   store i64 34359738369, ptr %384, align 8, !tbaa !168
   %2440 = getelementptr inbounds nuw i8, ptr %384, i64 8
@@ -6712,7 +6712,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208: ; preds = %_ZN4l
   %2448 = getelementptr inbounds nuw i8, ptr %384, i64 72
   store i64 137438953473, ptr %2448, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %139, i32 noundef 0, i32 noundef 1, ptr nonnull %384, i64 5) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %139, i32 noundef 0, i32 noundef 1, ptr nonnull %384, i64 5) #17
   %2449 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2439, i8 noundef zeroext 0, ptr noundef nonnull %139)
   %2450 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %2451 = load ptr, ptr %2450, align 8, !tbaa !174
@@ -6720,15 +6720,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1208: ; preds = %_ZN4l
   br i1 %.not.i.i.i1214, label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1215, label %2452
 
 2452:                                             ; preds = %"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
-  %2453 = call noundef zeroext i1 %2451(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %139, i32 noundef 3) #16
+  %2453 = call noundef zeroext i1 %2451(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %139, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1215
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1215: ; preds = %"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", %2452
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %137, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %138, i32 noundef 0, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %137, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %138, i32 noundef 0, i32 noundef 8) #17
   %2454 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2449, i8 noundef zeroext 2, ptr noundef nonnull %137, ptr noundef nonnull %138)
   %2455 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %2456 = load ptr, ptr %2455, align 8, !tbaa !174
@@ -6736,7 +6736,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br i1 %.not.i.i1216, label %_ZNSt14_Function_baseD2Ev.exit.i1217, label %2457
 
 2457:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1215
-  %2458 = call noundef zeroext i1 %2456(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef 3) #16
+  %2458 = call noundef zeroext i1 %2456(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1217
 
 _ZNSt14_Function_baseD2Ev.exit.i1217:             ; preds = %2457, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1215
@@ -6746,7 +6746,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1217:             ; preds = %2457, %_ZN4llvm15Le
   br i1 %.not.i3.i1218, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219, label %2461
 
 2461:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1217
-  %2462 = call noundef zeroext i1 %2460(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef 3) #16
+  %2462 = call noundef zeroext i1 %2460(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1217, %2461
@@ -6761,10 +6761,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219: ; preds = %_ZNSt14
   store i64 32, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i2361 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2361, align 8
-  %2465 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #16
+  %2465 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #17
   %2466 = trunc i64 %2465 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %10, i32 noundef 1, i32 noundef %2466) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %12, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %10, i32 noundef 1, i32 noundef %2466) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %12, i32 noundef 1, i64 137438953473) #17
   %2467 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2464, i8 noundef zeroext 2, ptr noundef nonnull %10, ptr noundef nonnull %12)
   %2468 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %2469 = load ptr, ptr %2468, align 8, !tbaa !174
@@ -6772,7 +6772,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219: ; preds = %_ZNSt14
   br i1 %.not.i.i2362, label %_ZNSt14_Function_baseD2Ev.exit.i2363, label %2470
 
 2470:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219
-  %2471 = call noundef zeroext i1 %2469(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3) #16
+  %2471 = call noundef zeroext i1 %2469(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2363
 
 _ZNSt14_Function_baseD2Ev.exit.i2363:             ; preds = %2470, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1219
@@ -6782,7 +6782,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2363:             ; preds = %2470, %_ZN4llvm15Le
   br i1 %.not.i3.i2364, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365, label %2474
 
 2474:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2363
-  %2475 = call noundef zeroext i1 %2473(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #16
+  %2475 = call noundef zeroext i1 %2473(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2363, %2474
@@ -6795,10 +6795,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365: ; preds = %_ZNSt14_Funct
   store i64 32, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i2366 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2366, align 8
-  %2476 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #16
+  %2476 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #17
   %2477 = trunc i64 %2476 to i32
-  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 1, i32 noundef %2477) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %9, i32 noundef 1, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 1, i32 noundef %2477) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %9, i32 noundef 1, i64 137438953473) #17
   %2478 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2467, i8 noundef zeroext 1, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %2479 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %2480 = load ptr, ptr %2479, align 8, !tbaa !174
@@ -6806,7 +6806,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i2367, label %_ZNSt14_Function_baseD2Ev.exit.i2368, label %2481
 
 2481:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365
-  %2482 = call noundef zeroext i1 %2480(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %2482 = call noundef zeroext i1 %2480(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2368
 
 _ZNSt14_Function_baseD2Ev.exit.i2368:             ; preds = %2481, %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2365
@@ -6816,7 +6816,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2368:             ; preds = %2481, %_ZN4llvm15Le
   br i1 %.not.i3.i2369, label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370, label %2485
 
 2485:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2368
-  %2486 = call noundef zeroext i1 %2484(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %2486 = call noundef zeroext i1 %2484(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370
 
 _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2368, %2485
@@ -6830,7 +6830,7 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370: ; preds = %_ZNSt14_Funct
   store i32 281, ptr %2487, align 4, !tbaa !177
   %2488 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i32 282, ptr %2488, align 4, !tbaa !177
-  %2489 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %385, i64 3) #16
+  %2489 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %385, i64 3) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %2490 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %2491 = getelementptr inbounds nuw i8, ptr %136, i64 24
@@ -6845,7 +6845,7 @@ _ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370: ; preds = %_ZNSt14_Funct
   br i1 %.not.i.i1220, label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1222, label %2495
 
 2495:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370
-  %2496 = call noundef zeroext i1 %2494(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 3) #16
+  %2496 = call noundef zeroext i1 %2494(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1222
 
 _ZN4llvm15LegalizeRuleSet7libcallEv.exit1222:     ; preds = %_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE.exit2370, %2495
@@ -6857,7 +6857,7 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit1222:     ; preds = %_ZN4llvm15LegalizeR
   store i32 267, ptr %2497, align 4, !tbaa !177
   %2498 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i32 268, ptr %2498, align 4, !tbaa !177
-  %2499 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %386, i64 3) #16
+  %2499 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %386, i64 3) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %2500 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %2501 = getelementptr inbounds nuw i8, ptr %135, i64 24
@@ -6872,17 +6872,17 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit1222:     ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i1223, label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1225, label %2505
 
 2505:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1222
-  %2506 = call noundef zeroext i1 %2504(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %135, i32 noundef 3) #16
+  %2506 = call noundef zeroext i1 %2504(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %135, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1225
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1225:       ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1222, %2505
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call void @llvm.lifetime.end.p0(ptr nonnull %386)
-  %2507 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 90) #16
+  %2507 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 90) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
-  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %133, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %134, i32 noundef 0) #16
+  call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %133, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %134, i32 noundef 0) #17
   %2508 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2507, i8 noundef zeroext 3, ptr noundef nonnull %133, ptr noundef nonnull %134)
   %2509 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %2510 = load ptr, ptr %2509, align 8, !tbaa !174
@@ -6890,7 +6890,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1225:       ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i1226, label %_ZNSt14_Function_baseD2Ev.exit.i1227, label %2511
 
 2511:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1225
-  %2512 = call noundef zeroext i1 %2510(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %134, i32 noundef 3) #16
+  %2512 = call noundef zeroext i1 %2510(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %134, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1227
 
 _ZNSt14_Function_baseD2Ev.exit.i1227:             ; preds = %2511, %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1225
@@ -6900,7 +6900,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1227:             ; preds = %2511, %_ZN4llvm15Le
   br i1 %.not.i2.i1228, label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229, label %2515
 
 2515:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1227
-  %2516 = call noundef zeroext i1 %2514(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %133, i32 noundef 3) #16
+  %2516 = call noundef zeroext i1 %2514(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %133, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229:   ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1227, %2515
@@ -6912,10 +6912,10 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229:   ; preds = %_ZNSt14_Function_ba
   store i64 32, ptr %131, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %2517 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %131) #16
+  %2517 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %131) #17
   %2518 = trunc i64 %2517 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %130, i32 noundef 0, i32 noundef %2518) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %132, i32 noundef 0, i64 137438953473) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %130, i32 noundef 0, i32 noundef %2518) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %132, i32 noundef 0, i64 137438953473) #17
   %2519 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2508, i8 noundef zeroext 2, ptr noundef nonnull %130, ptr noundef nonnull %132)
   %2520 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %2521 = load ptr, ptr %2520, align 8, !tbaa !174
@@ -6923,7 +6923,7 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229:   ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i.i1230, label %_ZNSt14_Function_baseD2Ev.exit.i1231, label %2522
 
 2522:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229
-  %2523 = call noundef zeroext i1 %2521(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3) #16
+  %2523 = call noundef zeroext i1 %2521(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1231
 
 _ZNSt14_Function_baseD2Ev.exit.i1231:             ; preds = %2522, %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit1229
@@ -6933,7 +6933,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1231:             ; preds = %2522, %_ZN4llvm15Le
   br i1 %.not.i3.i1232, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit, label %2526
 
 2526:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1231
-  %2527 = call noundef zeroext i1 %2525(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3) #16
+  %2527 = call noundef zeroext i1 %2525(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1231, %2526
@@ -6954,7 +6954,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit: ; preds = %_ZNSt14_Function_
   br i1 %.not.i.i1233, label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1235, label %2533
 
 2533:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit
-  %2534 = call noundef zeroext i1 %2532(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %129, i32 noundef 3) #16
+  %2534 = call noundef zeroext i1 %2532(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %129, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1235
 
 _ZN4llvm15LegalizeRuleSet7libcallEv.exit1235:     ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit, %2533
@@ -6963,7 +6963,7 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit1235:     ; preds = %_ZN4llvm15LegalizeR
   store i32 83, ptr %387, align 4, !tbaa !177
   %2535 = getelementptr inbounds nuw i8, ptr %387, i64 4
   store i32 84, ptr %2535, align 4, !tbaa !177
-  %2536 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %387, i64 2) #16
+  %2536 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %387, i64 2) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %388)
   store i64 34359738369, ptr %388, align 8, !tbaa !168
   %2537 = getelementptr inbounds nuw i8, ptr %388, i64 8
@@ -6975,7 +6975,7 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit1235:     ; preds = %_ZN4llvm15LegalizeR
   %2540 = getelementptr inbounds nuw i8, ptr %388, i64 32
   store i64 %storemerge.i.i.i, ptr %2540, align 8, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %128, i32 noundef 0, ptr nonnull %388, i64 5) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %128, i32 noundef 0, ptr nonnull %388, i64 5) #17
   %2541 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2536, i8 noundef zeroext 0, ptr noundef nonnull %128)
   %2542 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %2543 = load ptr, ptr %2542, align 8, !tbaa !174
@@ -6983,15 +6983,15 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit1235:     ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i.i1236, label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1237, label %2544
 
 2544:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1235
-  %2545 = call noundef zeroext i1 %2543(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef 3) #16
+  %2545 = call noundef zeroext i1 %2543(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1237
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1237: ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit1235, %2544
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
-  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %126, i32 noundef 0) #16
-  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %127, i32 noundef 0, i32 noundef 8) #16
+  call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %126, i32 noundef 0) #17
+  call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %127, i32 noundef 0, i32 noundef 8) #17
   %2546 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2541, i8 noundef zeroext 2, ptr noundef nonnull %126, ptr noundef nonnull %127)
   %2547 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %2548 = load ptr, ptr %2547, align 8, !tbaa !174
@@ -6999,7 +6999,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1237: ; pr
   br i1 %.not.i.i1238, label %_ZNSt14_Function_baseD2Ev.exit.i1239, label %2549
 
 2549:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1237
-  %2550 = call noundef zeroext i1 %2548(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef 3) #16
+  %2550 = call noundef zeroext i1 %2548(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1239
 
 _ZNSt14_Function_baseD2Ev.exit.i1239:             ; preds = %2549, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1237
@@ -7009,7 +7009,7 @@ _ZNSt14_Function_baseD2Ev.exit.i1239:             ; preds = %2549, %_ZN4llvm15Le
   br i1 %.not.i3.i1240, label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241, label %2553
 
 2553:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1239
-  %2554 = call noundef zeroext i1 %2552(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %126, i32 noundef 3) #16
+  %2554 = call noundef zeroext i1 %2552(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %126, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1239, %2553
@@ -7021,10 +7021,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241: ; preds = %_ZNSt14
   store i64 8, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i2371 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2371, align 8
-  %2555 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #16
+  %2555 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #17
   %2556 = trunc i64 %2555 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 0, i32 noundef %2556) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %6, i32 noundef 0, i64 34359738369) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 0, i32 noundef %2556) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %6, i32 noundef 0, i64 34359738369) #17
   %2557 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2546, i8 noundef zeroext 2, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %2558 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %2559 = load ptr, ptr %2558, align 8, !tbaa !174
@@ -7032,7 +7032,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241: ; preds = %_ZNSt14
   br i1 %.not.i.i2372, label %_ZNSt14_Function_baseD2Ev.exit.i2373, label %2560
 
 2560:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241
-  %2561 = call noundef zeroext i1 %2559(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %2561 = call noundef zeroext i1 %2559(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2373
 
 _ZNSt14_Function_baseD2Ev.exit.i2373:             ; preds = %2560, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1241
@@ -7042,7 +7042,7 @@ _ZNSt14_Function_baseD2Ev.exit.i2373:             ; preds = %2560, %_ZN4llvm15Le
   br i1 %.not.i3.i2374, label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2375, label %2564
 
 2564:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2373
-  %2565 = call noundef zeroext i1 %2563(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %2565 = call noundef zeroext i1 %2563(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2375
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2375: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2373, %2564
@@ -7052,9 +7052,9 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2375: ; preds = %_ZNSt14_Funct
   %2566 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2557, i32 noundef 0, i64 %445)
   call void @llvm.lifetime.end.p0(ptr nonnull %388)
   call void @llvm.lifetime.end.p0(ptr nonnull %387)
-  call void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr noundef nonnull align 8 dereferenceable(82992) %396) #16
+  call void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr noundef nonnull align 8 dereferenceable(82992) %396) #17
   %2567 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  call void @_ZNK4llvm13LegalizerInfo6verifyERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr noundef nonnull align 8 dereferenceable(44) %2567) #16
+  call void @_ZNK4llvm13LegalizerInfo6verifyERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr noundef nonnull align 8 dereferenceable(44) %2567) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %348)
   call void @llvm.lifetime.end.p0(ptr nonnull %347)
   call void @llvm.lifetime.end.p0(ptr nonnull %338)
@@ -7065,7 +7065,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2375: ; preds = %_ZNSt14_Funct
   %.0588.idx1925 = phi i64 [ 0, %1802 ], [ %.0588.add, %2580 ]
   %.0588.ptr = getelementptr inbounds nuw i8, ptr %362, i64 %.0588.idx1925
   %2569 = load i32, ptr %.0588.ptr, align 4, !tbaa !168
-  %2570 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef %2569) #16
+  %2570 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef %2569) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %363)
   store i64 68719476737, ptr %363, align 8, !tbaa !168
   store i64 %storemerge.i.i.i, ptr %1804, align 8, !tbaa !168
@@ -7080,14 +7080,14 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2375: ; preds = %_ZNSt14_Funct
   store i64 68719476737, ptr %1813, align 8, !tbaa !168
   store i64 1, ptr %1814, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %125, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %363, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %125, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %363, i64 3) #17
   %2571 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2570, i8 noundef zeroext 0, ptr noundef nonnull %125)
   %2572 = load ptr, ptr %1815, align 8, !tbaa !174
   %.not.i.i1242 = icmp eq ptr %2572, null
   br i1 %.not.i.i1242, label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1244, label %2573
 
 2573:                                             ; preds = %2568
-  %2574 = call noundef zeroext i1 %2572(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %125, i32 noundef 3) #16
+  %2574 = call noundef zeroext i1 %2572(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %125, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1244
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1244: ; preds = %2568, %2573
@@ -7110,14 +7110,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438953473, ptr %1825, align 8, !tbaa !168
   store i64 1, ptr %1826, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
-  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %124, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %364, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %124, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %364, i64 3) #17
   %2576 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2570, i8 noundef zeroext 0, ptr noundef nonnull %124)
   %2577 = load ptr, ptr %1827, align 8, !tbaa !174
   %.not.i.i1245 = icmp eq ptr %2577, null
   br i1 %.not.i.i1245, label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1247, label %2578
 
 2578:                                             ; preds = %2575
-  %2579 = call noundef zeroext i1 %2577(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %124, i32 noundef 3) #16
+  %2579 = call noundef zeroext i1 %2577(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %124, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1247
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1247: ; preds = %2575, %2578
@@ -7180,10 +7180,10 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %13, %15
   store i64 %.sroa.06.0.i, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %23 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #16
+  %23 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #17
   %24 = trunc i64 %23 to i32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef %1, i32 noundef %24) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %6, i32 noundef %1, i64 %2) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef %1, i32 noundef %24) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %6, i32 noundef %1, i64 %2) #17
   %25 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext 2, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !174
@@ -7191,7 +7191,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %13, %15
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %28
@@ -7201,7 +7201,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK4llvm3LLT13getS
   br i1 %.not.i3, label %_ZNSt14_Function_baseD2Ev.exit4, label %32
 
 32:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit4
 
 _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %32
@@ -7230,7 +7230,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   store i64 %.sroa.0.0.insert.insert.i, ptr %6, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_15LegalizeRuleSet15minScalarSameAsEjjEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %9, align 8, !tbaa !171
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_15LegalizeRuleSet15minScalarSameAsEjjEUlS3_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %8, align 8, !tbaa !174
-  call void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %7, i32 noundef %1, i32 noundef %2) #16
+  call void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %7, i32 noundef %1, i32 noundef %2) #17
   %11 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext 2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !174
@@ -7238,7 +7238,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %14
 
 14:                                               ; preds = %3
-  %15 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %15 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %14, %3
@@ -7247,7 +7247,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %14, %3
   br i1 %.not.i5.i, label %_ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit, label %17
 
 17:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
-  %18 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %18 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit
 
 _ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %17
@@ -7262,7 +7262,7 @@ _ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit: ; preds = %_ZNSt14_Function_
   store i64 %.sroa.0.0.insert.insert.i, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_15LegalizeRuleSet15maxScalarSameAsEjjEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %20, align 8, !tbaa !171
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_15LegalizeRuleSet15maxScalarSameAsEjjEUlS3_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %19, align 8, !tbaa !174
-  call void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %5, i32 noundef %1, i32 noundef %2) #16
+  call void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %5, i32 noundef %1, i32 noundef %2) #17
   %22 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %11, i8 noundef zeroext 1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !174
@@ -7270,7 +7270,7 @@ _ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit: ; preds = %_ZNSt14_Function_
   br i1 %.not.i.i8, label %_ZNSt14_Function_baseD2Ev.exit.i9, label %25
 
 25:                                               ; preds = %_ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit
-  %26 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %26 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i9
 
 _ZNSt14_Function_baseD2Ev.exit.i9:                ; preds = %25, %_ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit
@@ -7279,7 +7279,7 @@ _ZNSt14_Function_baseD2Ev.exit.i9:                ; preds = %25, %_ZN4llvm15Lega
   br i1 %.not.i5.i10, label %_ZN4llvm15LegalizeRuleSet15maxScalarSameAsEjj.exit, label %28
 
 28:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i9
-  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet15maxScalarSameAsEjj.exit
 
 _ZN4llvm15LegalizeRuleSet15maxScalarSameAsEjj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i9, %28
@@ -7332,10 +7332,10 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %13, %15
   store i64 %.sroa.06.0.i, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %23 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #16
+  %23 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #17
   %24 = trunc i64 %23 to i32
-  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef %1, i32 noundef %24) #16
-  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %6, i32 noundef %1, i64 %2) #16
+  call void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef %1, i32 noundef %24) #17
+  call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.430") align 8 %6, i32 noundef %1, i64 %2) #17
   %25 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext 1, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !174
@@ -7343,7 +7343,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %13, %15
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %28
@@ -7353,7 +7353,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK4llvm3LLT13getS
   br i1 %.not.i3, label %_ZNSt14_Function_baseD2Ev.exit4, label %32
 
 32:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit4
 
 _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %32
@@ -7394,7 +7394,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %10, %15
   br i1 %.not.i5, label %_ZNK4llvm3LLT14getNumElementsEv.exit, label %17
 
 17:                                               ; preds = %_ZNK4llvm3LLT14getElementTypeEv.exit
-  tail call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str) #16
+  tail call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str) #17
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit
 
 _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %_ZNK4llvm3LLT14getElementTypeEv.exit, %17
@@ -7407,7 +7407,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %_ZNK4llvm3LLT14getE
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %23, align 8
-  %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %24 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 %1, ptr %24, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.49.0..sroa_idx.i, align 8, !tbaa !168
@@ -7433,7 +7433,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %_ZNK4llvm3LLT14getE
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %30
 
 30:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit
-  %31 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #16
+  %31 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %30, %_ZNK4llvm3LLT14getNumElementsEv.exit
@@ -7442,7 +7442,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %30, %_ZNK4llvm3LLT1
   br i1 %.not.i5.i, label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit, label %33
 
 33:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
-  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit
 
 _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %33
@@ -7453,7 +7453,7 @@ _ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt
   br i1 %.not.i6, label %_ZNK4llvm3LLT14getNumElementsEv.exit8, label %36
 
 36:                                               ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit
-  call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str) #16
+  call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str) #17
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit8
 
 _ZNK4llvm3LLT14getNumElementsEv.exit8:            ; preds = %_ZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS_3LLTEj.exit, %36
@@ -7466,7 +7466,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit8:            ; preds = %_ZN4llvm15LegalizeR
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %42, align 8
-  %43 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %43 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store i32 %1, ptr %43, align 16, !tbaa !177
   %.sroa.49.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.49.0..sroa_idx.i9, align 8, !tbaa !168
@@ -7491,7 +7491,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit8:            ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not.i.i15, label %_ZNSt14_Function_baseD2Ev.exit.i16, label %49
 
 49:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit8
-  %50 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %50 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i16
 
 _ZNSt14_Function_baseD2Ev.exit.i16:               ; preds = %49, %_ZNK4llvm3LLT14getNumElementsEv.exit8
@@ -7500,7 +7500,7 @@ _ZNSt14_Function_baseD2Ev.exit.i16:               ; preds = %49, %_ZNK4llvm3LLT1
   br i1 %.not.i5.i17, label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit, label %52
 
 52:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i16
-  %53 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %53 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit
 
 _ZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS_3LLTEj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i16, %52
@@ -7584,7 +7584,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %4, %22, %2
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !240
   %35 = load ptr, ptr %34, align 8, !tbaa !241
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
+  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #17
   %37 = and i64 %.sroa.04.0.i, 2
   %.not.i.i = icmp ne i64 %37, 0
   %38 = and i64 %.sroa.04.0.i, -7
@@ -7619,14 +7619,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %4, %22, %2
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !168
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.373") align 8 %6, i32 %52, ptr noundef nonnull align 8 dereferenceable(504) %2, i1 noundef zeroext true) #16
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.373") align 8 %6, i32 %52, ptr noundef nonnull align 8 dereferenceable(504) %2, i1 noundef zeroext true) #17
   %53 = load i8, ptr %45, align 8, !tbaa !350, !range !157, !noundef !158
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %.critedge, label %72
 
 .critedge:                                        ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %55 = call noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(12) %6) #16
+  %55 = call noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(12) %6) #17
   store ptr %55, ptr %7, align 8, !tbaa !352
   %56 = load i32, ptr %41, align 8, !tbaa !20
   %57 = load i32, ptr %42, align 4, !tbaa !21
@@ -7663,14 +7663,14 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE12emplace_backIJPNS_11ConstantIntEEEERS
 
 72:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_ZN4llvm34getFConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.384") align 8 %8, i32 %52, ptr noundef nonnull align 8 dereferenceable(504) %2, i1 noundef zeroext true) #16
+  call void @_ZN4llvm34getFConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.384") align 8 %8, i32 %52, ptr noundef nonnull align 8 dereferenceable(504) %2, i1 noundef zeroext true) #17
   %73 = load i8, ptr %46, align 8, !tbaa !359, !range !157, !noundef !158
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %86
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %76 = call noundef ptr @_ZN4llvm10ConstantFP3getERNS_11LLVMContextERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(24) %8) #16
+  %76 = call noundef ptr @_ZN4llvm10ConstantFP3getERNS_11LLVMContextERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   store ptr %76, ptr %9, align 8, !tbaa !361
   %77 = load i32, ptr %41, align 8, !tbaa !20
   %78 = load i32, ptr %42, align 4, !tbaa !21
@@ -7695,7 +7695,7 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE12emplace_backIJPNS_10ConstantFPEEEERS2
   br label %.critedge60
 
 86:                                               ; preds = %72
-  %87 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %52, ptr noundef nonnull align 8 dereferenceable(504) %2) #16
+  %87 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %52, ptr noundef nonnull align 8 dereferenceable(504) %2) #17
   %.not.i.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i.i, label %103, label %88
 
@@ -7707,8 +7707,8 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE12emplace_backIJPNS_10ConstantFPEEEERS2
 
 _ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit: ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %92 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef %.0.i) #16
-  %93 = call noundef ptr @_ZN4llvm10UndefValue3getEPNS_4TypeE(ptr noundef %92) #16
+  %92 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef %.0.i) #17
+  %93 = call noundef ptr @_ZN4llvm10UndefValue3getEPNS_4TypeE(ptr noundef %92) #17
   store ptr %93, ptr %10, align 8, !tbaa !363
   %94 = load i32, ptr %41, align 8, !tbaa !20
   %95 = load i32, ptr %42, align 4, !tbaa !21
@@ -7740,16 +7740,16 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE12emplace_backIJPNS_10UndefValueEEEERS2
 106:                                              ; preds = %103
   store i8 0, ptr %46, align 8, !tbaa !359
   %107 = load ptr, ptr %8, align 8, !tbaa !168
-  %108 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #19
+  %108 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #20
   %.not.i.i.i.i.i.i = icmp eq ptr %107, %108
   br i1 %.not.i.i.i.i.i.i, label %110, label %109
 
 109:                                              ; preds = %106
-  call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
+  call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   br label %_ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit
 
 110:                                              ; preds = %106
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   br label %_ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %103, %109, %110
@@ -7770,7 +7770,7 @@ _ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %103,
   br i1 %118, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit66, label %119
 
 119:                                              ; preds = %116
-  call void @_ZdaPv(ptr noundef nonnull %117) #18
+  call void @_ZdaPv(ptr noundef nonnull %117) #19
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit66
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit66: ; preds = %_ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit, %113, %116, %119
@@ -7785,16 +7785,16 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit66: ; preds = %_ZNS
 122:                                              ; preds = %.critedge60
   store i8 0, ptr %46, align 8, !tbaa !359
   %123 = load ptr, ptr %8, align 8, !tbaa !168
-  %124 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #19
+  %124 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #20
   %.not.i.i.i.i.i.i67 = icmp eq ptr %123, %124
   br i1 %.not.i.i.i.i.i.i67, label %126, label %125
 
 125:                                              ; preds = %122
-  call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
+  call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   br label %_ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit68
 
 126:                                              ; preds = %122
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   br label %_ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit68
 
 _ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit68: ; preds = %.critedge60, %125, %126
@@ -7814,7 +7814,7 @@ _ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit68: ; preds = %.c
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit.sink.split: ; preds = %129, %67
   %.sink = phi ptr [ %70, %67 ], [ %132, %129 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #18
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #19
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit.sink.split, %129, %_ZNSt14_Optional_baseIN4llvm14FPValueAndVRegELb0ELb0EED2Ev.exit68, %67, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE12emplace_backIJPNS_11ConstantIntEEEERS2_DpOT_.exit
@@ -7835,17 +7835,17 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %_ZNSt1
 .critedge58:                                      ; preds = %.critedge58.loopexit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   %139 = phi i64 [ %138, %.critedge58.loopexit ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ]
   %140 = phi ptr [ %.pre, %.critedge58.loopexit ], [ %40, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ]
-  %141 = call noundef ptr @_ZN4llvm14ConstantVector3getENS_8ArrayRefIPNS_8ConstantEEE(ptr %140, i64 %139) #16
+  %141 = call noundef ptr @_ZN4llvm14ConstantVector3getENS_8ArrayRefIPNS_8ConstantEEE(ptr %140, i64 %139) #17
   %142 = load ptr, ptr %33, align 8, !tbaa !240
   %143 = load ptr, ptr %142, align 8, !tbaa !241
-  %144 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %143) #16
+  %144 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %143) #17
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 12
   %146 = load i32, ptr %145, align 4, !tbaa !367
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !391
-  %149 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %144, ptr noundef %148) #16
+  %149 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %144, ptr noundef %148) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %150 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %144, i32 noundef %146) #16
+  %150 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %144, i32 noundef %146) #17
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4, !tbaa !162
   %153 = zext i32 %152 to i64
@@ -7860,15 +7860,15 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %_ZNSt1
   store i32 0, ptr %159, align 8, !tbaa !395
   %160 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %161 = load ptr, ptr %160, align 8, !tbaa !398
-  %162 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %161, ptr noundef nonnull %141, i8 %149) #16
-  %163 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildConstantPoolERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %162) #16
+  %162 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %161, ptr noundef nonnull %141, i8 %149) #17
+  %163 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildConstantPoolERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %162) #17
   %164 = extractvalue { ptr, ptr } %163, 0
   %165 = extractvalue { ptr, ptr } %163, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @_ZN4llvm18MachinePointerInfo15getConstantPoolERNS_15MachineFunctionE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1065) %34) #16
+  call void @_ZN4llvm18MachinePointerInfo15getConstantPoolERNS_15MachineFunctionE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1065) %34) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %166 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %34, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %12, i16 noundef zeroext 1, i64 %.sroa.04.0.i, i8 %149, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #16
+  %166 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %34, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %12, i16 noundef zeroext 1, i64 %.sroa.04.0.i, i8 %149, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %20, ptr %14, align 8, !tbaa !177
@@ -7880,10 +7880,10 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %_ZNSt1
   store ptr %165, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !400
   %168 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 1, ptr %168, align 8, !tbaa !402
-  %169 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %16, i32 noundef 93, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(80) %166) #16
+  %169 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %16, i32 noundef 93, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(80) %166) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #16
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   br label %170
 
 170:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit66, %.critedge58
@@ -7893,7 +7893,7 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %_ZNSt1
   br i1 %172, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj4EED2Ev.exit, label %173
 
 173:                                              ; preds = %170
-  call void @free(ptr noundef %171) #16
+  call void @free(ptr noundef %171) #17
   br label %_ZN4llvm11SmallVectorIPNS_8ConstantELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_8ConstantELj4EED2Ev.exit: ; preds = %170, %173
@@ -7910,7 +7910,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo14legalizeFPTOUI
   %9 = alloca %"class.llvm::SrcOp", align 8
   %10 = load ptr, ptr %3, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.418") align 8 %7, ptr noundef nonnull align 8 dereferenceable(70) %1) #16
+  call void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.418") align 8 %7, ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2
@@ -7940,7 +7940,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo14legalizeFPTOUI
   %20 = load ptr, ptr %10, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = call { ptr, ptr } %22(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 noundef 198, ptr nonnull %5, i64 1, ptr nonnull %6, i64 1, i64 0) #16
+  %23 = call { ptr, ptr } %22(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 noundef 198, ptr nonnull %5, i64 1, ptr nonnull %6, i64 1, i64 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = extractvalue { ptr, ptr } %23, 0
@@ -7956,10 +7956,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo14legalizeFPTOUI
   store ptr %25, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !400
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %27, align 8, !tbaa !402
-  %28 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 0) #16
+  %28 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #16
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   br label %29
 
 29:                                               ; preds = %4, %17
@@ -7977,7 +7977,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo14legalizeUITOFP
   %10 = alloca %"class.llvm::SrcOp", align 8
   %11 = load ptr, ptr %3, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.418") align 8 %7, ptr noundef nonnull align 8 dereferenceable(70) %1) #16
+  call void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.418") align 8 %7, ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8020,7 +8020,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %21, %23
   store i64 %.sroa.06.0.i, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %31 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #16
+  %31 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #17
   %32 = icmp ult i64 %31, 33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %32, label %33, label %44
@@ -8038,7 +8038,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %21, %23
   store i32 %.sroa.02.0.copyload, ptr %10, align 8, !tbaa !177
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %36, align 8, !tbaa !402
-  %37 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 0) #16
+  %37 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 0) #17
   %38 = extractvalue { ptr, ptr } %37, 0
   %39 = extractvalue { ptr, ptr } %37, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8057,10 +8057,10 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %21, %23
   %40 = load ptr, ptr %11, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
-  %43 = call { ptr, ptr } %42(ptr noundef nonnull align 8 dereferenceable(88) %11, i32 noundef 200, ptr nonnull %5, i64 1, ptr nonnull %6, i64 1, i64 0) #16
+  %43 = call { ptr, ptr } %42(ptr noundef nonnull align 8 dereferenceable(88) %11, i32 noundef 200, ptr nonnull %5, i64 1, ptr nonnull %6, i64 1, i64 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #16
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   br label %44
 
 44:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %33
@@ -8116,7 +8116,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo17legalizeIntrin
 define linkonce_odr hidden void @_ZN4llvm13LegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(125504) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42512
-  tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %2) #16
+  tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %2) #17
   br label %3
 
 3:                                                ; preds = %_ZN4llvm15LegalizeRuleSetD2Ev.exit, %1
@@ -8146,7 +8146,7 @@ define linkonce_odr hidden void @_ZN4llvm13LegalizerInfoD2Ev(ptr noundef nonnull
 
 13:                                               ; preds = %.lr.ph.i.i.i
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
-  %15 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #16
+  %15 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %13, %.lr.ph.i.i.i
@@ -8156,7 +8156,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %13, %.lr.ph.i.i.i
   br i1 %.not.i1.i.i.i.i, label %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i, label %18
 
 18:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i
-  %19 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 3) #16
+  %19 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 3) #17
   br label %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i
 
 _ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i:            ; preds = %18, %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i
@@ -8174,7 +8174,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_
   br i1 %22, label %_ZN4llvm15LegalizeRuleSetD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_.exit.i.i
-  tail call void @free(ptr noundef %20) #16
+  tail call void @free(ptr noundef %20) #17
   br label %_ZN4llvm15LegalizeRuleSetD2Ev.exit
 
 _ZN4llvm15LegalizeRuleSetD2Ev.exit:               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_.exit.i.i, %23
@@ -8189,7 +8189,7 @@ _ZN4llvm15LegalizeRuleSetD2Ev.exit:               ; preds = %_ZN4llvm23SmallVect
 define linkonce_odr hidden void @_ZN4llvm16X86LegalizerInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(125512) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42512
-  tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %2) #16
+  tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %2) #17
   br label %3
 
 3:                                                ; preds = %_ZN4llvm15LegalizeRuleSetD2Ev.exit.i, %1
@@ -8219,7 +8219,7 @@ define linkonce_odr hidden void @_ZN4llvm16X86LegalizerInfoD0Ev(ptr noundef nonn
 
 13:                                               ; preds = %.lr.ph.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -32
-  %15 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #16
+  %15 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i:         ; preds = %13, %.lr.ph.i.i.i.i
@@ -8229,7 +8229,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i:         ; preds = %13, %.lr.ph.i.i.i.i
   br i1 %.not.i1.i.i.i.i.i, label %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i, label %18
 
 18:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i
-  %19 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 3) #16
+  %19 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 3) #17
   br label %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i
 
 _ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i:          ; preds = %18, %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i
@@ -8247,7 +8247,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_
   br i1 %22, label %_ZN4llvm15LegalizeRuleSetD2Ev.exit.i, label %23
 
 23:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
-  tail call void @free(ptr noundef %20) #16
+  tail call void @free(ptr noundef %20) #17
   br label %_ZN4llvm15LegalizeRuleSetD2Ev.exit.i
 
 _ZN4llvm15LegalizeRuleSetD2Ev.exit.i:             ; preds = %23, %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
@@ -8255,7 +8255,7 @@ _ZN4llvm15LegalizeRuleSetD2Ev.exit.i:             ; preds = %23, %_ZN4llvm23Smal
   br i1 %24, label %_ZN4llvm13LegalizerInfoD2Ev.exit, label %3
 
 _ZN4llvm13LegalizerInfoD2Ev.exit:                 ; preds = %_ZN4llvm15LegalizeRuleSetD2Ev.exit.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 125512) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 125512) #19
   ret void
 }
 
@@ -8283,7 +8283,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.thread: ; preds = %3
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %11 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2) #16
+  %11 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2) #17
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !171
   store ptr %13, ptr %10, align 8, !tbaa !171
@@ -8298,7 +8298,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit: ; preds = %3
 16:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2) #16
+  %19 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2) #17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
   store ptr %21, ptr %17, align 8, !tbaa !171
@@ -8321,7 +8321,7 @@ _ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActio
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %30
 
 30:                                               ; preds = %_ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActions14LegalizeActionES1_IFSt4pairIjNS_3LLTEES4_EE.exit
-  %31 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3) #16
+  %31 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %30, %_ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActions14LegalizeActionES1_IFSt4pairIjNS_3LLTEES4_EE.exit
@@ -8331,7 +8331,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %30, %_ZN4llvm12Lega
   br i1 %.not.i1.i, label %_ZN4llvm12LegalizeRuleD2Ev.exit, label %34
 
 34:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
-  %35 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 3) #16
+  %35 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 3) #17
   br label %_ZN4llvm12LegalizeRuleD2Ev.exit
 
 _ZN4llvm12LegalizeRuleD2Ev.exit:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %34
@@ -8340,7 +8340,7 @@ _ZN4llvm12LegalizeRuleD2Ev.exit:                  ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %37
 
 37:                                               ; preds = %_ZN4llvm12LegalizeRuleD2Ev.exit
-  %38 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %38 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm12LegalizeRuleD2Ev.exit, %37
@@ -8349,7 +8349,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm12LegalizeR
   br i1 %.not.i1, label %_ZNSt14_Function_baseD2Ev.exit2, label %40
 
 40:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %41 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %41 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit2
 
 _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %40
@@ -8405,7 +8405,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGet
 25:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %28 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i, i32 noundef 2) #16
+  %28 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i, i32 noundef 2) #17
   %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !171
   store ptr %30, ptr %26, align 8, !tbaa !171
@@ -8429,7 +8429,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %25, %_ZN4
   %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %42 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 2) #16
+  %42 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 2) #17
   %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
   %44 = load ptr, ptr %43, align 8, !tbaa !179
   store ptr %44, ptr %40, align 8, !tbaa !179
@@ -8449,7 +8449,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
+  %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   %6 = load ptr, ptr %0, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !20
@@ -8533,7 +8533,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE18uninitialized_moveIPS
 
 39:                                               ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds i8, ptr %.05.i.i, i64 -32
-  %41 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 3) #16
+  %41 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %39, %.lr.ph.i.i
@@ -8543,7 +8543,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %39, %.lr.ph.i.i
   br i1 %.not.i1.i.i.i, label %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i, label %44
 
 44:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i
-  %45 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(72) %36, i32 noundef 3) #16
+  %45 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(72) %36, i32 noundef 3) #17
   br label %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i
 
 _ZN4llvm12LegalizeRuleD2Ev.exit.i.i:              ; preds = %44, %_ZNSt14_Function_baseD2Ev.exit.i.i.i
@@ -8561,7 +8561,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE19moveElementsForGrowEP
   br i1 %48, label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE21takeAllocationForGrowEPS1_m.exit, label %49
 
 49:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE19moveElementsForGrowEPS1_.exit
-  call void @free(ptr noundef %46) #16
+  call void @free(ptr noundef %46) #17
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE21takeAllocationForGrowEPS1_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE21takeAllocationForGrowEPS1_m.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE19moveElementsForGrowEPS1_.exit, %49
@@ -8593,7 +8593,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2) #16
+  %13 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2) #17
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !171
   store ptr %15, ptr %11, align 8, !tbaa !171
@@ -8612,7 +8612,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit: ; preds = %4, %10
 20:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %23 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2) #16
+  %23 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2) #17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !179
   store ptr %25, ptr %21, align 8, !tbaa !179
@@ -8633,7 +8633,7 @@ _ZNSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEC2ERKS8_.exit: ; pr
 30:                                               ; preds = %_ZNSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEC2ERKS8_.exit
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %33 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2) #16
+  %33 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2) #17
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !171
   store ptr %35, ptr %31, align 8, !tbaa !171
@@ -8656,7 +8656,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %30, %_ZNS
 41:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %44 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 2) #16
+  %44 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 2) #17
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !179
   store ptr %46, ptr %42, align 8, !tbaa !179
@@ -8673,7 +8673,7 @@ _ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActio
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %51
 
 51:                                               ; preds = %_ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActions14LegalizeActionES1_IFSt4pairIjNS_3LLTEES4_EE.exit
-  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3) #16
+  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %51, %_ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActions14LegalizeActionES1_IFSt4pairIjNS_3LLTEES4_EE.exit
@@ -8683,7 +8683,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %51, %_ZN4llvm12Lega
   br i1 %.not.i1.i, label %_ZN4llvm12LegalizeRuleD2Ev.exit, label %55
 
 55:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
-  %56 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 3) #16
+  %56 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 3) #17
   br label %_ZN4llvm12LegalizeRuleD2Ev.exit
 
 _ZN4llvm12LegalizeRuleD2Ev.exit:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %55
@@ -8692,7 +8692,7 @@ _ZN4llvm12LegalizeRuleD2Ev.exit:                  ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %58
 
 58:                                               ; preds = %_ZN4llvm12LegalizeRuleD2Ev.exit
-  %59 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %59 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm12LegalizeRuleD2Ev.exit, %58
@@ -8701,7 +8701,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm12LegalizeR
   br i1 %.not.i2, label %_ZNSt14_Function_baseD2Ev.exit3, label %61
 
 61:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit3
 
 _ZNSt14_Function_baseD2Ev.exit3:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %61
@@ -8721,7 +8721,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm15LegalizeRuleSet6alwaysE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !170
-  %4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   ret i1 %4
 }
 
@@ -8815,7 +8815,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !170
-  %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !423
   store ptr %9, ptr %0, align 8, !tbaa !170
   br label %_ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
@@ -8826,7 +8826,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   br i1 %12, label %_ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 24) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 24) #19
   br label %_ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMinNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %13, %10, %7, %6, %4
@@ -9018,7 +9018,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !170
-  %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !423
   store ptr %9, ptr %0, align 8, !tbaa !170
   br label %_ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
@@ -9029,7 +9029,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   br i1 %12, label %_ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 24) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 24) #19
   br label %_ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet19clampMaxNumElementsEjNS1_3LLTEjEUlRKNS1_13LegalityQueryEE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %13, %10, %7, %6, %4
@@ -9177,8 +9177,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   %8 = alloca %"class.std::function", align 8
   %9 = alloca %"class.std::function", align 8
   %10 = alloca %"class.std::function", align 8
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr %2, i64 %3) #16
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %10, i32 noundef 1, ptr %4, i64 %5) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr %2, i64 %3) #17
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %10, i32 noundef 1, ptr %4, i64 %5) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !433)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !433
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9190,7 +9190,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 2) #16, !noalias !433
+  %16 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 2) #17, !noalias !433
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !171, !noalias !433
   store ptr %18, ptr %14, align 8, !tbaa !171, !noalias !433
@@ -9210,7 +9210,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %13, %6
 
 25:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %27 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2) #16, !noalias !433
+  %27 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2) #17, !noalias !433
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !171, !noalias !433
   store ptr %29, ptr %26, align 8, !tbaa !171, !noalias !433
@@ -9228,7 +9228,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %25, %_ZN
   %34 = phi ptr [ %21, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %.pre.i, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %35, align 8, !alias.scope !433
-  %36 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17, !noalias !433
+  %36 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !433
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 24, i1 false), !noalias !433
   store ptr %34, ptr %37, align 8, !tbaa !171, !noalias !433
@@ -9268,7 +9268,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %47
 
 47:                                               ; preds = %_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit
-  %48 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #16
+  %48 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit, %47
@@ -9277,7 +9277,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm18LegalityP
   br i1 %.not.i7, label %_ZNSt14_Function_baseD2Ev.exit8, label %50
 
 50:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %51 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #16
+  %51 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit8
 
 _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %50
@@ -9286,7 +9286,7 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %_ZNSt14_Function_ba
   br i1 %.not.i9, label %_ZNSt14_Function_baseD2Ev.exit10, label %53
 
 53:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit8
-  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit10
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %_ZNSt14_Function_baseD2Ev.exit8, %53
@@ -9302,13 +9302,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   br i1 %.not.i.i.i.i.i, label %6, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 6:                                                ; preds = %2
-  tail call void @_ZSt25__throw_bad_function_callv() #20
+  tail call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !171
-  %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %9, label %10, label %_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3allISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit
 
 10:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -9318,14 +9318,14 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   br i1 %.not.i.i3.i.i.i, label %13, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i
 
 13:                                               ; preds = %10
-  tail call void @_ZSt25__throw_bad_function_callv() #20
+  tail call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i: ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !171
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br label %_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3allISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit
 
 _ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3allISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit: ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i
@@ -9374,7 +9374,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !170
-  %9 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %9 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr %10, align 8, !tbaa !174
@@ -9384,7 +9384,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 2) #16
+  %15 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 2) #17
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !171
   store ptr %17, ptr %13, align 8, !tbaa !171
@@ -9404,7 +9404,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i: ; preds = %12, %
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %26 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 2) #16
+  %26 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 2) #17
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !171
   store ptr %28, ptr %24, align 8, !tbaa !171
@@ -9429,7 +9429,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %38 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3) #16
+  %38 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %36, %33
@@ -9439,11 +9439,11 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %36, %33
   br i1 %.not.i1.i.i, label %_ZZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_ENUlS5_E_D2Ev.exit.i, label %41
 
 41:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i
-  %42 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef 3) #16
+  %42 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef 3) #17
   br label %_ZZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_ENUlS5_E_D2Ev.exit.i
 
 _ZZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_ENUlS5_E_D2Ev.exit.i: ; preds = %41, %_ZNSt14_Function_baseD2Ev.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 64) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 64) #19
   br label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
 
 _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit: ; preds = %_ZZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_ENUlS5_E_D2Ev.exit.i, %30, %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E15_M_init_functorIRKSB_EEvRSt9_Any_dataOSA_.exit, %5, %4, %3
@@ -9512,7 +9512,7 @@ _ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet15minScalarSameAsEjjEUlRKNS0_13Legali
   store i64 %.sroa.06.0.i.i.i.i, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %34 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #16
+  %34 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #17
   %35 = icmp ult i64 %34, %.0.in.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %35
@@ -9603,7 +9603,7 @@ _ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet15maxScalarSameAsEjjEUlRKNS0_13Legali
   store i64 %.sroa.06.0.i.i.i.i, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %34 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #16
+  %34 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #17
   %35 = icmp ugt i64 %34, %.0.in.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %35
@@ -9663,7 +9663,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 
 .preheader:                                       ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
-  %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #19
+  %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #20
   br label %10
 
 10:                                               ; preds = %.preheader, %_ZN4llvm7APFloatD2Ev.exit.i
@@ -9674,11 +9674,11 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #16
+  tail call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 15:                                               ; preds = %10
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #16
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
@@ -9687,7 +9687,7 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
   %17 = add i64 %.idx.i, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #18
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #19
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -9718,7 +9718,7 @@ define linkonce_odr hidden void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef n
   %.idx = phi i64 [ 82992, %1 ], [ %.add, %2 ]
   %.add = add nsw i64 %.idx, -56
   %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
-  tail call void @_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr1) #16
+  tail call void @_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr1) #17
   %3 = icmp eq i64 %.add, 68824
   br i1 %3, label %.preheader64, label %2
 
@@ -9726,7 +9726,7 @@ define linkonce_odr hidden void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef n
   %.idx3 = phi i64 [ %.add4, %.preheader64 ], [ 68824, %2 ]
   %.add4 = add nsw i64 %.idx3, -56
   %.ptr5 = getelementptr inbounds i8, ptr %0, i64 %.add4
-  tail call void @_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr5) #16
+  tail call void @_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr5) #17
   %4 = icmp eq i64 %.add4, 54656
   br i1 %4, label %.preheader63, label %.preheader64
 
@@ -9759,7 +9759,7 @@ define linkonce_odr hidden void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef n
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #19
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i: ; preds = %12, %.lr.ph.i.i
@@ -9777,7 +9777,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions2
   br i1 %20, label %_ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit, label %21
 
 21:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i
-  tail call void @free(ptr noundef %18) #16
+  tail call void @free(ptr noundef %18) #17
   br label %_ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i, %21
@@ -9813,7 +9813,7 @@ _ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegal
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
-  tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %35) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %35) #19
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i29
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i29: ; preds = %30, %.lr.ph.i.i26
@@ -9831,7 +9831,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions2
   br i1 %38, label %_ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit34, label %39
 
 39:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i33
-  tail call void @free(ptr noundef %36) #16
+  tail call void @free(ptr noundef %36) #17
   br label %_ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit34
 
 _ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit34: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i33, %39
@@ -9863,7 +9863,7 @@ _ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegal
   br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %49
 
 49:                                               ; preds = %.lr.ph.i.i38
-  %50 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3) #16
+  %50 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %49, %.lr.ph.i.i38
@@ -9881,7 +9881,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLeg
   br i1 %53, label %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit, label %54
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELb0EE13destroy_rangeEPSC_SE_.exit.i
-  tail call void @free(ptr noundef %51) #16
+  tail call void @free(ptr noundef %51) #17
   br label %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELb0EE13destroy_rangeEPSC_SE_.exit.i, %54
@@ -9913,7 +9913,7 @@ _ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions
   br i1 %.not.i.i.i47, label %_ZNSt14_Function_baseD2Ev.exit.i.i48, label %64
 
 64:                                               ; preds = %.lr.ph.i.i45
-  %65 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef 3) #16
+  %65 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i48
 
 _ZNSt14_Function_baseD2Ev.exit.i.i48:             ; preds = %64, %.lr.ph.i.i45
@@ -9931,7 +9931,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLeg
   br i1 %68, label %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit53, label %69
 
 69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELb0EE13destroy_rangeEPSC_SE_.exit.i52
-  tail call void @free(ptr noundef %66) #16
+  tail call void @free(ptr noundef %66) #17
   br label %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit53
 
 _ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit53: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELb0EE13destroy_rangeEPSC_SE_.exit.i52, %69
@@ -9965,7 +9965,7 @@ _ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions
   %82 = load i32, ptr %81, align 8, !tbaa !452
   %83 = zext i32 %82 to i64
   %84 = shl nuw nsw i64 %83, 4
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %80, i64 noundef %84, i64 noundef 8) #16
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %80, i64 noundef %84, i64 noundef 8) #17
   %.not.i.i59 = icmp eq ptr %74, %79
   br i1 %.not.i.i59, label %_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELb0EE13destroy_rangeEPSA_SC_.exit.loopexit.i, label %.lr.ph.i.i57, !llvm.loop !453
 
@@ -9980,7 +9980,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeAction
   br i1 %87, label %_ZN4llvm11SmallVectorINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELj1EED2Ev.exit, label %88
 
 88:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELb0EE13destroy_rangeEPSA_SC_.exit.i
-  tail call void @free(ptr noundef %85) #16
+  tail call void @free(ptr noundef %85) #17
   br label %_ZN4llvm11SmallVectorINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELj1EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELj1EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELb0EE13destroy_rangeEPSA_SC_.exit.i, %88
@@ -10027,7 +10027,7 @@ define linkonce_odr void @_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6ve
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #19
   br label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %13, %.lr.ph.i.i.i.i.i.i.i.i
@@ -10045,11 +10045,11 @@ _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions2
   br i1 %21, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN4llvm11SmallVectorISt6vectorIS2_ItNS4_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS9_EELj1EEEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i, label %22
 
 22:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i.i.i.i.i.i.i
-  tail call void @free(ptr noundef %19) #16
+  tail call void @free(ptr noundef %19) #17
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN4llvm11SmallVectorISt6vectorIS2_ItNS4_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS9_EELj1EEEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN4llvm11SmallVectorISt6vectorIS2_ItNS4_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS9_EELj1EEEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i: ; preds = %22, %_ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i, i64 noundef 56) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i, i64 noundef 56) #19
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !462
 
@@ -10068,7 +10068,7 @@ _ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLega
 30:                                               ; preds = %_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
   %31 = load i64, ptr %24, align 8, !tbaa !464
   %32 = shl i64 %31, 3
-  tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %32) #18
+  tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %32) #19
   br label %_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit, %30
@@ -10108,20 +10108,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %22 = load i64, ptr %21, align 8, !tbaa !168
   store i64 %22, ptr %20, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 6) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 6) #17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i, label %25, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 25:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !171
-  %28 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %28 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %28, true
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -10135,26 +10135,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %34 = load i64, ptr %33, align 8, !tbaa !168
   store i64 %34, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i9.i.i.i, label %37, label %38
 
 37:                                               ; preds = %32
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !171
-  %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %42 = load ptr, ptr %35, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %43
 
 43:                                               ; preds = %38
-  %44 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %44 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %43, %38
@@ -10173,7 +10173,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %43, %38
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %48
 
 48:                                               ; preds = %45
-  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %45, %48
@@ -10202,7 +10202,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val5, i64 64, i1 false), !tbaa.struct !175
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -10213,7 +10213,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -10243,20 +10243,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !168
   store i64 %16, ptr %14, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 4) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 19:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %22, true
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -10270,26 +10270,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !168
   store i64 %28, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i9.i.i.i, label %31, label %32
 
 31:                                               ; preds = %26
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !171
-  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %36 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %37
 
 37:                                               ; preds = %32
-  %38 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %38 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %37, %32
@@ -10308,7 +10308,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %37, %32
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_1JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %42
 
 42:                                               ; preds = %39
-  %43 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %43 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_1JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_1JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %39, %42
@@ -10337,7 +10337,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false), !tbaa.struct !176
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -10348,7 +10348,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -10402,81 +10402,83 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %19, %17
   %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %17 ], [ %23, %19 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %17 ], [ %26, %19 ]
   store i64 %.sroa.06.0.i.i.i.i, ptr %3, align 8
-  %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
-  %27 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #16
+  %.sroa.25.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.25.0..sroa_idx.i.i.i, align 8
+  %27 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i64 %27, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" [
-    i64 16, label %28
-    i64 32, label %28
-    i64 64, label %28
-    i64 128, label %28
-    i64 256, label %28
-    i64 512, label %28
-  ]
+  %28 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %.split.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-28:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+.split.i.i.i:                                     ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  %30 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %27, i1 true)
+  %.off.i.i.i = add nsw i64 %30, -4
+  %switch.i.i.i = icmp ult i64 %.off.i.i.i, 6
+  br i1 %switch.i.i.i, label %31, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+
+31:                                               ; preds = %.split.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !467
-  %31 = zext i32 %30 to i64
-  %32 = load ptr, ptr %5, align 8, !tbaa !417
-  %33 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %32, i64 %31
-  %34 = load i64, ptr %33, align 8
-  %35 = and i64 %34, -7
-  %spec.select.i.i.i8.i.i.i = icmp ne i64 %35, 0
-  %36 = and i64 %34, 2
-  %37 = and i64 %34, 6
-  %38 = icmp eq i64 %37, 2
-  %or.cond.i9.i.i.i = and i1 %spec.select.i.i.i8.i.i.i, %38
-  %39 = and i64 %34, 1
-  %40 = icmp ne i64 %39, 0
-  %or.cond8.i10.i.i.i = or i1 %40, %or.cond.i9.i.i.i
-  br i1 %or.cond8.i10.i.i.i, label %41, label %43
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !467
+  %34 = zext i32 %33 to i64
+  %35 = load ptr, ptr %5, align 8, !tbaa !417
+  %36 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %35, i64 %34
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %37, -7
+  %spec.select.i.i.i11.i.i.i = icmp ne i64 %38, 0
+  %39 = and i64 %37, 2
+  %40 = and i64 %37, 6
+  %41 = icmp eq i64 %40, 2
+  %or.cond.i12.i.i.i = and i1 %spec.select.i.i.i11.i.i.i, %41
+  %42 = and i64 %37, 1
+  %43 = icmp ne i64 %42, 0
+  %or.cond8.i13.i.i.i = or i1 %43, %or.cond.i12.i.i.i
+  br i1 %or.cond8.i13.i.i.i, label %44, label %46
 
-41:                                               ; preds = %28
-  %.not.i.i.i19.i.i.i = icmp ne i64 %36, 0
-  %42 = and i1 %.not.i.i.i19.i.i.i, %spec.select.i.i.i8.i.i.i
-  %.0.in.v.i.i20.i.i.i = select i1 %42, i64 48, i64 32
-  %.0.in.i.i21.i.i.i = lshr i64 %34, %.0.in.v.i.i20.i.i.i
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i
+44:                                               ; preds = %31
+  %.not.i.i.i22.i.i.i = icmp ne i64 %39, 0
+  %45 = and i1 %.not.i.i.i22.i.i.i, %spec.select.i.i.i11.i.i.i
+  %.0.in.v.i.i23.i.i.i = select i1 %45, i64 48, i64 32
+  %.0.in.i.i24.i.i.i = lshr i64 %37, %.0.in.v.i.i23.i.i.i
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit25.i.i.i
 
-43:                                               ; preds = %28
-  %44 = lshr i64 %34, 8
-  %.sroa.0.0.insert.ext.i.i.i11.i.i.i = and i64 %44, 65535
-  %.not.i.i1.i12.i.i.i = icmp ne i64 %36, 0
-  %45 = and i1 %.not.i.i1.i12.i.i.i, %spec.select.i.i.i8.i.i.i
-  %.0.in.v.i3.i13.i.i.i = select i1 %45, i64 48, i64 32
-  %.0.in.i4.i14.i.i.i = lshr i64 %34, %.0.in.v.i3.i13.i.i.i
-  %46 = mul nuw nsw i64 %.0.in.i4.i14.i.i.i, %.sroa.0.0.insert.ext.i.i.i11.i.i.i
-  %47 = and i64 %46, 4294967295
-  %48 = trunc i64 %34 to i8
-  %49 = lshr i8 %48, 3
-  %50 = and i8 %49, 1
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i
+46:                                               ; preds = %31
+  %47 = lshr i64 %37, 8
+  %.sroa.0.0.insert.ext.i.i.i14.i.i.i = and i64 %47, 65535
+  %.not.i.i1.i15.i.i.i = icmp ne i64 %39, 0
+  %48 = and i1 %.not.i.i1.i15.i.i.i, %spec.select.i.i.i11.i.i.i
+  %.0.in.v.i3.i16.i.i.i = select i1 %48, i64 48, i64 32
+  %.0.in.i4.i17.i.i.i = lshr i64 %37, %.0.in.v.i3.i16.i.i.i
+  %49 = mul nuw nsw i64 %.0.in.i4.i17.i.i.i, %.sroa.0.0.insert.ext.i.i.i14.i.i.i
+  %50 = and i64 %49, 4294967295
+  %51 = trunc i64 %37 to i8
+  %52 = lshr i8 %51, 3
+  %53 = and i8 %52, 1
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit25.i.i.i
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i:      ; preds = %43, %41
-  %.sroa.06.0.i15.i.i.i = phi i64 [ %.0.in.i.i21.i.i.i, %41 ], [ %47, %43 ]
-  %.sroa.3.0.i16.i.i.i = phi i8 [ 0, %41 ], [ %50, %43 ]
-  store i64 %.sroa.06.0.i15.i.i.i, ptr %4, align 8
+_ZNK4llvm3LLT13getSizeInBitsEv.exit25.i.i.i:      ; preds = %46, %44
+  %.sroa.06.0.i18.i.i.i = phi i64 [ %.0.in.i.i24.i.i.i, %44 ], [ %50, %46 ]
+  %.sroa.3.0.i19.i.i.i = phi i8 [ 0, %44 ], [ %53, %46 ]
+  store i64 %.sroa.06.0.i18.i.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.3.0.i16.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %51 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #16
+  store i8 %.sroa.3.0.i19.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
+  %54 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  switch i64 %51, label %52 [
-    i64 8, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
-    i64 16, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
-    i64 32, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
-    i64 64, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
-    i64 128, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
-    i64 256, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
-  ]
+  %55 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %54)
+  %56 = icmp eq i64 %55, 1
+  br i1 %56, label %.split1.i.i.i, label %58
 
-52:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i
+.split1.i.i.i:                                    ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit25.i.i.i
+  %57 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %54, i1 true)
+  %.off9.i.i.i = add nsw i64 %57, -3
+  %switch10.i.i.i = icmp ult i64 %.off9.i.i.i, 6
+  br i1 %switch10.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %58
+
+58:                                               ; preds = %.split1.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit25.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %52
-  %.0.i.i.i = phi i1 [ false, %52 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ]
+"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %.split.i.i.i, %.split1.i.i.i, %58
+  %.0.i.i.i = phi i1 [ false, %58 ], [ false, %.split.i.i.i ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ true, %.split1.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -10523,26 +10525,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #17
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %17, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 17:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !171
-  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %21 = load ptr, ptr %15, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %22
 
 22:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
-  %23 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %23 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %22, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -10562,26 +10564,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %22, %_ZNKSt8functio
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %30 = load i64, ptr %29, align 8, !tbaa !168
   store i64 %30, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !174
   %.not.i.i46.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i46.i.i.i, label %33, label %34
 
 33:                                               ; preds = %28
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !171
-  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %38 = load ptr, ptr %31, align 8, !tbaa !174
   %.not.i48.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i48.i.i.i, label %41, label %39
 
 39:                                               ; preds = %34
-  %40 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %40 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %41
 
 .thread66.i.i.i:                                  ; preds = %24
@@ -10603,26 +10605,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %22, %_ZNKSt8functio
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @constinit.12, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #17
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !174
   %.not.i.i50.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i50.i.i.i, label %49, label %50
 
 49:                                               ; preds = %46
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !171
-  %53 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %53 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %54 = load ptr, ptr %47, align 8, !tbaa !174
   %.not.i52.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i52.i.i.i, label %57, label %55
 
 55:                                               ; preds = %50
-  %56 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %56 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %57
 
 .thread68.i.i.i:                                  ; preds = %42
@@ -10644,26 +10646,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %22, %_ZNKSt8functio
 62:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @constinit.13, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #17
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i.i54.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i54.i.i.i, label %65, label %66
 
 65:                                               ; preds = %62
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !171
-  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %70 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i56.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i56.i.i.i, label %73, label %71
 
 71:                                               ; preds = %66
-  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %73
 
 .thread70.i.i.i:                                  ; preds = %58
@@ -10691,26 +10693,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %22, %_ZNKSt8functio
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 136
   %83 = load i64, ptr %82, align 8, !tbaa !168
   store i64 %83, ptr %81, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 2) #17
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !174
   %.not.i.i58.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i58.i.i.i, label %86, label %87
 
 86:                                               ; preds = %78
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !171
-  %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %91 = load ptr, ptr %84, align 8, !tbaa !174
   %.not.i60.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i60.i.i.i, label %94, label %92
 
 92:                                               ; preds = %87
-  %93 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #16
+  %93 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #17
   br label %94
 
 .thread72.i.i.i:                                  ; preds = %74
@@ -10738,26 +10740,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %22, %_ZNKSt8functio
   %103 = getelementptr inbounds nuw i8, ptr %.val, i64 160
   %104 = load i64, ptr %103, align 8, !tbaa !168
   store i64 %104, ptr %102, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 0, ptr nonnull %14, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 0, ptr nonnull %14, i64 2) #17
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !174
   %.not.i.i62.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i62.i.i.i, label %107, label %108
 
 107:                                              ; preds = %99
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 108:                                              ; preds = %99
   %109 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %110 = load ptr, ptr %109, align 8, !tbaa !171
-  %111 = call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %111 = call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %112 = load ptr, ptr %105, align 8, !tbaa !174
   %.not.i64.i.i.i = icmp eq ptr %112, null
   br i1 %.not.i64.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit65.i.i.i, label %113
 
 113:                                              ; preds = %108
-  %114 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #16
+  %114 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit65.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit65.i.i.i:           ; preds = %113, %108
@@ -10794,7 +10796,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %7, ptr noundef nonnull readonly align 8 dereferenceable(168) %.val5, i64 168, i1 false), !tbaa.struct !178
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -10805,7 +10807,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 168) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 168) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -10839,20 +10841,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %17, ptr %15, align 8, !tbaa !168
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %10, ptr %18, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 3) #17
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %21, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 21:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !171
-  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %24, true
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -10869,26 +10871,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i64, ptr %7, align 8, !tbaa !168
   store i64 %32, ptr %31, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i9.i.i.i, label %35, label %36
 
 35:                                               ; preds = %28
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !171
-  %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %40 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %41
 
 41:                                               ; preds = %36
-  %42 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %42 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %41, %36
@@ -10907,7 +10909,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %41, %36
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_4JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %46
 
 46:                                               ; preds = %43
-  %47 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %47 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_4JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_4JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %43, %46
@@ -10936,7 +10938,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false), !tbaa.struct !176
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -10947,7 +10949,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -10978,26 +10980,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i, label %23, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 23:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !171
-  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %27 = load ptr, ptr %21, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %28
 
 28:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
-  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %29 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -11017,26 +11019,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %36 = load i64, ptr %35, align 8, !tbaa !168
   store i64 %36, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !174
   %.not.i.i75.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i75.i.i.i, label %39, label %40
 
 39:                                               ; preds = %34
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !171
-  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %44 = load ptr, ptr %37, align 8, !tbaa !174
   %.not.i77.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i77.i.i.i, label %47, label %45
 
 45:                                               ; preds = %40
-  %46 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %46 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %47
 
 .thread107.i.i.i:                                 ; preds = %30
@@ -11060,26 +11062,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %54 = load i64, ptr %53, align 8, !tbaa !168
   store i64 %54, ptr %8, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 1) #17
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !174
   %.not.i.i79.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i79.i.i.i, label %57, label %58
 
 57:                                               ; preds = %52
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !171
-  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %62 = load ptr, ptr %55, align 8, !tbaa !174
   %.not.i81.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i81.i.i.i, label %65, label %63
 
 63:                                               ; preds = %58
-  %64 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %64 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %65
 
 .thread109.i.i.i:                                 ; preds = %48
@@ -11103,26 +11105,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %71 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %72 = load i64, ptr %71, align 8, !tbaa !168
   store i64 %72, ptr %10, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 1) #17
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !174
   %.not.i.i83.i.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i83.i.i.i, label %75, label %76
 
 75:                                               ; preds = %70
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %78 = load ptr, ptr %77, align 8, !tbaa !171
-  %79 = call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %79 = call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %80 = load ptr, ptr %73, align 8, !tbaa !174
   %.not.i85.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i85.i.i.i, label %83, label %81
 
 81:                                               ; preds = %76
-  %82 = call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %82 = call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %83
 
 .thread111.i.i.i:                                 ; preds = %66
@@ -11150,26 +11152,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %92 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %93 = load i64, ptr %92, align 8, !tbaa !168
   store i64 %93, ptr %91, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 2) #17
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !174
   %.not.i.i87.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i87.i.i.i, label %96, label %97
 
 96:                                               ; preds = %88
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !171
-  %100 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %100 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %101 = load ptr, ptr %94, align 8, !tbaa !174
   %.not.i89.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i89.i.i.i, label %104, label %102
 
 102:                                              ; preds = %97
-  %103 = call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #16
+  %103 = call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #17
   br label %104
 
 .thread113.i.i.i:                                 ; preds = %84
@@ -11193,26 +11195,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %110 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %111 = load i64, ptr %110, align 8, !tbaa !168
   store i64 %111, ptr %14, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 0, ptr nonnull %14, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 0, ptr nonnull %14, i64 1) #17
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !174
   %.not.i.i91.i.i.i = icmp eq ptr %113, null
   br i1 %.not.i.i91.i.i.i, label %114, label %115
 
 114:                                              ; preds = %109
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %117 = load ptr, ptr %116, align 8, !tbaa !171
-  %118 = call noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %118 = call noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %119 = load ptr, ptr %112, align 8, !tbaa !174
   %.not.i93.i.i.i = icmp eq ptr %119, null
   br i1 %.not.i93.i.i.i, label %122, label %120
 
 120:                                              ; preds = %115
-  %121 = call noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #16
+  %121 = call noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #17
   br label %122
 
 .thread115.i.i.i:                                 ; preds = %105
@@ -11236,26 +11238,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %128 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %129 = load i64, ptr %128, align 8, !tbaa !168
   store i64 %129, ptr %16, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %15, i32 noundef 0, ptr nonnull %16, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %15, i32 noundef 0, ptr nonnull %16, i64 1) #17
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !174
   %.not.i.i95.i.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i95.i.i.i, label %132, label %133
 
 132:                                              ; preds = %127
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 133:                                              ; preds = %127
   %134 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !171
-  %136 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %136 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %137 = load ptr, ptr %130, align 8, !tbaa !174
   %.not.i97.i.i.i = icmp eq ptr %137, null
   br i1 %.not.i97.i.i.i, label %140, label %138
 
 138:                                              ; preds = %133
-  %139 = call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #16
+  %139 = call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #17
   br label %140
 
 .thread.i.i.i:                                    ; preds = %123
@@ -11287,26 +11289,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %150 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %151 = load i64, ptr %150, align 8, !tbaa !168
   store i64 %151, ptr %149, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %17, i32 noundef 0, ptr nonnull %18, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %17, i32 noundef 0, ptr nonnull %18, i64 2) #17
   %152 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !174
   %.not.i.i99.i.i.i = icmp eq ptr %153, null
   br i1 %.not.i.i99.i.i.i, label %154, label %155
 
 154:                                              ; preds = %146
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 155:                                              ; preds = %146
   %156 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %157 = load ptr, ptr %156, align 8, !tbaa !171
-  %158 = call noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %158 = call noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %159 = load ptr, ptr %152, align 8, !tbaa !174
   %.not.i101.i.i.i = icmp eq ptr %159, null
   br i1 %.not.i101.i.i.i, label %162, label %160
 
 160:                                              ; preds = %155
-  %161 = call noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3) #16
+  %161 = call noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3) #17
   br label %162
 
 .thread120.i.i.i:                                 ; preds = %141, %.thread.i.i.i
@@ -11330,26 +11332,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %28, %_ZNKSt8functio
   %168 = getelementptr inbounds nuw i8, ptr %.val, i64 160
   %169 = load i64, ptr %168, align 8, !tbaa !168
   store i64 %169, ptr %20, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %19, i32 noundef 0, ptr nonnull %20, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %19, i32 noundef 0, ptr nonnull %20, i64 1) #17
   %170 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !174
   %.not.i.i103.i.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i103.i.i.i, label %172, label %173
 
 172:                                              ; preds = %167
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 173:                                              ; preds = %167
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %175 = load ptr, ptr %174, align 8, !tbaa !171
-  %176 = call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %176 = call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %177 = load ptr, ptr %170, align 8, !tbaa !174
   %.not.i105.i.i.i = icmp eq ptr %177, null
   br i1 %.not.i105.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit106.i.i.i, label %178
 
 178:                                              ; preds = %173
-  %179 = call noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3) #16
+  %179 = call noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit106.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit106.i.i.i:          ; preds = %178, %173
@@ -11386,7 +11388,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %7, ptr noundef nonnull readonly align 8 dereferenceable(168) %.val5, i64 168, i1 false), !tbaa.struct !181
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -11397,7 +11399,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 168) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 168) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -11414,20 +11416,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #17
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %9, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 9:                                                ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !171
-  %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %12, true
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -11441,26 +11443,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !168
   store i64 %18, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i9.i.i.i, label %21, label %22
 
 21:                                               ; preds = %16
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !171
-  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %26 = load ptr, ptr %19, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %27
 
 27:                                               ; preds = %22
-  %28 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %28 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %27, %22
@@ -11479,7 +11481,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %27, %22
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_6JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %32
 
 32:                                               ; preds = %29
-  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_6JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_6JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %29, %32
@@ -11508,7 +11510,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !182
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -11519,7 +11521,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -11536,20 +11538,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #17
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %9, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 9:                                                ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !171
-  %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %12, true
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -11563,26 +11565,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !168
   store i64 %18, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i9.i.i.i, label %21, label %22
 
 21:                                               ; preds = %16
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !171
-  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %26 = load ptr, ptr %19, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %27
 
 27:                                               ; preds = %22
-  %28 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %28 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %27, %22
@@ -11601,7 +11603,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %27, %22
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_7JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %32
 
 32:                                               ; preds = %29
-  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %33 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_7JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_7JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %29, %32
@@ -11630,7 +11632,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !182
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -11641,7 +11643,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -11673,20 +11675,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %15, ptr %13, align 8, !tbaa !168
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %7, ptr %16, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 3) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 19:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %22, true
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -11703,26 +11705,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i64, ptr %.val, align 8, !tbaa !168
   store i64 %30, ptr %29, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i9.i.i.i, label %33, label %34
 
 33:                                               ; preds = %26
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !171
-  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %38 = load ptr, ptr %31, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %39
 
 39:                                               ; preds = %34
-  %40 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %40 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %39, %34
@@ -11741,7 +11743,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %39, %34
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_8JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %44
 
 44:                                               ; preds = %41
-  %45 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %45 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_8JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_8JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %41, %44
@@ -11770,7 +11772,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !182
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -11781,7 +11783,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -11804,26 +11806,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #17
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %15, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 15:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !171
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %19 = load ptr, ptr %13, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %20
 
 20:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
-  %21 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %21 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %20, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -11843,26 +11845,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %20, %_ZNKSt8functio
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !168
   store i64 %28, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i37.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i37.i.i.i, label %31, label %32
 
 31:                                               ; preds = %26
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !171
-  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %36 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i39.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i39.i.i.i, label %39, label %37
 
 37:                                               ; preds = %32
-  %38 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %38 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %39
 
 .thread53.i.i.i:                                  ; preds = %22
@@ -11884,26 +11886,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %20, %_ZNKSt8functio
 44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @constinit.12, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #17
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !174
   %.not.i.i41.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i41.i.i.i, label %47, label %48
 
 47:                                               ; preds = %44
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !171
-  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %52 = load ptr, ptr %45, align 8, !tbaa !174
   %.not.i43.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i43.i.i.i, label %55, label %53
 
 53:                                               ; preds = %48
-  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %55
 
 .thread55.i.i.i:                                  ; preds = %40
@@ -11925,26 +11927,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %20, %_ZNKSt8functio
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @constinit.13, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #17
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !174
   %.not.i.i45.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i45.i.i.i, label %63, label %64
 
 63:                                               ; preds = %60
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !171
-  %67 = call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %67 = call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %68 = load ptr, ptr %61, align 8, !tbaa !174
   %.not.i47.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i47.i.i.i, label %71, label %69
 
 69:                                               ; preds = %64
-  %70 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %70 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %71
 
 .thread57.i.i.i:                                  ; preds = %56
@@ -11966,26 +11968,26 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %20, %_ZNKSt8functio
 76:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) @constinit.14, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 4) #17
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !174
   %.not.i.i49.i.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i49.i.i.i, label %79, label %80
 
 79:                                               ; preds = %76
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !171
-  %83 = call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %83 = call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %84 = load ptr, ptr %77, align 8, !tbaa !174
   %.not.i51.i.i.i = icmp eq ptr %84, null
   br i1 %.not.i51.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit52.i.i.i, label %85
 
 85:                                               ; preds = %80
-  %86 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #16
+  %86 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit52.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit52.i.i.i:           ; preds = %85, %80
@@ -12022,7 +12024,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %7, ptr noundef nonnull readonly align 8 dereferenceable(160) %.val5, i64 160, i1 false), !tbaa.struct !183
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -12033,7 +12035,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 160) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 160) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE3$_9E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -12091,7 +12093,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !186
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -12102,7 +12104,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_10E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -12139,20 +12141,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %19, ptr %17, align 8, !tbaa !168
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %19, ptr %20, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 2) #17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i, label %23, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 23:                                               ; preds = %13
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !171
-  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i.i = xor i1 %26, true
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %28 = load i8, ptr %27, align 8, !range !157
@@ -12167,26 +12169,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   store i64 %32, ptr %6, align 8, !tbaa !168
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !174
   %.not.i.i15.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i15.i.i.i, label %36, label %37
 
 36:                                               ; preds = %30
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !171
-  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %41 = load ptr, ptr %34, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i, label %.thread20.i.i.i, label %42
 
 42:                                               ; preds = %37
-  %43 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %43 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.thread20.i.i.i
 
 .thread20.i.i.i:                                  ; preds = %42, %37
@@ -12205,7 +12207,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   br i1 %.not.i17.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i, label %47
 
 47:                                               ; preds = %44
-  %48 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %48 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit18.i.i.i:           ; preds = %47, %44
@@ -12243,7 +12245,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !187
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -12254,7 +12256,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -12291,20 +12293,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %19, ptr %17, align 8, !tbaa !168
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %19, ptr %20, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 2) #17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i, label %23, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 23:                                               ; preds = %13
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !171
-  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i.i = xor i1 %26, true
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %28 = load i8, ptr %27, align 8, !range !157
@@ -12319,26 +12321,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   store i64 %32, ptr %6, align 8, !tbaa !168
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !174
   %.not.i.i15.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i15.i.i.i, label %36, label %37
 
 36:                                               ; preds = %30
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !171
-  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %41 = load ptr, ptr %34, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i, label %.thread20.i.i.i, label %42
 
 42:                                               ; preds = %37
-  %43 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %43 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.thread20.i.i.i
 
 .thread20.i.i.i:                                  ; preds = %42, %37
@@ -12357,7 +12359,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   br i1 %.not.i17.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i, label %47
 
 47:                                               ; preds = %44
-  %48 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %48 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit18.i.i.i:           ; preds = %47, %44
@@ -12395,7 +12397,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !187
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -12406,7 +12408,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_12E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -12448,20 +12450,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %22, ptr %20, align 8, !tbaa !168
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %22, ptr %23, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 2) #17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %26, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 26:                                               ; preds = %16
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !171
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i.i = xor i1 %29, true
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %31 = load i8, ptr %30, align 8, !range !157
@@ -12476,26 +12478,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %16
   store i64 %35, ptr %6, align 8, !tbaa !168
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %35, ptr %36, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !174
   %.not.i.i16.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i16.i.i.i, label %39, label %40
 
 39:                                               ; preds = %33
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !171
-  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %44 = load ptr, ptr %37, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i, label %.thread24.i.i.i, label %45
 
 45:                                               ; preds = %40
-  %46 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %46 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.thread24.i.i.i
 
 .thread24.i.i.i:                                  ; preds = %45, %40
@@ -12514,7 +12516,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %16
   br i1 %.not.i18.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i, label %50
 
 50:                                               ; preds = %47
-  %51 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %51 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit19.i.i.i:           ; preds = %50, %47
@@ -12552,7 +12554,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !187
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -12563,7 +12565,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_13E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -12599,20 +12601,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !168
   store i64 %22, ptr %20, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 4) #17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i, label %25, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 25:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !171
-  %28 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %28 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -12628,20 +12630,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %.sroa.014.0.copyload.i.i.i = load i64, ptr %34, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i64 %.sroa.014.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i64 %.sroa.014.0.copyload.i.i.i) #17
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !174
   %.not.i.i50.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i50.i.i.i, label %37, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit51.i.i.i
 
 37:                                               ; preds = %33
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit51.i.i.i: ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !171
-  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %40, label %.critedge.thread.thread.thread.thread.i.i.i, label %41
 
 .critedge.thread.thread.thread.thread.i.i.i:      ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit51.i.i.i
@@ -12660,20 +12662,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit51.i.i.i: ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %.sroa.011.0.copyload.i.i.i = load i64, ptr %46, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %6, i32 noundef 0, i64 %.sroa.011.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %6, i32 noundef 0, i64 %.sroa.011.0.copyload.i.i.i) #17
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !174
   %.not.i.i52.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i52.i.i.i, label %49, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i
 
 49:                                               ; preds = %45
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i: ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !171
-  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %52, label %.critedge.thread.thread.i.i.i, label %53
 
 53:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i, %41
@@ -12685,20 +12687,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i: ; preds = %45
 57:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @constinit.12, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #17
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !174
   %.not.i.i54.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i54.i.i.i, label %60, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i
 
 60:                                               ; preds = %57
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i: ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !171
-  %63 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %63 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %63, label %.critedge.thread.i.i.i, label %64
 
 64:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i, %53
@@ -12710,20 +12712,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i: ; preds = %57
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @constinit.13, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #17
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !174
   %.not.i.i56.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i56.i.i.i, label %71, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i
 
 71:                                               ; preds = %68
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !171
-  %74 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %74 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %74, true
   %75 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %76 = load i8, ptr %75, align 8, !range !157
@@ -12744,26 +12746,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %68
 81:                                               ; preds = %.thread.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) @constinit.14, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 4) #17
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !174
   %.not.i.i58.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i58.i.i.i, label %84, label %85
 
 84:                                               ; preds = %81
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !171
-  %88 = call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %88 = call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %89 = load ptr, ptr %82, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i, label %92, label %90
 
 90:                                               ; preds = %85
-  %91 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #16
+  %91 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #17
   br label %92
 
 .critedge.thread.thread.thread.i.i.i:             ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -12800,7 +12802,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %68
   br i1 %.not.i60.i.i.i, label %100, label %97
 
 97:                                               ; preds = %93
-  %98 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %98 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %100
 
 .critedge43.i.i.i:                                ; preds = %92, %.critedge.thread122.i.i.i
@@ -12821,7 +12823,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %68
   br i1 %.not.i62.i.i.i, label %108, label %105
 
 105:                                              ; preds = %101
-  %106 = call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %106 = call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %108
 
 .critedge45.i.i.i:                                ; preds = %100, %.critedge43.i.i.i
@@ -12842,7 +12844,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %68
   br i1 %.not.i64.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit65.i.i.i, label %113
 
 113:                                              ; preds = %109
-  %114 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #16
+  %114 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit65.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit65.i.i.i:           ; preds = %113, %109
@@ -12861,7 +12863,7 @@ _ZNSt14_Function_baseD2Ev.exit65.i.i.i:           ; preds = %113, %109
   br i1 %.not.i66.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit67.i.i.i, label %120
 
 120:                                              ; preds = %116
-  %121 = call noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %121 = call noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit67.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit67.i.i.i:           ; preds = %120, %116
@@ -12875,7 +12877,7 @@ _ZNSt14_Function_baseD2Ev.exit67.i.i.i:           ; preds = %120, %116
   br i1 %.not.i68.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_14JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %124
 
 124:                                              ; preds = %.critedge49.i.i.i
-  %125 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %125 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_14JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_14JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %.critedge49.i.i.i, %124
@@ -12904,7 +12906,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %7, ptr noundef nonnull readonly align 8 dereferenceable(184) %.val5, i64 184, i1 false), !tbaa.struct !188
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -12915,7 +12917,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 184) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 184) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_14E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -12939,20 +12941,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %7, align 8, !tbaa !168
   store i64 %10, ptr %9, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #17
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %13, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !171
-  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %16, true
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -12969,26 +12971,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %21, align 8, !tbaa !168
   store i64 %24, ptr %23, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i9.i.i.i, label %27, label %28
 
 27:                                               ; preds = %20
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !171
-  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %32 = load ptr, ptr %25, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %33
 
 33:                                               ; preds = %28
-  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %33, %28
@@ -13007,7 +13009,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %33, %28
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_15JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %38
 
 38:                                               ; preds = %35
-  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_15JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_15JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %35, %38
@@ -13036,7 +13038,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false), !tbaa.struct !191
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -13047,7 +13049,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_15E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -13062,20 +13064,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 3) #17
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i, label %7, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 7:                                                ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !171
-  %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %10, label %30, label %11
 
 11:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -13114,7 +13116,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_16JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %33
 
 33:                                               ; preds = %30
-  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_16JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_16JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %30, %33
@@ -13143,7 +13145,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false), !tbaa.struct !176
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -13154,7 +13156,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_16E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -13176,20 +13178,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !168
   store i64 %10, ptr %8, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #17
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %13, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !171
-  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i.i = xor i1 %16, true
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -13203,26 +13205,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !168
   store i64 %22, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !174
   %.not.i.i9.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i9.i.i.i, label %25, label %26
 
 25:                                               ; preds = %20
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !171
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %30 = load ptr, ptr %23, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %31
 
 31:                                               ; preds = %26
-  %32 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %32 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %31, %26
@@ -13241,7 +13243,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %31, %26
   br i1 %.not.i11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_17JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %36
 
 36:                                               ; preds = %33
-  %37 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %37 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_17JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_17JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %33, %36
@@ -13270,7 +13272,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false), !tbaa.struct !191
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -13281,7 +13283,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_17E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -13311,20 +13313,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !168
   store i64 %18, ptr %16, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #17
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %21, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 21:                                               ; preds = %2
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !171
-  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -13343,20 +13345,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %31 = load i64, ptr %30, align 8, !tbaa !168
   store i64 %31, ptr %6, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 1) #17
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !174
   %.not.i.i52.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i52.i.i.i, label %34, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i
 
 34:                                               ; preds = %29
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i: ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !171
-  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %37, label %.critedge.thread.thread.thread.thread.i.i.i, label %38
 
 .critedge.thread.thread.thread.thread.i.i.i:      ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i
@@ -13377,20 +13379,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit53.i.i.i: ; preds = %29
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !168
   store i64 %44, ptr %8, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 1) #17
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !174
   %.not.i.i54.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i54.i.i.i, label %47, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i
 
 47:                                               ; preds = %42
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i: ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !171
-  %50 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %50 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %50, label %.critedge.thread.thread.i.i.i, label %51
 
 51:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i, %38
@@ -13408,20 +13410,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit55.i.i.i: ; preds = %42
   %59 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %60 = load i64, ptr %59, align 8, !tbaa !168
   store i64 %60, ptr %58, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 2) #17
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !174
   %.not.i.i56.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i56.i.i.i, label %63, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i
 
 63:                                               ; preds = %55
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !171
-  %66 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %66 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %66, label %.critedge.thread.i.i.i, label %67
 
 67:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i, %51
@@ -13439,20 +13441,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %55
   %75 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %76 = load i64, ptr %75, align 8, !tbaa !168
   store i64 %76, ptr %74, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %11, i32 noundef 0, ptr nonnull %12, i64 2) #17
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !174
   %.not.i.i58.i.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i58.i.i.i, label %79, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i
 
 79:                                               ; preds = %71
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !171
-  %82 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %82 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %82, true
   %83 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %84 = load i8, ptr %83, align 8, !range !157
@@ -13475,26 +13477,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   %90 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %91 = load i64, ptr %90, align 8, !tbaa !168
   store i64 %91, ptr %14, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 0, ptr nonnull %14, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %13, i32 noundef 0, ptr nonnull %14, i64 1) #17
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !174
   %.not.i.i60.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i60.i.i.i, label %94, label %95
 
 94:                                               ; preds = %89
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 95:                                               ; preds = %89
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !171
-  %98 = call noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %98 = call noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %99 = load ptr, ptr %92, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %99, null
   br i1 %.not.i.i.i.i, label %102, label %100
 
 100:                                              ; preds = %95
-  %101 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #16
+  %101 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #17
   br label %102
 
 .critedge.thread.thread.thread.i.i.i:             ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -13532,7 +13534,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   br i1 %.not.i62.i.i.i, label %110, label %107
 
 107:                                              ; preds = %103
-  %108 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #16
+  %108 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #17
   br label %110
 
 .critedge45.i.i.i:                                ; preds = %102, %.critedge.thread125.i.i.i
@@ -13553,7 +13555,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   br i1 %.not.i64.i.i.i, label %118, label %115
 
 115:                                              ; preds = %111
-  %116 = call noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %116 = call noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %118
 
 .critedge47.i.i.i:                                ; preds = %110, %.critedge45.i.i.i
@@ -13574,7 +13576,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   br i1 %.not.i66.i.i.i, label %126, label %123
 
 123:                                              ; preds = %119
-  %124 = call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %124 = call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %126
 
 .critedge49.i.i.i:                                ; preds = %118, %.critedge47.i.i.i
@@ -13595,7 +13597,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   br i1 %.not.i68.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit69.i.i.i, label %131
 
 131:                                              ; preds = %127
-  %132 = call noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %132 = call noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit69.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit69.i.i.i:           ; preds = %131, %127
@@ -13615,7 +13617,7 @@ _ZNSt14_Function_baseD2Ev.exit69.i.i.i:           ; preds = %131, %127
   br i1 %.not.i70.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_18JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %137
 
 137:                                              ; preds = %134
-  %138 = call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %138 = call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_18JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_18JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %134, %137
@@ -13644,7 +13646,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false), !tbaa.struct !195
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -13655,7 +13657,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_18E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -13684,20 +13686,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %11, align 8, !tbaa !168
   store i64 %14, ptr %13, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #17
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %17, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 17:                                               ; preds = %9
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !171
-  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %20, true
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %22 = load i8, ptr %21, align 8, !range !157
@@ -13724,26 +13726,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i64, ptr %29, align 8, !tbaa !168
   store i64 %32, ptr %31, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i16.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i16.i.i.i, label %35, label %36
 
 35:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !171
-  %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %40 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %43, label %41
 
 41:                                               ; preds = %36
-  %42 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %42 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %43
 
 43:                                               ; preds = %41, %36
@@ -13763,7 +13765,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   br i1 %.not.i18.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i, label %48
 
 48:                                               ; preds = %44
-  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit19.i.i.i:           ; preds = %48, %44
@@ -13801,7 +13803,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !196
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -13812,7 +13814,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_19E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -13844,20 +13846,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %13, align 8, !tbaa !168
   store i64 %16, ptr %15, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 19:                                               ; preds = %11
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %22, label %.critedge24.thread.i.i.i, label %23
 
 .critedge24.thread.i.i.i:                         ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -13880,20 +13882,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %11
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i64, ptr %29, align 8, !tbaa !168
   store i64 %32, ptr %31, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i27.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i27.i.i.i, label %35, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i
 
 35:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !171
-  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %38, true
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %40 = load i8, ptr %39, align 8, !range !157
@@ -13920,26 +13922,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = load i64, ptr %47, align 8, !tbaa !168
   store i64 %50, ptr %49, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #17
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i29.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i29.i.i.i, label %53, label %54
 
 53:                                               ; preds = %45
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !171
-  %57 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %57 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %58 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i, label %61, label %59
 
 59:                                               ; preds = %54
-  %60 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %60 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %61
 
 61:                                               ; preds = %59, %54
@@ -13959,7 +13961,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   br i1 %.not.i31.i.i.i, label %69, label %66
 
 66:                                               ; preds = %62
-  %67 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %67 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %69
 
 .critedge24.i.i.i:                                ; preds = %61, %.critedge.thread55.i.i.i
@@ -13980,7 +13982,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   br i1 %.not.i33.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit34.i.i.i, label %74
 
 74:                                               ; preds = %70
-  %75 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %75 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit34.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit34.i.i.i:           ; preds = %74, %70
@@ -14018,7 +14020,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull readonly align 8 dereferenceable(72) %.val5, i64 72, i1 false), !tbaa.struct !197
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -14029,7 +14031,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_20E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -14061,20 +14063,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %13, align 8, !tbaa !168
   store i64 %16, ptr %15, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 19:                                               ; preds = %11
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %22, label %.critedge24.thread.i.i.i, label %23
 
 .critedge24.thread.i.i.i:                         ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -14097,20 +14099,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %11
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i64, ptr %29, align 8, !tbaa !168
   store i64 %32, ptr %31, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i27.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i27.i.i.i, label %35, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i
 
 35:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !171
-  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %38, true
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %40 = load i8, ptr %39, align 8, !range !157
@@ -14137,26 +14139,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = load i64, ptr %47, align 8, !tbaa !168
   store i64 %50, ptr %49, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #17
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i29.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i29.i.i.i, label %53, label %54
 
 53:                                               ; preds = %45
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !171
-  %57 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %57 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %58 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i, label %61, label %59
 
 59:                                               ; preds = %54
-  %60 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %60 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %61
 
 61:                                               ; preds = %59, %54
@@ -14176,7 +14178,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   br i1 %.not.i31.i.i.i, label %69, label %66
 
 66:                                               ; preds = %62
-  %67 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %67 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %69
 
 .critedge24.i.i.i:                                ; preds = %61, %.critedge.thread55.i.i.i
@@ -14197,7 +14199,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   br i1 %.not.i33.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit34.i.i.i, label %74
 
 74:                                               ; preds = %70
-  %75 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %75 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit34.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit34.i.i.i:           ; preds = %74, %70
@@ -14235,7 +14237,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull readonly align 8 dereferenceable(72) %.val5, i64 72, i1 false), !tbaa.struct !197
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -14246,7 +14248,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 72) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_21E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -14279,20 +14281,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %15, ptr %4, align 8, !tbaa !168
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %15, ptr %16, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 19:                                               ; preds = %13
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %22, label %.critedge33.thread.i.i.i, label %23
 
 .critedge33.thread.i.i.i:                         ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -14315,20 +14317,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load i64, ptr %28, align 8, !tbaa !168
   store i64 %31, ptr %30, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !174
   %.not.i.i36.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i36.i.i.i, label %34, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i
 
 34:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i: ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !171
-  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i = xor i1 %37, true
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %39 = load i8, ptr %38, align 8, !range !157
@@ -14352,20 +14354,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i: ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = load i64, ptr %47, align 8, !tbaa !168
   store i64 %50, ptr %49, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #17
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i38.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i38.i.i.i, label %53, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i
 
 53:                                               ; preds = %45
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !171
-  %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i.i = xor i1 %56, true
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %58 = load i8, ptr %57, align 8, !range !157
@@ -14379,26 +14381,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   store i64 %61, ptr %10, align 8, !tbaa !168
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %61, ptr %62, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, i32 noundef 1, ptr nonnull %10, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, i32 noundef 1, ptr nonnull %10, i64 1) #17
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i.i40.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i40.i.i.i, label %65, label %66
 
 65:                                               ; preds = %60
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !171
-  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %70 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i, label %.thread58.i.i.i, label %71
 
 71:                                               ; preds = %66
-  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %.thread58.i.i.i
 
 .thread58.i.i.i:                                  ; preds = %71, %66
@@ -14417,7 +14419,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   br i1 %.not.i42.i.i.i, label %79, label %77
 
 77:                                               ; preds = %74
-  %78 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %78 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %79
 
 .critedge31.i.i.i:                                ; preds = %41
@@ -14443,7 +14445,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   br i1 %.not.i44.i.i.i, label %87, label %84
 
 84:                                               ; preds = %80
-  %85 = call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %85 = call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %87
 
 .critedge33.i.i.i:                                ; preds = %79, %.critedge31.i.i.i
@@ -14464,7 +14466,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   br i1 %.not.i46.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit47.i.i.i, label %92
 
 92:                                               ; preds = %88
-  %93 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %93 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit47.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit47.i.i.i:           ; preds = %92, %88
@@ -14502,7 +14504,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !198
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -14513,7 +14515,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_22E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -14546,20 +14548,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i64 %15, ptr %4, align 8, !tbaa !168
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %15, ptr %16, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i32 noundef 1, ptr nonnull %4, i64 1) #17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 19:                                               ; preds = %13
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !171
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %22, label %.critedge33.thread.i.i.i, label %23
 
 .critedge33.thread.i.i.i:                         ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -14582,20 +14584,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load i64, ptr %14, align 8, !tbaa !168
   store i64 %31, ptr %30, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef 1, ptr nonnull %6, i64 1) #17
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !174
   %.not.i.i36.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i36.i.i.i, label %34, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i
 
 34:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i: ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !171
-  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i = xor i1 %37, true
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %39 = load i8, ptr %38, align 8, !range !157
@@ -14619,20 +14621,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i: ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = load i64, ptr %47, align 8, !tbaa !168
   store i64 %50, ptr %49, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, i32 noundef 1, ptr nonnull %8, i64 1) #17
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i38.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i38.i.i.i, label %53, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i
 
 53:                                               ; preds = %45
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !171
-  %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i.i.i = xor i1 %56, true
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %58 = load i8, ptr %57, align 8, !range !157
@@ -14646,26 +14648,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   store i64 %61, ptr %10, align 8, !tbaa !168
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %61, ptr %62, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, i32 noundef 1, ptr nonnull %10, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, i32 noundef 1, ptr nonnull %10, i64 1) #17
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i.i40.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i40.i.i.i, label %65, label %66
 
 65:                                               ; preds = %60
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !171
-  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %70 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i, label %.thread58.i.i.i, label %71
 
 71:                                               ; preds = %66
-  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %.thread58.i.i.i
 
 .thread58.i.i.i:                                  ; preds = %71, %66
@@ -14684,7 +14686,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   br i1 %.not.i42.i.i.i, label %79, label %77
 
 77:                                               ; preds = %74
-  %78 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %78 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %79
 
 .critedge31.i.i.i:                                ; preds = %41
@@ -14710,7 +14712,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   br i1 %.not.i44.i.i.i, label %87, label %84
 
 84:                                               ; preds = %80
-  %85 = call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %85 = call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %87
 
 .critedge33.i.i.i:                                ; preds = %79, %.critedge31.i.i.i
@@ -14731,7 +14733,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit39.i.i.i: ; preds = %45
   br i1 %.not.i46.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit47.i.i.i, label %92
 
 92:                                               ; preds = %88
-  %93 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %93 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit47.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit47.i.i.i:           ; preds = %92, %88
@@ -14769,7 +14771,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !198
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -14780,7 +14782,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_23E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -14809,20 +14811,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !168
   store i64 %14, ptr %12, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #17
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %17, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 17:                                               ; preds = %9
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !171
-  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %20, label %21, label %.thread21.i.i.i
 
 .thread21.i.i.i:                                  ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -14836,26 +14838,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %13, align 8, !tbaa !168
   store i64 %24, ptr %23, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, ptr nonnull %6, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, ptr nonnull %6, i64 2) #17
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !174
   %.not.i.i15.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i15.i.i.i, label %27, label %28
 
 27:                                               ; preds = %21
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !171
-  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %32 = load ptr, ptr %25, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %.thread20.i.i.i, label %33
 
 33:                                               ; preds = %28
-  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.thread20.i.i.i
 
 .thread20.i.i.i:                                  ; preds = %33, %28
@@ -14870,7 +14872,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   br i1 %.not.i17.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i, label %38
 
 38:                                               ; preds = %35
-  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit18.i.i.i:           ; preds = %38, %35
@@ -14908,7 +14910,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !199
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -14919,7 +14921,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_24E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -14946,20 +14948,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.sroa.05.0.copyload.i.i.i = load i64, ptr %13, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i64 %.sroa.05.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i64 %.sroa.05.0.copyload.i.i.i) #17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %16, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 16:                                               ; preds = %12
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !171
-  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %19, label %35, label %20
 
 20:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -14978,20 +14980,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %28, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 0, i64 %.sroa.0.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 0, i64 %.sroa.0.0.copyload.i.i.i) #17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i25.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i25.i.i.i, label %31, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i
 
 31:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i: ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !171
-  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %34, label %35, label %.thread.i.i.i
 
 35:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15001,26 +15003,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i: ; preds = %27
   %37 = load i8, ptr %36, align 8, !tbaa !542, !range !157, !noundef !158
   %38 = trunc nuw i8 %37 to i1
   %39 = select i1 %38, i32 64, i32 32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, i32 noundef %39) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, i32 noundef %39) #17
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !174
   %.not.i.i27.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i27.i.i.i, label %42, label %43
 
 42:                                               ; preds = %35
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !171
-  %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %47 = load ptr, ptr %40, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i, label %.critedge.i.i.i, label %48
 
 48:                                               ; preds = %43
-  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %48, %43
@@ -15035,7 +15037,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i: ; preds = %27
   br i1 %.not.i29.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit30.i.i.i, label %53
 
 53:                                               ; preds = %.thread.i.i.i
-  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit30.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit30.i.i.i:           ; preds = %53, %.thread.i.i.i
@@ -15053,7 +15055,7 @@ _ZNSt14_Function_baseD2Ev.exit30.i.i.i:           ; preds = %53, %.thread.i.i.i
   br i1 %.not.i31.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit32.i.i.i, label %58
 
 58:                                               ; preds = %.thread.thread.i.i.i
-  %59 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %59 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit32.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit32.i.i.i:           ; preds = %58, %.thread.thread.i.i.i
@@ -15085,7 +15087,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !200
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -15096,7 +15098,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_25E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -15123,20 +15125,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.sroa.06.0.copyload.i.i.i = load i64, ptr %13, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i64 %.sroa.06.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, i64 %.sroa.06.0.copyload.i.i.i) #17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %16, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 16:                                               ; preds = %12
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !171
-  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %19, label %.thread50.i.i.i, label %20
 
 20:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15155,20 +15157,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %28, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 0, i64 %.sroa.03.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 0, i64 %.sroa.03.0.copyload.i.i.i) #17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i26.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i26.i.i.i, label %31, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i
 
 31:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !171
-  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %36 = load i8, ptr %35, align 8, !range !157
   %37 = trunc nuw i8 %36 to i1
@@ -15186,26 +15188,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %42, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, i64 %.sroa.0.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, i64 %.sroa.0.0.copyload.i.i.i) #17
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !174
   %.not.i.i28.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i28.i.i.i, label %45, label %46
 
 45:                                               ; preds = %41
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !171
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %50 = load ptr, ptr %43, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %.critedge.i.i.i, label %51
 
 51:                                               ; preds = %46
-  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %51, %46
@@ -15220,7 +15222,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   br i1 %.not.i30.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit31.i.i.i, label %56
 
 56:                                               ; preds = %.thread.thread43.i.i.i
-  %57 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %57 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit31.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit31.i.i.i:           ; preds = %56, %.thread.thread43.i.i.i
@@ -15238,7 +15240,7 @@ _ZNSt14_Function_baseD2Ev.exit31.i.i.i:           ; preds = %56, %.thread.thread
   br i1 %.not.i32.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit33.i.i.i, label %61
 
 61:                                               ; preds = %.critedge23.thread.i.i.i
-  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit33.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit33.i.i.i:           ; preds = %61, %.critedge23.thread.i.i.i
@@ -15270,7 +15272,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !200
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -15281,7 +15283,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_26E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -15310,20 +15312,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !168
   store i64 %14, ptr %12, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 2) #17
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %17, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 17:                                               ; preds = %9
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !171
-  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %20, label %21, label %.thread21.i.i.i
 
 .thread21.i.i.i:                                  ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15337,26 +15339,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %13, align 8, !tbaa !168
   store i64 %24, ptr %23, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, ptr nonnull %6, i64 2) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, ptr nonnull %6, i64 2) #17
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !174
   %.not.i.i15.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i15.i.i.i, label %27, label %28
 
 27:                                               ; preds = %21
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !171
-  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %32 = load ptr, ptr %25, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %.thread20.i.i.i, label %33
 
 33:                                               ; preds = %28
-  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.thread20.i.i.i
 
 .thread20.i.i.i:                                  ; preds = %33, %28
@@ -15371,7 +15373,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   br i1 %.not.i17.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i, label %38
 
 38:                                               ; preds = %35
-  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit18.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit18.i.i.i:           ; preds = %38, %35
@@ -15409,7 +15411,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !199
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_27E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -15420,7 +15422,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_27E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_27E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_27E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -15447,20 +15449,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.sroa.05.0.copyload.i.i.i = load i64, ptr %13, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 1, i64 %.sroa.05.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 1, i64 %.sroa.05.0.copyload.i.i.i) #17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %16, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 16:                                               ; preds = %12
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !171
-  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %19, label %35, label %20
 
 20:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15479,20 +15481,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %28, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 1, i64 %.sroa.0.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 1, i64 %.sroa.0.0.copyload.i.i.i) #17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i25.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i25.i.i.i, label %31, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i
 
 31:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i: ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !171
-  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %34, label %35, label %.thread.i.i.i
 
 35:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15502,26 +15504,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i: ; preds = %27
   %37 = load i8, ptr %36, align 8, !tbaa !554, !range !157, !noundef !158
   %38 = trunc nuw i8 %37 to i1
   %39 = select i1 %38, i32 64, i32 32
-  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef %39) #16
+  call void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i32 noundef %39) #17
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !174
   %.not.i.i27.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i27.i.i.i, label %42, label %43
 
 42:                                               ; preds = %35
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !171
-  %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %47 = load ptr, ptr %40, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i, label %.critedge.i.i.i, label %48
 
 48:                                               ; preds = %43
-  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %49 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %48, %43
@@ -15536,7 +15538,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit26.i.i.i: ; preds = %27
   br i1 %.not.i29.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit30.i.i.i, label %53
 
 53:                                               ; preds = %.thread.i.i.i
-  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit30.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit30.i.i.i:           ; preds = %53, %.thread.i.i.i
@@ -15554,7 +15556,7 @@ _ZNSt14_Function_baseD2Ev.exit30.i.i.i:           ; preds = %53, %.thread.i.i.i
   br i1 %.not.i31.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit32.i.i.i, label %58
 
 58:                                               ; preds = %.thread.thread.i.i.i
-  %59 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %59 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit32.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit32.i.i.i:           ; preds = %58, %.thread.thread.i.i.i
@@ -15586,7 +15588,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !200
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_28E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -15597,7 +15599,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_28E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_28E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_28E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -15624,20 +15626,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.sroa.06.0.copyload.i.i.i = load i64, ptr %13, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 1, i64 %.sroa.06.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 1, i64 %.sroa.06.0.copyload.i.i.i) #17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %16, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 16:                                               ; preds = %12
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !171
-  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %19, label %.thread50.i.i.i, label %20
 
 20:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15656,20 +15658,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %28, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 1, i64 %.sroa.03.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %4, i32 noundef 1, i64 %.sroa.03.0.copyload.i.i.i) #17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %.not.i.i26.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i26.i.i.i, label %31, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i
 
 31:                                               ; preds = %27
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !171
-  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %36 = load i8, ptr %35, align 8, !range !157
   %37 = trunc nuw i8 %36 to i1
@@ -15687,26 +15689,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %42, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i64 %.sroa.0.0.copyload.i.i.i) #16
+  call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, i64 %.sroa.0.0.copyload.i.i.i) #17
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !174
   %.not.i.i28.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i28.i.i.i, label %45, label %46
 
 45:                                               ; preds = %41
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !171
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %50 = load ptr, ptr %43, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %.critedge.i.i.i, label %51
 
 51:                                               ; preds = %46
-  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %51, %46
@@ -15721,7 +15723,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   br i1 %.not.i30.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit31.i.i.i, label %56
 
 56:                                               ; preds = %.thread.thread43.i.i.i
-  %57 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #16
+  %57 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit31.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit31.i.i.i:           ; preds = %56, %.thread.thread43.i.i.i
@@ -15739,7 +15741,7 @@ _ZNSt14_Function_baseD2Ev.exit31.i.i.i:           ; preds = %56, %.thread.thread
   br i1 %.not.i32.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit33.i.i.i, label %61
 
 61:                                               ; preds = %.critedge23.thread.i.i.i
-  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit33.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit33.i.i.i:           ; preds = %61, %.critedge23.thread.i.i.i
@@ -15771,7 +15773,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false), !tbaa.struct !200
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_29E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -15782,7 +15784,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_29E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_29E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_29E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -15813,20 +15815,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !168
   store i64 %15, ptr %4, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 1) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 0, ptr nonnull %4, i64 1) #17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %18, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 18:                                               ; preds = %13
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !171
-  %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %21, label %.critedge34.thread.i.i.i, label %22
 
 22:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i, %2
@@ -15838,20 +15840,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
 26:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @constinit.16, i64 24, i1 false), !tbaa.struct !468
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 3) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 0, ptr nonnull %6, i64 3) #17
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !174
   %.not.i.i37.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i37.i.i.i, label %29, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit38.i.i.i
 
 29:                                               ; preds = %26
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit38.i.i.i: ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !171
-  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   br i1 %32, label %.critedge.thread.thread.i.i.i, label %33
 
 .critedge.thread.thread.i.i.i:                    ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit38.i.i.i
@@ -15868,20 +15870,20 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit38.i.i.i: ; preds = %26
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @constinit.17, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef 0, ptr nonnull %8, i64 4) #17
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !174
   %.not.i.i39.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i39.i.i.i, label %40, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i
 
 40:                                               ; preds = %37
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !171
-  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %43, true
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %45 = load i8, ptr %44, align 8, !range !157
@@ -15902,7 +15904,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
 50:                                               ; preds = %.thread.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @constinit.18, i64 32, i1 false), !tbaa.struct !189
-  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr nonnull %10, i64 4) #17
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !174
   %.not.i.i41.i.i.i = icmp ne ptr %52, null
@@ -15910,7 +15912,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
   br i1 %.not.i.i.i.i, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #16
+  %54 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #17
   br label %55
 
 .critedge34.thread.i.i.i:                         ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
@@ -15936,7 +15938,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
   br i1 %.not.i42.i.i.i, label %63, label %60
 
 60:                                               ; preds = %56
-  %61 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #16
+  %61 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #17
   br label %63
 
 .critedge32.i.i.i:                                ; preds = %55, %.critedge.thread.i.i.i
@@ -15957,7 +15959,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
   br i1 %.not.i44.i.i.i, label %71, label %68
 
 68:                                               ; preds = %64
-  %69 = call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %69 = call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %71
 
 .critedge34.i.i.i:                                ; preds = %63, %.critedge32.i.i.i
@@ -15978,7 +15980,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
   br i1 %.not.i46.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit47.i.i.i, label %76
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %77 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit47.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit47.i.i.i:           ; preds = %76, %72
@@ -16016,7 +16018,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, ptr noundef nonnull readonly align 8 dereferenceable(128) %.val5, i64 128, i1 false), !tbaa.struct !201
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_30E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -16027,7 +16029,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_30E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 128) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 128) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_30E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_30E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -16085,20 +16087,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %36 = load i64, ptr %33, align 8, !tbaa !168
   store i64 %36, ptr %35, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef %9, i32 noundef %10, ptr nonnull %4, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef %9, i32 noundef %10, ptr nonnull %4, i64 4) #17
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i.i, label %39, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 39:                                               ; preds = %13
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !171
-  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %42, true
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %44 = load i8, ptr %43, align 8, !range !157
@@ -16173,26 +16175,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   store i64 %87, ptr %85, align 8, !tbaa !168
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 %84, ptr %88, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef %9, i32 noundef %10, ptr nonnull %6, i64 8) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef %9, i32 noundef %10, ptr nonnull %6, i64 8) #17
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !174
   %.not.i.i21.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i21.i.i.i, label %91, label %92
 
 91:                                               ; preds = %49
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 92:                                               ; preds = %49
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !171
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %96 = load ptr, ptr %89, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %96, null
   br i1 %.not.i.i.i.i, label %99, label %97
 
 97:                                               ; preds = %92
-  %98 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %98 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %99
 
 99:                                               ; preds = %97, %92
@@ -16212,7 +16214,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %13
   br i1 %.not.i23.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit24.i.i.i, label %104
 
 104:                                              ; preds = %100
-  %105 = call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %105 = call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit24.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit24.i.i.i:           ; preds = %104, %100
@@ -16250,7 +16252,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false), !tbaa.struct !202
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_31E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -16261,7 +16263,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_31E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_31E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_31E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -16314,20 +16316,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load i64, ptr %29, align 8, !tbaa !168
   store i64 %32, ptr %31, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 1, i32 noundef 0, ptr nonnull %4, i64 4) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %3, i32 noundef 1, i32 noundef 0, ptr nonnull %4, i64 4) #17
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %35, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
 
 35:                                               ; preds = %9
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !171
-  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %.not.i = xor i1 %38, true
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %40 = load i8, ptr %39, align 8, !range !157
@@ -16402,26 +16404,26 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   store i64 %83, ptr %81, align 8, !tbaa !168
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 %80, ptr %84, align 8, !tbaa !168
-  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, i32 noundef 0, ptr nonnull %6, i64 8) #16
+  call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %5, i32 noundef 1, i32 noundef 0, ptr nonnull %6, i64 8) #17
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !174
   %.not.i.i16.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i16.i.i.i, label %87, label %88
 
 87:                                               ; preds = %45
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
 88:                                               ; preds = %45
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !171
-  %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1) #17
   %92 = load ptr, ptr %85, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i, label %95, label %93
 
 93:                                               ; preds = %88
-  %94 = call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #16
+  %94 = call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #17
   br label %95
 
 95:                                               ; preds = %93, %88
@@ -16441,7 +16443,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %9
   br i1 %.not.i18.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i, label %100
 
 100:                                              ; preds = %96
-  %101 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
+  %101 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i
 
 _ZNSt14_Function_baseD2Ev.exit19.i.i.i:           ; preds = %100, %96
@@ -16479,7 +16481,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #17
+  %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %7, ptr noundef nonnull readonly align 8 dereferenceable(112) %.val5, i64 112, i1 false), !tbaa.struct !202
   store ptr %7, ptr %0, align 8, !tbaa !170
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
@@ -16490,7 +16492,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 112) #19
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm16X86LegalizerInfoC1ERKNS1_12X86SubtargetERKNS1_16X86TargetMachineEE4$_32E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -16511,7 +16513,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 8) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 8) #17
   %.pre.i = load i32, ptr %4, align 8, !tbaa !20
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
 
@@ -16548,7 +16550,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 8) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 8) #17
   %.pre.i = load i32, ptr %4, align 8, !tbaa !20
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
 
@@ -16585,7 +16587,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 8) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 8) #17
   %.pre.i = load i32, ptr %4, align 8, !tbaa !20
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
 
@@ -16612,8 +16614,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -16630,12 +16638,13 @@ attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin nounwind allocsize(0) }
-attributes #18 = { builtin nounwind }
-attributes #19 = { nounwind willreturn memory(none) }
-attributes #20 = { noreturn nounwind }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind allocsize(0) }
+attributes #19 = { builtin nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

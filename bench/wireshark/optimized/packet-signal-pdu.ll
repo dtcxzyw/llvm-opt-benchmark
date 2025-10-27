@@ -2715,318 +2715,321 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr noundef readonly
   %102 = load ptr, ptr %71, align 8
   %103 = call i32 @g_strcmp0(ptr noundef %102, ptr noundef nonnull @.str.254)
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %113
+  br i1 %104, label %105, label %114
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %107 = load i32, ptr %106, align 4
-  %108 = add i32 %107, -8
-  %109 = call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 29)
-  switch i32 %109, label %110 [
-    i32 0, label %113
-    i32 1, label %113
-    i32 3, label %113
-    i32 7, label %113
+  %108 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %107)
+  %109 = icmp eq i32 %108, 1
+  br i1 %109, label %.split, label %111
+
+.split:                                           ; preds = %105
+  %110 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %107, i1 true)
+  %.off = add nsw i32 %110, -3
+  %switch = icmp ult i32 %.off, 4
+  br i1 %switch, label %114, label %111
+
+111:                                              ; preds = %.split, %105
+  %112 = load i32, ptr %0, align 8
+  %113 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.264, i32 noundef %112)
+  br label %.sink.split
+
+114:                                              ; preds = %.split, %101
+  %115 = load ptr, ptr %71, align 8
+  %116 = call i32 @g_strcmp0(ptr noundef %115, ptr noundef nonnull @.str.255)
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %127
+
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %120 = load i32, ptr %119, align 4
+  %121 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %120)
+  %122 = icmp eq i32 %121, 1
+  br i1 %122, label %.split172, label %124
+
+.split172:                                        ; preds = %118
+  %123 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %120, i1 true)
+  %.off174 = add nsw i32 %123, -3
+  %switch175 = icmp ult i32 %.off174, 4
+  br i1 %switch175, label %127, label %124
+
+124:                                              ; preds = %.split172, %118
+  %125 = load i32, ptr %0, align 8
+  %126 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.265, i32 noundef %125)
+  br label %.sink.split
+
+127:                                              ; preds = %.split172, %114
+  %128 = load ptr, ptr %71, align 8
+  %129 = call i32 @g_strcmp0(ptr noundef %128, ptr noundef nonnull @.str.256)
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %156
+
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %133 = load i32, ptr %132, align 4
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %135 = load i32, ptr %134, align 8
+  %.not157 = icmp eq i32 %133, %135
+  br i1 %.not157, label %139, label %136
+
+136:                                              ; preds = %131
+  %137 = load i32, ptr %0, align 8
+  %138 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.266, i32 noundef %137)
+  br label %.sink.split
+
+139:                                              ; preds = %131
+  switch i32 %133, label %140 [
+    i32 32, label %143
+    i32 64, label %143
   ]
 
-110:                                              ; preds = %105
-  %111 = load i32, ptr %0, align 8
-  %112 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.264, i32 noundef %111)
+140:                                              ; preds = %139
+  %141 = load i32, ptr %0, align 8
+  %142 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.267, i32 noundef %141)
   br label %.sink.split
 
-113:                                              ; preds = %105, %105, %105, %105, %101
-  %114 = load ptr, ptr %71, align 8
-  %115 = call i32 @g_strcmp0(ptr noundef %114, ptr noundef nonnull @.str.255)
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %125
+143:                                              ; preds = %139, %139
+  %144 = fcmp une double %13, 1.000000e+00
+  %145 = fcmp une double %6, 0.000000e+00
+  %or.cond = or i1 %145, %144
+  br i1 %or.cond, label %146, label %149
 
-117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %119 = load i32, ptr %118, align 4
-  %120 = add i32 %119, -8
-  %121 = call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 29)
-  switch i32 %121, label %122 [
-    i32 0, label %125
-    i32 1, label %125
-    i32 3, label %125
-    i32 7, label %125
+146:                                              ; preds = %143
+  %147 = load i32, ptr %0, align 8
+  %148 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.268, i32 noundef %147)
+  br label %.sink.split
+
+149:                                              ; preds = %143
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %151 = load i8, ptr %150, align 8, !range !6, !noundef !7
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %153, label %156
+
+153:                                              ; preds = %149
+  %154 = load i32, ptr %0, align 8
+  %155 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.269, i32 noundef %154)
+  br label %.sink.split
+
+156:                                              ; preds = %149, %127
+  %157 = load ptr, ptr %71, align 8
+  %158 = call i32 @g_strcmp0(ptr noundef %157, ptr noundef nonnull @.str.257)
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %180, label %160
+
+160:                                              ; preds = %156
+  %161 = load ptr, ptr %71, align 8
+  %162 = call i32 @g_strcmp0(ptr noundef %161, ptr noundef nonnull @.str.258)
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %180, label %164
+
+164:                                              ; preds = %160
+  %165 = load ptr, ptr %71, align 8
+  %166 = call i32 @g_strcmp0(ptr noundef %165, ptr noundef nonnull @.str.259)
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %180, label %168
+
+168:                                              ; preds = %164
+  %169 = load ptr, ptr %71, align 8
+  %170 = call i32 @g_strcmp0(ptr noundef %169, ptr noundef nonnull @.str.260)
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %180, label %172
+
+172:                                              ; preds = %168
+  %173 = load ptr, ptr %71, align 8
+  %174 = call i32 @g_strcmp0(ptr noundef %173, ptr noundef nonnull @.str.261)
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %180, label %176
+
+176:                                              ; preds = %172
+  %177 = load ptr, ptr %71, align 8
+  %178 = call i32 @g_strcmp0(ptr noundef %177, ptr noundef nonnull @.str.262)
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %180, label %260
+
+180:                                              ; preds = %176, %172, %168, %164, %160, %156
+  %181 = fcmp une double %13, 1.000000e+00
+  %182 = fcmp une double %6, 0.000000e+00
+  %or.cond3 = or i1 %182, %181
+  br i1 %or.cond3, label %183, label %186
+
+183:                                              ; preds = %180
+  %184 = load i32, ptr %0, align 8
+  %185 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.270, i32 noundef %184)
+  br label %.sink.split
+
+186:                                              ; preds = %180
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %188 = load i8, ptr %187, align 8, !range !6, !noundef !7
+  %189 = trunc nuw i8 %188 to i1
+  br i1 %189, label %190, label %193
+
+190:                                              ; preds = %186
+  %191 = load i32, ptr %0, align 8
+  %192 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.271, i32 noundef %191)
+  br label %.sink.split
+
+193:                                              ; preds = %186
+  %194 = load ptr, ptr %71, align 8
+  %195 = call i32 @g_strcmp0(ptr noundef %194, ptr noundef nonnull @.str.257)
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %205, label %197
+
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %71, align 8
+  %199 = call i32 @g_strcmp0(ptr noundef %198, ptr noundef nonnull @.str.258)
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %205, label %201
+
+201:                                              ; preds = %197
+  %202 = load ptr, ptr %71, align 8
+  %203 = call i32 @g_strcmp0(ptr noundef %202, ptr noundef nonnull @.str.259)
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %205, label %211
+
+205:                                              ; preds = %201, %197, %193
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %207 = load i32, ptr %206, align 4
+  %.not160 = icmp eq i32 %207, 8
+  br i1 %.not160, label %211, label %208
+
+208:                                              ; preds = %205
+  %209 = load i32, ptr %0, align 8
+  %210 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.272, i32 noundef %209)
+  br label %.sink.split
+
+211:                                              ; preds = %205, %201
+  %212 = load ptr, ptr %71, align 8
+  %213 = call i32 @g_strcmp0(ptr noundef %212, ptr noundef nonnull @.str.260)
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %223, label %215
+
+215:                                              ; preds = %211
+  %216 = load ptr, ptr %71, align 8
+  %217 = call i32 @g_strcmp0(ptr noundef %216, ptr noundef nonnull @.str.261)
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %223, label %219
+
+219:                                              ; preds = %215
+  %220 = load ptr, ptr %71, align 8
+  %221 = call i32 @g_strcmp0(ptr noundef %220, ptr noundef nonnull @.str.262)
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %229
+
+223:                                              ; preds = %219, %215, %211
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %225 = load i32, ptr %224, align 4
+  switch i32 %225, label %226 [
+    i32 8, label %229
+    i32 16, label %229
   ]
 
-122:                                              ; preds = %117
-  %123 = load i32, ptr %0, align 8
-  %124 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.265, i32 noundef %123)
+226:                                              ; preds = %223
+  %227 = load i32, ptr %0, align 8
+  %228 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.273, i32 noundef %227)
   br label %.sink.split
 
-125:                                              ; preds = %117, %117, %117, %117, %113
-  %126 = load ptr, ptr %71, align 8
-  %127 = call i32 @g_strcmp0(ptr noundef %126, ptr noundef nonnull @.str.256)
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %154
+229:                                              ; preds = %223, %223, %219
+  %230 = load ptr, ptr %71, align 8
+  %231 = call i32 @g_strcmp0(ptr noundef %230, ptr noundef nonnull @.str.258)
+  %232 = icmp eq i32 %231, 0
+  br i1 %232, label %237, label %233
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %133 = load i32, ptr %132, align 8
-  %.not157 = icmp eq i32 %131, %133
-  br i1 %.not157, label %137, label %134
+233:                                              ; preds = %229
+  %234 = load ptr, ptr %71, align 8
+  %235 = call i32 @g_strcmp0(ptr noundef %234, ptr noundef nonnull @.str.261)
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %237, label %243
 
-134:                                              ; preds = %129
-  %135 = load i32, ptr %0, align 8
-  %136 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.266, i32 noundef %135)
+237:                                              ; preds = %233, %229
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %239 = load i32, ptr %238, align 8
+  %.not163 = icmp eq i32 %239, 0
+  br i1 %.not163, label %243, label %240
+
+240:                                              ; preds = %237
+  %241 = load i32, ptr %0, align 8
+  %242 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.274, i32 noundef %241)
   br label %.sink.split
 
-137:                                              ; preds = %129
-  switch i32 %131, label %138 [
-    i32 32, label %141
-    i32 64, label %141
-  ]
+243:                                              ; preds = %237, %233
+  %244 = load ptr, ptr %71, align 8
+  %245 = call i32 @g_strcmp0(ptr noundef %244, ptr noundef nonnull @.str.259)
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %251, label %247
 
-138:                                              ; preds = %137
-  %139 = load i32, ptr %0, align 8
-  %140 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.267, i32 noundef %139)
+247:                                              ; preds = %243
+  %248 = load ptr, ptr %71, align 8
+  %249 = call i32 @g_strcmp0(ptr noundef %248, ptr noundef nonnull @.str.262)
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %251, label %260
+
+251:                                              ; preds = %247, %243
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %253 = load i32, ptr %252, align 8
+  %254 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %253)
+  %255 = icmp eq i32 %254, 1
+  br i1 %255, label %.split173, label %257
+
+.split173:                                        ; preds = %251
+  %256 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %253, i1 true)
+  %.off176 = add nsw i32 %256, -3
+  %switch177 = icmp ult i32 %.off176, 4
+  br i1 %switch177, label %260, label %257
+
+257:                                              ; preds = %.split173, %251
+  %258 = load i32, ptr %0, align 8
+  %259 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.275, i32 noundef %258)
   br label %.sink.split
 
-141:                                              ; preds = %137, %137
-  %142 = fcmp une double %13, 1.000000e+00
-  %143 = fcmp une double %6, 0.000000e+00
-  %or.cond = or i1 %143, %142
-  br i1 %or.cond, label %144, label %147
-
-144:                                              ; preds = %141
-  %145 = load i32, ptr %0, align 8
-  %146 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.268, i32 noundef %145)
-  br label %.sink.split
-
-147:                                              ; preds = %141
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %149 = load i8, ptr %148, align 8, !range !6, !noundef !7
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %151, label %154
-
-151:                                              ; preds = %147
-  %152 = load i32, ptr %0, align 8
-  %153 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.269, i32 noundef %152)
-  br label %.sink.split
-
-154:                                              ; preds = %147, %125
-  %155 = load ptr, ptr %71, align 8
-  %156 = call i32 @g_strcmp0(ptr noundef %155, ptr noundef nonnull @.str.257)
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %178, label %158
-
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %71, align 8
-  %160 = call i32 @g_strcmp0(ptr noundef %159, ptr noundef nonnull @.str.258)
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %178, label %162
-
-162:                                              ; preds = %158
-  %163 = load ptr, ptr %71, align 8
-  %164 = call i32 @g_strcmp0(ptr noundef %163, ptr noundef nonnull @.str.259)
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %178, label %166
-
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %71, align 8
-  %168 = call i32 @g_strcmp0(ptr noundef %167, ptr noundef nonnull @.str.260)
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %178, label %170
-
-170:                                              ; preds = %166
-  %171 = load ptr, ptr %71, align 8
-  %172 = call i32 @g_strcmp0(ptr noundef %171, ptr noundef nonnull @.str.261)
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %178, label %174
-
-174:                                              ; preds = %170
-  %175 = load ptr, ptr %71, align 8
-  %176 = call i32 @g_strcmp0(ptr noundef %175, ptr noundef nonnull @.str.262)
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %257
-
-178:                                              ; preds = %174, %170, %166, %162, %158, %154
-  %179 = fcmp une double %13, 1.000000e+00
-  %180 = fcmp une double %6, 0.000000e+00
-  %or.cond3 = or i1 %180, %179
-  br i1 %or.cond3, label %181, label %184
-
-181:                                              ; preds = %178
-  %182 = load i32, ptr %0, align 8
-  %183 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.270, i32 noundef %182)
-  br label %.sink.split
-
-184:                                              ; preds = %178
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %186 = load i8, ptr %185, align 8, !range !6, !noundef !7
-  %187 = trunc nuw i8 %186 to i1
-  br i1 %187, label %188, label %191
-
-188:                                              ; preds = %184
-  %189 = load i32, ptr %0, align 8
-  %190 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.271, i32 noundef %189)
-  br label %.sink.split
-
-191:                                              ; preds = %184
-  %192 = load ptr, ptr %71, align 8
-  %193 = call i32 @g_strcmp0(ptr noundef %192, ptr noundef nonnull @.str.257)
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %203, label %195
-
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %71, align 8
-  %197 = call i32 @g_strcmp0(ptr noundef %196, ptr noundef nonnull @.str.258)
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %203, label %199
-
-199:                                              ; preds = %195
-  %200 = load ptr, ptr %71, align 8
-  %201 = call i32 @g_strcmp0(ptr noundef %200, ptr noundef nonnull @.str.259)
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %209
-
-203:                                              ; preds = %199, %195, %191
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %205 = load i32, ptr %204, align 4
-  %.not160 = icmp eq i32 %205, 8
-  br i1 %.not160, label %209, label %206
-
-206:                                              ; preds = %203
-  %207 = load i32, ptr %0, align 8
-  %208 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.272, i32 noundef %207)
-  br label %.sink.split
-
-209:                                              ; preds = %203, %199
-  %210 = load ptr, ptr %71, align 8
-  %211 = call i32 @g_strcmp0(ptr noundef %210, ptr noundef nonnull @.str.260)
-  %212 = icmp eq i32 %211, 0
-  br i1 %212, label %221, label %213
-
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %71, align 8
-  %215 = call i32 @g_strcmp0(ptr noundef %214, ptr noundef nonnull @.str.261)
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %221, label %217
-
-217:                                              ; preds = %213
-  %218 = load ptr, ptr %71, align 8
-  %219 = call i32 @g_strcmp0(ptr noundef %218, ptr noundef nonnull @.str.262)
-  %220 = icmp eq i32 %219, 0
-  br i1 %220, label %221, label %227
-
-221:                                              ; preds = %217, %213, %209
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %223 = load i32, ptr %222, align 4
-  switch i32 %223, label %224 [
-    i32 8, label %227
-    i32 16, label %227
-  ]
-
-224:                                              ; preds = %221
-  %225 = load i32, ptr %0, align 8
-  %226 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.273, i32 noundef %225)
-  br label %.sink.split
-
-227:                                              ; preds = %221, %221, %217
-  %228 = load ptr, ptr %71, align 8
-  %229 = call i32 @g_strcmp0(ptr noundef %228, ptr noundef nonnull @.str.258)
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %235, label %231
-
-231:                                              ; preds = %227
-  %232 = load ptr, ptr %71, align 8
-  %233 = call i32 @g_strcmp0(ptr noundef %232, ptr noundef nonnull @.str.261)
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %241
-
-235:                                              ; preds = %231, %227
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %237 = load i32, ptr %236, align 8
-  %.not163 = icmp eq i32 %237, 0
-  br i1 %.not163, label %241, label %238
-
-238:                                              ; preds = %235
-  %239 = load i32, ptr %0, align 8
-  %240 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.274, i32 noundef %239)
-  br label %.sink.split
-
-241:                                              ; preds = %235, %231
-  %242 = load ptr, ptr %71, align 8
-  %243 = call i32 @g_strcmp0(ptr noundef %242, ptr noundef nonnull @.str.259)
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %249, label %245
-
-245:                                              ; preds = %241
-  %246 = load ptr, ptr %71, align 8
-  %247 = call i32 @g_strcmp0(ptr noundef %246, ptr noundef nonnull @.str.262)
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %257
-
-249:                                              ; preds = %245, %241
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %251 = load i32, ptr %250, align 8
-  %252 = add i32 %251, -8
-  %253 = call i32 @llvm.fshl.i32(i32 %252, i32 %252, i32 29)
-  switch i32 %253, label %254 [
-    i32 0, label %257
-    i32 1, label %257
-    i32 3, label %257
-    i32 7, label %257
-  ]
-
-254:                                              ; preds = %249
-  %255 = load i32, ptr %0, align 8
-  %256 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.275, i32 noundef %255)
-  br label %.sink.split
-
-257:                                              ; preds = %249, %249, %249, %249, %245, %174
-  %258 = load ptr, ptr %71, align 8
-  %259 = call i32 @g_strcmp0(ptr noundef %258, ptr noundef nonnull @.str.254)
-  %.not168 = icmp eq i32 %259, 0
-  br i1 %.not168, label %281, label %260
-
-260:                                              ; preds = %257
+260:                                              ; preds = %.split173, %247, %176
   %261 = load ptr, ptr %71, align 8
-  %262 = call i32 @g_strcmp0(ptr noundef %261, ptr noundef nonnull @.str.255)
-  %.not169 = icmp eq i32 %262, 0
-  br i1 %.not169, label %281, label %263
+  %262 = call i32 @g_strcmp0(ptr noundef %261, ptr noundef nonnull @.str.254)
+  %.not168 = icmp eq i32 %262, 0
+  br i1 %.not168, label %284, label %263
 
 263:                                              ; preds = %260
   %264 = load ptr, ptr %71, align 8
-  %265 = call i32 @g_strcmp0(ptr noundef %264, ptr noundef nonnull @.str.256)
-  %.not170 = icmp eq i32 %265, 0
-  br i1 %.not170, label %281, label %266
+  %265 = call i32 @g_strcmp0(ptr noundef %264, ptr noundef nonnull @.str.255)
+  %.not169 = icmp eq i32 %265, 0
+  br i1 %.not169, label %284, label %266
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %268 = load i8, ptr %267, align 1, !range !6, !noundef !7
-  %269 = trunc nuw i8 %268 to i1
-  br i1 %269, label %278, label %270
+  %267 = load ptr, ptr %71, align 8
+  %268 = call i32 @g_strcmp0(ptr noundef %267, ptr noundef nonnull @.str.256)
+  %.not170 = icmp eq i32 %268, 0
+  br i1 %.not170, label %284, label %269
 
-270:                                              ; preds = %266
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %272 = load i8, ptr %271, align 2, !range !6, !noundef !7
-  %273 = trunc nuw i8 %272 to i1
-  br i1 %273, label %278, label %274
+269:                                              ; preds = %266
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 81
+  %271 = load i8, ptr %270, align 1, !range !6, !noundef !7
+  %272 = trunc nuw i8 %271 to i1
+  br i1 %272, label %281, label %273
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 83
-  %276 = load i8, ptr %275, align 1, !range !6, !noundef !7
-  %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %278, label %281
+273:                                              ; preds = %269
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 82
+  %275 = load i8, ptr %274, align 2, !range !6, !noundef !7
+  %276 = trunc nuw i8 %275 to i1
+  br i1 %276, label %281, label %277
 
-278:                                              ; preds = %274, %270, %266
-  %279 = load i32, ptr %0, align 8
-  %280 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.276, i32 noundef %279)
+277:                                              ; preds = %273
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 83
+  %279 = load i8, ptr %278, align 1, !range !6, !noundef !7
+  %280 = trunc nuw i8 %279 to i1
+  br i1 %280, label %281, label %284
+
+281:                                              ; preds = %277, %273, %269
+  %282 = load i32, ptr %0, align 8
+  %283 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.276, i32 noundef %282)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %15, %21, %27, %30, %40, %49, %98, %110, %122, %134, %138, %144, %151, %181, %188, %206, %224, %238, %254, %278, %66, %68, %56
-  %.sink = phi ptr [ %58, %56 ], [ %69, %68 ], [ %67, %66 ], [ %280, %278 ], [ %256, %254 ], [ %240, %238 ], [ %226, %224 ], [ %208, %206 ], [ %190, %188 ], [ %183, %181 ], [ %153, %151 ], [ %146, %144 ], [ %140, %138 ], [ %136, %134 ], [ %124, %122 ], [ %112, %110 ], [ %100, %98 ], [ %50, %49 ], [ %41, %40 ], [ %32, %30 ], [ %28, %27 ], [ %22, %21 ], [ %16, %15 ], [ %9, %8 ]
+.sink.split:                                      ; preds = %8, %15, %21, %27, %30, %40, %49, %98, %111, %124, %136, %140, %146, %153, %183, %190, %208, %226, %240, %257, %281, %66, %68, %56
+  %.sink = phi ptr [ %58, %56 ], [ %69, %68 ], [ %67, %66 ], [ %283, %281 ], [ %259, %257 ], [ %242, %240 ], [ %228, %226 ], [ %210, %208 ], [ %192, %190 ], [ %185, %183 ], [ %155, %153 ], [ %148, %146 ], [ %142, %140 ], [ %138, %136 ], [ %126, %124 ], [ %113, %111 ], [ %100, %98 ], [ %50, %49 ], [ %41, %40 ], [ %32, %30 ], [ %28, %27 ], [ %22, %21 ], [ %16, %15 ], [ %9, %8 ]
   store ptr %.sink, ptr %1, align 8
-  br label %281
+  br label %284
 
-281:                                              ; preds = %.sink.split, %257, %260, %263, %274
-  %.0 = phi i1 [ true, %274 ], [ true, %263 ], [ true, %260 ], [ true, %257 ], [ false, %.sink.split ]
+284:                                              ; preds = %.sink.split, %260, %263, %266, %277
+  %.0 = phi i1 [ true, %277 ], [ true, %266 ], [ true, %263 ], [ true, %260 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -6668,7 +6671,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.ctpop.i32(i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14

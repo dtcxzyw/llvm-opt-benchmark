@@ -3344,36 +3344,43 @@ define hidden range(i32 -1, 2) i32 @ruby_is_fd_loadable(i32 noundef %0) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #22
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %16, label %5
+  br i1 %4, label %17, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !180
   %8 = and i32 %7, 61440
-  %9 = add nsw i32 %8, -4096
-  %10 = lshr exact i32 %9, 12
-  switch i32 %10, label %14 [
-    i32 7, label %16
-    i32 0, label %11
-    i32 1, label %11
-    i32 3, label %12
+  %9 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %8)
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %.split, label %15
+
+.split:                                           ; preds = %5
+  %11 = tail call range(i32 12, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
+  switch i32 %11, label %default.unreachable [
+    i32 15, label %17
+    i32 12, label %12
+    i32 13, label %12
+    i32 14, label %13
   ]
 
-11:                                               ; preds = %5, %5
-  br label %16
+12:                                               ; preds = %.split, %.split
+  br label %17
 
-12:                                               ; preds = %5
-  %13 = tail call ptr @rb_errno_ptr() #22
-  store i32 21, ptr %13, align 4, !tbaa !26
-  br label %16
+13:                                               ; preds = %.split
+  %14 = tail call ptr @rb_errno_ptr() #22
+  store i32 21, ptr %14, align 4, !tbaa !26
+  br label %17
 
-14:                                               ; preds = %5
-  %15 = tail call ptr @rb_errno_ptr() #22
-  store i32 6, ptr %15, align 4, !tbaa !26
-  br label %16
+default.unreachable:                              ; preds = %.split
+  unreachable
 
-16:                                               ; preds = %12, %14, %5, %1, %11
-  %.0 = phi i32 [ -1, %11 ], [ 0, %1 ], [ 1, %5 ], [ 0, %14 ], [ 0, %12 ]
+15:                                               ; preds = %5
+  %16 = tail call ptr @rb_errno_ptr() #22
+  store i32 6, ptr %16, align 4, !tbaa !26
+  br label %17
+
+17:                                               ; preds = %13, %15, %.split, %1, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %1 ], [ 1, %.split ], [ 0, %15 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3390,12 +3397,12 @@ define hidden range(i32 -1, 2) i32 @rb_file_load_ok(ptr noundef %0) local_unname
   %7 = load i32, ptr %6, align 4, !tbaa !26
   %8 = tail call i32 @rb_gc_for_fd(i32 noundef %7) #22
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %27, label %9
+  br i1 %.not, label %28, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @rb_cloexec_open(ptr noundef %0, i32 noundef 2048, i32 noundef 0) #22
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %27, label %12
+  br i1 %11, label %28, label %12
 
 12:                                               ; preds = %9, %1
   %.0 = phi i32 [ %10, %9 ], [ %3, %1 ]
@@ -3409,35 +3416,42 @@ define hidden range(i32 -1, 2) i32 @rb_file_load_ok(ptr noundef %0) local_unname
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !180
   %18 = and i32 %17, 61440
-  %19 = add nsw i32 %18, -4096
-  %20 = lshr exact i32 %19, 12
-  switch i32 %20, label %24 [
-    i32 7, label %ruby_is_fd_loadable.exit
-    i32 0, label %21
-    i32 1, label %21
-    i32 3, label %22
+  %19 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %18)
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %.split.i, label %25
+
+.split.i:                                         ; preds = %15
+  %21 = tail call range(i32 12, 33) i32 @llvm.cttz.i32(i32 %18, i1 true)
+  switch i32 %21, label %default.unreachable.i [
+    i32 15, label %ruby_is_fd_loadable.exit
+    i32 12, label %22
+    i32 13, label %22
+    i32 14, label %23
   ]
 
-21:                                               ; preds = %15, %15
+22:                                               ; preds = %.split.i, %.split.i
   br label %ruby_is_fd_loadable.exit
 
-22:                                               ; preds = %15
-  %23 = tail call ptr @rb_errno_ptr() #22
-  store i32 21, ptr %23, align 4, !tbaa !26
+23:                                               ; preds = %.split.i
+  %24 = tail call ptr @rb_errno_ptr() #22
+  store i32 21, ptr %24, align 4, !tbaa !26
   br label %ruby_is_fd_loadable.exit
 
-24:                                               ; preds = %15
-  %25 = tail call ptr @rb_errno_ptr() #22
-  store i32 6, ptr %25, align 4, !tbaa !26
+default.unreachable.i:                            ; preds = %.split.i
+  unreachable
+
+25:                                               ; preds = %15
+  %26 = tail call ptr @rb_errno_ptr() #22
+  store i32 6, ptr %26, align 4, !tbaa !26
   br label %ruby_is_fd_loadable.exit
 
-ruby_is_fd_loadable.exit:                         ; preds = %12, %15, %21, %22, %24
-  %.0.i = phi i32 [ -1, %21 ], [ 0, %12 ], [ 1, %15 ], [ 0, %24 ], [ 0, %22 ]
+ruby_is_fd_loadable.exit:                         ; preds = %12, %.split.i, %22, %23, %25
+  %.0.i = phi i32 [ -1, %22 ], [ 0, %12 ], [ 1, %.split.i ], [ 0, %25 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %26 = tail call i32 @close(i32 noundef %.0) #22
-  br label %27
+  %27 = tail call i32 @close(i32 noundef %.0) #22
+  br label %28
 
-27:                                               ; preds = %9, %5, %ruby_is_fd_loadable.exit
+28:                                               ; preds = %9, %5, %ruby_is_fd_loadable.exit
   %.010 = phi i32 [ %.0.i, %ruby_is_fd_loadable.exit ], [ 0, %5 ], [ 0, %9 ]
   ret i32 %.010
 }
@@ -12037,11 +12051,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #19
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
@@ -12065,8 +12085,8 @@ attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #16 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #22 = { nounwind }
 attributes #23 = { nounwind willreturn memory(read) }

@@ -6965,215 +6965,221 @@ declare i32 @sqlite3_trace_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @DbTraceV2Handler(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
-  switch i32 %0, label %166 [
-    i32 1, label %5
-    i32 2, label %49
-    i32 4, label %94
-    i32 8, label %130
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %169
+
+.split:                                           ; preds = %4
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  switch i32 %7, label %169 [
+    i32 0, label %8
+    i32 1, label %52
+    i32 2, label %97
+    i32 3, label %133
   ]
 
-5:                                                ; preds = %4
-  %6 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 464
-  %8 = load ptr, ptr %7, align 8, !tbaa !72
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !112
-  %11 = tail call ptr %8(ptr noundef %10, i32 noundef -1) #14
-  %12 = load i32, ptr %11, align 8, !tbaa !61
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %11, align 8, !tbaa !61
-  %14 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 368
-  %16 = load ptr, ptr %15, align 8, !tbaa !71
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !39
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 3920
-  %20 = load ptr, ptr %19, align 8, !tbaa !165
-  %21 = ptrtoint ptr %2 to i64
-  %22 = tail call ptr %20(i64 noundef %21) #14
-  %23 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %11, ptr noundef %22) #14
-  %24 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 368
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = load ptr, ptr %17, align 8, !tbaa !39
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 464
-  %29 = load ptr, ptr %28, align 8, !tbaa !72
-  %30 = tail call ptr %29(ptr noundef %3, i32 noundef -1) #14
-  %31 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %11, ptr noundef %30) #14
-  %32 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2360
-  %34 = load ptr, ptr %33, align 8, !tbaa !120
-  %35 = load ptr, ptr %17, align 8, !tbaa !39
-  %36 = tail call i32 %34(ptr noundef %35, ptr noundef nonnull %11, i32 noundef 262144) #14
-  %37 = load i32, ptr %11, align 8, !tbaa !61
-  %38 = add nsw i32 %37, -1
-  store i32 %38, ptr %11, align 8, !tbaa !61
-  %39 = icmp slt i32 %37, 2
-  br i1 %39, label %40, label %44
+8:                                                ; preds = %.split
+  %9 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 464
+  %11 = load ptr, ptr %10, align 8, !tbaa !72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !112
+  %14 = tail call ptr %11(ptr noundef %13, i32 noundef -1) #14
+  %15 = load i32, ptr %14, align 8, !tbaa !61
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %14, align 8, !tbaa !61
+  %17 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 368
+  %19 = load ptr, ptr %18, align 8, !tbaa !71
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !39
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 3920
+  %23 = load ptr, ptr %22, align 8, !tbaa !165
+  %24 = ptrtoint ptr %2 to i64
+  %25 = tail call ptr %23(i64 noundef %24) #14
+  %26 = tail call i32 %19(ptr noundef %21, ptr noundef nonnull %14, ptr noundef %25) #14
+  %27 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 368
+  %29 = load ptr, ptr %28, align 8, !tbaa !71
+  %30 = load ptr, ptr %20, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 464
+  %32 = load ptr, ptr %31, align 8, !tbaa !72
+  %33 = tail call ptr %32(ptr noundef %3, i32 noundef -1) #14
+  %34 = tail call i32 %29(ptr noundef %30, ptr noundef nonnull %14, ptr noundef %33) #14
+  %35 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2360
+  %37 = load ptr, ptr %36, align 8, !tbaa !120
+  %38 = load ptr, ptr %20, align 8, !tbaa !39
+  %39 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %14, i32 noundef 262144) #14
+  %40 = load i32, ptr %14, align 8, !tbaa !61
+  %41 = add nsw i32 %40, -1
+  store i32 %41, ptr %14, align 8, !tbaa !61
+  %42 = icmp slt i32 %40, 2
+  br i1 %42, label %43, label %47
 
-40:                                               ; preds = %5
-  %41 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 256
-  %43 = load ptr, ptr %42, align 8, !tbaa !64
-  tail call void %43(ptr noundef nonnull %11) #14
-  br label %44
+43:                                               ; preds = %8
+  %44 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 256
+  %46 = load ptr, ptr %45, align 8, !tbaa !64
+  tail call void %46(ptr noundef nonnull %14) #14
+  br label %47
 
-44:                                               ; preds = %40, %5
-  %45 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1752
-  %47 = load ptr, ptr %46, align 8, !tbaa !96
-  %48 = load ptr, ptr %17, align 8, !tbaa !39
-  tail call void %47(ptr noundef %48) #14
-  br label %166
+47:                                               ; preds = %43, %8
+  %48 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1752
+  %50 = load ptr, ptr %49, align 8, !tbaa !96
+  %51 = load ptr, ptr %20, align 8, !tbaa !39
+  tail call void %50(ptr noundef %51) #14
+  br label %169
 
-49:                                               ; preds = %4
-  %50 = load i64, ptr %3, align 8, !tbaa !84
-  %51 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 464
-  %53 = load ptr, ptr %52, align 8, !tbaa !72
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !112
-  %56 = tail call ptr %53(ptr noundef %55, i32 noundef -1) #14
-  %57 = load i32, ptr %56, align 8, !tbaa !61
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %56, align 8, !tbaa !61
-  %59 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 368
-  %61 = load ptr, ptr %60, align 8, !tbaa !71
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !39
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 3920
-  %65 = load ptr, ptr %64, align 8, !tbaa !165
-  %66 = ptrtoint ptr %2 to i64
-  %67 = tail call ptr %65(i64 noundef %66) #14
-  %68 = tail call i32 %61(ptr noundef %63, ptr noundef nonnull %56, ptr noundef %67) #14
-  %69 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 368
-  %71 = load ptr, ptr %70, align 8, !tbaa !71
-  %72 = load ptr, ptr %62, align 8, !tbaa !39
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 3920
-  %74 = load ptr, ptr %73, align 8, !tbaa !165
-  %75 = tail call ptr %74(i64 noundef %50) #14
-  %76 = tail call i32 %71(ptr noundef %72, ptr noundef nonnull %56, ptr noundef %75) #14
-  %77 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 2360
-  %79 = load ptr, ptr %78, align 8, !tbaa !120
-  %80 = load ptr, ptr %62, align 8, !tbaa !39
-  %81 = tail call i32 %79(ptr noundef %80, ptr noundef nonnull %56, i32 noundef 262144) #14
-  %82 = load i32, ptr %56, align 8, !tbaa !61
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr %56, align 8, !tbaa !61
-  %84 = icmp slt i32 %82, 2
-  br i1 %84, label %85, label %89
+52:                                               ; preds = %.split
+  %53 = load i64, ptr %3, align 8, !tbaa !84
+  %54 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 464
+  %56 = load ptr, ptr %55, align 8, !tbaa !72
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %58 = load ptr, ptr %57, align 8, !tbaa !112
+  %59 = tail call ptr %56(ptr noundef %58, i32 noundef -1) #14
+  %60 = load i32, ptr %59, align 8, !tbaa !61
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8, !tbaa !61
+  %62 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 368
+  %64 = load ptr, ptr %63, align 8, !tbaa !71
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !39
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 3920
+  %68 = load ptr, ptr %67, align 8, !tbaa !165
+  %69 = ptrtoint ptr %2 to i64
+  %70 = tail call ptr %68(i64 noundef %69) #14
+  %71 = tail call i32 %64(ptr noundef %66, ptr noundef nonnull %59, ptr noundef %70) #14
+  %72 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 368
+  %74 = load ptr, ptr %73, align 8, !tbaa !71
+  %75 = load ptr, ptr %65, align 8, !tbaa !39
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 3920
+  %77 = load ptr, ptr %76, align 8, !tbaa !165
+  %78 = tail call ptr %77(i64 noundef %53) #14
+  %79 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %59, ptr noundef %78) #14
+  %80 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 2360
+  %82 = load ptr, ptr %81, align 8, !tbaa !120
+  %83 = load ptr, ptr %65, align 8, !tbaa !39
+  %84 = tail call i32 %82(ptr noundef %83, ptr noundef nonnull %59, i32 noundef 262144) #14
+  %85 = load i32, ptr %59, align 8, !tbaa !61
+  %86 = add nsw i32 %85, -1
+  store i32 %86, ptr %59, align 8, !tbaa !61
+  %87 = icmp slt i32 %85, 2
+  br i1 %87, label %88, label %92
 
-85:                                               ; preds = %49
-  %86 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
-  %88 = load ptr, ptr %87, align 8, !tbaa !64
-  tail call void %88(ptr noundef nonnull %56) #14
-  br label %89
+88:                                               ; preds = %52
+  %89 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 256
+  %91 = load ptr, ptr %90, align 8, !tbaa !64
+  tail call void %91(ptr noundef nonnull %59) #14
+  br label %92
 
-89:                                               ; preds = %85, %49
-  %90 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1752
-  %92 = load ptr, ptr %91, align 8, !tbaa !96
-  %93 = load ptr, ptr %62, align 8, !tbaa !39
-  tail call void %92(ptr noundef %93) #14
-  br label %166
+92:                                               ; preds = %88, %52
+  %93 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1752
+  %95 = load ptr, ptr %94, align 8, !tbaa !96
+  %96 = load ptr, ptr %65, align 8, !tbaa !39
+  tail call void %95(ptr noundef %96) #14
+  br label %169
 
-94:                                               ; preds = %4
-  %95 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 464
-  %97 = load ptr, ptr %96, align 8, !tbaa !72
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %99 = load ptr, ptr %98, align 8, !tbaa !112
-  %100 = tail call ptr %97(ptr noundef %99, i32 noundef -1) #14
-  %101 = load i32, ptr %100, align 8, !tbaa !61
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %100, align 8, !tbaa !61
-  %103 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 368
-  %105 = load ptr, ptr %104, align 8, !tbaa !71
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !39
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 3920
-  %109 = load ptr, ptr %108, align 8, !tbaa !165
-  %110 = ptrtoint ptr %2 to i64
-  %111 = tail call ptr %109(i64 noundef %110) #14
-  %112 = tail call i32 %105(ptr noundef %107, ptr noundef nonnull %100, ptr noundef %111) #14
-  %113 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 2360
-  %115 = load ptr, ptr %114, align 8, !tbaa !120
-  %116 = load ptr, ptr %106, align 8, !tbaa !39
-  %117 = tail call i32 %115(ptr noundef %116, ptr noundef nonnull %100, i32 noundef 262144) #14
-  %118 = load i32, ptr %100, align 8, !tbaa !61
-  %119 = add nsw i32 %118, -1
-  store i32 %119, ptr %100, align 8, !tbaa !61
-  %120 = icmp slt i32 %118, 2
-  br i1 %120, label %121, label %125
+97:                                               ; preds = %.split
+  %98 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 464
+  %100 = load ptr, ptr %99, align 8, !tbaa !72
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %102 = load ptr, ptr %101, align 8, !tbaa !112
+  %103 = tail call ptr %100(ptr noundef %102, i32 noundef -1) #14
+  %104 = load i32, ptr %103, align 8, !tbaa !61
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %103, align 8, !tbaa !61
+  %106 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 368
+  %108 = load ptr, ptr %107, align 8, !tbaa !71
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !39
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 3920
+  %112 = load ptr, ptr %111, align 8, !tbaa !165
+  %113 = ptrtoint ptr %2 to i64
+  %114 = tail call ptr %112(i64 noundef %113) #14
+  %115 = tail call i32 %108(ptr noundef %110, ptr noundef nonnull %103, ptr noundef %114) #14
+  %116 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 2360
+  %118 = load ptr, ptr %117, align 8, !tbaa !120
+  %119 = load ptr, ptr %109, align 8, !tbaa !39
+  %120 = tail call i32 %118(ptr noundef %119, ptr noundef nonnull %103, i32 noundef 262144) #14
+  %121 = load i32, ptr %103, align 8, !tbaa !61
+  %122 = add nsw i32 %121, -1
+  store i32 %122, ptr %103, align 8, !tbaa !61
+  %123 = icmp slt i32 %121, 2
+  br i1 %123, label %124, label %128
 
-121:                                              ; preds = %94
-  %122 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 256
-  %124 = load ptr, ptr %123, align 8, !tbaa !64
-  tail call void %124(ptr noundef nonnull %100) #14
-  br label %125
+124:                                              ; preds = %97
+  %125 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 256
+  %127 = load ptr, ptr %126, align 8, !tbaa !64
+  tail call void %127(ptr noundef nonnull %103) #14
+  br label %128
 
-125:                                              ; preds = %121, %94
-  %126 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1752
-  %128 = load ptr, ptr %127, align 8, !tbaa !96
-  %129 = load ptr, ptr %106, align 8, !tbaa !39
-  tail call void %128(ptr noundef %129) #14
-  br label %166
+128:                                              ; preds = %124, %97
+  %129 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1752
+  %131 = load ptr, ptr %130, align 8, !tbaa !96
+  %132 = load ptr, ptr %109, align 8, !tbaa !39
+  tail call void %131(ptr noundef %132) #14
+  br label %169
 
-130:                                              ; preds = %4
-  %131 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 464
-  %133 = load ptr, ptr %132, align 8, !tbaa !72
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %135 = load ptr, ptr %134, align 8, !tbaa !112
-  %136 = tail call ptr %133(ptr noundef %135, i32 noundef -1) #14
-  %137 = load i32, ptr %136, align 8, !tbaa !61
-  %138 = add nsw i32 %137, 1
-  store i32 %138, ptr %136, align 8, !tbaa !61
-  %139 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 368
-  %141 = load ptr, ptr %140, align 8, !tbaa !71
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %143 = load ptr, ptr %142, align 8, !tbaa !39
-  %144 = getelementptr inbounds nuw i8, ptr %139, i64 3920
-  %145 = load ptr, ptr %144, align 8, !tbaa !165
-  %146 = ptrtoint ptr %2 to i64
-  %147 = tail call ptr %145(i64 noundef %146) #14
-  %148 = tail call i32 %141(ptr noundef %143, ptr noundef nonnull %136, ptr noundef %147) #14
-  %149 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 2360
-  %151 = load ptr, ptr %150, align 8, !tbaa !120
-  %152 = load ptr, ptr %142, align 8, !tbaa !39
-  %153 = tail call i32 %151(ptr noundef %152, ptr noundef nonnull %136, i32 noundef 262144) #14
-  %154 = load i32, ptr %136, align 8, !tbaa !61
-  %155 = add nsw i32 %154, -1
-  store i32 %155, ptr %136, align 8, !tbaa !61
-  %156 = icmp slt i32 %154, 2
-  br i1 %156, label %157, label %161
+133:                                              ; preds = %.split
+  %134 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 464
+  %136 = load ptr, ptr %135, align 8, !tbaa !72
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %138 = load ptr, ptr %137, align 8, !tbaa !112
+  %139 = tail call ptr %136(ptr noundef %138, i32 noundef -1) #14
+  %140 = load i32, ptr %139, align 8, !tbaa !61
+  %141 = add nsw i32 %140, 1
+  store i32 %141, ptr %139, align 8, !tbaa !61
+  %142 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 368
+  %144 = load ptr, ptr %143, align 8, !tbaa !71
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !39
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 3920
+  %148 = load ptr, ptr %147, align 8, !tbaa !165
+  %149 = ptrtoint ptr %2 to i64
+  %150 = tail call ptr %148(i64 noundef %149) #14
+  %151 = tail call i32 %144(ptr noundef %146, ptr noundef nonnull %139, ptr noundef %150) #14
+  %152 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 2360
+  %154 = load ptr, ptr %153, align 8, !tbaa !120
+  %155 = load ptr, ptr %145, align 8, !tbaa !39
+  %156 = tail call i32 %154(ptr noundef %155, ptr noundef nonnull %139, i32 noundef 262144) #14
+  %157 = load i32, ptr %139, align 8, !tbaa !61
+  %158 = add nsw i32 %157, -1
+  store i32 %158, ptr %139, align 8, !tbaa !61
+  %159 = icmp slt i32 %157, 2
+  br i1 %159, label %160, label %164
 
-157:                                              ; preds = %130
-  %158 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 256
-  %160 = load ptr, ptr %159, align 8, !tbaa !64
-  tail call void %160(ptr noundef nonnull %136) #14
-  br label %161
+160:                                              ; preds = %133
+  %161 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 256
+  %163 = load ptr, ptr %162, align 8, !tbaa !64
+  tail call void %163(ptr noundef nonnull %139) #14
+  br label %164
 
-161:                                              ; preds = %157, %130
-  %162 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1752
-  %164 = load ptr, ptr %163, align 8, !tbaa !96
-  %165 = load ptr, ptr %142, align 8, !tbaa !39
-  tail call void %164(ptr noundef %165) #14
-  br label %166
+164:                                              ; preds = %160, %133
+  %165 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 1752
+  %167 = load ptr, ptr %166, align 8, !tbaa !96
+  %168 = load ptr, ptr %145, align 8, !tbaa !39
+  tail call void %167(ptr noundef %168) #14
+  br label %169
 
-166:                                              ; preds = %161, %125, %89, %44, %4
+169:                                              ; preds = %4, %164, %128, %92, %47, %.split
   ret i32 0
 }
 
@@ -8287,14 +8293,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8308,8 +8320,8 @@ attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { nounwind allocsize(0) }

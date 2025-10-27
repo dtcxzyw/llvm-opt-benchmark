@@ -11767,7 +11767,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8FastISel10selectFNegEPKNS_4UserEPK
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %2)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %82, label %9
+  br i1 %.not, label %79, label %9
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -11857,124 +11857,102 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit40:            ; preds = %37, %41
   store i8 %.fca.1.extract12, ptr %.sroa.214.0..sroa_idx, align 8
   %43 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #21
   %44 = trunc i64 %43 to i32
-  switch i32 %44, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit [
-    i32 1, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-    i32 2, label %45
-    i32 4, label %46
-    i32 8, label %47
-    i32 16, label %48
-    i32 32, label %49
-    i32 64, label %50
-    i32 128, label %51
-  ]
+  %45 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %.split.i.i, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-45:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
+.split.i.i:                                       ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
+  %47 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %44, i1 true)
+  %48 = icmp samesign ult i32 %47, 8
+  br i1 %48, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-46:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-
-47:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-
-48:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-
-49:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-
-50:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-
-51:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread: ; preds = %45, %46, %47, %48, %49, %50, %51, %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  %.sroa.0.0.i.ph = phi i16 [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit40 ], [ 9, %51 ], [ 8, %50 ], [ 7, %49 ], [ 6, %48 ], [ 5, %47 ], [ 4, %46 ], [ 3, %45 ]
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread: ; preds = %.split.i.i
+  %switch.idx.cast.i.i = trunc nuw nsw i32 %47 to i16
+  %switch.offset.i.i = add nuw nsw i16 %switch.idx.cast.i.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  %52 = call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef %44) #21
-  %53 = extractvalue { i16, ptr } %52, 0
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40, %.split.i.i
+  %49 = call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef %44) #21
+  %50 = extractvalue { i16, ptr } %49, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not.i41 = icmp eq i16 %53, 0
+  %.not.i41 = icmp eq i16 %50, 0
   br i1 %.not.i41, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread
-  %.sroa.0.0.i77 = phi i16 [ %.sroa.0.0.i.ph, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread ], [ %53, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
-  %54 = load ptr, ptr %10, align 8, !tbaa !194
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
-  %56 = zext i16 %.sroa.0.0.i77 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !197
-  %.not80 = icmp eq ptr %58, null
-  br i1 %.not80, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %59
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
+  %.fca.1.insert.merged.i84 = phi i16 [ %switch.offset.i.i, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit.thread ], [ %50, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
+  %51 = load ptr, ptr %10, align 8, !tbaa !194
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
+  %53 = zext i16 %.fca.1.insert.merged.i84 to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !197
+  %.not72 = icmp eq ptr %55, null
+  br i1 %.not72, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %56
 
-59:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
+56:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
   %.sroa.0.0.copyload.i42 = load i16, ptr %4, align 8, !tbaa !211
-  %60 = load ptr, ptr %0, align 8, !tbaa !152
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
-  %62 = load ptr, ptr %61, align 8
-  %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.sroa.0.0.copyload.i42, i16 %.sroa.0.0.i77, i32 noundef 234, i32 noundef %8) #21
-  %.not29 = icmp eq i32 %63, 0
-  br i1 %.not29, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %64
+  %57 = load ptr, ptr %0, align 8, !tbaa !152
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
+  %59 = load ptr, ptr %58, align 8
+  %60 = call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.sroa.0.0.copyload.i42, i16 %.fca.1.insert.merged.i84, i32 noundef 234, i32 noundef %8) #21
+  %.not29 = icmp eq i32 %60, 0
+  br i1 %.not29, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %61
 
-64:                                               ; preds = %59
+61:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %65 = load i16, ptr %4, align 8, !tbaa !883
-  %.not.i45 = icmp eq i16 %65, 0
-  br i1 %.not.i45, label %70, label %66
+  %62 = load i16, ptr %4, align 8, !tbaa !883
+  %.not.i45 = icmp eq i16 %62, 0
+  br i1 %.not.i45, label %67, label %63
 
-66:                                               ; preds = %64
-  %67 = zext i16 %65 to i64
-  %68 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 -16
-  %.sroa.0.0.copyload.i.i46 = load i64, ptr %69, align 16
-  %.sroa.2.0..sroa_idx.i.i47 = getelementptr i8, ptr %68, i64 -8
+63:                                               ; preds = %61
+  %64 = zext i16 %62 to i64
+  %65 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 -16
+  %.sroa.0.0.copyload.i.i46 = load i64, ptr %66, align 16
+  %.sroa.2.0..sroa_idx.i.i47 = getelementptr i8, ptr %65, i64 -8
   %.sroa.2.0.copyload.i.i48 = load i8, ptr %.sroa.2.0..sroa_idx.i.i47, align 8
   %.fca.0.insert.i.i49 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i46, 0
   %.fca.1.insert.i.i50 = insertvalue { i64, i8 } %.fca.0.insert.i.i49, i8 %.sroa.2.0.copyload.i.i48, 1
   br label %_ZNK4llvm3EVT13getSizeInBitsEv.exit52
 
-70:                                               ; preds = %64
-  %71 = call { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+67:                                               ; preds = %61
+  %68 = call { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   br label %_ZNK4llvm3EVT13getSizeInBitsEv.exit52
 
-_ZNK4llvm3EVT13getSizeInBitsEv.exit52:            ; preds = %66, %70
-  %.pn.i51 = phi { i64, i8 } [ %.fca.1.insert.i.i50, %66 ], [ %71, %70 ]
+_ZNK4llvm3EVT13getSizeInBitsEv.exit52:            ; preds = %63, %67
+  %.pn.i51 = phi { i64, i8 } [ %.fca.1.insert.i.i50, %63 ], [ %68, %67 ]
   %.fca.0.extract = extractvalue { i64, i8 } %.pn.i51, 0
   %.fca.1.extract = extractvalue { i64, i8 } %.pn.i51, 1
   store i64 %.fca.0.extract, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  %72 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #21
-  %73 = add i64 %72, -1
-  %74 = shl nuw i64 1, %73
-  %75 = call i32 @_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjmS1_(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.sroa.0.0.i77, i32 noundef 188, i32 noundef %63, i64 noundef %74, i16 %.sroa.0.0.i77)
+  %69 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #21
+  %70 = add i64 %69, -1
+  %71 = shl nuw i64 1, %70
+  %72 = call i32 @_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjmS1_(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.fca.1.insert.merged.i84, i32 noundef 188, i32 noundef %60, i64 noundef %71, i16 %.fca.1.insert.merged.i84)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not30 = icmp eq i32 %75, 0
-  br i1 %.not30, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %76
+  %.not30 = icmp eq i32 %72, 0
+  br i1 %.not30, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %73
 
-76:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit52
+73:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit52
   %.sroa.0.0.copyload.i55 = load i16, ptr %4, align 8, !tbaa !211
-  %77 = load ptr, ptr %0, align 8, !tbaa !152
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %79 = load ptr, ptr %78, align 8
-  %80 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.sroa.0.0.i77, i16 %.sroa.0.0.copyload.i55, i32 noundef 234, i32 noundef %75) #21
-  %.not31 = icmp eq i32 %80, 0
-  br i1 %.not31, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %81
+  %74 = load ptr, ptr %0, align 8, !tbaa !152
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
+  %76 = load ptr, ptr %75, align 8
+  %77 = call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.fca.1.insert.merged.i84, i16 %.sroa.0.0.copyload.i55, i32 noundef 234, i32 noundef %72) #21
+  %.not31 = icmp eq i32 %77, 0
+  br i1 %.not31, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %78
 
-81:                                               ; preds = %76
-  call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %80, i32 noundef 1)
+78:                                               ; preds = %73
+  call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %77, i32 noundef 1)
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, %81, %_ZNK4llvm3EVT13getSizeInBitsEv.exit52, %76, %59, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %24
-  %.1 = phi i1 [ true, %24 ], [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %59 ], [ true, %81 ], [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit52 ], [ false, %76 ], [ false, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, %78, %_ZNK4llvm3EVT13getSizeInBitsEv.exit52, %73, %56, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %24
+  %.1 = phi i1 [ true, %24 ], [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %56 ], [ true, %78 ], [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit52 ], [ false, %73 ], [ false, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %82
+  br label %79
 
-82:                                               ; preds = %3, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
+79:                                               ; preds = %3, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
   %.0 = phi i1 [ %.1, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread ], [ false, %3 ]
   ret i1 %.0
 }
@@ -16016,6 +15994,12 @@ declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

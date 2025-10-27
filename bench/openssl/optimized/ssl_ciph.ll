@@ -154,6 +154,8 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ssl_cipher_process_rulestr = private unnamed_addr constant [27 x i8] c"ssl_cipher_process_rulestr\00", align 1
 @.str.137 = private unnamed_addr constant [9 x i8] c"STRENGTH\00", align 1
 @.str.138 = private unnamed_addr constant [10 x i8] c"SECLEVEL=\00", align 1
+@switch.table.SSL_CIPHER_description = private unnamed_addr constant [24 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.27, ptr @.str.35, ptr @.str.36, ptr @.str.43, ptr @.str.44, ptr @.str.48, ptr @.str.47, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.48, ptr @.str.51, ptr @.str.45, ptr @.str.46, ptr @.str.49, ptr @.str.50], align 8
+@switch.table.SSL_CIPHER_description.2 = private unnamed_addr constant [10 x ptr] [ptr @.str.52, ptr @.str.53, ptr @.str.58, ptr @.str.57, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.59, ptr @.str.57, ptr @.str.59], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initializes((1704, 1708)) %0) local_unnamed_addr #0 {
@@ -4058,15 +4060,15 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef 1681) #13
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %81, label %10
+  br i1 %7, label %60, label %10
 
 8:                                                ; preds = %3
   %9 = icmp slt i32 %2, 128
-  br i1 %9, label %81, label %10
+  br i1 %9, label %60, label %10
 
 10:                                               ; preds = %8, %5
-  %.022 = phi i32 [ 128, %5 ], [ %2, %8 ]
-  %.021 = phi ptr [ %6, %5 ], [ %1, %8 ]
+  %.023 = phi i32 [ 128, %5 ], [ %2, %8 ]
+  %.022 = phi ptr [ %6, %5 ], [ %1, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !139
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4126,7 +4128,7 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   br label %33
 
 33:                                               ; preds = %10, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22
-  %.023 = phi ptr [ @.str.25, %32 ], [ @.str.1, %22 ], [ @.str.2, %23 ], [ @.str.17, %24 ], [ @.str.18, %25 ], [ @.str.19, %26 ], [ @.str.20, %27 ], [ @.str.21, %28 ], [ @.str.22, %29 ], [ @.str.23, %30 ], [ @.str.24, %31 ], [ @.str.16, %10 ]
+  %.024 = phi ptr [ @.str.25, %32 ], [ @.str.1, %22 ], [ @.str.2, %23 ], [ @.str.17, %24 ], [ @.str.18, %25 ], [ @.str.19, %26 ], [ @.str.20, %27 ], [ @.str.21, %28 ], [ @.str.22, %29 ], [ @.str.23, %30 ], [ @.str.24, %31 ], [ @.str.16, %10 ]
   switch i32 %14, label %42 [
     i32 1, label %43
     i32 2, label %34
@@ -4167,152 +4169,49 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   br label %43
 
 43:                                               ; preds = %33, %42, %41, %40, %39, %38, %37, %36, %35, %34
-  %.026 = phi ptr [ @.str.25, %42 ], [ @.str.26, %34 ], [ @.str.27, %35 ], [ @.str.3, %36 ], [ @.str.17, %37 ], [ @.str.21, %38 ], [ @.str.28, %39 ], [ @.str.29, %40 ], [ @.str.24, %41 ], [ @.str.16, %33 ]
-  switch i32 %16, label %66 [
-    i32 1, label %67
-    i32 2, label %44
-    i32 4, label %45
-    i32 8, label %46
-    i32 16, label %47
-    i32 32, label %48
-    i32 64, label %49
-    i32 128, label %50
-    i32 4096, label %51
-    i32 8192, label %52
-    i32 16384, label %53
-    i32 32768, label %54
-    i32 65536, label %55
-    i32 131072, label %56
-    i32 256, label %57
-    i32 512, label %58
-    i32 1048576, label %59
-    i32 2097152, label %60
-    i32 2048, label %61
-    i32 1024, label %62
-    i32 262144, label %62
-    i32 4194304, label %63
-    i32 8388608, label %64
-    i32 524288, label %65
-  ]
+  %.027 = phi ptr [ @.str.25, %42 ], [ @.str.26, %34 ], [ @.str.27, %35 ], [ @.str.3, %36 ], [ @.str.17, %37 ], [ @.str.21, %38 ], [ @.str.28, %39 ], [ @.str.29, %40 ], [ @.str.24, %41 ], [ @.str.16, %33 ]
+  %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
+  %45 = icmp eq i32 %44, 1
+  br i1 %45, label %.split, label %49
 
-44:                                               ; preds = %43
-  br label %67
+.split:                                           ; preds = %43
+  %46 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %16, i1 true)
+  %47 = icmp samesign ult i32 %46, 24
+  br i1 %47, label %switch.lookup, label %49
 
-45:                                               ; preds = %43
-  br label %67
+switch.lookup:                                    ; preds = %.split
+  %48 = zext nneg i32 %46 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description, i64 %48
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %49
 
-46:                                               ; preds = %43
-  br label %67
+49:                                               ; preds = %43, %.split, %switch.lookup
+  %.026 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.25, %.split ], [ @.str.25, %43 ]
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %.split1, label %55
 
-47:                                               ; preds = %43
-  br label %67
+.split1:                                          ; preds = %49
+  %52 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %18, i1 true)
+  %53 = icmp samesign ult i32 %52, 10
+  br i1 %53, label %switch.lookup34, label %55
 
-48:                                               ; preds = %43
-  br label %67
+switch.lookup34:                                  ; preds = %.split1
+  %54 = zext nneg i32 %52 to i64
+  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description.2, i64 %54
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
+  br label %55
 
-49:                                               ; preds = %43
-  br label %67
+55:                                               ; preds = %49, %.split1, %switch.lookup34
+  %.025 = phi ptr [ %switch.load36, %switch.lookup34 ], [ @.str.25, %.split1 ], [ @.str.25, %49 ]
+  %56 = zext nneg i32 %.023 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !163
+  %59 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.022, i64 noundef %56, ptr noundef nonnull @.str.15, ptr noundef %58, ptr noundef %21, ptr noundef nonnull %.024, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #13
+  br label %60
 
-50:                                               ; preds = %43
-  br label %67
-
-51:                                               ; preds = %43
-  br label %67
-
-52:                                               ; preds = %43
-  br label %67
-
-53:                                               ; preds = %43
-  br label %67
-
-54:                                               ; preds = %43
-  br label %67
-
-55:                                               ; preds = %43
-  br label %67
-
-56:                                               ; preds = %43
-  br label %67
-
-57:                                               ; preds = %43
-  br label %67
-
-58:                                               ; preds = %43
-  br label %67
-
-59:                                               ; preds = %43
-  br label %67
-
-60:                                               ; preds = %43
-  br label %67
-
-61:                                               ; preds = %43
-  br label %67
-
-62:                                               ; preds = %43, %43
-  br label %67
-
-63:                                               ; preds = %43
-  br label %67
-
-64:                                               ; preds = %43
-  br label %67
-
-65:                                               ; preds = %43
-  br label %67
-
-66:                                               ; preds = %43
-  br label %67
-
-67:                                               ; preds = %43, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44
-  %.025 = phi ptr [ @.str.25, %66 ], [ @.str.31, %44 ], [ @.str.32, %45 ], [ @.str.33, %46 ], [ @.str.34, %47 ], [ @.str.27, %48 ], [ @.str.35, %49 ], [ @.str.36, %50 ], [ @.str.37, %51 ], [ @.str.38, %52 ], [ @.str.39, %53 ], [ @.str.40, %54 ], [ @.str.41, %55 ], [ @.str.42, %56 ], [ @.str.43, %57 ], [ @.str.44, %58 ], [ @.str.45, %59 ], [ @.str.46, %60 ], [ @.str.47, %61 ], [ @.str.48, %62 ], [ @.str.49, %63 ], [ @.str.50, %64 ], [ @.str.51, %65 ], [ @.str.30, %43 ]
-  switch i32 %18, label %75 [
-    i32 1, label %76
-    i32 2, label %68
-    i32 16, label %69
-    i32 32, label %70
-    i32 64, label %71
-    i32 8, label %72
-    i32 256, label %72
-    i32 4, label %73
-    i32 128, label %74
-    i32 512, label %74
-  ]
-
-68:                                               ; preds = %67
-  br label %76
-
-69:                                               ; preds = %67
-  br label %76
-
-70:                                               ; preds = %67
-  br label %76
-
-71:                                               ; preds = %67
-  br label %76
-
-72:                                               ; preds = %67, %67
-  br label %76
-
-73:                                               ; preds = %67
-  br label %76
-
-74:                                               ; preds = %67, %67
-  br label %76
-
-75:                                               ; preds = %67
-  br label %76
-
-76:                                               ; preds = %67, %75, %74, %73, %72, %71, %70, %69, %68
-  %.024 = phi ptr [ @.str.25, %75 ], [ @.str.53, %68 ], [ @.str.54, %69 ], [ @.str.55, %70 ], [ @.str.56, %71 ], [ @.str.57, %72 ], [ @.str.58, %73 ], [ @.str.59, %74 ], [ @.str.52, %67 ]
-  %77 = zext nneg i32 %.022 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !163
-  %80 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.021, i64 noundef %77, ptr noundef nonnull @.str.15, ptr noundef %79, ptr noundef %21, ptr noundef nonnull %.023, ptr noundef nonnull %.026, ptr noundef nonnull %.025, ptr noundef nonnull %.024) #13
-  br label %81
-
-81:                                               ; preds = %8, %5, %76
-  %.0 = phi ptr [ %.021, %76 ], [ null, %5 ], [ null, %8 ]
+60:                                               ; preds = %8, %5, %55
+  %.0 = phi ptr [ %.022, %55 ], [ null, %5 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -5018,11 +4917,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5035,8 +4940,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 

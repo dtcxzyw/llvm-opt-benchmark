@@ -81,7 +81,6 @@ $_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE = comdat any
 @.str.9 = private unnamed_addr constant [2 x i8] c"$\00", align 1
 @.str.10 = private unnamed_addr constant [2 x i8] c"L\00", align 1
 @.str.11 = private unnamed_addr constant [4 x i8] c"L..\00", align 1
-@switch.table._ZN4llvm24TargetLoweringObjectFile16getKindForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 4, i32 10, i32 4, i32 4, i32 4, i32 11], align 4
 
 @_ZN4llvm24TargetLoweringObjectFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm24TargetLoweringObjectFileD2Ev
 
@@ -714,7 +713,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %58, %62
 68:                                               ; preds = %.thread
   %69 = load ptr, ptr %30, align 8, !tbaa !327
   %70 = tail call noundef zeroext i1 @_ZNK4llvm8Constant15needsRelocationEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #18
-  br i1 %70, label %104, label %71
+  br i1 %70, label %105, label %71
 
 71:                                               ; preds = %68
   %72 = load i32, ptr %6, align 8
@@ -777,32 +776,37 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %58, %62
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %100 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %101 = add i64 %100, -4
-  %102 = call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 62)
-  %103 = icmp ult i64 %102, 8
-  br i1 %103, label %switch.lookup, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
+  %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %100)
+  %102 = icmp eq i64 %101, 1
+  br i1 %102, label %.split, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
-104:                                              ; preds = %68
-  %105 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1264) %1) #18
-  %106 = icmp ult i32 %105, 6
-  %switch.maskindex = trunc i32 %105 to i8
+.split:                                           ; preds = %96
+  %103 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %100, i1 true)
+  %switch.tableidx = add nsw i64 %103, -2
+  %104 = icmp ult i64 %switch.tableidx, 4
+  br i1 %104, label %switch.lookup, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
+
+105:                                              ; preds = %68
+  %106 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1264) %1) #18
+  %107 = icmp ult i32 %106, 6
+  %switch.maskindex = trunc i32 %106 to i8
   %switch.shifted = lshr i8 57, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %106, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread, label %107
+  %or.cond = select i1 %107, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread, label %108
 
-107:                                              ; preds = %104
-  %108 = tail call noundef zeroext i1 @_ZNK4llvm8Constant22needsDynamicRelocationEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #18
-  %109 = select i1 %108, i32 20, i32 4
+108:                                              ; preds = %105
+  %109 = tail call noundef zeroext i1 @_ZNK4llvm8Constant22needsDynamicRelocationEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #18
+  %110 = select i1 %109, i32 20, i32 4
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
-switch.lookup:                                    ; preds = %96
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm24TargetLoweringObjectFile16getKindForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE, i64 %102
-  %switch.load = load i32, ptr %switch.gep, align 4
+switch.lookup:                                    ; preds = %.split
+  %switch.idx.cast = trunc nuw nsw i64 %switch.tableidx to i32
+  %switch.offset = or disjoint i32 %switch.idx.cast, 8
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
-_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread: ; preds = %104, %96, %switch.lookup, %107, %93, %45, %23, %2, %2, %13, %9, %.thread, %71, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %42, %26, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit, %19
-  %.sroa.044.0 = phi i32 [ 2, %2 ], [ 13, %19 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ 18, %26 ], [ 16, %42 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 4, %71 ], [ 19, %.thread ], [ 13, %9 ], [ 13, %13 ], [ 2, %2 ], [ %spec.select, %23 ], [ %spec.select73, %45 ], [ %switch.select76, %93 ], [ %109, %107 ], [ %switch.load, %switch.lookup ], [ 4, %96 ], [ 4, %104 ]
+_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread: ; preds = %105, %96, %.split, %switch.lookup, %108, %93, %45, %23, %2, %2, %13, %9, %.thread, %71, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %42, %26, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit, %19
+  %.sroa.044.0 = phi i32 [ 2, %2 ], [ 13, %19 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ 18, %26 ], [ 16, %42 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 4, %71 ], [ 19, %.thread ], [ 13, %9 ], [ 13, %13 ], [ 2, %2 ], [ %spec.select, %23 ], [ %spec.select73, %45 ], [ %switch.select76, %93 ], [ %110, %108 ], [ %switch.offset, %switch.lookup ], [ 4, %.split ], [ 4, %96 ], [ 4, %105 ]
   ret i32 %.sroa.044.0
 }
 
@@ -1426,7 +1430,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #16
+declare i64 @llvm.ctpop.i64(i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17

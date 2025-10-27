@@ -11035,148 +11035,154 @@ define internal noundef i32 @sharkd_session_process_dumpconf_cb(ptr noundef %0, 
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull %3)
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %8 = call i32 @prefs_get_type(ptr noundef %0)
-  switch i32 %8, label %63 [
-    i32 1, label %9
-    i32 2, label %14
-    i32 8, label %17
-    i32 128, label %17
-    i32 16384, label %17
-    i32 2048, label %17
-    i32 32768, label %17
-    i32 131072, label %17
-    i32 4, label %19
-    i32 16, label %33
-    i32 8192, label %33
-    i32 64, label %36
+  %9 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %.split, label %66
+
+.split:                                           ; preds = %2
+  %11 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
+  switch i32 %11, label %66 [
+    i32 0, label %12
+    i32 1, label %17
+    i32 3, label %20
+    i32 7, label %20
+    i32 14, label %20
+    i32 11, label %20
+    i32 15, label %20
+    i32 17, label %20
+    i32 2, label %22
+    i32 4, label %36
+    i32 13, label %36
+    i32 6, label %39
   ]
 
-9:                                                ; preds = %2
-  %10 = call i32 @prefs_get_uint_value(ptr noundef %0, i32 noundef 2)
-  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.451, ptr noundef nonnull @.str.123, i32 noundef %10)
-  %11 = call i32 @prefs_get_uint_base(ptr noundef %0)
-  %.not36 = icmp eq i32 %11, 10
-  br i1 %.not36, label %63, label %12
+12:                                               ; preds = %.split
+  %13 = call i32 @prefs_get_uint_value(ptr noundef %0, i32 noundef 2)
+  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.451, ptr noundef nonnull @.str.123, i32 noundef %13)
+  %14 = call i32 @prefs_get_uint_base(ptr noundef %0)
+  %.not36 = icmp eq i32 %14, 10
+  br i1 %.not36, label %66, label %15
 
-12:                                               ; preds = %9
-  %13 = call i32 @prefs_get_uint_base(ptr noundef %0)
-  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.452, ptr noundef nonnull @.str.123, i32 noundef %13)
-  br label %63
+15:                                               ; preds = %12
+  %16 = call i32 @prefs_get_uint_base(ptr noundef %0)
+  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.452, ptr noundef nonnull @.str.123, i32 noundef %16)
+  br label %66
 
-14:                                               ; preds = %2
-  %15 = call zeroext i1 @prefs_get_bool_value(ptr noundef %0, i32 noundef 2)
-  %16 = select i1 %15, ptr @.str.286, ptr @.str.454
-  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.453, ptr noundef nonnull %16)
-  br label %63
+17:                                               ; preds = %.split
+  %18 = call zeroext i1 @prefs_get_bool_value(ptr noundef %0, i32 noundef 2)
+  %19 = select i1 %18, ptr @.str.286, ptr @.str.454
+  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.453, ptr noundef nonnull %19)
+  br label %66
 
-17:                                               ; preds = %2, %2, %2, %2, %2, %2
-  %18 = call ptr @prefs_get_string_value(ptr noundef %0, i32 noundef 2)
+20:                                               ; preds = %.split, %.split, %.split, %.split, %.split, %.split
+  %21 = call ptr @prefs_get_string_value(ptr noundef %0, i32 noundef 2)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.261)
-  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %18)
-  br label %63
+  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %21)
+  br label %66
 
-19:                                               ; preds = %2
+22:                                               ; preds = %.split
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.437)
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
-  %20 = call ptr @prefs_get_enumvals(ptr noundef %0)
-  %21 = load ptr, ptr %20, align 8
-  %.not42 = icmp eq ptr %21, null
+  %23 = call ptr @prefs_get_enumvals(ptr noundef %0)
+  %24 = load ptr, ptr %23, align 8
+  %.not42 = icmp eq ptr %24, null
   br i1 %.not42, label %._crit_edge46, label %.lr.ph45
 
-.lr.ph45:                                         ; preds = %19, %28
-  %.043 = phi ptr [ %31, %28 ], [ %20, %19 ]
+.lr.ph45:                                         ; preds = %22, %31
+  %.043 = phi ptr [ %34, %31 ], [ %23, %22 ]
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
-  %22 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %23 = load i32, ptr %22, align 8
-  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.422, ptr noundef nonnull @.str.5, i32 noundef %23)
-  %24 = load i32, ptr %22, align 8
-  %25 = call i32 @prefs_get_enum_value(ptr noundef %0, i32 noundef 2)
-  %26 = icmp eq i32 %24, %25
-  br i1 %26, label %27, label %28
+  %25 = getelementptr inbounds nuw i8, ptr %.043, i64 16
+  %26 = load i32, ptr %25, align 8
+  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.422, ptr noundef nonnull @.str.5, i32 noundef %26)
+  %27 = load i32, ptr %25, align 8
+  %28 = call i32 @prefs_get_enum_value(ptr noundef %0, i32 noundef 2)
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %31
 
-27:                                               ; preds = %.lr.ph45
+30:                                               ; preds = %.lr.ph45
   call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.286)
-  br label %28
+  br label %31
 
-28:                                               ; preds = %27, %.lr.ph45
-  %29 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %30 = load ptr, ptr %29, align 8
+31:                                               ; preds = %30, %.lr.ph45
+  %32 = getelementptr inbounds nuw i8, ptr %.043, i64 8
+  %33 = load ptr, ptr %32, align 8
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.189)
-  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %30)
+  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %33)
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
-  %31 = getelementptr i8, ptr %.043, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %32, null
+  %34 = getelementptr i8, ptr %.043, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !77
 
-._crit_edge46:                                    ; preds = %28, %19
+._crit_edge46:                                    ; preds = %31, %22
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
-  br label %63
+  br label %66
 
-33:                                               ; preds = %2, %2
-  %34 = call ptr @prefs_get_range_value_real(ptr noundef %0, i32 noundef 2)
-  %35 = call ptr @range_convert_range(ptr noundef null, ptr noundef %34)
+36:                                               ; preds = %.split, %.split
+  %37 = call ptr @prefs_get_range_value_real(ptr noundef %0, i32 noundef 2)
+  %38 = call ptr @range_convert_range(ptr noundef null, ptr noundef %37)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.309)
-  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %35)
-  call void @wmem_free(ptr noundef null, ptr noundef %35)
-  br label %63
+  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %38)
+  call void @wmem_free(ptr noundef null, ptr noundef %38)
+  br label %66
 
-36:                                               ; preds = %2
-  %37 = call ptr @prefs_get_uat_value(ptr noundef %0)
+39:                                               ; preds = %.split
+  %40 = call ptr @prefs_get_uat_value(ptr noundef %0)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.186)
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 136
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i32, ptr %40, align 8
-  %.not47 = icmp eq i32 %41, 0
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i32, ptr %43, align 8
+  %.not47 = icmp eq i32 %44, 0
   br i1 %.not47, label %._crit_edge41, label %.lr.ph40
 
-.lr.ph40:                                         ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 120
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 104
-  br label %45
+.lr.ph40:                                         ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 104
+  br label %48
 
-45:                                               ; preds = %.lr.ph40, %._crit_edge
+48:                                               ; preds = %.lr.ph40, %._crit_edge
   %indvars.iv50 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next51, %._crit_edge ]
-  %46 = phi ptr [ %39, %.lr.ph40 ], [ %58, %._crit_edge ]
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i64, ptr %42, align 8
-  %49 = mul i64 %48, %indvars.iv50
-  %50 = getelementptr i8, ptr %47, i64 %49
+  %49 = phi ptr [ %42, %.lr.ph40 ], [ %61, %._crit_edge ]
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i64, ptr %45, align 8
+  %52 = mul i64 %51, %indvars.iv50
+  %53 = getelementptr i8, ptr %50, i64 %52
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
-  %51 = load i32, ptr %43, align 8
-  %.not48 = icmp eq i32 %51, 0
+  %54 = load i32, ptr %46, align 8
+  %.not48 = icmp eq i32 %54, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %45, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %45 ]
-  %52 = load ptr, ptr %44, align 8
-  %53 = getelementptr %struct._uat_field_t, ptr %52, i64 %indvars.iv
-  %54 = call ptr @uat_fld_tostr(ptr noundef %50, ptr noundef %53)
-  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %54)
-  call void @g_free(ptr noundef %54)
+.lr.ph:                                           ; preds = %48, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %48 ]
+  %55 = load ptr, ptr %47, align 8
+  %56 = getelementptr %struct._uat_field_t, ptr %55, i64 %indvars.iv
+  %57 = call ptr @uat_fld_tostr(ptr noundef %53, ptr noundef %56)
+  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %57)
+  call void @g_free(ptr noundef %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %43, align 8
-  %56 = zext i32 %55 to i64
-  %57 = icmp samesign ult i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  %58 = load i32, ptr %46, align 8
+  %59 = zext i32 %58 to i64
+  %60 = icmp samesign ult i64 %indvars.iv.next, %59
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %.lr.ph, %45
+._crit_edge:                                      ; preds = %.lr.ph, %48
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %58 = load ptr, ptr %38, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 8
-  %61 = zext i32 %60 to i64
-  %62 = icmp samesign ult i64 %indvars.iv.next51, %61
-  br i1 %62, label %45, label %._crit_edge41, !llvm.loop !79
+  %61 = load ptr, ptr %41, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = zext i32 %63 to i64
+  %65 = icmp samesign ult i64 %indvars.iv.next51, %64
+  br i1 %65, label %48, label %._crit_edge41, !llvm.loop !79
 
-._crit_edge41:                                    ; preds = %._crit_edge, %36
+._crit_edge41:                                    ; preds = %._crit_edge, %39
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
-  br label %63
+  br label %66
 
-63:                                               ; preds = %9, %12, %._crit_edge41, %33, %._crit_edge46, %17, %14, %2
+66:                                               ; preds = %12, %15, %2, %._crit_edge41, %36, %._crit_edge46, %20, %17, %.split
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
@@ -11527,6 +11533,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #16

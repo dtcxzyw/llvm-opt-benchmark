@@ -110,7 +110,7 @@ define dso_local { i16, ptr } @_ZNK4llvm3EVT27changeExtendedTypeToIntegerEv(ptr 
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  %21 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   %.fca.0.extract.i.i = extractvalue { i64, i8 } %21, 0
   %.fca.1.extract.i.i = extractvalue { i64, i8 } %21, 1
   br label %_ZNK4llvm3EVT13getSizeInBitsEv.exit
@@ -121,47 +121,29 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %7, %15, %18, %20
   store i64 %.sroa.0.0.copyload.i.pn.i, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sroa.2.0.copyload.i.pn.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %22 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #18
+  %22 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #19
   %23 = trunc i64 %22 to i32
-  switch i32 %23, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i [
-    i32 1, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-    i32 2, label %24
-    i32 4, label %25
-    i32 8, label %26
-    i32 16, label %27
-    i32 32, label %28
-    i32 64, label %29
-    i32 128, label %30
-  ]
+  %24 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %.split.i.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
 
-24:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
+.split.i.i:                                       ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
+  %26 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
+  %27 = icmp samesign ult i32 %26, 8
+  br i1 %27, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
+
+_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %.split.i.i
+  %switch.idx.cast.i.i = trunc nuw nsw i32 %26 to i16
+  %switch.offset.i.i = add nuw nsw i16 %switch.idx.cast.i.i, 2
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-25:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
+_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i:       ; preds = %.split.i.i, %_ZNK4llvm3EVT13getSizeInBitsEv.exit
+  %28 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %5, i32 noundef %23) #19
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-26:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-27:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-28:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-29:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-30:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  %31 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %5, i32 noundef %23) #18
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %24, %25, %26, %27, %28, %29, %30, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %31, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %24 ], [ null, %25 ], [ null, %26 ], [ null, %27 ], [ null, %28 ], [ null, %29 ], [ null, %30 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ 0, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 9, %30 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12getIntegerVTEj.exit.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
+  %.sroa.3.0.i = phi ptr [ %28, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ null, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ]
+  %.sroa.0.0.i = phi i16 [ 0, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ %switch.offset.i.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i16, ptr } poison, i16 %.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i16, ptr } %.fca.0.insert.i, ptr %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -206,7 +188,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm3EVT13getSizeInBitsEv(ptr nound
   br i1 %.not12.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
+  %20 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %20, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %20, 1
   br label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit
@@ -301,113 +283,95 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit.i:            ; preds = %._crit_edge.i.i, %2
   %42 = xor i1 %.not.not16.i.i.i, true
   tail call void @llvm.assume(i1 %42)
   tail call void @llvm.assume(i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i)
-  %43 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
+  %43 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #18
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %43, 0
   br label %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
 
 _ZNK4llvm3EVT19getScalarSizeInBitsEv.exit:        ; preds = %28, %37, %40
   %.sroa.0.0.copyload.i.pn.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %28 ], [ %39, %37 ], [ %.fca.0.extract.i.i.i, %40 ]
   %44 = trunc i64 %.sroa.0.0.copyload.i.pn.i.i to i32
-  switch i32 %44, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i [
-    i32 1, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-    i32 2, label %45
-    i32 4, label %46
-    i32 8, label %47
-    i32 16, label %48
-    i32 32, label %49
-    i32 64, label %50
-    i32 128, label %51
-  ]
+  %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %.split.i.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
 
-45:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
+.split.i.i:                                       ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
+  %47 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %44, i1 true)
+  %48 = icmp samesign ult i32 %47, 8
+  br i1 %48, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
+
+_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %.split.i.i
+  %switch.idx.cast.i.i = trunc nuw nsw i32 %47 to i16
+  %switch.offset.i.i = add nuw nsw i16 %switch.idx.cast.i.i, 2
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-46:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
+_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i:       ; preds = %.split.i.i, %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
+  %49 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %5, i32 noundef %44) #19
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-47:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12getIntegerVTEj.exit.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
+  %.sroa.3.0.i = phi ptr [ %49, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ null, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ]
+  %.sroa.0.0.i = phi i16 [ 0, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ %switch.offset.i.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ]
+  %50 = load i16, ptr %0, align 8, !tbaa !17
+  %.not.i = icmp eq i16 %50, 0
+  br i1 %.not.i, label %57, label %51
 
-48:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-49:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-50:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-51:                                               ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit
-  %52 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %5, i32 noundef %44) #18
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit, %45, %46, %47, %48, %49, %50, %51, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %52, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %45 ], [ null, %46 ], [ null, %47 ], [ null, %48 ], [ null, %49 ], [ null, %50 ], [ null, %51 ], [ null, %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ 0, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %45 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 7, %49 ], [ 8, %50 ], [ 9, %51 ], [ 2, %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit ]
-  %53 = load i16, ptr %0, align 8, !tbaa !17
-  %.not.i = icmp eq i16 %53, 0
-  br i1 %.not.i, label %60, label %54
-
-54:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-  %55 = zext i16 %53 to i64
-  %56 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 -2
-  %58 = load i16, ptr %57, align 2, !tbaa !21
-  %59 = add i16 %53, -138
-  %spec.select.i.i.i = icmp ult i16 %59, 53
+51:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
+  %52 = zext i16 %50 to i64
+  %53 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -2
+  %55 = load i16, ptr %54, align 2, !tbaa !21
+  %56 = add i16 %50, -138
+  %spec.select.i.i.i = icmp ult i16 %56, 53
   %.sroa.2.0.insert.shift.i.i.i = select i1 %spec.select.i.i.i, i64 4294967296, i64 0
-  %.sroa.0.0.insert.ext.i.i.i = zext i16 %58 to i64
+  %.sroa.0.0.insert.ext.i.i.i = zext i16 %55 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   br label %_ZNK4llvm3EVT21getVectorElementCountEv.exit
 
-60:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-  %61 = load ptr, ptr %3, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load i32, ptr %62, align 8, !tbaa !23
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = and i32 %65, 255
-  %67 = icmp eq i32 %66, 18
-  %.sroa.2.0.insert.shift.i.i.i.i = select i1 %67, i64 4294967296, i64 0
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %63 to i64
+57:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
+  %58 = load ptr, ptr %3, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = load i32, ptr %59, align 8, !tbaa !23
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = and i32 %62, 255
+  %64 = icmp eq i32 %63, 18
+  %.sroa.2.0.insert.shift.i.i.i.i = select i1 %64, i64 4294967296, i64 0
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %60 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
   br label %_ZNK4llvm3EVT21getVectorElementCountEv.exit
 
-_ZNK4llvm3EVT21getVectorElementCountEv.exit:      ; preds = %54, %60
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %54 ], [ %.sroa.0.0.insert.insert.i.i.i.i, %60 ]
+_ZNK4llvm3EVT21getVectorElementCountEv.exit:      ; preds = %51, %57
+  %.sroa.0.0.in.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %51 ], [ %.sroa.0.0.insert.insert.i.i.i.i, %57 ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.in.i to i32
-  %68 = and i64 %.sroa.0.0.in.i, 4294967296
-  %.not.i.i8 = icmp eq i64 %68, 0
-  br i1 %.not.i.i8, label %71, label %69
+  %65 = and i64 %.sroa.0.0.in.i, 4294967296
+  %.not.i.i8 = icmp eq i64 %65, 0
+  br i1 %.not.i.i8, label %68, label %66
 
-69:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  %70 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %.sroa.0.0.i, i32 noundef %.sroa.0.0.extract.trunc.i.i)
+66:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
+  %67 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %.sroa.0.0.i, i32 noundef %.sroa.0.0.extract.trunc.i.i)
   br label %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
 
-71:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  %72 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %.sroa.0.0.i, i32 noundef %.sroa.0.0.extract.trunc.i.i)
+68:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
+  %69 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %.sroa.0.0.i, i32 noundef %.sroa.0.0.extract.trunc.i.i)
   br label %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
 
-_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i: ; preds = %71, %69
-  %.sroa.04.0.i.i = phi i16 [ %70, %69 ], [ %72, %71 ]
+_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i: ; preds = %68, %66
+  %.sroa.04.0.i.i = phi i16 [ %67, %66 ], [ %69, %68 ]
   %.not.i9 = icmp eq i16 %.sroa.04.0.i.i, 0
-  br i1 %.not.i9, label %73, label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit
+  br i1 %.not.i9, label %70, label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit
 
-73:                                               ; preds = %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
+70:                                               ; preds = %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 %.sroa.0.0.i, ptr %2, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.3.0.i, ptr %74, align 8
-  %75 = call noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 %5)
-  %76 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %75, i64 %.sroa.0.0.in.i) #18
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.sroa.3.0.i, ptr %71, align 8
+  %72 = call noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 %5)
+  %73 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %72, i64 %.sroa.0.0.in.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit
 
-_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit: ; preds = %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i, %73
-  %.sroa.3.0.i10 = phi ptr [ %76, %73 ], [ null, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i ]
+_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit: ; preds = %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i, %70
+  %.sroa.3.0.i10 = phi ptr [ %73, %70 ], [ null, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i ]
   %.fca.0.insert.i11 = insertvalue { i16, ptr } poison, i16 %.sroa.04.0.i.i, 0
   %.fca.1.insert.i12 = insertvalue { i16, ptr } %.fca.0.insert.i11, ptr %.sroa.3.0.i10, 1
   ret { i16, ptr } %.fca.1.insert.i12
@@ -510,7 +474,7 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i: ; preds = %25, %23
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %28, align 8
   %29 = call noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %7)
-  %30 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %29, i64 %.sroa.0.0.in.i) #18
+  %30 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %29, i64 %.sroa.0.0.in.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit
 
@@ -523,7 +487,7 @@ _ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 1 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %0, i32 noundef %1) #18
+  %3 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %0, i32 noundef %1) #19
   %.fca.1.insert = insertvalue { i16, ptr } { i16 0, ptr poison }, ptr %3, 1
   ret { i16, ptr } %.fca.1.insert
 }
@@ -540,7 +504,7 @@ define dso_local { i16, ptr } @_ZN4llvm3EVT19getExtendedVectorVTERNS_11LLVMConte
   %.sroa.2.0.insert.shift.i.i = select i1 %4, i64 4294967296, i64 0
   %.sroa.0.0.insert.ext.i.i = zext i32 %3 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %9 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %8, i64 %.sroa.0.0.insert.insert.i.i) #18
+  %9 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %8, i64 %.sroa.0.0.insert.insert.i.i) #19
   %.fca.1.insert = insertvalue { i16, ptr } { i16 0, ptr poison }, ptr %9, 1
   ret { i16, ptr } %.fca.1.insert
 }
@@ -883,1445 +847,1445 @@ define dso_local noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(pt
   br label %833
 
 104:                                              ; preds = %2
-  %105 = tail call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %105 = tail call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 106:                                              ; preds = %2
-  %107 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 64) #18
-  %108 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %107, i32 noundef 1) #18
+  %107 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 64) #19
+  %108 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %107, i32 noundef 1) #19
   br label %833
 
 109:                                              ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %110 = tail call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.22, i64 15, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %3) #18
+  %110 = tail call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.22, i64 15, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %3) #19
   br label %833
 
 111:                                              ; preds = %2
-  %112 = tail call noundef ptr @_ZN4llvm4Type12getX86_AMXTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %112 = tail call noundef ptr @_ZN4llvm4Type12getX86_AMXTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 113:                                              ; preds = %2
-  %114 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 512) #18
+  %114 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 512) #19
   br label %833
 
 115:                                              ; preds = %2
-  %116 = tail call noundef ptr @_ZN4llvm4Type19getWasm_ExternrefTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %116 = tail call noundef ptr @_ZN4llvm4Type19getWasm_ExternrefTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 117:                                              ; preds = %2
-  %118 = tail call noundef ptr @_ZN4llvm4Type17getWasm_FuncrefTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %118 = tail call noundef ptr @_ZN4llvm4Type17getWasm_FuncrefTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 119:                                              ; preds = %2
-  %120 = tail call noundef ptr @_ZN4llvm4Type13getMetadataTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %120 = tail call noundef ptr @_ZN4llvm4Type13getMetadataTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 121:                                              ; preds = %2
-  %122 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %122 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 123:                                              ; preds = %2
-  %124 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 2) #18
+  %124 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 2) #19
   br label %833
 
 125:                                              ; preds = %2
-  %126 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 4) #18
+  %126 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 4) #19
   br label %833
 
 127:                                              ; preds = %2
-  %128 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %128 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 129:                                              ; preds = %2
-  %130 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %130 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 131:                                              ; preds = %2
-  %132 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %132 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 133:                                              ; preds = %2
-  %134 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %134 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 135:                                              ; preds = %2
-  %136 = tail call noundef ptr @_ZN4llvm4Type11getInt128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %136 = tail call noundef ptr @_ZN4llvm4Type11getInt128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 137:                                              ; preds = %2
-  %138 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %138 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 139:                                              ; preds = %2
-  %140 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %140 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 141:                                              ; preds = %2
-  %142 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %142 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 143:                                              ; preds = %2
-  %144 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %144 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 145:                                              ; preds = %2
-  %146 = tail call noundef ptr @_ZN4llvm4Type13getX86_FP80TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %146 = tail call noundef ptr @_ZN4llvm4Type13getX86_FP80TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 147:                                              ; preds = %2
-  %148 = tail call noundef ptr @_ZN4llvm4Type10getFP128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %148 = tail call noundef ptr @_ZN4llvm4Type10getFP128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 149:                                              ; preds = %2
-  %150 = tail call noundef ptr @_ZN4llvm4Type14getPPC_FP128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
+  %150 = tail call noundef ptr @_ZN4llvm4Type14getPPC_FP128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
   br label %833
 
 151:                                              ; preds = %2
-  %152 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %153 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %152, i32 noundef 1) #18
+  %152 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %153 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %152, i32 noundef 1) #19
   br label %833
 
 154:                                              ; preds = %2
-  %155 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %156 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %155, i32 noundef 2) #18
+  %155 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %156 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %155, i32 noundef 2) #19
   br label %833
 
 157:                                              ; preds = %2
-  %158 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %159 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %158, i32 noundef 3) #18
+  %158 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %159 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %158, i32 noundef 3) #19
   br label %833
 
 160:                                              ; preds = %2
-  %161 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %162 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %161, i32 noundef 4) #18
+  %161 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %162 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %161, i32 noundef 4) #19
   br label %833
 
 163:                                              ; preds = %2
-  %164 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %165 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %164, i32 noundef 8) #18
+  %164 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %165 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %164, i32 noundef 8) #19
   br label %833
 
 166:                                              ; preds = %2
-  %167 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %168 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %167, i32 noundef 16) #18
+  %167 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %168 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %167, i32 noundef 16) #19
   br label %833
 
 169:                                              ; preds = %2
-  %170 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %171 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %170, i32 noundef 32) #18
+  %170 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %171 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %170, i32 noundef 32) #19
   br label %833
 
 172:                                              ; preds = %2
-  %173 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %174 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %173, i32 noundef 64) #18
+  %173 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %174 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %173, i32 noundef 64) #19
   br label %833
 
 175:                                              ; preds = %2
-  %176 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %177 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %176, i32 noundef 128) #18
+  %176 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %177 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %176, i32 noundef 128) #19
   br label %833
 
 178:                                              ; preds = %2
-  %179 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %180 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %179, i32 noundef 256) #18
+  %179 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %180 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %179, i32 noundef 256) #19
   br label %833
 
 181:                                              ; preds = %2
-  %182 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %183 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %182, i32 noundef 512) #18
+  %182 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %183 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %182, i32 noundef 512) #19
   br label %833
 
 184:                                              ; preds = %2
-  %185 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %186 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %185, i32 noundef 1024) #18
+  %185 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %186 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %185, i32 noundef 1024) #19
   br label %833
 
 187:                                              ; preds = %2
-  %188 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %189 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %188, i32 noundef 2048) #18
+  %188 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %189 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %188, i32 noundef 2048) #19
   br label %833
 
 190:                                              ; preds = %2
-  %191 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 2) #18
-  %192 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %191, i32 noundef 128) #18
+  %191 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 2) #19
+  %192 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %191, i32 noundef 128) #19
   br label %833
 
 193:                                              ; preds = %2
-  %194 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 2) #18
-  %195 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %194, i32 noundef 256) #18
+  %194 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 2) #19
+  %195 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %194, i32 noundef 256) #19
   br label %833
 
 196:                                              ; preds = %2
-  %197 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 4) #18
-  %198 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %197, i32 noundef 64) #18
+  %197 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 4) #19
+  %198 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %197, i32 noundef 64) #19
   br label %833
 
 199:                                              ; preds = %2
-  %200 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 4) #18
-  %201 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %200, i32 noundef 128) #18
+  %200 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 1 %1, i32 noundef 4) #19
+  %201 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %200, i32 noundef 128) #19
   br label %833
 
 202:                                              ; preds = %2
-  %203 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %204 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %203, i32 noundef 1) #18
+  %203 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %204 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %203, i32 noundef 1) #19
   br label %833
 
 205:                                              ; preds = %2
-  %206 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %207 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %206, i32 noundef 2) #18
+  %206 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %207 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %206, i32 noundef 2) #19
   br label %833
 
 208:                                              ; preds = %2
-  %209 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %210 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %209, i32 noundef 3) #18
+  %209 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %210 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %209, i32 noundef 3) #19
   br label %833
 
 211:                                              ; preds = %2
-  %212 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %213 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %212, i32 noundef 4) #18
+  %212 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %213 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %212, i32 noundef 4) #19
   br label %833
 
 214:                                              ; preds = %2
-  %215 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %216 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %215, i32 noundef 8) #18
+  %215 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %216 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %215, i32 noundef 8) #19
   br label %833
 
 217:                                              ; preds = %2
-  %218 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %219 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %218, i32 noundef 16) #18
+  %218 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %219 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %218, i32 noundef 16) #19
   br label %833
 
 220:                                              ; preds = %2
-  %221 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %222 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %221, i32 noundef 32) #18
+  %221 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %222 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %221, i32 noundef 32) #19
   br label %833
 
 223:                                              ; preds = %2
-  %224 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %225 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %224, i32 noundef 64) #18
+  %224 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %225 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %224, i32 noundef 64) #19
   br label %833
 
 226:                                              ; preds = %2
-  %227 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %228 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %227, i32 noundef 128) #18
+  %227 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %228 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %227, i32 noundef 128) #19
   br label %833
 
 229:                                              ; preds = %2
-  %230 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %231 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %230, i32 noundef 256) #18
+  %230 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %231 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %230, i32 noundef 256) #19
   br label %833
 
 232:                                              ; preds = %2
-  %233 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %234 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %233, i32 noundef 512) #18
+  %233 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %234 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %233, i32 noundef 512) #19
   br label %833
 
 235:                                              ; preds = %2
-  %236 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %237 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %236, i32 noundef 1024) #18
+  %236 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %237 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %236, i32 noundef 1024) #19
   br label %833
 
 238:                                              ; preds = %2
-  %239 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %240 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %239, i32 noundef 1) #18
+  %239 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %240 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %239, i32 noundef 1) #19
   br label %833
 
 241:                                              ; preds = %2
-  %242 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %243 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %242, i32 noundef 2) #18
+  %242 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %243 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %242, i32 noundef 2) #19
   br label %833
 
 244:                                              ; preds = %2
-  %245 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %246 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %245, i32 noundef 3) #18
+  %245 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %246 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %245, i32 noundef 3) #19
   br label %833
 
 247:                                              ; preds = %2
-  %248 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %249 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %248, i32 noundef 4) #18
+  %248 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %249 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %248, i32 noundef 4) #19
   br label %833
 
 250:                                              ; preds = %2
-  %251 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %252 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %251, i32 noundef 8) #18
+  %251 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %252 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %251, i32 noundef 8) #19
   br label %833
 
 253:                                              ; preds = %2
-  %254 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %255 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %254, i32 noundef 16) #18
+  %254 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %255 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %254, i32 noundef 16) #19
   br label %833
 
 256:                                              ; preds = %2
-  %257 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %258 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %257, i32 noundef 32) #18
+  %257 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %258 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %257, i32 noundef 32) #19
   br label %833
 
 259:                                              ; preds = %2
-  %260 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %261 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %260, i32 noundef 64) #18
+  %260 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %261 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %260, i32 noundef 64) #19
   br label %833
 
 262:                                              ; preds = %2
-  %263 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %264 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %263, i32 noundef 128) #18
+  %263 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %264 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %263, i32 noundef 128) #19
   br label %833
 
 265:                                              ; preds = %2
-  %266 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %267 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %266, i32 noundef 256) #18
+  %266 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %267 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %266, i32 noundef 256) #19
   br label %833
 
 268:                                              ; preds = %2
-  %269 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %270 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %269, i32 noundef 512) #18
+  %269 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %270 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %269, i32 noundef 512) #19
   br label %833
 
 271:                                              ; preds = %2
-  %272 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %273 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %272, i32 noundef 1) #18
+  %272 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %273 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %272, i32 noundef 1) #19
   br label %833
 
 274:                                              ; preds = %2
-  %275 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %276 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %275, i32 noundef 2) #18
+  %275 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %276 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %275, i32 noundef 2) #19
   br label %833
 
 277:                                              ; preds = %2
-  %278 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %279 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %278, i32 noundef 3) #18
+  %278 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %279 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %278, i32 noundef 3) #19
   br label %833
 
 280:                                              ; preds = %2
-  %281 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %282 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %281, i32 noundef 4) #18
+  %281 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %282 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %281, i32 noundef 4) #19
   br label %833
 
 283:                                              ; preds = %2
-  %284 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %285 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %284, i32 noundef 5) #18
+  %284 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %285 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %284, i32 noundef 5) #19
   br label %833
 
 286:                                              ; preds = %2
-  %287 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %288 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %287, i32 noundef 6) #18
+  %287 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %288 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %287, i32 noundef 6) #19
   br label %833
 
 289:                                              ; preds = %2
-  %290 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %291 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %290, i32 noundef 7) #18
+  %290 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %291 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %290, i32 noundef 7) #19
   br label %833
 
 292:                                              ; preds = %2
-  %293 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %294 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %293, i32 noundef 8) #18
+  %293 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %294 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %293, i32 noundef 8) #19
   br label %833
 
 295:                                              ; preds = %2
-  %296 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %297 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %296, i32 noundef 9) #18
+  %296 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %297 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %296, i32 noundef 9) #19
   br label %833
 
 298:                                              ; preds = %2
-  %299 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %300 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %299, i32 noundef 10) #18
+  %299 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %300 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %299, i32 noundef 10) #19
   br label %833
 
 301:                                              ; preds = %2
-  %302 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %303 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %302, i32 noundef 11) #18
+  %302 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %303 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %302, i32 noundef 11) #19
   br label %833
 
 304:                                              ; preds = %2
-  %305 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %306 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %305, i32 noundef 12) #18
+  %305 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %306 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %305, i32 noundef 12) #19
   br label %833
 
 307:                                              ; preds = %2
-  %308 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %309 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %308, i32 noundef 16) #18
+  %308 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %309 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %308, i32 noundef 16) #19
   br label %833
 
 310:                                              ; preds = %2
-  %311 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %312 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %311, i32 noundef 32) #18
+  %311 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %312 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %311, i32 noundef 32) #19
   br label %833
 
 313:                                              ; preds = %2
-  %314 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %315 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %314, i32 noundef 64) #18
+  %314 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %315 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %314, i32 noundef 64) #19
   br label %833
 
 316:                                              ; preds = %2
-  %317 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %318 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %317, i32 noundef 128) #18
+  %317 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %318 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %317, i32 noundef 128) #19
   br label %833
 
 319:                                              ; preds = %2
-  %320 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %321 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %320, i32 noundef 256) #18
+  %320 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %321 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %320, i32 noundef 256) #19
   br label %833
 
 322:                                              ; preds = %2
-  %323 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %324 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %323, i32 noundef 512) #18
+  %323 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %324 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %323, i32 noundef 512) #19
   br label %833
 
 325:                                              ; preds = %2
-  %326 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %327 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %326, i32 noundef 1024) #18
+  %326 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %327 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %326, i32 noundef 1024) #19
   br label %833
 
 328:                                              ; preds = %2
-  %329 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %330 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %329, i32 noundef 2048) #18
+  %329 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %330 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %329, i32 noundef 2048) #19
   br label %833
 
 331:                                              ; preds = %2
-  %332 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %333 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %332, i32 noundef 1) #18
+  %332 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %333 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %332, i32 noundef 1) #19
   br label %833
 
 334:                                              ; preds = %2
-  %335 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %336 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %335, i32 noundef 2) #18
+  %335 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %336 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %335, i32 noundef 2) #19
   br label %833
 
 337:                                              ; preds = %2
-  %338 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %339 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %338, i32 noundef 3) #18
+  %338 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %339 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %338, i32 noundef 3) #19
   br label %833
 
 340:                                              ; preds = %2
-  %341 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %342 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %341, i32 noundef 4) #18
+  %341 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %342 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %341, i32 noundef 4) #19
   br label %833
 
 343:                                              ; preds = %2
-  %344 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %345 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %344, i32 noundef 8) #18
+  %344 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %345 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %344, i32 noundef 8) #19
   br label %833
 
 346:                                              ; preds = %2
-  %347 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %348 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %347, i32 noundef 16) #18
+  %347 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %348 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %347, i32 noundef 16) #19
   br label %833
 
 349:                                              ; preds = %2
-  %350 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %351 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %350, i32 noundef 32) #18
+  %350 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %351 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %350, i32 noundef 32) #19
   br label %833
 
 352:                                              ; preds = %2
-  %353 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %354 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %353, i32 noundef 64) #18
+  %353 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %354 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %353, i32 noundef 64) #19
   br label %833
 
 355:                                              ; preds = %2
-  %356 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %357 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %356, i32 noundef 128) #18
+  %356 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %357 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %356, i32 noundef 128) #19
   br label %833
 
 358:                                              ; preds = %2
-  %359 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %360 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %359, i32 noundef 256) #18
+  %359 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %360 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %359, i32 noundef 256) #19
   br label %833
 
 361:                                              ; preds = %2
-  %362 = tail call noundef ptr @_ZN4llvm4Type11getInt128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %363 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %362, i32 noundef 1) #18
+  %362 = tail call noundef ptr @_ZN4llvm4Type11getInt128TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %363 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %362, i32 noundef 1) #19
   br label %833
 
 364:                                              ; preds = %2
-  %365 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %366 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %365, i32 noundef 1) #18
+  %365 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %366 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %365, i32 noundef 1) #19
   br label %833
 
 367:                                              ; preds = %2
-  %368 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %369 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %368, i32 noundef 2) #18
+  %368 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %369 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %368, i32 noundef 2) #19
   br label %833
 
 370:                                              ; preds = %2
-  %371 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %372 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %371, i32 noundef 3) #18
+  %371 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %372 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %371, i32 noundef 3) #19
   br label %833
 
 373:                                              ; preds = %2
-  %374 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %375 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %374, i32 noundef 4) #18
+  %374 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %375 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %374, i32 noundef 4) #19
   br label %833
 
 376:                                              ; preds = %2
-  %377 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %378 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %377, i32 noundef 8) #18
+  %377 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %378 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %377, i32 noundef 8) #19
   br label %833
 
 379:                                              ; preds = %2
-  %380 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %381 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %380, i32 noundef 16) #18
+  %380 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %381 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %380, i32 noundef 16) #19
   br label %833
 
 382:                                              ; preds = %2
-  %383 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %384 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %383, i32 noundef 32) #18
+  %383 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %384 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %383, i32 noundef 32) #19
   br label %833
 
 385:                                              ; preds = %2
-  %386 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %387 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %386, i32 noundef 64) #18
+  %386 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %387 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %386, i32 noundef 64) #19
   br label %833
 
 388:                                              ; preds = %2
-  %389 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %390 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %389, i32 noundef 128) #18
+  %389 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %390 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %389, i32 noundef 128) #19
   br label %833
 
 391:                                              ; preds = %2
-  %392 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %393 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %392, i32 noundef 256) #18
+  %392 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %393 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %392, i32 noundef 256) #19
   br label %833
 
 394:                                              ; preds = %2
-  %395 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %396 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %395, i32 noundef 512) #18
+  %395 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %396 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %395, i32 noundef 512) #19
   br label %833
 
 397:                                              ; preds = %2
-  %398 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %399 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %398, i32 noundef 1) #18
+  %398 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %399 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %398, i32 noundef 1) #19
   br label %833
 
 400:                                              ; preds = %2
-  %401 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %402 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %401, i32 noundef 2) #18
+  %401 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %402 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %401, i32 noundef 2) #19
   br label %833
 
 403:                                              ; preds = %2
-  %404 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %405 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %404, i32 noundef 3) #18
+  %404 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %405 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %404, i32 noundef 3) #19
   br label %833
 
 406:                                              ; preds = %2
-  %407 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %408 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %407, i32 noundef 4) #18
+  %407 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %408 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %407, i32 noundef 4) #19
   br label %833
 
 409:                                              ; preds = %2
-  %410 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %411 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %410, i32 noundef 8) #18
+  %410 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %411 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %410, i32 noundef 8) #19
   br label %833
 
 412:                                              ; preds = %2
-  %413 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %414 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %413, i32 noundef 16) #18
+  %413 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %414 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %413, i32 noundef 16) #19
   br label %833
 
 415:                                              ; preds = %2
-  %416 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %417 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %416, i32 noundef 32) #18
+  %416 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %417 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %416, i32 noundef 32) #19
   br label %833
 
 418:                                              ; preds = %2
-  %419 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %420 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %419, i32 noundef 64) #18
+  %419 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %420 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %419, i32 noundef 64) #19
   br label %833
 
 421:                                              ; preds = %2
-  %422 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %423 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %422, i32 noundef 128) #18
+  %422 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %423 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %422, i32 noundef 128) #19
   br label %833
 
 424:                                              ; preds = %2
-  %425 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %426 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %425, i32 noundef 1) #18
+  %425 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %426 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %425, i32 noundef 1) #19
   br label %833
 
 427:                                              ; preds = %2
-  %428 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %429 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %428, i32 noundef 2) #18
+  %428 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %429 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %428, i32 noundef 2) #19
   br label %833
 
 430:                                              ; preds = %2
-  %431 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %432 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %431, i32 noundef 3) #18
+  %431 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %432 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %431, i32 noundef 3) #19
   br label %833
 
 433:                                              ; preds = %2
-  %434 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %435 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %434, i32 noundef 4) #18
+  %434 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %435 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %434, i32 noundef 4) #19
   br label %833
 
 436:                                              ; preds = %2
-  %437 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %438 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %437, i32 noundef 5) #18
+  %437 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %438 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %437, i32 noundef 5) #19
   br label %833
 
 439:                                              ; preds = %2
-  %440 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %441 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %440, i32 noundef 6) #18
+  %440 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %441 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %440, i32 noundef 6) #19
   br label %833
 
 442:                                              ; preds = %2
-  %443 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %444 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %443, i32 noundef 7) #18
+  %443 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %444 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %443, i32 noundef 7) #19
   br label %833
 
 445:                                              ; preds = %2
-  %446 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %447 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %446, i32 noundef 8) #18
+  %446 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %447 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %446, i32 noundef 8) #19
   br label %833
 
 448:                                              ; preds = %2
-  %449 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %450 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %449, i32 noundef 9) #18
+  %449 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %450 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %449, i32 noundef 9) #19
   br label %833
 
 451:                                              ; preds = %2
-  %452 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %453 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %452, i32 noundef 10) #18
+  %452 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %453 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %452, i32 noundef 10) #19
   br label %833
 
 454:                                              ; preds = %2
-  %455 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %456 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %455, i32 noundef 11) #18
+  %455 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %456 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %455, i32 noundef 11) #19
   br label %833
 
 457:                                              ; preds = %2
-  %458 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %459 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %458, i32 noundef 12) #18
+  %458 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %459 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %458, i32 noundef 12) #19
   br label %833
 
 460:                                              ; preds = %2
-  %461 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %462 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %461, i32 noundef 16) #18
+  %461 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %462 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %461, i32 noundef 16) #19
   br label %833
 
 463:                                              ; preds = %2
-  %464 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %465 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %464, i32 noundef 32) #18
+  %464 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %465 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %464, i32 noundef 32) #19
   br label %833
 
 466:                                              ; preds = %2
-  %467 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %468 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %467, i32 noundef 64) #18
+  %467 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %468 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %467, i32 noundef 64) #19
   br label %833
 
 469:                                              ; preds = %2
-  %470 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %471 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %470, i32 noundef 128) #18
+  %470 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %471 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %470, i32 noundef 128) #19
   br label %833
 
 472:                                              ; preds = %2
-  %473 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %474 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %473, i32 noundef 256) #18
+  %473 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %474 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %473, i32 noundef 256) #19
   br label %833
 
 475:                                              ; preds = %2
-  %476 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %477 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %476, i32 noundef 512) #18
+  %476 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %477 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %476, i32 noundef 512) #19
   br label %833
 
 478:                                              ; preds = %2
-  %479 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %480 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %479, i32 noundef 1024) #18
+  %479 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %480 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %479, i32 noundef 1024) #19
   br label %833
 
 481:                                              ; preds = %2
-  %482 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %483 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %482, i32 noundef 2048) #18
+  %482 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %483 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %482, i32 noundef 2048) #19
   br label %833
 
 484:                                              ; preds = %2
-  %485 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %486 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %485, i32 noundef 1) #18
+  %485 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %486 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %485, i32 noundef 1) #19
   br label %833
 
 487:                                              ; preds = %2
-  %488 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %489 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %488, i32 noundef 2) #18
+  %488 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %489 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %488, i32 noundef 2) #19
   br label %833
 
 490:                                              ; preds = %2
-  %491 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %492 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %491, i32 noundef 3) #18
+  %491 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %492 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %491, i32 noundef 3) #19
   br label %833
 
 493:                                              ; preds = %2
-  %494 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %495 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %494, i32 noundef 4) #18
+  %494 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %495 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %494, i32 noundef 4) #19
   br label %833
 
 496:                                              ; preds = %2
-  %497 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %498 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %497, i32 noundef 8) #18
+  %497 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %498 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %497, i32 noundef 8) #19
   br label %833
 
 499:                                              ; preds = %2
-  %500 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %501 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %500, i32 noundef 16) #18
+  %500 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %501 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %500, i32 noundef 16) #19
   br label %833
 
 502:                                              ; preds = %2
-  %503 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %504 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %503, i32 noundef 32) #18
+  %503 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %504 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %503, i32 noundef 32) #19
   br label %833
 
 505:                                              ; preds = %2
-  %506 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %507 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %506, i32 noundef 64) #18
+  %506 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %507 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %506, i32 noundef 64) #19
   br label %833
 
 508:                                              ; preds = %2
-  %509 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %510 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %509, i32 noundef 128) #18
+  %509 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %510 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %509, i32 noundef 128) #19
   br label %833
 
 511:                                              ; preds = %2
-  %512 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %513 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %512, i32 noundef 256) #18
+  %512 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %513 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %512, i32 noundef 256) #19
   br label %833
 
 514:                                              ; preds = %2
-  %515 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %516 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %515, i32 noundef 1) #18
+  %515 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %516 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %515, i32 noundef 1) #19
   br label %833
 
 517:                                              ; preds = %2
-  %518 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %519 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %518, i32 noundef 2) #18
+  %518 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %519 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %518, i32 noundef 2) #19
   br label %833
 
 520:                                              ; preds = %2
-  %521 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %522 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %521, i32 noundef 4) #18
+  %521 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %522 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %521, i32 noundef 4) #19
   br label %833
 
 523:                                              ; preds = %2
-  %524 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %525 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %524, i32 noundef 8) #18
+  %524 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %525 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %524, i32 noundef 8) #19
   br label %833
 
 526:                                              ; preds = %2
-  %527 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %528 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %527, i32 noundef 16) #18
+  %527 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %528 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %527, i32 noundef 16) #19
   br label %833
 
 529:                                              ; preds = %2
-  %530 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %531 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %530, i32 noundef 32) #18
+  %530 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %531 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %530, i32 noundef 32) #19
   br label %833
 
 532:                                              ; preds = %2
-  %533 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %534 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %533, i32 noundef 64) #18
+  %533 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %534 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %533, i32 noundef 64) #19
   br label %833
 
 535:                                              ; preds = %2
-  %536 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %537 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %536, i32 noundef 1) #18
+  %536 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %537 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %536, i32 noundef 1) #19
   br label %833
 
 538:                                              ; preds = %2
-  %539 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %540 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %539, i32 noundef 2) #18
+  %539 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %540 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %539, i32 noundef 2) #19
   br label %833
 
 541:                                              ; preds = %2
-  %542 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %543 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %542, i32 noundef 4) #18
+  %542 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %543 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %542, i32 noundef 4) #19
   br label %833
 
 544:                                              ; preds = %2
-  %545 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %546 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %545, i32 noundef 8) #18
+  %545 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %546 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %545, i32 noundef 8) #19
   br label %833
 
 547:                                              ; preds = %2
-  %548 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %549 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %548, i32 noundef 16) #18
+  %548 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %549 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %548, i32 noundef 16) #19
   br label %833
 
 550:                                              ; preds = %2
-  %551 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %552 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %551, i32 noundef 32) #18
+  %551 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %552 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %551, i32 noundef 32) #19
   br label %833
 
 553:                                              ; preds = %2
-  %554 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %555 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %554, i32 noundef 64) #18
+  %554 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %555 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %554, i32 noundef 64) #19
   br label %833
 
 556:                                              ; preds = %2
-  %557 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %558 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %557, i32 noundef 1) #18
+  %557 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %558 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %557, i32 noundef 1) #19
   br label %833
 
 559:                                              ; preds = %2
-  %560 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %561 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %560, i32 noundef 2) #18
+  %560 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %561 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %560, i32 noundef 2) #19
   br label %833
 
 562:                                              ; preds = %2
-  %563 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %564 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %563, i32 noundef 4) #18
+  %563 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %564 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %563, i32 noundef 4) #19
   br label %833
 
 565:                                              ; preds = %2
-  %566 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %567 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %566, i32 noundef 8) #18
+  %566 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %567 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %566, i32 noundef 8) #19
   br label %833
 
 568:                                              ; preds = %2
-  %569 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %570 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %569, i32 noundef 16) #18
+  %569 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %570 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %569, i32 noundef 16) #19
   br label %833
 
 571:                                              ; preds = %2
-  %572 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %573 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %572, i32 noundef 32) #18
+  %572 = tail call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %573 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %572, i32 noundef 32) #19
   br label %833
 
 574:                                              ; preds = %2
-  %575 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %576 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %575, i32 noundef 1) #18
+  %575 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %576 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %575, i32 noundef 1) #19
   br label %833
 
 577:                                              ; preds = %2
-  %578 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %579 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %578, i32 noundef 2) #18
+  %578 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %579 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %578, i32 noundef 2) #19
   br label %833
 
 580:                                              ; preds = %2
-  %581 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %582 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %581, i32 noundef 4) #18
+  %581 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %582 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %581, i32 noundef 4) #19
   br label %833
 
 583:                                              ; preds = %2
-  %584 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %585 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %584, i32 noundef 8) #18
+  %584 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %585 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %584, i32 noundef 8) #19
   br label %833
 
 586:                                              ; preds = %2
-  %587 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %588 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %587, i32 noundef 16) #18
+  %587 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %588 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %587, i32 noundef 16) #19
   br label %833
 
 589:                                              ; preds = %2
-  %590 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %591 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %590, i32 noundef 32) #18
+  %590 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %591 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %590, i32 noundef 32) #19
   br label %833
 
 592:                                              ; preds = %2
-  %593 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %594 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %593, i32 noundef 1) #18
+  %593 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %594 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %593, i32 noundef 1) #19
   br label %833
 
 595:                                              ; preds = %2
-  %596 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %597 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %596, i32 noundef 2) #18
+  %596 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %597 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %596, i32 noundef 2) #19
   br label %833
 
 598:                                              ; preds = %2
-  %599 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %600 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %599, i32 noundef 4) #18
+  %599 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %600 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %599, i32 noundef 4) #19
   br label %833
 
 601:                                              ; preds = %2
-  %602 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %603 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %602, i32 noundef 8) #18
+  %602 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %603 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %602, i32 noundef 8) #19
   br label %833
 
 604:                                              ; preds = %2
-  %605 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %606 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %605, i32 noundef 16) #18
+  %605 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %606 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %605, i32 noundef 16) #19
   br label %833
 
 607:                                              ; preds = %2
-  %608 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %609 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %608, i32 noundef 32) #18
+  %608 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %609 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %608, i32 noundef 32) #19
   br label %833
 
 610:                                              ; preds = %2
-  %611 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %612 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %611, i32 noundef 1) #18
+  %611 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %612 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %611, i32 noundef 1) #19
   br label %833
 
 613:                                              ; preds = %2
-  %614 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %615 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %614, i32 noundef 2) #18
+  %614 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %615 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %614, i32 noundef 2) #19
   br label %833
 
 616:                                              ; preds = %2
-  %617 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %618 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %617, i32 noundef 4) #18
+  %617 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %618 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %617, i32 noundef 4) #19
   br label %833
 
 619:                                              ; preds = %2
-  %620 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %621 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %620, i32 noundef 8) #18
+  %620 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %621 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %620, i32 noundef 8) #19
   br label %833
 
 622:                                              ; preds = %2
-  %623 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %624 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %623, i32 noundef 16) #18
+  %623 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %624 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %623, i32 noundef 16) #19
   br label %833
 
 625:                                              ; preds = %2
-  %626 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %627 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %626, i32 noundef 32) #18
+  %626 = tail call noundef ptr @_ZN4llvm4Type9getHalfTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %627 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %626, i32 noundef 32) #19
   br label %833
 
 628:                                              ; preds = %2
-  %629 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %630 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %629, i32 noundef 1) #18
+  %629 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %630 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %629, i32 noundef 1) #19
   br label %833
 
 631:                                              ; preds = %2
-  %632 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %633 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %632, i32 noundef 2) #18
+  %632 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %633 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %632, i32 noundef 2) #19
   br label %833
 
 634:                                              ; preds = %2
-  %635 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %636 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %635, i32 noundef 4) #18
+  %635 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %636 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %635, i32 noundef 4) #19
   br label %833
 
 637:                                              ; preds = %2
-  %638 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %639 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %638, i32 noundef 8) #18
+  %638 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %639 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %638, i32 noundef 8) #19
   br label %833
 
 640:                                              ; preds = %2
-  %641 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %642 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %641, i32 noundef 16) #18
+  %641 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %642 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %641, i32 noundef 16) #19
   br label %833
 
 643:                                              ; preds = %2
-  %644 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %645 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %644, i32 noundef 32) #18
+  %644 = tail call noundef ptr @_ZN4llvm4Type11getBFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %645 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %644, i32 noundef 32) #19
   br label %833
 
 646:                                              ; preds = %2
-  %647 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %648 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %647, i32 noundef 1) #18
+  %647 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %648 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %647, i32 noundef 1) #19
   br label %833
 
 649:                                              ; preds = %2
-  %650 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %651 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %650, i32 noundef 2) #18
+  %650 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %651 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %650, i32 noundef 2) #19
   br label %833
 
 652:                                              ; preds = %2
-  %653 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %654 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %653, i32 noundef 4) #18
+  %653 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %654 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %653, i32 noundef 4) #19
   br label %833
 
 655:                                              ; preds = %2
-  %656 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %657 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %656, i32 noundef 8) #18
+  %656 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %657 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %656, i32 noundef 8) #19
   br label %833
 
 658:                                              ; preds = %2
-  %659 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %660 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %659, i32 noundef 16) #18
+  %659 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %660 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %659, i32 noundef 16) #19
   br label %833
 
 661:                                              ; preds = %2
-  %662 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %663 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %662, i32 noundef 1) #18
+  %662 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %663 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %662, i32 noundef 1) #19
   br label %833
 
 664:                                              ; preds = %2
-  %665 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %666 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %665, i32 noundef 2) #18
+  %665 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %666 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %665, i32 noundef 2) #19
   br label %833
 
 667:                                              ; preds = %2
-  %668 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %669 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %668, i32 noundef 4) #18
+  %668 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %669 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %668, i32 noundef 4) #19
   br label %833
 
 670:                                              ; preds = %2
-  %671 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %672 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %671, i32 noundef 8) #18
+  %671 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %672 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %671, i32 noundef 8) #19
   br label %833
 
 673:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %674 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %675 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %674, i32 noundef 2) #18
+  %674 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %675 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %674, i32 noundef 2) #19
   store ptr %675, ptr %4, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4, !tbaa !25
   store ptr %6, ptr %5, align 8, !tbaa !26
   %676 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %676, align 8, !tbaa !30
-  %677 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %4, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %5) #18
+  %677 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %4, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %833
 
 678:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %679 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %680 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %679, i32 noundef 3) #18
+  %679 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %680 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %679, i32 noundef 3) #19
   store ptr %680, ptr %7, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 4, !tbaa !25
   store ptr %9, ptr %8, align 8, !tbaa !26
   %681 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %681, align 8, !tbaa !30
-  %682 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %7, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %8) #18
+  %682 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %7, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %833
 
 683:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %684 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %685 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %684, i32 noundef 4) #18
+  %684 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %685 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %684, i32 noundef 4) #19
   store ptr %685, ptr %10, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 1, ptr %12, align 4, !tbaa !25
   store ptr %12, ptr %11, align 8, !tbaa !26
   %686 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 1, ptr %686, align 8, !tbaa !30
-  %687 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %10, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %11) #18
+  %687 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %10, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %833
 
 688:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %689 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %690 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %689, i32 noundef 5) #18
+  %689 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %690 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %689, i32 noundef 5) #19
   store ptr %690, ptr %13, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 1, ptr %15, align 4, !tbaa !25
   store ptr %15, ptr %14, align 8, !tbaa !26
   %691 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1, ptr %691, align 8, !tbaa !30
-  %692 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %13, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %14) #18
+  %692 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %13, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %833
 
 693:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %694 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %695 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %694, i32 noundef 6) #18
+  %694 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %695 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %694, i32 noundef 6) #19
   store ptr %695, ptr %16, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 1, ptr %18, align 4, !tbaa !25
   store ptr %18, ptr %17, align 8, !tbaa !26
   %696 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 1, ptr %696, align 8, !tbaa !30
-  %697 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %16, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %17) #18
+  %697 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %16, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %17) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %833
 
 698:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %699 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %700 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %699, i32 noundef 7) #18
+  %699 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %700 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %699, i32 noundef 7) #19
   store ptr %700, ptr %19, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 1, ptr %21, align 4, !tbaa !25
   store ptr %21, ptr %20, align 8, !tbaa !26
   %701 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 1, ptr %701, align 8, !tbaa !30
-  %702 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %19, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %20) #18
+  %702 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %19, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %20) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %833
 
 703:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %704 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %705 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %704, i32 noundef 8) #18
+  %704 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %705 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %704, i32 noundef 8) #19
   store ptr %705, ptr %22, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 1, ptr %24, align 4, !tbaa !25
   store ptr %24, ptr %23, align 8, !tbaa !26
   %706 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 1, ptr %706, align 8, !tbaa !30
-  %707 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %22, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %23) #18
+  %707 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %22, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %23) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %833
 
 708:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %709 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %710 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %709, i32 noundef 4) #18
+  %709 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %710 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %709, i32 noundef 4) #19
   store ptr %710, ptr %25, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 1, ptr %27, align 4, !tbaa !25
   store ptr %27, ptr %26, align 8, !tbaa !26
   %711 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 1, ptr %711, align 8, !tbaa !30
-  %712 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %25, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %26) #18
+  %712 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %25, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %26) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %833
 
 713:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %714 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %715 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %714, i32 noundef 6) #18
+  %714 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %715 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %714, i32 noundef 6) #19
   store ptr %715, ptr %28, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 1, ptr %30, align 4, !tbaa !25
   store ptr %30, ptr %29, align 8, !tbaa !26
   %716 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 1, ptr %716, align 8, !tbaa !30
-  %717 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %28, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %29) #18
+  %717 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %28, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %29) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %833
 
 718:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %719 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %720 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %719, i32 noundef 8) #18
+  %719 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %720 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %719, i32 noundef 8) #19
   store ptr %720, ptr %31, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 1, ptr %33, align 4, !tbaa !25
   store ptr %33, ptr %32, align 8, !tbaa !26
   %721 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 1, ptr %721, align 8, !tbaa !30
-  %722 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %31, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %32) #18
+  %722 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %31, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %833
 
 723:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %724 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %725 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %724, i32 noundef 10) #18
+  %724 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %725 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %724, i32 noundef 10) #19
   store ptr %725, ptr %34, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 1, ptr %36, align 4, !tbaa !25
   store ptr %36, ptr %35, align 8, !tbaa !26
   %726 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %726, align 8, !tbaa !30
-  %727 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %34, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %35) #18
+  %727 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %34, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %35) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %833
 
 728:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %729 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %730 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %729, i32 noundef 12) #18
+  %729 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %730 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %729, i32 noundef 12) #19
   store ptr %730, ptr %37, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 1, ptr %39, align 4, !tbaa !25
   store ptr %39, ptr %38, align 8, !tbaa !26
   %731 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 1, ptr %731, align 8, !tbaa !30
-  %732 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %37, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %38) #18
+  %732 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %37, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %38) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %833
 
 733:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %734 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %735 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %734, i32 noundef 14) #18
+  %734 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %735 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %734, i32 noundef 14) #19
   store ptr %735, ptr %40, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 1, ptr %42, align 4, !tbaa !25
   store ptr %42, ptr %41, align 8, !tbaa !26
   %736 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 1, ptr %736, align 8, !tbaa !30
-  %737 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %40, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %41) #18
+  %737 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %40, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %41) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %833
 
 738:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %739 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %740 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %739, i32 noundef 16) #18
+  %739 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %740 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %739, i32 noundef 16) #19
   store ptr %740, ptr %43, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 1, ptr %45, align 4, !tbaa !25
   store ptr %45, ptr %44, align 8, !tbaa !26
   %741 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 1, ptr %741, align 8, !tbaa !30
-  %742 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %43, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %44) #18
+  %742 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %43, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %44) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %833
 
 743:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %744 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %745 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %744, i32 noundef 8) #18
+  %744 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %745 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %744, i32 noundef 8) #19
   store ptr %745, ptr %46, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 1, ptr %48, align 4, !tbaa !25
   store ptr %48, ptr %47, align 8, !tbaa !26
   %746 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 1, ptr %746, align 8, !tbaa !30
-  %747 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %46, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %47) #18
+  %747 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %46, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %47) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %833
 
 748:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %749 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %750 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %749, i32 noundef 12) #18
+  %749 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %750 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %749, i32 noundef 12) #19
   store ptr %750, ptr %49, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i32 1, ptr %51, align 4, !tbaa !25
   store ptr %51, ptr %50, align 8, !tbaa !26
   %751 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 1, ptr %751, align 8, !tbaa !30
-  %752 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %49, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %50) #18
+  %752 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %49, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %50) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %833
 
 753:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %754 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %755 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %754, i32 noundef 16) #18
+  %754 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %755 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %754, i32 noundef 16) #19
   store ptr %755, ptr %52, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i32 1, ptr %54, align 4, !tbaa !25
   store ptr %54, ptr %53, align 8, !tbaa !26
   %756 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 1, ptr %756, align 8, !tbaa !30
-  %757 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %52, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %53) #18
+  %757 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %52, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %53) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %833
 
 758:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %759 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %760 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %759, i32 noundef 20) #18
+  %759 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %760 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %759, i32 noundef 20) #19
   store ptr %760, ptr %55, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i32 1, ptr %57, align 4, !tbaa !25
   store ptr %57, ptr %56, align 8, !tbaa !26
   %761 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 1, ptr %761, align 8, !tbaa !30
-  %762 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %55, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %56) #18
+  %762 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %55, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %56) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %833
 
 763:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  %764 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %765 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %764, i32 noundef 24) #18
+  %764 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %765 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %764, i32 noundef 24) #19
   store ptr %765, ptr %58, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i32 1, ptr %60, align 4, !tbaa !25
   store ptr %60, ptr %59, align 8, !tbaa !26
   %766 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 1, ptr %766, align 8, !tbaa !30
-  %767 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %58, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %59) #18
+  %767 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %58, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %59) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %833
 
 768:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  %769 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %770 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %769, i32 noundef 28) #18
+  %769 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %770 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %769, i32 noundef 28) #19
   store ptr %770, ptr %61, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store i32 1, ptr %63, align 4, !tbaa !25
   store ptr %63, ptr %62, align 8, !tbaa !26
   %771 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 1, ptr %771, align 8, !tbaa !30
-  %772 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %61, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %62) #18
+  %772 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %61, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %62) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %833
 
 773:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %774 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %775 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %774, i32 noundef 32) #18
+  %774 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %775 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %774, i32 noundef 32) #19
   store ptr %775, ptr %64, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i32 1, ptr %66, align 4, !tbaa !25
   store ptr %66, ptr %65, align 8, !tbaa !26
   %776 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 1, ptr %776, align 8, !tbaa !30
-  %777 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %64, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %65) #18
+  %777 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %64, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %65) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %833
 
 778:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  %779 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %780 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %779, i32 noundef 16) #18
+  %779 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %780 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %779, i32 noundef 16) #19
   store ptr %780, ptr %67, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i32 1, ptr %69, align 4, !tbaa !25
   store ptr %69, ptr %68, align 8, !tbaa !26
   %781 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 1, ptr %781, align 8, !tbaa !30
-  %782 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %67, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %68) #18
+  %782 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %67, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %68) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %833
 
 783:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %784 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %785 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %784, i32 noundef 24) #18
+  %784 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %785 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %784, i32 noundef 24) #19
   store ptr %785, ptr %70, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i32 1, ptr %72, align 4, !tbaa !25
   store ptr %72, ptr %71, align 8, !tbaa !26
   %786 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 1, ptr %786, align 8, !tbaa !30
-  %787 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %70, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %71) #18
+  %787 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %70, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %71) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %833
 
 788:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  %789 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %790 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %789, i32 noundef 32) #18
+  %789 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %790 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %789, i32 noundef 32) #19
   store ptr %790, ptr %73, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i32 1, ptr %75, align 4, !tbaa !25
   store ptr %75, ptr %74, align 8, !tbaa !26
   %791 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 1, ptr %791, align 8, !tbaa !30
-  %792 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %73, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %74) #18
+  %792 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %73, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %74) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %833
 
 793:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
-  %794 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %795 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %794, i32 noundef 40) #18
+  %794 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %795 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %794, i32 noundef 40) #19
   store ptr %795, ptr %76, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i32 1, ptr %78, align 4, !tbaa !25
   store ptr %78, ptr %77, align 8, !tbaa !26
   %796 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 1, ptr %796, align 8, !tbaa !30
-  %797 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %76, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %77) #18
+  %797 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %76, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %77) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %833
 
 798:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  %799 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %800 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %799, i32 noundef 48) #18
+  %799 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %800 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %799, i32 noundef 48) #19
   store ptr %800, ptr %79, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store i32 1, ptr %81, align 4, !tbaa !25
   store ptr %81, ptr %80, align 8, !tbaa !26
   %801 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 1, ptr %801, align 8, !tbaa !30
-  %802 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %79, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %80) #18
+  %802 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %79, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %80) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %833
 
 803:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %804 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %805 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %804, i32 noundef 56) #18
+  %804 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %805 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %804, i32 noundef 56) #19
   store ptr %805, ptr %82, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store i32 1, ptr %84, align 4, !tbaa !25
   store ptr %84, ptr %83, align 8, !tbaa !26
   %806 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 1, ptr %806, align 8, !tbaa !30
-  %807 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %82, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %83) #18
+  %807 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %82, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %83) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %833
 
 808:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
-  %809 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %810 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %809, i32 noundef 64) #18
+  %809 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %810 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %809, i32 noundef 64) #19
   store ptr %810, ptr %85, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store i32 1, ptr %87, align 4, !tbaa !25
   store ptr %87, ptr %86, align 8, !tbaa !26
   %811 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 1, ptr %811, align 8, !tbaa !30
-  %812 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %85, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %86) #18
+  %812 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %85, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %86) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %833
 
 813:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
-  %814 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %815 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %814, i32 noundef 32) #18
+  %814 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %815 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %814, i32 noundef 32) #19
   store ptr %815, ptr %88, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store i32 1, ptr %90, align 4, !tbaa !25
   store ptr %90, ptr %89, align 8, !tbaa !26
   %816 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 1, ptr %816, align 8, !tbaa !30
-  %817 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %88, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %89) #18
+  %817 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %88, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %89) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %833
 
 818:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
-  %819 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %820 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %819, i32 noundef 48) #18
+  %819 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %820 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %819, i32 noundef 48) #19
   store ptr %820, ptr %91, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   store i32 1, ptr %93, align 4, !tbaa !25
   store ptr %93, ptr %92, align 8, !tbaa !26
   %821 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 1, ptr %821, align 8, !tbaa !30
-  %822 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %91, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %92) #18
+  %822 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %91, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %92) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %833
 
 823:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
-  %824 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %825 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %824, i32 noundef 64) #18
+  %824 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %825 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %824, i32 noundef 64) #19
   store ptr %825, ptr %94, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store i32 1, ptr %96, align 4, !tbaa !25
   store ptr %96, ptr %95, align 8, !tbaa !26
   %826 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 1, ptr %826, align 8, !tbaa !30
-  %827 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %94, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %95) #18
+  %827 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %94, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %95) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %833
 
 828:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
-  %829 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #18
-  %830 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %829, i32 noundef 64) #18
+  %829 = tail call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 1 %1) #19
+  %830 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %829, i32 noundef 64) #19
   store ptr %830, ptr %97, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store i32 1, ptr %99, align 4, !tbaa !25
   store ptr %99, ptr %98, align 8, !tbaa !26
   %831 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 1, ptr %831, align 8, !tbaa !30
-  %832 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %97, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %98) #18
+  %832 = call noundef ptr @_ZN4llvm13TargetExtType3getERNS_11LLVMContextENS_9StringRefENS_8ArrayRefIPNS_4TypeEEENS4_IjEE(ptr noundef nonnull align 1 %1, ptr nonnull @.str.23, i64 18, ptr nonnull %97, i64 1, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2") align 8 %98) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %833
@@ -2338,7 +2302,7 @@ define dso_local { i16, ptr } @_ZN4llvm3EVT19getExtendedVectorVTERNS_11LLVMConte
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %6, align 8
   %7 = call noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %0)
-  %8 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %7, i64 %3) #18
+  %8 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %7, i64 %3) #19
   %.fca.1.insert = insertvalue { i16, ptr } { i16 0, ptr poison }, ptr %8, 1
   ret { i16, ptr } %.fca.1.insert
 }
@@ -2444,7 +2408,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT21isExtended16BitVectorEv(ptr 
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 16
@@ -2481,7 +2445,7 @@ define dso_local { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef
   br i1 %.not12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %14 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract = extractvalue { i64, i8 } %14, 0
   %.fca.1.extract = extractvalue { i64, i8 } %14, 1
   br label %15
@@ -2506,7 +2470,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT21isExtended32BitVectorEv(ptr 
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 32
@@ -2531,7 +2495,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT21isExtended64BitVectorEv(ptr 
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 64
@@ -2556,7 +2520,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT22isExtended128BitVectorEv(ptr
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 128
@@ -2581,7 +2545,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT22isExtended256BitVectorEv(ptr
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 256
@@ -2606,7 +2570,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT22isExtended512BitVectorEv(ptr
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 512
@@ -2631,7 +2595,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT23isExtended1024BitVectorEv(pt
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 1024
@@ -2656,7 +2620,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3EVT23isExtended2048BitVectorEv(pt
   br i1 %spec.select.i.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %12
 
 _ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit:      ; preds = %1
-  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %8 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %.fca.0.extract.i = extractvalue { i64, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %8, 1
   %9 = icmp eq i64 %.fca.0.extract.i, 2048
@@ -2710,8 +2674,8 @@ define dso_local { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef reado
   switch i8 %trunc, label %6 [
     i8 11, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
     i8 12, label %8
-    i8 17, label %19
-    i8 18, label %19
+    i8 17, label %16
+    i8 18, label %16
   ]
 
 6:                                                ; preds = %2
@@ -2719,87 +2683,69 @@ define dso_local { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef reado
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 8:                                                ; preds = %2
-  %9 = lshr i32 %5, 8
-  switch i32 %9, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i [
-    i32 1, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-    i32 2, label %10
-    i32 4, label %11
-    i32 8, label %12
-    i32 16, label %13
-    i32 32, label %14
-    i32 64, label %15
-    i32 128, label %16
-  ]
+  %9 = load ptr, ptr %0, align 8, !tbaa !11
+  %10 = lshr i32 %5, 8
+  %11 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %10)
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %.split.i.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
 
-10:                                               ; preds = %8
+.split.i.i:                                       ; preds = %8
+  %13 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
+  %14 = icmp samesign ult i32 %13, 8
+  br i1 %14, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
+
+_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %.split.i.i
+  %switch.idx.cast.i.i = trunc nuw nsw i32 %13 to i16
+  %switch.offset.i.i = add nuw nsw i16 %switch.idx.cast.i.i, 2
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-11:                                               ; preds = %8
+_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i:       ; preds = %.split.i.i, %8
+  %15 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %9, i32 noundef %10) #19
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-12:                                               ; preds = %8
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-13:                                               ; preds = %8
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-14:                                               ; preds = %8
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-15:                                               ; preds = %8
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-16:                                               ; preds = %8
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %8
+16:                                               ; preds = %2, %2
   %17 = load ptr, ptr %0, align 8, !tbaa !11
-  %18 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 1 %17, i32 noundef %9) #18
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-19:                                               ; preds = %2, %2
-  %20 = load ptr, ptr %0, align 8, !tbaa !11
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !19
-  %23 = tail call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef %22, i1 noundef zeroext false)
-  %24 = extractvalue { i16, ptr } %23, 0
-  %25 = extractvalue { i16, ptr } %23, 1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i32, ptr %26, align 8, !tbaa !23
-  %28 = load i32, ptr %4, align 8
-  %29 = and i32 %28, 255
-  %.not = icmp eq i32 %29, 18
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = tail call { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef %19, i1 noundef zeroext false)
+  %21 = extractvalue { i16, ptr } %20, 0
+  %22 = extractvalue { i16, ptr } %20, 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load i32, ptr %23, align 8, !tbaa !23
+  %25 = load i32, ptr %4, align 8
+  %26 = and i32 %25, 255
+  %.not = icmp eq i32 %26, 18
   %.sroa.2.0.insert.shift.i.i = select i1 %.not, i64 4294967296, i64 0
-  %.sroa.0.0.insert.ext.i.i = zext i32 %27 to i64
+  %.sroa.0.0.insert.ext.i.i = zext i32 %24 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  br i1 %.not, label %30, label %32
+  br i1 %.not, label %27, label %29
 
-30:                                               ; preds = %19
-  %31 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %24, i32 noundef %27)
+27:                                               ; preds = %16
+  %28 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %21, i32 noundef %24)
   br label %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
 
-32:                                               ; preds = %19
-  %33 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %24, i32 noundef %27)
+29:                                               ; preds = %16
+  %30 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %21, i32 noundef %24)
   br label %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
 
-_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i: ; preds = %32, %30
-  %.sroa.04.0.i.i = phi i16 [ %31, %30 ], [ %33, %32 ]
+_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i: ; preds = %29, %27
+  %.sroa.04.0.i.i = phi i16 [ %28, %27 ], [ %30, %29 ]
   %.not.i = icmp eq i16 %.sroa.04.0.i.i, 0
-  br i1 %.not.i, label %34, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
+  br i1 %.not.i, label %31, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-34:                                               ; preds = %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
+31:                                               ; preds = %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i16 %24, ptr %3, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %35, align 8
-  %36 = call noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %20)
-  %37 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %36, i64 %.sroa.0.0.insert.insert.i.i) #18
+  store i16 %21, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %22, ptr %32, align 8
+  %33 = call noundef ptr @_ZNK4llvm3EVT13getTypeForEVTERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %17)
+  %34 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %33, i64 %.sroa.0.0.insert.insert.i.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %34, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.i, %16, %15, %14, %13, %12, %11, %10, %8, %2, %6
-  %.sroa.5.0 = phi ptr [ null, %6 ], [ null, %2 ], [ %18, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %10 ], [ null, %11 ], [ null, %12 ], [ null, %13 ], [ null, %14 ], [ null, %15 ], [ null, %16 ], [ null, %8 ], [ %37, %34 ], [ null, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i ]
-  %.sroa.0.0 = phi i16 [ %7, %6 ], [ 226, %2 ], [ 0, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %10 ], [ 4, %11 ], [ 5, %12 ], [ 6, %13 ], [ 7, %14 ], [ 8, %15 ], [ 9, %16 ], [ 2, %8 ], [ 0, %34 ], [ %.sroa.04.0.i.i, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i ]
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %31, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.i, %2, %6
+  %.sroa.5.0 = phi ptr [ null, %6 ], [ null, %2 ], [ %15, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ null, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ %34, %31 ], [ null, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i ]
+  %.sroa.0.0 = phi i16 [ %7, %6 ], [ 226, %2 ], [ 0, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ %switch.offset.i.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 0, %31 ], [ %.sroa.04.0.i.i, %_ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit.i ]
   %.fca.0.insert = insertvalue { i16, ptr } poison, i16 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i16, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
   ret { i16, ptr } %.fca.1.insert
@@ -2818,7 +2764,7 @@ define dso_local noundef i32 @_ZNK4llvm3EVT28getExtendedVectorNumElementsEv(ptr 
   br i1 %9, label %10, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 10:                                               ; preds = %1
-  %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm9WithColor7warningEv() #18
+  %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm9WithColor7warningEv() #19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -2830,7 +2776,7 @@ define dso_local noundef i32 @_ZNK4llvm3EVT28getExtendedVectorNumElementsEv(ptr 
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %10
-  %21 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull @.str, i64 noundef 177) #18
+  %21 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull @.str, i64 noundef 177) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 22:                                               ; preds = %10
@@ -2964,7 +2910,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20
   br i1 %46, label %47, label %._crit_edge.i.i.i
 
 47:                                               ; preds = %._crit_edge.i
-  %48 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0) #18
+  %48 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0) #19
   store ptr %48, ptr %9, align 8, !tbaa !50, !alias.scope !40
   %49 = load i64, ptr %5, align 8, !tbaa !49, !noalias !40
   store i64 %49, ptr %41, align 8, !tbaa !39, !alias.scope !40
@@ -2995,7 +2941,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %._crit_edge.i.i.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !40
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !40
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.1, i64 noundef 9) #18, !noalias !51
+  %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.1, i64 noundef 9) #19, !noalias !51
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %58, ptr %8, align 8, !tbaa !45, !alias.scope !51
   %59 = load ptr, ptr %57, align 8, !tbaa !50
@@ -3034,11 +2980,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   br i1 %72, label %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 73:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #19, !noalias !54
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #20, !noalias !54
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit
-  %74 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.2, i64 noundef 3) #18, !noalias !54
+  %74 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.2, i64 noundef 3) #19, !noalias !54
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %75, ptr %7, align 8, !tbaa !45, !alias.scope !54
   %76 = load ptr, ptr %74, align 8, !tbaa !50
@@ -3114,7 +3060,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   br i1 %102, label %103, label %._crit_edge.i.i.i22
 
 103:                                              ; preds = %._crit_edge.i20
-  %104 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #18
+  %104 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #19
   store ptr %104, ptr %10, align 8, !tbaa !50, !alias.scope !57
   %105 = load i64, ptr %3, align 8, !tbaa !49, !noalias !57
   store i64 %105, ptr %97, align 8, !tbaa !39, !alias.scope !57
@@ -3152,7 +3098,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit24:                 ; preds = %._crit_edge.i.i.i22
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit24
   %115 = load i64, ptr %97, align 8, !tbaa !39
   %116 = add i64 %115, 1
-  call void @_ZdlPvm(ptr noundef %113, i64 noundef %116) #20
+  call void @_ZdlPvm(ptr noundef %113, i64 noundef %116) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
@@ -3164,7 +3110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %119 = load i64, ptr %75, align 8, !tbaa !39
   %120 = add i64 %119, 1
-  call void @_ZdlPvm(ptr noundef %117, i64 noundef %120) #20
+  call void @_ZdlPvm(ptr noundef %117, i64 noundef %120) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
@@ -3175,7 +3121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
   %123 = load i64, ptr %58, align 8, !tbaa !39
   %124 = add i64 %123, 1
-  call void @_ZdlPvm(ptr noundef %121, i64 noundef %124) #20
+  call void @_ZdlPvm(ptr noundef %121, i64 noundef %124) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
@@ -3186,7 +3132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
   %127 = load i64, ptr %41, align 8, !tbaa !39
   %128 = add i64 %127, 1
-  call void @_ZdlPvm(ptr noundef %125, i64 noundef %128) #20
+  call void @_ZdlPvm(ptr noundef %125, i64 noundef %128) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
@@ -3251,7 +3197,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %138, %140
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39: ; preds = %_ZNK4llvm3EVT16isScalableVectorEv.exit
   %153 = load i64, ptr %151, align 8, !tbaa !39
   %154 = add i64 %153, 1
-  call void @_ZdlPvm(ptr noundef %150, i64 noundef %154) #20
+  call void @_ZdlPvm(ptr noundef %150, i64 noundef %154) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZNK4llvm3EVT16isScalableVectorEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
@@ -3265,7 +3211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
   %158 = load i64, ptr %156, align 8, !tbaa !39
   %159 = add i64 %158, 1
-  call void @_ZdlPvm(ptr noundef %155, i64 noundef %159) #20
+  call void @_ZdlPvm(ptr noundef %155, i64 noundef %159) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
@@ -3277,7 +3223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
   %163 = load i64, ptr %161, align 8, !tbaa !39
   %164 = add i64 %163, 1
-  call void @_ZdlPvm(ptr noundef %160, i64 noundef %164) #20
+  call void @_ZdlPvm(ptr noundef %160, i64 noundef %164) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45
@@ -3298,7 +3244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   store i64 %.fca.0.extract1, ptr %16, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 %.fca.1.extract2, ptr %.sroa.24.0..sroa_idx, align 8
-  %169 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %16) #18
+  %169 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %16) #19
   call void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, i64 noundef %169, i1 noundef zeroext false)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %170 = load ptr, ptr %15, align 8, !tbaa !50
@@ -3309,7 +3255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48: ; preds = %167
   %173 = load i64, ptr %171, align 8, !tbaa !39
   %174 = add i64 %173, 1
-  call void @_ZdlPvm(ptr noundef %170, i64 noundef %174) #20
+  call void @_ZdlPvm(ptr noundef %170, i64 noundef %174) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
@@ -3327,7 +3273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %167
   store i64 %.fca.0.extract, ptr %18, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  %178 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
+  %178 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %18) #19
   call void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, i64 noundef %178, i1 noundef zeroext false)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %17)
   %179 = load ptr, ptr %17, align 8, !tbaa !50
@@ -3338,7 +3284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %167
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51: ; preds = %175
   %182 = load i64, ptr %180, align 8, !tbaa !39
   %183 = add i64 %182, 1
-  call void @_ZdlPvm(ptr noundef %179, i64 noundef %183) #20
+  call void @_ZdlPvm(ptr noundef %179, i64 noundef %183) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
@@ -3541,7 +3487,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit12: ; pred
   br i1 %.not, label %39, label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit12
-  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef %9, i64 noundef %5) #18
+  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef %9, i64 noundef %5) #19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8, !tbaa !45
   %27 = load ptr, ptr %25, align 8, !tbaa !50
@@ -3580,12 +3526,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %30
   br i1 %41, label %42, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 42:                                               ; preds = %39
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #20
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %39
   %43 = load ptr, ptr %2, align 8, !tbaa !50
-  %44 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %43, i64 noundef %7) #18
+  %44 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %43, i64 noundef %7) #19
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %45, ptr %0, align 8, !tbaa !45
   %46 = load ptr, ptr %44, align 8, !tbaa !50
@@ -3624,8 +3570,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14: ; preds = %
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #6 comdat {
-  %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %4) #18
+  %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %4) #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !45
   %7 = load ptr, ptr %5, align 8, !tbaa !50
@@ -3711,7 +3657,7 @@ define linkonce_odr hidden void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind no
   br i1 %22, label %23, label %._crit_edge.i.i
 
 23:                                               ; preds = %16
-  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #18
+  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #19
   store ptr %24, ptr %0, align 8, !tbaa !50
   %25 = load i64, ptr %4, align 8, !tbaa !49
   store i64 %25, ptr %17, align 8, !tbaa !39
@@ -3931,17 +3877,17 @@ define dso_local i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef readonly captur
   switch i8 %trunc, label %5 [
     i8 7, label %_ZN4llvm3MVT12getIntegerVTEj.exit
     i8 12, label %6
-    i8 0, label %16
-    i8 1, label %17
-    i8 2, label %18
-    i8 3, label %19
-    i8 4, label %20
-    i8 20, label %21
-    i8 10, label %38
-    i8 5, label %39
-    i8 6, label %40
-    i8 17, label %41
-    i8 18, label %41
+    i8 0, label %12
+    i8 1, label %13
+    i8 2, label %14
+    i8 3, label %15
+    i8 4, label %16
+    i8 20, label %17
+    i8 10, label %34
+    i8 5, label %35
+    i8 6, label %36
+    i8 17, label %37
+    i8 18, label %37
   ]
 
 5:                                                ; preds = %2
@@ -3949,82 +3895,61 @@ define dso_local i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef readonly captur
 
 6:                                                ; preds = %2
   %7 = lshr i32 %4, 8
-  switch i32 %7, label %15 [
-    i32 1, label %_ZN4llvm3MVT12getIntegerVTEj.exit
-    i32 2, label %8
-    i32 4, label %9
-    i32 8, label %10
-    i32 16, label %11
-    i32 32, label %12
-    i32 64, label %13
-    i32 128, label %14
-  ]
+  %8 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %7)
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %.split.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-8:                                                ; preds = %6
+.split.i:                                         ; preds = %6
+  %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7, i1 true)
+  %11 = icmp samesign ult i32 %10, 8
+  br i1 %11, label %switch.lookup.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit
+
+switch.lookup.i:                                  ; preds = %.split.i
+  %switch.idx.cast.i = trunc nuw nsw i32 %10 to i16
+  %switch.offset.i = add nuw nsw i16 %switch.idx.cast.i, 2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-9:                                                ; preds = %6
+12:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-10:                                               ; preds = %6
+13:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-11:                                               ; preds = %6
+14:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-12:                                               ; preds = %6
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-13:                                               ; preds = %6
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-14:                                               ; preds = %6
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-15:                                               ; preds = %6
+15:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 16:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 17:                                               ; preds = %2
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-18:                                               ; preds = %2
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-19:                                               ; preds = %2
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-20:                                               ; preds = %2
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !60
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8, !tbaa !60
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !49
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i, 15
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread43
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %21
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %17
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(15) @.str.22, i64 15)
-  %23 = icmp eq i32 %bcmp.i, 0
-  br i1 %23, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
+  %19 = icmp eq i32 %bcmp.i, 0
+  br i1 %19, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread43:       ; preds = %21
+_ZN4llvmeqENS_9StringRefES0_.exit.thread43:       ; preds = %17
   %.not.i24 = icmp ult i64 %.sroa.2.0.copyload.i, 6
   br i1 %.not.i24, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread43
   %bcmp.i25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6)
-  %24 = icmp eq i32 %bcmp.i25, 0
-  br i1 %24, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45
+  %20 = icmp eq i32 %bcmp.i25, 0
+  br i1 %20, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %bcmp.i2551 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6)
-  %25 = icmp eq i32 %bcmp.i2551, 0
-  br i1 %25, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
+  %21 = icmp eq i32 %bcmp.i2551, 0
+  br i1 %21, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread45: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %.not.i31 = icmp eq i64 %.sroa.2.0.copyload.i, 18
@@ -4032,56 +3957,56 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread45: ; preds = %_ZNK4llvm9StringR
 
 _ZN4llvmeqENS_9StringRefES0_.exit34:              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45
   %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(18) @.str.23, i64 18)
-  %26 = icmp eq i32 %bcmp.i33, 0
-  br i1 %26, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
+  %22 = icmp eq i32 %bcmp.i33, 0
+  br i1 %22, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
 
 _ZN4llvmeqENS_9StringRefES0_.exit34.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit34
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !31
-  %29 = load ptr, ptr %28, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load i32, ptr %30, align 8, !tbaa !23
-  %32 = shl i32 %31, 3
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
-  %35 = load i32, ptr %34, align 4, !tbaa !25
-  %36 = mul i32 %32, %35
-  %37 = tail call i16 @_ZN4llvm3MVT21getRISCVVectorTupleVTEjj(i32 noundef %36, i32 noundef %35)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load i32, ptr %26, align 8, !tbaa !23
+  %28 = shl i32 %27, 3
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8, !tbaa !61
+  %31 = load i32, ptr %30, align 4, !tbaa !25
+  %32 = mul i32 %28, %31
+  %33 = tail call i16 @_ZN4llvm3MVT21getRISCVVectorTupleVTEjj(i32 noundef %32, i32 noundef %31)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit34.thread47:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread43, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45, %_ZN4llvmeqENS_9StringRefES0_.exit34
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-38:                                               ; preds = %2
+34:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-39:                                               ; preds = %2
+35:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-40:                                               ; preds = %2
+36:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-41:                                               ; preds = %2, %2
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !19
-  %44 = tail call i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef %43, i1 noundef zeroext false)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !23
-  %47 = load i32, ptr %3, align 8
-  %48 = and i32 %47, 255
-  %.not = icmp eq i32 %48, 18
-  br i1 %.not, label %49, label %51
+37:                                               ; preds = %2, %2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !19
+  %40 = tail call i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef %39, i1 noundef zeroext false)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = load i32, ptr %41, align 8, !tbaa !23
+  %43 = load i32, ptr %3, align 8
+  %44 = and i32 %43, 255
+  %.not = icmp eq i32 %44, 18
+  br i1 %.not, label %45, label %47
 
-49:                                               ; preds = %41
-  %50 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %44, i32 noundef %46)
+45:                                               ; preds = %37
+  %46 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %40, i32 noundef %42)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-51:                                               ; preds = %41
-  %52 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %44, i32 noundef %46)
+47:                                               ; preds = %37
+  %48 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %40, i32 noundef %42)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-_ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %51, %49, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %15, %14, %13, %12, %11, %10, %9, %8, %6, %2, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47, %40, %39, %38, %20, %19, %18, %17, %16, %5
-  %.sroa.041.0 = phi i16 [ 1, %5 ], [ 11, %16 ], [ 10, %17 ], [ 12, %18 ], [ 13, %19 ], [ 14, %20 ], [ %37, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47 ], [ 230, %38 ], [ 15, %39 ], [ 16, %40 ], [ 225, %2 ], [ 0, %15 ], [ 3, %8 ], [ 4, %9 ], [ 5, %10 ], [ 6, %11 ], [ 7, %12 ], [ 8, %13 ], [ 9, %14 ], [ 2, %6 ], [ 232, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %50, %49 ], [ %52, %51 ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
+_ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %47, %45, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %switch.lookup.i, %.split.i, %6, %2, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47, %36, %35, %34, %16, %15, %14, %13, %12, %5
+  %.sroa.041.0 = phi i16 [ 1, %5 ], [ 11, %12 ], [ 10, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ %33, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47 ], [ 230, %34 ], [ 15, %35 ], [ 16, %36 ], [ 225, %2 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %.split.i ], [ 0, %6 ], [ 232, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %46, %45 ], [ %48, %47 ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
   ret i16 %.sroa.041.0
 }
 
@@ -4272,31 +4197,31 @@ _ZNK4llvm3MVT13getScalarTypeEv.exit:              ; preds = %1, %4
   unreachable
 
 10:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %11 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #21
+  %11 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #22
   br label %24
 
 12:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %13 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase6BFloatEv() #21
+  %13 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase6BFloatEv() #22
   br label %24
 
 14:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %15 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #21
+  %15 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #22
   br label %24
 
 16:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %17 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #21
+  %17 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #22
   br label %24
 
 18:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %19 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase17x87DoubleExtendedEv() #21
+  %19 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase17x87DoubleExtendedEv() #22
   br label %24
 
 20:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %21 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEquadEv() #21
+  %21 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEquadEv() #22
   br label %24
 
 22:                                               ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
-  %23 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #21
+  %23 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   br label %24
 
 24:                                               ; preds = %22, %20, %18, %16, %14, %12, %10
@@ -4390,7 +4315,7 @@ define dso_local void @_ZNK4llvm3MVT5printERNS_11raw_ostreamE(ptr noundef nonnul
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %7
-  %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.25, i64 noundef 7) #18
+  %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.25, i64 noundef 7) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 18:                                               ; preds = %7
@@ -4410,7 +4335,7 @@ define dso_local void @_ZNK4llvm3MVT5printERNS_11raw_ostreamE(ptr noundef nonnul
   %23 = load ptr, ptr %3, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !47
-  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %23, i64 noundef %25) #18
+  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %23, i64 noundef %25) #19
   %27 = load ptr, ptr %3, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = icmp eq ptr %27, %28
@@ -4419,7 +4344,7 @@ define dso_local void @_ZNK4llvm3MVT5printERNS_11raw_ostreamE(ptr noundef nonnul
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %21
   %30 = load i64, ptr %28, align 8, !tbaa !39
   %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %31) #20
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %31) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -5215,11 +5140,17 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -5236,13 +5167,14 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

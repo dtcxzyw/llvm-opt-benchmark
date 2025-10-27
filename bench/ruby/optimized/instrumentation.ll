@@ -39,6 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @event_symbol.rbimpl_id.21 = internal unnamed_addr global i64 0, align 8
 @event_symbol.rbimpl_id.22 = internal unnamed_addr global i64 0, align 8
 @.str.23 = private unnamed_addr constant [44 x i8] c"TestThreadInstrumentation: Unexpected event\00", align 1
+@switch.table.ex_callback.5 = private unnamed_addr constant [5 x ptr] [ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
@@ -47,15 +48,15 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_instrumentation() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_define_module(ptr noundef nonnull @.str) #5
-  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.1) #5
-  tail call void @rb_global_variable(ptr noundef nonnull @timeline_value) #5
-  %3 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef nonnull @event_timeline_type) #5
+  %1 = tail call i64 @rb_define_module(ptr noundef nonnull @.str) #6
+  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.1) #6
+  tail call void @rb_global_variable(ptr noundef nonnull @timeline_value) #6
+  %3 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef nonnull @event_timeline_type) #6
   store i64 %3, ptr @timeline_value, align 8, !tbaa !6
-  tail call void @rb_global_variable(ptr noundef nonnull @last_thread) #5
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @thread_register_callback, i32 noundef 1) #5
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull @thread_unregister_callback, i32 noundef 0) #5
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @thread_register_and_unregister_callback, i32 noundef 0) #5
+  tail call void @rb_global_variable(ptr noundef nonnull @last_thread) #6
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @thread_register_callback, i32 noundef 1) #6
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull @thread_unregister_callback, i32 noundef 0) #6
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @thread_register_and_unregister_callback, i32 noundef 0) #6
   ret void
 }
 
@@ -75,7 +76,7 @@ define internal noundef i64 @thread_register_callback(i64 %0, i64 noundef %1) #0
   %4 = icmp ne i64 %3, 0
   %5 = zext i1 %4 to i64
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 31, ptr noundef %6) #5
+  %7 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 31, ptr noundef %6) #6
   store ptr %7, ptr @single_hook, align 8, !tbaa !10
   ret i64 4
 }
@@ -87,107 +88,113 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef nonnull %2) #5
+  %4 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef nonnull %2) #6
   store ptr null, ptr @single_hook, align 8, !tbaa !10
   br label %5
 
 5:                                                ; preds = %3, %1
   %6 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #5
+  %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #6
   %9 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %event_symbol.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %event_symbol.exit ], [ 0, %5 ]
-  %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #5
+  %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #6
   %11 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
   %12 = load i64, ptr %11, align 16, !tbaa !15
-  %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #5
+  %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #6
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !17
-  switch i32 %15, label %26 [
-    i32 1, label %16
-    i32 2, label %18
-    i32 4, label %20
-    i32 8, label %22
-    i32 16, label %24
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.split.i, label %29
+
+.split.i:                                         ; preds = %.lr.ph
+  %18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %15, i1 true)
+  switch i32 %18, label %29 [
+    i32 0, label %19
+    i32 1, label %21
+    i32 2, label %23
+    i32 3, label %25
+    i32 4, label %27
   ]
 
-16:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.split.i
   %.pr.i.i = load i64, ptr @event_symbol.rbimpl_id, align 8, !tbaa !6
   %.not4.i.i = icmp eq i64 %.pr.i.i, 0
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %event_symbol.exit
 
-.lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
-  %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 7) #5
-  store i64 %17, ptr @event_symbol.rbimpl_id, align 8, !tbaa !6
-  %.not.i.i = icmp eq i64 %17, 0
+.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
+  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 7) #6
+  store i64 %20, ptr @event_symbol.rbimpl_id, align 8, !tbaa !6
+  %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %event_symbol.exit, !llvm.loop !18
 
-18:                                               ; preds = %.lr.ph
+21:                                               ; preds = %.split.i
   %.pr.i7.i = load i64, ptr @event_symbol.rbimpl_id.19, align 8, !tbaa !6
   %.not4.i8.i = icmp eq i64 %.pr.i7.i, 0
   br i1 %.not4.i8.i, label %.lr.ph.i10.i, label %event_symbol.exit
 
-.lr.ph.i10.i:                                     ; preds = %18, %.lr.ph.i10.i
-  %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 5) #5
-  store i64 %19, ptr @event_symbol.rbimpl_id.19, align 8, !tbaa !6
-  %.not.i11.i = icmp eq i64 %19, 0
+.lr.ph.i10.i:                                     ; preds = %21, %.lr.ph.i10.i
+  %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 5) #6
+  store i64 %22, ptr @event_symbol.rbimpl_id.19, align 8, !tbaa !6
+  %.not.i11.i = icmp eq i64 %22, 0
   br i1 %.not.i11.i, label %.lr.ph.i10.i, label %event_symbol.exit, !llvm.loop !18
 
-20:                                               ; preds = %.lr.ph
+23:                                               ; preds = %.split.i
   %.pr.i13.i = load i64, ptr @event_symbol.rbimpl_id.20, align 8, !tbaa !6
   %.not4.i14.i = icmp eq i64 %.pr.i13.i, 0
   br i1 %.not4.i14.i, label %.lr.ph.i16.i, label %event_symbol.exit
 
-.lr.ph.i16.i:                                     ; preds = %20, %.lr.ph.i16.i
-  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 7) #5
-  store i64 %21, ptr @event_symbol.rbimpl_id.20, align 8, !tbaa !6
-  %.not.i17.i = icmp eq i64 %21, 0
+.lr.ph.i16.i:                                     ; preds = %23, %.lr.ph.i16.i
+  %24 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 7) #6
+  store i64 %24, ptr @event_symbol.rbimpl_id.20, align 8, !tbaa !6
+  %.not.i17.i = icmp eq i64 %24, 0
   br i1 %.not.i17.i, label %.lr.ph.i16.i, label %event_symbol.exit, !llvm.loop !18
 
-22:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.split.i
   %.pr.i19.i = load i64, ptr @event_symbol.rbimpl_id.21, align 8, !tbaa !6
   %.not4.i20.i = icmp eq i64 %.pr.i19.i, 0
   br i1 %.not4.i20.i, label %.lr.ph.i22.i, label %event_symbol.exit
 
-.lr.ph.i22.i:                                     ; preds = %22, %.lr.ph.i22.i
-  %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 9) #5
-  store i64 %23, ptr @event_symbol.rbimpl_id.21, align 8, !tbaa !6
-  %.not.i23.i = icmp eq i64 %23, 0
+.lr.ph.i22.i:                                     ; preds = %25, %.lr.ph.i22.i
+  %26 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 9) #6
+  store i64 %26, ptr @event_symbol.rbimpl_id.21, align 8, !tbaa !6
+  %.not.i23.i = icmp eq i64 %26, 0
   br i1 %.not.i23.i, label %.lr.ph.i22.i, label %event_symbol.exit, !llvm.loop !18
 
-24:                                               ; preds = %.lr.ph
+27:                                               ; preds = %.split.i
   %.pr.i25.i = load i64, ptr @event_symbol.rbimpl_id.22, align 8, !tbaa !6
   %.not4.i26.i = icmp eq i64 %.pr.i25.i, 0
   br i1 %.not4.i26.i, label %.lr.ph.i28.i, label %event_symbol.exit
 
-.lr.ph.i28.i:                                     ; preds = %24, %.lr.ph.i28.i
-  %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 6) #5
-  store i64 %25, ptr @event_symbol.rbimpl_id.22, align 8, !tbaa !6
-  %.not.i29.i = icmp eq i64 %25, 0
+.lr.ph.i28.i:                                     ; preds = %27, %.lr.ph.i28.i
+  %28 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 6) #6
+  store i64 %28, ptr @event_symbol.rbimpl_id.22, align 8, !tbaa !6
+  %.not.i29.i = icmp eq i64 %28, 0
   br i1 %.not.i29.i, label %.lr.ph.i28.i, label %event_symbol.exit, !llvm.loop !18
 
-26:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.23) #6
+29:                                               ; preds = %.split.i, %.lr.ph
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.23) #7
   unreachable
 
-event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.ph.i22.i, %.lr.ph.i16.i, %.lr.ph.i10.i, %.lr.ph.i.i, %16, %18, %20, %22, %24
-  %.lcssa.i27.sink.i = phi i64 [ %.pr.i.i, %16 ], [ %.pr.i7.i, %18 ], [ %.pr.i13.i, %20 ], [ %.pr.i19.i, %22 ], [ %.pr.i25.i, %24 ], [ %17, %.lr.ph.i.i ], [ %19, %.lr.ph.i10.i ], [ %21, %.lr.ph.i16.i ], [ %23, %.lr.ph.i22.i ], [ %25, %.lr.ph.i28.i ]
-  %27 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #5
-  %28 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %27) #5
-  %29 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #5
+event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.ph.i22.i, %.lr.ph.i16.i, %.lr.ph.i10.i, %.lr.ph.i.i, %19, %21, %23, %25, %27
+  %.lcssa.i27.sink.i = phi i64 [ %.pr.i.i, %19 ], [ %.pr.i7.i, %21 ], [ %.pr.i13.i, %23 ], [ %.pr.i19.i, %25 ], [ %.pr.i25.i, %27 ], [ %20, %.lr.ph.i.i ], [ %22, %.lr.ph.i10.i ], [ %24, %.lr.ph.i16.i ], [ %26, %.lr.ph.i22.i ], [ %28, %.lr.ph.i28.i ]
+  %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #6
+  %31 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %30) #6
+  %32 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
-  %31 = zext i32 %30 to i64
-  %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %33 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
+  %34 = zext i32 %33 to i64
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %event_symbol.exit, %5
   store i32 0, ptr @timeline_cursor, align 4, !tbaa !13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) @event_timeline, i8 noundef 0, i64 noundef 16384, i1 noundef false) #5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) @event_timeline, i8 noundef 0, i64 noundef 16384, i1 noundef false) #6
   ret i64 %8
 }
 
@@ -200,12 +207,12 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 3:                                                ; preds = %7
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 16, !tbaa !10
-  %6 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %5) #5
+  %6 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %5) #6
   br i1 %6, label %10, label %25
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #5
+  %8 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #6
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -214,25 +221,25 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %2, align 16, !tbaa !10
-  %12 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %11) #5
+  %12 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %11) #6
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !10
-  %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #5
+  %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #6
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 16, !tbaa !10
-  %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #5
+  %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #6
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !10
-  %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #5
+  %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #6
   %. = select i1 %24, i64 20, i64 0
   br label %25
 
@@ -252,7 +259,7 @@ define internal void @event_timeline_gc_mark(ptr readnone captures(none) %0) #0 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16, !tbaa !15
-  tail call void @rb_gc_mark(i64 noundef %4) #5
+  tail call void @rb_gc_mark(i64 noundef %4) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
@@ -290,207 +297,209 @@ define internal void @ex_callback(i32 noundef %0, ptr noundef readonly captures(
 find_last_event.exit:                             ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !17
-  %.not49 = icmp eq ptr %2, null
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %find_last_event.exit.thread, label %14
+  %.not56 = icmp eq ptr %2, null
+  %.not = icmp ne i32 %13, 0
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %15 = icmp eq i32 %14, 1
+  %or.cond36 = select i1 %.not, i1 %15, i1 false
+  br i1 %or.cond36, label %.split, label %find_last_event.exit.thread
 
-14:                                               ; preds = %find_last_event.exit
-  switch i32 %0, label %find_last_event.exit.thread [
-    i32 1, label %15
-    i32 2, label %24
-    i32 4, label %31
-    i32 8, label %39
-    i32 16, label %47
+.split:                                           ; preds = %find_last_event.exit
+  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  switch i32 %16, label %find_last_event.exit.thread [
+    i32 0, label %17
+    i32 1, label %26
+    i32 2, label %36
+    i32 3, label %46
+    i32 4, label %56
   ]
 
-15:                                               ; preds = %14
-  switch i32 %13, label %20 [
-    i32 1, label %event_name.exit.i
-    i32 2, label %16
-    i32 4, label %17
-    i32 8, label %18
-    i32 16, label %19
-  ]
+17:                                               ; preds = %.split
+  %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %13)
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %.split.i.i, label %event_name.exit.i
 
-16:                                               ; preds = %15
+.split.i.i:                                       ; preds = %17
+  %20 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %13, i1 true)
+  %21 = icmp samesign ult i32 %20, 5
+  br i1 %21, label %switch.lookup, label %event_name.exit.i
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %22 = zext nneg i32 %20 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %22
+  %switch.load = load ptr, ptr %switch.gep, align 8
   br label %event_name.exit.i
 
-17:                                               ; preds = %15
-  br label %event_name.exit.i
+event_name.exit.i:                                ; preds = %17, %.split.i.i, %switch.lookup
+  %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.18, %.split.i.i ], [ @.str.18, %17 ]
+  br i1 %.not56, label %unexpected.exit, label %23
 
-18:                                               ; preds = %15
-  br label %event_name.exit.i
-
-19:                                               ; preds = %15
-  br label %event_name.exit.i
-
-20:                                               ; preds = %15
-  br label %event_name.exit.i
-
-event_name.exit.i:                                ; preds = %20, %19, %18, %17, %16, %15
-  %.0.i.i = phi ptr [ @.str.18, %20 ], [ @.str.14, %16 ], [ @.str.15, %17 ], [ @.str.16, %18 ], [ @.str.17, %19 ], [ @.str.13, %15 ]
-  br i1 %.not49, label %unexpected.exit, label %21
-
-21:                                               ; preds = %event_name.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #6
+23:                                               ; preds = %event_name.exit.i
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #7
   unreachable
 
 unexpected.exit:                                  ; preds = %event_name.exit.i
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %23 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %22, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #5
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %25 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %24, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #6
   br label %find_last_event.exit.thread.sink.split
 
-24:                                               ; preds = %14
+26:                                               ; preds = %.split
   switch i32 %13, label %27 [
     i32 8, label %find_last_event.exit.thread
     i32 1, label %find_last_event.exit.thread
-    i32 16, label %26
-    i32 2, label %event_name.exit.i35
-    i32 4, label %25
   ]
 
-25:                                               ; preds = %24
-  br label %event_name.exit.i35
+27:                                               ; preds = %26
+  %28 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %13)
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %.split.i.i39, label %event_name.exit.i37
 
-26:                                               ; preds = %24
-  br label %event_name.exit.i35
+.split.i.i39:                                     ; preds = %27
+  %30 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %13, i1 true)
+  %31 = icmp samesign ult i32 %30, 5
+  br i1 %31, label %switch.lookup65, label %event_name.exit.i37
 
-27:                                               ; preds = %24
-  br label %event_name.exit.i35
+switch.lookup65:                                  ; preds = %.split.i.i39
+  %32 = zext nneg i32 %30 to i64
+  %switch.gep66 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %32
+  %switch.load67 = load ptr, ptr %switch.gep66, align 8
+  br label %event_name.exit.i37
 
-event_name.exit.i35:                              ; preds = %24, %27, %26, %25
-  %.0.i.i36 = phi ptr [ @.str.18, %27 ], [ @.str.15, %25 ], [ @.str.17, %26 ], [ @.str.14, %24 ]
-  br i1 %.not49, label %unexpected.exit37, label %28
+event_name.exit.i37:                              ; preds = %27, %.split.i.i39, %switch.lookup65
+  %.0.i.i38 = phi ptr [ %switch.load67, %switch.lookup65 ], [ @.str.18, %.split.i.i39 ], [ @.str.18, %27 ]
+  br i1 %.not56, label %unexpected.exit40, label %33
 
-28:                                               ; preds = %event_name.exit.i35
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i36) #6
+33:                                               ; preds = %event_name.exit.i37
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i38) #7
   unreachable
 
-unexpected.exit37:                                ; preds = %event_name.exit.i35
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %30 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i36) #5
+unexpected.exit40:                                ; preds = %event_name.exit.i37
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %35 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %34, i32 noundef 1, ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i38) #6
   br label %find_last_event.exit.thread.sink.split
 
-31:                                               ; preds = %14
-  switch i32 %13, label %35 [
-    i32 2, label %find_last_event.exit.thread
-    i32 1, label %event_name.exit.i38
-    i32 16, label %34
-    i32 4, label %32
-    i32 8, label %33
-  ]
+36:                                               ; preds = %.split
+  %.not34 = icmp eq i32 %13, 2
+  br i1 %.not34, label %find_last_event.exit.thread, label %37
 
-32:                                               ; preds = %31
-  br label %event_name.exit.i38
+37:                                               ; preds = %36
+  %38 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %13)
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %.split.i.i43, label %event_name.exit.i41
 
-33:                                               ; preds = %31
-  br label %event_name.exit.i38
+.split.i.i43:                                     ; preds = %37
+  %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %13, i1 true)
+  %41 = icmp samesign ult i32 %40, 5
+  br i1 %41, label %switch.lookup68, label %event_name.exit.i41
 
-34:                                               ; preds = %31
-  br label %event_name.exit.i38
+switch.lookup68:                                  ; preds = %.split.i.i43
+  %42 = zext nneg i32 %40 to i64
+  %switch.gep69 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %42
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
+  br label %event_name.exit.i41
 
-35:                                               ; preds = %31
-  br label %event_name.exit.i38
+event_name.exit.i41:                              ; preds = %37, %.split.i.i43, %switch.lookup68
+  %.0.i.i42 = phi ptr [ %switch.load70, %switch.lookup68 ], [ @.str.18, %.split.i.i43 ], [ @.str.18, %37 ]
+  br i1 %.not56, label %unexpected.exit44, label %43
 
-event_name.exit.i38:                              ; preds = %31, %35, %34, %33, %32
-  %.0.i.i39 = phi ptr [ @.str.18, %35 ], [ @.str.15, %32 ], [ @.str.16, %33 ], [ @.str.17, %34 ], [ @.str.13, %31 ]
-  br i1 %.not49, label %unexpected.exit40, label %36
-
-36:                                               ; preds = %event_name.exit.i38
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i39) #6
+43:                                               ; preds = %event_name.exit.i41
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #7
   unreachable
 
-unexpected.exit40:                                ; preds = %event_name.exit.i38
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %38 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i39) #5
+unexpected.exit44:                                ; preds = %event_name.exit.i41
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %45 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %44, i32 noundef 1, ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #6
   br label %find_last_event.exit.thread.sink.split
 
-39:                                               ; preds = %14
-  switch i32 %13, label %43 [
-    i32 4, label %find_last_event.exit.thread
-    i32 1, label %event_name.exit.i41
-    i32 2, label %40
-    i32 16, label %42
-    i32 8, label %41
-  ]
+46:                                               ; preds = %.split
+  %.not33 = icmp eq i32 %13, 4
+  br i1 %.not33, label %find_last_event.exit.thread, label %47
 
-40:                                               ; preds = %39
-  br label %event_name.exit.i41
+47:                                               ; preds = %46
+  %48 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %13)
+  %49 = icmp eq i32 %48, 1
+  br i1 %49, label %.split.i.i47, label %event_name.exit.i45
 
-41:                                               ; preds = %39
-  br label %event_name.exit.i41
+.split.i.i47:                                     ; preds = %47
+  %50 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %13, i1 true)
+  %51 = icmp samesign ult i32 %50, 5
+  br i1 %51, label %switch.lookup71, label %event_name.exit.i45
 
-42:                                               ; preds = %39
-  br label %event_name.exit.i41
+switch.lookup71:                                  ; preds = %.split.i.i47
+  %52 = zext nneg i32 %50 to i64
+  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %52
+  %switch.load73 = load ptr, ptr %switch.gep72, align 8
+  br label %event_name.exit.i45
 
-43:                                               ; preds = %39
-  br label %event_name.exit.i41
+event_name.exit.i45:                              ; preds = %47, %.split.i.i47, %switch.lookup71
+  %.0.i.i46 = phi ptr [ %switch.load73, %switch.lookup71 ], [ @.str.18, %.split.i.i47 ], [ @.str.18, %47 ]
+  br i1 %.not56, label %unexpected.exit48, label %53
 
-event_name.exit.i41:                              ; preds = %39, %43, %42, %41, %40
-  %.0.i.i42 = phi ptr [ @.str.18, %43 ], [ @.str.14, %40 ], [ @.str.16, %41 ], [ @.str.17, %42 ], [ @.str.13, %39 ]
-  br i1 %.not49, label %unexpected.exit43, label %44
-
-44:                                               ; preds = %event_name.exit.i41
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #6
+53:                                               ; preds = %event_name.exit.i45
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i46) #7
   unreachable
 
-unexpected.exit43:                                ; preds = %event_name.exit.i41
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %46 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %45, i32 noundef 1, ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #5
+unexpected.exit48:                                ; preds = %event_name.exit.i45
+  %54 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %55 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %54, i32 noundef 1, ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i46) #6
   br label %find_last_event.exit.thread.sink.split
 
-47:                                               ; preds = %14
-  switch i32 %13, label %50 [
+56:                                               ; preds = %.split
+  switch i32 %13, label %57 [
     i32 8, label %find_last_event.exit.thread
     i32 4, label %find_last_event.exit.thread
-    i32 1, label %event_name.exit.i44
-    i32 2, label %48
-    i32 16, label %49
   ]
 
-48:                                               ; preds = %47
-  br label %event_name.exit.i44
+57:                                               ; preds = %56
+  %58 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %13)
+  %59 = icmp eq i32 %58, 1
+  br i1 %59, label %.split.i.i51, label %event_name.exit.i49
 
-49:                                               ; preds = %47
-  br label %event_name.exit.i44
+.split.i.i51:                                     ; preds = %57
+  %60 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %13, i1 true)
+  %61 = icmp samesign ult i32 %60, 5
+  br i1 %61, label %switch.lookup74, label %event_name.exit.i49
 
-50:                                               ; preds = %47
-  br label %event_name.exit.i44
+switch.lookup74:                                  ; preds = %.split.i.i51
+  %62 = zext nneg i32 %60 to i64
+  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %62
+  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  br label %event_name.exit.i49
 
-event_name.exit.i44:                              ; preds = %47, %50, %49, %48
-  %.0.i.i45 = phi ptr [ @.str.18, %50 ], [ @.str.14, %48 ], [ @.str.17, %49 ], [ @.str.13, %47 ]
-  br i1 %.not49, label %unexpected.exit46, label %51
+event_name.exit.i49:                              ; preds = %57, %.split.i.i51, %switch.lookup74
+  %.0.i.i50 = phi ptr [ %switch.load76, %switch.lookup74 ], [ @.str.18, %.split.i.i51 ], [ @.str.18, %57 ]
+  br i1 %.not56, label %unexpected.exit52, label %63
 
-51:                                               ; preds = %event_name.exit.i44
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i45) #6
+63:                                               ; preds = %event_name.exit.i49
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i50) #7
   unreachable
 
-unexpected.exit46:                                ; preds = %event_name.exit.i44
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %53 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %52, i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i45) #5
+unexpected.exit52:                                ; preds = %event_name.exit.i49
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %65 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %64, i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i50) #6
   br label %find_last_event.exit.thread.sink.split
 
-find_last_event.exit.thread.sink.split:           ; preds = %unexpected.exit46, %unexpected.exit43, %unexpected.exit40, %unexpected.exit37, %unexpected.exit
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %55 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %54, i32 noundef 1, ptr noundef nonnull @.str.12) #5
+find_last_event.exit.thread.sink.split:           ; preds = %unexpected.exit52, %unexpected.exit48, %unexpected.exit44, %unexpected.exit40, %unexpected.exit
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %67 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %66, i32 noundef 1, ptr noundef nonnull @.str.12) #6
   br label %find_last_event.exit.thread
 
-find_last_event.exit.thread:                      ; preds = %10, %find_last_event.exit.thread.sink.split, %47, %47, %39, %31, %24, %24, %3, %14, %find_last_event.exit
-  %56 = atomicrmw volatile add ptr @timeline_cursor, i32 1 seq_cst, align 4
-  %57 = icmp ugt i32 %56, 1023
-  br i1 %57, label %58, label %59
+find_last_event.exit.thread:                      ; preds = %10, %find_last_event.exit.thread.sink.split, %3, %56, %56, %26, %26, %.split, %36, %46, %find_last_event.exit
+  %68 = atomicrmw volatile add ptr @timeline_cursor, i32 1 seq_cst, align 4
+  %69 = icmp ugt i32 %68, 1023
+  br i1 %69, label %70, label %71
 
-58:                                               ; preds = %find_last_event.exit.thread
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11) #6
+70:                                               ; preds = %find_last_event.exit.thread
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11) #7
   unreachable
 
-59:                                               ; preds = %find_last_event.exit.thread
-  %60 = load i64, ptr %1, align 8, !tbaa !23
-  %61 = zext nneg i32 %56 to i64
-  %62 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %61
-  store i64 %60, ptr %62, align 16, !tbaa !15
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i32 %0, ptr %63, align 8, !tbaa !17
+71:                                               ; preds = %find_last_event.exit.thread
+  %72 = load i64, ptr %1, align 8, !tbaa !23
+  %73 = zext nneg i32 %68 to i64
+  %74 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %73
+  store i64 %72, ptr %74, align 16, !tbaa !15
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 %0, ptr %75, align 8, !tbaa !17
   ret void
 }
 
@@ -515,16 +524,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold noreturn nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

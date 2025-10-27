@@ -1434,13 +1434,13 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   %.val.val.i = load i16, ptr %5, align 4
   %6 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %6, 0
-  br i1 %.not.i.i, label %7, label %43
+  br i1 %.not.i.i, label %7, label %46
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %41
+  br i1 %10, label %11, label %44
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
@@ -1454,110 +1454,116 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 524
   %22 = load i16, ptr %21, align 4
-  br i1 %20, label %23, label %39
+  %23 = sext i16 %22 to i32
+  br i1 %20, label %24, label %42
 
-23:                                               ; preds = %11
-  switch i16 %22, label %35 [
-    i16 1, label %24
-    i16 2, label %27
-    i16 4, label %30
-    i16 8, label %33
+24:                                               ; preds = %11
+  %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %23)
+  %26 = icmp eq i32 %25, 1
+  br i1 %26, label %.split.i.i, label %39
+
+.split.i.i:                                       ; preds = %24
+  %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %23, i1 true)
+  switch i32 %27, label %39 [
+    i32 0, label %28
+    i32 1, label %31
+    i32 2, label %34
+    i32 3, label %37
   ]
 
-24:                                               ; preds = %23
-  %25 = load i8, ptr %17, align 1
-  %26 = sext i8 %25 to i64
-  br label %47
+28:                                               ; preds = %.split.i.i
+  %29 = load i8, ptr %17, align 1
+  %30 = sext i8 %29 to i64
+  br label %50
 
-27:                                               ; preds = %23
-  %28 = load i16, ptr %17, align 2
-  %29 = sext i16 %28 to i64
-  br label %47
+31:                                               ; preds = %.split.i.i
+  %32 = load i16, ptr %17, align 2
+  %33 = sext i16 %32 to i64
+  br label %50
 
-30:                                               ; preds = %23
-  %31 = load i32, ptr %17, align 4
-  %32 = sext i32 %31 to i64
-  br label %47
+34:                                               ; preds = %.split.i.i
+  %35 = load i32, ptr %17, align 4
+  %36 = sext i32 %35 to i64
+  br label %50
 
-33:                                               ; preds = %23
-  %34 = load i64, ptr %17, align 8
-  br label %47
+37:                                               ; preds = %.split.i.i
+  %38 = load i64, ptr %17, align 8
+  br label %50
 
-35:                                               ; preds = %23
-  %36 = sext i16 %22 to i32
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %36) #12
+39:                                               ; preds = %.split.i.i, %24
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %23) #12
   tail call void @errfinish(ptr noundef nonnull @.str.46, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
-39:                                               ; preds = %11
-  %40 = ptrtoint ptr %17 to i64
-  br label %47
+42:                                               ; preds = %11
+  %43 = ptrtoint ptr %17 to i64
+  br label %50
 
-41:                                               ; preds = %7
-  %42 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull %1) #12
-  br label %47
+44:                                               ; preds = %7
+  %45 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull %1) #12
+  br label %50
 
-43:                                               ; preds = %3
-  %44 = getelementptr i8, ptr %.val.i, i64 26
-  %.val20.i = load i8, ptr %44, align 1
+46:                                               ; preds = %3
+  %47 = getelementptr i8, ptr %.val.i, i64 26
+  %.val20.i = load i8, ptr %47, align 1
   %.not.i21.i = icmp sgt i8 %.val20.i, -1
-  br i1 %.not.i21.i, label %fastgetattr.exit, label %45
+  br i1 %.not.i21.i, label %fastgetattr.exit, label %48
 
-45:                                               ; preds = %43
-  %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %1) #12
-  br label %47
+48:                                               ; preds = %46
+  %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %1) #12
+  br label %50
 
-47:                                               ; preds = %24, %27, %30, %33, %39, %41, %45
-  %.1.i.ph = phi i64 [ %40, %39 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %42, %41 ], [ %46, %45 ]
+50:                                               ; preds = %28, %31, %34, %37, %42, %44, %48
+  %.1.i.ph = phi i64 [ %43, %42 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %45, %44 ], [ %49, %48 ]
   %.val = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %49 = load i8, ptr %48, align 2
-  %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %.val, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 115
-  %53 = load i8, ptr %52, align 1
-  switch i8 %53, label %fastgetattr.exit [
-    i8 105, label %64
-    i8 118, label %62
-    i8 73, label %64
-    i8 116, label %54
-    i8 114, label %60
-    i8 109, label %60
+  %51 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %52 = load i8, ptr %51, align 2
+  %53 = zext i8 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %.val, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 115
+  %56 = load i8, ptr %55, align 1
+  switch i8 %56, label %fastgetattr.exit [
+    i8 105, label %67
+    i8 118, label %65
+    i8 73, label %67
+    i8 116, label %57
+    i8 114, label %63
+    i8 109, label %63
   ]
 
-54:                                               ; preds = %47
-  %55 = tail call noundef ptr @build_reloptions(i64 noundef %.1.i.ph, i1 noundef zeroext false, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @default_reloptions.tab, i32 noundef 24)
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %fastgetattr.exit, label %56
+57:                                               ; preds = %50
+  %58 = tail call noundef ptr @build_reloptions(i64 noundef %.1.i.ph, i1 noundef zeroext false, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @default_reloptions.tab, i32 noundef 24)
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %fastgetattr.exit, label %59
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 100, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i32 -1, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 96
-  store double -1.000000e+00, ptr %59, align 8
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 100, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i32 -1, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 96
+  store double -1.000000e+00, ptr %62, align 8
   br label %fastgetattr.exit
 
-60:                                               ; preds = %47, %47
-  %61 = tail call noundef ptr @build_reloptions(i64 noundef %.1.i.ph, i1 noundef zeroext false, i32 noundef 1, i64 noundef 128, ptr noundef nonnull @default_reloptions.tab, i32 noundef 24)
+63:                                               ; preds = %50, %50
+  %64 = tail call noundef ptr @build_reloptions(i64 noundef %.1.i.ph, i1 noundef zeroext false, i32 noundef 1, i64 noundef 128, ptr noundef nonnull @default_reloptions.tab, i32 noundef 24)
   br label %fastgetattr.exit
 
-62:                                               ; preds = %47
-  %63 = tail call noundef ptr @build_reloptions(i64 noundef %.1.i.ph, i1 noundef zeroext false, i32 noundef 512, i64 noundef 12, ptr noundef nonnull @view_reloptions.tab, i32 noundef 3)
+65:                                               ; preds = %50
+  %66 = tail call noundef ptr @build_reloptions(i64 noundef %.1.i.ph, i1 noundef zeroext false, i32 noundef 512, i64 noundef 12, ptr noundef nonnull @view_reloptions.tab, i32 noundef 3)
   br label %fastgetattr.exit
 
-64:                                               ; preds = %47, %47
+67:                                               ; preds = %50, %50
   %.not.i12 = icmp eq i64 %.1.i.ph, 0
-  br i1 %.not.i12, label %fastgetattr.exit, label %65
+  br i1 %.not.i12, label %fastgetattr.exit, label %68
 
-65:                                               ; preds = %64
-  %66 = tail call ptr %2(i64 noundef %.1.i.ph, i1 noundef zeroext false) #12
+68:                                               ; preds = %67
+  %69 = tail call ptr %2(i64 noundef %.1.i.ph, i1 noundef zeroext false) #12
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %47, %65, %64, %60, %56, %54, %43, %62
-  %.0 = phi ptr [ %63, %62 ], [ null, %43 ], [ %61, %60 ], [ %55, %56 ], [ null, %54 ], [ null, %47 ], [ %66, %65 ], [ null, %64 ]
+fastgetattr.exit:                                 ; preds = %50, %68, %67, %63, %59, %57, %46, %65
+  %.0 = phi ptr [ %66, %65 ], [ null, %46 ], [ %64, %63 ], [ %58, %59 ], [ null, %57 ], [ null, %50 ], [ %69, %68 ], [ null, %67 ]
   ret ptr %.0
 }
 
@@ -3028,11 +3034,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3043,8 +3055,8 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { cold nounwind }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

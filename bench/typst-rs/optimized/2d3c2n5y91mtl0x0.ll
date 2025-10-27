@@ -4571,9 +4571,9 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
   %or.cond = or i1 %.not, %17
   br i1 %or.cond, label %22, label %24
 
-19:                                               ; preds = %42, %42, %42, %42, %42, %9
-  %.sroa.3.0 = phi i8 [ %13, %9 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ]
-  %.sroa.0.0 = phi i8 [ %11, %9 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ]
+19:                                               ; preds = %45, %46, %47, %48, %.split, %9
+  %.sroa.3.0 = phi i8 [ %13, %9 ], [ 2, %45 ], [ 4, %46 ], [ 8, %47 ], [ 16, %48 ], [ 1, %.split ]
+  %.sroa.0.0 = phi i8 [ %11, %9 ], [ %.021, %45 ], [ %.021, %46 ], [ %.021, %47 ], [ %.021, %48 ], [ %.021, %.split ]
   %20 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %21 = insertvalue { i8, i8 } %20, i8 %.sroa.3.0, 1
   ret { i8, i8 } %21
@@ -4585,13 +4585,13 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
 24:                                               ; preds = %26, %22, %14
   %.0 = phi i8 [ 8, %14 ], [ %16, %22 ], [ %spec.select, %26 ]
   %25 = and i32 %3, 65552
-  %or.cond30 = icmp eq i32 %25, 0
-  br i1 %or.cond30, label %35, label %28
+  %or.cond31 = icmp eq i32 %25, 0
+  br i1 %or.cond31, label %35, label %28
 
 26:                                               ; preds = %22
   %27 = and i32 %3, 65552
-  %or.cond29 = icmp eq i32 %27, 0
-  %spec.select = select i1 %or.cond29, i8 %16, i8 8
+  %or.cond30 = icmp eq i32 %27, 0
+  %spec.select = select i1 %or.cond30, i8 %16, i8 8
   br label %24
 
 28:                                               ; preds = %24
@@ -4629,13 +4629,34 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
 
 42:                                               ; preds = %40, %39, %41, %38, %35
   %.021 = phi i8 [ %34, %38 ], [ %37, %35 ], [ %., %41 ], [ 4, %39 ], [ 6, %40 ]
-  switch i8 %.0, label %.critedge [
-    i8 1, label %19
-    i8 2, label %19
-    i8 4, label %19
-    i8 8, label %19
-    i8 16, label %19
+  %43 = tail call range(i8 1, 6) i8 @llvm.ctpop.i8(i8 %.0)
+  %.not29 = icmp eq i8 %43, 1
+  br i1 %.not29, label %.split, label %.critedge
+
+.split:                                           ; preds = %42
+  %44 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.0, i1 true)
+  switch i8 %44, label %default.unreachable34 [
+    i8 0, label %19
+    i8 1, label %45
+    i8 2, label %46
+    i8 3, label %47
+    i8 4, label %48
   ]
+
+default.unreachable34:                            ; preds = %.split
+  unreachable
+
+45:                                               ; preds = %.split
+  br label %19
+
+46:                                               ; preds = %.split
+  br label %19
+
+47:                                               ; preds = %.split
+  br label %19
+
+48:                                               ; preds = %.split
+  br label %19
 
 .critedge:                                        ; preds = %42
   tail call void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.69) #61
@@ -175027,6 +175048,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #54
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #54
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ctpop.i8(i8) #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #55

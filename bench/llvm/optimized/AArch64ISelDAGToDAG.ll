@@ -183,7 +183,6 @@ $_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
 @_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @switch.table._ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectCMP_SWAPEPN4llvm6SDNodeE = private unnamed_addr constant [4 x i32] [i32 469, i32 466, i32 467, i32 468], align 4
-@switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind0EEjN4llvm3EVTENS1_8ArrayRefIjEE = private unnamed_addr constant [8 x i64] [i64 3, i64 2, i64 poison, i64 1, i64 poison, i64 poison, i64 poison, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm39initializeAArch64DAGToDAGISelLegacyPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 {
@@ -23052,29 +23051,29 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread: ; preds = %7, %_ZNK4llvm3EVT2
 _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread, %17
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %18, %17 ]
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
-  %19 = add i32 %.sroa.0.0.extract.trunc.i, -2
-  %20 = call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 31)
-  %21 = icmp ult i32 %20, 8
-  %switch.maskindex = trunc i32 %20 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %21, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %26
+  %19 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i)
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %.split, label %26
 
-switch.lookup:                                    ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
-  %22 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind0EEjN4llvm3EVTENS1_8ArrayRefIjEE, i64 %22
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %.not = icmp ugt i64 %3, %switch.load
+.split:                                           ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
+  %switch.tableidx = add nsw i32 %21, -1
+  %22 = icmp ult i32 %switch.tableidx, 4
+  br i1 %22, label %switch.lookup, label %26
+
+switch.lookup:                                    ; preds = %.split
+  %narrow = sub nsw i32 4, %21
+  %switch.offset = zext i32 %narrow to i64
+  %.not = icmp ugt i64 %3, %switch.offset
   br i1 %.not, label %23, label %26
 
 23:                                               ; preds = %switch.lookup
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.load
+  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.offset
   %25 = load i32, ptr %24, align 4, !tbaa !20
   br label %26
 
-26:                                               ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %7, %switch.lookup, %23, %_ZNK4llvm3EVT16isScalableVectorEv.exit
-  %.05 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %25, %23 ], [ 0, %switch.lookup ], [ 0, %7 ]
+26:                                               ; preds = %.split, %7, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %switch.lookup, %23, %_ZNK4llvm3EVT16isScalableVectorEv.exit
+  %.05 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ 0, %.split ], [ %25, %23 ], [ 0, %switch.lookup ], [ 0, %7 ]
   ret i32 %.05
 }
 
@@ -23458,41 +23457,41 @@ _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %16, %23
   %.fca.1.insert.merged.i49 = phi i16 [ %.fca.1.insert.merged.i50, %16 ], [ %15, %23 ]
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %16 ], [ %24, %23 ]
   switch i16 %.fca.1.insert.merged.i49, label %_ZNK4llvm3EVTneES0_.exit18.thread [
-    i16 10, label %_ZNK4llvm3EVTneES0_.exit12.thread
-    i16 11, label %_ZNK4llvm3EVTneES0_.exit12
-    i16 12, label %_ZNK4llvm3EVTneES0_.exit12
-    i16 13, label %_ZNK4llvm3EVTneES0_.exit12
+    i16 10, label %_ZNK4llvm3EVTneES0_.exit12
+    i16 11, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
+    i16 12, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
+    i16 13, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
   ]
 
-_ZNK4llvm3EVTneES0_.exit12:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+_ZNK4llvm3EVTneES0_.exit12.fold.split:            ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
-  %25 = add i32 %.sroa.0.0.extract.trunc.i, -2
-  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
-  %27 = icmp ult i32 %26, 8
-  %switch.maskindex = trunc i32 %26 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZNK4llvm3EVTneES0_.exit18.thread
+  br label %_ZNK4llvm3EVTneES0_.exit12
 
-switch.lookup:                                    ; preds = %_ZNK4llvm3EVTneES0_.exit12
-  %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind0EEjN4llvm3EVTENS1_8ArrayRefIjEE, i64 %28
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %_ZNK4llvm3EVTneES0_.exit12.thread
+_ZNK4llvm3EVTneES0_.exit12:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVTneES0_.exit12.fold.split
+  %.04 = phi i32 [ 16, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %.sroa.0.0.extract.trunc.i, %_ZNK4llvm3EVTneES0_.exit12.fold.split ]
+  %25 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.04)
+  %26 = icmp eq i32 %25, 1
+  br i1 %26, label %.split, label %_ZNK4llvm3EVTneES0_.exit18.thread
 
-_ZNK4llvm3EVTneES0_.exit12.thread:                ; preds = %switch.lookup, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
-  %.0 = phi i64 [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %switch.load, %switch.lookup ]
-  %.not = icmp ugt i64 %3, %.0
+.split:                                           ; preds = %_ZNK4llvm3EVTneES0_.exit12
+  %27 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.04, i1 true)
+  %switch.tableidx = add nsw i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx, 4
+  br i1 %28, label %switch.lookup, label %_ZNK4llvm3EVTneES0_.exit18.thread
+
+switch.lookup:                                    ; preds = %.split
+  %narrow = sub nsw i32 4, %27
+  %switch.offset = zext i32 %narrow to i64
+  %.not = icmp ugt i64 %3, %switch.offset
   br i1 %.not, label %29, label %_ZNK4llvm3EVTneES0_.exit18.thread
 
-29:                                               ; preds = %_ZNK4llvm3EVTneES0_.exit12.thread
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %.0
+29:                                               ; preds = %switch.lookup
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.offset
   %31 = load i32, ptr %30, align 4, !tbaa !20
   br label %_ZNK4llvm3EVTneES0_.exit18.thread
 
-_ZNK4llvm3EVTneES0_.exit18.thread:                ; preds = %_ZNK4llvm3EVTneES0_.exit12, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %_ZNK4llvm3EVTneES0_.exit12.thread, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
-  %.05 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit12 ], [ %31, %29 ], [ 0, %_ZNK4llvm3EVTneES0_.exit12.thread ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
+_ZNK4llvm3EVTneES0_.exit18.thread:                ; preds = %.split, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %switch.lookup, %_ZNK4llvm3EVTneES0_.exit12, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
+  %.05 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit12 ], [ 0, %.split ], [ %31, %29 ], [ 0, %switch.lookup ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
   ret i32 %.05
 }
 
@@ -24405,11 +24404,11 @@ define internal fastcc noundef i32 @_ZL18SelectOpcodeFromVTIL14SelectTypeKind1EE
 7:                                                ; preds = %4
   %8 = add i16 %0, -138
   %spec.select.i.i = icmp ult i16 %8, 53
-  br i1 %spec.select.i.i, label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread, label %_ZNK4llvm3EVTneES0_.exit16.thread
+  br i1 %spec.select.i.i, label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread, label %_ZNK4llvm3EVTneES0_.exit18.thread
 
 _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %4
   %9 = call noundef zeroext i1 @_ZNK4llvm3EVT24isExtendedScalableVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
-  br i1 %9, label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, label %_ZNK4llvm3EVTneES0_.exit16.thread
+  br i1 %9, label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, label %_ZNK4llvm3EVTneES0_.exit18.thread
 
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread: ; preds = %7
   %10 = zext nneg i16 %0 to i64
@@ -24426,7 +24425,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT16isSc
   br i1 %.not.i.i, label %23, label %16
 
 16:                                               ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
-  %.fca.1.insert.merged.i42 = phi i16 [ %13, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %15, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ]
+  %.fca.1.insert.merged.i46 = phi i16 [ %13, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %15, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ]
   %17 = phi i16 [ %0, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %.pre, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ]
   %18 = zext i16 %17 to i64
   %19 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %18
@@ -24444,37 +24443,45 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT16isSc
   br label %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
 
 _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %16, %23
-  %.fca.1.insert.merged.i41 = phi i16 [ %.fca.1.insert.merged.i42, %16 ], [ %15, %23 ]
+  %.fca.1.insert.merged.i45 = phi i16 [ %.fca.1.insert.merged.i46, %16 ], [ %15, %23 ]
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %16 ], [ %24, %23 ]
-  %.off = add i16 %.fca.1.insert.merged.i41, -5
-  %switch = icmp ult i16 %.off, 4
-  br i1 %switch, label %_ZNK4llvm3EVTneES0_.exit, label %_ZNK4llvm3EVTneES0_.exit16.thread
-
-_ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
-  %25 = add i32 %.sroa.0.0.extract.trunc.i, -2
-  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
-  %27 = icmp ult i32 %26, 8
-  %switch.maskindex = trunc i32 %26 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZNK4llvm3EVTneES0_.exit16.thread
+  switch i16 %.fca.1.insert.merged.i45, label %_ZNK4llvm3EVTneES0_.exit18.thread [
+    i16 5, label %_ZNK4llvm3EVTneES0_.exit
+    i16 6, label %_ZNK4llvm3EVTneES0_.exit
+    i16 7, label %_ZNK4llvm3EVTneES0_.exit
+    i16 8, label %_ZNK4llvm3EVTneES0_.exit18
+  ]
 
-switch.lookup:                                    ; preds = %_ZNK4llvm3EVTneES0_.exit
-  %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind0EEjN4llvm3EVTENS1_8ArrayRefIjEE, i64 %28
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %.not = icmp ugt i64 %3, %switch.load
-  br i1 %.not, label %29, label %_ZNK4llvm3EVTneES0_.exit16.thread
+_ZNK4llvm3EVTneES0_.exit18:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+  %25 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i)
+  %26 = icmp eq i32 %25, 1
+  br i1 %26, label %.split, label %_ZNK4llvm3EVTneES0_.exit18.thread
+
+_ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+  %.old = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i)
+  %.old7 = icmp eq i32 %.old, 1
+  br i1 %.old7, label %.split, label %_ZNK4llvm3EVTneES0_.exit18.thread
+
+.split:                                           ; preds = %_ZNK4llvm3EVTneES0_.exit18, %_ZNK4llvm3EVTneES0_.exit
+  %27 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
+  %switch.tableidx = add nsw i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx, 4
+  br i1 %28, label %switch.lookup, label %_ZNK4llvm3EVTneES0_.exit18.thread
+
+switch.lookup:                                    ; preds = %.split
+  %narrow = sub nsw i32 4, %27
+  %switch.offset = zext i32 %narrow to i64
+  %.not = icmp ugt i64 %3, %switch.offset
+  br i1 %.not, label %29, label %_ZNK4llvm3EVTneES0_.exit18.thread
 
 29:                                               ; preds = %switch.lookup
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.load
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.offset
   %31 = load i32, ptr %30, align 4, !tbaa !20
-  br label %_ZNK4llvm3EVTneES0_.exit16.thread
+  br label %_ZNK4llvm3EVTneES0_.exit18.thread
 
-_ZNK4llvm3EVTneES0_.exit16.thread:                ; preds = %_ZNK4llvm3EVTneES0_.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %switch.lookup, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
-  %.04 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit ], [ %31, %29 ], [ 0, %switch.lookup ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
+_ZNK4llvm3EVTneES0_.exit18.thread:                ; preds = %.split, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVTneES0_.exit18, %29, %switch.lookup, %_ZNK4llvm3EVTneES0_.exit, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
+  %.04 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit18 ], [ 0, %_ZNK4llvm3EVTneES0_.exit ], [ 0, %.split ], [ %31, %29 ], [ 0, %switch.lookup ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
   ret i32 %.04
 }
 
@@ -24710,7 +24717,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT16isSc
   br i1 %.not.i.i, label %23, label %16
 
 16:                                               ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
-  %.fca.1.insert.merged.i18 = phi i16 [ %13, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %15, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ]
+  %.fca.1.insert.merged.i23 = phi i16 [ %13, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %15, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ]
   %17 = phi i16 [ %0, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.thread ], [ %.pre, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ]
   %18 = zext i16 %17 to i64
   %19 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %18
@@ -24728,36 +24735,34 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT16isSc
   br label %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
 
 _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %16, %23
-  %.fca.1.insert.merged.i17 = phi i16 [ %.fca.1.insert.merged.i18, %16 ], [ %15, %23 ]
+  %.fca.1.insert.merged.i22 = phi i16 [ %.fca.1.insert.merged.i23, %16 ], [ %15, %23 ]
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %16 ], [ %24, %23 ]
-  %.not.i7 = icmp eq i16 %.fca.1.insert.merged.i17, 2
-  br i1 %.not.i7, label %_ZNK4llvm3EVTneES0_.exit, label %_ZNK4llvm3EVTneES0_.exit.thread
-
-_ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
-  %25 = add i32 %.sroa.0.0.extract.trunc.i, -2
-  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
-  %27 = icmp ult i32 %26, 8
-  %switch.maskindex = trunc i32 %26 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZNK4llvm3EVTneES0_.exit.thread
+  %.not.i9 = icmp eq i16 %.fca.1.insert.merged.i22, 2
+  %25 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0.0.extract.trunc.i)
+  %26 = icmp eq i32 %25, 1
+  %or.cond = select i1 %.not.i9, i1 %26, i1 false
+  br i1 %or.cond, label %.split, label %_ZNK4llvm3EVTneES0_.exit.thread
 
-switch.lookup:                                    ; preds = %_ZNK4llvm3EVTneES0_.exit
-  %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind0EEjN4llvm3EVTENS1_8ArrayRefIjEE, i64 %28
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %.not = icmp ugt i64 %3, %switch.load
+.split:                                           ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+  %27 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
+  %switch.tableidx = add nsw i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx, 4
+  br i1 %28, label %switch.lookup, label %_ZNK4llvm3EVTneES0_.exit.thread
+
+switch.lookup:                                    ; preds = %.split
+  %narrow = sub nsw i32 4, %27
+  %switch.offset = zext i32 %narrow to i64
+  %.not = icmp ugt i64 %3, %switch.offset
   br i1 %.not, label %29, label %_ZNK4llvm3EVTneES0_.exit.thread
 
 29:                                               ; preds = %switch.lookup
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.load
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.offset
   %31 = load i32, ptr %30, align 4, !tbaa !20
   br label %_ZNK4llvm3EVTneES0_.exit.thread
 
-_ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %_ZNK4llvm3EVTneES0_.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %switch.lookup, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
-  %.04 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit ], [ %31, %29 ], [ 0, %switch.lookup ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
+_ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %.split, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %switch.lookup, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
+  %.04 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %.split ], [ %31, %29 ], [ 0, %switch.lookup ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
   ret i32 %.04
 }
 
@@ -32247,68 +32252,46 @@ _ZNK4llvm3EVT21getVectorElementCountEv.exit:      ; preds = %_ZNK4llvm3EVTneES0_
   %21 = getelementptr i8, ptr %20, i64 -2
   %22 = load i16, ptr %21, align 2, !tbaa !694
   %23 = udiv i16 128, %22
-  %trunc = trunc nuw i16 %23 to i8
-  switch i8 %trunc, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i [
-    i8 1, label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-    i8 2, label %24
-    i8 4, label %25
-    i8 8, label %26
-    i8 16, label %27
-    i8 32, label %28
-    i8 64, label %29
-    i8 -128, label %30
-  ]
+  %24 = zext nneg i16 %23 to i32
+  %25 = call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %24)
+  %26 = icmp eq i32 %25, 1
+  br i1 %26, label %.split.i.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
 
-24:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
+.split.i.i:                                       ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
+  %27 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %24, i1 true)
+  %switch.idx.cast.i.i = trunc nuw nsw i32 %27 to i16
+  %switch.offset.i.i = add nuw nsw i16 %switch.idx.cast.i.i, 2
+  %28 = insertvalue { i16, ptr } poison, i16 %switch.offset.i.i, 0
+  %29 = insertvalue { i16, ptr } %28, ptr null, 1
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-25:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
+_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i:       ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
+  %30 = call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %24) #23
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
-26:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-27:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-28:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-29:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-30:                                               ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit
-  %31 = zext nneg i16 %23 to i32
-  %32 = call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %31) #23
-  %33 = extractvalue { i16, ptr } %32, 0
-  %34 = extractvalue { i16, ptr } %32, 1
-  br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit, %24, %25, %26, %27, %28, %29, %30, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %34, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %24 ], [ null, %25 ], [ null, %26 ], [ null, %27 ], [ null, %28 ], [ null, %29 ], [ null, %30 ], [ null, %_ZNK4llvm3EVT21getVectorElementCountEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %33, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 9, %30 ], [ 2, %_ZNK4llvm3EVT21getVectorElementCountEv.exit ]
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %.split.i.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i
+  %.fca.1.insert.merged.i20 = phi { i16, ptr } [ %30, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i ], [ %29, %.split.i.i ]
+  %31 = extractvalue { i16, ptr } %.fca.1.insert.merged.i20, 0
   %.sroa.0.0.extract.trunc.i = zext i16 %22 to i32
-  %35 = mul nuw nsw i32 %3, %.sroa.0.0.extract.trunc.i
-  %36 = call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %.sroa.0.0.i, i32 noundef %35)
-  %.not.i21 = icmp eq i16 %36, 0
-  br i1 %.not.i21, label %37, label %.critedge
+  %32 = mul nuw nsw i32 %3, %.sroa.0.0.extract.trunc.i
+  %33 = call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %31, i32 noundef %32)
+  %.not.i22 = icmp eq i16 %33, 0
+  br i1 %.not.i22, label %34, label %.critedge
 
-37:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
-  %.sroa.0.0.insert.ext.i20 = zext nneg i32 %35 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i20, 4294967296
-  %38 = call { i16, ptr } @_ZN4llvm3EVT19getExtendedVectorVTERNS_11LLVMContextES0_NS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 %.sroa.0.0.i, ptr %.sroa.3.0.i, i64 %.sroa.0.0.insert.insert.i) #23
-  %39 = extractvalue { i16, ptr } %38, 0
-  %40 = extractvalue { i16, ptr } %38, 1
+34:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
+  %.sroa.0.0.insert.ext.i21 = zext nneg i32 %32 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i21, 4294967296
+  %35 = extractvalue { i16, ptr } %.fca.1.insert.merged.i20, 1
+  %36 = call { i16, ptr } @_ZN4llvm3EVT19getExtendedVectorVTERNS_11LLVMContextES0_NS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 %31, ptr %35, i64 %.sroa.0.0.insert.insert.i) #23
+  %37 = extractvalue { i16, ptr } %36, 0
+  %38 = extractvalue { i16, ptr } %36, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTneES0_.exit, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
-  %.sroa.641.0 = phi ptr [ null, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ null, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ null, %7 ], [ null, %_ZNK4llvm3EVTneES0_.exit ], [ %40, %37 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
-  %.sroa.040.0 = phi i16 [ 0, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit ], [ %39, %37 ], [ %36, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
-  %.fca.0.insert = insertvalue { i16, ptr } poison, i16 %.sroa.040.0, 0
-  %.fca.1.insert = insertvalue { i16, ptr } %.fca.0.insert, ptr %.sroa.641.0, 1
+.critedge:                                        ; preds = %34, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTneES0_.exit, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
+  %.sroa.638.0 = phi ptr [ null, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ null, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ null, %7 ], [ null, %_ZNK4llvm3EVTneES0_.exit ], [ %38, %34 ], [ null, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
+  %.sroa.037.0 = phi i16 [ 0, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit ], [ %37, %34 ], [ %33, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ]
+  %.fca.0.insert = insertvalue { i16, ptr } poison, i16 %.sroa.037.0, 0
+  %.fca.1.insert = insertvalue { i16, ptr } %.fca.0.insert, ptr %.sroa.638.0, 1
   ret { i16, ptr } %.fca.1.insert
 }
 
@@ -40858,7 +40841,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #19
+declare i32 @llvm.ctpop.i32(i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

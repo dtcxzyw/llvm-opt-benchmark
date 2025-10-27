@@ -1528,7 +1528,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h24f2998c89ce70c6E" = private unnamed_addr constant [24 x i64] [i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 poison, i64 12, i64 poison, i64 13, i64 14, i64 poison, i64 15, i64 16, i64 17, i64 18, i64 19, i64 20], align 8
 @"switch.table._ZN80_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb5b8b877f3a07222E" = private unnamed_addr constant [17 x i8] c"\00\01\02\03\11\05\11\07\08\09\0A\0B\0C\0D\0E\11\10", align 1
 @"switch.table._ZN88_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h0ced87713938f140E" = private unnamed_addr constant [17 x i64] [i64 0, i64 1, i64 2, i64 3, i64 poison, i64 4, i64 poison, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 poison, i64 13], align 8
+@"switch.table._ZN86_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hbaced0f45fed0677E" = private unnamed_addr constant [16 x i16] [i16 1, i16 2, i16 4, i16 8, i16 16, i16 32, i16 0, i16 128, i16 256, i16 512, i16 1024, i16 2048, i16 4096, i16 8192, i16 16384, i16 -32768], align 2
 @"switch.table._ZN94_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h7fa4f5d4a44acf2bE" = private unnamed_addr constant [16 x i64] [i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 poison, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14], align 8
+@"switch.table._ZN89_$LT$yara_x..modules..protos..pe..DllCharacteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2512e6215bf97138E" = private unnamed_addr constant [11 x i16] [i16 32, i16 64, i16 128, i16 256, i16 512, i16 1024, i16 2048, i16 4096, i16 8192, i16 16384, i16 -32768], align 2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h626ca600d58876efE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -60211,71 +60213,23 @@ define noundef range(i32 1, 32769) i32 @"_ZN86_$LT$yara_x..modules..protos..pe..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 0, -32767) i16 @"_ZN86_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hbaced0f45fed0677E"(i32 noundef %0) unnamed_addr #1 {
-  switch i32 %0, label %17 [
-    i32 1, label %2
-    i32 2, label %3
-    i32 4, label %4
-    i32 8, label %5
-    i32 16, label %6
-    i32 32, label %7
-    i32 128, label %8
-    i32 256, label %9
-    i32 512, label %10
-    i32 1024, label %11
-    i32 2048, label %12
-    i32 4096, label %13
-    i32 8192, label %14
-    i32 16384, label %15
-    i32 32768, label %16
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %17
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 16
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %17
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN86_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hbaced0f45fed0677E", i64 %6
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %7
 
-4:                                                ; preds = %1
-  br label %17
-
-5:                                                ; preds = %1
-  br label %17
-
-6:                                                ; preds = %1
-  br label %17
-
-7:                                                ; preds = %1
-  br label %17
-
-8:                                                ; preds = %1
-  br label %17
-
-9:                                                ; preds = %1
-  br label %17
-
-10:                                               ; preds = %1
-  br label %17
-
-11:                                               ; preds = %1
-  br label %17
-
-12:                                               ; preds = %1
-  br label %17
-
-13:                                               ; preds = %1
-  br label %17
-
-14:                                               ; preds = %1
-  br label %17
-
-15:                                               ; preds = %1
-  br label %17
-
-16:                                               ; preds = %1
-  br label %17
-
-17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 1, %2 ], [ 2, %3 ], [ 4, %4 ], [ 8, %5 ], [ 16, %6 ], [ 32, %7 ], [ 128, %8 ], [ 256, %9 ], [ 512, %10 ], [ 1024, %11 ], [ 2048, %12 ], [ 4096, %13 ], [ 8192, %14 ], [ 16384, %15 ], [ -32768, %16 ], [ 0, %1 ]
+7:                                                ; preds = %switch.lookup, %.split, %1
+  %.sroa.0.0 = phi i16 [ 0, %1 ], [ 0, %.split ], [ %switch.load, %switch.lookup ]
   ret i16 %.sroa.0.0
 }
 
@@ -61324,55 +61278,24 @@ define noundef range(i32 32, 32769) i32 @"_ZN89_$LT$yara_x..modules..protos..pe.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 31, -32767) i16 @"_ZN89_$LT$yara_x..modules..protos..pe..DllCharacteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2512e6215bf97138E"(i32 noundef %0) unnamed_addr #1 {
-  switch i32 %0, label %13 [
-    i32 32, label %2
-    i32 64, label %3
-    i32 128, label %4
-    i32 256, label %5
-    i32 512, label %6
-    i32 1024, label %7
-    i32 2048, label %8
-    i32 4096, label %9
-    i32 8192, label %10
-    i32 16384, label %11
-    i32 32768, label %12
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %13
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %switch.tableidx = add nsw i32 %4, -5
+  %5 = icmp ult i32 %switch.tableidx, 11
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %13
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN89_$LT$yara_x..modules..protos..pe..DllCharacteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2512e6215bf97138E", i64 %6
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %7
 
-4:                                                ; preds = %1
-  br label %13
-
-5:                                                ; preds = %1
-  br label %13
-
-6:                                                ; preds = %1
-  br label %13
-
-7:                                                ; preds = %1
-  br label %13
-
-8:                                                ; preds = %1
-  br label %13
-
-9:                                                ; preds = %1
-  br label %13
-
-10:                                               ; preds = %1
-  br label %13
-
-11:                                               ; preds = %1
-  br label %13
-
-12:                                               ; preds = %1
-  br label %13
-
-13:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 32, %2 ], [ 64, %3 ], [ 128, %4 ], [ 256, %5 ], [ 512, %6 ], [ 1024, %7 ], [ 2048, %8 ], [ 4096, %9 ], [ 8192, %10 ], [ 16384, %11 ], [ -32768, %12 ], [ 31, %1 ]
+7:                                                ; preds = %switch.lookup, %.split, %1
+  %.sroa.0.0 = phi i16 [ 31, %1 ], [ 31, %.split ], [ %switch.load, %switch.lookup ]
   ret i16 %.sroa.0.0
 }
 
@@ -101420,6 +101343,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #30

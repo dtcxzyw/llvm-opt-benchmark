@@ -1188,7 +1188,7 @@ define void @dt_print_pipe_ext(ptr noundef %0, ptr noundef readonly captures(add
 
 72:                                               ; preds = %60, %59
   %.not41 = icmp eq ptr %1, null
-  br i1 %.not41, label %112, label %73
+  br i1 %.not41, label %115, label %73
 
 73:                                               ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 620
@@ -1196,73 +1196,84 @@ define void @dt_print_pipe_ext(ptr noundef %0, ptr noundef readonly captures(add
   %76 = and i32 %75, 256
   %77 = and i32 %75, 512
   %78 = and i32 %75, 31
+  %79 = tail call range(i32 0, 6) i32 @llvm.ctpop.i32(i32 %78)
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %.split.i, label %102
+
+.split.i:                                         ; preds = %73
+  %81 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %78, i1 true)
   %.not35.i = icmp eq i32 %76, 0
   %.not37.i = icmp eq i32 %77, 0
-  switch i32 %78, label %99 [
-    i32 4, label %79
-    i32 16, label %83
-    i32 2, label %87
-    i32 8, label %91
-    i32 1, label %95
+  switch i32 %81, label %default.unreachable [
+    i32 2, label %82
+    i32 4, label %86
+    i32 1, label %90
+    i32 3, label %94
+    i32 0, label %98
   ]
 
-79:                                               ; preds = %73
-  %80 = select i1 %.not37.i, ptr @.str.16, ptr @.str.15
-  %81 = select i1 %.not37.i, ptr @.str.18, ptr @.str.17
-  %82 = select i1 %.not35.i, ptr %81, ptr %80
+82:                                               ; preds = %.split.i
+  %83 = select i1 %.not37.i, ptr @.str.16, ptr @.str.15
+  %84 = select i1 %.not37.i, ptr @.str.18, ptr @.str.17
+  %85 = select i1 %.not35.i, ptr %84, ptr %83
   br label %dt_dev_pixelpipe_type_to_str.exit
 
-83:                                               ; preds = %73
-  %84 = select i1 %.not37.i, ptr @.str.20, ptr @.str.19
-  %85 = select i1 %.not37.i, ptr @.str.22, ptr @.str.21
-  %86 = select i1 %.not35.i, ptr %85, ptr %84
+86:                                               ; preds = %.split.i
+  %87 = select i1 %.not37.i, ptr @.str.20, ptr @.str.19
+  %88 = select i1 %.not37.i, ptr @.str.22, ptr @.str.21
+  %89 = select i1 %.not35.i, ptr %88, ptr %87
   br label %dt_dev_pixelpipe_type_to_str.exit
 
-87:                                               ; preds = %73
-  %88 = select i1 %.not37.i, ptr @.str.24, ptr @.str.23
-  %89 = select i1 %.not37.i, ptr @.str.26, ptr @.str.25
-  %90 = select i1 %.not35.i, ptr %89, ptr %88
+90:                                               ; preds = %.split.i
+  %91 = select i1 %.not37.i, ptr @.str.24, ptr @.str.23
+  %92 = select i1 %.not37.i, ptr @.str.26, ptr @.str.25
+  %93 = select i1 %.not35.i, ptr %92, ptr %91
   br label %dt_dev_pixelpipe_type_to_str.exit
 
-91:                                               ; preds = %73
-  %92 = select i1 %.not37.i, ptr @.str.28, ptr @.str.27
-  %93 = select i1 %.not37.i, ptr @.str.30, ptr @.str.29
-  %94 = select i1 %.not35.i, ptr %93, ptr %92
+94:                                               ; preds = %.split.i
+  %95 = select i1 %.not37.i, ptr @.str.28, ptr @.str.27
+  %96 = select i1 %.not37.i, ptr @.str.30, ptr @.str.29
+  %97 = select i1 %.not35.i, ptr %96, ptr %95
   br label %dt_dev_pixelpipe_type_to_str.exit
 
-95:                                               ; preds = %73
-  %96 = select i1 %.not37.i, ptr @.str.32, ptr @.str.31
-  %97 = select i1 %.not37.i, ptr @.str.34, ptr @.str.33
-  %98 = select i1 %.not35.i, ptr %97, ptr %96
+98:                                               ; preds = %.split.i
+  %99 = select i1 %.not37.i, ptr @.str.32, ptr @.str.31
+  %100 = select i1 %.not37.i, ptr @.str.34, ptr @.str.33
+  %101 = select i1 %.not35.i, ptr %100, ptr %99
   br label %dt_dev_pixelpipe_type_to_str.exit
 
-99:                                               ; preds = %73
-  %100 = select i1 %.not37.i, ptr @.str.36, ptr @.str.35
-  %101 = select i1 %.not37.i, ptr @.str.38, ptr @.str.37
-  %102 = select i1 %.not35.i, ptr %101, ptr %100
+default.unreachable:                              ; preds = %.split.i
+  unreachable
+
+102:                                              ; preds = %73
+  %.not.i = icmp eq i32 %76, 0
+  %.not22.i = icmp eq i32 %77, 0
+  %103 = select i1 %.not22.i, ptr @.str.36, ptr @.str.35
+  %104 = select i1 %.not22.i, ptr @.str.38, ptr @.str.37
+  %105 = select i1 %.not.i, ptr %104, ptr %103
   br label %dt_dev_pixelpipe_type_to_str.exit
 
-dt_dev_pixelpipe_type_to_str.exit:                ; preds = %79, %83, %87, %91, %95, %99
-  %.0.i = phi ptr [ %102, %99 ], [ %82, %79 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ]
-  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef %.0.i) #27
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 604
-  %105 = load i32, ptr %104, align 4, !tbaa !121
-  %106 = and i32 %105, 1020
-  %.not42 = icmp eq i32 %106, 0
-  br i1 %.not42, label %112, label %107
+dt_dev_pixelpipe_type_to_str.exit:                ; preds = %82, %86, %90, %94, %98, %102
+  %.0.i = phi ptr [ %105, %102 ], [ %85, %82 ], [ %89, %86 ], [ %93, %90 ], [ %97, %94 ], [ %101, %98 ]
+  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef %.0.i) #27
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 604
+  %108 = load i32, ptr %107, align 4, !tbaa !121
+  %109 = and i32 %108, 1020
+  %.not42 = icmp eq i32 %109, 0
+  br i1 %.not42, label %115, label %110
 
-107:                                              ; preds = %dt_dev_pixelpipe_type_to_str.exit
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 608
-  %109 = load i32, ptr %108, align 16, !tbaa !133
-  %.not43 = icmp eq i32 %109, 0
-  %110 = select i1 %.not43, ptr @.str.6, ptr @.str.51
-  %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 64, ptr noundef nonnull @.str.50, i32 noundef %105, ptr noundef nonnull %110) #27
-  br label %112
+110:                                              ; preds = %dt_dev_pixelpipe_type_to_str.exit
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 608
+  %112 = load i32, ptr %111, align 16, !tbaa !133
+  %.not43 = icmp eq i32 %112, 0
+  %113 = select i1 %.not43, ptr @.str.6, ptr @.str.51
+  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 64, ptr noundef nonnull @.str.50, i32 noundef %108, ptr noundef nonnull %113) #27
+  br label %115
 
-112:                                              ; preds = %dt_dev_pixelpipe_type_to_str.exit, %107, %72
+115:                                              ; preds = %dt_dev_pixelpipe_type_to_str.exit, %110, %72
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.va_start.p0(ptr nonnull %17)
-  %113 = call i32 @vsnprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef %6, ptr noundef nonnull %17) #27
+  %116 = call i32 @vsnprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef %6, ptr noundef nonnull %17) #27
   call void @llvm.va_end.p0(ptr nonnull %17)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.52, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %12) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1890,54 +1901,65 @@ define noundef nonnull ptr @dt_dev_pixelpipe_type_to_str(i32 noundef %0) local_u
   %2 = and i32 %0, 256
   %3 = and i32 %0, 512
   %4 = and i32 %0, 31
+  %5 = tail call range(i32 0, 6) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %28
+
+.split:                                           ; preds = %1
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4, i1 true)
   %.not35 = icmp eq i32 %2, 0
   %.not37 = icmp eq i32 %3, 0
-  switch i32 %4, label %25 [
-    i32 4, label %5
-    i32 16, label %9
-    i32 2, label %13
-    i32 8, label %17
-    i32 1, label %21
+  switch i32 %7, label %default.unreachable38 [
+    i32 2, label %8
+    i32 4, label %12
+    i32 1, label %16
+    i32 3, label %20
+    i32 0, label %24
   ]
 
-5:                                                ; preds = %1
-  %6 = select i1 %.not37, ptr @.str.16, ptr @.str.15
-  %7 = select i1 %.not37, ptr @.str.18, ptr @.str.17
-  %8 = select i1 %.not35, ptr %7, ptr %6
-  br label %29
+8:                                                ; preds = %.split
+  %9 = select i1 %.not37, ptr @.str.16, ptr @.str.15
+  %10 = select i1 %.not37, ptr @.str.18, ptr @.str.17
+  %11 = select i1 %.not35, ptr %10, ptr %9
+  br label %32
 
-9:                                                ; preds = %1
-  %10 = select i1 %.not37, ptr @.str.20, ptr @.str.19
-  %11 = select i1 %.not37, ptr @.str.22, ptr @.str.21
-  %12 = select i1 %.not35, ptr %11, ptr %10
-  br label %29
+12:                                               ; preds = %.split
+  %13 = select i1 %.not37, ptr @.str.20, ptr @.str.19
+  %14 = select i1 %.not37, ptr @.str.22, ptr @.str.21
+  %15 = select i1 %.not35, ptr %14, ptr %13
+  br label %32
 
-13:                                               ; preds = %1
-  %14 = select i1 %.not37, ptr @.str.24, ptr @.str.23
-  %15 = select i1 %.not37, ptr @.str.26, ptr @.str.25
-  %16 = select i1 %.not35, ptr %15, ptr %14
-  br label %29
+16:                                               ; preds = %.split
+  %17 = select i1 %.not37, ptr @.str.24, ptr @.str.23
+  %18 = select i1 %.not37, ptr @.str.26, ptr @.str.25
+  %19 = select i1 %.not35, ptr %18, ptr %17
+  br label %32
 
-17:                                               ; preds = %1
-  %18 = select i1 %.not37, ptr @.str.28, ptr @.str.27
-  %19 = select i1 %.not37, ptr @.str.30, ptr @.str.29
-  %20 = select i1 %.not35, ptr %19, ptr %18
-  br label %29
+20:                                               ; preds = %.split
+  %21 = select i1 %.not37, ptr @.str.28, ptr @.str.27
+  %22 = select i1 %.not37, ptr @.str.30, ptr @.str.29
+  %23 = select i1 %.not35, ptr %22, ptr %21
+  br label %32
 
-21:                                               ; preds = %1
-  %22 = select i1 %.not37, ptr @.str.32, ptr @.str.31
-  %23 = select i1 %.not37, ptr @.str.34, ptr @.str.33
-  %24 = select i1 %.not35, ptr %23, ptr %22
-  br label %29
+24:                                               ; preds = %.split
+  %25 = select i1 %.not37, ptr @.str.32, ptr @.str.31
+  %26 = select i1 %.not37, ptr @.str.34, ptr @.str.33
+  %27 = select i1 %.not35, ptr %26, ptr %25
+  br label %32
 
-25:                                               ; preds = %1
-  %26 = select i1 %.not37, ptr @.str.36, ptr @.str.35
-  %27 = select i1 %.not37, ptr @.str.38, ptr @.str.37
-  %28 = select i1 %.not35, ptr %27, ptr %26
-  br label %29
+default.unreachable38:                            ; preds = %.split
+  unreachable
 
-29:                                               ; preds = %25, %21, %17, %13, %9, %5
-  %.0 = phi ptr [ %28, %25 ], [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ]
+28:                                               ; preds = %1
+  %.not = icmp eq i32 %2, 0
+  %.not22 = icmp eq i32 %3, 0
+  %29 = select i1 %.not22, ptr @.str.36, ptr @.str.35
+  %30 = select i1 %.not22, ptr @.str.38, ptr @.str.37
+  %31 = select i1 %.not, ptr %30, ptr %29
+  br label %32
+
+32:                                               ; preds = %28, %24, %20, %16, %12, %8
+  %.0 = phi ptr [ %31, %28 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ]
   ret ptr %.0
 }
 
@@ -8059,6 +8081,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

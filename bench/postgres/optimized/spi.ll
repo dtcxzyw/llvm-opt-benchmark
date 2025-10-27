@@ -151,14 +151,14 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   br i1 %or.cond, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.SPI_connect_ext) #14
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.SPI_connect_ext) #15
   unreachable
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr @TopMemoryContext, align 8
-  %14 = tail call ptr @MemoryContextAlloc(ptr noundef %13, i64 noundef 1664) #14
+  %14 = tail call ptr @MemoryContextAlloc(ptr noundef %13, i64 noundef 1664) #15
   br label %.sink.split
 
 15:                                               ; preds = %1
@@ -172,9 +172,9 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %18, %15
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.SPI_connect_ext) #14
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.SPI_connect_ext) #15
   unreachable
 
 23:                                               ; preds = %18
@@ -186,7 +186,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %27 = shl nuw i32 %16, 1
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %28, 104
-  %30 = tail call ptr @repalloc(ptr noundef nonnull %2, i64 noundef %29) #14
+  %30 = tail call ptr @repalloc(ptr noundef nonnull %2, i64 noundef %29) #15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %26
@@ -207,7 +207,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
-  %38 = tail call i32 @GetCurrentSubTransactionId() #14
+  %38 = tail call i32 @GetCurrentSubTransactionId() #15
   %39 = load ptr, ptr @_SPI_current, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   store i32 %38, ptr %40, align 8
@@ -233,7 +233,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %53 = load ptr, ptr @TopTransactionContext, align 8
   %54 = load ptr, ptr @PortalContext, align 8
   %55 = select i1 %.not9.not, ptr %53, ptr %54
-  %56 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %55, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
+  %56 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %55, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %57 = load ptr, ptr @_SPI_current, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %56, ptr %58, align 8
@@ -242,7 +242,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %61 = trunc nuw i8 %60 to i1
   %TopTransactionContext.val = load ptr, ptr @TopTransactionContext, align 8
   %62 = select i1 %61, ptr %TopTransactionContext.val, ptr %56
-  %63 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %62, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
+  %63 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %62, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %64 = load ptr, ptr @_SPI_current, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store ptr %63, ptr %65, align 8
@@ -287,13 +287,13 @@ define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
-  tail call void @MemoryContextDelete(ptr noundef %6) #14
+  tail call void @MemoryContextDelete(ptr noundef %6) #15
   %7 = load ptr, ptr @_SPI_current, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void @MemoryContextDelete(ptr noundef %10) #14
+  tail call void @MemoryContextDelete(ptr noundef %10) #15
   %11 = load ptr, ptr @_SPI_current, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %12, align 8
@@ -348,35 +348,35 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %11 = call i32 @errcode(i32 noundef 1282) #14
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__._SPI_commit) #14
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = call i32 @errcode(i32 noundef 1282) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__._SPI_commit) #15
   unreachable
 
 13:                                               ; preds = %1
-  %14 = call zeroext i1 @IsSubTransaction() #14
+  %14 = call zeroext i1 @IsSubTransaction() #15
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %17 = call i32 @errcode(i32 noundef 1282) #14
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__._SPI_commit) #14
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %17 = call i32 @errcode(i32 noundef 1282) #15
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__._SPI_commit) #15
   unreachable
 
 19:                                               ; preds = %13
   br i1 %0, label %20, label %21
 
 20:                                               ; preds = %19
-  call void @SaveTransactionCharacteristics(ptr noundef nonnull %2) #14
+  call void @SaveTransactionCharacteristics(ptr noundef nonnull %2) #15
   br label %21
 
 21:                                               ; preds = %19, %20
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #15
+  %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
 
@@ -385,14 +385,14 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   %27 = load ptr, ptr @_SPI_current, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 73
   store i8 1, ptr %28, align 1
-  call void @HoldPinnedPortals() #14
-  call void @ForgetPortalSnapshots() #14
-  call void @CommitTransactionCommand() #14
-  call void @StartTransactionCommand() #14
+  call void @HoldPinnedPortals() #15
+  call void @ForgetPortalSnapshots() #15
+  call void @CommitTransactionCommand() #15
+  call void @StartTransactionCommand() #15
   br i1 %0, label %29, label %30
 
 29:                                               ; preds = %26
-  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #14
+  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #15
   br label %30
 
 30:                                               ; preds = %29, %26
@@ -410,14 +410,14 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %34 = call ptr @CopyErrorData() #14
-  call void @FlushErrorState() #14
-  call void @AbortCurrentTransaction() #14
-  call void @StartTransactionCommand() #14
+  %34 = call ptr @CopyErrorData() #15
+  call void @FlushErrorState() #15
+  call void @AbortCurrentTransaction() #15
+  call void @StartTransactionCommand() #15
   br i1 %0, label %35, label %36
 
 35:                                               ; preds = %33
-  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #14
+  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #15
   br label %36
 
 36:                                               ; preds = %35, %33
@@ -425,7 +425,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   %37 = load ptr, ptr @_SPI_current, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 73
   store i8 0, ptr %38, align 1
-  call void @ReThrowError(ptr noundef %34) #16
+  call void @ReThrowError(ptr noundef %34) #17
   unreachable
 }
 
@@ -454,35 +454,35 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %11 = call i32 @errcode(i32 noundef 1282) #14
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__._SPI_rollback) #14
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = call i32 @errcode(i32 noundef 1282) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__._SPI_rollback) #15
   unreachable
 
 13:                                               ; preds = %1
-  %14 = call zeroext i1 @IsSubTransaction() #14
+  %14 = call zeroext i1 @IsSubTransaction() #15
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %17 = call i32 @errcode(i32 noundef 1282) #14
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__._SPI_rollback) #14
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %17 = call i32 @errcode(i32 noundef 1282) #15
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__._SPI_rollback) #15
   unreachable
 
 19:                                               ; preds = %13
   br i1 %0, label %20, label %21
 
 20:                                               ; preds = %19
-  call void @SaveTransactionCharacteristics(ptr noundef nonnull %2) #14
+  call void @SaveTransactionCharacteristics(ptr noundef nonnull %2) #15
   br label %21
 
 21:                                               ; preds = %19, %20
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #15
+  %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
 
@@ -491,14 +491,14 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   %27 = load ptr, ptr @_SPI_current, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 73
   store i8 1, ptr %28, align 1
-  call void @HoldPinnedPortals() #14
-  call void @ForgetPortalSnapshots() #14
-  call void @AbortCurrentTransaction() #14
-  call void @StartTransactionCommand() #14
+  call void @HoldPinnedPortals() #15
+  call void @ForgetPortalSnapshots() #15
+  call void @AbortCurrentTransaction() #15
+  call void @StartTransactionCommand() #15
   br i1 %0, label %29, label %30
 
 29:                                               ; preds = %26
-  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #14
+  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #15
   br label %30
 
 30:                                               ; preds = %29, %26
@@ -516,14 +516,14 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %34 = call ptr @CopyErrorData() #14
-  call void @FlushErrorState() #14
-  call void @AbortCurrentTransaction() #14
-  call void @StartTransactionCommand() #14
+  %34 = call ptr @CopyErrorData() #15
+  call void @FlushErrorState() #15
+  call void @AbortCurrentTransaction() #15
+  call void @StartTransactionCommand() #15
   br i1 %0, label %35, label %36
 
 35:                                               ; preds = %33
-  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #14
+  call void @RestoreTransactionCharacteristics(ptr noundef nonnull %2) #15
   br label %36
 
 36:                                               ; preds = %35, %33
@@ -531,7 +531,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   %37 = load ptr, ptr @_SPI_current, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 73
   store i8 0, ptr %38, align 1
-  call void @ReThrowError(ptr noundef %34) #16
+  call void @ReThrowError(ptr noundef %34) #17
   unreachable
 }
 
@@ -594,14 +594,14 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   br i1 %or.cond, label %25, label %.thread.thread
 
 25:                                               ; preds = %.thread
-  %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %26, label %27, label %.thread.thread
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @errcode(i32 noundef 64) #14
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #14
-  %30 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__func__.AtEOXact_SPI) #14
+  %28 = tail call i32 @errcode(i32 noundef 64) #15
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
+  %30 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__func__.AtEOXact_SPI) #15
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %1, %25, %27, %.thread
@@ -652,7 +652,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br i1 %.not32, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @MemoryContextDelete(ptr noundef nonnull %19) #14
+  tail call void @MemoryContextDelete(ptr noundef nonnull %19) #15
   store ptr null, ptr %18, align 8
   br label %21
 
@@ -663,7 +663,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br i1 %.not33, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @MemoryContextDelete(ptr noundef nonnull %23) #14
+  tail call void @MemoryContextDelete(ptr noundef nonnull %23) #15
   store ptr null, ptr %22, align 8
   br label %25
 
@@ -695,14 +695,14 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br i1 %or.cond, label %39, label %.thread.thread
 
 39:                                               ; preds = %.thread
-  %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %40, label %41, label %.thread.thread
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @errcode(i32 noundef 64) #14
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #14
-  %44 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.AtEOSubXact_SPI) #14
+  %42 = tail call i32 @errcode(i32 noundef 64) #15
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #15
+  %44 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.AtEOSubXact_SPI) #15
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %2, %39, %41, %.thread
@@ -721,7 +721,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   store i32 0, ptr %48, align 8
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %52 = load ptr, ptr %51, align 8
-  tail call void @MemoryContextReset(ptr noundef %52) #14
+  tail call void @MemoryContextReset(ptr noundef %52) #15
   %.pre55 = load ptr, ptr @_SPI_current, align 8
   br label %53
 
@@ -766,7 +766,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 71:                                               ; preds = %70, %67
   %72 = getelementptr inbounds i8, ptr %storemerge3653.sink, i64 -8
   %73 = load ptr, ptr %72, align 8
-  tail call void @MemoryContextDelete(ptr noundef %73) #14
+  tail call void @MemoryContextDelete(ptr noundef %73) #15
   br label %74
 
 74:                                               ; preds = %71, %.lr.ph54
@@ -793,7 +793,7 @@ define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @IsSubTransaction() #14
+  %8 = tail call zeroext i1 @IsSubTransaction() #15
   %not. = xor i1 %8, true
   br label %9
 
@@ -824,7 +824,7 @@ define dso_local i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext %1, i64 nou
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %11
-  %13 = tail call i32 @GetCurrentSubTransactionId() #14
+  %13 = tail call i32 @GetCurrentSubTransactionId() #15
   %14 = load ptr, ptr @_SPI_current, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %13, ptr %15, align 8
@@ -847,7 +847,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   %22 = load ptr, ptr @error_context_stack, align 8
   store ptr %22, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %23 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #14
+  %23 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
@@ -866,9 +866,9 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @CreateCommandTag(ptr noundef %32) #14
-  %34 = call ptr @CreateOneShotCachedPlan(ptr noundef %30, ptr noundef nonnull %0, i32 noundef %33) #14
-  %35 = call ptr @lappend(ptr noundef %.02226.i, ptr noundef %34) #14
+  %33 = call i32 @CreateCommandTag(ptr noundef %32) #15
+  %34 = call ptr @CreateOneShotCachedPlan(ptr noundef %30, ptr noundef nonnull %0, i32 noundef %33) #15
+  %35 = call ptr @lappend(ptr noundef %.02226.i, ptr noundef %34) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %24, align 4
   %37 = sext i32 %36 to i64
@@ -899,7 +899,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %_SPI_b
   store i32 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %50 = load ptr, ptr %49, align 8
-  call void @MemoryContextReset(ptr noundef %50) #14
+  call void @MemoryContextReset(ptr noundef %50) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %11, %3, %_SPI_prepare_oneshot_plan.exit
@@ -934,7 +934,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call zeroext i1 @IsSubTransaction() #14
+  %20 = tail call zeroext i1 @IsSubTransaction() #15
   %21 = xor i1 %20, true
   br label %22
 
@@ -962,11 +962,11 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
-  call void @PushActiveSnapshot(ptr noundef nonnull %2) #14
+  call void @PushActiveSnapshot(ptr noundef nonnull %2) #15
   br label %36
 
 35:                                               ; preds = %30
-  call void @PushCopiedSnapshot(ptr noundef nonnull %2) #14
+  call void @PushCopiedSnapshot(ptr noundef nonnull %2) #15
   br label %36
 
 36:                                               ; preds = %34, %35, %22
@@ -990,10 +990,10 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br i1 %47, label %49, label %.lr.ph295
 
 49:                                               ; preds = %48
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %51 = call i32 @errcode(i32 noundef 16801924) #14
-  %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2496, ptr noundef nonnull @__func__._SPI_execute_plan) #14
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %51 = call i32 @errcode(i32 noundef 16801924) #15
+  %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2496, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
 53:                                               ; preds = %36
@@ -1050,7 +1050,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %83 = load ptr, ptr @_SPI_current, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %85 = load ptr, ptr %84, align 8
-  %86 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %77, ptr noundef %72, ptr noundef nonnull %80, ptr noundef %82, ptr noundef %85) #14
+  %86 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %77, ptr noundef %72, ptr noundef nonnull %80, ptr noundef %82, ptr noundef %85) #15
   br label %94
 
 87:                                               ; preds = %79
@@ -1059,7 +1059,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %90 = load ptr, ptr @_SPI_current, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %77, ptr noundef %72, ptr noundef %88, i32 noundef %89, ptr noundef %92) #14
+  %93 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %77, ptr noundef %72, ptr noundef %88, i32 noundef %89, ptr noundef %92) #15
   br label %94
 
 94:                                               ; preds = %75, %81, %87
@@ -1069,7 +1069,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %97 = load ptr, ptr %57, align 8
   %98 = load ptr, ptr %58, align 8
   %99 = load i32, ptr %61, align 4
-  call void @CompleteCachedPlan(ptr noundef nonnull %70, ptr noundef %.0151, ptr noundef null, ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i1 noundef zeroext false) #14
+  call void @CompleteCachedPlan(ptr noundef nonnull %70, ptr noundef %.0151, ptr noundef null, ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i1 noundef zeroext false) #15
   br label %100
 
 100:                                              ; preds = %94, %.lr.ph424
@@ -1090,15 +1090,15 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %106
-  %111 = call ptr @GetCommandTagName(i32 noundef %108) #14
+  %111 = call ptr @GetCommandTagName(i32 noundef %108) #15
   br label %112
 
 112:                                              ; preds = %106, %110
   %.0150 = phi ptr [ %111, %110 ], [ @.str.59, %106 ]
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %114 = call i32 @errcode(i32 noundef 16801924) #14
-  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %.0150) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2570, ptr noundef nonnull @__func__._SPI_execute_plan) #14
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %114 = call i32 @errcode(i32 noundef 16801924) #15
+  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %.0150) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2570, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
 116:                                              ; preds = %103, %100
@@ -1106,7 +1106,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %118 = load ptr, ptr @_SPI_current, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %120 = load ptr, ptr %119, align 8
-  %121 = call ptr @GetCachedPlan(ptr noundef nonnull %70, ptr noundef %117, ptr noundef %.0149, ptr noundef %120) #14
+  %121 = call ptr @GetCachedPlan(ptr noundef nonnull %70, ptr noundef %117, ptr noundef %.0149, ptr noundef %120) #15
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not.i = icmp eq ptr %123, null
@@ -1127,11 +1127,11 @@ list_length.exit192:                              ; preds = %list_length.exit
   %129 = getelementptr i8, ptr %123, i64 16
   %.val = load ptr, ptr %129, align 8
   %130 = load ptr, ptr %.val, align 8
-  %131 = call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %130) #14
+  %131 = call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %130) #15
   br i1 %131, label %132, label %.lr.ph
 
 132:                                              ; preds = %128, %list_length.exit
-  call void @EnsurePortalSnapshotExists() #14
+  call void @EnsurePortalSnapshotExists() #15
   %133 = load i8, ptr %62, align 8, !range !4, !noundef !5
   %134 = trunc nuw i8 %133 to i1
   %or.cond = select i1 %134, i1 true, i1 %23
@@ -1142,12 +1142,12 @@ list_length.exit192:                              ; preds = %list_length.exit
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %135
-  call void @PopActiveSnapshot() #14
+  call void @PopActiveSnapshot() #15
   br label %138
 
 138:                                              ; preds = %137, %135
-  %139 = call ptr @GetTransactionSnapshot() #14
-  call void @PushActiveSnapshot(ptr noundef %139) #14
+  %139 = call ptr @GetTransactionSnapshot() #15
+  call void @PushActiveSnapshot(ptr noundef %139) #15
   br label %.lr.ph
 
 list_length.exit192.thread:                       ; preds = %116
@@ -1206,7 +1206,7 @@ list_length.exit192.thread:                       ; preds = %116
   br i1 %165, label %166, label %176
 
 166:                                              ; preds = %163
-  %167 = call zeroext i1 @CommandIsReadOnly(ptr noundef nonnull %151) #14
+  %167 = call zeroext i1 @CommandIsReadOnly(ptr noundef nonnull %151) #15
   br i1 %167, label %._crit_edge323, label %171
 
 ._crit_edge323:                                   ; preds = %166
@@ -1217,19 +1217,19 @@ list_length.exit192.thread:                       ; preds = %116
   br i1 %170, label %177, label %178
 
 171:                                              ; preds = %166
-  %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %173 = call i32 @errcode(i32 noundef 1088) #14
+  %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %173 = call i32 @errcode(i32 noundef 1088) #15
   %174 = call fastcc ptr @CreateCommandName(ptr noundef nonnull %151)
-  %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef %174) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2658, ptr noundef nonnull @__func__._SPI_execute_plan) #14
+  %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef %174) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2658, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
 176:                                              ; preds = %163
   br i1 %142, label %177, label %178
 
 177:                                              ; preds = %._crit_edge323, %176
-  call void @CommandCounterIncrement() #14
-  call void @UpdateActiveSnapshotCommandId() #14
+  call void @CommandCounterIncrement() #15
+  call void @UpdateActiveSnapshotCommandId() #15
   br label %178
 
 178:                                              ; preds = %._crit_edge323, %177, %176
@@ -1242,7 +1242,7 @@ list_length.exit192.thread:                       ; preds = %116
 
 .sink.split:                                      ; preds = %179, %178
   %.sink = phi i32 [ 0, %178 ], [ 5, %179 ]
-  %181 = call ptr @CreateDestReceiver(i32 noundef %.sink) #14
+  %181 = call ptr @CreateDestReceiver(i32 noundef %.sink) #15
   br label %182
 
 182:                                              ; preds = %.sink.split, %179
@@ -1252,11 +1252,11 @@ list_length.exit192.thread:                       ; preds = %116
   br i1 %184, label %185, label %259
 
 185:                                              ; preds = %182
-  %186 = call zeroext i1 @ActiveSnapshotSet() #14
+  %186 = call zeroext i1 @ActiveSnapshotSet() #15
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %185
-  %188 = call ptr @GetActiveSnapshot() #14
+  %188 = call ptr @GetActiveSnapshot() #15
   br label %189
 
 189:                                              ; preds = %185, %187
@@ -1266,7 +1266,7 @@ list_length.exit192.thread:                       ; preds = %116
   %192 = load ptr, ptr @_SPI_current, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %194 = load ptr, ptr %193, align 8
-  %195 = call ptr @CreateQueryDesc(ptr noundef nonnull %151, ptr noundef %190, ptr noundef %.0127, ptr noundef %3, ptr noundef %.0135, ptr noundef %191, ptr noundef %194, i32 noundef 0) #14
+  %195 = call ptr @CreateQueryDesc(ptr noundef nonnull %151, ptr noundef %190, ptr noundef %.0127, ptr noundef %3, ptr noundef %.0135, ptr noundef %191, ptr noundef %194, i32 noundef 0) #15
   br i1 %154, label %196, label %198
 
 196:                                              ; preds = %189
@@ -1332,8 +1332,8 @@ list_length.exit192.thread:                       ; preds = %116
 231:                                              ; preds = %225, %219, %213, %207, %201
   %232 = phi i1 [ %206, %201 ], [ false, %207 ], [ false, %213 ], [ false, %219 ], [ false, %225 ]
   %.0.i = phi i32 [ %.21.i, %201 ], [ %.22.i, %207 ], [ %.23.i, %213 ], [ %.24.i, %219 ], [ %.25.i, %225 ]
-  call void @ExecutorStart(ptr noundef nonnull %195, i32 noundef %.26.i) #14
-  call void @ExecutorRun(ptr noundef nonnull %195, i32 noundef 1, i64 noundef %199) #14
+  call void @ExecutorStart(ptr noundef nonnull %195, i32 noundef %.26.i) #15
+  call void @ExecutorRun(ptr noundef nonnull %195, i32 noundef 1, i64 noundef %199) #15
   %233 = getelementptr inbounds nuw i8, ptr %195, i64 80
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 208
@@ -1371,30 +1371,30 @@ _SPI_checktuples.exit.i:                          ; preds = %250
   br i1 %.not.i.not.i, label %258, label %_SPI_checktuples.exit.thread.i
 
 _SPI_checktuples.exit.thread.i:                   ; preds = %_SPI_checktuples.exit.i, %250
-  %256 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %257 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2940, ptr noundef nonnull @__func__._SPI_pquery) #14
+  %256 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %257 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2940, ptr noundef nonnull @__func__._SPI_pquery) #15
   unreachable
 
 258:                                              ; preds = %_SPI_checktuples.exit.i, %244, %238
-  call void @ExecutorFinish(ptr noundef nonnull %195) #14
-  call void @ExecutorEnd(ptr noundef nonnull %195) #14
+  call void @ExecutorFinish(ptr noundef nonnull %195) #15
+  call void @ExecutorEnd(ptr noundef nonnull %195) #15
   br label %_SPI_pquery.exit
 
 _SPI_pquery.exit:                                 ; preds = %198, %258
   %.020.i = phi i32 [ %.0.i, %258 ], [ -3, %198 ]
-  call void @FreeQueryDesc(ptr noundef nonnull %195) #14
+  call void @FreeQueryDesc(ptr noundef nonnull %195) #15
   br label %284
 
 259:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @InitializeQueryCompletion(ptr noundef nonnull %8) #14
+  call void @InitializeQueryCompletion(ptr noundef nonnull %8) #15
   %260 = load ptr, ptr %71, align 8
   %261 = load ptr, ptr %1, align 8
   %262 = load ptr, ptr @_SPI_current, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 64
   %264 = load ptr, ptr %263, align 8
-  call void @ProcessUtility(ptr noundef nonnull %151, ptr noundef %260, i1 noundef zeroext true, i32 noundef %.188, ptr noundef %261, ptr noundef %264, ptr noundef %.0135, ptr noundef nonnull %8) #14
+  call void @ProcessUtility(ptr noundef nonnull %151, ptr noundef %260, i1 noundef zeroext true, i32 noundef %.188, ptr noundef %261, ptr noundef %264, ptr noundef %.0135, ptr noundef nonnull %8) #15
   %265 = load ptr, ptr @_SPI_current, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load ptr, ptr %266, align 8
@@ -1471,13 +1471,13 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   %.2138.lcssa = phi ptr [ %.0136291422, %list_length.exit192.thread ], [ %.0136291422, %.lr.ph ], [ %.5141, %145 ]
   %.2131.lcssa = phi i64 [ %.0129292421, %list_length.exit192.thread ], [ %.0129292421, %.lr.ph ], [ %.5134, %145 ]
   %.2.lcssa = phi i32 [ %.0128293420, %list_length.exit192.thread ], [ %.0128293420, %.lr.ph ], [ %.7, %145 ]
-  call void @ReleaseCachedPlan(ptr noundef %121, ptr noundef %.0149) #14
+  call void @ReleaseCachedPlan(ptr noundef %121, ptr noundef %.0149) #15
   %297 = load i8, ptr %62, align 8, !range !4, !noundef !5
   %298 = trunc nuw i8 %297 to i1
   br i1 %298, label %300, label %299
 
 299:                                              ; preds = %._crit_edge
-  call void @CommandCounterIncrement() #14
+  call void @CommandCounterIncrement() #15
   br label %300
 
 300:                                              ; preds = %299, %._crit_edge
@@ -1497,7 +1497,7 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %.critedge.thread
-  call void @PopActiveSnapshot() #14
+  call void @PopActiveSnapshot() #15
   br label %306
 
 306:                                              ; preds = %305, %.critedge.thread
@@ -1505,7 +1505,7 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   br i1 %.not185, label %308, label %307
 
 307:                                              ; preds = %306
-  call void @ReleaseCachedPlan(ptr noundef nonnull %.1153237, ptr noundef %.0149) #14
+  call void @ReleaseCachedPlan(ptr noundef nonnull %.1153237, ptr noundef %.0149) #15
   br label %308
 
 308:                                              ; preds = %307, %306
@@ -1546,7 +1546,7 @@ define dso_local i32 @SPI_execute_extended(ptr noundef %0, ptr noundef readonly 
   br i1 %.not16, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %8
-  %10 = tail call i32 @GetCurrentSubTransactionId() #14
+  %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
@@ -1585,7 +1585,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %28 = load ptr, ptr @error_context_stack, align 8
   store ptr %28, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
-  %29 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #14
+  %29 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
@@ -1604,9 +1604,9 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @CreateCommandTag(ptr noundef %38) #14
-  %40 = call ptr @CreateOneShotCachedPlan(ptr noundef %36, ptr noundef nonnull %0, i32 noundef %39) #14
-  %41 = call ptr @lappend(ptr noundef %.02226.i, ptr noundef %40) #14
+  %39 = call i32 @CreateCommandTag(ptr noundef %38) #15
+  %40 = call ptr @CreateOneShotCachedPlan(ptr noundef %36, ptr noundef nonnull %0, i32 noundef %39) #15
+  %41 = call ptr @lappend(ptr noundef %.02226.i, ptr noundef %40) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = load i32, ptr %30, align 4
   %43 = sext i32 %42 to i64
@@ -1632,7 +1632,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %24, %.
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %54 = load ptr, ptr %53, align 8
-  call void @MemoryContextReset(ptr noundef %54) #14
+  call void @MemoryContextReset(ptr noundef %54) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %8, %2, %_SPI_prepare_oneshot_plan.exit
@@ -1670,7 +1670,7 @@ define dso_local i32 @SPI_execute_plan(ptr noundef readonly captures(address_is_
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %18
-  %20 = tail call i32 @GetCurrentSubTransactionId() #14
+  %20 = tail call i32 @GetCurrentSubTransactionId() #15
   %21 = load ptr, ptr @_SPI_current, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %20, ptr %22, align 8
@@ -1686,7 +1686,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   br i1 %29, label %30, label %_SPI_convert_params.exit
 
 30:                                               ; preds = %_SPI_begin_call.exit.thread
-  %31 = tail call ptr @makeParamList(i32 noundef %26) #14
+  %31 = tail call ptr @makeParamList(i32 noundef %26) #15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %.not.i = icmp eq ptr %2, null
   %wide.trip.count27.i = zext nneg i32 %26 to i64
@@ -1748,7 +1748,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   store i32 0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %61 = load ptr, ptr %60, align 8
-  tail call void @MemoryContextReset(ptr noundef %61) #14
+  tail call void @MemoryContextReset(ptr noundef %61) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %18, %13, %5, %9, %_SPI_convert_params.exit
@@ -1781,7 +1781,7 @@ define dso_local i32 @SPI_execute_plan_extended(ptr noundef readonly captures(ad
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %8
-  %10 = tail call i32 @GetCurrentSubTransactionId() #14
+  %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
@@ -1797,7 +1797,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = load ptr, ptr %20, align 8
-  tail call void @MemoryContextReset(ptr noundef %21) #14
+  tail call void @MemoryContextReset(ptr noundef %21) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %8, %2, %4, %_SPI_begin_call.exit.thread
@@ -1826,7 +1826,7 @@ define dso_local i32 @SPI_execute_plan_with_paramlist(ptr noundef readonly captu
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %12
-  %14 = tail call i32 @GetCurrentSubTransactionId() #14
+  %14 = tail call i32 @GetCurrentSubTransactionId() #15
   %15 = load ptr, ptr @_SPI_current, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
@@ -1849,7 +1849,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %28 = load ptr, ptr %27, align 8
-  tail call void @MemoryContextReset(ptr noundef %28) #14
+  tail call void @MemoryContextReset(ptr noundef %28) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %12, %4, %8, %_SPI_begin_call.exit.thread
@@ -1887,7 +1887,7 @@ define dso_local i32 @SPI_execute_snapshot(ptr noundef readonly captures(address
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %21
-  %23 = tail call i32 @GetCurrentSubTransactionId() #14
+  %23 = tail call i32 @GetCurrentSubTransactionId() #15
   %24 = load ptr, ptr @_SPI_current, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 %23, ptr %25, align 8
@@ -1903,7 +1903,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   br i1 %32, label %33, label %_SPI_convert_params.exit
 
 33:                                               ; preds = %_SPI_begin_call.exit.thread
-  %34 = tail call ptr @makeParamList(i32 noundef %29) #14
+  %34 = tail call ptr @makeParamList(i32 noundef %29) #15
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %.not.i = icmp eq ptr %2, null
   %wide.trip.count27.i = zext nneg i32 %29 to i64
@@ -1965,7 +1965,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   store i32 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = load ptr, ptr %63, align 8
-  tail call void @MemoryContextReset(ptr noundef %64) #14
+  tail call void @MemoryContextReset(ptr noundef %64) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %21, %16, %8, %12, %_SPI_convert_params.exit
@@ -2006,7 +2006,7 @@ define dso_local i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not33, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %20
-  %22 = tail call i32 @GetCurrentSubTransactionId() #14
+  %22 = tail call i32 @GetCurrentSubTransactionId() #15
   %23 = load ptr, ptr @_SPI_current, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 %22, ptr %24, align 8
@@ -2026,7 +2026,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   br i1 %.not, label %_SPI_convert_params.exit, label %31
 
 31:                                               ; preds = %_SPI_begin_call.exit.thread
-  %32 = tail call ptr @makeParamList(i32 noundef %1) #14
+  %32 = tail call ptr @makeParamList(i32 noundef %1) #15
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %.not.i = icmp eq ptr %4, null
   %wide.trip.count27.i = zext nneg i32 %1 to i64
@@ -2086,7 +2086,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %57 = load ptr, ptr @error_context_stack, align 8
   store ptr %57, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %58 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #14
+  %58 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.not.i29 = icmp eq ptr %58, null
   br i1 %.not.i29, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
@@ -2105,9 +2105,9 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @CreateCommandTag(ptr noundef %67) #14
-  %69 = call ptr @CreateOneShotCachedPlan(ptr noundef %65, ptr noundef nonnull %0, i32 noundef %68) #14
-  %70 = call ptr @lappend(ptr noundef %.02226.i, ptr noundef %69) #14
+  %68 = call i32 @CreateCommandTag(ptr noundef %67) #15
+  %69 = call ptr @CreateOneShotCachedPlan(ptr noundef %65, ptr noundef nonnull %0, i32 noundef %68) #15
+  %70 = call ptr @lappend(ptr noundef %.02226.i, ptr noundef %69) #15
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %71 = load i32, ptr %59, align 4
   %72 = sext i32 %71 to i64
@@ -2140,7 +2140,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %_SPI_c
   store i32 0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %86 = load ptr, ptr %85, align 8
-  call void @MemoryContextReset(ptr noundef %86) #14
+  call void @MemoryContextReset(ptr noundef %86) #15
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %20, %17, %7, %_SPI_prepare_oneshot_plan.exit
@@ -2175,7 +2175,7 @@ define dso_local noundef ptr @SPI_prepare(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not.i, label %_SPI_begin_call.exit.i, label %_SPI_begin_call.exit.thread.i
 
 _SPI_begin_call.exit.thread.i:                    ; preds = %11
-  %13 = tail call i32 @GetCurrentSubTransactionId() #14
+  %13 = tail call i32 @GetCurrentSubTransactionId() #15
   %14 = load ptr, ptr @_SPI_current, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %13, ptr %15, align 8
@@ -2201,7 +2201,7 @@ _SPI_begin_call.exit.thread.i:                    ; preds = %11
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %27 = load ptr, ptr %26, align 8
-  tail call void @MemoryContextReset(ptr noundef %27) #14
+  tail call void @MemoryContextReset(ptr noundef %27) #15
   br label %SPI_prepare_cursor.exit
 
 _SPI_begin_call.exit.i:                           ; preds = %11
@@ -2239,7 +2239,7 @@ define dso_local noundef ptr @SPI_prepare_cursor(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %12
-  %14 = tail call i32 @GetCurrentSubTransactionId() #14
+  %14 = tail call i32 @GetCurrentSubTransactionId() #15
   %15 = load ptr, ptr @_SPI_current, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
@@ -2267,7 +2267,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %29 = load ptr, ptr %28, align 8
-  tail call void @MemoryContextReset(ptr noundef %29) #14
+  tail call void @MemoryContextReset(ptr noundef %29) #15
   br label %30
 
 _SPI_begin_call.exit:                             ; preds = %12
@@ -2298,7 +2298,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %10 = load ptr, ptr @error_context_stack, align 8
   store ptr %10, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
-  %11 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef %6) #14
+  %11 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef %6) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -2322,8 +2322,8 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @CreateCommandTag(ptr noundef %25) #14
-  %27 = call ptr @CreateCachedPlan(ptr noundef %23, ptr noundef nonnull %0, i32 noundef %26) #14
+  %26 = call i32 @CreateCommandTag(ptr noundef %25) #15
+  %27 = call ptr @CreateCachedPlan(ptr noundef %23, ptr noundef nonnull %0, i32 noundef %26) #15
   %28 = load ptr, ptr %14, align 8
   %.not39 = icmp eq ptr %28, null
   br i1 %.not39, label %38, label %32
@@ -2345,7 +2345,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %34 = load ptr, ptr @_SPI_current, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %33, ptr noundef %36) #14
+  %37 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %33, ptr noundef %36) #15
   br label %45
 
 38:                                               ; preds = %.lr.ph48
@@ -2354,7 +2354,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %41 = load ptr, ptr @_SPI_current, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef %39, i32 noundef %40, ptr noundef %43) #14
+  %44 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef %39, i32 noundef %40, ptr noundef %43) #15
   br label %45
 
 45:                                               ; preds = %38, %32
@@ -2364,8 +2364,8 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %48 = load ptr, ptr %14, align 8
   %49 = load ptr, ptr %15, align 8
   %50 = load i32, ptr %18, align 4
-  call void @CompleteCachedPlan(ptr noundef %27, ptr noundef %.034, ptr noundef null, ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, i1 noundef zeroext false) #14
-  %51 = call ptr @lappend(ptr noundef %.04147, ptr noundef %27) #14
+  call void @CompleteCachedPlan(ptr noundef %27, ptr noundef %.034, ptr noundef null, ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, i1 noundef zeroext false) #15
+  %51 = call ptr @lappend(ptr noundef %.04147, ptr noundef %27) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv46, 1
   %52 = load i32, ptr %12, align 4
   %53 = sext i32 %52 to i64
@@ -2378,10 +2378,10 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
   %2 = load ptr, ptr @_SPI_current, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #14
+  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  %7 = tail call ptr @palloc0(i64 noundef 64) #14
+  %7 = tail call ptr @palloc0(i64 noundef 64) #15
   store i32 569278163, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %8, align 8
@@ -2403,7 +2403,7 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
 19:                                               ; preds = %1
   %20 = zext nneg i32 %16 to i64
   %21 = shl nuw nsw i64 %20, 2
-  %22 = tail call ptr @palloc(i64 noundef %21) #14
+  %22 = tail call ptr @palloc(i64 noundef %21) #15
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2446,9 +2446,9 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
   %45 = load ptr, ptr %41, align 8
   %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  tail call void @CachedPlanSetParentContext(ptr noundef %47, ptr noundef %4) #14
+  tail call void @CachedPlanSetParentContext(ptr noundef %47, ptr noundef %4) #15
   %48 = load ptr, ptr %42, align 8
-  %49 = tail call ptr @lappend(ptr noundef %48, ptr noundef %47) #14
+  %49 = tail call ptr @lappend(ptr noundef %48, ptr noundef %47) #15
   store ptr %49, ptr %42, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %40, align 4
@@ -2481,7 +2481,7 @@ define dso_local noundef ptr @SPI_prepare_extended(ptr noundef %0, ptr noundef r
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %7
-  %9 = tail call i32 @GetCurrentSubTransactionId() #14
+  %9 = tail call i32 @GetCurrentSubTransactionId() #15
   %10 = load ptr, ptr @_SPI_current, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %9, ptr %11, align 8
@@ -2518,7 +2518,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %7
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %32 = load ptr, ptr %31, align 8
-  tail call void @MemoryContextReset(ptr noundef %32) #14
+  tail call void @MemoryContextReset(ptr noundef %32) #15
   br label %33
 
 _SPI_begin_call.exit:                             ; preds = %7
@@ -2548,7 +2548,7 @@ define dso_local noundef ptr @SPI_prepare_params(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %8
-  %10 = tail call i32 @GetCurrentSubTransactionId() #14
+  %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
@@ -2576,7 +2576,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   store i32 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = load ptr, ptr %24, align 8
-  tail call void @MemoryContextReset(ptr noundef %25) #14
+  tail call void @MemoryContextReset(ptr noundef %25) #15
   br label %26
 
 _SPI_begin_call.exit:                             ; preds = %8
@@ -2616,7 +2616,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @MemoryContextSetParent(ptr noundef %15, ptr noundef %16) #14
+  tail call void @MemoryContextSetParent(ptr noundef %15, ptr noundef %16) #15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -2634,7 +2634,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  tail call void @SaveCachedPlan(ptr noundef %25) #14
+  tail call void @SaveCachedPlan(ptr noundef %25) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %19, align 4
   %27 = sext i32 %26 to i64
@@ -2669,10 +2669,10 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
-  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #14
+  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
-  %11 = tail call ptr @palloc0(i64 noundef 64) #14
+  %11 = tail call ptr @palloc0(i64 noundef 64) #15
   store i32 569278163, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %9, ptr %12, align 8
@@ -2694,7 +2694,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
 23:                                               ; preds = %7
   %24 = zext nneg i32 %20 to i64
   %25 = shl nuw nsw i64 %24, 2
-  %26 = tail call ptr @palloc(i64 noundef %25) #14
+  %26 = tail call ptr @palloc(i64 noundef %25) #15
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2737,9 +2737,9 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
   %49 = load ptr, ptr %45, align 8
   %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv.i
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr @CopyCachedPlan(ptr noundef %51) #14
+  %52 = tail call ptr @CopyCachedPlan(ptr noundef %51) #15
   %53 = load ptr, ptr %46, align 8
-  %54 = tail call ptr @lappend(ptr noundef %53, ptr noundef %52) #14
+  %54 = tail call ptr @lappend(ptr noundef %53, ptr noundef %52) #15
   store ptr %54, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load i32, ptr %44, align 4
@@ -2753,7 +2753,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
   store i8 1, ptr %58, align 4
   %59 = load ptr, ptr %12, align 8
   %60 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @MemoryContextSetParent(ptr noundef %59, ptr noundef %60) #14
+  tail call void @MemoryContextSetParent(ptr noundef %59, ptr noundef %60) #15
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
@@ -2771,7 +2771,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
   %67 = load ptr, ptr %64, align 8
   %68 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv63.i
   %69 = load ptr, ptr %68, align 8
-  tail call void @SaveCachedPlan(ptr noundef %69) #14
+  tail call void @SaveCachedPlan(ptr noundef %69) #15
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %70 = load i32, ptr %63, align 4
   %71 = sext i32 %70 to i64
@@ -2817,7 +2817,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly capture
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  tail call void @DropCachedPlan(ptr noundef %14) #14
+  tail call void @DropCachedPlan(ptr noundef %14) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %8, align 4
   %16 = sext i32 %15 to i64
@@ -2827,7 +2827,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly capture
 .critedge:                                        ; preds = %.lr.ph18, %.lr.ph, %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  tail call void @MemoryContextDelete(ptr noundef %19) #14
+  tail call void @MemoryContextDelete(ptr noundef %19) #15
   br label %20
 
 20:                                               ; preds = %1, %3, %.critedge
@@ -2860,7 +2860,7 @@ define dso_local ptr @SPI_copytuple(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = tail call ptr @heap_copytuple(ptr noundef nonnull %0) #14
+  %12 = tail call ptr @heap_copytuple(ptr noundef nonnull %0) #15
   store ptr %11, ptr @CurrentMemoryContext, align 8
   br label %13
 
@@ -2904,7 +2904,7 @@ define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @assign_record_type_typmod(ptr noundef nonnull %1) #14
+  tail call void @assign_record_type_typmod(ptr noundef nonnull %1) #15
   %.pre = load ptr, ptr @_SPI_current, align 8
   br label %19
 
@@ -2914,9 +2914,9 @@ define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unna
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
-  %24 = tail call i64 @heap_copy_tuple_as_datum(ptr noundef nonnull %0, ptr noundef nonnull %1) #14
+  %24 = tail call i64 @heap_copy_tuple_as_datum(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %25 = inttoptr i64 %24 to ptr
-  %26 = tail call ptr @pg_detoast_datum(ptr noundef %25) #14
+  %26 = tail call ptr @pg_detoast_datum(ptr noundef %25) #15
   store ptr %23, ptr @CurrentMemoryContext, align 8
   br label %27
 
@@ -2968,10 +2968,10 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
-  %26 = tail call ptr @palloc(i64 noundef %25) #14
-  %27 = tail call ptr @palloc(i64 noundef %24) #14
+  %26 = tail call ptr @palloc(i64 noundef %25) #15
+  %27 = tail call ptr @palloc(i64 noundef %24) #15
   %28 = load ptr, ptr %21, align 8
-  tail call void @heap_deform_tuple(ptr noundef nonnull %1, ptr noundef %28, ptr noundef %26, ptr noundef %27) #14
+  tail call void @heap_deform_tuple(ptr noundef nonnull %1, ptr noundef %28, ptr noundef %26, ptr noundef %27) #15
   %.not88 = icmp eq i32 %2, 0
   br i1 %.not88, label %._crit_edge, label %.lr.ph
 
@@ -3049,7 +3049,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
 
 ._crit_edge.thread:                               ; preds = %47, %33, %._crit_edge
   %64 = load ptr, ptr %21, align 8
-  %65 = tail call ptr @heap_form_tuple(ptr noundef %64, ptr noundef %26, ptr noundef %27) #14
+  %65 = tail call ptr @heap_form_tuple(ptr noundef %64, ptr noundef %26, ptr noundef %27) #15
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
@@ -3072,8 +3072,8 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
 
 78:                                               ; preds = %77, %._crit_edge.thread
   %.054 = phi ptr [ %65, %._crit_edge.thread ], [ null, %77 ]
-  tail call void @pfree(ptr noundef %26) #14
-  tail call void @pfree(ptr noundef %27) #14
+  tail call void @pfree(ptr noundef %26) #15
+  tail call void @pfree(ptr noundef %27) #15
   store ptr %20, ptr @CurrentMemoryContext, align 8
   br label %79
 
@@ -3108,7 +3108,7 @@ define dso_local range(i32 -32768, -2147483648) i32 @SPI_fnumber(ptr noundef %0,
   %9 = getelementptr i8, ptr %8, i64 24
   %10 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = tail call i32 @namestrcmp(ptr noundef nonnull %11, ptr noundef %1) #14
+  %12 = tail call i32 @namestrcmp(ptr noundef nonnull %11, ptr noundef %1) #15
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.thread
 
@@ -3126,7 +3126,7 @@ define dso_local range(i32 -32768, -2147483648) i32 @SPI_fnumber(ptr noundef %0,
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.thread, %2
-  %21 = tail call ptr @SystemAttributeByName(ptr noundef %1) #14
+  %21 = tail call ptr @SystemAttributeByName(ptr noundef %1) #15
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %28, label %22
 
@@ -3180,13 +3180,13 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 17:                                               ; preds = %8
   %18 = trunc nsw i32 %1 to i16
-  %19 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %18) #14
+  %19 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %18) #15
   br label %20
 
 20:                                               ; preds = %17, %10
   %.0 = phi ptr [ %16, %10 ], [ %19, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %22 = tail call ptr @pstrdup(ptr noundef nonnull %21) #14
+  %22 = tail call ptr @pstrdup(ptr noundef nonnull %21) #15
   br label %23
 
 23:                                               ; preds = %20, %7
@@ -3241,16 +3241,16 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 26:                                               ; preds = %16
   %27 = trunc nsw i32 %2 to i16
-  %28 = call ptr @SystemAttributeDefinition(i16 noundef signext %27) #14
+  %28 = call ptr @SystemAttributeDefinition(i16 noundef signext %27) #15
   br label %29
 
 29:                                               ; preds = %26, %18
   %.pn = phi ptr [ %25, %18 ], [ %28, %26 ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 68
   %.0 = load i32, ptr %.0.in, align 4
-  call void @getTypeOutputInfo(i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
+  call void @getTypeOutputInfo(i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %30 = load i32, ptr %5, align 4
-  %31 = call ptr @OidOutputFunctionCall(i32 noundef %30, i64 noundef %13) #14
+  %31 = call ptr @OidOutputFunctionCall(i32 noundef %30, i64 noundef %13) #15
   br label %32
 
 32:                                               ; preds = %12, %29, %11
@@ -3264,7 +3264,7 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 {
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %71
+  br i1 %5, label %6, label %74
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3277,7 +3277,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #14
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #15
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -3287,7 +3287,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   %.val.val.i = load i16, ptr %17, align 4
   %18 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %18, 0
-  br i1 %.not.i.i, label %19, label %57
+  br i1 %.not.i.i, label %19, label %60
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
@@ -3295,7 +3295,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %55
+  br i1 %24, label %25, label %58
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
@@ -3309,78 +3309,84 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   %34 = trunc nuw i8 %33 to i1
   %35 = getelementptr i8, ptr %21, i64 12
   %36 = load i16, ptr %35, align 4
-  br i1 %34, label %37, label %53
+  %37 = sext i16 %36 to i32
+  br i1 %34, label %38, label %56
 
-37:                                               ; preds = %25
-  switch i16 %36, label %49 [
-    i16 1, label %38
-    i16 2, label %41
-    i16 4, label %44
-    i16 8, label %47
+38:                                               ; preds = %25
+  %39 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %37)
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %.split.i.i, label %53
+
+.split.i.i:                                       ; preds = %38
+  %41 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %37, i1 true)
+  switch i32 %41, label %53 [
+    i32 0, label %42
+    i32 1, label %45
+    i32 2, label %48
+    i32 3, label %51
   ]
 
-38:                                               ; preds = %37
-  %39 = load i8, ptr %31, align 1
-  %40 = sext i8 %39 to i64
+42:                                               ; preds = %.split.i.i
+  %43 = load i8, ptr %31, align 1
+  %44 = sext i8 %43 to i64
   br label %fastgetattr.exit
 
-41:                                               ; preds = %37
-  %42 = load i16, ptr %31, align 2
-  %43 = sext i16 %42 to i64
+45:                                               ; preds = %.split.i.i
+  %46 = load i16, ptr %31, align 2
+  %47 = sext i16 %46 to i64
   br label %fastgetattr.exit
 
-44:                                               ; preds = %37
-  %45 = load i32, ptr %31, align 4
-  %46 = sext i32 %45 to i64
+48:                                               ; preds = %.split.i.i
+  %49 = load i32, ptr %31, align 4
+  %50 = sext i32 %49 to i64
   br label %fastgetattr.exit
 
-47:                                               ; preds = %37
-  %48 = load i64, ptr %31, align 8
+51:                                               ; preds = %.split.i.i
+  %52 = load i64, ptr %31, align 8
   br label %fastgetattr.exit
 
-49:                                               ; preds = %37
-  %50 = sext i16 %36 to i32
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef range(i32 -32768, 32768) %50) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.57, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
+53:                                               ; preds = %.split.i.i, %38
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef range(i32 -32768, 32768) %37) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.57, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 
-53:                                               ; preds = %25
-  %54 = ptrtoint ptr %31 to i64
+56:                                               ; preds = %25
+  %57 = ptrtoint ptr %31 to i64
   br label %fastgetattr.exit
 
-55:                                               ; preds = %19
-  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #14
+58:                                               ; preds = %19
+  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #15
   br label %fastgetattr.exit
 
-57:                                               ; preds = %16
-  %58 = add nsw i32 %1, -1
-  %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
-  %60 = lshr i32 %58, 3
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = and i32 %58, 7
-  %66 = shl nuw nsw i32 1, %65
-  %67 = and i32 %66, %64
-  %.not.i20.i = icmp eq i32 %67, 0
-  br i1 %.not.i20.i, label %68, label %69
+60:                                               ; preds = %16
+  %61 = add nsw i32 %1, -1
+  %62 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %63 = lshr i32 %61, 3
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = and i32 %61, 7
+  %69 = shl nuw nsw i32 1, %68
+  %70 = and i32 %69, %67
+  %.not.i20.i = icmp eq i32 %70, 0
+  br i1 %.not.i20.i, label %71, label %72
 
-68:                                               ; preds = %57
+71:                                               ; preds = %60
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-69:                                               ; preds = %57
-  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #14
+72:                                               ; preds = %60
+  %73 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #15
   br label %fastgetattr.exit
 
-71:                                               ; preds = %4
-  %72 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #14
+74:                                               ; preds = %4
+  %75 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #15
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %69, %68, %55, %53, %47, %44, %41, %38, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %56, %55 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ], [ %54, %53 ]
+fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -3443,7 +3449,7 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
 
 17:                                               ; preds = %8
   %18 = trunc nsw i32 %1 to i16
-  %19 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %18) #14
+  %19 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %18) #15
   br label %20
 
 20:                                               ; preds = %17, %10
@@ -3451,7 +3457,7 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
   %.016.in = getelementptr inbounds nuw i8, ptr %.pn, i64 68
   %.016 = load i32, ptr %.016.in, align 4
   %21 = zext i32 %.016 to i64
-  %22 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %21) #14
+  %22 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %21) #15
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %24
 
@@ -3467,8 +3473,8 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = tail call ptr @pstrdup(ptr noundef nonnull %30) #14
-  tail call void @ReleaseSysCache(ptr noundef nonnull %22) #14
+  %31 = tail call ptr @pstrdup(ptr noundef nonnull %30) #15
+  tail call void @ReleaseSysCache(ptr noundef nonnull %22) #15
   br label %32
 
 32:                                               ; preds = %24, %23, %7
@@ -3511,7 +3517,7 @@ define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 
 
 18:                                               ; preds = %8
   %19 = trunc nsw i32 %1 to i16
-  %20 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %19) #14
+  %20 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %19) #15
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %22 = load i32, ptr %21, align 4
   br label %23
@@ -3526,7 +3532,7 @@ define dso_local ptr @SPI_getrelname(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %5 = tail call ptr @pstrdup(ptr noundef nonnull %4) #14
+  %5 = tail call ptr @pstrdup(ptr noundef nonnull %4) #15
   ret ptr %5
 }
 
@@ -3536,7 +3542,7 @@ define dso_local ptr @SPI_getnspname(ptr noundef readonly captures(none) %0) loc
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %5 = load i32, ptr %4, align 4
-  %6 = tail call ptr @get_namespace_name(i32 noundef %5) #14
+  %6 = tail call ptr @get_namespace_name(i32 noundef %5) #15
   ret ptr %6
 }
 
@@ -3549,27 +3555,27 @@ define dso_local ptr @SPI_palloc(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1341, ptr noundef nonnull @__func__.SPI_palloc) #14
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1341, ptr noundef nonnull @__func__.SPI_palloc) #15
   unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %0) #14
+  %10 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %0) #15
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_repalloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @repalloc(ptr noundef %0, i64 noundef %1) #14
+  %3 = tail call ptr @repalloc(ptr noundef %0, i64 noundef %1) #15
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_pfree(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #14
+  tail call void @pfree(ptr noundef %0) #15
   ret void
 }
 
@@ -3580,9 +3586,9 @@ define dso_local i64 @SPI_datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1367, ptr noundef nonnull @__func__.SPI_datumTransfer) #14
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1367, ptr noundef nonnull @__func__.SPI_datumTransfer) #15
   unreachable
 
 9:                                                ; preds = %3
@@ -3590,7 +3596,7 @@ define dso_local i64 @SPI_datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call i64 @datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2) #14
+  %13 = tail call i64 @datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2) #15
   store ptr %12, ptr @CurrentMemoryContext, align 8
   ret i64 %13
 }
@@ -3599,7 +3605,7 @@ declare i64 @datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_freetuple(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @heap_freetuple(ptr noundef %0) #14
+  tail call void @heap_freetuple(ptr noundef %0) #15
   ret void
 }
 
@@ -3650,12 +3656,12 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph42, %5, %3
-  %19 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %19 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %.critedge
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #14
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #15
   br label %30
 
 22:                                               ; preds = %.thread24
@@ -3674,7 +3680,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
-  tail call void @MemoryContextDelete(ptr noundef %29) #14
+  tail call void @MemoryContextDelete(ptr noundef %29) #15
   br label %30
 
 30:                                               ; preds = %.critedge, %20, %1, %27
@@ -3691,7 +3697,7 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef readonly captu
   br i1 %10, label %11, label %_SPI_convert_params.exit
 
 11:                                               ; preds = %5
-  %12 = tail call ptr @makeParamList(i32 noundef %7) #14
+  %12 = tail call ptr @makeParamList(i32 noundef %7) #15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %.not.i = icmp eq ptr %3, null
   %wide.trip.count27.i = zext nneg i32 %7 to i64
@@ -3743,7 +3749,7 @@ _SPI_convert_params.exit:                         ; preds = %5
 
 .loopexit:                                        ; preds = %.split.i, %.split.us.i
   %35 = tail call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %12, i1 noundef zeroext %4)
-  tail call void @pfree(ptr noundef nonnull %12) #14
+  tail call void @pfree(ptr noundef nonnull %12) #15
   br label %36
 
 36:                                               ; preds = %_SPI_convert_params.exit, %.loopexit
@@ -3810,10 +3816,10 @@ list_length.exit:                                 ; preds = %SPI_is_cursor_plan.
   br i1 %.not, label %27, label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.exit.thread, %list_length.exit
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %25 = tail call i32 @errcode(i32 noundef 17170564) #14
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1602, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #14
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %25 = tail call i32 @errcode(i32 noundef 17170564) #15
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1602, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 27:                                               ; preds = %list_length.exit
@@ -3826,15 +3832,15 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %27
-  %34 = tail call ptr @GetCommandTagName(i32 noundef %31) #14
+  %34 = tail call ptr @GetCommandTagName(i32 noundef %31) #15
   br label %35
 
 35:                                               ; preds = %27, %33
   %.060 = phi ptr [ %34, %33 ], [ @.str.59, %27 ]
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %37 = tail call i32 @errcode(i32 noundef 17170564) #14
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef %.060) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1612, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #14
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %37 = tail call i32 @errcode(i32 noundef 17170564) #15
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef %.060) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1612, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 39:                                               ; preds = %SPI_is_cursor_plan.exit
@@ -3843,7 +3849,7 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
   br i1 %.not91, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %39
-  %41 = tail call i32 @GetCurrentSubTransactionId() #14
+  %41 = tail call i32 @GetCurrentSubTransactionId() #15
   %42 = load ptr, ptr @_SPI_current, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %41, ptr %43, align 8
@@ -3857,9 +3863,9 @@ _SPI_begin_call.exit.thread:                      ; preds = %39
   br i1 %46, label %52, label %49
 
 _SPI_begin_call.exit:                             ; preds = %39
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1620, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #14
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1620, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 49:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -3868,11 +3874,11 @@ _SPI_begin_call.exit:                             ; preds = %39
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49, %_SPI_begin_call.exit.thread
-  %53 = tail call ptr @CreateNewPortal() #14
+  %53 = tail call ptr @CreateNewPortal() #15
   br label %56
 
 54:                                               ; preds = %49
-  %55 = tail call ptr @CreatePortal(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #14
+  %55 = tail call ptr @CreatePortal(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %56
 
 56:                                               ; preds = %54, %52
@@ -3881,7 +3887,7 @@ _SPI_begin_call.exit:                             ; preds = %39
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call ptr @MemoryContextStrdup(ptr noundef %58, ptr noundef %60) #14
+  %61 = tail call ptr @MemoryContextStrdup(ptr noundef %58, ptr noundef %60) #15
   %62 = load ptr, ptr %59, align 8
   store ptr %62, ptr %5, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3898,7 +3904,7 @@ _SPI_begin_call.exit:                             ; preds = %39
   %69 = load ptr, ptr @_SPI_current, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = load ptr, ptr %70, align 8
-  %72 = call ptr @GetCachedPlan(ptr noundef nonnull %17, ptr noundef %2, ptr noundef null, ptr noundef %71) #14
+  %72 = call ptr @GetCachedPlan(ptr noundef nonnull %17, ptr noundef %2, ptr noundef null, ptr noundef %71) #15
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3910,9 +3916,9 @@ _SPI_begin_call.exit:                             ; preds = %39
   %79 = load ptr, ptr %57, align 8
   %80 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %79, ptr @CurrentMemoryContext, align 8
-  %81 = call ptr @copyObjectImpl(ptr noundef %74) #14
+  %81 = call ptr @copyObjectImpl(ptr noundef %74) #15
   store ptr %80, ptr @CurrentMemoryContext, align 8
-  call void @ReleaseCachedPlan(ptr noundef nonnull %72, ptr noundef null) #14
+  call void @ReleaseCachedPlan(ptr noundef nonnull %72, ptr noundef null) #15
   br label %82
 
 82:                                               ; preds = %78, %56
@@ -3920,7 +3926,7 @@ _SPI_begin_call.exit:                             ; preds = %39
   %.058 = phi ptr [ %72, %56 ], [ null, %78 ]
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %84 = load i32, ptr %83, align 8
-  call void @PortalDefineQuery(ptr noundef nonnull %.061, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.063, ptr noundef %.058) #14
+  call void @PortalDefineQuery(ptr noundef nonnull %.061, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.063, ptr noundef %.058) #15
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %.061, i64 124
@@ -3957,7 +3963,7 @@ list_length.exit85:                               ; preds = %89
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %104 = load ptr, ptr %103, align 8
-  %105 = call zeroext i1 @ExecSupportsBackwardScan(ptr noundef %104) #14
+  %105 = call zeroext i1 @ExecSupportsBackwardScan(ptr noundef %104) #15
   %.pre = load i32, ptr %87, align 4
   br i1 %105, label %106, label %list_length.exit85.thread
 
@@ -4005,11 +4011,11 @@ list_length.exit87:                               ; preds = %110
   br i1 %.not71, label %list_length.exit87.thread, label %124
 
 124:                                              ; preds = %121
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %126 = call i32 @errcode(i32 noundef 1088) #14
-  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62) #14
-  %128 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.63) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1719, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #14
+  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %126 = call i32 @errcode(i32 noundef 1088) #15
+  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62) #15
+  %128 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.63) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1719, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 list_length.exit87.thread:                        ; preds = %list_length.exit87, %116, %121, %110
@@ -4042,24 +4048,24 @@ list_length.exit87.thread:                        ; preds = %list_length.exit87,
   %141 = load ptr, ptr %134, align 8
   %142 = getelementptr inbounds nuw %union.ListCell, ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
-  %144 = call zeroext i1 @CommandIsReadOnly(ptr noundef %143) #14
+  %144 = call zeroext i1 @CommandIsReadOnly(ptr noundef %143) #15
   br i1 %144, label %137, label %.split
 
 .split:                                           ; preds = %.lr.ph95
-  %145 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %146 = call i32 @errcode(i32 noundef 1088) #14
+  %145 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %146 = call i32 @errcode(i32 noundef 1088) #15
   %147 = call fastcc ptr @CreateCommandName(ptr noundef %143)
-  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef %147) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1745, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #14
+  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef %147) #15
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1745, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
 .critedge:                                        ; preds = %137, %.lr.ph, %.preheader
-  %149 = call ptr @GetActiveSnapshot() #14
+  %149 = call ptr @GetActiveSnapshot() #15
   br label %151
 
 .critedge76:                                      ; preds = %list_length.exit87.thread
-  call void @CommandCounterIncrement() #14
-  %150 = call ptr @GetTransactionSnapshot() #14
+  call void @CommandCounterIncrement() #15
+  %150 = call ptr @GetTransactionSnapshot() #15
   br label %151
 
 151:                                              ; preds = %.critedge76, %.critedge
@@ -4071,13 +4077,13 @@ list_length.exit87.thread:                        ; preds = %list_length.exit87,
   %153 = load ptr, ptr %57, align 8
   %154 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %153, ptr @CurrentMemoryContext, align 8
-  %155 = call ptr @copyParamList(ptr noundef nonnull %2) #14
+  %155 = call ptr @copyParamList(ptr noundef nonnull %2) #15
   store ptr %154, ptr @CurrentMemoryContext, align 8
   br label %156
 
 156:                                              ; preds = %152, %151
   %.0 = phi ptr [ %155, %152 ], [ null, %151 ]
-  call void @PortalStart(ptr noundef nonnull %.061, ptr noundef %.0, i32 noundef 0, ptr noundef %.062) #14
+  call void @PortalStart(ptr noundef nonnull %.061, ptr noundef %.0, i32 noundef 0, ptr noundef %.062) #15
   %157 = load ptr, ptr %6, align 8
   store ptr %157, ptr @error_context_stack, align 8
   %158 = load ptr, ptr @_SPI_current, align 8
@@ -4088,7 +4094,7 @@ list_length.exit87.thread:                        ; preds = %list_length.exit87,
   store i32 0, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 40
   %163 = load ptr, ptr %162, align 8
-  call void @MemoryContextReset(ptr noundef %163) #14
+  call void @MemoryContextReset(ptr noundef %163) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.061
@@ -4104,9 +4110,9 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1483, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #14
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1483, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
   unreachable
 
 15:                                               ; preds = %8
@@ -4120,9 +4126,9 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond3, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1486, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #14
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1486, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
   unreachable
 
 22:                                               ; preds = %16, %15
@@ -4131,7 +4137,7 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
   br i1 %.not22, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %22
-  %24 = tail call i32 @GetCurrentSubTransactionId() #14
+  %24 = tail call i32 @GetCurrentSubTransactionId() #15
   %25 = load ptr, ptr @_SPI_current, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %24, ptr %26, align 8
@@ -4153,13 +4159,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %22
 
 _SPI_begin_call.exit:                             ; preds = %22
   store i32 -4, ptr @SPI_result, align 4
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1490, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #14
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1490, ptr noundef nonnull @__func__.SPI_cursor_open_with_args) #15
   unreachable
 
 35:                                               ; preds = %_SPI_begin_call.exit.thread
-  %36 = tail call ptr @makeParamList(i32 noundef %2) #14
+  %36 = tail call ptr @makeParamList(i32 noundef %2) #15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %.not.i = icmp eq ptr %5, null
   %wide.trip.count27.i = zext nneg i32 %2 to i64
@@ -4217,7 +4223,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   store i32 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = load ptr, ptr %63, align 8
-  call void @MemoryContextReset(ptr noundef %64) #14
+  call void @MemoryContextReset(ptr noundef %64) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %58
 }
@@ -4238,9 +4244,9 @@ define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1541, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #14
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1541, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #15
   unreachable
 
 10:                                               ; preds = %3
@@ -4249,7 +4255,7 @@ define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not15, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %10
-  %12 = tail call i32 @GetCurrentSubTransactionId() #14
+  %12 = tail call i32 @GetCurrentSubTransactionId() #15
   %13 = load ptr, ptr @_SPI_current, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %12, ptr %14, align 8
@@ -4269,9 +4275,9 @@ _SPI_begin_call.exit.thread:                      ; preds = %10
 
 _SPI_begin_call.exit:                             ; preds = %10
   store i32 -4, ptr @SPI_result, align 4
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1545, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #14
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1545, ptr noundef nonnull @__func__.SPI_cursor_parse_open) #15
   unreachable
 
 23:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -4300,14 +4306,14 @@ _SPI_begin_call.exit:                             ; preds = %10
   store i32 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %41 = load ptr, ptr %40, align 8
-  call void @MemoryContextReset(ptr noundef %41) #14
+  call void @MemoryContextReset(ptr noundef %41) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %35
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_cursor_find(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @GetPortalByName(ptr noundef %0) #14
+  %2 = tail call ptr @GetPortalByName(ptr noundef %0) #15
   ret ptr %2
 }
 
@@ -4317,7 +4323,7 @@ declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #2
 define dso_local void @SPI_cursor_fetch(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
   %not. = xor i1 %1, true
   %4 = zext i1 %not. to i32
-  %5 = tail call ptr @CreateDestReceiver(i32 noundef 5) #14
+  %5 = tail call ptr @CreateDestReceiver(i32 noundef 5) #15
   tail call fastcc void @_SPI_cursor_operation(ptr noundef %0, i32 noundef %4, i64 noundef %2, ptr noundef %5)
   ret void
 }
@@ -4328,9 +4334,9 @@ define internal fastcc void @_SPI_cursor_operation(ptr noundef %0, i32 noundef %
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3014, ptr noundef nonnull @__func__._SPI_cursor_operation) #14
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3014, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
   unreachable
 
 8:                                                ; preds = %4
@@ -4339,7 +4345,7 @@ define internal fastcc void @_SPI_cursor_operation(ptr noundef %0, i32 noundef %
   br i1 %.not9, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %8
-  %10 = tail call i32 @GetCurrentSubTransactionId() #14
+  %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
@@ -4349,7 +4355,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   store i64 0, ptr @SPI_processed, align 8
   store ptr null, ptr @SPI_tuptable, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %15 = tail call i64 @PortalRunFetch(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #14
+  %15 = tail call i64 @PortalRunFetch(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #15
   %16 = load ptr, ptr @_SPI_current, align 8
   store i64 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4360,9 +4366,9 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   br i1 %19, label %24, label %_SPI_begin_call.exit.thread._crit_edge
 
 _SPI_begin_call.exit:                             ; preds = %8
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3018, ptr noundef nonnull @__func__._SPI_cursor_operation) #14
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3018, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
   unreachable
 
 24:                                               ; preds = %_SPI_begin_call.exit.thread
@@ -4376,9 +4382,9 @@ _SPI_checktuples.exit:                            ; preds = %24
   br i1 %.not.i.not, label %_SPI_begin_call.exit.thread._crit_edge, label %_SPI_checktuples.exit.thread
 
 _SPI_checktuples.exit.thread:                     ; preds = %24, %_SPI_checktuples.exit
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3043, ptr noundef nonnull @__func__._SPI_cursor_operation) #14
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3043, ptr noundef nonnull @__func__._SPI_cursor_operation) #15
   unreachable
 
 _SPI_begin_call.exit.thread._crit_edge:           ; preds = %_SPI_begin_call.exit.thread, %_SPI_checktuples.exit
@@ -4393,7 +4399,7 @@ _SPI_begin_call.exit.thread._crit_edge:           ; preds = %_SPI_begin_call.exi
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %35 = load ptr, ptr %34, align 8
-  tail call void @MemoryContextReset(ptr noundef %35) #14
+  tail call void @MemoryContextReset(ptr noundef %35) #15
   ret void
 }
 
@@ -4410,7 +4416,7 @@ define dso_local void @SPI_cursor_move(ptr noundef %0, i1 noundef zeroext %1, i6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_scroll_cursor_fetch(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @CreateDestReceiver(i32 noundef 5) #14
+  %4 = tail call ptr @CreateDestReceiver(i32 noundef 5) #15
   tail call fastcc void @_SPI_cursor_operation(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %4)
   ret void
 }
@@ -4428,13 +4434,13 @@ define dso_local void @SPI_cursor_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %2, label %5
 
 2:                                                ; preds = %1
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1865, ptr noundef nonnull @__func__.SPI_cursor_close) #14
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1865, ptr noundef nonnull @__func__.SPI_cursor_close) #15
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @PortalDrop(ptr noundef nonnull %0, i1 noundef zeroext false) #14
+  tail call void @PortalDrop(ptr noundef nonnull %0, i1 noundef zeroext false) #15
   ret void
 }
 
@@ -4570,7 +4576,7 @@ define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr noundef readonly capt
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 @CachedPlanIsValid(ptr noundef %14) #14
+  %15 = tail call zeroext i1 @CachedPlanIsValid(ptr noundef %14) #15
   br i1 %15, label %8, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph26, %8, %.lr.ph, %1
@@ -4591,7 +4597,7 @@ define dso_local noundef nonnull ptr @SPI_result_code_string(i32 noundef %0) loc
   br i1 %or.cond, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @SPI_result_code_string.buf, ptr noundef nonnull @.str.47, i32 noundef %0) #14
+  %4 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @SPI_result_code_string.buf, ptr noundef nonnull @.str.47, i32 noundef %0) #15
   br label %6
 
 switch.lookup:                                    ; preds = %1
@@ -4663,7 +4669,7 @@ list_length.exit:                                 ; preds = %7
   %28 = load ptr, ptr @_SPI_current, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @GetCachedPlan(ptr noundef %14, ptr noundef null, ptr noundef %27, ptr noundef %30) #14
+  %31 = call ptr @GetCachedPlan(ptr noundef %14, ptr noundef null, ptr noundef %27, ptr noundef %30) #15
   %32 = load ptr, ptr %3, align 8
   store ptr %32, ptr @error_context_stack, align 8
   br label %list_length.exit.thread
@@ -4682,14 +4688,14 @@ define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @geterrposition() #14
+  %5 = tail call i32 @geterrposition() #15
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @errposition(i32 noundef 0) #14
-  %9 = tail call i32 @internalerrposition(i32 noundef %5) #14
-  %10 = tail call i32 @internalerrquery(ptr noundef nonnull %2) #14
+  %8 = tail call i32 @errposition(i32 noundef 0) #15
+  %9 = tail call i32 @internalerrposition(i32 noundef %5) #15
+  %10 = tail call i32 @internalerrquery(ptr noundef nonnull %2) #15
   br label %23
 
 11:                                               ; preds = %4
@@ -4703,18 +4709,18 @@ define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0
   ]
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @set_errcontext_domain(ptr noundef null) #14
-  %16 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.68, ptr noundef nonnull %2) #14
+  %15 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
+  %16 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.68, ptr noundef nonnull %2) #15
   br label %23
 
 17:                                               ; preds = %11, %11, %11
-  %18 = tail call i32 @set_errcontext_domain(ptr noundef null) #14
-  %19 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.69, ptr noundef nonnull %2) #14
+  %18 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
+  %19 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.69, ptr noundef nonnull %2) #15
   br label %23
 
 20:                                               ; preds = %11
-  %21 = tail call i32 @set_errcontext_domain(ptr noundef null) #14
-  %22 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.70, ptr noundef nonnull %2) #14
+  %21 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
+  %22 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.70, ptr noundef nonnull %2) #15
   br label %23
 
 23:                                               ; preds = %7, %20, %17, %14, %1
@@ -4730,9 +4736,9 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2130, ptr noundef nonnull @__func__.spi_dest_startup) #14
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2130, ptr noundef nonnull @__func__.spi_dest_startup) #15
   unreachable
 
 9:                                                ; preds = %3
@@ -4742,9 +4748,9 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2133, ptr noundef nonnull @__func__.spi_dest_startup) #14
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2133, ptr noundef nonnull @__func__.spi_dest_startup) #15
   unreachable
 
 15:                                               ; preds = %9
@@ -4752,15 +4758,15 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
-  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef nonnull @.str.50, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
+  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef nonnull @.str.50, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   store ptr %19, ptr @CurrentMemoryContext, align 8
-  %20 = tail call ptr @palloc0(i64 noundef 56) #14
+  %20 = tail call ptr @palloc0(i64 noundef 56) #15
   %21 = load ptr, ptr @_SPI_current, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %19, ptr %23, align 8
-  %24 = tail call i32 @GetCurrentSubTransactionId() #14
+  %24 = tail call i32 @GetCurrentSubTransactionId() #15
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 %24, ptr %25, align 8
   %26 = load ptr, ptr @_SPI_current, align 8
@@ -4771,12 +4777,12 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   store ptr %28, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 128, ptr %30, align 8
-  %31 = tail call ptr @palloc(i64 noundef 1024) #14
+  %31 = tail call ptr @palloc(i64 noundef 1024) #15
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %33, align 8
-  %34 = tail call ptr @CreateTupleDescCopy(ptr noundef %2) #14
+  %34 = tail call ptr @CreateTupleDescCopy(ptr noundef %2) #15
   store ptr %34, ptr %20, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
   ret void
@@ -4793,9 +4799,9 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2177, ptr noundef nonnull @__func__.spi_printtup) #14
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2177, ptr noundef nonnull @__func__.spi_printtup) #15
   unreachable
 
 8:                                                ; preds = %2
@@ -4805,9 +4811,9 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.52) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2181, ptr noundef nonnull @__func__.spi_printtup) #14
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.52) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2181, ptr noundef nonnull @__func__.spi_printtup) #15
   unreachable
 
 15:                                               ; preds = %8
@@ -4827,7 +4833,7 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = shl i64 %22, 4
-  %28 = tail call ptr @repalloc_huge(ptr noundef %26, i64 noundef %27) #14
+  %28 = tail call ptr @repalloc_huge(ptr noundef %26, i64 noundef %27) #15
   store ptr %28, ptr %25, align 8
   store i64 %24, ptr %21, align 8
   br label %29
@@ -4837,7 +4843,7 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr %33(ptr noundef %0) #14
+  %34 = tail call ptr %33(ptr noundef %0) #15
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i64, ptr %19, align 8
@@ -4874,7 +4880,7 @@ define dso_local range(i32 -12, 16) i32 @SPI_register_relation(ptr noundef %0) l
   br i1 %11, label %_SPI_find_ENR_by_name.exit.thread.thread, label %_SPI_find_ENR_by_name.exit
 
 _SPI_find_ENR_by_name.exit:                       ; preds = %8
-  %12 = tail call ptr @get_ENR(ptr noundef nonnull %10, ptr noundef nonnull %4) #14
+  %12 = tail call ptr @get_ENR(ptr noundef nonnull %10, ptr noundef nonnull %4) #15
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_SPI_find_ENR_by_name.exit.thread, label %19
 
@@ -4886,7 +4892,7 @@ _SPI_find_ENR_by_name.exit.thread:                ; preds = %_SPI_find_ENR_by_na
   br i1 %13, label %_SPI_find_ENR_by_name.exit.thread.thread, label %17
 
 _SPI_find_ENR_by_name.exit.thread.thread:         ; preds = %8, %_SPI_find_ENR_by_name.exit.thread
-  %14 = tail call ptr @create_queryEnv() #14
+  %14 = tail call ptr @create_queryEnv() #15
   %15 = load ptr, ptr @_SPI_current, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %14, ptr %16, align 8
@@ -4894,7 +4900,7 @@ _SPI_find_ENR_by_name.exit.thread.thread:         ; preds = %8, %_SPI_find_ENR_b
 
 17:                                               ; preds = %_SPI_find_ENR_by_name.exit.thread.thread, %_SPI_find_ENR_by_name.exit.thread
   %18 = phi ptr [ %14, %_SPI_find_ENR_by_name.exit.thread.thread ], [ %.pre14, %_SPI_find_ENR_by_name.exit.thread ]
-  tail call void @register_ENR(ptr noundef %18, ptr noundef nonnull %0) #14
+  tail call void @register_ENR(ptr noundef %18, ptr noundef nonnull %0) #15
   br label %19
 
 19:                                               ; preds = %17, %_SPI_find_ENR_by_name.exit, %6, %1, %3
@@ -4923,7 +4929,7 @@ define dso_local range(i32 -13, 17) i32 @SPI_unregister_relation(ptr noundef %0)
   br i1 %8, label %_SPI_find_ENR_by_name.exit.thread, label %_SPI_find_ENR_by_name.exit
 
 _SPI_find_ENR_by_name.exit:                       ; preds = %5
-  %9 = tail call ptr @get_ENR(ptr noundef nonnull %7, ptr noundef nonnull %0) #14
+  %9 = tail call ptr @get_ENR(ptr noundef nonnull %7, ptr noundef nonnull %0) #15
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %_SPI_find_ENR_by_name.exit.thread, label %10
 
@@ -4932,7 +4938,7 @@ _SPI_find_ENR_by_name.exit:                       ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
-  tail call void @unregister_ENR(ptr noundef %13, ptr noundef %14) #14
+  tail call void @unregister_ENR(ptr noundef %13, ptr noundef %14) #15
   br label %_SPI_find_ENR_by_name.exit.thread
 
 _SPI_find_ENR_by_name.exit.thread:                ; preds = %5, %10, %_SPI_find_ENR_by_name.exit, %3, %1
@@ -4954,7 +4960,7 @@ define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef r
   br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @palloc(i64 noundef 48) #14
+  %7 = tail call ptr @palloc(i64 noundef 48) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -4971,7 +4977,7 @@ define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef r
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %18, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = tail call i64 @tuplestore_tuple_count(ptr noundef %19) #14
+  %20 = tail call i64 @tuplestore_tuple_count(ptr noundef %19) #15
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %21, ptr %22, align 8
@@ -4994,7 +5000,7 @@ define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef r
   br i1 %32, label %_SPI_find_ENR_by_name.exit.thread.thread.i, label %_SPI_find_ENR_by_name.exit.i
 
 _SPI_find_ENR_by_name.exit.i:                     ; preds = %29
-  %33 = tail call ptr @get_ENR(ptr noundef nonnull %31, ptr noundef nonnull %25) #14
+  %33 = tail call ptr @get_ENR(ptr noundef nonnull %31, ptr noundef nonnull %25) #15
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %_SPI_find_ENR_by_name.exit.thread.i, label %SPI_register_relation.exit.thread
 
@@ -5006,7 +5012,7 @@ _SPI_find_ENR_by_name.exit.thread.i:              ; preds = %_SPI_find_ENR_by_na
   br i1 %34, label %_SPI_find_ENR_by_name.exit.thread.thread.i, label %SPI_register_relation.exit
 
 _SPI_find_ENR_by_name.exit.thread.thread.i:       ; preds = %_SPI_find_ENR_by_name.exit.thread.i, %29
-  %35 = tail call ptr @create_queryEnv() #14
+  %35 = tail call ptr @create_queryEnv() #15
   %36 = load ptr, ptr @_SPI_current, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr %35, ptr %37, align 8
@@ -5014,7 +5020,7 @@ _SPI_find_ENR_by_name.exit.thread.thread.i:       ; preds = %_SPI_find_ENR_by_na
 
 SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_name.exit.thread.i, %_SPI_find_ENR_by_name.exit.thread.thread.i
   %38 = phi ptr [ %35, %_SPI_find_ENR_by_name.exit.thread.thread.i ], [ %.pre14.i, %_SPI_find_ENR_by_name.exit.thread.i ]
-  tail call void @register_ENR(ptr noundef %38, ptr noundef nonnull %7) #14
+  tail call void @register_ENR(ptr noundef %38, ptr noundef nonnull %7) #15
   br label %39
 
 39:                                               ; preds = %SPI_register_relation.exit, %3
@@ -5024,7 +5030,7 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
   br i1 %.not36, label %SPI_register_relation.exit.thread, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @palloc(i64 noundef 48) #14
+  %43 = tail call ptr @palloc(i64 noundef 48) #15
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
@@ -5041,7 +5047,7 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %40, align 8
-  %56 = tail call i64 @tuplestore_tuple_count(ptr noundef %55) #14
+  %56 = tail call i64 @tuplestore_tuple_count(ptr noundef %55) #15
   %57 = sitofp i64 %56 to double
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store double %57, ptr %58, align 8
@@ -5064,7 +5070,7 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
   br i1 %68, label %_SPI_find_ENR_by_name.exit.thread.thread.i47, label %_SPI_find_ENR_by_name.exit.i40
 
 _SPI_find_ENR_by_name.exit.i40:                   ; preds = %65
-  %69 = tail call ptr @get_ENR(ptr noundef nonnull %67, ptr noundef nonnull %61) #14
+  %69 = tail call ptr @get_ENR(ptr noundef nonnull %67, ptr noundef nonnull %61) #15
   %.not.i41 = icmp eq ptr %69, null
   br i1 %.not.i41, label %_SPI_find_ENR_by_name.exit.thread.i43, label %SPI_register_relation.exit.thread
 
@@ -5076,7 +5082,7 @@ _SPI_find_ENR_by_name.exit.thread.i43:            ; preds = %_SPI_find_ENR_by_na
   br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i47, label %SPI_register_relation.exit48
 
 _SPI_find_ENR_by_name.exit.thread.thread.i47:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i43, %65
-  %71 = tail call ptr @create_queryEnv() #14
+  %71 = tail call ptr @create_queryEnv() #15
   %72 = load ptr, ptr @_SPI_current, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %71, ptr %73, align 8
@@ -5084,7 +5090,7 @@ _SPI_find_ENR_by_name.exit.thread.thread.i47:     ; preds = %_SPI_find_ENR_by_na
 
 SPI_register_relation.exit48:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i43, %_SPI_find_ENR_by_name.exit.thread.thread.i47
   %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i47 ], [ %.pre14.i46, %_SPI_find_ENR_by_name.exit.thread.i43 ]
-  tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #14
+  tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #15
   br label %SPI_register_relation.exit.thread
 
 SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i40, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit48, %1
@@ -5146,8 +5152,8 @@ declare zeroext i1 @CommandIsReadOnly(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @CreateCommandName(ptr noundef %0) unnamed_addr #6 {
-  %2 = tail call i32 @CreateCommandTag(ptr noundef %0) #14
-  %3 = tail call ptr @GetCommandTagName(i32 noundef %2) #14
+  %2 = tail call i32 @CreateCommandTag(ptr noundef %0) #15
+  %3 = tail call ptr @GetCommandTagName(i32 noundef %2) #15
   ret ptr %3
 }
 
@@ -5235,6 +5241,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5248,10 +5260,11 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind returns_twice }
-attributes #16 = { noreturn nounwind }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind returns_twice }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -58,433 +58,475 @@ define range(i64 0, -1) i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef %0,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @PaUtil_SelectConverter(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = and i64 %0, -2147483649
-  switch i64 %4, label %180 [
-    i64 1, label %5
-    i64 2, label %74
-    i64 4, label %104
-    i64 8, label %130
-    i64 16, label %152
-    i64 32, label %166
+  %5 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %4)
+  %6 = icmp eq i64 %5, 1
+  br i1 %6, label %.split, label %201
+
+.split:                                           ; preds = %3
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  switch i64 %7, label %201 [
+    i64 0, label %8
+    i64 1, label %80
+    i64 2, label %113
+    i64 3, label %142
+    i64 4, label %167
+    i64 5, label %184
   ]
 
-5:                                                ; preds = %3
-  %6 = and i64 %1, -2147483649
-  switch i64 %6, label %180 [
-    i64 1, label %7
-    i64 2, label %9
-    i64 4, label %22
-    i64 8, label %35
-    i64 16, label %48
-    i64 32, label %61
+8:                                                ; preds = %.split
+  %9 = and i64 %1, -2147483649
+  %10 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %9)
+  %11 = icmp eq i64 %10, 1
+  br i1 %11, label %.split1, label %201
+
+.split1:                                          ; preds = %8
+  %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %9, i1 true)
+  switch i64 %12, label %201 [
+    i64 0, label %13
+    i64 1, label %15
+    i64 2, label %28
+    i64 3, label %41
+    i64 4, label %54
+    i64 5, label %67
   ]
 
-7:                                                ; preds = %5
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 456), align 8, !tbaa !6
-  br label %180
+13:                                               ; preds = %.split1
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 456), align 8, !tbaa !6
+  br label %201
 
-9:                                                ; preds = %5
-  %10 = and i64 %2, 1
-  %.not51 = icmp eq i64 %10, 0
-  %11 = and i64 %2, 2
-  %.not52 = icmp eq i64 %11, 0
-  br i1 %.not51, label %17, label %12
+15:                                               ; preds = %.split1
+  %16 = and i64 %2, 1
+  %.not57 = icmp eq i64 %16, 0
+  %17 = and i64 %2, 2
+  %.not58 = icmp eq i64 %17, 0
+  br i1 %.not57, label %23, label %18
 
-12:                                               ; preds = %9
-  br i1 %.not52, label %15, label %13
+18:                                               ; preds = %15
+  br i1 %.not58, label %21, label %19
 
-13:                                               ; preds = %12
-  %14 = load ptr, ptr @paConverters, align 8, !tbaa !11
-  br label %180
+19:                                               ; preds = %18
+  %20 = load ptr, ptr @paConverters, align 8, !tbaa !11
+  br label %201
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 8), align 8, !tbaa !12
-  br label %180
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 8), align 8, !tbaa !12
+  br label %201
 
-17:                                               ; preds = %9
-  br i1 %.not52, label %20, label %18
+23:                                               ; preds = %15
+  br i1 %.not58, label %26, label %24
 
-18:                                               ; preds = %17
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 16), align 8, !tbaa !13
-  br label %180
+24:                                               ; preds = %23
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 16), align 8, !tbaa !13
+  br label %201
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 24), align 8, !tbaa !14
-  br label %180
+26:                                               ; preds = %23
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 24), align 8, !tbaa !14
+  br label %201
 
-22:                                               ; preds = %5
-  %23 = and i64 %2, 1
-  %.not48 = icmp eq i64 %23, 0
-  %24 = and i64 %2, 2
-  %.not49 = icmp eq i64 %24, 0
-  br i1 %.not48, label %30, label %25
+28:                                               ; preds = %.split1
+  %29 = and i64 %2, 1
+  %.not54 = icmp eq i64 %29, 0
+  %30 = and i64 %2, 2
+  %.not55 = icmp eq i64 %30, 0
+  br i1 %.not54, label %36, label %31
 
-25:                                               ; preds = %22
-  br i1 %.not49, label %28, label %26
+31:                                               ; preds = %28
+  br i1 %.not55, label %34, label %32
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 32), align 8, !tbaa !15
-  br label %180
+32:                                               ; preds = %31
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 32), align 8, !tbaa !15
+  br label %201
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 40), align 8, !tbaa !16
-  br label %180
+34:                                               ; preds = %31
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 40), align 8, !tbaa !16
+  br label %201
 
-30:                                               ; preds = %22
-  br i1 %.not49, label %33, label %31
+36:                                               ; preds = %28
+  br i1 %.not55, label %39, label %37
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 48), align 8, !tbaa !17
-  br label %180
+37:                                               ; preds = %36
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 48), align 8, !tbaa !17
+  br label %201
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 56), align 8, !tbaa !18
-  br label %180
+39:                                               ; preds = %36
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 56), align 8, !tbaa !18
+  br label %201
 
-35:                                               ; preds = %5
-  %36 = and i64 %2, 1
-  %.not45 = icmp eq i64 %36, 0
-  %37 = and i64 %2, 2
-  %.not46 = icmp eq i64 %37, 0
-  br i1 %.not45, label %43, label %38
+41:                                               ; preds = %.split1
+  %42 = and i64 %2, 1
+  %.not51 = icmp eq i64 %42, 0
+  %43 = and i64 %2, 2
+  %.not52 = icmp eq i64 %43, 0
+  br i1 %.not51, label %49, label %44
 
-38:                                               ; preds = %35
-  br i1 %.not46, label %41, label %39
+44:                                               ; preds = %41
+  br i1 %.not52, label %47, label %45
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 64), align 8, !tbaa !19
-  br label %180
+45:                                               ; preds = %44
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 64), align 8, !tbaa !19
+  br label %201
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 72), align 8, !tbaa !20
-  br label %180
+47:                                               ; preds = %44
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 72), align 8, !tbaa !20
+  br label %201
 
-43:                                               ; preds = %35
-  br i1 %.not46, label %46, label %44
+49:                                               ; preds = %41
+  br i1 %.not52, label %52, label %50
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 80), align 8, !tbaa !21
-  br label %180
+50:                                               ; preds = %49
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 80), align 8, !tbaa !21
+  br label %201
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 88), align 8, !tbaa !22
-  br label %180
+52:                                               ; preds = %49
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 88), align 8, !tbaa !22
+  br label %201
 
-48:                                               ; preds = %5
-  %49 = and i64 %2, 1
-  %.not42 = icmp eq i64 %49, 0
-  %50 = and i64 %2, 2
-  %.not43 = icmp eq i64 %50, 0
-  br i1 %.not42, label %56, label %51
+54:                                               ; preds = %.split1
+  %55 = and i64 %2, 1
+  %.not48 = icmp eq i64 %55, 0
+  %56 = and i64 %2, 2
+  %.not49 = icmp eq i64 %56, 0
+  br i1 %.not48, label %62, label %57
 
-51:                                               ; preds = %48
-  br i1 %.not43, label %54, label %52
+57:                                               ; preds = %54
+  br i1 %.not49, label %60, label %58
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 96), align 8, !tbaa !23
-  br label %180
+58:                                               ; preds = %57
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 96), align 8, !tbaa !23
+  br label %201
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 104), align 8, !tbaa !24
-  br label %180
+60:                                               ; preds = %57
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 104), align 8, !tbaa !24
+  br label %201
 
-56:                                               ; preds = %48
-  br i1 %.not43, label %59, label %57
+62:                                               ; preds = %54
+  br i1 %.not49, label %65, label %63
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 112), align 8, !tbaa !25
-  br label %180
+63:                                               ; preds = %62
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 112), align 8, !tbaa !25
+  br label %201
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 120), align 8, !tbaa !26
-  br label %180
+65:                                               ; preds = %62
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 120), align 8, !tbaa !26
+  br label %201
 
-61:                                               ; preds = %5
-  %62 = and i64 %2, 1
-  %.not39 = icmp eq i64 %62, 0
-  %63 = and i64 %2, 2
-  %.not40 = icmp eq i64 %63, 0
-  br i1 %.not39, label %69, label %64
+67:                                               ; preds = %.split1
+  %68 = and i64 %2, 1
+  %.not45 = icmp eq i64 %68, 0
+  %69 = and i64 %2, 2
+  %.not46 = icmp eq i64 %69, 0
+  br i1 %.not45, label %75, label %70
 
-64:                                               ; preds = %61
-  br i1 %.not40, label %67, label %65
+70:                                               ; preds = %67
+  br i1 %.not46, label %73, label %71
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 128), align 8, !tbaa !27
-  br label %180
+71:                                               ; preds = %70
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 128), align 8, !tbaa !27
+  br label %201
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 136), align 8, !tbaa !28
-  br label %180
+73:                                               ; preds = %70
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 136), align 8, !tbaa !28
+  br label %201
 
-69:                                               ; preds = %61
-  br i1 %.not40, label %72, label %70
+75:                                               ; preds = %67
+  br i1 %.not46, label %78, label %76
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 144), align 8, !tbaa !29
-  br label %180
+76:                                               ; preds = %75
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 144), align 8, !tbaa !29
+  br label %201
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 152), align 8, !tbaa !30
-  br label %180
+78:                                               ; preds = %75
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 152), align 8, !tbaa !30
+  br label %201
 
-74:                                               ; preds = %3
-  %75 = and i64 %1, -2147483649
-  switch i64 %75, label %180 [
-    i64 1, label %76
-    i64 2, label %78
-    i64 4, label %80
-    i64 8, label %86
-    i64 16, label %92
-    i64 32, label %98
+80:                                               ; preds = %.split
+  %81 = and i64 %1, -2147483649
+  %82 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %81)
+  %83 = icmp eq i64 %82, 1
+  br i1 %83, label %.split2, label %201
+
+.split2:                                          ; preds = %80
+  %84 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %81, i1 true)
+  switch i64 %84, label %201 [
+    i64 0, label %85
+    i64 1, label %87
+    i64 2, label %89
+    i64 3, label %95
+    i64 4, label %101
+    i64 5, label %107
   ]
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 160), align 8, !tbaa !31
-  br label %180
+85:                                               ; preds = %.split2
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 160), align 8, !tbaa !31
+  br label %201
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 456), align 8, !tbaa !6
-  br label %180
+87:                                               ; preds = %.split2
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 456), align 8, !tbaa !6
+  br label %201
 
-80:                                               ; preds = %74
-  %81 = and i64 %2, 2
-  %.not38 = icmp eq i64 %81, 0
-  br i1 %.not38, label %84, label %82
+89:                                               ; preds = %.split2
+  %90 = and i64 %2, 2
+  %.not44 = icmp eq i64 %90, 0
+  br i1 %.not44, label %93, label %91
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 168), align 8, !tbaa !32
-  br label %180
+91:                                               ; preds = %89
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 168), align 8, !tbaa !32
+  br label %201
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 176), align 8, !tbaa !33
-  br label %180
+93:                                               ; preds = %89
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 176), align 8, !tbaa !33
+  br label %201
 
-86:                                               ; preds = %74
-  %87 = and i64 %2, 2
-  %.not37 = icmp eq i64 %87, 0
-  br i1 %.not37, label %90, label %88
+95:                                               ; preds = %.split2
+  %96 = and i64 %2, 2
+  %.not43 = icmp eq i64 %96, 0
+  br i1 %.not43, label %99, label %97
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 184), align 8, !tbaa !34
-  br label %180
+97:                                               ; preds = %95
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 184), align 8, !tbaa !34
+  br label %201
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 192), align 8, !tbaa !35
-  br label %180
+99:                                               ; preds = %95
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 192), align 8, !tbaa !35
+  br label %201
 
-92:                                               ; preds = %74
-  %93 = and i64 %2, 2
-  %.not36 = icmp eq i64 %93, 0
-  br i1 %.not36, label %96, label %94
+101:                                              ; preds = %.split2
+  %102 = and i64 %2, 2
+  %.not42 = icmp eq i64 %102, 0
+  br i1 %.not42, label %105, label %103
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 200), align 8, !tbaa !36
-  br label %180
+103:                                              ; preds = %101
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 200), align 8, !tbaa !36
+  br label %201
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 208), align 8, !tbaa !37
-  br label %180
+105:                                              ; preds = %101
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 208), align 8, !tbaa !37
+  br label %201
 
-98:                                               ; preds = %74
-  %99 = and i64 %2, 2
-  %.not35 = icmp eq i64 %99, 0
-  br i1 %.not35, label %102, label %100
+107:                                              ; preds = %.split2
+  %108 = and i64 %2, 2
+  %.not41 = icmp eq i64 %108, 0
+  br i1 %.not41, label %111, label %109
 
-100:                                              ; preds = %98
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 216), align 8, !tbaa !38
-  br label %180
+109:                                              ; preds = %107
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 216), align 8, !tbaa !38
+  br label %201
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 224), align 8, !tbaa !39
-  br label %180
+111:                                              ; preds = %107
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 224), align 8, !tbaa !39
+  br label %201
 
-104:                                              ; preds = %3
-  %105 = and i64 %1, -2147483649
-  switch i64 %105, label %180 [
-    i64 1, label %106
-    i64 2, label %108
-    i64 4, label %110
-    i64 8, label %112
-    i64 16, label %118
-    i64 32, label %124
+113:                                              ; preds = %.split
+  %114 = and i64 %1, -2147483649
+  %115 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %114)
+  %116 = icmp eq i64 %115, 1
+  br i1 %116, label %.split3, label %201
+
+.split3:                                          ; preds = %113
+  %117 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %114, i1 true)
+  switch i64 %117, label %201 [
+    i64 0, label %118
+    i64 1, label %120
+    i64 2, label %122
+    i64 3, label %124
+    i64 4, label %130
+    i64 5, label %136
   ]
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 232), align 8, !tbaa !40
-  br label %180
+118:                                              ; preds = %.split3
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 232), align 8, !tbaa !40
+  br label %201
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 240), align 8, !tbaa !41
-  br label %180
+120:                                              ; preds = %.split3
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 240), align 8, !tbaa !41
+  br label %201
 
-110:                                              ; preds = %104
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 448), align 8, !tbaa !42
-  br label %180
+122:                                              ; preds = %.split3
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 448), align 8, !tbaa !42
+  br label %201
 
-112:                                              ; preds = %104
-  %113 = and i64 %2, 2
-  %.not34 = icmp eq i64 %113, 0
-  br i1 %.not34, label %116, label %114
-
-114:                                              ; preds = %112
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 248), align 8, !tbaa !43
-  br label %180
-
-116:                                              ; preds = %112
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 256), align 8, !tbaa !44
-  br label %180
-
-118:                                              ; preds = %104
-  %119 = and i64 %2, 2
-  %.not33 = icmp eq i64 %119, 0
-  br i1 %.not33, label %122, label %120
-
-120:                                              ; preds = %118
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 264), align 8, !tbaa !45
-  br label %180
-
-122:                                              ; preds = %118
-  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 272), align 8, !tbaa !46
-  br label %180
-
-124:                                              ; preds = %104
+124:                                              ; preds = %.split3
   %125 = and i64 %2, 2
-  %.not32 = icmp eq i64 %125, 0
-  br i1 %.not32, label %128, label %126
+  %.not40 = icmp eq i64 %125, 0
+  br i1 %.not40, label %128, label %126
 
 126:                                              ; preds = %124
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 280), align 8, !tbaa !47
-  br label %180
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 248), align 8, !tbaa !43
+  br label %201
 
 128:                                              ; preds = %124
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 288), align 8, !tbaa !48
-  br label %180
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 256), align 8, !tbaa !44
+  br label %201
 
-130:                                              ; preds = %3
-  %131 = and i64 %1, -2147483649
-  switch i64 %131, label %180 [
-    i64 1, label %132
-    i64 2, label %134
-    i64 4, label %136
-    i64 8, label %138
-    i64 16, label %140
-    i64 32, label %146
-  ]
+130:                                              ; preds = %.split3
+  %131 = and i64 %2, 2
+  %.not39 = icmp eq i64 %131, 0
+  br i1 %.not39, label %134, label %132
 
 132:                                              ; preds = %130
-  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 296), align 8, !tbaa !49
-  br label %180
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 264), align 8, !tbaa !45
+  br label %201
 
 134:                                              ; preds = %130
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 304), align 8, !tbaa !50
-  br label %180
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 272), align 8, !tbaa !46
+  br label %201
 
-136:                                              ; preds = %130
-  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 312), align 8, !tbaa !51
-  br label %180
+136:                                              ; preds = %.split3
+  %137 = and i64 %2, 2
+  %.not38 = icmp eq i64 %137, 0
+  br i1 %.not38, label %140, label %138
 
-138:                                              ; preds = %130
-  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 440), align 8, !tbaa !52
-  br label %180
+138:                                              ; preds = %136
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 280), align 8, !tbaa !47
+  br label %201
 
-140:                                              ; preds = %130
-  %141 = and i64 %2, 2
-  %.not31 = icmp eq i64 %141, 0
-  br i1 %.not31, label %144, label %142
+140:                                              ; preds = %136
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 288), align 8, !tbaa !48
+  br label %201
 
-142:                                              ; preds = %140
-  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 320), align 8, !tbaa !53
-  br label %180
+142:                                              ; preds = %.split
+  %143 = and i64 %1, -2147483649
+  %144 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %143)
+  %145 = icmp eq i64 %144, 1
+  br i1 %145, label %.split4, label %201
 
-144:                                              ; preds = %140
-  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 328), align 8, !tbaa !54
-  br label %180
-
-146:                                              ; preds = %130
-  %147 = and i64 %2, 2
-  %.not = icmp eq i64 %147, 0
-  br i1 %.not, label %150, label %148
-
-148:                                              ; preds = %146
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 336), align 8, !tbaa !55
-  br label %180
-
-150:                                              ; preds = %146
-  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 344), align 8, !tbaa !56
-  br label %180
-
-152:                                              ; preds = %3
-  %153 = and i64 %1, -2147483649
-  switch i64 %153, label %180 [
-    i64 1, label %154
-    i64 2, label %156
-    i64 4, label %158
-    i64 8, label %160
-    i64 16, label %162
-    i64 32, label %164
+.split4:                                          ; preds = %142
+  %146 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  switch i64 %146, label %201 [
+    i64 0, label %147
+    i64 1, label %149
+    i64 2, label %151
+    i64 3, label %153
+    i64 4, label %155
+    i64 5, label %161
   ]
 
-154:                                              ; preds = %152
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 352), align 8, !tbaa !57
-  br label %180
+147:                                              ; preds = %.split4
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 296), align 8, !tbaa !49
+  br label %201
 
-156:                                              ; preds = %152
-  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 360), align 8, !tbaa !58
-  br label %180
+149:                                              ; preds = %.split4
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 304), align 8, !tbaa !50
+  br label %201
 
-158:                                              ; preds = %152
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 368), align 8, !tbaa !59
-  br label %180
+151:                                              ; preds = %.split4
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 312), align 8, !tbaa !51
+  br label %201
 
-160:                                              ; preds = %152
-  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 376), align 8, !tbaa !60
-  br label %180
+153:                                              ; preds = %.split4
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 440), align 8, !tbaa !52
+  br label %201
 
-162:                                              ; preds = %152
-  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 432), align 8, !tbaa !61
-  br label %180
+155:                                              ; preds = %.split4
+  %156 = and i64 %2, 2
+  %.not37 = icmp eq i64 %156, 0
+  br i1 %.not37, label %159, label %157
 
-164:                                              ; preds = %152
-  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 384), align 8, !tbaa !62
-  br label %180
+157:                                              ; preds = %155
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 320), align 8, !tbaa !53
+  br label %201
 
-166:                                              ; preds = %3
-  %167 = and i64 %1, -2147483649
-  switch i64 %167, label %180 [
-    i64 1, label %168
-    i64 2, label %170
-    i64 4, label %172
-    i64 8, label %174
-    i64 16, label %176
-    i64 32, label %178
+159:                                              ; preds = %155
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 328), align 8, !tbaa !54
+  br label %201
+
+161:                                              ; preds = %.split4
+  %162 = and i64 %2, 2
+  %.not = icmp eq i64 %162, 0
+  br i1 %.not, label %165, label %163
+
+163:                                              ; preds = %161
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 336), align 8, !tbaa !55
+  br label %201
+
+165:                                              ; preds = %161
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 344), align 8, !tbaa !56
+  br label %201
+
+167:                                              ; preds = %.split
+  %168 = and i64 %1, -2147483649
+  %169 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %168)
+  %170 = icmp eq i64 %169, 1
+  br i1 %170, label %.split5, label %201
+
+.split5:                                          ; preds = %167
+  %171 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %168, i1 true)
+  switch i64 %171, label %201 [
+    i64 0, label %172
+    i64 1, label %174
+    i64 2, label %176
+    i64 3, label %178
+    i64 4, label %180
+    i64 5, label %182
   ]
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 392), align 8, !tbaa !63
-  br label %180
+172:                                              ; preds = %.split5
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 352), align 8, !tbaa !57
+  br label %201
 
-170:                                              ; preds = %166
-  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 400), align 8, !tbaa !64
-  br label %180
+174:                                              ; preds = %.split5
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 360), align 8, !tbaa !58
+  br label %201
 
-172:                                              ; preds = %166
-  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 408), align 8, !tbaa !65
-  br label %180
+176:                                              ; preds = %.split5
+  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 368), align 8, !tbaa !59
+  br label %201
 
-174:                                              ; preds = %166
-  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 416), align 8, !tbaa !66
-  br label %180
+178:                                              ; preds = %.split5
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 376), align 8, !tbaa !60
+  br label %201
 
-176:                                              ; preds = %166
-  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 424), align 8, !tbaa !67
-  br label %180
+180:                                              ; preds = %.split5
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 432), align 8, !tbaa !61
+  br label %201
 
-178:                                              ; preds = %166
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 432), align 8, !tbaa !61
-  br label %180
+182:                                              ; preds = %.split5
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 384), align 8, !tbaa !62
+  br label %201
 
-180:                                              ; preds = %3, %166, %152, %130, %104, %74, %5, %178, %176, %174, %172, %170, %168, %164, %162, %160, %158, %156, %154, %150, %148, %144, %142, %138, %136, %134, %132, %128, %126, %122, %120, %116, %114, %110, %108, %106, %102, %100, %96, %94, %90, %88, %84, %82, %78, %76, %72, %70, %67, %65, %59, %57, %54, %52, %46, %44, %41, %39, %33, %31, %28, %26, %20, %18, %15, %13, %7
-  %.0 = phi ptr [ %8, %7 ], [ %14, %13 ], [ %16, %15 ], [ %19, %18 ], [ %21, %20 ], [ %27, %26 ], [ %29, %28 ], [ %32, %31 ], [ %34, %33 ], [ %40, %39 ], [ %42, %41 ], [ %45, %44 ], [ %47, %46 ], [ %53, %52 ], [ %55, %54 ], [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %68, %67 ], [ %71, %70 ], [ %73, %72 ], [ %77, %76 ], [ %79, %78 ], [ %83, %82 ], [ %85, %84 ], [ %89, %88 ], [ %91, %90 ], [ %95, %94 ], [ %97, %96 ], [ %101, %100 ], [ %103, %102 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %115, %114 ], [ %117, %116 ], [ %121, %120 ], [ %123, %122 ], [ %127, %126 ], [ %129, %128 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %143, %142 ], [ %145, %144 ], [ %149, %148 ], [ %151, %150 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ null, %5 ], [ null, %74 ], [ null, %104 ], [ null, %130 ], [ null, %152 ], [ null, %166 ], [ null, %3 ]
+184:                                              ; preds = %.split
+  %185 = and i64 %1, -2147483649
+  %186 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %185)
+  %187 = icmp eq i64 %186, 1
+  br i1 %187, label %.split6, label %201
+
+.split6:                                          ; preds = %184
+  %188 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %185, i1 true)
+  switch i64 %188, label %201 [
+    i64 0, label %189
+    i64 1, label %191
+    i64 2, label %193
+    i64 3, label %195
+    i64 4, label %197
+    i64 5, label %199
+  ]
+
+189:                                              ; preds = %.split6
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 392), align 8, !tbaa !63
+  br label %201
+
+191:                                              ; preds = %.split6
+  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 400), align 8, !tbaa !64
+  br label %201
+
+193:                                              ; preds = %.split6
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 408), align 8, !tbaa !65
+  br label %201
+
+195:                                              ; preds = %.split6
+  %196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 416), align 8, !tbaa !66
+  br label %201
+
+197:                                              ; preds = %.split6
+  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 424), align 8, !tbaa !67
+  br label %201
+
+199:                                              ; preds = %.split6
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paConverters, i64 432), align 8, !tbaa !61
+  br label %201
+
+201:                                              ; preds = %.split, %3, %.split6, %184, %.split5, %167, %.split4, %142, %.split3, %113, %.split2, %80, %.split1, %8, %199, %197, %195, %193, %191, %189, %182, %180, %178, %176, %174, %172, %165, %163, %159, %157, %153, %151, %149, %147, %140, %138, %134, %132, %128, %126, %122, %120, %118, %111, %109, %105, %103, %99, %97, %93, %91, %87, %85, %78, %76, %73, %71, %65, %63, %60, %58, %52, %50, %47, %45, %39, %37, %34, %32, %26, %24, %21, %19, %13
+  %.0 = phi ptr [ %14, %13 ], [ %20, %19 ], [ %22, %21 ], [ %25, %24 ], [ %27, %26 ], [ %33, %32 ], [ %35, %34 ], [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ], [ %51, %50 ], [ %53, %52 ], [ %59, %58 ], [ %61, %60 ], [ %64, %63 ], [ %66, %65 ], [ %72, %71 ], [ %74, %73 ], [ %77, %76 ], [ %79, %78 ], [ %86, %85 ], [ %88, %87 ], [ %92, %91 ], [ %94, %93 ], [ %98, %97 ], [ %100, %99 ], [ %104, %103 ], [ %106, %105 ], [ %110, %109 ], [ %112, %111 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %127, %126 ], [ %129, %128 ], [ %133, %132 ], [ %135, %134 ], [ %139, %138 ], [ %141, %140 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %158, %157 ], [ %160, %159 ], [ %164, %163 ], [ %166, %165 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ null, %8 ], [ null, %.split1 ], [ null, %80 ], [ null, %.split2 ], [ null, %113 ], [ null, %.split3 ], [ null, %142 ], [ null, %.split4 ], [ null, %167 ], [ null, %.split5 ], [ null, %184 ], [ null, %.split6 ], [ null, %3 ], [ null, %.split ]
   ret ptr %.0
 }
 
@@ -2179,41 +2221,47 @@ define internal void @Copy_32_To_32(ptr noundef writeonly captures(none) %0, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @PaUtil_SelectZeroer(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, -2147483649
-  switch i64 %2, label %15 [
-    i64 1, label %3
-    i64 2, label %5
-    i64 4, label %7
-    i64 8, label %9
-    i64 16, label %11
-    i64 32, label %13
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %2)
+  %4 = icmp eq i64 %3, 1
+  br i1 %4, label %.split, label %18
+
+.split:                                           ; preds = %1
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  switch i64 %5, label %18 [
+    i64 0, label %6
+    i64 1, label %8
+    i64 2, label %10
+    i64 3, label %12
+    i64 4, label %14
+    i64 5, label %16
   ]
 
-3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !128
-  br label %15
+6:                                                ; preds = %.split
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !128
+  br label %18
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !128
-  br label %15
+8:                                                ; preds = %.split
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !128
+  br label %18
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 24), align 8, !tbaa !130
-  br label %15
+10:                                               ; preds = %.split
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 24), align 8, !tbaa !130
+  br label %18
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 16), align 8, !tbaa !131
-  br label %15
+12:                                               ; preds = %.split
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 16), align 8, !tbaa !131
+  br label %18
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 8), align 8, !tbaa !132
-  br label %15
+14:                                               ; preds = %.split
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 8), align 8, !tbaa !132
+  br label %18
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr @paZeroers, align 8, !tbaa !133
-  br label %15
+16:                                               ; preds = %.split
+  %17 = load ptr, ptr @paZeroers, align 8, !tbaa !133
+  br label %18
 
-15:                                               ; preds = %1, %13, %11, %9, %7, %5, %3
-  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ null, %1 ]
+18:                                               ; preds = %.split, %1, %16, %14, %12, %10, %8, %6
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %1 ], [ null, %.split ]
   ret ptr %.0
 }
 
@@ -2341,6 +2389,12 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 declare i32 @PaUtil_Generate16BitTriangularDither(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fptosi.sat.i8.f32(float) #8

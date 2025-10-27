@@ -2487,231 +2487,237 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
 define internal range(i32 0, 2) i32 @_event_button_release(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @dt_view_get_current() #14
-  switch i32 %5, label %119 [
-    i32 32, label %6
-    i32 8, label %6
-    i32 2, label %6
-    i32 1, label %6
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %5)
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %.split, label %122
+
+.split:                                           ; preds = %3
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
+  switch i32 %8, label %122 [
+    i32 5, label %9
+    i32 3, label %9
+    i32 1, label %9
+    i32 0, label %9
   ]
 
-6:                                                ; preds = %3, %3, %3, %3
+9:                                                ; preds = %.split, %.split, %.split, %.split
   tail call void @dt_set_backthumb_time(double noundef 0.000000e+00) #14
-  %7 = tail call i32 (...) @dt_control_get_mouse_over_id() #14
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %9, label %79
+  %10 = tail call i32 (...) @dt_control_get_mouse_over_id() #14
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %12, label %82
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %11 = load i32, ptr %10, align 4, !tbaa !163
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %79
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %14 = load i32, ptr %13, align 4, !tbaa !163
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %16, label %82
 
-13:                                               ; preds = %9
-  %14 = load i32, ptr %1, align 8, !tbaa !166
-  %15 = icmp eq i32 %14, 7
-  br i1 %15, label %16, label %79
+16:                                               ; preds = %12
+  %17 = load i32, ptr %1, align 8, !tbaa !166
+  %18 = icmp eq i32 %17, 7
+  br i1 %18, label %19, label %82
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load i32, ptr %17, align 8, !tbaa !207
-  %19 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
-  %20 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
-  %21 = or i32 %20, %18
-  %22 = and i32 %21, %19
-  %.not = icmp eq i32 %22, 4
-  br i1 %.not, label %29, label %23
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %21 = load i32, ptr %20, align 8, !tbaa !207
+  %22 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
+  %23 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
+  %24 = or i32 %23, %21
+  %25 = and i32 %24, %22
+  %.not = icmp eq i32 %25, 4
+  br i1 %.not, label %32, label %26
 
-23:                                               ; preds = %16
-  %24 = load i32, ptr %17, align 8, !tbaa !207
-  %25 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
-  %26 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
-  %27 = or i32 %26, %24
-  %28 = and i32 %27, %25
-  %.not68 = icmp eq i32 %28, 16
-  br i1 %.not68, label %29, label %31
+26:                                               ; preds = %19
+  %27 = load i32, ptr %20, align 8, !tbaa !207
+  %28 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
+  %29 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
+  %30 = or i32 %29, %27
+  %31 = and i32 %30, %28
+  %.not68 = icmp eq i32 %31, 16
+  br i1 %.not68, label %32, label %34
 
-29:                                               ; preds = %23, %16
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
-  tail call void @dt_selection_toggle(ptr noundef %30, i32 noundef %7) #14
-  br label %79
+32:                                               ; preds = %26, %19
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
+  tail call void @dt_selection_toggle(ptr noundef %33, i32 noundef %10) #14
+  br label %82
 
-31:                                               ; preds = %23
-  %32 = load i32, ptr %17, align 8, !tbaa !207
-  %33 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
-  %34 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
-  %35 = or i32 %34, %32
-  %36 = and i32 %35, %33
-  %.not69 = icmp eq i32 %36, 1
-  br i1 %.not69, label %37, label %39
+34:                                               ; preds = %26
+  %35 = load i32, ptr %20, align 8, !tbaa !207
+  %36 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
+  %37 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
+  %38 = or i32 %37, %35
+  %39 = and i32 %38, %36
+  %.not69 = icmp eq i32 %39, 1
+  br i1 %.not69, label %40, label %42
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
-  tail call void @dt_selection_select_range(ptr noundef %38, i32 noundef %7) #14
-  br label %79
+40:                                               ; preds = %34
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
+  tail call void @dt_selection_select_range(ptr noundef %41, i32 noundef %10) #14
+  br label %82
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %2, align 8, !tbaa !6
-  %41 = icmp eq i32 %40, 2
-  %42 = icmp eq i32 %5, 2
-  %or.cond7 = and i1 %42, %41
-  br i1 %or.cond7, label %43, label %60
+42:                                               ; preds = %34
+  %43 = load i32, ptr %2, align 8, !tbaa !6
+  %44 = icmp eq i32 %43, 2
+  %45 = icmp eq i32 %5, 2
+  %or.cond7 = and i1 %45, %44
+  br i1 %or.cond7, label %46, label %63
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 180
-  %45 = load i32, ptr %44, align 4, !tbaa !100
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %79
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 180
+  %48 = load i32, ptr %47, align 4, !tbaa !100
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %82
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %49 = load i32, ptr %48, align 8, !tbaa !101
-  %50 = icmp eq i32 %49, -1
-  br i1 %50, label %51, label %52
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %52 = load i32, ptr %51, align 8, !tbaa !101
+  %53 = icmp eq i32 %52, -1
+  br i1 %53, label %54, label %55
 
-51:                                               ; preds = %47
-  store i32 0, ptr %48, align 8, !tbaa !101
-  br label %79
+54:                                               ; preds = %50
+  store i32 0, ptr %51, align 8, !tbaa !101
+  br label %82
 
-52:                                               ; preds = %47
-  %53 = tail call i64 @gtk_widget_get_type() #15
-  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %53) #14
-  %55 = tail call ptr @gtk_widget_get_settings(ptr noundef %54) #14
+55:                                               ; preds = %50
+  %56 = tail call i64 @gtk_widget_get_type() #15
+  %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %56) #14
+  %58 = tail call ptr @gtk_widget_get_settings(ptr noundef %57) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 400, ptr %4, align 4, !tbaa !35
-  %.not63 = icmp eq ptr %55, null
-  br i1 %.not63, label %57, label %56
+  %.not63 = icmp eq ptr %58, null
+  br i1 %.not63, label %60, label %59
 
-56:                                               ; preds = %52
-  call void (ptr, ptr, ...) @g_object_get(ptr noundef nonnull %55, ptr noundef nonnull @.str.101, ptr noundef nonnull %4, ptr noundef null) #14
+59:                                               ; preds = %55
+  call void (ptr, ptr, ...) @g_object_get(ptr noundef nonnull %58, ptr noundef nonnull @.str.101, ptr noundef nonnull %4, ptr noundef null) #14
   %.pre = load i32, ptr %4, align 4, !tbaa !35
-  br label %57
+  br label %60
 
-57:                                               ; preds = %56, %52
-  %58 = phi i32 [ %.pre, %56 ], [ 400, %52 ]
-  store i32 %7, ptr %48, align 8, !tbaa !101
-  %59 = call i32 @g_timeout_add(i32 noundef %58, ptr noundef nonnull @_do_select_single, ptr noundef nonnull %2) #14
-  store i32 %59, ptr %44, align 4, !tbaa !100
+60:                                               ; preds = %59, %55
+  %61 = phi i32 [ %.pre, %59 ], [ 400, %55 ]
+  store i32 %10, ptr %51, align 8, !tbaa !101
+  %62 = call i32 @g_timeout_add(i32 noundef %61, ptr noundef nonnull @_do_select_single, ptr noundef nonnull %2) #14
+  store i32 %62, ptr %47, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %79
+  br label %82
 
-60:                                               ; preds = %39
-  %.not60 = icmp eq i32 %40, 3
-  br i1 %.not60, label %61, label %66
+63:                                               ; preds = %42
+  %.not60 = icmp eq i32 %43, 3
+  br i1 %.not60, label %64, label %69
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %63 = load ptr, ptr %62, align 8, !tbaa !88
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 312
-  %65 = load i32, ptr %64, align 8, !tbaa !203
-  %.not61 = icmp eq i32 %65, 0
-  br i1 %.not61, label %66, label %79
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %66 = load ptr, ptr %65, align 8, !tbaa !88
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 312
+  %68 = load i32, ptr %67, align 8, !tbaa !203
+  %.not61 = icmp eq i32 %68, 0
+  br i1 %.not61, label %69, label %82
 
-66:                                               ; preds = %61, %60
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
-  tail call void @dt_selection_select_single(ptr noundef %67, i32 noundef %7) #14
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !96
-  %69 = and i32 %68, 1
-  %70 = icmp ne i32 %69, 0
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3156), align 4
-  %72 = icmp ne i32 %71, 0
-  %or.cond9 = select i1 %70, i1 %72, i1 false
-  br i1 %or.cond9, label %73, label %77
+69:                                               ; preds = %64, %63
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
+  tail call void @dt_selection_select_single(ptr noundef %70, i32 noundef %10) #14
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !96
+  %72 = and i32 %71, 1
+  %73 = icmp ne i32 %72, 0
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3156), align 4
+  %75 = icmp ne i32 %74, 0
+  %or.cond9 = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond9, label %76, label %80
 
-73:                                               ; preds = %66
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !97
-  %75 = and i32 %74, 1048576
-  %.not62 = icmp eq i32 %75, 0
-  br i1 %.not62, label %77, label %76
+76:                                               ; preds = %69
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !97
+  %78 = and i32 %77, 1048576
+  %.not62 = icmp eq i32 %78, 0
+  br i1 %.not62, label %80, label %79
 
-76:                                               ; preds = %73
+79:                                               ; preds = %76
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.27, i32 noundef 1595, ptr noundef nonnull @__FUNCTION__._event_button_release) #14
-  br label %77
+  br label %80
 
-77:                                               ; preds = %73, %76, %66
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !98
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %78, i32 noundef 6, i32 noundef %7) #14
-  br label %79
+80:                                               ; preds = %76, %79, %69
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !98
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %81, i32 noundef 6, i32 noundef %10) #14
+  br label %82
 
-79:                                               ; preds = %29, %51, %57, %43, %77, %61, %37, %13, %9, %6
-  %80 = load i32, ptr %2, align 8, !tbaa !6
-  %.not64 = icmp eq i32 %80, 3
-  br i1 %.not64, label %81, label %119
+82:                                               ; preds = %32, %54, %60, %46, %80, %64, %40, %16, %12, %9
+  %83 = load i32, ptr %2, align 8, !tbaa !6
+  %.not64 = icmp eq i32 %83, 3
+  br i1 %.not64, label %84, label %122
 
-81:                                               ; preds = %79
-  %82 = call i32 (...) @dt_control_get_mouse_over_id() #14
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %84 = load i32, ptr %83, align 8, !tbaa !202
-  %.not65 = icmp eq i32 %82, %84
-  br i1 %.not65, label %89, label %85
+84:                                               ; preds = %82
+  %85 = call i32 (...) @dt_control_get_mouse_over_id() #14
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %87 = load i32, ptr %86, align 8, !tbaa !202
+  %.not65 = icmp eq i32 %85, %87
+  br i1 %.not65, label %92, label %88
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %87 = load ptr, ptr %86, align 8, !tbaa !88
-  %.not66 = icmp eq ptr %87, null
-  br i1 %.not66, label %89, label %88
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %90 = load ptr, ptr %89, align 8, !tbaa !88
+  %.not66 = icmp eq ptr %90, null
+  br i1 %.not66, label %92, label %91
 
-88:                                               ; preds = %85
-  call void @dt_control_set_mouse_over_id(i32 noundef %84) #14
-  br label %89
+91:                                               ; preds = %88
+  call void @dt_control_set_mouse_over_id(i32 noundef %87) #14
+  br label %92
 
-89:                                               ; preds = %88, %85, %81
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  store i32 0, ptr %90, align 4, !tbaa !199
-  store i32 0, ptr %83, align 8, !tbaa !202
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store ptr null, ptr %91, align 8, !tbaa !88
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %93 = load i32, ptr %92, align 8, !tbaa !201
-  %94 = call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  %96 = load i32, ptr %95, align 4, !tbaa !200
+92:                                               ; preds = %91, %88, %84
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  store i32 0, ptr %93, align 4, !tbaa !199
+  store i32 0, ptr %86, align 8, !tbaa !202
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store ptr null, ptr %94, align 8, !tbaa !88
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %96 = load i32, ptr %95, align 8, !tbaa !201
   %97 = call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %98 = add nuw nsw i32 %97, %94
-  %99 = uitofp nneg i32 %98 to double
-  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !102
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1424
-  %102 = load double, ptr %101, align 8, !tbaa !103
-  %103 = fmul reassoc nsz arcp contract afn double %102, 8.000000e+00
-  %104 = fcmp reassoc nsz arcp contract afn ult double %103, %99
-  br i1 %104, label %110, label %105
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  %99 = load i32, ptr %98, align 4, !tbaa !200
+  %100 = call i32 @llvm.abs.i32(i32 %99, i1 true)
+  %101 = add nuw nsw i32 %100, %97
+  %102 = uitofp nneg i32 %101 to double
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !102
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1424
+  %105 = load double, ptr %104, align 8, !tbaa !103
+  %106 = fmul reassoc nsz arcp contract afn double %105, 8.000000e+00
+  %107 = fcmp reassoc nsz arcp contract afn ult double %106, %102
+  br i1 %107, label %113, label %108
 
-105:                                              ; preds = %89
-  %106 = call i32 (...) @dt_control_get_mouse_over_id() #14
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %110, label %108
+108:                                              ; preds = %92
+  %109 = call i32 (...) @dt_control_get_mouse_over_id() #14
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %113, label %111
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
-  call void @dt_selection_clear(ptr noundef %109) #14
-  br label %110
+111:                                              ; preds = %108
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !167
+  call void @dt_selection_clear(ptr noundef %112) #14
+  br label %113
 
-110:                                              ; preds = %108, %105, %89
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.05470 = load ptr, ptr %111, align 8, !tbaa !21
+113:                                              ; preds = %111, %108, %92
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.05470 = load ptr, ptr %114, align 8, !tbaa !21
   %.not6771 = icmp eq ptr %.05470, null
   br i1 %.not6771, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %110
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %113 = load i32, ptr %112, align 8, !tbaa !82
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef %113) #14
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %115 = load i32, ptr %114, align 4, !tbaa !83
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.38, i32 noundef %115) #14
-  br label %119
+._crit_edge:                                      ; preds = %.lr.ph, %113
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %116 = load i32, ptr %115, align 8, !tbaa !82
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef %116) #14
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %118 = load i32, ptr %117, align 4, !tbaa !83
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.38, i32 noundef %118) #14
+  br label %122
 
-.lr.ph:                                           ; preds = %110, %.lr.ph
-  %.05472 = phi ptr [ %.054, %.lr.ph ], [ %.05470, %110 ]
-  %116 = load ptr, ptr %.05472, align 8, !tbaa !23
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 312
-  store i32 0, ptr %117, align 8, !tbaa !203
-  %118 = getelementptr inbounds nuw i8, ptr %.05472, i64 8
-  %.054 = load ptr, ptr %118, align 8, !tbaa !21
+.lr.ph:                                           ; preds = %113, %.lr.ph
+  %.05472 = phi ptr [ %.054, %.lr.ph ], [ %.05470, %113 ]
+  %119 = load ptr, ptr %.05472, align 8, !tbaa !23
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 312
+  store i32 0, ptr %120, align 8, !tbaa !203
+  %121 = getelementptr inbounds nuw i8, ptr %.05472, i64 8
+  %.054 = load ptr, ptr %121, align 8, !tbaa !21
   %.not67 = icmp eq ptr %.054, null
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
-119:                                              ; preds = %._crit_edge, %79, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %79 ], [ 1, %._crit_edge ]
+122:                                              ; preds = %3, %._crit_edge, %82, %.split
+  %.0 = phi i32 [ 0, %.split ], [ 1, %82 ], [ 1, %._crit_edge ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -7723,6 +7729,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

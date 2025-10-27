@@ -24544,7 +24544,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 
 10:                                               ; preds = %6
   store i8 1, ptr %5, align 1
-  br label %114
+  br label %118
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_smb_posix_acl_version, align 4
@@ -24558,7 +24558,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 
 18:                                               ; preds = %11
   store i8 1, ptr %5, align 1
-  br label %114
+  br label %118
 
 19:                                               ; preds = %11
   %20 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %14)
@@ -24573,7 +24573,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 
 27:                                               ; preds = %19
   store i8 1, ptr %5, align 1
-  br label %114
+  br label %118
 
 28:                                               ; preds = %19
   %29 = load i32, ptr @hf_smb_posix_num_def_aces, align 4
@@ -24585,9 +24585,9 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
   %.not165 = icmp eq i16 %20, 0
   br i1 %.not165, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %112
-  %.in = phi i16 [ %34, %112 ], [ %20, %28 ]
-  %.0119166 = phi i32 [ %.2121, %112 ], [ %31, %28 ]
+.lr.ph:                                           ; preds = %28, %116
+  %.in = phi i16 [ %34, %116 ], [ %20, %28 ]
+  %.0119166 = phi i32 [ %.2121, %116 ], [ %31, %28 ]
   %34 = add i16 %.in, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load i32, ptr @ett_smb_posix_ace, align 4
@@ -24615,139 +24615,146 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
   %52 = load i16, ptr %4, align 2
   %53 = add i16 %52, -1
   store i16 %53, ptr %4, align 2
-  switch i8 %40, label %106 [
-    i8 1, label %54
-    i8 4, label %66
-    i8 16, label %78
-    i8 32, label %78
-    i8 2, label %82
-    i8 8, label %94
+  %54 = zext i8 %40 to i32
+  %55 = call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %54)
+  %56 = icmp eq i32 %55, 1
+  br i1 %56, label %.split, label %110
+
+.split:                                           ; preds = %47
+  %57 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %54, i1 true)
+  switch i32 %57, label %110 [
+    i32 0, label %58
+    i32 2, label %70
+    i32 4, label %82
+    i32 5, label %82
+    i32 1, label %86
+    i32 3, label %98
   ]
 
-54:                                               ; preds = %47
-  %55 = icmp ult i16 %53, 4
-  br i1 %55, label %.thread, label %56
+58:                                               ; preds = %.split
+  %59 = icmp ult i16 %53, 4
+  br i1 %59, label %.thread, label %60
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr @hf_smb_posix_ace_perm_owner_uid, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %57, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
-  %59 = load i16, ptr %4, align 2
-  %60 = add i16 %59, -4
-  store i16 %60, ptr %4, align 2
-  %61 = icmp ult i16 %60, 4
-  br i1 %61, label %62, label %64
+60:                                               ; preds = %58
+  %61 = load i32, ptr @hf_smb_posix_ace_perm_owner_uid, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %61, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
+  %63 = load i16, ptr %4, align 2
+  %64 = add i16 %63, -4
+  store i16 %64, ptr %4, align 2
+  %65 = icmp ult i16 %64, 4
+  br i1 %65, label %66, label %68
 
-62:                                               ; preds = %56
-  %63 = add i32 %.0119166, 6
+66:                                               ; preds = %60
+  %67 = add i32 %.0119166, 6
   br label %.thread
 
-64:                                               ; preds = %56
-  %65 = add i16 %59, -8
-  br label %112
+68:                                               ; preds = %60
+  %69 = add i16 %63, -8
+  br label %116
 
-66:                                               ; preds = %47
-  %67 = icmp ult i16 %53, 4
-  br i1 %67, label %.thread, label %68
+70:                                               ; preds = %.split
+  %71 = icmp ult i16 %53, 4
+  br i1 %71, label %.thread, label %72
 
-68:                                               ; preds = %66
-  %69 = load i32, ptr @hf_smb_posix_ace_perm_owner_gid, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %69, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
-  %71 = load i16, ptr %4, align 2
-  %72 = add i16 %71, -4
-  store i16 %72, ptr %4, align 2
-  %73 = icmp ult i16 %72, 4
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %70
+  %73 = load i32, ptr @hf_smb_posix_ace_perm_owner_gid, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %73, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
+  %75 = load i16, ptr %4, align 2
+  %76 = add i16 %75, -4
+  store i16 %76, ptr %4, align 2
+  %77 = icmp ult i16 %76, 4
+  br i1 %77, label %78, label %80
 
-74:                                               ; preds = %68
-  %75 = add i32 %.0119166, 6
+78:                                               ; preds = %72
+  %79 = add i32 %.0119166, 6
   br label %.thread
 
-76:                                               ; preds = %68
-  %77 = add i16 %71, -8
-  br label %112
+80:                                               ; preds = %72
+  %81 = add i16 %75, -8
+  br label %116
 
-78:                                               ; preds = %47, %47
-  %79 = icmp ult i16 %53, 8
-  br i1 %79, label %.thread, label %80
-
-80:                                               ; preds = %78
-  %81 = add i16 %52, -9
-  br label %112
-
-82:                                               ; preds = %47
-  %83 = icmp ult i16 %53, 4
+82:                                               ; preds = %.split, %.split
+  %83 = icmp ult i16 %53, 8
   br i1 %83, label %.thread, label %84
 
 84:                                               ; preds = %82
-  %85 = load i32, ptr @hf_smb_posix_ace_perm_uid, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %85, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
-  %87 = load i16, ptr %4, align 2
-  %88 = add i16 %87, -4
-  store i16 %88, ptr %4, align 2
-  %89 = icmp ult i16 %88, 4
-  br i1 %89, label %90, label %92
+  %85 = add i16 %52, -9
+  br label %116
 
-90:                                               ; preds = %84
-  %91 = add i32 %.0119166, 6
+86:                                               ; preds = %.split
+  %87 = icmp ult i16 %53, 4
+  br i1 %87, label %.thread, label %88
+
+88:                                               ; preds = %86
+  %89 = load i32, ptr @hf_smb_posix_ace_perm_uid, align 4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %89, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
+  %91 = load i16, ptr %4, align 2
+  %92 = add i16 %91, -4
+  store i16 %92, ptr %4, align 2
+  %93 = icmp ult i16 %92, 4
+  br i1 %93, label %94, label %96
+
+94:                                               ; preds = %88
+  %95 = add i32 %.0119166, 6
   br label %.thread
 
-92:                                               ; preds = %84
-  %93 = add i16 %87, -8
-  br label %112
+96:                                               ; preds = %88
+  %97 = add i16 %91, -8
+  br label %116
 
-94:                                               ; preds = %47
-  %95 = icmp ult i16 %53, 4
-  br i1 %95, label %.thread, label %96
+98:                                               ; preds = %.split
+  %99 = icmp ult i16 %53, 4
+  br i1 %99, label %.thread, label %100
 
-96:                                               ; preds = %94
-  %97 = load i32, ptr @hf_smb_posix_ace_perm_gid, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %97, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
-  %99 = load i16, ptr %4, align 2
-  %100 = add i16 %99, -4
-  store i16 %100, ptr %4, align 2
-  %101 = icmp ult i16 %100, 4
-  br i1 %101, label %102, label %104
+100:                                              ; preds = %98
+  %101 = load i32, ptr @hf_smb_posix_ace_perm_gid, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %101, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648)
+  %103 = load i16, ptr %4, align 2
+  %104 = add i16 %103, -4
+  store i16 %104, ptr %4, align 2
+  %105 = icmp ult i16 %104, 4
+  br i1 %105, label %106, label %108
 
-102:                                              ; preds = %96
-  %103 = add i32 %.0119166, 6
+106:                                              ; preds = %100
+  %107 = add i32 %.0119166, 6
   br label %.thread
 
-104:                                              ; preds = %96
-  %105 = add i16 %99, -8
-  br label %112
+108:                                              ; preds = %100
+  %109 = add i16 %103, -8
+  br label %116
 
-106:                                              ; preds = %47
-  %107 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %42, ptr noundef nonnull @ei_smb_posix_ace_type)
-  %108 = load i16, ptr %4, align 2
-  %109 = icmp ult i16 %108, 8
-  br i1 %109, label %.thread, label %110
+110:                                              ; preds = %47, %.split
+  %111 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %42, ptr noundef nonnull @ei_smb_posix_ace_type)
+  %112 = load i16, ptr %4, align 2
+  %113 = icmp ult i16 %112, 8
+  br i1 %113, label %.thread, label %114
 
-110:                                              ; preds = %106
-  %111 = add i16 %108, -8
-  br label %112
+114:                                              ; preds = %110
+  %115 = add i16 %112, -8
+  br label %116
 
-.thread:                                          ; preds = %106, %94, %82, %78, %66, %54, %39, %.lr.ph, %62, %74, %90, %102
-  %.2.ph = phi i32 [ %103, %102 ], [ %91, %90 ], [ %75, %74 ], [ %63, %62 ], [ %.0119166, %.lr.ph ], [ %43, %39 ], [ %51, %54 ], [ %51, %66 ], [ %51, %78 ], [ %51, %82 ], [ %51, %94 ], [ %51, %106 ]
+.thread:                                          ; preds = %110, %98, %86, %82, %70, %58, %39, %.lr.ph, %66, %78, %94, %106
+  %.2.ph = phi i32 [ %107, %106 ], [ %95, %94 ], [ %79, %78 ], [ %67, %66 ], [ %.0119166, %.lr.ph ], [ %43, %39 ], [ %51, %58 ], [ %51, %70 ], [ %51, %82 ], [ %51, %86 ], [ %51, %98 ], [ %51, %110 ]
   store i8 1, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %114
+  br label %118
 
-112:                                              ; preds = %64, %76, %80, %92, %104, %110
-  %.sink = phi i16 [ %65, %64 ], [ %77, %76 ], [ %81, %80 ], [ %93, %92 ], [ %105, %104 ], [ %111, %110 ]
+116:                                              ; preds = %68, %80, %84, %96, %108, %114
+  %.sink = phi i16 [ %69, %68 ], [ %81, %80 ], [ %85, %84 ], [ %97, %96 ], [ %109, %108 ], [ %115, %114 ]
   store i16 %.sink, ptr %4, align 2
   %.2121 = add i32 %.0119166, 10
-  %113 = load ptr, ptr %7, align 8
-  call void @proto_item_set_len(ptr noundef %113, i32 noundef 10)
+  %117 = load ptr, ptr %7, align 8
+  call void @proto_item_set_len(ptr noundef %117, i32 noundef 10)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i16 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %112, %28
-  %.0119.lcssa = phi i32 [ %31, %28 ], [ %.2121, %112 ]
+._crit_edge:                                      ; preds = %116, %28
+  %.0119.lcssa = phi i32 [ %31, %28 ], [ %.2121, %116 ]
   store i8 0, ptr %5, align 1
-  br label %114
+  br label %118
 
-114:                                              ; preds = %.thread, %._crit_edge, %27, %18, %10
+118:                                              ; preds = %.thread, %._crit_edge, %27, %18, %10
   %.0 = phi i32 [ %3, %10 ], [ %14, %18 ], [ %23, %27 ], [ %.0119.lcssa, %._crit_edge ], [ %.2.ph, %.thread ]
   ret i32 %.0
 }
@@ -29245,6 +29252,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

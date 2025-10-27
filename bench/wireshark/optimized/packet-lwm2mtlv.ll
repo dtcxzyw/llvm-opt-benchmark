@@ -348,7 +348,7 @@ define internal void @object_name_object_id_tostr_cb(ptr noundef readonly captur
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #9
+  %8 = tail call i64 @strlen(ptr noundef %7) #10
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -379,7 +379,7 @@ define internal void @object_name_name_tostr_cb(ptr noundef readonly captures(no
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #9
+  %11 = tail call i64 @strlen(ptr noundef %10) #10
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -408,7 +408,7 @@ define internal void @resource_object_id_tostr_cb(ptr noundef readonly captures(
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #9
+  %8 = tail call i64 @strlen(ptr noundef %7) #10
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -430,7 +430,7 @@ define internal void @resource_resource_id_tostr_cb(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #9
+  %9 = tail call i64 @strlen(ptr noundef %8) #10
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -458,7 +458,7 @@ define internal void @resource_name_tostr_cb(ptr noundef readonly captures(none)
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #9
+  %11 = tail call i64 @strlen(ptr noundef %10) #10
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -551,7 +551,7 @@ define internal void @resource_data_type_tostr_cb(ptr noundef readonly captures(
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
-  %21 = tail call i64 @strlen(ptr noundef %20) #9
+  %21 = tail call i64 @strlen(ptr noundef %20) #10
   %22 = trunc i64 %21 to i32
   br label %24
 
@@ -698,7 +698,7 @@ define internal noundef zeroext i1 @lwm2m_resource_update_cb(ptr noundef capture
 26:                                               ; preds = %.lr.ph, %25
   %27 = phi ptr [ %22, %.lr.ph ], [ %.pre, %25 ]
   %28 = add nuw i64 %.027, 1
-  %29 = tail call i64 @strlen(ptr noundef %27) #9
+  %29 = tail call i64 @strlen(ptr noundef %27) #10
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -794,7 +794,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not54, label %31, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #10
+  %20 = tail call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #11
   %21 = trunc i64 %20 to i32
   %22 = getelementptr i8, ptr %13, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -809,7 +809,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %17, align 8
-  %29 = tail call i64 @strtol(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #10
+  %29 = tail call i64 @strtol(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #11
   %30 = trunc i64 %29 to i32
   br label %31
 
@@ -927,14 +927,14 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %9 = zext i32 %7 to i64
-  %10 = tail call noalias ptr @g_malloc0_n(i64 noundef %9, i64 noundef 80) #11
+  %10 = tail call noalias ptr @g_malloc0_n(i64 noundef %9, i64 noundef 80) #12
   store ptr %10, ptr %0, align 8
   %11 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 8)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
-  %15 = tail call noalias ptr @g_malloc0_n(i64 noundef %14, i64 noundef 48) #11
+  %15 = tail call noalias ptr @g_malloc0_n(i64 noundef %14, i64 noundef 48) #12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8
   br label %35
@@ -993,7 +993,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %47 = load ptr, ptr %16, align 8
   %48 = zext i32 %.07381 to i64
   %49 = getelementptr %struct._lwm2m_resource_t, ptr %47, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %49, ptr noundef align 1 dereferenceable(48) %36, i64 noundef 48, i1 noundef false) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %49, ptr noundef align 1 dereferenceable(48) %36, i64 noundef 48, i1 noundef false) #11
   %50 = load ptr, ptr %16, align 8
   %51 = add i32 %.07381, 1
   %52 = getelementptr %struct._lwm2m_resource_t, ptr %50, i64 %48
@@ -1196,12 +1196,12 @@ define internal fastcc void @parseArrayOfElements(ptr noundef %0, ptr noundef %1
   br label %14
 
 14:                                               ; preds = %addValueTree.exit, %5
-  %.028 = phi i32 [ %10, %5 ], [ %282, %addValueTree.exit ]
-  %.027 = phi i32 [ 0, %5 ], [ %283, %addValueTree.exit ]
-  %.025 = phi i32 [ 0, %5 ], [ %281, %addValueTree.exit ]
+  %.028 = phi i32 [ %10, %5 ], [ %286, %addValueTree.exit ]
+  %.027 = phi i32 [ 0, %5 ], [ %287, %addValueTree.exit ]
+  %.025 = phi i32 [ 0, %5 ], [ %285, %addValueTree.exit ]
   %.024 = phi i32 [ %4, %5 ], [ %.1, %addValueTree.exit ]
   %.not = icmp eq i32 %.028, 0
-  br i1 %.not, label %285, label %15
+  br i1 %.not, label %289, label %15
 
 15:                                               ; preds = %14
   %16 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.027, i32 noundef %.028)
@@ -1499,7 +1499,7 @@ addTlvHeaderTree.exit:                            ; preds = %addElementTree.exit
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %138, %143, %146, %addTlvHeaderTree.exit
-  switch i32 %19, label %279 [
+  switch i32 %19, label %283 [
     i32 3, label %150
     i32 1, label %150
   ]
@@ -1537,7 +1537,7 @@ proto_item_set_generated.exit.i:                  ; preds = %138, %143, %146, %a
   %163 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.037.i, i32 noundef %161, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 2, ptr noundef %162, ptr noundef nonnull %6)
   %164 = load ptr, ptr %12, align 8
   %165 = load ptr, ptr %6, align 8
-  %166 = call i64 @strlen(ptr noundef %165) #9
+  %166 = call i64 @strlen(ptr noundef %165) #10
   %167 = call ptr @format_text(ptr noundef %164, ptr noundef %165, i64 noundef %166)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.037.i, ptr noundef nonnull @.str.110, ptr noundef %167)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1666,75 +1666,82 @@ proto_item_set_generated.exit.i:                  ; preds = %138, %143, %146, %a
 244:                                              ; preds = %241, %238
   %.0.i.i = phi ptr [ %236, %238 ], [ %243, %241 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.037.i, ptr noundef nonnull @.str.110, ptr noundef %.0.i.i)
-  switch i32 %.sroa.23.0, label %addValueTree.exit [
-    i32 1, label %245
-    i32 2, label %255
-    i32 4, label %260
-    i32 8, label %269
+  %245 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.23.0)
+  %246 = icmp eq i32 %245, 1
+  br i1 %246, label %.split.i.i, label %addValueTree.exit
+
+.split.i.i:                                       ; preds = %244
+  %247 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.23.0, i1 true)
+  switch i32 %247, label %addValueTree.exit [
+    i32 0, label %248
+    i32 1, label %258
+    i32 2, label %263
+    i32 3, label %272
   ]
 
-245:                                              ; preds = %244
-  %246 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %246, ptr noundef %16, i32 noundef %32, i32 noundef 1, i32 noundef 0)
-  %248 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
-  %249 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %248, ptr noundef %16, i32 noundef %32, i32 noundef 1, i32 noundef 0)
-  %250 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %32)
-  %251 = icmp ult i8 %250, 2
-  br i1 %251, label %252, label %addValueTree.exit
+248:                                              ; preds = %.split.i.i
+  %249 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
+  %250 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %249, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %251 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
+  %252 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %251, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %253 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %32)
+  %254 = icmp ult i8 %253, 2
+  br i1 %254, label %255, label %addValueTree.exit
 
-252:                                              ; preds = %245
-  %253 = load i32, ptr @hf_lwm2mtlv_value_boolean, align 4
-  %254 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %253, ptr noundef %16, i32 noundef %32, i32 noundef 1, i32 noundef 0)
+255:                                              ; preds = %248
+  %256 = load i32, ptr @hf_lwm2mtlv_value_boolean, align 4
+  %257 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %256, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
   br label %addValueTree.exit
 
-255:                                              ; preds = %244
-  %256 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %256, ptr noundef %16, i32 noundef %32, i32 noundef 2, i32 noundef 0)
-  %258 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
-  %259 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %258, ptr noundef %16, i32 noundef %32, i32 noundef 2, i32 noundef 0)
+258:                                              ; preds = %.split.i.i
+  %259 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
+  %260 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %259, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %261 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
+  %262 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %261, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
   br label %addValueTree.exit
 
-260:                                              ; preds = %244
-  %261 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
-  %262 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %261, ptr noundef %16, i32 noundef %32, i32 noundef 4, i32 noundef 0)
-  %263 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %263, ptr noundef %16, i32 noundef %32, i32 noundef 4, i32 noundef 0)
-  %265 = load i32, ptr @hf_lwm2mtlv_value_float, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %265, ptr noundef %16, i32 noundef %32, i32 noundef 4, i32 noundef 0)
-  %267 = load i32, ptr @hf_lwm2mtlv_value_timestamp, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %267, ptr noundef %16, i32 noundef %32, i32 noundef 4, i32 noundef 0)
+263:                                              ; preds = %.split.i.i
+  %264 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
+  %265 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %264, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %266 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
+  %267 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %266, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %268 = load i32, ptr @hf_lwm2mtlv_value_float, align 4
+  %269 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %268, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %270 = load i32, ptr @hf_lwm2mtlv_value_timestamp, align 4
+  %271 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %270, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
   br label %addValueTree.exit
 
-269:                                              ; preds = %244
-  %270 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %270, ptr noundef %16, i32 noundef %32, i32 noundef 8, i32 noundef 0)
-  %272 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %272, ptr noundef %16, i32 noundef %32, i32 noundef 8, i32 noundef 0)
-  %274 = load i32, ptr @hf_lwm2mtlv_value_double, align 4
-  %275 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %274, ptr noundef %16, i32 noundef %32, i32 noundef 8, i32 noundef 0)
-  %276 = load i32, ptr @hf_lwm2mtlv_value_timestamp, align 4
-  %277 = add nuw nsw i32 %32, 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %276, ptr noundef %16, i32 noundef %277, i32 noundef 4, i32 noundef 0)
+272:                                              ; preds = %.split.i.i
+  %273 = load i32, ptr @hf_lwm2mtlv_value_integer, align 4
+  %274 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %273, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %275 = load i32, ptr @hf_lwm2mtlv_value_unsigned_integer, align 4
+  %276 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %275, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %277 = load i32, ptr @hf_lwm2mtlv_value_double, align 4
+  %278 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %277, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0)
+  %279 = load i32, ptr @hf_lwm2mtlv_value_timestamp, align 4
+  %280 = add nuw nsw i32 %32, 4
+  %281 = add i32 %.sroa.23.0, -4
+  %282 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %279, ptr noundef %16, i32 noundef %280, i32 noundef %281, i32 noundef 0)
   br label %addValueTree.exit
 
-279:                                              ; preds = %proto_item_set_generated.exit.i
-  %280 = call ptr @tvb_new_subset_length(ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0)
-  call fastcc void @parseArrayOfElements(ptr noundef %0, ptr noundef %280, ptr noundef %.037.i, i32 noundef %3, i32 noundef %.1)
+283:                                              ; preds = %proto_item_set_generated.exit.i
+  %284 = call ptr @tvb_new_subset_length(ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0)
+  call fastcc void @parseArrayOfElements(ptr noundef %0, ptr noundef %284, ptr noundef %.037.i, i32 noundef %3, i32 noundef %.1)
   br label %addValueTree.exit
 
-addValueTree.exit:                                ; preds = %150, %158, %168, %174, %186, %189, %191, %199, %207, %217, %226, %230, %244, %245, %252, %255, %260, %269, %279
-  %281 = add i32 %.025, 1
-  %282 = sub i32 %.028, %33
-  %283 = add i32 %33, %.027
-  %284 = icmp eq i32 %33, 0
-  br i1 %284, label %285, label %14
+addValueTree.exit:                                ; preds = %150, %158, %168, %174, %186, %189, %191, %199, %207, %217, %226, %230, %244, %.split.i.i, %248, %255, %258, %263, %272, %283
+  %285 = add i32 %.025, 1
+  %286 = sub i32 %.028, %33
+  %287 = add i32 %33, %.027
+  %288 = icmp eq i32 %33, 0
+  br i1 %288, label %289, label %14
 
-285:                                              ; preds = %addValueTree.exit, %14
-  %.126 = phi i32 [ %281, %addValueTree.exit ], [ %.025, %14 ]
+289:                                              ; preds = %addValueTree.exit, %14
+  %.126 = phi i32 [ %285, %addValueTree.exit ], [ %.025, %14 ]
   call void @decrement_dissection_depth(ptr noundef %0)
-  %286 = icmp eq i32 %.126, 1
-  %287 = select i1 %286, ptr @.str.76, ptr @.str.104
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.103, i32 noundef %.126, ptr noundef nonnull %287)
+  %290 = icmp eq i32 %.126, 1
+  %291 = select i1 %290, ptr @.str.76, ptr @.str.104
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.103, i32 noundef %.126, ptr noundef nonnull %291)
   ret void
 }
 
@@ -1962,7 +1969,7 @@ declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @lwm2m_add_resource(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #12
+  %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #13
   store i32 -1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1996,7 +2003,7 @@ define internal fastcc void @lwm2m_add_resource(ptr noundef captures(none) %0, p
 
 16:                                               ; preds = %.lr.ph, %15
   %17 = add nuw i64 %.062, 1
-  %18 = tail call i64 @strlen(ptr noundef %12) #9
+  %18 = tail call i64 @strlen(ptr noundef %12) #10
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
@@ -2095,11 +2102,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2108,12 +2121,13 @@ attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid 
 attributes #4 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0,1) }
-attributes #12 = { allocsize(0) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
+attributes #12 = { allocsize(0,1) }
+attributes #13 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

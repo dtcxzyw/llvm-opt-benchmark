@@ -7835,54 +7835,37 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5Mod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, i8 %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  switch i32 %2, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i [
-    i32 1, label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-    i32 2, label %7
-    i32 4, label %8
-    i32 8, label %9
-    i32 16, label %10
-    i32 32, label %11
-    i32 64, label %12
-    i32 128, label %13
-  ]
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %.split.i.i.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i.i
 
-7:                                                ; preds = %6
+.split.i.i.i:                                     ; preds = %6
+  %9 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  %10 = icmp samesign ult i32 %9, 8
+  br i1 %10, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i.i
+
+_ZN4llvm3MVT12getIntegerVTEj.exit.i.i:            ; preds = %.split.i.i.i
+  %switch.idx.cast.i.i.i = trunc nuw nsw i32 %9 to i16
+  %switch.offset.i.i.i = add nuw nsw i16 %switch.idx.cast.i.i.i, 2
+  %11 = insertvalue { i16, ptr } poison, i16 %switch.offset.i.i.i, 0
+  %12 = insertvalue { i16, ptr } %11, ptr null, 1
   br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
 
-8:                                                ; preds = %6
+_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i.i:     ; preds = %.split.i.i.i, %6
+  %13 = tail call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) #27
   br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
 
-9:                                                ; preds = %6
-  br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-
-10:                                               ; preds = %6
-  br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-
-11:                                               ; preds = %6
-  br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-
-12:                                               ; preds = %6
-  br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-
-13:                                               ; preds = %6
-  br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-
-_ZN4llvm3MVT12getIntegerVTEj.exit.i.i:            ; preds = %6
-  %14 = tail call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) #27
-  %15 = extractvalue { i16, ptr } %14, 0
-  %16 = extractvalue { i16, ptr } %14, 1
-  br label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit
-
-_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit: ; preds = %6, %7, %8, %9, %10, %11, %12, %13, %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i
-  %.sroa.3.0.i.i = phi ptr [ %16, %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i ], [ null, %7 ], [ null, %8 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ null, %12 ], [ null, %13 ], [ null, %6 ]
-  %.sroa.0.0.i.i = phi i16 [ %15, %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i ], [ 3, %7 ], [ 4, %8 ], [ 5, %9 ], [ 6, %10 ], [ 7, %11 ], [ 8, %12 ], [ 9, %13 ], [ 2, %6 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !674
-  %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 808
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(412423) %18, i16 %.sroa.0.0.i.i, ptr %.sroa.3.0.i.i, i32 noundef %3, i8 %4, i16 noundef zeroext 0, ptr noundef %5) #27
-  ret i1 %22
+_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE30allowsMisalignedMemoryAccessesERNS_11LLVMContextEjjNS_5AlignEPj.exit: ; preds = %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i.i
+  %.fca.1.insert.merged.i.i = phi { i16, ptr } [ %13, %_ZN4llvm3MVT12getIntegerVTEj.exit.thread.i.i ], [ %12, %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i ]
+  %14 = extractvalue { i16, ptr } %.fca.1.insert.merged.i.i, 0
+  %15 = extractvalue { i16, ptr } %.fca.1.insert.merged.i.i, 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = load ptr, ptr %16, align 8, !tbaa !674
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 808
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(412423) %17, i16 %14, ptr %15, i32 noundef %3, i8 %4, i16 noundef zeroext 0, ptr noundef %5) #27
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15348,6 +15331,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

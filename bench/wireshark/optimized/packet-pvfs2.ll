@@ -629,42 +629,42 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_pvfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 24
-  br i1 %6, label %23, label %7
+  br i1 %6, label %26, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %8, 51903
-  br i1 %.not, label %9, label %23
+  br i1 %.not, label %9, label %26
 
 9:                                                ; preds = %7
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
-  switch i32 %10, label %23 [
-    i32 1, label %11
-    i32 2, label %11
-    i32 4, label %11
-    i32 8, label %11
-  ]
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10)
+  %12 = icmp eq i32 %11, 1
+  %13 = and i32 %10, 15
+  %switch = icmp ne i32 %13, 0
+  %or.cond17 = and i1 %12, %switch
+  br i1 %or.cond17, label %14, label %26
 
-11:                                               ; preds = %9, %9, %9, %9
-  %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
-  %13 = zext i32 %12 to i64
-  %14 = shl nuw i64 %13, 32
-  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
+14:                                               ; preds = %9
+  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
   %16 = zext i32 %15 to i64
-  %17 = add nsw i64 %16, -1000001
-  %18 = add i64 %17, %14
-  %or.cond = icmp ult i64 %18, -1000000
-  br i1 %or.cond, label %23, label %19
+  %17 = shl nuw i64 %16, 32
+  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
+  %19 = zext i32 %18 to i64
+  %20 = add nsw i64 %19, -1000001
+  %21 = add i64 %20, %17
+  %or.cond = icmp ult i64 %21, -1000000
+  br i1 %or.cond, label %26, label %22
 
-19:                                               ; preds = %11
-  %20 = load i8, ptr @pvfs_desegment, align 1, !range !6, !noundef !7
-  %21 = trunc nuw i8 %20 to i1
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %21, i32 noundef 24, ptr noundef nonnull @get_pvfs_pdu_len, ptr noundef nonnull @dissect_pvfs_pdu, ptr noundef %3)
-  %22 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %23
+22:                                               ; preds = %14
+  %23 = load i8, ptr @pvfs_desegment, align 1, !range !6, !noundef !7
+  %24 = trunc nuw i8 %23 to i1
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %24, i32 noundef 24, ptr noundef nonnull @get_pvfs_pdu_len, ptr noundef nonnull @dissect_pvfs_pdu, ptr noundef %3)
+  %25 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %26
 
-23:                                               ; preds = %11, %9, %7, %4, %19
-  %.0 = phi i32 [ %22, %19 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ]
+26:                                               ; preds = %14, %9, %7, %4, %22
+  %.0 = phi i32 [ %25, %22 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -2525,11 +2525,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2540,8 +2543,8 @@ attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "
 attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { allocsize(1) }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { noreturn }

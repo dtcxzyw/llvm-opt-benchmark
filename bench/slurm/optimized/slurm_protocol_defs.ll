@@ -524,10 +524,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.489 = private unnamed_addr constant [15 x i8] c"NOT_RESPONDING\00", align 1
 @node_state_flags = internal unnamed_addr constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 134217728, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 524288, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 67108864, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 4194304, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 8192, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 32768, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 8388608, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 16777216, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 4096, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 65536, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 1048576, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 2048, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 2097152, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 16384, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 262144, [4 x i8] zeroinitializer, ptr @.str.262 }], align 16
 @switch.table.job_share_string = private unnamed_addr constant [5 x ptr] [ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67], align 8
+@switch.table.node_state_string = private unnamed_addr constant [19 x ptr] [ptr @.str.265, ptr @.str.259, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.263, ptr poison, ptr @.str.264, ptr poison, ptr poison, ptr @.str.258, ptr @.str.262, ptr poison, ptr @.str.257, ptr poison, ptr poison, ptr @.str.260, ptr @.str.261], align 8
 @switch.table.log_num2string = private unnamed_addr constant [11 x ptr] [ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61], align 8
 @switch.table._job_name_test = private unnamed_addr constant [12 x ptr] [ptr @.str.80, ptr @.str.26, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90], align 8
 @switch.table._job_name_test.1 = private unnamed_addr constant [12 x ptr] [ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115], align 8
 @switch.table.trigger_res_type = private unnamed_addr constant [7 x ptr] [ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137], align 8
+@switch.table.trigger_type = private unnamed_addr constant [23 x ptr] [ptr @.str.146, ptr @.str.147, ptr @.str.149, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.62, ptr @.str.150, ptr @.str.148, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167], align 8
 @switch.table.schedule_exit2string = private unnamed_addr constant [6 x ptr] [ptr @.str.465, ptr @.str.466, ptr @.str.467, ptr @.str.468, ptr @.str.469, ptr @.str.470], align 8
 @switch.table.bf_exit2string = private unnamed_addr constant [6 x ptr] [ptr @.str.465, ptr @.str.471, ptr @.str.472, ptr @.str.473, ptr @.str.474, ptr @.str.475], align 8
 
@@ -1190,7 +1192,7 @@ define dso_local nonnull ptr @node_state_string(i32 noundef %0) #0 {
   %.not151.not = icmp eq i64 %15, 0
   %16 = and i64 %3, 4194304
   %.not152 = icmp eq i64 %16, 0
-  br i1 %.not152, label %17, label %111
+  br i1 %.not152, label %17, label %108
 
 17:                                               ; preds = %1
   br i1 %.not143.not, label %24, label %18
@@ -1205,7 +1207,7 @@ define dso_local nonnull ptr @node_state_string(i32 noundef %0) #0 {
 
 23:                                               ; preds = %18
   %.str.168..str.231 = select i1 %.not146.not, ptr @.str.168, ptr @.str.231
-  br label %111
+  br label %108
 
 24:                                               ; preds = %18, %17
   %25 = and i64 %3, 1114112
@@ -1221,7 +1223,7 @@ define dso_local nonnull ptr @node_state_string(i32 noundef %0) #0 {
 27:                                               ; preds = %26
   %.str.234..str.233 = select i1 %.not146.not, ptr @.str.234, ptr @.str.233
   %spec.select = select i1 %.not154.not, ptr %.str.234..str.233, ptr @.str.232
-  br label %111
+  br label %108
 
 28:                                               ; preds = %26, %26, %24
   br i1 %8, label %29, label %44
@@ -1251,12 +1253,12 @@ switch.early.test:                                ; preds = %29
   %35 = and i64 %3, 1429504
   %brmerge158.not = icmp eq i64 %35, 0
   %.str.235.mux.mux.mux.mux.mux = select i1 %brmerge157.not, ptr @.str.240, ptr %.str.235.mux.mux.mux.mux
-  br i1 %brmerge158.not, label %36, label %111
+  br i1 %brmerge158.not, label %36, label %108
 
 36:                                               ; preds = %30
   %.str.243..str.242 = select i1 %.not146.not, ptr @.str.243, ptr @.str.242
   %spec.select159 = select i1 %.not151.not, ptr %.str.243..str.242, ptr @.str.241
-  br label %111
+  br label %108
 
 37:                                               ; preds = %switch.early.test
   %38 = and i64 %3, 1081344
@@ -1274,12 +1276,12 @@ switch.early.test:                                ; preds = %29
   %42 = and i64 %3, 1429504
   %brmerge170.not = icmp eq i64 %42, 0
   %.str.244.mux.mux.mux.mux.mux = select i1 %brmerge168.not, ptr @.str.249, ptr %.str.244.mux.mux.mux.mux
-  br i1 %brmerge170.not, label %43, label %111
+  br i1 %brmerge170.not, label %43, label %108
 
 43:                                               ; preds = %37
   %.str.252..str.251 = select i1 %.not146.not, ptr @.str.252, ptr @.str.251
   %spec.select171 = select i1 %.not151.not, ptr %.str.252..str.251, ptr @.str.250
-  br label %111
+  br label %108
 
 44:                                               ; preds = %28
   br i1 %.not142, label %49, label %45
@@ -1291,229 +1293,212 @@ switch.early.test:                                ; preds = %29
 
 47:                                               ; preds = %45
   %.str.254..str.253 = select i1 %.not146.not, ptr @.str.254, ptr @.str.253
-  br label %111
+  br label %108
 
 48:                                               ; preds = %45
   %.str.256..str.255 = select i1 %.not146.not, ptr @.str.256, ptr @.str.255
-  br label %111
+  br label %108
 
 49:                                               ; preds = %44
-  switch i32 %0, label %58 [
-    i32 1048576, label %111
-    i32 131072, label %50
-    i32 128, label %51
-    i32 8388608, label %52
-    i32 16777216, label %53
-    i32 262144, label %54
-    i32 4096, label %55
-    i32 16384, label %56
-    i32 64, label %57
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %.split, label %54
+
+.split:                                           ; preds = %49
+  %52 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %switch.tableidx = add nsw i32 %52, -6
+  %53 = icmp ult i32 %switch.tableidx, 19
+  %switch.shifted = lshr i32 416067, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %53, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %54
+
+54:                                               ; preds = %.split, %49
+  switch i32 %2, label %70 [
+    i32 1, label %55
+    i32 3, label %62
   ]
 
-50:                                               ; preds = %49
-  br label %111
-
-51:                                               ; preds = %49
-  br label %111
-
-52:                                               ; preds = %49
-  br label %111
-
-53:                                               ; preds = %49
-  br label %111
-
-54:                                               ; preds = %49
-  br label %111
-
-55:                                               ; preds = %49
-  br label %111
-
-56:                                               ; preds = %49
-  br label %111
-
-57:                                               ; preds = %49
-  br label %111
-
-58:                                               ; preds = %49
-  switch i32 %2, label %74 [
-    i32 1, label %59
-    i32 3, label %66
-  ]
-
-59:                                               ; preds = %58
-  %60 = and i64 %3, 1081344
-  %brmerge174.not = icmp eq i64 %60, 0
+55:                                               ; preds = %54
+  %56 = and i64 %3, 1081344
+  %brmerge174.not = icmp eq i64 %56, 0
   %.str.266.mux = select i1 %.not143.not, ptr @.str.267, ptr @.str.266
-  %61 = and i64 %3, 1146880
-  %brmerge176.not = icmp eq i64 %61, 0
+  %57 = and i64 %3, 1146880
+  %brmerge176.not = icmp eq i64 %57, 0
   %.str.266.mux.mux = select i1 %brmerge174.not, ptr @.str.268, ptr %.str.266.mux
-  %62 = and i64 %3, 1163264
-  %brmerge178.not = icmp eq i64 %62, 0
+  %58 = and i64 %3, 1163264
+  %brmerge178.not = icmp eq i64 %58, 0
   %.str.266.mux.mux.mux = select i1 %brmerge176.not, ptr @.str.269, ptr %.str.266.mux.mux
-  %63 = and i64 %3, 1425408
-  %brmerge180.not = icmp eq i64 %63, 0
+  %59 = and i64 %3, 1425408
+  %brmerge180.not = icmp eq i64 %59, 0
   %.str.266.mux.mux.mux.mux = select i1 %brmerge178.not, ptr @.str.270, ptr %.str.266.mux.mux.mux
-  %64 = and i64 %3, 1429504
-  %brmerge182.not = icmp eq i64 %64, 0
+  %60 = and i64 %3, 1429504
+  %brmerge182.not = icmp eq i64 %60, 0
   %.str.266.mux.mux.mux.mux.mux = select i1 %brmerge180.not, ptr @.str.271, ptr %.str.266.mux.mux.mux.mux
-  br i1 %brmerge182.not, label %65, label %111
+  br i1 %brmerge182.not, label %61, label %108
 
-65:                                               ; preds = %59
+61:                                               ; preds = %55
   %.str.274..str.273 = select i1 %.not146.not, ptr @.str.274, ptr @.str.273
   %spec.select183 = select i1 %.not151.not, ptr %.str.274..str.273, ptr @.str.272
-  br label %111
+  br label %108
 
-66:                                               ; preds = %58
-  %67 = and i64 %3, 1081344
-  %brmerge186.not = icmp eq i64 %67, 0
+62:                                               ; preds = %54
+  %63 = and i64 %3, 1081344
+  %brmerge186.not = icmp eq i64 %63, 0
   %.str.275.mux = select i1 %.not143.not, ptr @.str.276, ptr @.str.275
-  %68 = and i64 %3, 1146880
-  %brmerge188.not = icmp eq i64 %68, 0
+  %64 = and i64 %3, 1146880
+  %brmerge188.not = icmp eq i64 %64, 0
   %.str.275.mux.mux = select i1 %brmerge186.not, ptr @.str.277, ptr %.str.275.mux
-  %69 = and i64 %3, 1163264
-  %brmerge190.not = icmp eq i64 %69, 0
+  %65 = and i64 %3, 1163264
+  %brmerge190.not = icmp eq i64 %65, 0
   %.str.275.mux.mux.mux = select i1 %brmerge188.not, ptr @.str.278, ptr %.str.275.mux.mux
-  %70 = and i64 %3, 1425408
-  %brmerge192.not = icmp eq i64 %70, 0
+  %66 = and i64 %3, 1425408
+  %brmerge192.not = icmp eq i64 %66, 0
   %.str.275.mux.mux.mux.mux = select i1 %brmerge190.not, ptr @.str.279, ptr %.str.275.mux.mux.mux
-  %71 = and i64 %3, 1429504
-  %brmerge194.not = icmp eq i64 %71, 0
+  %67 = and i64 %3, 1429504
+  %brmerge194.not = icmp eq i64 %67, 0
   %.str.275.mux.mux.mux.mux.mux = select i1 %brmerge192.not, ptr @.str.280, ptr %.str.275.mux.mux.mux.mux
-  %72 = and i64 %3, 9818112
-  %brmerge195.not = icmp eq i64 %72, 0
+  %68 = and i64 %3, 9818112
+  %brmerge195.not = icmp eq i64 %68, 0
   %.str.275.mux.mux.mux.mux.mux.mux = select i1 %brmerge194.not, ptr @.str.281, ptr %.str.275.mux.mux.mux.mux.mux
-  br i1 %brmerge195.not, label %73, label %111
+  br i1 %brmerge195.not, label %69, label %108
 
-73:                                               ; preds = %66
+69:                                               ; preds = %62
   %.str.283..str.284 = select i1 %6, ptr @.str.283, ptr @.str.284
   %spec.select196 = select i1 %.not146.not, ptr %.str.283..str.284, ptr @.str.282
-  br label %111
+  br label %108
 
-74:                                               ; preds = %58
-  br i1 %6, label %75, label %82
+70:                                               ; preds = %54
+  br i1 %6, label %71, label %78
 
-75:                                               ; preds = %74
-  %76 = and i64 %3, 1081344
-  %brmerge199.not = icmp eq i64 %76, 0
+71:                                               ; preds = %70
+  %72 = and i64 %3, 1081344
+  %brmerge199.not = icmp eq i64 %72, 0
   %.str.285.mux = select i1 %.not143.not, ptr @.str.286, ptr @.str.285
-  %77 = and i64 %3, 1146880
-  %brmerge201.not = icmp eq i64 %77, 0
+  %73 = and i64 %3, 1146880
+  %brmerge201.not = icmp eq i64 %73, 0
   %.str.285.mux.mux = select i1 %brmerge199.not, ptr @.str.287, ptr %.str.285.mux
-  %78 = and i64 %3, 1163264
-  %brmerge203.not = icmp eq i64 %78, 0
+  %74 = and i64 %3, 1163264
+  %brmerge203.not = icmp eq i64 %74, 0
   %.str.285.mux.mux.mux = select i1 %brmerge201.not, ptr @.str.288, ptr %.str.285.mux.mux
-  %79 = and i64 %3, 1425408
-  %brmerge205.not = icmp eq i64 %79, 0
+  %75 = and i64 %3, 1425408
+  %brmerge205.not = icmp eq i64 %75, 0
   %.str.285.mux.mux.mux.mux = select i1 %brmerge203.not, ptr @.str.289, ptr %.str.285.mux.mux.mux
-  %80 = and i64 %3, 1429504
-  %brmerge207.not = icmp eq i64 %80, 0
+  %76 = and i64 %3, 1429504
+  %brmerge207.not = icmp eq i64 %76, 0
   %.str.285.mux.mux.mux.mux.mux = select i1 %brmerge205.not, ptr @.str.290, ptr %.str.285.mux.mux.mux.mux
-  br i1 %brmerge207.not, label %81, label %111
+  br i1 %brmerge207.not, label %77, label %108
 
-81:                                               ; preds = %75
+77:                                               ; preds = %71
   %.str.69..str.292 = select i1 %.not146.not, ptr @.str.69, ptr @.str.292
   %spec.select208 = select i1 %.not151.not, ptr %.str.69..str.292, ptr @.str.291
-  br label %111
+  br label %108
 
-82:                                               ; preds = %74
-  switch i32 %2, label %108 [
-    i32 2, label %83
-    i32 5, label %93
-    i32 6, label %101
+78:                                               ; preds = %70
+  switch i32 %2, label %104 [
+    i32 2, label %79
+    i32 5, label %89
+    i32 6, label %97
   ]
 
-83:                                               ; preds = %82
-  %84 = and i64 %3, 1081344
-  %brmerge211.not = icmp eq i64 %84, 0
+79:                                               ; preds = %78
+  %80 = and i64 %3, 1081344
+  %brmerge211.not = icmp eq i64 %80, 0
   %.str.293.mux = select i1 %.not143.not, ptr @.str.294, ptr @.str.293
-  %85 = and i64 %3, 1146880
-  %brmerge213.not = icmp eq i64 %85, 0
+  %81 = and i64 %3, 1146880
+  %brmerge213.not = icmp eq i64 %81, 0
   %.str.293.mux.mux = select i1 %brmerge211.not, ptr @.str.295, ptr %.str.293.mux
-  %86 = and i64 %3, 1163264
-  %brmerge215.not = icmp eq i64 %86, 0
+  %82 = and i64 %3, 1163264
+  %brmerge215.not = icmp eq i64 %82, 0
   %.str.293.mux.mux.mux = select i1 %brmerge213.not, ptr @.str.296, ptr %.str.293.mux.mux
-  %87 = and i64 %3, 1425408
-  %brmerge217.not = icmp eq i64 %87, 0
+  %83 = and i64 %3, 1425408
+  %brmerge217.not = icmp eq i64 %83, 0
   %.str.293.mux.mux.mux.mux = select i1 %brmerge215.not, ptr @.str.297, ptr %.str.293.mux.mux.mux
-  %88 = and i64 %3, 1429504
-  %brmerge219.not = icmp eq i64 %88, 0
+  %84 = and i64 %3, 1429504
+  %brmerge219.not = icmp eq i64 %84, 0
   %.str.293.mux.mux.mux.mux.mux = select i1 %brmerge217.not, ptr @.str.298, ptr %.str.293.mux.mux.mux.mux
-  %89 = and i64 %3, 9818112
-  %brmerge221.not = icmp eq i64 %89, 0
+  %85 = and i64 %3, 9818112
+  %brmerge221.not = icmp eq i64 %85, 0
   %.str.293.mux.mux.mux.mux.mux.mux = select i1 %brmerge219.not, ptr @.str.299, ptr %.str.293.mux.mux.mux.mux.mux
-  %90 = and i64 %3, 9820160
-  %brmerge222.not = icmp eq i64 %90, 0
+  %86 = and i64 %3, 9820160
+  %brmerge222.not = icmp eq i64 %86, 0
   %.str.293.mux.mux.mux.mux.mux.mux.mux = select i1 %brmerge221.not, ptr @.str.300, ptr %.str.293.mux.mux.mux.mux.mux.mux
-  %91 = and i64 %3, 9820192
-  %brmerge223.not = icmp eq i64 %91, 0
+  %87 = and i64 %3, 9820192
+  %brmerge223.not = icmp eq i64 %87, 0
   %.str.293.mux.mux.mux.mux.mux.mux.mux.mux = select i1 %brmerge222.not, ptr @.str.301, ptr %.str.293.mux.mux.mux.mux.mux.mux.mux
-  br i1 %brmerge223.not, label %92, label %111
+  br i1 %brmerge223.not, label %88, label %108
 
-92:                                               ; preds = %83
+88:                                               ; preds = %79
   %.str.142..str.303 = select i1 %.not147, ptr @.str.142, ptr @.str.303
   %spec.select224 = select i1 %.not, ptr %.str.142..str.303, ptr @.str.302
-  br label %111
+  br label %108
 
-93:                                               ; preds = %82
-  %94 = and i64 %3, 1081344
-  %brmerge227.not = icmp eq i64 %94, 0
+89:                                               ; preds = %78
+  %90 = and i64 %3, 1081344
+  %brmerge227.not = icmp eq i64 %90, 0
   %.str.304.mux = select i1 %.not143.not, ptr @.str.305, ptr @.str.304
-  %95 = and i64 %3, 1146880
-  %brmerge229.not = icmp eq i64 %95, 0
+  %91 = and i64 %3, 1146880
+  %brmerge229.not = icmp eq i64 %91, 0
   %.str.304.mux.mux = select i1 %brmerge227.not, ptr @.str.306, ptr %.str.304.mux
-  %96 = and i64 %3, 1163264
-  %brmerge231.not = icmp eq i64 %96, 0
+  %92 = and i64 %3, 1163264
+  %brmerge231.not = icmp eq i64 %92, 0
   %.str.304.mux.mux.mux = select i1 %brmerge229.not, ptr @.str.307, ptr %.str.304.mux.mux
-  %97 = and i64 %3, 1425408
-  %brmerge233.not = icmp eq i64 %97, 0
+  %93 = and i64 %3, 1425408
+  %brmerge233.not = icmp eq i64 %93, 0
   %.str.304.mux.mux.mux.mux = select i1 %brmerge231.not, ptr @.str.308, ptr %.str.304.mux.mux.mux
-  %98 = and i64 %3, 1429504
-  %brmerge235.not = icmp eq i64 %98, 0
+  %94 = and i64 %3, 1429504
+  %brmerge235.not = icmp eq i64 %94, 0
   %.str.304.mux.mux.mux.mux.mux = select i1 %brmerge233.not, ptr @.str.309, ptr %.str.304.mux.mux.mux.mux
-  %99 = and i64 %3, 9818112
-  %brmerge237.not = icmp eq i64 %99, 0
+  %95 = and i64 %3, 9818112
+  %brmerge237.not = icmp eq i64 %95, 0
   %.str.304.mux.mux.mux.mux.mux.mux = select i1 %brmerge235.not, ptr @.str.310, ptr %.str.304.mux.mux.mux.mux.mux
-  br i1 %brmerge237.not, label %100, label %111
+  br i1 %brmerge237.not, label %96, label %108
 
-100:                                              ; preds = %93
+96:                                               ; preds = %89
   %.str.144..str.312 = select i1 %.not147, ptr @.str.144, ptr @.str.312
   %spec.select238 = select i1 %.not146.not, ptr %.str.144..str.312, ptr @.str.311
-  br label %111
+  br label %108
 
-101:                                              ; preds = %82
-  %102 = and i64 %3, 1081344
-  %brmerge241.not = icmp eq i64 %102, 0
+97:                                               ; preds = %78
+  %98 = and i64 %3, 1081344
+  %brmerge241.not = icmp eq i64 %98, 0
   %.str.313.mux = select i1 %.not143.not, ptr @.str.314, ptr @.str.313
-  %103 = and i64 %3, 1146880
-  %brmerge243.not = icmp eq i64 %103, 0
+  %99 = and i64 %3, 1146880
+  %brmerge243.not = icmp eq i64 %99, 0
   %.str.313.mux.mux = select i1 %brmerge241.not, ptr @.str.315, ptr %.str.313.mux
-  %104 = and i64 %3, 1163264
-  %brmerge245.not = icmp eq i64 %104, 0
+  %100 = and i64 %3, 1163264
+  %brmerge245.not = icmp eq i64 %100, 0
   %.str.313.mux.mux.mux = select i1 %brmerge243.not, ptr @.str.316, ptr %.str.313.mux.mux
-  %105 = and i64 %3, 1425408
-  %brmerge247.not = icmp eq i64 %105, 0
+  %101 = and i64 %3, 1425408
+  %brmerge247.not = icmp eq i64 %101, 0
   %.str.313.mux.mux.mux.mux = select i1 %brmerge245.not, ptr @.str.317, ptr %.str.313.mux.mux.mux
-  %106 = and i64 %3, 1429504
-  %brmerge249.not = icmp eq i64 %106, 0
+  %102 = and i64 %3, 1429504
+  %brmerge249.not = icmp eq i64 %102, 0
   %.str.313.mux.mux.mux.mux.mux = select i1 %brmerge247.not, ptr @.str.318, ptr %.str.313.mux.mux.mux.mux
-  br i1 %brmerge249.not, label %107, label %111
+  br i1 %brmerge249.not, label %103, label %108
 
-107:                                              ; preds = %101
+103:                                              ; preds = %97
   %.str.321..str.320 = select i1 %.not146.not, ptr @.str.321, ptr @.str.320
   %spec.select250 = select i1 %.not151.not, ptr %.str.321..str.320, ptr @.str.319
-  br label %111
+  br label %108
 
-108:                                              ; preds = %82
-  br i1 %.not145, label %109, label %111
+104:                                              ; preds = %78
+  br i1 %.not145, label %105, label %108
 
-109:                                              ; preds = %108
-  %110 = icmp eq i32 %2, 0
+105:                                              ; preds = %104
+  %106 = icmp eq i32 %2, 0
   %.str.22..str.323 = select i1 %.not146.not, ptr @.str.22, ptr @.str.323
-  %spec.select251 = select i1 %110, ptr %.str.22..str.323, ptr @.str.91
-  br label %111
+  %spec.select251 = select i1 %106, ptr %.str.22..str.323, ptr @.str.91
+  br label %108
 
-111:                                              ; preds = %109, %107, %100, %92, %81, %73, %65, %43, %36, %27, %101, %93, %83, %75, %66, %59, %37, %30, %108, %49, %48, %47, %23, %1, %57, %56, %55, %54, %53, %52, %51, %50
-  %.0 = phi ptr [ @.str.258, %50 ], [ @.str.259, %51 ], [ @.str.260, %52 ], [ @.str.261, %53 ], [ @.str.262, %54 ], [ @.str.263, %55 ], [ @.str.264, %56 ], [ @.str.265, %57 ], [ @.str.230, %1 ], [ %.str.168..str.231, %23 ], [ %.str.235.mux.mux.mux.mux.mux, %30 ], [ %.str.244.mux.mux.mux.mux.mux, %37 ], [ %.str.254..str.253, %47 ], [ %.str.256..str.255, %48 ], [ @.str.257, %49 ], [ %.str.266.mux.mux.mux.mux.mux, %59 ], [ %.str.275.mux.mux.mux.mux.mux.mux, %66 ], [ %.str.285.mux.mux.mux.mux.mux, %75 ], [ %.str.293.mux.mux.mux.mux.mux.mux.mux.mux, %83 ], [ %.str.304.mux.mux.mux.mux.mux.mux, %93 ], [ %.str.313.mux.mux.mux.mux.mux, %101 ], [ @.str.322, %108 ], [ %spec.select, %27 ], [ %spec.select159, %36 ], [ %spec.select171, %43 ], [ %spec.select183, %65 ], [ %spec.select196, %73 ], [ %spec.select208, %81 ], [ %spec.select224, %92 ], [ %spec.select238, %100 ], [ %spec.select250, %107 ], [ %spec.select251, %109 ]
+switch.lookup:                                    ; preds = %.split
+  %107 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.node_state_string, i64 %107
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %108
+
+108:                                              ; preds = %switch.lookup, %105, %103, %96, %88, %77, %69, %61, %43, %36, %27, %97, %89, %79, %71, %62, %55, %37, %30, %104, %48, %47, %23, %1
+  %.0 = phi ptr [ @.str.230, %1 ], [ %.str.168..str.231, %23 ], [ %.str.235.mux.mux.mux.mux.mux, %30 ], [ %.str.244.mux.mux.mux.mux.mux, %37 ], [ %.str.254..str.253, %47 ], [ %.str.256..str.255, %48 ], [ %.str.266.mux.mux.mux.mux.mux, %55 ], [ %.str.275.mux.mux.mux.mux.mux.mux, %62 ], [ %.str.285.mux.mux.mux.mux.mux, %71 ], [ %.str.293.mux.mux.mux.mux.mux.mux.mux.mux, %79 ], [ %.str.304.mux.mux.mux.mux.mux.mux, %89 ], [ %.str.313.mux.mux.mux.mux.mux, %97 ], [ @.str.322, %104 ], [ %spec.select, %27 ], [ %spec.select159, %36 ], [ %spec.select171, %43 ], [ %spec.select183, %61 ], [ %spec.select196, %69 ], [ %spec.select208, %77 ], [ %spec.select224, %88 ], [ %spec.select238, %96 ], [ %spec.select250, %103 ], [ %spec.select251, %105 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -9435,99 +9420,23 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @trigger_type(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %23 [
-    i32 1, label %24
-    i32 2, label %2
-    i32 256, label %3
-    i32 4, label %4
-    i32 128, label %5
-    i32 8, label %6
-    i32 16, label %7
-    i32 32, label %8
-    i32 512, label %9
-    i32 1024, label %10
-    i32 2048, label %11
-    i32 4096, label %12
-    i32 8192, label %13
-    i32 16384, label %14
-    i32 32768, label %15
-    i32 65536, label %16
-    i32 131072, label %17
-    i32 262144, label %18
-    i32 524288, label %19
-    i32 1048576, label %20
-    i32 2097152, label %21
-    i32 4194304, label %22
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %24
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 23
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %24
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.trigger_type, i64 %6
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %7
 
-4:                                                ; preds = %1
-  br label %24
-
-5:                                                ; preds = %1
-  br label %24
-
-6:                                                ; preds = %1
-  br label %24
-
-7:                                                ; preds = %1
-  br label %24
-
-8:                                                ; preds = %1
-  br label %24
-
-9:                                                ; preds = %1
-  br label %24
-
-10:                                               ; preds = %1
-  br label %24
-
-11:                                               ; preds = %1
-  br label %24
-
-12:                                               ; preds = %1
-  br label %24
-
-13:                                               ; preds = %1
-  br label %24
-
-14:                                               ; preds = %1
-  br label %24
-
-15:                                               ; preds = %1
-  br label %24
-
-16:                                               ; preds = %1
-  br label %24
-
-17:                                               ; preds = %1
-  br label %24
-
-18:                                               ; preds = %1
-  br label %24
-
-19:                                               ; preds = %1
-  br label %24
-
-20:                                               ; preds = %1
-  br label %24
-
-21:                                               ; preds = %1
-  br label %24
-
-22:                                               ; preds = %1
-  br label %24
-
-23:                                               ; preds = %1
-  br label %24
-
-24:                                               ; preds = %1, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.147, %2 ], [ @.str.148, %3 ], [ @.str.149, %4 ], [ @.str.150, %5 ], [ @.str.151, %6 ], [ @.str.152, %7 ], [ @.str.153, %8 ], [ @.str.154, %9 ], [ @.str.155, %10 ], [ @.str.156, %11 ], [ @.str.157, %12 ], [ @.str.158, %13 ], [ @.str.159, %14 ], [ @.str.160, %15 ], [ @.str.161, %16 ], [ @.str.162, %17 ], [ @.str.163, %18 ], [ @.str.164, %19 ], [ @.str.165, %20 ], [ @.str.166, %21 ], [ @.str.167, %22 ], [ @.str.62, %23 ], [ @.str.146, %1 ]
+7:                                                ; preds = %1, %.split, %switch.lookup
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.62, %.split ], [ @.str.62, %1 ]
   ret ptr %.0
 }
 
@@ -13944,6 +13853,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #23

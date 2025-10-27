@@ -8827,9 +8827,9 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %or.cond.not.not = icmp eq i32 %20, 0
   br i1 %or.cond, label %24, label %26
 
-21:                                               ; preds = %51, %51, %51, %51, %51, %27, %10
-  %.sroa.3.0 = phi i8 [ %14, %10 ], [ %.sroa.011.3, %51 ], [ 8, %27 ], [ %.sroa.011.3, %51 ], [ %.sroa.011.3, %51 ], [ %.sroa.011.3, %51 ], [ %.sroa.011.3, %51 ]
-  %.sroa.0.0 = phi i8 [ %12, %10 ], [ %.sroa.09.2, %51 ], [ %29, %27 ], [ %.sroa.09.2, %51 ], [ %.sroa.09.2, %51 ], [ %.sroa.09.2, %51 ], [ %.sroa.09.2, %51 ]
+21:                                               ; preds = %56, %57, %58, %59, %.split, %27, %10
+  %.sroa.3.0 = phi i8 [ %14, %10 ], [ 1, %56 ], [ 2, %57 ], [ 4, %58 ], [ 16, %59 ], [ 8, %.split ], [ 8, %27 ]
+  %.sroa.0.0 = phi i8 [ %12, %10 ], [ %.sroa.09.2, %56 ], [ %.sroa.09.2, %57 ], [ %.sroa.09.2, %58 ], [ %.sroa.09.2, %59 ], [ %.sroa.09.2, %.split ], [ %29, %27 ]
   %22 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %23 = insertvalue { i8, i8 } %22, i8 %.sroa.3.0, 1
   ret { i8, i8 } %23
@@ -8901,17 +8901,38 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
 51:                                               ; preds = %50, %37, %48, %47, %46, %44, %34
   %.sroa.011.3 = phi i8 [ %.sroa.011.1, %44 ], [ %.sroa.011.1, %46 ], [ %.sroa.011.1, %47 ], [ %17, %34 ], [ %.sroa.011.1, %48 ], [ %.sroa.011.1, %37 ], [ %.sroa.011.1, %50 ]
   %.sroa.09.2 = phi i8 [ %45, %44 ], [ 6, %46 ], [ 6, %47 ], [ %36, %34 ], [ 4, %48 ], [ 4, %37 ], [ 2, %50 ]
-  switch i8 %.sroa.011.3, label %52 [
-    i8 1, label %21
-    i8 2, label %21
-    i8 4, label %21
-    i8 8, label %21
-    i8 16, label %21
+  %52 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %.sroa.011.3)
+  %53 = icmp eq i8 %52, 1
+  br i1 %53, label %.split, label %55
+
+.split:                                           ; preds = %51
+  %54 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.sroa.011.3, i1 true)
+  switch i8 %54, label %default.unreachable33 [
+    i8 0, label %56
+    i8 1, label %57
+    i8 2, label %58
+    i8 3, label %21
+    i8 4, label %59
   ]
 
-52:                                               ; preds = %51
+default.unreachable33:                            ; preds = %.split
+  unreachable
+
+55:                                               ; preds = %51
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85dc5b59c6df06fdb4f122d3ed669f58.62) #52
   unreachable
+
+56:                                               ; preds = %.split
+  br label %21
+
+57:                                               ; preds = %.split
+  br label %21
+
+58:                                               ; preds = %.split
+  br label %21
+
+59:                                               ; preds = %.split
+  br label %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -30788,6 +30809,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #47
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #47
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ctpop.i8(i8) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #48

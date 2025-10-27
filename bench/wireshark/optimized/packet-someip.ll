@@ -6303,36 +6303,37 @@ define internal noundef zeroext i1 @update_someip_parameter_base_type_list(ptr n
   %13 = load i32, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, -8
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 29)
-  switch i32 %17, label %18 [
-    i32 0, label %20
-    i32 1, label %20
-    i32 3, label %20
-    i32 7, label %20
-  ]
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.split, label %19
 
-18:                                               ; preds = %12
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.415, i32 noundef %13, ptr noundef nonnull %4)
+.split:                                           ; preds = %12
+  %18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %15, i1 true)
+  %.off = add nsw i32 %18, -3
+  %switch = icmp ult i32 %.off, 4
+  br i1 %switch, label %21, label %19
+
+19:                                               ; preds = %.split, %12
+  %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.415, i32 noundef %13, ptr noundef nonnull %4)
   br label %.sink.split
 
-20:                                               ; preds = %12, %12, %12, %12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i32, ptr %21, align 8
-  %.not27 = icmp eq i32 %15, %22
-  br i1 %.not27, label %25, label %23
+21:                                               ; preds = %.split
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = load i32, ptr %22, align 8
+  %.not27 = icmp eq i32 %15, %23
+  br i1 %.not27, label %26, label %24
 
-23:                                               ; preds = %20
-  %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.416, i32 noundef %13, ptr noundef nonnull %4)
+24:                                               ; preds = %21
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.416, i32 noundef %13, ptr noundef nonnull %4)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %9, %18, %23
-  %.sink = phi ptr [ %24, %23 ], [ %19, %18 ], [ %11, %9 ]
+.sink.split:                                      ; preds = %9, %19, %24
+  %.sink = phi ptr [ %25, %24 ], [ %20, %19 ], [ %11, %9 ]
   store ptr %.sink, ptr %1, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.sink.split, %20
-  %.0 = phi i1 [ true, %20 ], [ false, %.sink.split ]
+26:                                               ; preds = %.sink.split, %21
+  %.0 = phi i1 [ true, %21 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -9856,6 +9857,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15

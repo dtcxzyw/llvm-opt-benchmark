@@ -71,8 +71,6 @@ $_ZN6icu_776ZNames12ZNamesLoader3putEPKcRNS_13ResourceValueEaR10UErrorCode = com
 
 $_ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader3putEPKcRNS_13ResourceValueEaR10UErrorCode = comdat any
 
-$_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZoneNameType = comdat any
-
 $_ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader17consumeNamesTableEPKcRNS_13ResourceValueEaR10UErrorCode = comdat any
 
 $_ZTIN6icu_777UMemoryE = comdat any
@@ -144,6 +142,7 @@ $_ZTSN6icu_777UMemoryE = comdat any
 @_ZN6icu_77L22gTZDBNamesTrieInitOnceE = internal global { { i32 }, i32 } zeroinitializer, align 4
 @_ZN6icu_77L21gTZDBNamesMapInitOnceE = internal global { { i32 }, i32 } zeroinitializer, align 4
 @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1 = private unnamed_addr constant [7 x i32] [i32 64, i32 1, i32 2, i32 4, i32 8, i32 16, i32 32], align 4
+@switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2 = private unnamed_addr constant [7 x i64] [i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 0], align 8
 
 @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode
@@ -3589,7 +3588,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717TimeZoneNam
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !13
   %11 = invoke noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadMetaZoneNamesERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %12 unwind label %18
+          to label %12 unwind label %20
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %5, align 4, !tbaa !13
@@ -3605,59 +3604,64 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717TimeZoneNam
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %12
-  %17 = icmp sgt i32 %13, 0
-  %.not22 = icmp eq ptr %11, null
-  %or.cond = or i1 %.not22, %17
-  br i1 %or.cond, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %23
+  %17 = icmp slt i32 %13, 1
+  %.not22 = icmp ne ptr %11, null
+  %or.cond.not30 = and i1 %.not22, %17
+  %18 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %19 = icmp eq i32 %18, 1
+  %or.cond29 = select i1 %or.cond.not30, i1 %19, i1 false
+  br i1 %or.cond29, label %.split.i.i, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-18:                                               ; preds = %10
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %10
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
-          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %20
+          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %22
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #24
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #24
   unreachable
 
-23:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit
-  %24 = call noundef i32 @_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZoneNameType(i32 noundef %2)
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
+.split.i.i:                                       ; preds = %_ZN6icu_775MutexD2Ev.exit
+  %25 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  %26 = icmp samesign ult i32 %25, 7
+  br i1 %26, label %switch.lookup, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit: ; preds = %23
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %11, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !96
-  %.not23 = icmp eq ptr %28, null
-  br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %29
+switch.lookup:                                    ; preds = %.split.i.i
+  %27 = zext nneg i32 %25 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %27
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %switch.load
+  %29 = load ptr, ptr %28, align 8, !tbaa !96
+  %.not23 = icmp eq ptr %29, null
+  br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %30
 
-29:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit
-  store ptr %28, ptr %6, align 8, !tbaa !48
-  %30 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
-          to label %31 unwind label %33
+30:                                               ; preds = %switch.lookup
+  store ptr %29, ptr %6, align 8, !tbaa !48
+  %31 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
+          to label %32 unwind label %34
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %6, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #22, !srcloc !51
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #22, !srcloc !51
   br label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-33:                                               ; preds = %29
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %6, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #22, !srcloc !51
+  %36 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #22, !srcloc !51
   br label %_ZN6icu_775MutexD2Ev.exit25
 
-_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %18, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %19, %18 ]
+_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %20, %34
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread: ; preds = %23, %_ZN6icu_775MutexD2Ev.exit, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit, %31, %4
+_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread: ; preds = %.split.i.i, %_ZN6icu_775MutexD2Ev.exit, %switch.lookup, %32, %4
   ret ptr %3
 }
 
@@ -3680,7 +3684,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717TimeZoneNam
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !13
   %11 = invoke noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadTimeZoneNamesERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %12 unwind label %18
+          to label %12 unwind label %20
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %5, align 4, !tbaa !13
@@ -3696,59 +3700,64 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717TimeZoneNam
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %12
-  %17 = icmp sgt i32 %13, 0
-  %.not22 = icmp eq ptr %11, null
-  %or.cond = or i1 %.not22, %17
-  br i1 %or.cond, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %23
+  %17 = icmp slt i32 %13, 1
+  %.not22 = icmp ne ptr %11, null
+  %or.cond.not30 = and i1 %.not22, %17
+  %18 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %19 = icmp eq i32 %18, 1
+  %or.cond29 = select i1 %or.cond.not30, i1 %19, i1 false
+  br i1 %or.cond29, label %.split.i.i, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-18:                                               ; preds = %10
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %10
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
-          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %20
+          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %22
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #24
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #24
   unreachable
 
-23:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit
-  %24 = call noundef i32 @_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZoneNameType(i32 noundef %2)
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
+.split.i.i:                                       ; preds = %_ZN6icu_775MutexD2Ev.exit
+  %25 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  %26 = icmp samesign ult i32 %25, 7
+  br i1 %26, label %switch.lookup, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit: ; preds = %23
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %11, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !96
-  %.not23 = icmp eq ptr %28, null
-  br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %29
+switch.lookup:                                    ; preds = %.split.i.i
+  %27 = zext nneg i32 %25 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %27
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %switch.load
+  %29 = load ptr, ptr %28, align 8, !tbaa !96
+  %.not23 = icmp eq ptr %29, null
+  br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %30
 
-29:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit
-  store ptr %28, ptr %6, align 8, !tbaa !48
-  %30 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
-          to label %31 unwind label %33
+30:                                               ; preds = %switch.lookup
+  store ptr %29, ptr %6, align 8, !tbaa !48
+  %31 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
+          to label %32 unwind label %34
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %6, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #22, !srcloc !51
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #22, !srcloc !51
   br label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-33:                                               ; preds = %29
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %6, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #22, !srcloc !51
+  %36 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #22, !srcloc !51
   br label %_ZN6icu_775MutexD2Ev.exit25
 
-_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %18, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %19, %18 ]
+_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %20, %34
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread: ; preds = %23, %_ZN6icu_775MutexD2Ev.exit, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit, %31, %4
+_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread: ; preds = %.split.i.i, %_ZN6icu_775MutexD2Ev.exit, %switch.lookup, %32, %4
   ret ptr %3
 }
 
@@ -4794,8 +4803,8 @@ define void @_ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStrin
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %17
   %22 = icmp slt i32 %18, 1
   %23 = icmp sgt i32 %3, 0
-  %or.cond93 = and i1 %22, %23
-  br i1 %or.cond93, label %.lr.ph, label %.critedge
+  %or.cond96 = and i1 %22, %23
+  br i1 %or.cond96, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZN6icu_775MutexD2Ev.exit
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4815,146 +4824,156 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %17
   tail call void @__clang_call_terminate(ptr %29) #24
   unreachable
 
-30:                                               ; preds = %.lr.ph, %82
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.05291 = phi ptr [ null, %.lr.ph ], [ %.15381, %82 ]
+30:                                               ; preds = %.lr.ph, %83
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
+  %.05294 = phi ptr [ null, %.lr.ph ], [ %.15383, %83 ]
   %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !118
-  %33 = call noundef i32 @_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZoneNameType(i32 noundef %32)
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
+  %33 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
+  %34 = icmp ne i32 %33, 1
+  br i1 %34, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %.split.i.i
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit: ; preds = %30
-  %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %16, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !96
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83
+.split.i.i:                                       ; preds = %30
+  %35 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %32, i1 true)
+  %36 = icmp samesign ult i32 %35, 7
+  br i1 %36, label %switch.lookup, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread: ; preds = %30, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit
-  %39 = icmp eq ptr %.05291, null
-  br i1 %39, label %40, label %67
+switch.lookup:                                    ; preds = %.split.i.i
+  %37 = zext nneg i32 %35 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %37
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %16, i64 %switch.load
+  %39 = load ptr, ptr %38, align 8, !tbaa !96
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85
 
-40:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
+_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread: ; preds = %.split.i.i, %30, %switch.lookup
+  %41 = icmp eq ptr %.05294, null
+  br i1 %41, label %42, label %69
+
+42:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !20
   store i16 2, ptr %24, align 8, !tbaa !41
-  %41 = load ptr, ptr %0, align 8, !tbaa !20
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %43 = load ptr, ptr %42, align 8
-  %44 = invoke noundef nonnull align 8 dereferenceable(64) ptr %43(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, double noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %8)
-          to label %45 unwind label %48
+  %43 = load ptr, ptr %0, align 8, !tbaa !20
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = invoke noundef nonnull align 8 dereferenceable(64) ptr %45(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, double noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %8)
+          to label %47 unwind label %50
 
-45:                                               ; preds = %40
-  %46 = load i16, ptr %24, align 8, !tbaa !41
-  %47 = icmp ugt i16 %46, 31
-  br i1 %47, label %50, label %66
+47:                                               ; preds = %42
+  %48 = load i16, ptr %24, align 8, !tbaa !41
+  %49 = icmp ugt i16 %48, 31
+  br i1 %49, label %52, label %68
 
-48:                                               ; preds = %40
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %42
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6icu_775MutexD2Ev.exit73
 
-50:                                               ; preds = %45
+52:                                               ; preds = %47
   invoke void @umtx_lock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
-          to label %_ZN6icu_775MutexC2EPNS_6UMutexE.exit unwind label %59
+          to label %_ZN6icu_775MutexC2EPNS_6UMutexE.exit unwind label %61
 
-_ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %50
-  %51 = invoke noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadMetaZoneNamesERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %52 unwind label %61
+_ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %52
+  %53 = invoke noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadMetaZoneNamesERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %54 unwind label %63
 
-52:                                               ; preds = %_ZN6icu_775MutexC2EPNS_6UMutexE.exit
-  %53 = load i32, ptr %6, align 4, !tbaa !13
+54:                                               ; preds = %_ZN6icu_775MutexC2EPNS_6UMutexE.exit
+  %55 = load i32, ptr %6, align 4, !tbaa !13
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
-          to label %_ZN6icu_775MutexD2Ev.exit72 unwind label %54
+          to label %_ZN6icu_775MutexD2Ev.exit72 unwind label %56
 
-54:                                               ; preds = %52
-  %55 = landingpad { ptr, i32 }
+56:                                               ; preds = %54
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #24
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #24
   unreachable
 
-_ZN6icu_775MutexD2Ev.exit72:                      ; preds = %52
-  %57 = icmp eq ptr %51, null
-  %spec.store.select = select i1 %57, ptr @_ZN6icu_77L5EMPTYE, ptr %51
-  %58 = icmp slt i32 %53, 1
-  br i1 %58, label %66, label %.critedge.critedge
+_ZN6icu_775MutexD2Ev.exit72:                      ; preds = %54
+  %59 = icmp eq ptr %53, null
+  %spec.store.select = select i1 %59, ptr @_ZN6icu_77L5EMPTYE, ptr %53
+  %60 = icmp slt i32 %55, 1
+  br i1 %60, label %68, label %.critedge.critedge
 
-59:                                               ; preds = %50
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN6icu_775MutexD2Ev.exit73
-
-61:                                               ; preds = %_ZN6icu_775MutexC2EPNS_6UMutexE.exit
+61:                                               ; preds = %52
   %62 = landingpad { ptr, i32 }
           cleanup
-  invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
-          to label %_ZN6icu_775MutexD2Ev.exit73 unwind label %63
+  br label %_ZN6icu_775MutexD2Ev.exit73
 
-63:                                               ; preds = %61
+63:                                               ; preds = %_ZN6icu_775MutexC2EPNS_6UMutexE.exit
   %64 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
+          to label %_ZN6icu_775MutexD2Ev.exit73 unwind label %65
+
+65:                                               ; preds = %63
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #24
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #24
   unreachable
 
-66:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit72, %45
-  %.5 = phi ptr [ @_ZN6icu_77L5EMPTYE, %45 ], [ %spec.store.select, %_ZN6icu_775MutexD2Ev.exit72 ]
+68:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit72, %47
+  %.5 = phi ptr [ @_ZN6icu_77L5EMPTYE, %47 ], [ %spec.store.select, %_ZN6icu_775MutexD2Ev.exit72 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %67
+  br label %69
 
-_ZN6icu_775MutexD2Ev.exit73:                      ; preds = %59, %61, %48
-  %.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %60, %59 ], [ %62, %61 ]
+_ZN6icu_775MutexD2Ev.exit73:                      ; preds = %61, %63, %50
+  %.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %62, %61 ], [ %64, %63 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6icu_775MutexD2Ev.exit71
 
-67:                                               ; preds = %66, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
-  %.254 = phi ptr [ %.5, %66 ], [ %.05291, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread ]
+69:                                               ; preds = %68, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread
+  %.254 = phi ptr [ %.5, %68 ], [ %.05294, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread ]
   %.not65 = icmp eq ptr %.254, @_ZN6icu_77L5EMPTYE
-  br i1 %.not65, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread, label %68
+  %brmerge = or i1 %34, %.not65
+  br i1 %brmerge, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread, label %.split.i.i74
 
-68:                                               ; preds = %67
-  %69 = call noundef i32 @_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZoneNameType(i32 noundef %32)
-  %70 = icmp sgt i32 %69, -1
-  br i1 %70, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread
+.split.i.i74:                                     ; preds = %69
+  %70 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %32, i1 true)
+  %71 = icmp samesign ult i32 %70, 7
+  br i1 %71, label %switch.lookup100, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74: ; preds = %68
-  %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %.254, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !96
-  %.not66 = icmp eq ptr %73, null
-  br i1 %.not66, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83
+switch.lookup100:                                 ; preds = %.split.i.i74
+  %72 = zext nneg i32 %70 to i64
+  %switch.gep101 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %72
+  %switch.load102 = load i64, ptr %switch.gep101, align 8
+  %73 = getelementptr inbounds nuw ptr, ptr %.254, i64 %switch.load102
+  %74 = load ptr, ptr %73, align 8, !tbaa !96
+  %.not66 = icmp eq ptr %74, null
+  br i1 %.not66, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83: ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74
-  %.088 = phi ptr [ %73, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74 ], [ %37, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit ]
-  %.15387 = phi ptr [ %.254, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74 ], [ %.05291, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit ]
-  %74 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
-  store ptr %.088, ptr %9, align 8, !tbaa !48
-  %75 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %74, i8 noundef signext 1, ptr noundef nonnull %9, i32 noundef -1)
-          to label %76 unwind label %78
+_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85: ; preds = %switch.lookup, %switch.lookup100
+  %.090 = phi ptr [ %74, %switch.lookup100 ], [ %39, %switch.lookup ]
+  %.15389 = phi ptr [ %.254, %switch.lookup100 ], [ %.05294, %switch.lookup ]
+  %75 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
+  store ptr %.090, ptr %9, align 8, !tbaa !48
+  %76 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %75, i8 noundef signext 1, ptr noundef nonnull %9, i32 noundef -1)
+          to label %77 unwind label %79
 
-76:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83
-  %77 = load ptr, ptr %9, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %77) #22, !srcloc !51
-  br label %82
+77:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85
+  %78 = load ptr, ptr %9, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %78) #22, !srcloc !51
+  br label %83
 
-78:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %80 = load ptr, ptr %9, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %80) #22, !srcloc !51
+  %81 = load ptr, ptr %9, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %81) #22, !srcloc !51
   br label %_ZN6icu_775MutexD2Ev.exit71
 
-_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread: ; preds = %68, %67, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74
-  %81 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
-  call void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %81)
-  br label %82
+_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread: ; preds = %.split.i.i74, %69, %switch.lookup100
+  %82 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
+  call void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %82)
+  br label %83
 
-82:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread, %76
-  %.15381 = phi ptr [ %.254, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread ], [ %.15387, %76 ]
+83:                                               ; preds = %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread, %77
+  %.15383 = phi ptr [ %.254, %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread ], [ %.15389, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !119
@@ -4964,11 +4983,11 @@ _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread: ; preds = %68, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-.critedge:                                        ; preds = %82, %.critedge.critedge, %_ZN6icu_775MutexD2Ev.exit, %7
+.critedge:                                        ; preds = %83, %.critedge.critedge, %_ZN6icu_775MutexD2Ev.exit, %7
   ret void
 
-_ZN6icu_775MutexD2Ev.exit71:                      ; preds = %25, %_ZN6icu_775MutexD2Ev.exit73, %78
-  %.pn67.pn = phi { ptr, i32 } [ %79, %78 ], [ %.pn.pn, %_ZN6icu_775MutexD2Ev.exit73 ], [ %26, %25 ]
+_ZN6icu_775MutexD2Ev.exit71:                      ; preds = %25, %_ZN6icu_775MutexD2Ev.exit73, %79
+  %.pn67.pn = phi { ptr, i32 } [ %80, %79 ], [ %.pn.pn, %_ZN6icu_775MutexD2Ev.exit73 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn67.pn
 }
 
@@ -7115,41 +7134,6 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStri
 
 declare noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZoneNameType(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {
-  switch i32 %0, label %7 [
-    i32 64, label %8
-    i32 1, label %2
-    i32 2, label %2
-    i32 4, label %3
-    i32 8, label %4
-    i32 16, label %5
-    i32 32, label %6
-  ]
-
-2:                                                ; preds = %1, %1
-  br label %8
-
-3:                                                ; preds = %1
-  br label %8
-
-4:                                                ; preds = %1
-  br label %8
-
-5:                                                ; preds = %1
-  br label %8
-
-6:                                                ; preds = %1
-  br label %8
-
-7:                                                ; preds = %1
-  br label %8
-
-8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %7 ], [ %0, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 0, %1 ]
-  ret i32 %.0
-}
-
 declare void @ures_getAllItemsWithFallback_77(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i16 noundef zeroext) local_unnamed_addr #8
@@ -7516,6 +7500,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20

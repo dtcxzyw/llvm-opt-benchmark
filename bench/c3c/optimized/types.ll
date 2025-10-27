@@ -148,108 +148,84 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [7 x i8] c"%s[%u]\00", align 1
 @.str.57 = private unnamed_addr constant [3 x i8] c", \00", align 1
 @decl_arena = external global %struct.Vmem, align 8
+@switch.table.type_setup.3 = private unnamed_addr constant [5 x ptr] [ptr @type_char, ptr @type_ushort, ptr @type_uint, ptr @type_ulong, ptr @type_u128], align 8
 @switch.table.type_kind_bitsize = private unnamed_addr constant [15 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 8, i32 16, i32 32, i32 64, i32 128, i32 16, i32 poison, i32 32, i32 64, i32 128], align 4
 @switch.table.type_from_token = private unnamed_addr constant [23 x ptr] [ptr @type_void, ptr @type_bool, ptr @type_char, ptr @type_double, ptr @type_float, ptr @type_float16, ptr @type_i128, ptr @type_ichar, ptr @type_int, ptr @type_iptr, ptr @type_isz, ptr @type_long, ptr @type_short, ptr @type_u128, ptr @type_uint, ptr @type_ulong, ptr @type_uptr, ptr @type_ushort, ptr @type_usz, ptr @type_f128, ptr @type_any, ptr @type_anyfault, ptr @type_typeid], align 8
+@switch.table.type_find_max_num_type = private unnamed_addr constant [5 x ptr] [ptr @type_ichar, ptr @type_short, ptr @type_int, ptr @type_long, ptr @type_i128], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @type_init_cint() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
-  switch i32 %1, label %2 [
-    i32 8, label %type_int_unsigned_by_bitsize.exit
-    i32 16, label %4
-    i32 32, label %5
-    i32 64, label %6
-    i32 128, label %7
-  ]
+  %2 = zext i32 %1 to i64
+  %3 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %2)
+  %4 = icmp eq i64 %3, 1
+  br i1 %4, label %.split.i, label %7
 
-2:                                                ; preds = %0
-  %3 = zext i32 %1 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %3) #13
+.split.i:                                         ; preds = %0
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %switch.tableidx = add nsw i64 %5, -3
+  %6 = icmp ult i64 %switch.tableidx, 5
+  br i1 %6, label %switch.lookup, label %7
+
+7:                                                ; preds = %.split.i, %0
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %2) #13
   unreachable
 
-4:                                                ; preds = %0
-  br label %type_int_unsigned_by_bitsize.exit
-
-5:                                                ; preds = %0
-  br label %type_int_unsigned_by_bitsize.exit
-
-6:                                                ; preds = %0
-  br label %type_int_unsigned_by_bitsize.exit
-
-7:                                                ; preds = %0
-  br label %type_int_unsigned_by_bitsize.exit
-
-type_int_unsigned_by_bitsize.exit:                ; preds = %0, %4, %5, %6, %7
-  %type_ichar.sink = phi ptr [ @type_short, %4 ], [ @type_int, %5 ], [ @type_long, %6 ], [ @type_i128, %7 ], [ @type_ichar, %0 ]
-  %.0.in.i1 = phi ptr [ @type_ushort, %4 ], [ @type_uint, %5 ], [ @type_ulong, %6 ], [ @type_u128, %7 ], [ @type_char, %0 ]
-  %.0.i4 = load ptr, ptr %type_ichar.sink, align 8
-  store ptr %.0.i4, ptr @type_cint, align 8
-  %.0.i2 = load ptr, ptr %.0.in.i1, align 8
-  store ptr %.0.i2, ptr @type_cuint, align 8
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx
+  %switch.load16 = load ptr, ptr %switch.gep15, align 8
+  %.0.i5 = load ptr, ptr %switch.load, align 8
+  store ptr %.0.i5, ptr @type_cint, align 8
+  %.0.i3 = load ptr, ptr %switch.load16, align 8
+  store ptr %.0.i3, ptr @type_cuint, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @type_int_signed_by_bitsize(i64 noundef %0) local_unnamed_addr #0 {
-  switch i64 %0, label %6 [
-    i64 8, label %7
-    i64 16, label %2
-    i64 32, label %3
-    i64 64, label %4
-    i64 128, label %5
-  ]
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = icmp eq i64 %2, 1
+  br i1 %3, label %.split, label %6
 
-2:                                                ; preds = %1
-  br label %7
+.split:                                           ; preds = %1
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  %switch.tableidx = add nsw i64 %4, -3
+  %5 = icmp ult i64 %switch.tableidx, 5
+  br i1 %5, label %switch.lookup, label %6
 
-3:                                                ; preds = %1
-  br label %7
-
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-6:                                                ; preds = %1
+6:                                                ; preds = %.split, %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %0) #13
   unreachable
 
-7:                                                ; preds = %1, %5, %4, %3, %2
-  %.0.in = phi ptr [ @type_short, %2 ], [ @type_int, %3 ], [ @type_long, %4 ], [ @type_i128, %5 ], [ @type_ichar, %1 ]
-  %.0 = load ptr, ptr %.0.in, align 8
+switch.lookup:                                    ; preds = %.split
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %.0 = load ptr, ptr %switch.load, align 8
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @type_int_unsigned_by_bitsize(i64 noundef %0) local_unnamed_addr #0 {
-  switch i64 %0, label %6 [
-    i64 8, label %7
-    i64 16, label %2
-    i64 32, label %3
-    i64 64, label %4
-    i64 128, label %5
-  ]
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = icmp eq i64 %2, 1
+  br i1 %3, label %.split, label %6
 
-2:                                                ; preds = %1
-  br label %7
+.split:                                           ; preds = %1
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  %switch.tableidx = add nsw i64 %4, -3
+  %5 = icmp ult i64 %switch.tableidx, 5
+  br i1 %5, label %switch.lookup, label %6
 
-3:                                                ; preds = %1
-  br label %7
-
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-6:                                                ; preds = %1
+6:                                                ; preds = %.split, %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %0) #13
   unreachable
 
-7:                                                ; preds = %1, %5, %4, %3, %2
-  %.0.in = phi ptr [ @type_ushort, %2 ], [ @type_uint, %3 ], [ @type_ulong, %4 ], [ @type_u128, %5 ], [ @type_char, %1 ]
-  %.0 = load ptr, ptr %.0.in, align 8
+switch.lookup:                                    ; preds = %.split
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %.0 = load ptr, ptr %switch.load, align 8
   ret ptr %.0
 }
 
@@ -3409,34 +3385,25 @@ type_flatten.exit:                                ; preds = %2
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @type_size(ptr noundef %17)
   %19 = shl i32 %18, 3
-  switch i32 %19, label %24 [
-    i32 8, label %type_int_signed_by_bitsize.exit
-    i32 16, label %20
-    i32 32, label %21
-    i32 64, label %22
-    i32 128, label %23
-  ]
+  %20 = zext i32 %19 to i64
+  %21 = tail call range(i64 0, 30) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = icmp eq i64 %21, 1
+  br i1 %22, label %.split.i, label %25
 
-20:                                               ; preds = %type_flatten.exit
-  br label %type_int_signed_by_bitsize.exit
+.split.i:                                         ; preds = %type_flatten.exit
+  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
+  %switch.tableidx = add nsw i64 %23, -3
+  %24 = icmp ult i64 %switch.tableidx, 5
+  br i1 %24, label %switch.lookup, label %25
 
-21:                                               ; preds = %type_flatten.exit
-  br label %type_int_signed_by_bitsize.exit
-
-22:                                               ; preds = %type_flatten.exit
-  br label %type_int_signed_by_bitsize.exit
-
-23:                                               ; preds = %type_flatten.exit
-  br label %type_int_signed_by_bitsize.exit
-
-24:                                               ; preds = %type_flatten.exit
-  %25 = zext i32 %19 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %25) #13
+25:                                               ; preds = %.split.i, %type_flatten.exit
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %20) #13
   unreachable
 
-type_int_signed_by_bitsize.exit:                  ; preds = %type_flatten.exit, %20, %21, %22, %23
-  %.0.in.i = phi ptr [ @type_short, %20 ], [ @type_int, %21 ], [ @type_long, %22 ], [ @type_i128, %23 ], [ @type_ichar, %type_flatten.exit ]
-  %.0.i3 = load ptr, ptr %.0.in.i, align 8
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %.0.i3 = load ptr, ptr %switch.load, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i32, ptr %26, align 8
   %28 = tail call fastcc noundef ptr @type_create_array(ptr noundef %.0.i3, i32 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false)
@@ -4643,34 +4610,25 @@ create_type_cache.exit113:                        ; preds = %244
   %256 = load ptr, ptr @type_any, align 8
   store ptr %256, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2296), align 8
   %257 = load i32, ptr %132, align 8
-  switch i32 %257, label %262 [
-    i32 8, label %type_int_unsigned_by_bitsize.exit
-    i32 16, label %258
-    i32 32, label %259
-    i32 64, label %260
-    i32 128, label %261
-  ]
+  %258 = zext i32 %257 to i64
+  %259 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %258)
+  %260 = icmp eq i64 %259, 1
+  br i1 %260, label %.split.i, label %263
 
-258:                                              ; preds = %create_type_cache.exit113
-  br label %type_int_unsigned_by_bitsize.exit
+.split.i:                                         ; preds = %create_type_cache.exit113
+  %261 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %258, i1 true)
+  %switch.tableidx = add nsw i64 %261, -3
+  %262 = icmp ult i64 %switch.tableidx, 5
+  br i1 %262, label %switch.lookup, label %263
 
-259:                                              ; preds = %create_type_cache.exit113
-  br label %type_int_unsigned_by_bitsize.exit
-
-260:                                              ; preds = %create_type_cache.exit113
-  br label %type_int_unsigned_by_bitsize.exit
-
-261:                                              ; preds = %create_type_cache.exit113
-  br label %type_int_unsigned_by_bitsize.exit
-
-262:                                              ; preds = %create_type_cache.exit113
-  %263 = zext i32 %257 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %263) #13
+263:                                              ; preds = %.split.i, %create_type_cache.exit113
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %258) #13
   unreachable
 
-type_int_unsigned_by_bitsize.exit:                ; preds = %create_type_cache.exit113, %258, %259, %260, %261
-  %.0.in.i = phi ptr [ @type_ushort, %258 ], [ @type_uint, %259 ], [ @type_ulong, %260 ], [ @type_u128, %261 ], [ @type_char, %create_type_cache.exit113 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %.0.i = load ptr, ptr %switch.load, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1280), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1284), align 4
   store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1288), align 8
@@ -4678,107 +4636,80 @@ type_int_unsigned_by_bitsize.exit:                ; preds = %create_type_cache.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1304), i8 0, i64 56, i1 false)
   tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1280)) #14
   %264 = load i32, ptr %132, align 8
-  switch i32 %264, label %269 [
-    i32 8, label %type_int_signed_by_bitsize.exit
-    i32 16, label %265
-    i32 32, label %266
-    i32 64, label %267
-    i32 128, label %268
-  ]
+  %265 = zext i32 %264 to i64
+  %266 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %265)
+  %267 = icmp eq i64 %266, 1
+  br i1 %267, label %.split.i114, label %270
 
-265:                                              ; preds = %type_int_unsigned_by_bitsize.exit
-  br label %type_int_signed_by_bitsize.exit
+.split.i114:                                      ; preds = %switch.lookup
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %265, i1 true)
+  %switch.tableidx136 = add nsw i64 %268, -3
+  %269 = icmp ult i64 %switch.tableidx136, 5
+  br i1 %269, label %switch.lookup137, label %270
 
-266:                                              ; preds = %type_int_unsigned_by_bitsize.exit
-  br label %type_int_signed_by_bitsize.exit
-
-267:                                              ; preds = %type_int_unsigned_by_bitsize.exit
-  br label %type_int_signed_by_bitsize.exit
-
-268:                                              ; preds = %type_int_unsigned_by_bitsize.exit
-  br label %type_int_signed_by_bitsize.exit
-
-269:                                              ; preds = %type_int_unsigned_by_bitsize.exit
-  %270 = zext i32 %264 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %270) #13
+270:                                              ; preds = %.split.i114, %switch.lookup
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %265) #13
   unreachable
 
-type_int_signed_by_bitsize.exit:                  ; preds = %type_int_unsigned_by_bitsize.exit, %265, %266, %267, %268
-  %.0.in.i114 = phi ptr [ @type_short, %265 ], [ @type_int, %266 ], [ @type_long, %267 ], [ @type_i128, %268 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit ]
-  %.0.i115 = load ptr, ptr %.0.in.i114, align 8
+switch.lookup137:                                 ; preds = %.split.i114
+  %switch.gep138 = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx136
+  %switch.load139 = load ptr, ptr %switch.gep138, align 8
+  %.0.i116 = load ptr, ptr %switch.load139, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1360), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1364), align 4
-  store ptr %.0.i115, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1368), align 8
+  store ptr %.0.i116, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1368), align 8
   store ptr @.str.46, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1376), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1384), i8 0, i64 56, i1 false)
   tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1360)) #14
   %271 = load i32, ptr %132, align 8
-  switch i32 %271, label %276 [
-    i32 8, label %type_int_unsigned_by_bitsize.exit118
-    i32 16, label %272
-    i32 32, label %273
-    i32 64, label %274
-    i32 128, label %275
-  ]
+  %272 = zext i32 %271 to i64
+  %273 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %272)
+  %274 = icmp eq i64 %273, 1
+  br i1 %274, label %.split.i117, label %277
 
-272:                                              ; preds = %type_int_signed_by_bitsize.exit
-  br label %type_int_unsigned_by_bitsize.exit118
+.split.i117:                                      ; preds = %switch.lookup137
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
+  %switch.tableidx140 = add nsw i64 %275, -3
+  %276 = icmp ult i64 %switch.tableidx140, 5
+  br i1 %276, label %switch.lookup141, label %277
 
-273:                                              ; preds = %type_int_signed_by_bitsize.exit
-  br label %type_int_unsigned_by_bitsize.exit118
-
-274:                                              ; preds = %type_int_signed_by_bitsize.exit
-  br label %type_int_unsigned_by_bitsize.exit118
-
-275:                                              ; preds = %type_int_signed_by_bitsize.exit
-  br label %type_int_unsigned_by_bitsize.exit118
-
-276:                                              ; preds = %type_int_signed_by_bitsize.exit
-  %277 = zext i32 %271 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %277) #13
+277:                                              ; preds = %.split.i117, %switch.lookup137
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %272) #13
   unreachable
 
-type_int_unsigned_by_bitsize.exit118:             ; preds = %type_int_signed_by_bitsize.exit, %272, %273, %274, %275
-  %.0.in.i116 = phi ptr [ @type_ushort, %272 ], [ @type_uint, %273 ], [ @type_ulong, %274 ], [ @type_u128, %275 ], [ @type_char, %type_int_signed_by_bitsize.exit ]
-  %.0.i117 = load ptr, ptr %.0.in.i116, align 8
+switch.lookup141:                                 ; preds = %.split.i117
+  %switch.gep142 = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx140
+  %switch.load143 = load ptr, ptr %switch.gep142, align 8
+  %.0.i119 = load ptr, ptr %switch.load143, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1440), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1444), align 4
-  store ptr %.0.i117, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1448), align 8
+  store ptr %.0.i119, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1448), align 8
   store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1456), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1464), i8 0, i64 56, i1 false)
   tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1440)) #14
   %278 = load i32, ptr %132, align 8
-  switch i32 %278, label %283 [
-    i32 8, label %type_int_signed_by_bitsize.exit121
-    i32 16, label %279
-    i32 32, label %280
-    i32 64, label %281
-    i32 128, label %282
-  ]
+  %279 = zext i32 %278 to i64
+  %280 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %279)
+  %281 = icmp eq i64 %280, 1
+  br i1 %281, label %.split.i121, label %284
 
-279:                                              ; preds = %type_int_unsigned_by_bitsize.exit118
-  br label %type_int_signed_by_bitsize.exit121
+.split.i121:                                      ; preds = %switch.lookup141
+  %282 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %279, i1 true)
+  %switch.tableidx144 = add nsw i64 %282, -3
+  %283 = icmp ult i64 %switch.tableidx144, 5
+  br i1 %283, label %switch.lookup145, label %284
 
-280:                                              ; preds = %type_int_unsigned_by_bitsize.exit118
-  br label %type_int_signed_by_bitsize.exit121
-
-281:                                              ; preds = %type_int_unsigned_by_bitsize.exit118
-  br label %type_int_signed_by_bitsize.exit121
-
-282:                                              ; preds = %type_int_unsigned_by_bitsize.exit118
-  br label %type_int_signed_by_bitsize.exit121
-
-283:                                              ; preds = %type_int_unsigned_by_bitsize.exit118
-  %284 = zext i32 %278 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %284) #13
+284:                                              ; preds = %.split.i121, %switch.lookup141
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %279) #13
   unreachable
 
-type_int_signed_by_bitsize.exit121:               ; preds = %type_int_unsigned_by_bitsize.exit118, %279, %280, %281, %282
-  %.0.in.i119 = phi ptr [ @type_short, %279 ], [ @type_int, %280 ], [ @type_long, %281 ], [ @type_i128, %282 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit118 ]
-  %.0.i120 = load ptr, ptr %.0.in.i119, align 8
+switch.lookup145:                                 ; preds = %.split.i121
+  %switch.gep146 = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx144
+  %switch.load147 = load ptr, ptr %switch.gep146, align 8
+  %.0.i123 = load ptr, ptr %switch.load147, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1520), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1524), align 4
-  store ptr %.0.i120, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1528), align 8
+  store ptr %.0.i123, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1528), align 8
   store ptr @.str.48, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1536), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1544), i8 0, i64 56, i1 false)
   tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1520)) #14
@@ -4791,19 +4722,19 @@ type_int_signed_by_bitsize.exit121:               ; preds = %type_int_unsigned_b
   store i32 %289, ptr @size_subarray, align 4
   %290 = load i32, ptr %132, align 8
   %291 = load i64, ptr %134, align 4
-  %.sroa.015.0.extract.trunc.i122 = trunc i64 %291 to i32
-  %.sroa.317.0.extract.shift.i123 = lshr i64 %291, 32
-  %.sroa.317.0.extract.trunc.i124 = trunc nuw i64 %.sroa.317.0.extract.shift.i123 to i32
+  %.sroa.015.0.extract.trunc.i125 = trunc i64 %291 to i32
+  %.sroa.317.0.extract.shift.i126 = lshr i64 %291, 32
+  %.sroa.317.0.extract.trunc.i127 = trunc nuw i64 %.sroa.317.0.extract.shift.i126 to i32
   %292 = and i32 %290, 255
   %293 = shl i32 %290, 5
   %294 = add i32 %293, 224
   %295 = and i32 %294, 65280
   %296 = or disjoint i32 %295, %292
-  %297 = shl i32 %.sroa.015.0.extract.trunc.i122, 13
+  %297 = shl i32 %.sroa.015.0.extract.trunc.i125, 13
   %298 = and i32 %297, 16711680
   %299 = or disjoint i32 %296, %298
-  %.not.i125 = icmp ult i64 %291, 4294967296
-  %300 = select i1 %.not.i125, i32 %.sroa.015.0.extract.trunc.i122, i32 %.sroa.317.0.extract.trunc.i124
+  %.not.i128 = icmp ult i64 %291, 4294967296
+  %300 = select i1 %.not.i128, i32 %.sroa.015.0.extract.trunc.i125, i32 %.sroa.317.0.extract.trunc.i127
   %301 = shl i32 %300, 21
   %302 = and i32 %301, -16777216
   %303 = or disjoint i32 %299, %302
@@ -5807,39 +5738,29 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly captures(ret: 
   br i1 %.not, label %21, label %28
 
 21:                                               ; preds = %17
-  %trunc = trunc i32 %12 to i8
-  switch i8 %trunc, label %26 [
-    i8 8, label %type_int_signed_by_bitsize.exit
-    i8 16, label %22
-    i8 32, label %23
-    i8 64, label %24
-    i8 -128, label %25
-  ]
+  %22 = zext nneg i32 %13 to i64
+  %23 = tail call range(i64 1, 9) i64 @llvm.ctpop.i64(i64 %22)
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %.split.i, label %27
 
-22:                                               ; preds = %21
-  br label %type_int_signed_by_bitsize.exit
+.split.i:                                         ; preds = %21
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %22, i1 true)
+  %switch.tableidx = add nsw i64 %25, -3
+  %26 = icmp ult i64 %switch.tableidx, 5
+  br i1 %26, label %switch.lookup, label %27
 
-23:                                               ; preds = %21
-  br label %type_int_signed_by_bitsize.exit
-
-24:                                               ; preds = %21
-  br label %type_int_signed_by_bitsize.exit
-
-25:                                               ; preds = %21
-  br label %type_int_signed_by_bitsize.exit
-
-26:                                               ; preds = %21
-  %27 = zext nneg i32 %13 to i64
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %27) #13
+27:                                               ; preds = %.split.i, %21
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %22) #13
   unreachable
 
-type_int_signed_by_bitsize.exit:                  ; preds = %21, %22, %23, %24, %25
-  %.0.in.i = phi ptr [ @type_short, %22 ], [ @type_int, %23 ], [ @type_long, %24 ], [ @type_i128, %25 ], [ @type_ichar, %21 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %.0.i = load ptr, ptr %switch.load, align 8
   br label %28
 
-28:                                               ; preds = %10, %type_int_signed_by_bitsize.exit, %17, %8, %8, %8, %8, %2
-  %.0 = phi ptr [ null, %2 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %.0.i, %type_int_signed_by_bitsize.exit ], [ %0, %17 ], [ %1, %10 ]
+28:                                               ; preds = %10, %switch.lookup, %17, %8, %8, %8, %8, %2
+  %.0 = phi ptr [ null, %2 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %.0.i, %switch.lookup ], [ %0, %17 ], [ %1, %10 ]
   ret ptr %.0
 }
 
@@ -7096,17 +7017,23 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #12
+declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7119,8 +7046,8 @@ attributes #7 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all"
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }

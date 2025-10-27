@@ -188219,28 +188219,27 @@ define linkonce_odr dso_local void @_ZN9AstRedXor13numberOperateER8V3NumberRKS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9AstRedXor8cleanLhsEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !126
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %switch.edge, label %_ZNK7AstNode5widthEv.exit
+switch.edge:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %2 = load ptr, ptr %1, align 8, !tbaa !4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %4 = load ptr, ptr %3, align 8, !tbaa !126
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %_ZNK7AstNode5widthEv.exit, label %5
 
-_ZNK7AstNode5widthEv.exit:                        ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
+5:                                                ; preds = %switch.edge
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %7 = load i32, ptr %6, align 8, !tbaa !422
-  %8 = icmp ult i32 %7, 17
-  br i1 %8, label %switch.lookup, label %switch.edge
+  br label %_ZNK7AstNode5widthEv.exit
 
-switch.lookup:                                    ; preds = %_ZNK7AstNode5widthEv.exit
-  %switch.cast = trunc nuw i32 %7 to i17
-  %switch.downshift = lshr i17 65257, %switch.cast
-  %switch.masked = trunc i17 %switch.downshift to i1
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %1, %_ZNK7AstNode5widthEv.exit, %switch.lookup
-  %9 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %_ZNK7AstNode5widthEv.exit ], [ true, %1 ]
-  ret i1 %9
+_ZNK7AstNode5widthEv.exit:                        ; preds = %switch.edge, %5
+  %8 = phi i32 [ %7, %5 ], [ 0, %switch.edge ]
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %10 = icmp ne i32 %9, 1
+  %11 = and i32 %8, 31
+  %switch = icmp eq i32 %11, 0
+  %or.cond.not = or i1 %10, %switch
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -218063,6 +218062,9 @@ declare void @llvm.assume(i1 noundef) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #34

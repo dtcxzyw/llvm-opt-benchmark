@@ -559,6 +559,7 @@ $_ZTSN3fmt3v106detail6bufferIjEE = comdat any
 @.str.118 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_ZN3fmt3v1012format_facetISt6localeE2idE }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN3fmt3v1012format_facetISt6localeE2idE], section "llvm.metadata"
+@switch.table._ZNK3fmt3v109formatterINS0_9join_viewIN9__gnu_cxx17__normal_iteratorIPN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSESt6vectorIS8_SaIS8_EEEESD_cEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKSE_RT_.3 = private unnamed_addr constant [8 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF2PE20ExDllCharacteristics5parseERKNS0_7details8pe_debugEPNS0_7SectionEN3tcb4spanIhLm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.38") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 1 %1, ptr noundef %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #0 align 2 {
@@ -1010,43 +1011,23 @@ declare void @_ZNK4LIEF2PE5Debug9to_stringB5cxx11Ev(ptr dead_on_unwind writable 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN4LIEF2PE9to_stringENS0_20ExDllCharacteristics15CHARACTERISTICSE(i32 noundef %0) local_unnamed_addr #2 {
-  switch i32 %0, label %10 [
-    i32 1, label %2
-    i32 2, label %3
-    i32 4, label %4
-    i32 8, label %5
-    i32 16, label %6
-    i32 32, label %7
-    i32 64, label %8
-    i32 128, label %9
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %10
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 8
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %10
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3fmt3v109formatterINS0_9join_viewIN9__gnu_cxx17__normal_iteratorIPN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSESt6vectorIS8_SaIS8_EEEESD_cEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKSE_RT_.3, i64 %6
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %7
 
-4:                                                ; preds = %1
-  br label %10
-
-5:                                                ; preds = %1
-  br label %10
-
-6:                                                ; preds = %1
-  br label %10
-
-7:                                                ; preds = %1
-  br label %10
-
-8:                                                ; preds = %1
-  br label %10
-
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.3, %2 ], [ @.str.4, %3 ], [ @.str.5, %4 ], [ @.str.6, %5 ], [ @.str.7, %6 ], [ @.str.8, %7 ], [ @.str.9, %8 ], [ @.str.10, %9 ], [ @.str.2, %1 ]
+7:                                                ; preds = %switch.lookup, %.split, %1
+  %.0 = phi ptr [ @.str.2, %1 ], [ @.str.2, %.split ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -28763,164 +28744,124 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterINS0_9join_viewIN9__gnu_cx
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %5, align 4, !tbaa !26
-  switch i32 %9, label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit [
-    i32 1, label %10
-    i32 2, label %11
-    i32 4, label %12
-    i32 8, label %13
-    i32 16, label %14
-    i32 32, label %15
-    i32 64, label %16
-    i32 128, label %17
-  ]
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %.split.i.i, label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
 
-10:                                               ; preds = %8
+.split.i.i:                                       ; preds = %8
+  %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %13 = icmp samesign ult i32 %12, 8
+  br i1 %13, label %switch.lookup, label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
+
+switch.lookup:                                    ; preds = %.split.i.i
+  %14 = zext nneg i32 %12 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3fmt3v109formatterINS0_9join_viewIN9__gnu_cxx17__normal_iteratorIPN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSESt6vectorIS8_SaIS8_EEEESD_cEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKSE_RT_.3, i64 %14
+  %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
 
-11:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-12:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-13:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-14:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-15:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-16:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-17:                                               ; preds = %8
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-
-_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit: ; preds = %8, %10, %11, %12, %13, %14, %15, %16, %17
-  %.0.i.i = phi ptr [ @.str.3, %10 ], [ @.str.4, %11 ], [ @.str.5, %12 ], [ @.str.6, %13 ], [ @.str.7, %14 ], [ @.str.8, %15 ], [ @.str.9, %16 ], [ @.str.10, %17 ], [ @.str.2, %8 ]
-  %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #23
-  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %18
-  %20 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %19, ptr %.sroa.0.0.copyload.i)
-  %.sroa.0.024 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %21 = load ptr, ptr %6, align 8, !tbaa !64
-  %.not2325 = icmp eq ptr %.sroa.0.024, %21
-  br i1 %.not2325, label %.loopexit, label %.lr.ph
+_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit: ; preds = %switch.lookup, %.split.i.i, %8
+  %.0.i.i = phi ptr [ @.str.2, %8 ], [ @.str.2, %.split.i.i ], [ %switch.load, %switch.lookup ]
+  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #23
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %15
+  %17 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %16, ptr %.sroa.0.0.copyload.i)
+  %.sroa.0.025 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %18 = load ptr, ptr %6, align 8, !tbaa !64
+  %.not2426 = icmp eq ptr %.sroa.0.025, %18
+  br i1 %.not2426, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %21
 
-24:                                               ; preds = %.lr.ph, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
-  %.sroa.0.027 = phi ptr [ %.sroa.0.024, %.lr.ph ], [ %.sroa.0.0, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17 ]
-  %.sroa.014.126 = phi ptr [ %20, %.lr.ph ], [ %62, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17 ]
-  %25 = load ptr, ptr %22, align 8, !tbaa !459
-  %26 = load i64, ptr %23, align 8, !tbaa !460
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
-  %.not17.i.i = icmp samesign eq i64 %26, 0
+21:                                               ; preds = %.lr.ph, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18
+  %.sroa.0.028 = phi ptr [ %.sroa.0.025, %.lr.ph ], [ %.sroa.0.0, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18 ]
+  %.sroa.014.127 = phi ptr [ %17, %.lr.ph ], [ %56, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18 ]
+  %22 = load ptr, ptr %19, align 8, !tbaa !459
+  %23 = load i64, ptr %20, align 8, !tbaa !460
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  %.not17.i.i = icmp samesign eq i64 %23, 0
   br i1 %.not17.i.i, label %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %24
-  %28 = ptrtoint ptr %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.126, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.126, i64 24
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.014.126, i64 8
-  %.pre.i.i = load i64, ptr %29, align 8, !tbaa !84
-  br label %32
+.lr.ph.i.i:                                       ; preds = %21
+  %25 = ptrtoint ptr %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.014.127, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.014.127, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.014.127, i64 8
+  %.pre.i.i = load i64, ptr %26, align 8, !tbaa !84
+  br label %29
 
-32:                                               ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %.lr.ph.i.i
-  %33 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %49, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %.018.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %50, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %34 = ptrtoint ptr %.018.i.i to i64
-  %35 = sub i64 %28, %34
-  %36 = add i64 %35, %33
-  %37 = load i64, ptr %30, align 8, !tbaa !80
-  %38 = icmp ugt i64 %36, %37
-  br i1 %38, label %39, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
+29:                                               ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %.lr.ph.i.i
+  %30 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %46, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
+  %.018.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %47, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
+  %31 = ptrtoint ptr %.018.i.i to i64
+  %32 = sub i64 %25, %31
+  %33 = add i64 %32, %30
+  %34 = load i64, ptr %27, align 8, !tbaa !80
+  %35 = icmp ugt i64 %33, %34
+  br i1 %35, label %36, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %.sroa.014.126, align 8, !tbaa !10
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.126, i64 noundef %36) #23
-  %.pre19.i.i = load i64, ptr %30, align 8, !tbaa !80
-  %.pre20.i.i = load i64, ptr %29, align 8, !tbaa !84
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %.sroa.014.127, align 8, !tbaa !10
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.127, i64 noundef %33) #23
+  %.pre19.i.i = load i64, ptr %27, align 8, !tbaa !80
+  %.pre20.i.i = load i64, ptr %26, align 8, !tbaa !84
   br label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
-_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %39, %32
-  %42 = phi i64 [ %33, %32 ], [ %.pre20.i.i, %39 ]
-  %43 = phi i64 [ %37, %32 ], [ %.pre19.i.i, %39 ]
-  %44 = sub i64 %43, %42
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %44, i64 %35)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %43, %42
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %45
+_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %36, %29
+  %39 = phi i64 [ %30, %29 ], [ %.pre20.i.i, %36 ]
+  %40 = phi i64 [ %34, %29 ], [ %.pre19.i.i, %36 ]
+  %41 = sub i64 %40, %39
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 %32)
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %40, %39
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %42
 
-45:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
-  %46 = load ptr, ptr %31, align 8, !tbaa !78
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %47, ptr align 1 %.018.i.i, i64 %spec.select.i.i, i1 false)
-  %.pre21.i.i = load i64, ptr %29, align 8, !tbaa !84
+42:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
+  %43 = load ptr, ptr %28, align 8, !tbaa !78
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %.018.i.i, i64 %spec.select.i.i, i1 false)
+  %.pre21.i.i = load i64, ptr %26, align 8, !tbaa !84
   br label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i
 
-_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i: ; preds = %45, %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
-  %48 = phi i64 [ %42, %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i ], [ %.pre21.i.i, %45 ]
-  %49 = add i64 %48, %spec.select.i.i
-  store i64 %49, ptr %29, align 8, !tbaa !84
-  %50 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 %spec.select.i.i
-  %.not.i.i = icmp eq ptr %50, %27
-  br i1 %.not.i.i, label %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit, label %32, !llvm.loop !127
+_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i: ; preds = %42, %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
+  %45 = phi i64 [ %39, %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i ], [ %.pre21.i.i, %42 ]
+  %46 = add i64 %45, %spec.select.i.i
+  store i64 %46, ptr %26, align 8, !tbaa !84
+  %47 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 %spec.select.i.i
+  %.not.i.i = icmp eq ptr %47, %24
+  br i1 %.not.i.i, label %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit, label %29, !llvm.loop !127
 
-_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit: ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %24
-  store ptr %.sroa.014.126, ptr %2, align 8
-  %51 = load i32, ptr %.sroa.0.027, align 4, !tbaa !26
-  switch i32 %51, label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17 [
-    i32 1, label %52
-    i32 2, label %53
-    i32 4, label %54
-    i32 8, label %55
-    i32 16, label %56
-    i32 32, label %57
-    i32 64, label %58
-    i32 128, label %59
-  ]
+_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit: ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %21
+  store ptr %.sroa.014.127, ptr %2, align 8
+  %48 = load i32, ptr %.sroa.0.028, align 4, !tbaa !26
+  %49 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %48)
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %.split.i.i17, label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18
 
-52:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
+.split.i.i17:                                     ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
+  %51 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %48, i1 true)
+  %52 = icmp samesign ult i32 %51, 8
+  br i1 %52, label %switch.lookup33, label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18
 
-53:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
+switch.lookup33:                                  ; preds = %.split.i.i17
+  %53 = zext nneg i32 %51 to i64
+  %switch.gep34 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3fmt3v109formatterINS0_9join_viewIN9__gnu_cxx17__normal_iteratorIPN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSESt6vectorIS8_SaIS8_EEEESD_cEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKSE_RT_.3, i64 %53
+  %switch.load35 = load ptr, ptr %switch.gep34, align 8
+  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18
 
-54:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
+_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18: ; preds = %switch.lookup33, %.split.i.i17, %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
+  %.0.i.i16 = phi ptr [ @.str.2, %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit ], [ @.str.2, %.split.i.i17 ], [ %switch.load35, %switch.lookup33 ]
+  %54 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i16) #23
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i16, i64 %54
+  %56 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %.0.i.i16, ptr noundef nonnull %55, ptr %.sroa.014.127)
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.028, i64 4
+  %57 = load ptr, ptr %6, align 8, !tbaa !64
+  %.not24 = icmp eq ptr %.sroa.0.0, %57
+  br i1 %.not24, label %.loopexit, label %21, !llvm.loop !666
 
-55:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
-
-56:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
-
-57:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
-
-58:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
-
-59:                                               ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
-  br label %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17
-
-_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17: ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit, %52, %53, %54, %55, %56, %57, %58, %59
-  %.0.i.i16 = phi ptr [ @.str.3, %52 ], [ @.str.4, %53 ], [ @.str.5, %54 ], [ @.str.6, %55 ], [ @.str.7, %56 ], [ @.str.8, %57 ], [ @.str.9, %58 ], [ @.str.10, %59 ], [ @.str.2, %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit ]
-  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i16) #23
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i16, i64 %60
-  %62 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %.0.i.i16, ptr noundef nonnull %61, ptr %.sroa.014.126)
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 4
-  %63 = load ptr, ptr %6, align 8, !tbaa !64
-  %.not23 = icmp eq ptr %.sroa.0.0, %63
-  br i1 %.not23, label %.loopexit, label %24, !llvm.loop !666
-
-.loopexit:                                        ; preds = %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit, %3
-  %.sroa.014.0 = phi ptr [ %.sroa.0.0.copyload.i, %3 ], [ %20, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit ], [ %62, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit17 ]
+.loopexit:                                        ; preds = %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit, %3
+  %.sroa.014.0 = phi ptr [ %.sroa.0.0.copyload.i, %3 ], [ %17, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit ], [ %56, %_ZNK3fmt3v109formatterIN4LIEF2PE20ExDllCharacteristics15CHARACTERISTICSEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_.exit18 ]
   ret ptr %.sroa.014.0
 }
 
@@ -28932,53 +28873,59 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #20
+declare i64 @llvm.usub.sat.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
+declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #20
+declare float @llvm.fabs.f32(float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #20
+declare double @llvm.fabs.f64(double) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #20
+declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #20
+declare i64 @llvm.abs.i64(i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #20
+declare i32 @llvm.fshl.i32(i32, i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #20
+declare i64 @llvm.fshl.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i128 @llvm.ctlz.i128(i128, i1 immarg) #20
+declare i128 @llvm.ctlz.i128(i128, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -28999,8 +28946,8 @@ attributes #15 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stac
 attributes #16 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { builtin nounwind allocsize(0) }
 attributes #23 = { nounwind }

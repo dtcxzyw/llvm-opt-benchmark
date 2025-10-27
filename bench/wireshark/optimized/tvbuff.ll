@@ -8628,227 +8628,234 @@ define ptr @tvb_get_ds_tvb(ptr noundef readonly captures(none) %0) local_unnamed
 define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %6 = and i32 %4, 30
-  %7 = add nsw i32 %6, -2
-  %8 = lshr exact i32 %7, 1
-  switch i32 %8, label %116 [
-    i32 0, label %.preheader
-    i32 3, label %.preheader86
-    i32 7, label %.preheader88
-    i32 1, label %52
+  %7 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %6)
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %.split, label %117
+
+.split:                                           ; preds = %5
+  %9 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
+  switch i32 %9, label %default.unreachable76 [
+    i32 1, label %.preheader
+    i32 3, label %.preheader87
+    i32 4, label %.preheader89
+    i32 2, label %53
   ]
 
-.preheader88:                                     ; preds = %5
+.preheader89:                                     ; preds = %.split
   %invariant.umin = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.thread73, label %.lr.ph
 
-.preheader86:                                     ; preds = %5
-  %.not104 = icmp eq i32 %2, 0
-  br i1 %.not104, label %.thread73, label %.lr.ph99.preheader
-
-.lr.ph99.preheader:                               ; preds = %.preheader86
-  %invariant.umin96 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
-  %wide.trip.count = zext nneg i32 %invariant.umin96 to i64
-  br label %.lr.ph99
-
-.preheader:                                       ; preds = %5
+.preheader87:                                     ; preds = %.split
   %.not105 = icmp eq i32 %2, 0
-  br i1 %.not105, label %.thread73, label %.lr.ph103.preheader
+  br i1 %.not105, label %.thread73, label %.lr.ph100.preheader
 
-.lr.ph103.preheader:                              ; preds = %.preheader
-  %invariant.umin100 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
-  %wide.trip.count117 = zext nneg i32 %invariant.umin100 to i64
-  br label %.lr.ph103
+.lr.ph100.preheader:                              ; preds = %.preheader87
+  %invariant.umin97 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
+  %wide.trip.count = zext nneg i32 %invariant.umin97 to i64
+  br label %.lr.ph100
 
-.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %20
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next115, %20 ]
-  %.058102 = phi i32 [ %1, %.lr.ph103.preheader ], [ %21, %20 ]
-  %9 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.058102, i32 noundef 1)
-  %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 127
-  %12 = zext nneg i8 %11 to i64
-  %13 = mul nuw nsw i64 %indvars.iv114, 7
-  %14 = shl i64 %12, %13
-  %15 = load i64, ptr %3, align 8
-  %16 = or i64 %14, %15
-  store i64 %16, ptr %3, align 8
-  %17 = icmp sgt i8 %10, -1
-  br i1 %17, label %.thread, label %20
+.preheader:                                       ; preds = %.split
+  %.not106 = icmp eq i32 %2, 0
+  br i1 %.not106, label %.thread73, label %.lr.ph104.preheader
 
-.thread:                                          ; preds = %.lr.ph103
-  %18 = trunc nuw nsw i64 %indvars.iv114 to i32
-  %19 = add nuw nsw i32 %18, 1
+.lr.ph104.preheader:                              ; preds = %.preheader
+  %invariant.umin101 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
+  %wide.trip.count118 = zext nneg i32 %invariant.umin101 to i64
+  br label %.lr.ph104
+
+.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %21
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next116, %21 ]
+  %.058103 = phi i32 [ %1, %.lr.ph104.preheader ], [ %22, %21 ]
+  %10 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.058103, i32 noundef 1)
+  %11 = load i8, ptr %10, align 1
+  %12 = and i8 %11, 127
+  %13 = zext nneg i8 %12 to i64
+  %14 = mul nuw nsw i64 %indvars.iv115, 7
+  %15 = shl i64 %13, %14
+  %16 = load i64, ptr %3, align 8
+  %17 = or i64 %15, %16
+  store i64 %17, ptr %3, align 8
+  %18 = icmp sgt i8 %11, -1
+  br i1 %18, label %.thread, label %21
+
+.thread:                                          ; preds = %.lr.ph104
+  %19 = trunc nuw nsw i64 %indvars.iv115 to i32
+  %20 = add nuw nsw i32 %19, 1
   br label %.thread73
 
-20:                                               ; preds = %.lr.ph103
-  %21 = add i32 %.058102, 1
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.thread73, label %.lr.ph103, !llvm.loop !36
+21:                                               ; preds = %.lr.ph104
+  %22 = add i32 %.058103, 1
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %.thread73, label %.lr.ph104, !llvm.loop !36
 
-.lr.ph99:                                         ; preds = %.lr.ph99.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next, %37 ]
-  %.15998 = phi i32 [ %1, %.lr.ph99.preheader ], [ %38, %37 ]
-  %22 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15998, i32 noundef 1)
-  %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 127
-  %25 = zext nneg i8 %24 to i64
-  %26 = mul nuw nsw i64 %indvars.iv, 7
-  %27 = shl i64 %25, %26
-  %28 = load i64, ptr %3, align 8
-  %29 = or i64 %27, %28
-  store i64 %29, ptr %3, align 8
-  %30 = icmp sgt i8 %23, -1
-  br i1 %30, label %.thread70, label %37
+.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next, %38 ]
+  %.15999 = phi i32 [ %1, %.lr.ph100.preheader ], [ %39, %38 ]
+  %23 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15999, i32 noundef 1)
+  %24 = load i8, ptr %23, align 1
+  %25 = and i8 %24, 127
+  %26 = zext nneg i8 %25 to i64
+  %27 = mul nuw nsw i64 %indvars.iv, 7
+  %28 = shl i64 %26, %27
+  %29 = load i64, ptr %3, align 8
+  %30 = or i64 %28, %29
+  store i64 %30, ptr %3, align 8
+  %31 = icmp sgt i8 %24, -1
+  br i1 %31, label %.thread70, label %38
 
-.thread70:                                        ; preds = %.lr.ph99
-  %31 = trunc nuw nsw i64 %indvars.iv to i32
-  %32 = lshr i64 %29, 1
-  %33 = and i64 %29, 1
-  %34 = sub nsw i64 0, %33
-  %35 = xor i64 %32, %34
-  store i64 %35, ptr %3, align 8
-  %36 = add nuw nsw i32 %31, 1
+.thread70:                                        ; preds = %.lr.ph100
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  %33 = lshr i64 %30, 1
+  %34 = and i64 %30, 1
+  %35 = sub nsw i64 0, %34
+  %36 = xor i64 %33, %35
+  store i64 %36, ptr %3, align 8
+  %37 = add nuw nsw i32 %32, 1
   br label %.thread73
 
-37:                                               ; preds = %.lr.ph99
-  %38 = add i32 %.15998, 1
+38:                                               ; preds = %.lr.ph100
+  %39 = add i32 %.15999, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond113.not, label %.thread73, label %.lr.ph99, !llvm.loop !37
+  %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond114.not, label %.thread73, label %.lr.ph100, !llvm.loop !37
 
-.lr.ph:                                           ; preds = %.preheader88, %51
-  %.05794 = phi i32 [ %50, %51 ], [ 0, %.preheader88 ]
-  %.26093 = phi i32 [ %39, %51 ], [ %1, %.preheader88 ]
-  %39 = add i32 %.26093, 1
-  %40 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.26093, i32 noundef 1)
-  %41 = icmp eq i32 %.05794, 9
+.lr.ph:                                           ; preds = %.preheader89, %52
+  %.05795 = phi i32 [ %51, %52 ], [ 0, %.preheader89 ]
+  %.26094 = phi i32 [ %40, %52 ], [ %1, %.preheader89 ]
+  %40 = add i32 %.26094, 1
+  %41 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.26094, i32 noundef 1)
+  %42 = icmp eq i32 %.05795, 9
   %.pre = load i64, ptr %3, align 8
-  %42 = icmp ugt i64 %.pre, 144115188075855871
-  %or.cond = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond, label %.thread73, label %43
+  %43 = icmp ugt i64 %.pre, 144115188075855871
+  %or.cond = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond, label %.thread73, label %44
 
-43:                                               ; preds = %.lr.ph
-  %44 = load i8, ptr %40, align 1
-  %45 = shl i64 %.pre, 7
-  %46 = and i8 %44, 127
-  %47 = zext nneg i8 %46 to i64
-  %48 = or disjoint i64 %45, %47
-  store i64 %48, ptr %3, align 8
-  %49 = icmp sgt i8 %44, -1
-  %50 = add nuw nsw i32 %.05794, 1
-  br i1 %49, label %.thread73, label %51
+44:                                               ; preds = %.lr.ph
+  %45 = load i8, ptr %41, align 1
+  %46 = shl i64 %.pre, 7
+  %47 = and i8 %45, 127
+  %48 = zext nneg i8 %47 to i64
+  %49 = or disjoint i64 %46, %48
+  store i64 %49, ptr %3, align 8
+  %50 = icmp sgt i8 %45, -1
+  %51 = add nuw nsw i32 %.05795, 1
+  br i1 %50, label %.thread73, label %52
 
-51:                                               ; preds = %43
-  %exitcond.not = icmp eq i32 %50, %invariant.umin
+52:                                               ; preds = %44
+  %exitcond.not = icmp eq i32 %51, %invariant.umin
   br i1 %exitcond.not, label %.thread73, label %.lr.ph, !llvm.loop !38
 
-52:                                               ; preds = %5
-  %53 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 1)
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i64
-  store i64 %55, ptr %3, align 8
-  %56 = lshr i64 %55, 6
-  switch i64 %56, label %default.unreachable119 [
-    i64 0, label %57
-    i64 1, label %59
-    i64 2, label %66
-    i64 3, label %83
+53:                                               ; preds = %.split
+  %54 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 1)
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i64
+  store i64 %56, ptr %3, align 8
+  %57 = lshr i64 %56, 6
+  switch i64 %57, label %default.unreachable120 [
+    i64 0, label %58
+    i64 1, label %60
+    i64 2, label %67
+    i64 3, label %84
   ]
 
-57:                                               ; preds = %52
-  %58 = and i64 %55, 63
-  store i64 %58, ptr %3, align 8
+58:                                               ; preds = %53
+  %59 = and i64 %56, 63
+  store i64 %59, ptr %3, align 8
   br label %.thread73
 
-59:                                               ; preds = %52
-  %60 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 2)
-  %.val.i = load i8, ptr %60, align 1
-  %61 = getelementptr i8, ptr %60, i64 1
-  %.val2.i = load i8, ptr %61, align 1
-  %62 = zext i8 %.val.i to i64
-  %63 = shl nuw nsw i64 %62, 8
-  %64 = zext i8 %.val2.i to i64
-  %.masked85 = and i64 %63, 16128
-  %65 = or disjoint i64 %.masked85, %64
-  store i64 %65, ptr %3, align 8
+60:                                               ; preds = %53
+  %61 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 2)
+  %.val.i = load i8, ptr %61, align 1
+  %62 = getelementptr i8, ptr %61, i64 1
+  %.val2.i = load i8, ptr %62, align 1
+  %63 = zext i8 %.val.i to i64
+  %64 = shl nuw nsw i64 %63, 8
+  %65 = zext i8 %.val2.i to i64
+  %.masked86 = and i64 %64, 16128
+  %66 = or disjoint i64 %.masked86, %65
+  store i64 %66, ptr %3, align 8
   br label %.thread73
 
-66:                                               ; preds = %52
-  %67 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 4)
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i64
-  %70 = shl nuw nsw i64 %69, 24
-  %71 = getelementptr i8, ptr %67, i64 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i64
-  %74 = shl nuw nsw i64 %73, 16
-  %75 = getelementptr i8, ptr %67, i64 2
-  %76 = load i8, ptr %75, align 1
-  %77 = zext i8 %76 to i64
-  %78 = shl nuw nsw i64 %77, 8
-  %79 = getelementptr i8, ptr %67, i64 3
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i64
-  %.masked84 = and i64 %70, 1056964608
-  %.masked83 = or disjoint i64 %74, %.masked84
-  %.masked82 = or disjoint i64 %.masked83, %78
-  %82 = or disjoint i64 %.masked82, %81
-  store i64 %82, ptr %3, align 8
+67:                                               ; preds = %53
+  %68 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 4)
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i64
+  %71 = shl nuw nsw i64 %70, 24
+  %72 = getelementptr i8, ptr %68, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i64
+  %75 = shl nuw nsw i64 %74, 16
+  %76 = getelementptr i8, ptr %68, i64 2
+  %77 = load i8, ptr %76, align 1
+  %78 = zext i8 %77 to i64
+  %79 = shl nuw nsw i64 %78, 8
+  %80 = getelementptr i8, ptr %68, i64 3
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i64
+  %.masked85 = and i64 %71, 1056964608
+  %.masked84 = or disjoint i64 %75, %.masked85
+  %.masked83 = or disjoint i64 %.masked84, %79
+  %83 = or disjoint i64 %.masked83, %82
+  store i64 %83, ptr %3, align 8
   br label %.thread73
 
-83:                                               ; preds = %52
-  %84 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i64
-  %87 = shl nuw i64 %86, 56
-  %88 = getelementptr i8, ptr %84, i64 1
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i64
-  %91 = shl nuw nsw i64 %90, 48
-  %92 = getelementptr i8, ptr %84, i64 2
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i64
-  %95 = shl nuw nsw i64 %94, 40
-  %96 = getelementptr i8, ptr %84, i64 3
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i64
-  %99 = shl nuw nsw i64 %98, 32
-  %100 = getelementptr i8, ptr %84, i64 4
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i64
-  %103 = shl nuw nsw i64 %102, 24
-  %104 = getelementptr i8, ptr %84, i64 5
-  %105 = load i8, ptr %104, align 1
-  %106 = zext i8 %105 to i64
-  %107 = shl nuw nsw i64 %106, 16
-  %108 = getelementptr i8, ptr %84, i64 6
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i64
-  %111 = shl nuw nsw i64 %110, 8
-  %112 = getelementptr i8, ptr %84, i64 7
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i64
-  %.masked81 = and i64 %87, 4539628424389459968
-  %.masked80 = or disjoint i64 %91, %.masked81
-  %.masked79 = or disjoint i64 %.masked80, %95
-  %.masked78 = or disjoint i64 %.masked79, %99
-  %.masked77 = or disjoint i64 %.masked78, %103
-  %.masked76 = or disjoint i64 %.masked77, %107
-  %.masked = or disjoint i64 %.masked76, %111
-  %115 = or i64 %.masked, %114
-  store i64 %115, ptr %3, align 8
+84:                                               ; preds = %53
+  %85 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i64
+  %88 = shl nuw i64 %87, 56
+  %89 = getelementptr i8, ptr %85, i64 1
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i64
+  %92 = shl nuw nsw i64 %91, 48
+  %93 = getelementptr i8, ptr %85, i64 2
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i64
+  %96 = shl nuw nsw i64 %95, 40
+  %97 = getelementptr i8, ptr %85, i64 3
+  %98 = load i8, ptr %97, align 1
+  %99 = zext i8 %98 to i64
+  %100 = shl nuw nsw i64 %99, 32
+  %101 = getelementptr i8, ptr %85, i64 4
+  %102 = load i8, ptr %101, align 1
+  %103 = zext i8 %102 to i64
+  %104 = shl nuw nsw i64 %103, 24
+  %105 = getelementptr i8, ptr %85, i64 5
+  %106 = load i8, ptr %105, align 1
+  %107 = zext i8 %106 to i64
+  %108 = shl nuw nsw i64 %107, 16
+  %109 = getelementptr i8, ptr %85, i64 6
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i64
+  %112 = shl nuw nsw i64 %111, 8
+  %113 = getelementptr i8, ptr %85, i64 7
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i64
+  %.masked82 = and i64 %88, 4539628424389459968
+  %.masked81 = or disjoint i64 %92, %.masked82
+  %.masked80 = or disjoint i64 %.masked81, %96
+  %.masked79 = or disjoint i64 %.masked80, %100
+  %.masked78 = or disjoint i64 %.masked79, %104
+  %.masked77 = or disjoint i64 %.masked78, %108
+  %.masked = or disjoint i64 %.masked77, %112
+  %116 = or i64 %.masked, %115
+  store i64 %116, ptr %3, align 8
   br label %.thread73
 
-116:                                              ; preds = %5
+default.unreachable76:                            ; preds = %.split
+  unreachable
+
+117:                                              ; preds = %5
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 4874) #18
   unreachable
 
-.thread73:                                        ; preds = %51, %.lr.ph, %43, %37, %20, %.preheader88, %.preheader86, %.preheader, %.thread70, %.thread, %83, %66, %59, %57
-  %.1 = phi i32 [ 1, %57 ], [ 2, %59 ], [ 4, %66 ], [ 8, %83 ], [ %19, %.thread ], [ %36, %.thread70 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ 0, %20 ], [ 0, %37 ], [ 0, %51 ], [ 0, %.lr.ph ], [ %50, %43 ]
+.thread73:                                        ; preds = %52, %.lr.ph, %44, %38, %21, %.preheader89, %.preheader87, %.preheader, %.thread70, %.thread, %84, %67, %60, %58
+  %.1 = phi i32 [ 1, %58 ], [ 2, %60 ], [ 4, %67 ], [ 8, %84 ], [ %20, %.thread ], [ %37, %.thread70 ], [ 0, %.preheader ], [ 0, %.preheader87 ], [ 0, %.preheader89 ], [ 0, %21 ], [ 0, %38 ], [ 0, %52 ], [ 0, %.lr.ph ], [ %51, %44 ]
   ret i32 %.1
 
-default.unreachable119:                           ; preds = %52
+default.unreachable120:                           ; preds = %53
   unreachable
 }
 
@@ -8915,20 +8922,26 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #15
+declare i32 @llvm.usub.sat.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
@@ -8947,8 +8960,8 @@ attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid
 attributes #11 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { allocsize(0) }
 attributes #18 = { noreturn }

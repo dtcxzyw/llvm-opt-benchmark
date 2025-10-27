@@ -54141,7 +54141,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   %18 = load i32, ptr %17, align 8, !tbaa !467
   %19 = and i32 %18, %14
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %93, label %20
+  br i1 %.not, label %94, label %20
 
 20:                                               ; preds = %7
   %21 = load ptr, ptr %1, align 8, !tbaa !136
@@ -54161,187 +54161,191 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   br i1 %or.cond8.i, label %31, label %vm_dtrace.exit, !prof !700
 
 31:                                               ; preds = %20
-  %32 = add nsw i32 %14, -8
-  %33 = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 29)
-  switch i32 %33, label %vm_dtrace.exit [
-    i32 0, label %34
-    i32 3, label %46
-    i32 1, label %58
-    i32 7, label %70
+  %32 = tail call range(i32 0, 19) i32 @llvm.ctpop.i32(i32 range(i32 0, 131073) %14)
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %.split.i, label %vm_dtrace.exit
+
+.split.i:                                         ; preds = %31
+  %34 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, 131073) %14, i1 true)
+  switch i32 %34, label %vm_dtrace.exit [
+    i32 3, label %35
+    i32 5, label %47
+    i32 4, label %59
+    i32 6, label %71
   ]
 
-34:                                               ; preds = %31
-  br i1 %24, label %35, label %vm_dtrace.exit, !prof !176
+35:                                               ; preds = %.split.i
+  br i1 %24, label %36, label %vm_dtrace.exit, !prof !176
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %36 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %10)
-  %.not14.i = icmp eq i32 %36, 0
-  br i1 %.not14.i, label %45, label %37
+  %37 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %10)
+  %.not14.i = icmp eq i32 %37, 0
+  br i1 %.not14.i, label %46, label %38
 
-37:                                               ; preds = %35
+38:                                               ; preds = %36
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__entry_semaphore) #20, !srcloc !701
-  %38 = load ptr, ptr %10, align 8, !tbaa !457
-  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !459
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !460
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %38, i32 -2053, ptr %40, i32 -2053, ptr %42, i32 1025, i32 %44) #20, !srcloc !702
+  %39 = load ptr, ptr %10, align 8, !tbaa !457
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !459
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !460
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %45 = load i32, ptr %44, align 8, !tbaa !480
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %39, i32 -2053, ptr %41, i32 -2053, ptr %43, i32 1025, i32 %45) #20, !srcloc !702
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !703
-  br label %45
+  br label %46
 
-45:                                               ; preds = %37, %35
+46:                                               ; preds = %38, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %vm_dtrace.exit
 
-46:                                               ; preds = %31
-  br i1 %28, label %47, label %vm_dtrace.exit, !prof !176
+47:                                               ; preds = %.split.i
+  br i1 %28, label %48, label %vm_dtrace.exit, !prof !176
 
-47:                                               ; preds = %46
+48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %48 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11)
-  %.not13.i = icmp eq i32 %48, 0
-  br i1 %.not13.i, label %57, label %49
+  %49 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11)
+  %.not13.i = icmp eq i32 %49, 0
+  br i1 %.not13.i, label %58, label %50
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__entry_semaphore) #20, !srcloc !704
-  %50 = load ptr, ptr %11, align 8, !tbaa !457
-  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !459
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !460
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %50, i32 -2053, ptr %52, i32 -2053, ptr %54, i32 1025, i32 %56) #20, !srcloc !705
+  %51 = load ptr, ptr %11, align 8, !tbaa !457
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !459
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !460
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %57 = load i32, ptr %56, align 8, !tbaa !480
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %51, i32 -2053, ptr %53, i32 -2053, ptr %55, i32 1025, i32 %57) #20, !srcloc !705
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !706
-  br label %57
+  br label %58
 
-57:                                               ; preds = %49, %47
+58:                                               ; preds = %50, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %vm_dtrace.exit
 
-58:                                               ; preds = %31
-  br i1 %26, label %59, label %vm_dtrace.exit, !prof !176
+59:                                               ; preds = %.split.i
+  br i1 %26, label %60, label %vm_dtrace.exit, !prof !176
 
-59:                                               ; preds = %58
+60:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %60 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %12)
-  %.not12.i = icmp eq i32 %60, 0
-  br i1 %.not12.i, label %69, label %61
+  %61 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %12)
+  %.not12.i = icmp eq i32 %61, 0
+  br i1 %.not12.i, label %70, label %62
 
-61:                                               ; preds = %59
+62:                                               ; preds = %60
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__return_semaphore) #20, !srcloc !707
-  %62 = load ptr, ptr %12, align 8, !tbaa !457
-  %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !459
-  %65 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !460
-  %67 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %68 = load i32, ptr %67, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %62, i32 -2053, ptr %64, i32 -2053, ptr %66, i32 1025, i32 %68) #20, !srcloc !708
+  %63 = load ptr, ptr %12, align 8, !tbaa !457
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !459
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !460
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %69 = load i32, ptr %68, align 8, !tbaa !480
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %63, i32 -2053, ptr %65, i32 -2053, ptr %67, i32 1025, i32 %69) #20, !srcloc !708
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !709
-  br label %69
+  br label %70
 
-69:                                               ; preds = %61, %59
+70:                                               ; preds = %62, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %vm_dtrace.exit
 
-70:                                               ; preds = %31
-  br i1 %30, label %71, label %vm_dtrace.exit, !prof !176
+71:                                               ; preds = %.split.i
+  br i1 %30, label %72, label %vm_dtrace.exit, !prof !176
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %72 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %13)
-  %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %81, label %73
+  %73 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %13)
+  %.not.i = icmp eq i32 %73, 0
+  br i1 %.not.i, label %82, label %74
 
-73:                                               ; preds = %71
+74:                                               ; preds = %72
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !710
-  %74 = load ptr, ptr %13, align 8, !tbaa !457
-  %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !459
-  %77 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !460
-  %79 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %80 = load i32, ptr %79, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %74, i32 -2053, ptr %76, i32 -2053, ptr %78, i32 1025, i32 %80) #20, !srcloc !711
+  %75 = load ptr, ptr %13, align 8, !tbaa !457
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !459
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !460
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %81 = load i32, ptr %80, align 8, !tbaa !480
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %75, i32 -2053, ptr %77, i32 -2053, ptr %79, i32 1025, i32 %81) #20, !srcloc !711
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !712
-  br label %81
+  br label %82
 
-81:                                               ; preds = %73, %71
+82:                                               ; preds = %74, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %vm_dtrace.exit
 
-vm_dtrace.exit:                                   ; preds = %20, %31, %34, %45, %46, %57, %58, %69, %70, %81
+vm_dtrace.exit:                                   ; preds = %20, %31, %.split.i, %35, %46, %47, %58, %59, %70, %71, %82
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %14, ptr %9, align 8, !tbaa !468
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %0, ptr %82, align 8, !tbaa !470
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !66
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %84, ptr %85, align 8, !tbaa !471
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %16, ptr %86, align 8, !tbaa !472
-  %87 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
-  store i64 %6, ptr %88, align 8, !tbaa !476
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i64 36, ptr %89, align 8, !tbaa !477
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i32 0, ptr %90, align 8, !tbaa !478
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %0, ptr %83, align 8, !tbaa !470
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !66
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %85, ptr %86, align 8, !tbaa !471
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 %16, ptr %87, align 8, !tbaa !472
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
+  store i64 %6, ptr %89, align 8, !tbaa !476
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store i64 36, ptr %90, align 8, !tbaa !477
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store i32 0, ptr %91, align 8, !tbaa !478
   call void @rb_exec_event_hooks(ptr noundef nonnull %9, ptr noundef nonnull %4, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %91 = load ptr, ptr %1, align 8, !tbaa !136
-  %92 = getelementptr i8, ptr %91, i64 -8
-  store ptr %92, ptr %1, align 8, !tbaa !136
-  br label %93
+  %92 = load ptr, ptr %1, align 8, !tbaa !136
+  %93 = getelementptr i8, ptr %92, i64 -8
+  store ptr %93, ptr %1, align 8, !tbaa !136
+  br label %94
 
-93:                                               ; preds = %vm_dtrace.exit, %7
-  %94 = load ptr, ptr %5, align 8, !tbaa !713
-  %.not24 = icmp eq ptr %94, null
-  br i1 %.not24, label %113, label %95
+94:                                               ; preds = %vm_dtrace.exit, %7
+  %95 = load ptr, ptr %5, align 8, !tbaa !713
+  %.not24 = icmp eq ptr %95, null
+  br i1 %.not24, label %114, label %96
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !467
-  %98 = and i32 %97, %14
-  %.not25 = icmp eq i32 %98, 0
-  br i1 %.not25, label %113, label %99
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !467
+  %99 = and i32 %98, %14
+  %.not25 = icmp eq i32 %99, 0
+  br i1 %.not25, label %114, label %100
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %1, align 8, !tbaa !136
-  %101 = getelementptr i8, ptr %100, i64 8
-  store ptr %101, ptr %1, align 8, !tbaa !136
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %1, align 8, !tbaa !136
+  %102 = getelementptr i8, ptr %101, i64 8
+  store ptr %102, ptr %1, align 8, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %14, ptr %8, align 8, !tbaa !468
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %0, ptr %102, align 8, !tbaa !470
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !66
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %104, ptr %105, align 8, !tbaa !471
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %16, ptr %106, align 8, !tbaa !472
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %108 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false)
-  store i64 %6, ptr %108, align 8, !tbaa !476
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i64 36, ptr %109, align 8, !tbaa !477
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 0, ptr %110, align 8, !tbaa !478
-  call void @rb_exec_event_hooks(ptr noundef nonnull %8, ptr noundef nonnull %94, i32 noundef 0) #20
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %0, ptr %103, align 8, !tbaa !470
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = load ptr, ptr %104, align 8, !tbaa !66
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %105, ptr %106, align 8, !tbaa !471
+  %107 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %16, ptr %107, align 8, !tbaa !472
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
+  store i64 %6, ptr %109, align 8, !tbaa !476
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i64 36, ptr %110, align 8, !tbaa !477
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store i32 0, ptr %111, align 8, !tbaa !478
+  call void @rb_exec_event_hooks(ptr noundef nonnull %8, ptr noundef nonnull %95, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %111 = load ptr, ptr %1, align 8, !tbaa !136
-  %112 = getelementptr i8, ptr %111, i64 -8
-  store ptr %112, ptr %1, align 8, !tbaa !136
-  br label %113
+  %112 = load ptr, ptr %1, align 8, !tbaa !136
+  %113 = getelementptr i8, ptr %112, i64 -8
+  store ptr %113, ptr %1, align 8, !tbaa !136
+  br label %114
 
-113:                                              ; preds = %95, %99, %93
+114:                                              ; preds = %96, %100, %94
   ret void
 }
 
@@ -62837,6 +62841,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #49
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #49
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #50
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #50

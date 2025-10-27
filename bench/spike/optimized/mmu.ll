@@ -1682,38 +1682,44 @@ _ZN5mmu_t7mmio_okEm11access_type.exit:            ; preds = %9, %13
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_Z14reg_from_bytesmPKh(i64 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
-  switch i64 %0, label %14 [
-    i64 1, label %3
-    i64 2, label %6
-    i64 4, label %9
-    i64 8, label %12
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %4 = icmp eq i64 %3, 1
+  br i1 %4, label %.split, label %17
+
+.split:                                           ; preds = %2
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  switch i64 %5, label %17 [
+    i64 0, label %6
+    i64 1, label %9
+    i64 2, label %12
+    i64 3, label %15
   ]
 
-3:                                                ; preds = %2
-  %4 = load i8, ptr %1, align 1, !tbaa !209
-  %5 = zext i8 %4 to i64
-  br label %15
+6:                                                ; preds = %.split
+  %7 = load i8, ptr %1, align 1, !tbaa !209
+  %8 = zext i8 %7 to i64
+  br label %18
 
-6:                                                ; preds = %2
-  %7 = load i16, ptr %1, align 1
-  %8 = zext i16 %7 to i64
-  br label %15
+9:                                                ; preds = %.split
+  %10 = load i16, ptr %1, align 1
+  %11 = zext i16 %10 to i64
+  br label %18
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %1, align 1
-  %11 = zext i32 %10 to i64
-  br label %15
+12:                                               ; preds = %.split
+  %13 = load i32, ptr %1, align 1
+  %14 = zext i32 %13 to i64
+  br label %18
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %1, align 1
-  br label %15
+15:                                               ; preds = %.split
+  %16 = load i64, ptr %1, align 1
+  br label %18
 
-14:                                               ; preds = %2
+17:                                               ; preds = %2, %.split
   tail call void @abort() #26
   unreachable
 
-15:                                               ; preds = %12, %9, %6, %3
-  %.0 = phi i64 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %13, %12 ]
+18:                                               ; preds = %15, %12, %9, %6
+  %.0 = phi i64 [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i64 %.0
 }
 
@@ -2499,38 +2505,47 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %17, %_ZN5mmu_t21is_
 ._crit_edge:                                      ; preds = %.lr.ph, %46
   %.047.lcssa = phi i64 [ %2, %46 ], [ %49, %.lr.ph ]
   %.0.lcssa = phi ptr [ %3, %46 ], [ %50, %.lr.ph ]
-  switch i64 %.047.lcssa, label %63 [
-    i64 1, label %52
-    i64 2, label %55
-    i64 4, label %58
-    i64 8, label %61
+  %52 = tail call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %.047.lcssa)
+  %53 = icmp eq i64 %52, 1
+  br i1 %53, label %.split.i, label %66
+
+.split.i:                                         ; preds = %._crit_edge
+  %54 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.047.lcssa, i1 true)
+  switch i64 %54, label %default.unreachable55 [
+    i64 0, label %55
+    i64 1, label %58
+    i64 2, label %61
+    i64 3, label %64
   ]
 
-52:                                               ; preds = %._crit_edge
-  %53 = load i8, ptr %.0.lcssa, align 1, !tbaa !209
-  %54 = zext i8 %53 to i64
+55:                                               ; preds = %.split.i
+  %56 = load i8, ptr %.0.lcssa, align 1, !tbaa !209
+  %57 = zext i8 %56 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
-55:                                               ; preds = %._crit_edge
-  %56 = load i16, ptr %.0.lcssa, align 1
-  %57 = zext i16 %56 to i64
+58:                                               ; preds = %.split.i
+  %59 = load i16, ptr %.0.lcssa, align 1
+  %60 = zext i16 %59 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
-58:                                               ; preds = %._crit_edge
-  %59 = load i32, ptr %.0.lcssa, align 1
-  %60 = zext i32 %59 to i64
+61:                                               ; preds = %.split.i
+  %62 = load i32, ptr %.0.lcssa, align 1
+  %63 = zext i32 %62 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
-61:                                               ; preds = %._crit_edge
-  %62 = load i64, ptr %.0.lcssa, align 1
+64:                                               ; preds = %.split.i
+  %65 = load i64, ptr %.0.lcssa, align 1
   br label %_Z14reg_from_bytesmPKh.exit
 
-63:                                               ; preds = %._crit_edge
+default.unreachable55:                            ; preds = %.split.i
+  unreachable
+
+66:                                               ; preds = %._crit_edge
   tail call void @abort() #26
   unreachable
 
-_Z14reg_from_bytesmPKh.exit:                      ; preds = %52, %55, %58, %61
-  %.0.i = phi i64 [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %62, %61 ]
+_Z14reg_from_bytesmPKh.exit:                      ; preds = %55, %58, %61, %64
+  %.0.i = phi i64 [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %65, %64 ]
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 2, i64 noundef %9, i1 noundef zeroext %12, i64 %.0.i, i8 1)
   ret void
 }
@@ -2755,7 +2770,7 @@ define void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnu
   call void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind nonnull writable sret(%struct.mem_access_info_t) align 8 %8, ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %1, i32 noundef 1, i8 %4)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i64, ptr %10, align 8
-  br i1 %5, label %.preheader, label %32
+  br i1 %5, label %.preheader, label %35
 
 .preheader:                                       ; preds = %7
   %12 = icmp ugt i64 %2, 8
@@ -2777,115 +2792,124 @@ define void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnu
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.035.lcssa = phi ptr [ %3, %.preheader ], [ %18, %.lr.ph ]
   %.0.lcssa = phi i64 [ %2, %.preheader ], [ %17, %.lr.ph ]
-  switch i64 %.0.lcssa, label %31 [
-    i64 1, label %20
-    i64 2, label %23
-    i64 4, label %26
-    i64 8, label %29
+  %20 = tail call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %.0.lcssa)
+  %21 = icmp eq i64 %20, 1
+  br i1 %21, label %.split.i, label %34
+
+.split.i:                                         ; preds = %._crit_edge
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.lcssa, i1 true)
+  switch i64 %22, label %default.unreachable61 [
+    i64 0, label %23
+    i64 1, label %26
+    i64 2, label %29
+    i64 3, label %32
   ]
 
-20:                                               ; preds = %._crit_edge
-  %21 = load i8, ptr %.035.lcssa, align 1, !tbaa !209
-  %22 = zext i8 %21 to i64
+23:                                               ; preds = %.split.i
+  %24 = load i8, ptr %.035.lcssa, align 1, !tbaa !209
+  %25 = zext i8 %24 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
-23:                                               ; preds = %._crit_edge
-  %24 = load i16, ptr %.035.lcssa, align 1
-  %25 = zext i16 %24 to i64
+26:                                               ; preds = %.split.i
+  %27 = load i16, ptr %.035.lcssa, align 1
+  %28 = zext i16 %27 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
-26:                                               ; preds = %._crit_edge
-  %27 = load i32, ptr %.035.lcssa, align 1
-  %28 = zext i32 %27 to i64
+29:                                               ; preds = %.split.i
+  %30 = load i32, ptr %.035.lcssa, align 1
+  %31 = zext i32 %30 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
-29:                                               ; preds = %._crit_edge
-  %30 = load i64, ptr %.035.lcssa, align 1
+32:                                               ; preds = %.split.i
+  %33 = load i64, ptr %.035.lcssa, align 1
   br label %_Z14reg_from_bytesmPKh.exit
 
-31:                                               ; preds = %._crit_edge
+default.unreachable61:                            ; preds = %.split.i
+  unreachable
+
+34:                                               ; preds = %._crit_edge
   tail call void @abort() #26
   unreachable
 
-_Z14reg_from_bytesmPKh.exit:                      ; preds = %20, %23, %26, %29
-  %.0.i = phi i64 [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %30, %29 ]
+_Z14reg_from_bytesmPKh.exit:                      ; preds = %23, %26, %29, %32
+  %.0.i = phi i64 [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %33, %32 ]
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %11, i1 noundef zeroext %15, i64 %.0.i, i8 1)
-  br label %32
+  br label %35
 
-32:                                               ; preds = %_Z14reg_from_bytesmPKh.exit, %7
-  %33 = add i64 %2, -1
-  %34 = and i64 %11, %33
-  %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %63, label %35
+35:                                               ; preds = %_Z14reg_from_bytesmPKh.exit, %7
+  %36 = add i64 %2, -1
+  %37 = and i64 %11, %36
+  %.not = icmp eq i64 %37, 0
+  br i1 %.not, label %66, label %38
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %37 = load i8, ptr %36, align 8, !range !69, !noundef !70
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !39
-  %.not.i = icmp eq ptr %39, null
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %40 = load i8, ptr %39, align 8, !range !69, !noundef !70
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %42 = load ptr, ptr %41, align 8, !tbaa !39
+  %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %_ZN5mmu_t21is_misaligned_enabledEv.exit.thread, label %_ZN5mmu_t21is_misaligned_enabledEv.exit
 
-_ZN5mmu_t21is_misaligned_enabledEv.exit:          ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 160
-  %41 = load ptr, ptr %40, align 8, !tbaa !235
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = load i8, ptr %42, align 8, !tbaa !236, !range !69, !noundef !70
-  %.not39 = icmp eq i8 %43, 0
-  br i1 %.not39, label %_ZN5mmu_t21is_misaligned_enabledEv.exit.thread, label %49
+_ZN5mmu_t21is_misaligned_enabledEv.exit:          ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 160
+  %44 = load ptr, ptr %43, align 8, !tbaa !235
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !236, !range !69, !noundef !70
+  %.not39 = icmp eq i8 %46, 0
+  br i1 %.not39, label %_ZN5mmu_t21is_misaligned_enabledEv.exit.thread, label %52
 
-_ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %35, %_ZN5mmu_t21is_misaligned_enabledEv.exit
-  %44 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 6, ptr %45, align 8, !tbaa !58
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i8 %37, ptr %46, align 8, !tbaa !60
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store i64 %11, ptr %47, align 8, !tbaa !62
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %44, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #28
+_ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %38, %_ZN5mmu_t21is_misaligned_enabledEv.exit
+  %47 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 6, ptr %48, align 8, !tbaa !58
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i8 %40, ptr %49, align 8, !tbaa !60
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store i64 %11, ptr %50, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %47, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #28
   unreachable
 
-49:                                               ; preds = %_ZN5mmu_t21is_misaligned_enabledEv.exit
-  br i1 %6, label %50, label %56
+52:                                               ; preds = %_ZN5mmu_t21is_misaligned_enabledEv.exit
+  br i1 %6, label %53, label %59
 
-50:                                               ; preds = %49
-  %51 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 7, ptr %52, align 8, !tbaa !58
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i8 %37, ptr %53, align 8, !tbaa !60
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i64 %11, ptr %54, align 8, !tbaa !62
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %51, align 8, !tbaa !40
-  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN6trap_tD2Ev) #28
+53:                                               ; preds = %52
+  %54 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i64 7, ptr %55, align 8, !tbaa !58
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i8 %40, ptr %56, align 8, !tbaa !60
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  store i64 %11, ptr %57, align 8, !tbaa !62
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %54, align 8, !tbaa !40
+  tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN6trap_tD2Ev) #28
   unreachable
 
-56:                                               ; preds = %49
-  %57 = and i64 %11, 4095
-  %58 = sub nuw nsw i64 4096, %57
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %58, i64 %2)
+59:                                               ; preds = %52
+  %60 = and i64 %11, 4095
+  %61 = sub nuw nsw i64 4096, %60
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %61, i64 %2)
   tail call void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %.sroa.speculated, ptr noundef %3, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %8, i1 noundef zeroext %5)
-  %.not40.not = icmp ugt i64 %2, %58
-  br i1 %.not40.not, label %59, label %64
+  %.not40.not = icmp ugt i64 %2, %61
+  br i1 %.not40.not, label %62, label %67
 
-59:                                               ; preds = %56
-  %60 = add i64 %.sroa.speculated, %1
-  call void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind nonnull writable sret(%struct.mem_access_info_t) align 8 %9, ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %60, i32 noundef 1, i8 %4)
-  %61 = sub i64 %2, %.sroa.speculated
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.speculated
-  tail call void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %61, ptr noundef nonnull %62, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %9, i1 noundef zeroext %5)
-  br label %64
+62:                                               ; preds = %59
+  %63 = add i64 %.sroa.speculated, %1
+  call void @_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t(ptr dead_on_unwind nonnull writable sret(%struct.mem_access_info_t) align 8 %9, ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %63, i32 noundef 1, i8 %4)
+  %64 = sub i64 %2, %.sroa.speculated
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.speculated
+  tail call void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %64, ptr noundef nonnull %65, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %9, i1 noundef zeroext %5)
+  br label %67
 
-63:                                               ; preds = %32
+66:                                               ; preds = %35
   tail call void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %2, ptr noundef %3, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %8, i1 noundef zeroext %5)
-  br label %64
+  br label %67
 
-64:                                               ; preds = %56, %59, %63
+67:                                               ; preds = %59, %62, %66
   ret void
 }
 
@@ -4322,17 +4346,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #23
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4357,8 +4384,8 @@ attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #20 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { builtin nounwind }
 attributes #26 = { noreturn nounwind }
 attributes #27 = { nounwind }

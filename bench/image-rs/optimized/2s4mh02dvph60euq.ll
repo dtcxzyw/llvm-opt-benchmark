@@ -8401,7 +8401,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !122, !noundef !4
   %30 = load i8, ptr %29, align 1, !range !48, !noundef !4
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %47, label %32
+  br i1 %31, label %50, label %32
 
 32:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8435,110 +8435,116 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8, !nonnull !4, !align !1370, !noundef !4
   %46 = load i16, ptr %45, align 2, !noundef !4
-  switch i16 %46, label %54 [
-    i16 1, label %55
-    i16 2, label %65
-    i16 4, label %78
-    i16 8, label %92
+  %47 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %46)
+  %48 = icmp eq i16 %47, 1
+  br i1 %48, label %.split, label %57
+
+.split:                                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 true)
+  switch i16 %49, label %57 [
+    i16 0, label %58
+    i16 1, label %68
+    i16 2, label %81
+    i16 3, label %95
   ]
 
-47:                                               ; preds = %26
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8, !nonnull !4, !align !231, !noundef !4
-  %50 = load i64, ptr %49, align 8, !noundef !4
+50:                                               ; preds = %26
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = load ptr, ptr %51, align 8, !nonnull !4, !align !231, !noundef !4
+  %53 = load i64, ptr %52, align 8, !noundef !4
   %.val = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %.val56 = load i64, ptr %12, align 8, !noundef !4
-  %51 = icmp ugt i64 %50, %.val56
-  br i1 %51, label %52, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
+  %54 = icmp ugt i64 %53, %.val56
+  br i1 %54, label %55, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
 
-52:                                               ; preds = %47
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %50, i64 noundef %.val56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.199) #33, !noalias !1371
+55:                                               ; preds = %50
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %53, i64 noundef %.val56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.199) #33, !noalias !1371
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit": ; preds = %47
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit": ; preds = %50
   call void @llvm.experimental.noalias.scope.decl(metadata !1374)
   call void @llvm.experimental.noalias.scope.decl(metadata !1377)
-  %.not.i = icmp eq i64 %2, %50
-  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", label %53
+  %.not.i = icmp eq i64 %2, %53
+  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", label %56
 
-53:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
-  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %2, i64 noundef %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.200) #33, !noalias !1379
+56:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %2, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.200) #33, !noalias !1379
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %.val, i64 %2, i1 false), !alias.scope !1379, !noalias !1380
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit"
 
-54:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+57:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit", %.split
   call void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$26read_palettized_pixel_data28_$u7b$$u7b$closure$u7d$$u7d$19panic_cold_explicit17hdd3f88806b221843E"(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.198) #33
   unreachable
 
-55:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %57 = load ptr, ptr %56, align 8, !nonnull !4, !align !231, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %61 = load i64, ptr %60, align 8, !noundef !4
-  %62 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %63 = load i64, ptr %12, align 8, !noundef !4
-  %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  call fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h4900d56aad44018fE(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %59, i64 noundef %61, ptr noundef nonnull %62, ptr noundef %64)
-  br label %106
+58:                                               ; preds = %.split
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = load ptr, ptr %59, align 8, !nonnull !4, !align !231, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %64 = load i64, ptr %63, align 8, !noundef !4
+  %65 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %66 = load i64, ptr %12, align 8, !noundef !4
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  call fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h4900d56aad44018fE(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %62, i64 noundef %64, ptr noundef nonnull %65, ptr noundef %67)
+  br label %109
 
-65:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %67 = load ptr, ptr %66, align 8, !nonnull !4, !align !231, !noundef !4
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %71 = load i64, ptr %70, align 8, !noundef !4
-  %72 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %73 = load i64, ptr %12, align 8, !noundef !4
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %76 = load ptr, ptr %75, align 8, !nonnull !4, !align !231, !noundef !4
-  %77 = load i64, ptr %76, align 8, !noundef !4
-  call fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h7c83f1dbfa81ddecE(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %71, ptr noundef nonnull %72, ptr noundef %74, i64 noundef %77)
-  br label %106
+68:                                               ; preds = %.split
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = load ptr, ptr %69, align 8, !nonnull !4, !align !231, !noundef !4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %74 = load i64, ptr %73, align 8, !noundef !4
+  %75 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %76 = load i64, ptr %12, align 8, !noundef !4
+  %77 = getelementptr inbounds i8, ptr %75, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %79 = load ptr, ptr %78, align 8, !nonnull !4, !align !231, !noundef !4
+  %80 = load i64, ptr %79, align 8, !noundef !4
+  call fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h7c83f1dbfa81ddecE(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %72, i64 noundef %74, ptr noundef nonnull %75, ptr noundef %77, i64 noundef %80)
+  br label %109
 
-78:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = load ptr, ptr %79, align 8, !nonnull !4, !align !231, !noundef !4
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8, !nonnull !4, !noundef !4
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %84 = load i64, ptr %83, align 8, !noundef !4
-  %85 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %86 = load i64, ptr %12, align 8, !noundef !4
-  %87 = getelementptr inbounds i8, ptr %85, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %89 = load ptr, ptr %88, align 8, !nonnull !4, !align !231, !noundef !4
-  %90 = load i64, ptr %89, align 8, !noundef !4
-  %91 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bit_pixel_run17h4bc067c57206abd4E(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %84, ptr noundef nonnull %85, ptr noundef %87, i64 noundef %90)
-  br label %106
+81:                                               ; preds = %.split
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %83 = load ptr, ptr %82, align 8, !nonnull !4, !align !231, !noundef !4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %87 = load i64, ptr %86, align 8, !noundef !4
+  %88 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %89 = load i64, ptr %12, align 8, !noundef !4
+  %90 = getelementptr inbounds i8, ptr %88, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %92 = load ptr, ptr %91, align 8, !nonnull !4, !align !231, !noundef !4
+  %93 = load i64, ptr %92, align 8, !noundef !4
+  %94 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bit_pixel_run17h4bc067c57206abd4E(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %87, ptr noundef nonnull %88, ptr noundef %90, i64 noundef %93)
+  br label %109
 
-92:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %94 = load ptr, ptr %93, align 8, !nonnull !4, !align !231, !noundef !4
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8, !nonnull !4, !noundef !4
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %98 = load i64, ptr %97, align 8, !noundef !4
-  %99 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %100 = load i64, ptr %12, align 8, !noundef !4
-  %101 = getelementptr inbounds i8, ptr %99, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %103 = load ptr, ptr %102, align 8, !nonnull !4, !align !231, !noundef !4
-  %104 = load i64, ptr %103, align 8, !noundef !4
-  %105 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bit_pixel_run17h1a86c99757b89ee1E(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %96, i64 noundef %98, ptr noundef nonnull %99, ptr noundef %101, i64 noundef %104)
-  br label %106
+95:                                               ; preds = %.split
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %97 = load ptr, ptr %96, align 8, !nonnull !4, !align !231, !noundef !4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %101 = load i64, ptr %100, align 8, !noundef !4
+  %102 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %103 = load i64, ptr %12, align 8, !noundef !4
+  %104 = getelementptr inbounds i8, ptr %102, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %106 = load ptr, ptr %105, align 8, !nonnull !4, !align !231, !noundef !4
+  %107 = load i64, ptr %106, align 8, !noundef !4
+  %108 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bit_pixel_run17h1a86c99757b89ee1E(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %99, i64 noundef %101, ptr noundef nonnull %102, ptr noundef %104, i64 noundef %107)
+  br label %109
 
-106:                                              ; preds = %92, %78, %65, %55
+109:                                              ; preds = %95, %81, %68, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit"
 
-"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit": ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", %106
+"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit": ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", %109
   ret ptr %24
 }
 
@@ -8559,14 +8565,14 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit": ; preds = %3
   %14 = tail call noundef ptr @_ZN3std2io18default_read_exact17hafb8c1a6e12607feE(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull align 1 %10, i64 noundef %12)
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread", label %95
+  br i1 %15, label %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread", label %98
 
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread": ; preds = %3, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !122, !noundef !4
   %18 = load i8, ptr %17, align 1, !range !48, !noundef !4
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %35, label %20
+  br i1 %19, label %38, label %20
 
 20:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8600,111 +8606,117 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !align !1370, !noundef !4
   %34 = load i16, ptr %33, align 2, !noundef !4
-  switch i16 %34, label %42 [
-    i16 1, label %43
-    i16 2, label %53
-    i16 4, label %66
-    i16 8, label %80
+  %35 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %34)
+  %36 = icmp eq i16 %35, 1
+  br i1 %36, label %.split, label %45
+
+.split:                                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+  %37 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %34, i1 true)
+  switch i16 %37, label %45 [
+    i16 0, label %46
+    i16 1, label %56
+    i16 2, label %69
+    i16 3, label %83
   ]
 
-35:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread"
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !nonnull !4, !align !231, !noundef !4
-  %38 = load i64, ptr %37, align 8, !noundef !4
+38:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread"
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load ptr, ptr %39, align 8, !nonnull !4, !align !231, !noundef !4
+  %41 = load i64, ptr %40, align 8, !noundef !4
   %.val = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %.val56 = load i64, ptr %11, align 8, !noundef !4
-  %39 = icmp ugt i64 %38, %.val56
-  br i1 %39, label %40, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
+  %42 = icmp ugt i64 %41, %.val56
+  br i1 %42, label %43, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
 
-40:                                               ; preds = %35
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %38, i64 noundef %.val56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.199) #33, !noalias !1390
+43:                                               ; preds = %38
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %41, i64 noundef %.val56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.199) #33, !noalias !1390
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit": ; preds = %35
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit": ; preds = %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1393)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1396)
-  %.not.i = icmp eq i64 %2, %38
-  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", label %41
+  %.not.i = icmp eq i64 %2, %41
+  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", label %44
 
-41:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
-  tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %2, i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.200) #33, !noalias !1398
+44:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
+  tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %2, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.200) #33, !noalias !1398
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %.val, i64 %2, i1 false), !alias.scope !1398, !noalias !1399
-  br label %95
+  br label %98
 
-42:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+45:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit", %.split
   tail call void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$26read_palettized_pixel_data28_$u7b$$u7b$closure$u7d$$u7d$19panic_cold_explicit17hdd3f88806b221843E"(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.198) #33
   unreachable
 
-43:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = load ptr, ptr %44, align 8, !nonnull !4, !align !231, !noundef !4
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %49 = load i64, ptr %48, align 8, !noundef !4
-  %50 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %51 = load i64, ptr %11, align 8, !noundef !4
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  call fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h4900d56aad44018fE(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %49, ptr noundef nonnull %50, ptr noundef %52)
-  br label %94
+46:                                               ; preds = %.split
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %48 = load ptr, ptr %47, align 8, !nonnull !4, !align !231, !noundef !4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %52 = load i64, ptr %51, align 8, !noundef !4
+  %53 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %54 = load i64, ptr %11, align 8, !noundef !4
+  %55 = getelementptr inbounds i8, ptr %53, i64 %54
+  call fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h4900d56aad44018fE(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %52, ptr noundef nonnull %53, ptr noundef %55)
+  br label %97
 
-53:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %55 = load ptr, ptr %54, align 8, !nonnull !4, !align !231, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %59 = load i64, ptr %58, align 8, !noundef !4
-  %60 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %61 = load i64, ptr %11, align 8, !noundef !4
-  %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = load ptr, ptr %63, align 8, !nonnull !4, !align !231, !noundef !4
-  %65 = load i64, ptr %64, align 8, !noundef !4
-  call fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h7c83f1dbfa81ddecE(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef %59, ptr noundef nonnull %60, ptr noundef %62, i64 noundef %65)
-  br label %94
+56:                                               ; preds = %.split
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %58 = load ptr, ptr %57, align 8, !nonnull !4, !align !231, !noundef !4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8, !nonnull !4, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %62 = load i64, ptr %61, align 8, !noundef !4
+  %63 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %64 = load i64, ptr %11, align 8, !noundef !4
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %67 = load ptr, ptr %66, align 8, !nonnull !4, !align !231, !noundef !4
+  %68 = load i64, ptr %67, align 8, !noundef !4
+  call fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h7c83f1dbfa81ddecE(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %62, ptr noundef nonnull %63, ptr noundef %65, i64 noundef %68)
+  br label %97
 
-66:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load ptr, ptr %67, align 8, !nonnull !4, !align !231, !noundef !4
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %72 = load i64, ptr %71, align 8, !noundef !4
-  %73 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %74 = load i64, ptr %11, align 8, !noundef !4
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %77 = load ptr, ptr %76, align 8, !nonnull !4, !align !231, !noundef !4
-  %78 = load i64, ptr %77, align 8, !noundef !4
-  %79 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bit_pixel_run17h4bc067c57206abd4E(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %72, ptr noundef nonnull %73, ptr noundef %75, i64 noundef %78)
-  br label %94
+69:                                               ; preds = %.split
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %71 = load ptr, ptr %70, align 8, !nonnull !4, !align !231, !noundef !4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %75 = load i64, ptr %74, align 8, !noundef !4
+  %76 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %77 = load i64, ptr %11, align 8, !noundef !4
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %80 = load ptr, ptr %79, align 8, !nonnull !4, !align !231, !noundef !4
+  %81 = load i64, ptr %80, align 8, !noundef !4
+  %82 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bit_pixel_run17h4bc067c57206abd4E(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %75, ptr noundef nonnull %76, ptr noundef %78, i64 noundef %81)
+  br label %97
 
-80:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %82 = load ptr, ptr %81, align 8, !nonnull !4, !align !231, !noundef !4
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %86 = load i64, ptr %85, align 8, !noundef !4
-  %87 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %88 = load i64, ptr %11, align 8, !noundef !4
-  %89 = getelementptr inbounds i8, ptr %87, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %91 = load ptr, ptr %90, align 8, !nonnull !4, !align !231, !noundef !4
-  %92 = load i64, ptr %91, align 8, !noundef !4
-  %93 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bit_pixel_run17h1a86c99757b89ee1E(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86, ptr noundef nonnull %87, ptr noundef %89, i64 noundef %92)
-  br label %94
+83:                                               ; preds = %.split
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %85 = load ptr, ptr %84, align 8, !nonnull !4, !align !231, !noundef !4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8, !nonnull !4, !noundef !4
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %89 = load i64, ptr %88, align 8, !noundef !4
+  %90 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %91 = load i64, ptr %11, align 8, !noundef !4
+  %92 = getelementptr inbounds i8, ptr %90, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %94 = load ptr, ptr %93, align 8, !nonnull !4, !align !231, !noundef !4
+  %95 = load i64, ptr %94, align 8, !noundef !4
+  %96 = call fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bit_pixel_run17h1a86c99757b89ee1E(ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %87, i64 noundef %89, ptr noundef nonnull %90, ptr noundef %92, i64 noundef %95)
+  br label %97
 
-94:                                               ; preds = %80, %66, %53, %43
+97:                                               ; preds = %83, %69, %56, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %95
+  br label %98
 
-95:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", %94, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit"
-  %.0 = phi ptr [ %14, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit" ], [ null, %94 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit" ]
+98:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", %97, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit"
+  %.0 = phi ptr [ %14, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit" ], [ null, %97 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit" ]
   ret ptr %.0
 }
 
@@ -34567,6 +34579,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31

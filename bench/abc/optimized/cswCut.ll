@@ -106,7 +106,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %s
 
 Cut_TruthPhase.exit:                              ; preds = %45, %47, %Kit_TruthNot.exit
   %.013.lcssa.i = phi i32 [ 0, %Kit_TruthNot.exit ], [ %.114.i, %47 ], [ %.01315.i, %45 ]
-  tail call void @Kit_TruthStretch(ptr noundef %34, ptr noundef %8, i32 noundef %37, i32 noundef %39, i32 noundef %.013.lcssa.i, i32 noundef 0) #9
+  tail call void @Kit_TruthStretch(ptr noundef %34, ptr noundef %8, i32 noundef %37, i32 noundef %39, i32 noundef %.013.lcssa.i, i32 noundef 0) #10
   %.not30 = icmp eq i32 %5, 0
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %59 = load ptr, ptr %58, align 8, !tbaa !3
@@ -201,7 +201,7 @@ Kit_TruthNot.exit43:                              ; preds = %select.unfold.i40, 
 
 Cut_TruthPhase.exit60:                            ; preds = %93, %95, %Kit_TruthNot.exit43
   %.013.lcssa.i50 = phi i32 [ 0, %Kit_TruthNot.exit43 ], [ %.114.i56, %95 ], [ %.01315.i55, %93 ]
-  tail call void @Kit_TruthStretch(ptr noundef %84, ptr noundef %59, i32 noundef %87, i32 noundef %88, i32 noundef %.013.lcssa.i50, i32 noundef 0) #9
+  tail call void @Kit_TruthStretch(ptr noundef %84, ptr noundef %59, i32 noundef %87, i32 noundef %88, i32 noundef %.013.lcssa.i50, i32 noundef 0) #10
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %108 = load i8, ptr %107, align 2, !tbaa !8
@@ -249,7 +249,7 @@ define range(i32 0, 59) i32 @Csw_CutSupportMinimize(ptr noundef readonly capture
   %7 = getelementptr inbounds i32, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8, !tbaa !13
-  %10 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %7, i32 noundef %9) #9
+  %10 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %7, i32 noundef %9) #10
   %11 = and i32 %10, 1431655765
   %12 = lshr i32 %10, 1
   %13 = and i32 %12, 1431655765
@@ -279,7 +279,7 @@ define range(i32 0, 59) i32 @Csw_CutSupportMinimize(ptr noundef readonly capture
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = load i32, ptr %8, align 8, !tbaa !13
-  tail call void @Kit_TruthShrink(ptr noundef %36, ptr noundef nonnull %7, i32 noundef %29, i32 noundef %37, i32 noundef %10, i32 noundef 1) #9
+  tail call void @Kit_TruthShrink(ptr noundef %36, ptr noundef nonnull %7, i32 noundef %29, i32 noundef %37, i32 noundef %10, i32 noundef 1) #10
   %38 = load i8, ptr %30, align 1, !tbaa !24
   %39 = icmp sgt i8 %38, 0
   br i1 %39, label %.lr.ph.preheader, label %._crit_edge
@@ -778,54 +778,63 @@ switch.lookup:                                    ; preds = %Aig_ManObj.exit42
 29:                                               ; preds = %switch.lookup, %Aig_ManObj.exit42
   %.036 = phi i32 [ %26, %Aig_ManObj.exit42 ], [ %switch.load, %switch.lookup ]
   %.0 = phi i64 [ 0, %Aig_ManObj.exit42 ], [ 1, %switch.lookup ]
-  switch i32 %.036, label %.thread49 [
-    i32 1, label %.thread
-    i32 2, label %37
-    i32 4, label %42
-    i32 8, label %47
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.036)
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %.split, label %.thread49
+
+.split:                                           ; preds = %29
+  %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.036, i1 true)
+  switch i32 %32, label %default.unreachable [
+    i32 0, label %.thread
+    i32 1, label %40
+    i32 2, label %45
+    i32 3, label %50
   ]
 
-.thread:                                          ; preds = %29
-  %30 = ptrtoint ptr %19 to i64
-  %31 = xor i64 %30, 1
-  %32 = inttoptr i64 %31 to ptr
-  %33 = ptrtoint ptr %20 to i64
+.thread:                                          ; preds = %.split
+  %33 = ptrtoint ptr %19 to i64
   %34 = xor i64 %33, 1
   %35 = inttoptr i64 %34 to ptr
-  %36 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %32, ptr noundef %35) #9
+  %36 = ptrtoint ptr %20 to i64
+  %37 = xor i64 %36, 1
+  %38 = inttoptr i64 %37 to ptr
+  %39 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %35, ptr noundef %38) #10
   br label %.thread47
 
-37:                                               ; preds = %29
-  %38 = ptrtoint ptr %20 to i64
-  %39 = xor i64 %38, 1
-  %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %40) #9
+40:                                               ; preds = %.split
+  %41 = ptrtoint ptr %20 to i64
+  %42 = xor i64 %41, 1
+  %43 = inttoptr i64 %42 to ptr
+  %44 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %43) #10
   br label %.thread47
 
-42:                                               ; preds = %29
-  %43 = ptrtoint ptr %19 to i64
-  %44 = xor i64 %43, 1
-  %45 = inttoptr i64 %44 to ptr
-  %46 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %45, ptr noundef %20) #9
+45:                                               ; preds = %.split
+  %46 = ptrtoint ptr %19 to i64
+  %47 = xor i64 %46, 1
+  %48 = inttoptr i64 %47 to ptr
+  %49 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %48, ptr noundef %20) #10
   br label %.thread47
 
-47:                                               ; preds = %29
-  %48 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %20) #9
+50:                                               ; preds = %.split
+  %51 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %20) #10
   br label %.thread47
 
-.thread47:                                        ; preds = %37, %.thread, %42, %47
-  %.3 = phi ptr [ %48, %47 ], [ %46, %42 ], [ %36, %.thread ], [ %41, %37 ]
+.thread47:                                        ; preds = %40, %.thread, %45, %50
+  %.3 = phi ptr [ %51, %50 ], [ %49, %45 ], [ %39, %.thread ], [ %44, %40 ]
   %.not = icmp eq ptr %.3, null
-  br i1 %.not, label %.thread49, label %49
+  br i1 %.not, label %.thread49, label %52
 
-49:                                               ; preds = %.thread47
-  %50 = ptrtoint ptr %.3 to i64
-  %51 = xor i64 %.0, %50
-  %52 = inttoptr i64 %51 to ptr
+52:                                               ; preds = %.thread47
+  %53 = ptrtoint ptr %.3 to i64
+  %54 = xor i64 %.0, %53
+  %55 = inttoptr i64 %54 to ptr
   br label %.thread49
 
-.thread49:                                        ; preds = %29, %49, %.thread47
-  %.4 = phi ptr [ %52, %49 ], [ null, %.thread47 ], [ null, %29 ]
+default.unreachable:                              ; preds = %.split
+  unreachable
+
+.thread49:                                        ; preds = %29, %52, %.thread47
+  %.4 = phi ptr [ %55, %52 ], [ null, %.thread47 ], [ null, %29 ]
   ret ptr %.4
 }
 
@@ -835,7 +844,7 @@ declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 define ptr @Csw_ObjPrepareCuts(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !56
-  %6 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %5) #9
+  %6 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %5) #10
   %7 = getelementptr i8, ptr %0, i64 24
   %.val31 = load ptr, ptr %7, align 8, !tbaa !29
   %8 = getelementptr i8, ptr %1, i64 36
@@ -952,7 +961,7 @@ define ptr @Csw_ObjSweep(ptr noundef %0, ptr noundef readonly captures(ret: addr
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !56
-  %31 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %30) #9
+  %31 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %30) #10
   %.val31.i = load ptr, ptr %23, align 8, !tbaa !29
   %.val32.i = load i32, ptr %24, align 4, !tbaa !30
   %32 = sext i32 %.val32.i to i64
@@ -1152,7 +1161,7 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %51
 Csw_CutFindFree.exit:                             ; preds = %.lr.ph.i122, %._crit_edge.i124
   %.016.i = phi ptr [ %.1.i, %._crit_edge.i124 ], [ %.0153.i, %.lr.ph.i122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %149 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #9
+  %149 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #10
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %Abc_Clock.exit, label %151
 
@@ -1324,9 +1333,9 @@ Csw_CutFilter.exit:                               ; preds = %205
   %218 = getelementptr inbounds nuw i8, ptr %.016.i, i64 23
   %219 = load i8, ptr %218, align 1, !tbaa !24
   %220 = load i32, ptr %75, align 8, !tbaa !13
-  %221 = call i32 @Kit_TruthSupportSize(ptr noundef nonnull %217, i32 noundef %220) #9
+  %221 = call i32 @Kit_TruthSupportSize(ptr noundef nonnull %217, i32 noundef %220) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %222 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #9
+  %222 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #10
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %Abc_Clock.exit132, label %224
 
@@ -1373,7 +1382,7 @@ Abc_Clock.exit132:                                ; preds = %.loopexit, %224
   %249 = add nsw i32 %248, 1
   store i32 %249, ptr %247, align 4, !tbaa !71
   %250 = load i32, ptr %75, align 8, !tbaa !13
-  %251 = call i32 @Kit_TruthSupport(ptr noundef nonnull %217, i32 noundef %250) #9
+  %251 = call i32 @Kit_TruthSupport(ptr noundef nonnull %217, i32 noundef %250) #10
   br label %252
 
 252:                                              ; preds = %255, %246
@@ -1438,7 +1447,7 @@ Aig_ManObj.exit:                                  ; preds = %Kit_WordFindFirstBi
 
 284:                                              ; preds = %278, %275
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %285 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #9
+  %285 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #10
   %286 = icmp slt i32 %285, 0
   br i1 %286, label %Abc_Clock.exit138, label %287
 
@@ -1458,13 +1467,13 @@ Abc_Clock.exit138:                                ; preds = %284, %287
   br i1 %291, label %292, label %294
 
 292:                                              ; preds = %Abc_Clock.exit138
-  %293 = call ptr @Csw_TableCutLookup(ptr noundef nonnull %0, ptr noundef nonnull %.016.i) #9
+  %293 = call ptr @Csw_TableCutLookup(ptr noundef nonnull %0, ptr noundef nonnull %.016.i) #10
   br label %294
 
 294:                                              ; preds = %Abc_Clock.exit138, %292
   %295 = phi ptr [ %293, %292 ], [ null, %Abc_Clock.exit138 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %296 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #9
+  %296 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #10
   %297 = icmp slt i32 %296, 0
   br i1 %297, label %Abc_Clock.exit140, label %298
 
@@ -1574,7 +1583,7 @@ Csw_CutMerge.exit.thread:                         ; preds = %159, %157, %Csw_Cut
   %349 = add nsw i32 %348, 1
   store i32 %349, ptr %347, align 8, !tbaa !80
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %350 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #9
+  %350 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
   %351 = icmp slt i32 %350, 0
   br i1 %351, label %Abc_Clock.exit147, label %352
 
@@ -1612,7 +1621,7 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %352
   br i1 %364, label %365, label %366
 
 365:                                              ; preds = %.lr.ph186
-  call void @Csw_TableCutInsert(ptr noundef nonnull %0, ptr noundef nonnull %.097184) #9
+  call void @Csw_TableCutInsert(ptr noundef nonnull %0, ptr noundef nonnull %.097184) #10
   %.pre200 = load i32, ptr %34, align 4, !tbaa !28
   br label %366
 
@@ -1628,7 +1637,7 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %352
 
 ._crit_edge187:                                   ; preds = %366, %Abc_Clock.exit147
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %374 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #9
+  %374 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
   %375 = icmp slt i32 %374, 0
   br i1 %375, label %Abc_Clock.exit149, label %376
 
@@ -1671,8 +1680,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1682,8 +1697,9 @@ attributes #4 = { inlinehint nofree norecurse nosync nounwind memory(argmem: rea
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

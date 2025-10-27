@@ -63,67 +63,67 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
 38:                                               ; preds = %33
   %39 = load ptr, ptr %7, align 8, !tbaa !22
   %40 = load i32, ptr %14, align 4
-  %41 = and i32 %40, 1048575
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
-  %44 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %27, i32 noundef 14) #4
-  %45 = load i16, ptr %34, align 2
-  %46 = lshr i16 %45, 9
-  %47 = and i16 %46, 15
-  switch i16 %47, label %.loopexit [
-    i16 1, label %.preheader194
-    i16 2, label %.preheader196
-    i16 4, label %.preheader199
-    i16 8, label %.preheader202
+  %41 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %27, i32 noundef 14) #5
+  %42 = load i16, ptr %34, align 2
+  %43 = lshr i16 %42, 9
+  %44 = and i16 %43, 15
+  %45 = tail call range(i16 0, 5) i16 @llvm.ctpop.i16(i16 %44)
+  %46 = icmp eq i16 %45, 1
+  br i1 %46, label %.split, label %.loopexit
+
+.split:                                           ; preds = %38
+  %47 = and i32 %40, 1048575
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 %48
+  %50 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %44, i1 true)
+  %51 = load i8, ptr %28, align 1, !tbaa !25
+  %.not255 = icmp eq i8 %51, 0
+  switch i16 %50, label %default.unreachable290 [
+    i16 0, label %.preheader194
+    i16 1, label %.preheader196
+    i16 2, label %.preheader199
+    i16 3, label %.preheader202
   ]
 
-.preheader202:                                    ; preds = %38
-  %48 = load i8, ptr %28, align 1, !tbaa !25
-  %.not249 = icmp eq i8 %48, 0
-  br i1 %.not249, label %.loopexit, label %.preheader201.lr.ph
+.preheader202:                                    ; preds = %.split
+  br i1 %.not255, label %.loopexit, label %.preheader201.lr.ph
 
 .preheader201.lr.ph:                              ; preds = %.preheader202
-  %49 = zext i32 %44 to i64
+  %52 = zext i32 %41 to i64
   %.pre = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader201
 
-.preheader199:                                    ; preds = %38
-  %50 = load i8, ptr %28, align 1, !tbaa !25
-  %.not251 = icmp eq i8 %50, 0
-  br i1 %.not251, label %.loopexit, label %.preheader198.lr.ph
+.preheader199:                                    ; preds = %.split
+  br i1 %.not255, label %.loopexit, label %.preheader198.lr.ph
 
 .preheader198.lr.ph:                              ; preds = %.preheader199
-  %51 = zext i32 %44 to i64
+  %53 = zext i32 %41 to i64
   %.pre275 = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader198
 
-.preheader196:                                    ; preds = %38
-  %52 = load i8, ptr %28, align 1, !tbaa !25
-  %.not253 = icmp eq i8 %52, 0
-  br i1 %.not253, label %.loopexit, label %.preheader195.lr.ph
+.preheader196:                                    ; preds = %.split
+  br i1 %.not255, label %.loopexit, label %.preheader195.lr.ph
 
 .preheader195.lr.ph:                              ; preds = %.preheader196
-  %53 = zext i32 %44 to i64
+  %54 = zext i32 %41 to i64
   %.pre277 = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader195
 
-.preheader194:                                    ; preds = %38
-  %54 = load i8, ptr %28, align 1, !tbaa !25
-  %.not255 = icmp eq i8 %54, 0
+.preheader194:                                    ; preds = %.split
   br i1 %.not255, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader194
-  %55 = zext i32 %44 to i64
+  %55 = zext i32 %41 to i64
   %.pre279 = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge242
-  %56 = phi i8 [ %54, %.preheader.lr.ph ], [ %89, %._crit_edge242 ]
+  %56 = phi i8 [ %51, %.preheader.lr.ph ], [ %89, %._crit_edge242 ]
   %57 = phi i8 [ %.pre279, %.preheader.lr.ph ], [ %90, %._crit_edge242 ]
   %.0141248 = phi i32 [ 0, %.preheader.lr.ph ], [ %93, %._crit_edge242 ]
   %.0149247 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select188, %._crit_edge242 ]
   %.0153246 = phi ptr [ %5, %.preheader.lr.ph ], [ %92, %._crit_edge242 ]
-  %.0157245 = phi ptr [ %43, %.preheader.lr.ph ], [ %spec.select, %._crit_edge242 ]
+  %.0157245 = phi ptr [ %49, %.preheader.lr.ph ], [ %spec.select, %._crit_edge242 ]
   %.not256 = icmp eq i8 %57, 0
   br i1 %.not256, label %._crit_edge242, label %.lr.ph241
 
@@ -192,12 +192,6 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   store i8 %sext176, ptr %79, align 1, !tbaa !19
   br label %84
 
-.lr.ph241.unreachabledefault:                     ; preds = %.lr.ph241
-  unreachable
-
-default.unreachable:                              ; preds = %.lr.ph230
-  unreachable
-
 80:                                               ; preds = %.lr.ph241
   %81 = and i8 %59, 1
   %sext = sub nsw i8 0, %81
@@ -236,12 +230,12 @@ default.unreachable:                              ; preds = %.lr.ph230
   br i1 %95, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .preheader195:                                    ; preds = %.preheader195.lr.ph, %._crit_edge231
-  %96 = phi i8 [ %52, %.preheader195.lr.ph ], [ %132, %._crit_edge231 ]
+  %96 = phi i8 [ %51, %.preheader195.lr.ph ], [ %132, %._crit_edge231 ]
   %97 = phi i8 [ %.pre277, %.preheader195.lr.ph ], [ %133, %._crit_edge231 ]
   %.1142237 = phi i32 [ 0, %.preheader195.lr.ph ], [ %136, %._crit_edge231 ]
   %.3152236 = phi i32 [ 0, %.preheader195.lr.ph ], [ %spec.select190, %._crit_edge231 ]
   %.1154235 = phi ptr [ %5, %.preheader195.lr.ph ], [ %135, %._crit_edge231 ]
-  %.4161234 = phi ptr [ %43, %.preheader195.lr.ph ], [ %spec.select189, %._crit_edge231 ]
+  %.4161234 = phi ptr [ %49, %.preheader195.lr.ph ], [ %spec.select189, %._crit_edge231 ]
   %.not254 = icmp eq i8 %97, 0
   br i1 %.not254, label %._crit_edge231, label %.lr.ph230
 
@@ -251,7 +245,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %.5162227 = phi ptr [ %.6163, %127 ], [ %.4161234, %.preheader195 ]
   %98 = and i32 %.4228, 3
   %99 = load i8, ptr %.5162227, align 1, !tbaa !19
-  switch i32 %98, label %default.unreachable [
+  switch i32 %98, label %.lr.ph230.unreachabledefault [
     i32 0, label %100
     i32 1, label %106
     i32 2, label %113
@@ -320,19 +314,19 @@ default.unreachable:                              ; preds = %.lr.ph230
   %spec.select189.idx = zext i1 %or.cond3 to i64
   %spec.select189 = getelementptr inbounds nuw i8, ptr %.5162.lcssa, i64 %spec.select189.idx
   %spec.select190 = select i1 %36, i32 0, i32 %.4.lcssa
-  %135 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %53
+  %135 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %54
   %136 = add nuw nsw i32 %.1142237, 1
   %137 = zext i8 %132 to i32
   %138 = icmp samesign ult i32 %136, %137
   br i1 %138, label %.preheader195, label %.loopexit, !llvm.loop !30
 
 .preheader198:                                    ; preds = %.preheader198.lr.ph, %._crit_edge220
-  %139 = phi i8 [ %50, %.preheader198.lr.ph ], [ %150, %._crit_edge220 ]
+  %139 = phi i8 [ %51, %.preheader198.lr.ph ], [ %150, %._crit_edge220 ]
   %140 = phi i8 [ %.pre275, %.preheader198.lr.ph ], [ %151, %._crit_edge220 ]
   %.2143226 = phi i32 [ 0, %.preheader198.lr.ph ], [ %154, %._crit_edge220 ]
   %.6225 = phi i32 [ 0, %.preheader198.lr.ph ], [ %spec.select192, %._crit_edge220 ]
   %.2155224 = phi ptr [ %5, %.preheader198.lr.ph ], [ %153, %._crit_edge220 ]
-  %.8165223 = phi ptr [ %43, %.preheader198.lr.ph ], [ %spec.select191, %._crit_edge220 ]
+  %.8165223 = phi ptr [ %49, %.preheader198.lr.ph ], [ %spec.select191, %._crit_edge220 ]
   %.not252 = icmp eq i8 %140, 0
   br i1 %.not252, label %._crit_edge220, label %.lr.ph219
 
@@ -341,11 +335,11 @@ default.unreachable:                              ; preds = %.lr.ph230
   %.7217 = phi i32 [ %146, %.lr.ph219 ], [ %.6225, %.preheader198 ]
   %.9166216 = phi ptr [ %.10167, %.lr.ph219 ], [ %.8165223, %.preheader198 ]
   %141 = and i32 %.7217, 1
-  %.not301 = icmp eq i32 %141, 0
+  %.not302 = icmp eq i32 %141, 0
   %142 = load i8, ptr %.9166216, align 1, !tbaa !19
   %143 = lshr i8 %142, 4
   %144 = and i8 %142, 15
-  %.pn.in = select i1 %.not301, i8 %143, i8 %144
+  %.pn.in = select i1 %.not302, i8 %143, i8 %144
   %.10167.idx = zext nneg i32 %141 to i64
   %.10167 = getelementptr inbounds nuw i8, ptr %.9166216, i64 %.10167.idx
   %.pn = zext nneg i8 %.pn.in to i64
@@ -374,18 +368,18 @@ default.unreachable:                              ; preds = %.lr.ph230
   %spec.select191.idx = zext i1 %or.cond5 to i64
   %spec.select191 = getelementptr inbounds nuw i8, ptr %.9166.lcssa, i64 %spec.select191.idx
   %spec.select192 = select i1 %36, i32 0, i32 %.7.lcssa
-  %153 = getelementptr inbounds nuw i8, ptr %.2155224, i64 %51
+  %153 = getelementptr inbounds nuw i8, ptr %.2155224, i64 %53
   %154 = add nuw nsw i32 %.2143226, 1
   %155 = zext i8 %150 to i32
   %156 = icmp samesign ult i32 %154, %155
   br i1 %156, label %.preheader198, label %.loopexit, !llvm.loop !32
 
 .preheader201:                                    ; preds = %.preheader201.lr.ph, %._crit_edge
-  %157 = phi i8 [ %48, %.preheader201.lr.ph ], [ %165, %._crit_edge ]
+  %157 = phi i8 [ %51, %.preheader201.lr.ph ], [ %165, %._crit_edge ]
   %158 = phi i8 [ %.pre, %.preheader201.lr.ph ], [ %166, %._crit_edge ]
   %.3144215 = phi i32 [ 0, %.preheader201.lr.ph ], [ %168, %._crit_edge ]
   %.3156213 = phi ptr [ %5, %.preheader201.lr.ph ], [ %167, %._crit_edge ]
-  %.12212 = phi ptr [ %43, %.preheader201.lr.ph ], [ %.13.lcssa, %._crit_edge ]
+  %.12212 = phi ptr [ %49, %.preheader201.lr.ph ], [ %.13.lcssa, %._crit_edge ]
   %.not250 = icmp eq i8 %158, 0
   br i1 %.not250, label %._crit_edge, label %.lr.ph
 
@@ -410,14 +404,23 @@ default.unreachable:                              ; preds = %.lr.ph230
   %165 = phi i8 [ %157, %.preheader201 ], [ %.pre274, %._crit_edge.loopexit ]
   %166 = phi i8 [ 0, %.preheader201 ], [ %162, %._crit_edge.loopexit ]
   %.13.lcssa = phi ptr [ %.12212, %.preheader201 ], [ %161, %._crit_edge.loopexit ]
-  %167 = getelementptr inbounds nuw i8, ptr %.3156213, i64 %49
+  %167 = getelementptr inbounds nuw i8, ptr %.3156213, i64 %52
   %168 = add nuw nsw i32 %.3144215, 1
   %169 = zext i8 %165 to i32
   %170 = icmp samesign ult i32 %168, %169
   br i1 %170, label %.preheader201, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge220, %._crit_edge231, %._crit_edge242, %.preheader202, %.preheader199, %.preheader196, %.preheader194, %18, %38, %33, %24, %2
-  %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ %1, %38 ], [ null, %33 ], [ %1, %.preheader194 ], [ %1, %.preheader196 ], [ %1, %.preheader199 ], [ %1, %.preheader202 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge ]
+.lr.ph241.unreachabledefault:                     ; preds = %.lr.ph241
+  unreachable
+
+.lr.ph230.unreachabledefault:                     ; preds = %.lr.ph230
+  unreachable
+
+default.unreachable290:                           ; preds = %.split
+  unreachable
+
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge220, %._crit_edge231, %._crit_edge242, %.preheader202, %.preheader199, %.preheader196, %.preheader194, %38, %18, %33, %24, %2
+  %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ null, %33 ], [ %1, %38 ], [ %1, %.preheader194 ], [ %1, %.preheader196 ], [ %1, %.preheader199 ], [ %1, %.preheader202 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -469,7 +472,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %15, ptr %29, align 4, !tbaa !40
   %30 = zext nneg i32 %25 to i64
-  %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #4
+  %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #5
   %.not43.i = icmp eq ptr %31, null
   br i1 %.not43.i, label %41, label %32
 
@@ -501,7 +504,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   store i32 %15, ptr %46, align 4, !tbaa !40
   %47 = and i32 %25, 1073741823
   %48 = zext nneg i32 %47 to i64
-  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #4
+  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #5
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %59, label %50
 
@@ -711,7 +714,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %47 = load i16, ptr %46, align 8, !tbaa !66
   %48 = zext i16 %47 to i64
-  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #4
+  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #5
   %.not78 = icmp eq ptr %49, null
   br i1 %.not78, label %64, label %50
 
@@ -745,7 +748,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %70 = load i16, ptr %69, align 8, !tbaa !66
   %71 = zext i16 %70 to i64
-  %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #4
+  %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #5
   %.not77 = icmp eq ptr %72, null
   br i1 %.not77, label %90, label %73
 
@@ -853,11 +856,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

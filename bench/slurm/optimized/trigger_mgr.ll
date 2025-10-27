@@ -166,7 +166,7 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef readonly capture
   tail call fastcc void @_dump_trigger_msg(ptr noundef nonnull @.str, ptr noundef %0)
   %7 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %7, 1
-  br i1 %.not, label %8, label %106
+  br i1 %.not, label %8, label %109
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -175,7 +175,7 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef readonly capture
   %12 = load i16, ptr %11, align 8
   %.off = add i16 %12, -3
   %switch = icmp ult i16 %.off, 3
-  br i1 %switch, label %13, label %106
+  br i1 %switch, label %13, label %109
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr @trigger_list, align 8
@@ -189,7 +189,7 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef readonly capture
   br label %18
 
 18:                                               ; preds = %.lr.ph, %trigger_primary_ctld_acct_full.exit
-  %19 = phi ptr [ %16, %.lr.ph ], [ %105, %trigger_primary_ctld_acct_full.exit ]
+  %19 = phi ptr [ %16, %.lr.ph ], [ %108, %trigger_primary_ctld_acct_full.exit ]
   %.01781 = phi i32 [ 0, %.lr.ph ], [ %.1, %trigger_primary_ctld_acct_full.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load i16, ptr %20, align 4
@@ -205,247 +205,253 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef readonly capture
   br i1 %28, label %29, label %trigger_primary_ctld_acct_full.exit
 
 29:                                               ; preds = %24
-  switch i32 %26, label %103 [
-    i32 4096, label %30
-    i32 8192, label %38
-    i32 16384, label %49
-    i32 32768, label %57
-    i32 65536, label %65
-    i32 131072, label %76
-    i32 262144, label %84
-    i32 524288, label %95
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %.split, label %106
+
+.split:                                           ; preds = %29
+  %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %26, i1 true)
+  switch i32 %32, label %106 [
+    i32 12, label %33
+    i32 13, label %41
+    i32 14, label %52
+    i32 15, label %60
+    i32 16, label %68
+    i32 17, label %79
+    i32 18, label %87
+    i32 19, label %98
   ]
 
-30:                                               ; preds = %29
-  %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %34, label %32
+33:                                               ; preds = %.split
+  %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %37, label %35
 
-32:                                               ; preds = %30
-  %33 = tail call ptr @__errno_location() #13
-  store i32 %31, ptr %33, align 4
+35:                                               ; preds = %33
+  %36 = tail call ptr @__errno_location() #13
+  store i32 %34, ptr %36, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_primary_ctld_acct_full) #14
   unreachable
 
-34:                                               ; preds = %30
+37:                                               ; preds = %33
   store i1 true, ptr @trigger_pri_ctld_acct_buffer_full, align 1
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not5.i = icmp eq i32 %35, 0
-  br i1 %.not5.i, label %trigger_primary_ctld_acct_full.exit, label %36
+  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not5.i = icmp eq i32 %38, 0
+  br i1 %.not5.i, label %trigger_primary_ctld_acct_full.exit, label %39
 
-36:                                               ; preds = %34
-  %37 = tail call ptr @__errno_location() #13
-  store i32 %35, ptr %37, align 4
+39:                                               ; preds = %37
+  %40 = tail call ptr @__errno_location() #13
+  store i32 %38, ptr %40, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_primary_ctld_acct_full) #14
   unreachable
 
-38:                                               ; preds = %29
-  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i25 = icmp eq i32 %39, 0
-  br i1 %.not.i25, label %42, label %40
+41:                                               ; preds = %.split
+  %42 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i25 = icmp eq i32 %42, 0
+  br i1 %.not.i25, label %45, label %43
 
-40:                                               ; preds = %38
-  %41 = tail call ptr @__errno_location() #13
-  store i32 %39, ptr %41, align 4
+43:                                               ; preds = %41
+  %44 = tail call ptr @__errno_location() #13
+  store i32 %42, ptr %44, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_backup_ctld_fail) #14
   unreachable
 
-42:                                               ; preds = %38
-  %43 = load i8, ptr @bu_ctld_failure, align 1
-  %.not5.i26 = icmp eq i8 %43, 1
-  br i1 %.not5.i26, label %45, label %44
-
-44:                                               ; preds = %42
-  store i1 true, ptr @trigger_bu_ctld_fail, align 1
-  store i8 1, ptr @bu_ctld_failure, align 1
-  br label %45
-
-45:                                               ; preds = %44, %42
-  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not6.i = icmp eq i32 %46, 0
-  br i1 %.not6.i, label %trigger_primary_ctld_acct_full.exit, label %47
+45:                                               ; preds = %41
+  %46 = load i8, ptr @bu_ctld_failure, align 1
+  %.not5.i26 = icmp eq i8 %46, 1
+  br i1 %.not5.i26, label %48, label %47
 
 47:                                               ; preds = %45
-  %48 = tail call ptr @__errno_location() #13
-  store i32 %46, ptr %48, align 4
+  store i1 true, ptr @trigger_bu_ctld_fail, align 1
+  store i8 1, ptr @bu_ctld_failure, align 1
+  br label %48
+
+48:                                               ; preds = %47, %45
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not6.i = icmp eq i32 %49, 0
+  br i1 %.not6.i, label %trigger_primary_ctld_acct_full.exit, label %50
+
+50:                                               ; preds = %48
+  %51 = tail call ptr @__errno_location() #13
+  store i32 %49, ptr %51, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_backup_ctld_fail) #14
   unreachable
 
-49:                                               ; preds = %29
-  %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i27 = icmp eq i32 %50, 0
-  br i1 %.not.i27, label %53, label %51
+52:                                               ; preds = %.split
+  %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i27 = icmp eq i32 %53, 0
+  br i1 %.not.i27, label %56, label %54
 
-51:                                               ; preds = %49
-  %52 = tail call ptr @__errno_location() #13
-  store i32 %50, ptr %52, align 4
+54:                                               ; preds = %52
+  %55 = tail call ptr @__errno_location() #13
+  store i32 %53, ptr %55, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_backup_ctld_res_op) #14
   unreachable
 
-53:                                               ; preds = %49
+56:                                               ; preds = %52
   store i1 true, ptr @trigger_bu_ctld_res_op, align 1
   store i8 0, ptr @bu_ctld_failure, align 1
-  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not5.i28 = icmp eq i32 %54, 0
-  br i1 %.not5.i28, label %trigger_primary_ctld_acct_full.exit, label %55
+  %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not5.i28 = icmp eq i32 %57, 0
+  br i1 %.not5.i28, label %trigger_primary_ctld_acct_full.exit, label %58
 
-55:                                               ; preds = %53
-  %56 = tail call ptr @__errno_location() #13
-  store i32 %54, ptr %56, align 4
+58:                                               ; preds = %56
+  %59 = tail call ptr @__errno_location() #13
+  store i32 %57, ptr %59, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_backup_ctld_res_op) #14
   unreachable
 
-57:                                               ; preds = %29
-  %58 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i29 = icmp eq i32 %58, 0
-  br i1 %.not.i29, label %61, label %59
+60:                                               ; preds = %.split
+  %61 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i29 = icmp eq i32 %61, 0
+  br i1 %.not.i29, label %64, label %62
 
-59:                                               ; preds = %57
-  %60 = tail call ptr @__errno_location() #13
-  store i32 %58, ptr %60, align 4
+62:                                               ; preds = %60
+  %63 = tail call ptr @__errno_location() #13
+  store i32 %61, ptr %63, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_backup_ctld_as_ctrl) #14
   unreachable
 
-61:                                               ; preds = %57
+64:                                               ; preds = %60
   store i1 true, ptr @trigger_bu_ctld_as_ctrl, align 1
-  %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not5.i30 = icmp eq i32 %62, 0
-  br i1 %.not5.i30, label %trigger_primary_ctld_acct_full.exit, label %63
+  %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not5.i30 = icmp eq i32 %65, 0
+  br i1 %.not5.i30, label %trigger_primary_ctld_acct_full.exit, label %66
 
-63:                                               ; preds = %61
-  %64 = tail call ptr @__errno_location() #13
-  store i32 %62, ptr %64, align 4
+66:                                               ; preds = %64
+  %67 = tail call ptr @__errno_location() #13
+  store i32 %65, ptr %67, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_backup_ctld_as_ctrl) #14
   unreachable
 
-65:                                               ; preds = %29
-  %66 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i31 = icmp eq i32 %66, 0
-  br i1 %.not.i31, label %69, label %67
+68:                                               ; preds = %.split
+  %69 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i31 = icmp eq i32 %69, 0
+  br i1 %.not.i31, label %72, label %70
 
-67:                                               ; preds = %65
-  %68 = tail call ptr @__errno_location() #13
-  store i32 %66, ptr %68, align 4
+70:                                               ; preds = %68
+  %71 = tail call ptr @__errno_location() #13
+  store i32 %69, ptr %71, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_primary_dbd_fail) #14
   unreachable
 
-69:                                               ; preds = %65
-  %70 = load i8, ptr @dbd_failure, align 1
-  %.not5.i32 = icmp eq i8 %70, 1
-  br i1 %.not5.i32, label %72, label %71
-
-71:                                               ; preds = %69
-  store i1 true, ptr @trigger_pri_dbd_fail, align 1
-  store i8 1, ptr @dbd_failure, align 1
-  br label %72
-
-72:                                               ; preds = %71, %69
-  %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not6.i33 = icmp eq i32 %73, 0
-  br i1 %.not6.i33, label %trigger_primary_ctld_acct_full.exit, label %74
+72:                                               ; preds = %68
+  %73 = load i8, ptr @dbd_failure, align 1
+  %.not5.i32 = icmp eq i8 %73, 1
+  br i1 %.not5.i32, label %75, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call ptr @__errno_location() #13
-  store i32 %73, ptr %75, align 4
+  store i1 true, ptr @trigger_pri_dbd_fail, align 1
+  store i8 1, ptr @dbd_failure, align 1
+  br label %75
+
+75:                                               ; preds = %74, %72
+  %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not6.i33 = icmp eq i32 %76, 0
+  br i1 %.not6.i33, label %trigger_primary_ctld_acct_full.exit, label %77
+
+77:                                               ; preds = %75
+  %78 = tail call ptr @__errno_location() #13
+  store i32 %76, ptr %78, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_primary_dbd_fail) #14
   unreachable
 
-76:                                               ; preds = %29
-  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i34 = icmp eq i32 %77, 0
-  br i1 %.not.i34, label %80, label %78
+79:                                               ; preds = %.split
+  %80 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i34 = icmp eq i32 %80, 0
+  br i1 %.not.i34, label %83, label %81
 
-78:                                               ; preds = %76
-  %79 = tail call ptr @__errno_location() #13
-  store i32 %77, ptr %79, align 4
+81:                                               ; preds = %79
+  %82 = tail call ptr @__errno_location() #13
+  store i32 %80, ptr %82, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_primary_dbd_res_op) #14
   unreachable
 
-80:                                               ; preds = %76
+83:                                               ; preds = %79
   store i1 true, ptr @trigger_pri_dbd_res_op, align 1
   store i8 0, ptr @dbd_failure, align 1
-  %81 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not5.i35 = icmp eq i32 %81, 0
-  br i1 %.not5.i35, label %trigger_primary_ctld_acct_full.exit, label %82
+  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not5.i35 = icmp eq i32 %84, 0
+  br i1 %.not5.i35, label %trigger_primary_ctld_acct_full.exit, label %85
 
-82:                                               ; preds = %80
-  %83 = tail call ptr @__errno_location() #13
-  store i32 %81, ptr %83, align 4
+85:                                               ; preds = %83
+  %86 = tail call ptr @__errno_location() #13
+  store i32 %84, ptr %86, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_primary_dbd_res_op) #14
   unreachable
 
-84:                                               ; preds = %29
-  %85 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i36 = icmp eq i32 %85, 0
-  br i1 %.not.i36, label %88, label %86
+87:                                               ; preds = %.split
+  %88 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i36 = icmp eq i32 %88, 0
+  br i1 %.not.i36, label %91, label %89
 
-86:                                               ; preds = %84
-  %87 = tail call ptr @__errno_location() #13
-  store i32 %85, ptr %87, align 4
+89:                                               ; preds = %87
+  %90 = tail call ptr @__errno_location() #13
+  store i32 %88, ptr %90, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_primary_db_fail) #14
   unreachable
 
-88:                                               ; preds = %84
-  %89 = load i8, ptr @db_failure, align 1
-  %.not5.i37 = icmp eq i8 %89, 1
-  br i1 %.not5.i37, label %91, label %90
-
-90:                                               ; preds = %88
-  store i1 true, ptr @trigger_pri_db_fail, align 1
-  store i8 1, ptr @db_failure, align 1
-  br label %91
-
-91:                                               ; preds = %90, %88
-  %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not6.i38 = icmp eq i32 %92, 0
-  br i1 %.not6.i38, label %trigger_primary_ctld_acct_full.exit, label %93
+91:                                               ; preds = %87
+  %92 = load i8, ptr @db_failure, align 1
+  %.not5.i37 = icmp eq i8 %92, 1
+  br i1 %.not5.i37, label %94, label %93
 
 93:                                               ; preds = %91
-  %94 = tail call ptr @__errno_location() #13
-  store i32 %92, ptr %94, align 4
+  store i1 true, ptr @trigger_pri_db_fail, align 1
+  store i8 1, ptr @db_failure, align 1
+  br label %94
+
+94:                                               ; preds = %93, %91
+  %95 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not6.i38 = icmp eq i32 %95, 0
+  br i1 %.not6.i38, label %trigger_primary_ctld_acct_full.exit, label %96
+
+96:                                               ; preds = %94
+  %97 = tail call ptr @__errno_location() #13
+  store i32 %95, ptr %97, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_primary_db_fail) #14
   unreachable
 
-95:                                               ; preds = %29
-  %96 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
-  %.not.i39 = icmp eq i32 %96, 0
-  br i1 %.not.i39, label %99, label %97
+98:                                               ; preds = %.split
+  %99 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #12
+  %.not.i39 = icmp eq i32 %99, 0
+  br i1 %.not.i39, label %102, label %100
 
-97:                                               ; preds = %95
-  %98 = tail call ptr @__errno_location() #13
-  store i32 %96, ptr %98, align 4
+100:                                              ; preds = %98
+  %101 = tail call ptr @__errno_location() #13
+  store i32 %99, ptr %101, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.trigger_primary_db_res_op) #14
   unreachable
 
-99:                                               ; preds = %95
+102:                                              ; preds = %98
   store i1 true, ptr @trigger_pri_db_res_op, align 1
   store i8 0, ptr @db_failure, align 1
-  %100 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
-  %.not5.i40 = icmp eq i32 %100, 0
-  br i1 %.not5.i40, label %trigger_primary_ctld_acct_full.exit, label %101
+  %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #12
+  %.not5.i40 = icmp eq i32 %103, 0
+  br i1 %.not5.i40, label %trigger_primary_ctld_acct_full.exit, label %104
 
-101:                                              ; preds = %99
-  %102 = tail call ptr @__errno_location() #13
-  store i32 %100, ptr %102, align 4
+104:                                              ; preds = %102
+  %105 = tail call ptr @__errno_location() #13
+  store i32 %103, ptr %105, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.trigger_primary_db_res_op) #14
   unreachable
 
-103:                                              ; preds = %29
-  %104 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %26) #12
+106:                                              ; preds = %29, %.split
+  %107 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %26) #12
   br label %trigger_primary_ctld_acct_full.exit
 
-trigger_primary_ctld_acct_full.exit:              ; preds = %99, %91, %80, %72, %61, %53, %45, %34, %103, %24, %18
-  %.1 = phi i32 [ 22, %103 ], [ %.01781, %24 ], [ %.01781, %18 ], [ %.01781, %34 ], [ %.01781, %45 ], [ %.01781, %53 ], [ %.01781, %61 ], [ %.01781, %72 ], [ %.01781, %80 ], [ %.01781, %91 ], [ %.01781, %99 ]
-  %105 = tail call ptr @list_next(ptr noundef %15) #12
-  %.not24 = icmp eq ptr %105, null
+trigger_primary_ctld_acct_full.exit:              ; preds = %102, %94, %83, %75, %64, %56, %48, %37, %106, %24, %18
+  %.1 = phi i32 [ 22, %106 ], [ %.01781, %24 ], [ %.01781, %18 ], [ %.01781, %37 ], [ %.01781, %48 ], [ %.01781, %56 ], [ %.01781, %64 ], [ %.01781, %75 ], [ %.01781, %83 ], [ %.01781, %94 ], [ %.01781, %102 ]
+  %108 = tail call ptr @list_next(ptr noundef %15) #12
+  %.not24 = icmp eq ptr %108, null
   br i1 %.not24, label %._crit_edge, label %18, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %trigger_primary_ctld_acct_full.exit, %13
   %.017.lcssa = phi i32 [ 0, %13 ], [ %.1, %trigger_primary_ctld_acct_full.exit ]
   tail call void @list_iterator_destroy(ptr noundef %15) #12
-  br label %106
+  br label %109
 
-106:                                              ; preds = %8, %6, %._crit_edge
+109:                                              ; preds = %8, %6, %._crit_edge
   %.0 = phi i32 [ %.017.lcssa, %._crit_edge ], [ 3, %6 ], [ 22, %8 ]
   ret i32 %.0
 }
@@ -5092,6 +5098,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10

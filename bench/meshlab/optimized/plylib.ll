@@ -2503,34 +2503,34 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
   %6 = icmp eq i32 %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = load i32, ptr %7, align 4
-  %.not151 = icmp eq i32 %8, 0
+  %.not152 = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %10 = load i32, ptr %9, align 4
-  %.not152 = icmp eq i32 %10, 0
+  %.not153 = icmp eq i32 %10, 0
   br i1 %6, label %11, label %28
 
 11:                                               ; preds = %2
-  br i1 %.not151, label %16, label %12
+  br i1 %.not152, label %16, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  br i1 %.not152, label %15, label %14
+  br i1 %.not153, label %15, label %14
 
 14:                                               ; preds = %12
   store ptr @_ZN3vcg3plyL18cb_read_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %13, align 8
-  br label %317
+  br label %331
 
 15:                                               ; preds = %12
   store ptr @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %13, align 8
-  br label %317
+  br label %331
 
 16:                                               ; preds = %11
-  br i1 %.not152, label %19, label %17
+  br i1 %.not153, label %19, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL13cb_read_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %18, align 8
-  br label %317
+  br label %331
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2549,28 +2549,28 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 22:                                               ; preds = %19, %19, %19, %19, %19, %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_skip_int_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %23, align 8
-  br label %317
+  br label %331
 
 24:                                               ; preds = %19, %19
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL19cb_skip_float_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %25, align 8
-  br label %317
+  br label %331
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr null, ptr %27, align 8
-  br label %317
+  br label %331
 
 28:                                               ; preds = %2
-  br i1 %.not151, label %173, label %29
+  br i1 %.not152, label %180, label %29
 
 29:                                               ; preds = %28
-  br i1 %.not152, label %161, label %30
+  br i1 %.not153, label %161, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %32 = load i32, ptr %31, align 8
-  switch i32 %32, label %317 [
+  switch i32 %32, label %331 [
     i32 1, label %33
     i32 2, label %52
     i32 3, label %71
@@ -2584,7 +2584,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %35 = load i32, ptr %34, align 4
-  switch i32 %35, label %317 [
+  switch i32 %35, label %331 [
     i32 1, label %36
     i32 2, label %38
     i32 3, label %40
@@ -2598,47 +2598,47 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %37, align 8
-  br label %317
+  br label %331
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %39, align 8
-  br label %317
+  br label %331
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %41, align 8
-  br label %317
+  br label %331
 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %43, align 8
-  br label %317
+  br label %331
 
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %45, align 8
-  br label %317
+  br label %331
 
 46:                                               ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %47, align 8
-  br label %317
+  br label %331
 
 48:                                               ; preds = %33
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %49, align 8
-  br label %317
+  br label %331
 
 50:                                               ; preds = %33
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %51, align 8
-  br label %317
+  br label %331
 
 52:                                               ; preds = %30
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %54 = load i32, ptr %53, align 4
-  switch i32 %54, label %317 [
+  switch i32 %54, label %331 [
     i32 1, label %55
     i32 2, label %57
     i32 3, label %59
@@ -2652,47 +2652,47 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %56, align 8
-  br label %317
+  br label %331
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %58, align 8
-  br label %317
+  br label %331
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %60, align 8
-  br label %317
+  br label %331
 
 61:                                               ; preds = %52
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %62, align 8
-  br label %317
+  br label %331
 
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %64, align 8
-  br label %317
+  br label %331
 
 65:                                               ; preds = %52
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %66, align 8
-  br label %317
+  br label %331
 
 67:                                               ; preds = %52
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %68, align 8
-  br label %317
+  br label %331
 
 69:                                               ; preds = %52
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %70, align 8
-  br label %317
+  br label %331
 
 71:                                               ; preds = %30
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %73 = load i32, ptr %72, align 4
-  switch i32 %73, label %317 [
+  switch i32 %73, label %331 [
     i32 1, label %74
     i32 2, label %76
     i32 3, label %78
@@ -2706,47 +2706,47 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_inchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %75, align 8
-  br label %317
+  br label %331
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_inshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %77, align 8
-  br label %317
+  br label %331
 
 78:                                               ; preds = %71
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ininEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %79, align 8
-  br label %317
+  br label %331
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_inucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %81, align 8
-  br label %317
+  br label %331
 
 82:                                               ; preds = %71
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_inusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %83, align 8
-  br label %317
+  br label %331
 
 84:                                               ; preds = %71
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %85, align 8
-  br label %317
+  br label %331
 
 86:                                               ; preds = %71
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_inflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %87, align 8
-  br label %317
+  br label %331
 
 88:                                               ; preds = %71
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_indoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %89, align 8
-  br label %317
+  br label %331
 
 90:                                               ; preds = %30
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %92 = load i32, ptr %91, align 4
-  switch i32 %92, label %317 [
+  switch i32 %92, label %331 [
     i32 1, label %93
     i32 2, label %95
     i32 3, label %97
@@ -2760,47 +2760,47 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %94, align 8
-  br label %317
+  br label %331
 
 95:                                               ; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %96, align 8
-  br label %317
+  br label %331
 
 97:                                               ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %98, align 8
-  br label %317
+  br label %331
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %100, align 8
-  br label %317
+  br label %331
 
 101:                                              ; preds = %90
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %102, align 8
-  br label %317
+  br label %331
 
 103:                                              ; preds = %90
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %104, align 8
-  br label %317
+  br label %331
 
 105:                                              ; preds = %90
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %106, align 8
-  br label %317
+  br label %331
 
 107:                                              ; preds = %90
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %108, align 8
-  br label %317
+  br label %331
 
 109:                                              ; preds = %30
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %111 = load i32, ptr %110, align 4
-  switch i32 %111, label %317 [
+  switch i32 %111, label %331 [
     i32 1, label %112
     i32 2, label %114
     i32 3, label %116
@@ -2814,47 +2814,47 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uschEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %113, align 8
-  br label %317
+  br label %331
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_usshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %115, align 8
-  br label %317
+  br label %331
 
 116:                                              ; preds = %109
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_usinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %117, align 8
-  br label %317
+  br label %331
 
 118:                                              ; preds = %109
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_usucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %119, align 8
-  br label %317
+  br label %331
 
 120:                                              ; preds = %109
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_ususEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %121, align 8
-  br label %317
+  br label %331
 
 122:                                              ; preds = %109
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %123, align 8
-  br label %317
+  br label %331
 
 124:                                              ; preds = %109
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_usflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %125, align 8
-  br label %317
+  br label %331
 
 126:                                              ; preds = %109
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %127, align 8
-  br label %317
+  br label %331
 
 128:                                              ; preds = %30
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %130 = load i32, ptr %129, align 4
-  switch i32 %130, label %317 [
+  switch i32 %130, label %331 [
     i32 1, label %131
     i32 2, label %133
     i32 3, label %135
@@ -2868,47 +2868,47 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uichEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %132, align 8
-  br label %317
+  br label %331
 
 133:                                              ; preds = %128
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uishEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %134, align 8
-  br label %317
+  br label %331
 
 135:                                              ; preds = %128
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %136, align 8
-  br label %317
+  br label %331
 
 137:                                              ; preds = %128
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %138, align 8
-  br label %317
+  br label %331
 
 139:                                              ; preds = %128
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %140, align 8
-  br label %317
+  br label %331
 
 141:                                              ; preds = %128
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %142, align 8
-  br label %317
+  br label %331
 
 143:                                              ; preds = %128
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %144, align 8
-  br label %317
+  br label %331
 
 145:                                              ; preds = %128
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %146, align 8
-  br label %317
+  br label %331
 
 147:                                              ; preds = %30
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %149 = load i32, ptr %148, align 4
-  switch i32 %149, label %317 [
+  switch i32 %149, label %331 [
     i32 7, label %150
     i32 8, label %152
   ]
@@ -2916,17 +2916,17 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_flflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %151, align 8
-  br label %317
+  br label %331
 
 152:                                              ; preds = %147
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %153, align 8
-  br label %317
+  br label %331
 
 154:                                              ; preds = %30
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %156 = load i32, ptr %155, align 4
-  switch i32 %156, label %317 [
+  switch i32 %156, label %331 [
     i32 7, label %157
     i32 8, label %159
   ]
@@ -2934,12 +2934,12 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
 157:                                              ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_doflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %158, align 8
-  br label %317
+  br label %331
 
 159:                                              ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @_ZN3vcg3plyL17cb_read_list_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %160, align 8
-  br label %317
+  br label %331
 
 161:                                              ; preds = %29
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2947,446 +2947,466 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %164
   %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  switch i32 %166, label %172 [
-    i32 1, label %168
-    i32 2, label %169
-    i32 4, label %170
-    i32 8, label %171
+  %167 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %166)
+  %168 = icmp eq i32 %167, 1
+  br i1 %168, label %.split, label %178
+
+.split:                                           ; preds = %161
+  %169 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %166, i1 true)
+  switch i32 %169, label %178 [
+    i32 0, label %170
+    i32 1, label %172
+    i32 2, label %174
+    i32 3, label %176
   ]
 
-168:                                              ; preds = %161
-  store ptr @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %167, align 8
-  br label %317
+170:                                              ; preds = %.split
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %171, align 8
+  br label %331
 
-169:                                              ; preds = %161
-  store ptr @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %167, align 8
-  br label %317
+172:                                              ; preds = %.split
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %173, align 8
+  br label %331
 
-170:                                              ; preds = %161
-  store ptr @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %167, align 8
-  br label %317
+174:                                              ; preds = %.split
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %175, align 8
+  br label %331
 
-171:                                              ; preds = %161
-  store ptr @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %167, align 8
-  br label %317
+176:                                              ; preds = %.split
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %177, align 8
+  br label %331
 
-172:                                              ; preds = %161
-  store ptr null, ptr %167, align 8
-  br label %317
+178:                                              ; preds = %161, %.split
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %179, align 8
+  br label %331
 
-173:                                              ; preds = %28
-  br i1 %.not152, label %305, label %174
+180:                                              ; preds = %28
+  br i1 %.not153, label %312, label %181
 
-174:                                              ; preds = %173
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %176 = load i32, ptr %175, align 8
-  switch i32 %176, label %317 [
-    i32 1, label %177
-    i32 2, label %196
-    i32 3, label %215
-    i32 4, label %234
-    i32 5, label %253
-    i32 6, label %272
-    i32 7, label %291
-    i32 8, label %298
-  ]
-
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %179 = load i32, ptr %178, align 4
-  switch i32 %179, label %317 [
-    i32 1, label %180
-    i32 2, label %182
-    i32 3, label %184
-    i32 4, label %186
-    i32 5, label %188
-    i32 6, label %190
-    i32 7, label %192
-    i32 8, label %194
-  ]
-
-180:                                              ; preds = %177
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %181, align 8
-  br label %317
-
-182:                                              ; preds = %177
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %183, align 8
-  br label %317
-
-184:                                              ; preds = %177
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %185, align 8
-  br label %317
-
-186:                                              ; preds = %177
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %187, align 8
-  br label %317
-
-188:                                              ; preds = %177
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %189, align 8
-  br label %317
-
-190:                                              ; preds = %177
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %191, align 8
-  br label %317
-
-192:                                              ; preds = %177
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %193, align 8
-  br label %317
-
-194:                                              ; preds = %177
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %195, align 8
-  br label %317
-
-196:                                              ; preds = %174
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %198 = load i32, ptr %197, align 4
-  switch i32 %198, label %317 [
-    i32 1, label %199
-    i32 2, label %201
-    i32 3, label %203
-    i32 4, label %205
-    i32 5, label %207
-    i32 6, label %209
-    i32 7, label %211
-    i32 8, label %213
-  ]
-
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %200, align 8
-  br label %317
-
-201:                                              ; preds = %196
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %202, align 8
-  br label %317
-
-203:                                              ; preds = %196
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %204, align 8
-  br label %317
-
-205:                                              ; preds = %196
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %206, align 8
-  br label %317
-
-207:                                              ; preds = %196
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %208, align 8
-  br label %317
-
-209:                                              ; preds = %196
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %210, align 8
-  br label %317
-
-211:                                              ; preds = %196
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %212, align 8
-  br label %317
-
-213:                                              ; preds = %196
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %214, align 8
-  br label %317
-
-215:                                              ; preds = %174
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %217 = load i32, ptr %216, align 4
-  switch i32 %217, label %317 [
-    i32 1, label %218
-    i32 2, label %220
+181:                                              ; preds = %180
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %183 = load i32, ptr %182, align 8
+  switch i32 %183, label %331 [
+    i32 1, label %184
+    i32 2, label %203
     i32 3, label %222
-    i32 4, label %224
-    i32 5, label %226
-    i32 6, label %228
-    i32 7, label %230
-    i32 8, label %232
+    i32 4, label %241
+    i32 5, label %260
+    i32 6, label %279
+    i32 7, label %298
+    i32 8, label %305
   ]
 
-218:                                              ; preds = %215
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %186 = load i32, ptr %185, align 4
+  switch i32 %186, label %331 [
+    i32 1, label %187
+    i32 2, label %189
+    i32 3, label %191
+    i32 4, label %193
+    i32 5, label %195
+    i32 6, label %197
+    i32 7, label %199
+    i32 8, label %201
+  ]
+
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %188, align 8
+  br label %331
+
+189:                                              ; preds = %184
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %190, align 8
+  br label %331
+
+191:                                              ; preds = %184
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %192, align 8
+  br label %331
+
+193:                                              ; preds = %184
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %194, align 8
+  br label %331
+
+195:                                              ; preds = %184
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %196, align 8
+  br label %331
+
+197:                                              ; preds = %184
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %198, align 8
+  br label %331
+
+199:                                              ; preds = %184
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %200, align 8
+  br label %331
+
+201:                                              ; preds = %184
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %202, align 8
+  br label %331
+
+203:                                              ; preds = %181
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %205 = load i32, ptr %204, align 4
+  switch i32 %205, label %331 [
+    i32 1, label %206
+    i32 2, label %208
+    i32 3, label %210
+    i32 4, label %212
+    i32 5, label %214
+    i32 6, label %216
+    i32 7, label %218
+    i32 8, label %220
+  ]
+
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_shchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %207, align 8
+  br label %331
+
+208:                                              ; preds = %203
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_shshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %209, align 8
+  br label %331
+
+210:                                              ; preds = %203
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_shinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %211, align 8
+  br label %331
+
+212:                                              ; preds = %203
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_shucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %213, align 8
+  br label %331
+
+214:                                              ; preds = %203
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_shusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %215, align 8
+  br label %331
+
+216:                                              ; preds = %203
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %217, align 8
+  br label %331
+
+218:                                              ; preds = %203
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_inchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %219, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_shflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %219, align 8
+  br label %331
 
-220:                                              ; preds = %215
+220:                                              ; preds = %203
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_inshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %221, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %221, align 8
+  br label %331
 
-222:                                              ; preds = %215
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ininEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %223, align 8
-  br label %317
-
-224:                                              ; preds = %215
-  %225 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_inucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %225, align 8
-  br label %317
-
-226:                                              ; preds = %215
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_inusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %227, align 8
-  br label %317
-
-228:                                              ; preds = %215
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %229, align 8
-  br label %317
-
-230:                                              ; preds = %215
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_inflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %231, align 8
-  br label %317
-
-232:                                              ; preds = %215
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_indoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %233, align 8
-  br label %317
-
-234:                                              ; preds = %174
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %236 = load i32, ptr %235, align 4
-  switch i32 %236, label %317 [
-    i32 1, label %237
-    i32 2, label %239
-    i32 3, label %241
-    i32 4, label %243
-    i32 5, label %245
-    i32 6, label %247
-    i32 7, label %249
-    i32 8, label %251
+222:                                              ; preds = %181
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %224 = load i32, ptr %223, align 4
+  switch i32 %224, label %331 [
+    i32 1, label %225
+    i32 2, label %227
+    i32 3, label %229
+    i32 4, label %231
+    i32 5, label %233
+    i32 6, label %235
+    i32 7, label %237
+    i32 8, label %239
   ]
 
-237:                                              ; preds = %234
+225:                                              ; preds = %222
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_inchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %226, align 8
+  br label %331
+
+227:                                              ; preds = %222
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_inshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %228, align 8
+  br label %331
+
+229:                                              ; preds = %222
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ininEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %230, align 8
+  br label %331
+
+231:                                              ; preds = %222
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_inucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %232, align 8
+  br label %331
+
+233:                                              ; preds = %222
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_inusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %234, align 8
+  br label %331
+
+235:                                              ; preds = %222
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %236, align 8
+  br label %331
+
+237:                                              ; preds = %222
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %238, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_inflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %238, align 8
+  br label %331
 
-239:                                              ; preds = %234
+239:                                              ; preds = %222
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %240, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_indoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %240, align 8
+  br label %331
 
-241:                                              ; preds = %234
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %242, align 8
-  br label %317
-
-243:                                              ; preds = %234
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %244, align 8
-  br label %317
-
-245:                                              ; preds = %234
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %246, align 8
-  br label %317
-
-247:                                              ; preds = %234
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %248, align 8
-  br label %317
-
-249:                                              ; preds = %234
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %250, align 8
-  br label %317
-
-251:                                              ; preds = %234
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %252, align 8
-  br label %317
-
-253:                                              ; preds = %174
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %255 = load i32, ptr %254, align 4
-  switch i32 %255, label %317 [
-    i32 1, label %256
-    i32 2, label %258
-    i32 3, label %260
-    i32 4, label %262
-    i32 5, label %264
-    i32 6, label %266
-    i32 7, label %268
-    i32 8, label %270
+241:                                              ; preds = %181
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %243 = load i32, ptr %242, align 4
+  switch i32 %243, label %331 [
+    i32 1, label %244
+    i32 2, label %246
+    i32 3, label %248
+    i32 4, label %250
+    i32 5, label %252
+    i32 6, label %254
+    i32 7, label %256
+    i32 8, label %258
   ]
 
-256:                                              ; preds = %253
+244:                                              ; preds = %241
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %245, align 8
+  br label %331
+
+246:                                              ; preds = %241
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %247, align 8
+  br label %331
+
+248:                                              ; preds = %241
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %249, align 8
+  br label %331
+
+250:                                              ; preds = %241
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %251, align 8
+  br label %331
+
+252:                                              ; preds = %241
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %253, align 8
+  br label %331
+
+254:                                              ; preds = %241
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %255, align 8
+  br label %331
+
+256:                                              ; preds = %241
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uschEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %257, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %257, align 8
+  br label %331
 
-258:                                              ; preds = %253
+258:                                              ; preds = %241
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_usshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %259, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %259, align 8
+  br label %331
 
-260:                                              ; preds = %253
-  %261 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_usinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %261, align 8
-  br label %317
-
-262:                                              ; preds = %253
-  %263 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_usucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %263, align 8
-  br label %317
-
-264:                                              ; preds = %253
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_ususEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %265, align 8
-  br label %317
-
-266:                                              ; preds = %253
-  %267 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %267, align 8
-  br label %317
-
-268:                                              ; preds = %253
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_usflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %269, align 8
-  br label %317
-
-270:                                              ; preds = %253
-  %271 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %271, align 8
-  br label %317
-
-272:                                              ; preds = %174
-  %273 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %274 = load i32, ptr %273, align 4
-  switch i32 %274, label %317 [
-    i32 1, label %275
-    i32 2, label %277
-    i32 3, label %279
-    i32 4, label %281
-    i32 5, label %283
-    i32 6, label %285
-    i32 7, label %287
-    i32 8, label %289
+260:                                              ; preds = %181
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %262 = load i32, ptr %261, align 4
+  switch i32 %262, label %331 [
+    i32 1, label %263
+    i32 2, label %265
+    i32 3, label %267
+    i32 4, label %269
+    i32 5, label %271
+    i32 6, label %273
+    i32 7, label %275
+    i32 8, label %277
   ]
 
-275:                                              ; preds = %272
+263:                                              ; preds = %260
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uschEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %264, align 8
+  br label %331
+
+265:                                              ; preds = %260
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_usshEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %266, align 8
+  br label %331
+
+267:                                              ; preds = %260
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_usinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %268, align 8
+  br label %331
+
+269:                                              ; preds = %260
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_usucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %270, align 8
+  br label %331
+
+271:                                              ; preds = %260
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_ususEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %272, align 8
+  br label %331
+
+273:                                              ; preds = %260
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %274, align 8
+  br label %331
+
+275:                                              ; preds = %260
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uichEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %276, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_usflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %276, align 8
+  br label %331
 
-277:                                              ; preds = %272
+277:                                              ; preds = %260
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uishEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %278, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %278, align 8
+  br label %331
 
-279:                                              ; preds = %272
-  %280 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %280, align 8
-  br label %317
-
-281:                                              ; preds = %272
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %282, align 8
-  br label %317
-
-283:                                              ; preds = %272
-  %284 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %284, align 8
-  br label %317
-
-285:                                              ; preds = %272
-  %286 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %286, align 8
-  br label %317
-
-287:                                              ; preds = %272
-  %288 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %288, align 8
-  br label %317
-
-289:                                              ; preds = %272
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %290, align 8
-  br label %317
-
-291:                                              ; preds = %174
-  %292 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %293 = load i32, ptr %292, align 4
-  switch i32 %293, label %317 [
+279:                                              ; preds = %181
+  %280 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %281 = load i32, ptr %280, align 4
+  switch i32 %281, label %331 [
+    i32 1, label %282
+    i32 2, label %284
+    i32 3, label %286
+    i32 4, label %288
+    i32 5, label %290
+    i32 6, label %292
     i32 7, label %294
     i32 8, label %296
   ]
 
-294:                                              ; preds = %291
+282:                                              ; preds = %279
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uichEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %283, align 8
+  br label %331
+
+284:                                              ; preds = %279
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uishEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %285, align 8
+  br label %331
+
+286:                                              ; preds = %279
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %287, align 8
+  br label %331
+
+288:                                              ; preds = %279
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %289, align 8
+  br label %331
+
+290:                                              ; preds = %279
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %291, align 8
+  br label %331
+
+292:                                              ; preds = %279
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %293, align 8
+  br label %331
+
+294:                                              ; preds = %279
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_flflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %295, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %295, align 8
+  br label %331
 
-296:                                              ; preds = %291
+296:                                              ; preds = %279
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %297, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %297, align 8
+  br label %331
 
-298:                                              ; preds = %174
+298:                                              ; preds = %181
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %300 = load i32, ptr %299, align 4
-  switch i32 %300, label %317 [
+  switch i32 %300, label %331 [
     i32 7, label %301
     i32 8, label %303
   ]
 
 301:                                              ; preds = %298
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %302, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_flflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %302, align 8
+  br label %331
 
 303:                                              ; preds = %298
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %304, align 8
-  br label %317
+  store ptr @_ZN3vcg3plyL12cb_read_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %304, align 8
+  br label %331
 
-305:                                              ; preds = %173
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %307 = load i32, ptr %306, align 8
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %308
-  %310 = load i32, ptr %309, align 4
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  switch i32 %310, label %316 [
-    i32 1, label %312
-    i32 2, label %313
-    i32 4, label %314
-    i32 8, label %315
+305:                                              ; preds = %181
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %307 = load i32, ptr %306, align 4
+  switch i32 %307, label %331 [
+    i32 7, label %308
+    i32 8, label %310
   ]
 
-312:                                              ; preds = %305
-  store ptr @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %311, align 8
-  br label %317
+308:                                              ; preds = %305
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %309, align 8
+  br label %331
 
-313:                                              ; preds = %305
-  store ptr @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %311, align 8
-  br label %317
+310:                                              ; preds = %305
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %311, align 8
+  br label %331
 
-314:                                              ; preds = %305
-  store ptr @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %311, align 8
-  br label %317
+312:                                              ; preds = %180
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %314 = load i32, ptr %313, align 8
+  %315 = sext i32 %314 to i64
+  %316 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %315
+  %317 = load i32, ptr %316, align 4
+  %318 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %317)
+  %319 = icmp eq i32 %318, 1
+  br i1 %319, label %.split1, label %329
 
-315:                                              ; preds = %305
-  store ptr @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %311, align 8
-  br label %317
+.split1:                                          ; preds = %312
+  %320 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %317, i1 true)
+  switch i32 %320, label %329 [
+    i32 0, label %321
+    i32 1, label %323
+    i32 2, label %325
+    i32 3, label %327
+  ]
 
-316:                                              ; preds = %305
-  store ptr null, ptr %311, align 8
-  br label %317
+321:                                              ; preds = %.split1
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %322, align 8
+  br label %331
 
-317:                                              ; preds = %168, %169, %170, %171, %172, %33, %50, %48, %46, %44, %42, %40, %38, %36, %52, %69, %67, %65, %63, %61, %59, %57, %55, %71, %88, %86, %84, %82, %80, %78, %76, %74, %90, %107, %105, %103, %101, %99, %97, %95, %93, %109, %126, %124, %122, %120, %118, %116, %114, %112, %128, %145, %143, %141, %139, %137, %135, %133, %131, %147, %152, %150, %154, %159, %157, %30, %312, %313, %314, %315, %316, %177, %194, %192, %190, %188, %186, %184, %182, %180, %196, %213, %211, %209, %207, %205, %203, %201, %199, %215, %232, %230, %228, %226, %224, %222, %220, %218, %234, %251, %249, %247, %245, %243, %241, %239, %237, %253, %270, %268, %266, %264, %262, %260, %258, %256, %272, %289, %287, %285, %283, %281, %279, %277, %275, %291, %296, %294, %298, %303, %301, %174, %15, %14, %22, %24, %26, %17
+323:                                              ; preds = %.split1
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %324, align 8
+  br label %331
+
+325:                                              ; preds = %.split1
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %326, align 8
+  br label %331
+
+327:                                              ; preds = %.split1
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE, ptr %328, align 8
+  br label %331
+
+329:                                              ; preds = %312, %.split1
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %330, align 8
+  br label %331
+
+331:                                              ; preds = %170, %172, %174, %176, %178, %33, %50, %48, %46, %44, %42, %40, %38, %36, %52, %69, %67, %65, %63, %61, %59, %57, %55, %71, %88, %86, %84, %82, %80, %78, %76, %74, %90, %107, %105, %103, %101, %99, %97, %95, %93, %109, %126, %124, %122, %120, %118, %116, %114, %112, %128, %145, %143, %141, %139, %137, %135, %133, %131, %147, %152, %150, %154, %159, %157, %30, %321, %323, %325, %327, %329, %184, %201, %199, %197, %195, %193, %191, %189, %187, %203, %220, %218, %216, %214, %212, %210, %208, %206, %222, %239, %237, %235, %233, %231, %229, %227, %225, %241, %258, %256, %254, %252, %250, %248, %246, %244, %260, %277, %275, %273, %271, %269, %267, %265, %263, %279, %296, %294, %292, %290, %288, %286, %284, %282, %298, %303, %301, %305, %310, %308, %181, %15, %14, %22, %24, %26, %17
   ret void
 }
 
@@ -12649,20 +12669,26 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #22
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #23
+declare i16 @llvm.bswap.i16(i16) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #23
+declare i32 @llvm.bswap.i32(i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
@@ -12701,8 +12727,8 @@ attributes #18 = { mustprogress nofree norecurse nounwind willreturn memory(read
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }

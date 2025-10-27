@@ -74,8 +74,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vbrev_vP11
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -173,8 +173,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vbrev_vP11
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -259,8 +259,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vbrev_vP11
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -352,175 +352,180 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vbrev_vP11
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %161
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %160
 
-._crit_edge:                                      ; preds = %268, %134
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #15
-  ret i64 %159
+._crit_edge:                                      ; preds = %267, %134
+  %156 = shl i64 %2, 32
+  %157 = add i64 %156, 17179869184
+  %158 = ashr exact i64 %157, 32
+  %159 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #15
+  ret i64 %158
 
-161:                                              ; preds = %.lr.ph, %268
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %269, %268 ]
-  br i1 %56, label %162, label %170
+160:                                              ; preds = %.lr.ph, %267
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %268, %267 ]
+  br i1 %56, label %161, label %169
 
-162:                                              ; preds = %161
-  %163 = and i64 %.0175214, 63
-  %164 = shl i64 %.0175214, 26
-  %165 = ashr i64 %164, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !146
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not180 = icmp eq i64 %169, 0
-  br i1 %.not180, label %268, label %170
+161:                                              ; preds = %160
+  %162 = and i64 %.0175217, 63
+  %163 = shl i64 %.0175217, 26
+  %164 = ashr i64 %163, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !146
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not180 = icmp ne i64 %168, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %267
 
-170:                                              ; preds = %162, %161
-  switch i64 %156, label %268 [
-    i64 0, label %171
-    i64 1, label %178
-    i64 3, label %201
-    i64 7, label %232
+169:                                              ; preds = %160
+  br i1 %.old188, label %.split, label %267
+
+.split:                                           ; preds = %161, %169
+  switch i64 %155, label %267 [
+    i64 3, label %170
+    i64 4, label %177
+    i64 5, label %200
+    i64 6, label %231
   ]
 
-171:                                              ; preds = %170
-  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %173 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %174 = load i8, ptr %173, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %174)
-  %175 = load i64, ptr %93, align 8, !tbaa !149
-  %176 = icmp ugt i64 %175, 8
-  %177 = select i1 %176, i8 0, i8 %rev181
-  store i8 %177, ptr %172, align 1, !tbaa !150
-  br label %268
+170:                                              ; preds = %.split
+  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %173 = load i8, ptr %172, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %173)
+  %174 = load i64, ptr %93, align 8, !tbaa !149
+  %175 = icmp ugt i64 %174, 8
+  %176 = select i1 %175, i8 0, i8 %rev181
+  store i8 %176, ptr %171, align 1, !tbaa !150
+  br label %267
 
-178:                                              ; preds = %170
-  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %180 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %181 = load i16, ptr %180, align 2, !tbaa !151
-  %182 = shl i16 %181, 1
-  %183 = and i16 %182, -21846
-  %184 = lshr i16 %181, 1
-  %185 = and i16 %184, 21845
-  %186 = or disjoint i16 %183, %185
-  %187 = shl i16 %186, 2
-  %188 = and i16 %187, -13108
-  %189 = lshr i16 %186, 2
-  %190 = and i16 %189, 13107
-  %191 = or disjoint i16 %188, %190
-  %192 = shl i16 %191, 4
-  %193 = and i16 %192, -3856
-  %194 = lshr i16 %191, 4
-  %195 = and i16 %194, 3855
-  %196 = or disjoint i16 %193, %195
-  %197 = load i64, ptr %93, align 8, !tbaa !149
-  %198 = icmp ugt i64 %197, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %181)
-  %.0168 = select i1 %198, i16 %rev, i16 %196
-  %199 = icmp ugt i64 %197, 16
-  %200 = select i1 %199, i16 0, i16 %.0168
-  store i16 %200, ptr %179, align 2, !tbaa !151
-  br label %268
+177:                                              ; preds = %.split
+  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %180 = load i16, ptr %179, align 2, !tbaa !151
+  %181 = shl i16 %180, 1
+  %182 = and i16 %181, -21846
+  %183 = lshr i16 %180, 1
+  %184 = and i16 %183, 21845
+  %185 = or disjoint i16 %182, %184
+  %186 = shl i16 %185, 2
+  %187 = and i16 %186, -13108
+  %188 = lshr i16 %185, 2
+  %189 = and i16 %188, 13107
+  %190 = or disjoint i16 %187, %189
+  %191 = shl i16 %190, 4
+  %192 = and i16 %191, -3856
+  %193 = lshr i16 %190, 4
+  %194 = and i16 %193, 3855
+  %195 = or disjoint i16 %192, %194
+  %196 = load i64, ptr %93, align 8, !tbaa !149
+  %197 = icmp ugt i64 %196, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %180)
+  %.0168 = select i1 %197, i16 %rev, i16 %195
+  %198 = icmp ugt i64 %196, 16
+  %199 = select i1 %198, i16 0, i16 %.0168
+  store i16 %199, ptr %178, align 2, !tbaa !151
+  br label %267
 
-201:                                              ; preds = %170
-  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %203 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %204 = load i32, ptr %203, align 4, !tbaa !153
-  %205 = shl i32 %204, 1
-  %206 = and i32 %205, -1431655766
-  %207 = lshr i32 %204, 1
-  %208 = and i32 %207, 1431655765
-  %209 = or disjoint i32 %206, %208
-  %210 = shl i32 %209, 2
-  %211 = and i32 %210, -858993460
-  %212 = lshr i32 %209, 2
-  %213 = and i32 %212, 858993459
-  %214 = or disjoint i32 %211, %213
-  %215 = shl i32 %214, 4
-  %216 = and i32 %215, -252645136
-  %217 = lshr i32 %214, 4
-  %218 = and i32 %217, 252645135
-  %219 = or disjoint i32 %216, %218
-  %220 = load i64, ptr %93, align 8, !tbaa !149
-  %221 = icmp ugt i64 %220, 8
-  br i1 %221, label %222, label %.thread
+200:                                              ; preds = %.split
+  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %203 = load i32, ptr %202, align 4, !tbaa !153
+  %204 = shl i32 %203, 1
+  %205 = and i32 %204, -1431655766
+  %206 = lshr i32 %203, 1
+  %207 = and i32 %206, 1431655765
+  %208 = or disjoint i32 %205, %207
+  %209 = shl i32 %208, 2
+  %210 = and i32 %209, -858993460
+  %211 = lshr i32 %208, 2
+  %212 = and i32 %211, 858993459
+  %213 = or disjoint i32 %210, %212
+  %214 = shl i32 %213, 4
+  %215 = and i32 %214, -252645136
+  %216 = lshr i32 %213, 4
+  %217 = and i32 %216, 252645135
+  %218 = or disjoint i32 %215, %217
+  %219 = load i64, ptr %93, align 8, !tbaa !149
+  %220 = icmp ugt i64 %219, 8
+  br i1 %220, label %221, label %.thread
 
-222:                                              ; preds = %201
-  %223 = shl i32 %219, 8
-  %224 = and i32 %223, -16711936
-  %225 = lshr i32 %219, 8
-  %226 = and i32 %225, 16711935
-  %227 = or disjoint i32 %224, %226
-  %228 = icmp ugt i64 %220, 16
-  br i1 %228, label %229, label %.thread
+221:                                              ; preds = %200
+  %222 = shl i32 %218, 8
+  %223 = and i32 %222, -16711936
+  %224 = lshr i32 %218, 8
+  %225 = and i32 %224, 16711935
+  %226 = or disjoint i32 %223, %225
+  %227 = icmp ugt i64 %219, 16
+  br i1 %227, label %228, label %.thread
 
-229:                                              ; preds = %222
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %204)
+228:                                              ; preds = %221
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %203)
   br label %.thread
 
-.thread:                                          ; preds = %201, %229, %222
-  %.1166 = phi i32 [ %rev213, %229 ], [ %227, %222 ], [ %219, %201 ]
-  %230 = icmp ugt i64 %220, 32
-  %231 = select i1 %230, i32 0, i32 %.1166
-  store i32 %231, ptr %202, align 4, !tbaa !153
-  br label %268
+.thread:                                          ; preds = %200, %228, %221
+  %.1166 = phi i32 [ %rev214, %228 ], [ %226, %221 ], [ %218, %200 ]
+  %229 = icmp ugt i64 %219, 32
+  %230 = select i1 %229, i32 0, i32 %.1166
+  store i32 %230, ptr %201, align 4, !tbaa !153
+  br label %267
 
-232:                                              ; preds = %170
-  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %234 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %235 = load i64, ptr %234, align 8, !tbaa !146
-  %236 = shl i64 %235, 1
-  %237 = and i64 %236, -6148914691236517206
-  %238 = lshr i64 %235, 1
-  %239 = and i64 %238, 6148914691236517205
-  %240 = or disjoint i64 %237, %239
-  %241 = shl i64 %240, 2
-  %242 = and i64 %241, -3689348814741910324
-  %243 = lshr i64 %240, 2
-  %244 = and i64 %243, 3689348814741910323
-  %245 = or disjoint i64 %242, %244
-  %246 = shl i64 %245, 4
-  %247 = and i64 %246, -1085102592571150096
-  %248 = lshr i64 %245, 4
-  %249 = and i64 %248, 1085102592571150095
-  %250 = or disjoint i64 %247, %249
-  %251 = load i64, ptr %93, align 8, !tbaa !149
-  %252 = icmp ugt i64 %251, 8
-  br i1 %252, label %253, label %.thread209
+231:                                              ; preds = %.split
+  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %234 = load i64, ptr %233, align 8, !tbaa !146
+  %235 = shl i64 %234, 1
+  %236 = and i64 %235, -6148914691236517206
+  %237 = lshr i64 %234, 1
+  %238 = and i64 %237, 6148914691236517205
+  %239 = or disjoint i64 %236, %238
+  %240 = shl i64 %239, 2
+  %241 = and i64 %240, -3689348814741910324
+  %242 = lshr i64 %239, 2
+  %243 = and i64 %242, 3689348814741910323
+  %244 = or disjoint i64 %241, %243
+  %245 = shl i64 %244, 4
+  %246 = and i64 %245, -1085102592571150096
+  %247 = lshr i64 %244, 4
+  %248 = and i64 %247, 1085102592571150095
+  %249 = or disjoint i64 %246, %248
+  %250 = load i64, ptr %93, align 8, !tbaa !149
+  %251 = icmp ugt i64 %250, 8
+  br i1 %251, label %252, label %.thread210
 
-253:                                              ; preds = %232
-  %254 = shl i64 %250, 8
-  %255 = and i64 %254, -71777214294589696
-  %256 = lshr i64 %250, 8
-  %257 = and i64 %256, 71777214294589695
-  %258 = or disjoint i64 %255, %257
-  %259 = icmp ugt i64 %251, 16
-  br i1 %259, label %260, label %.thread209
+252:                                              ; preds = %231
+  %253 = shl i64 %249, 8
+  %254 = and i64 %253, -71777214294589696
+  %255 = lshr i64 %249, 8
+  %256 = and i64 %255, 71777214294589695
+  %257 = or disjoint i64 %254, %256
+  %258 = icmp ugt i64 %250, 16
+  br i1 %258, label %259, label %.thread210
 
-260:                                              ; preds = %253
-  %261 = shl i64 %258, 16
-  %262 = and i64 %261, -281470681808896
-  %263 = lshr i64 %258, 16
-  %264 = and i64 %263, 281470681808895
-  %265 = or disjoint i64 %262, %264
-  br label %.thread209
+259:                                              ; preds = %252
+  %260 = shl i64 %257, 16
+  %261 = and i64 %260, -281470681808896
+  %262 = lshr i64 %257, 16
+  %263 = and i64 %262, 281470681808895
+  %264 = or disjoint i64 %261, %263
+  br label %.thread210
 
-.thread209:                                       ; preds = %232, %260, %253
-  %.1 = phi i64 [ %265, %260 ], [ %258, %253 ], [ %250, %232 ]
-  %266 = icmp ugt i64 %251, 32
-  %267 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %266, i64 %267, i64 %.1
-  store i64 %spec.select187, ptr %233, align 8, !tbaa !146
-  br label %268
+.thread210:                                       ; preds = %231, %259, %252
+  %.1 = phi i64 [ %264, %259 ], [ %257, %252 ], [ %249, %231 ]
+  %265 = icmp ugt i64 %250, 32
+  %266 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %265, i64 %266, i64 %.1
+  store i64 %spec.select187, ptr %232, align 8, !tbaa !146
+  br label %267
 
-268:                                              ; preds = %171, %.thread, %.thread209, %178, %170, %162
-  %269 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %269, %142
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !154
+267:                                              ; preds = %169, %170, %.thread, %.thread210, %177, %.split, %161
+  %268 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %268, %142
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !154
 }
 
 declare noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #0
@@ -645,8 +650,8 @@ define noundef i64 @_Z18fast_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -744,8 +749,8 @@ define noundef i64 @_Z18fast_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -830,8 +835,8 @@ define noundef i64 @_Z18fast_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -923,173 +928,178 @@ define noundef i64 @_Z18fast_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %159
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %158
 
-._crit_edge:                                      ; preds = %266, %134
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #15
-  ret i64 %157
+._crit_edge:                                      ; preds = %265, %134
+  %156 = add i64 %2, 4
+  %157 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef 0) #15
+  ret i64 %156
 
-159:                                              ; preds = %.lr.ph, %266
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %267, %266 ]
-  br i1 %56, label %160, label %168
+158:                                              ; preds = %.lr.ph, %265
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %266, %265 ]
+  br i1 %56, label %159, label %167
 
-160:                                              ; preds = %159
-  %161 = and i64 %.0175214, 63
-  %162 = shl i64 %.0175214, 26
-  %163 = ashr i64 %162, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !146
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not180 = icmp eq i64 %167, 0
-  br i1 %.not180, label %266, label %168
+159:                                              ; preds = %158
+  %160 = and i64 %.0175217, 63
+  %161 = shl i64 %.0175217, 26
+  %162 = ashr i64 %161, 32
+  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %162, i1 noundef zeroext false)
+  %164 = load i64, ptr %163, align 8, !tbaa !146
+  %165 = shl nuw i64 1, %160
+  %166 = and i64 %164, %165
+  %.not180 = icmp ne i64 %166, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %265
 
-168:                                              ; preds = %160, %159
-  switch i64 %156, label %266 [
-    i64 0, label %169
-    i64 1, label %176
-    i64 3, label %199
-    i64 7, label %230
+167:                                              ; preds = %158
+  br i1 %.old188, label %.split, label %265
+
+.split:                                           ; preds = %159, %167
+  switch i64 %155, label %265 [
+    i64 3, label %168
+    i64 4, label %175
+    i64 5, label %198
+    i64 6, label %229
   ]
 
-169:                                              ; preds = %168
-  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %172 = load i8, ptr %171, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %172)
-  %173 = load i64, ptr %93, align 8, !tbaa !149
-  %174 = icmp ugt i64 %173, 8
-  %175 = select i1 %174, i8 0, i8 %rev181
-  store i8 %175, ptr %170, align 1, !tbaa !150
-  br label %266
+168:                                              ; preds = %.split
+  %169 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %171 = load i8, ptr %170, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %171)
+  %172 = load i64, ptr %93, align 8, !tbaa !149
+  %173 = icmp ugt i64 %172, 8
+  %174 = select i1 %173, i8 0, i8 %rev181
+  store i8 %174, ptr %169, align 1, !tbaa !150
+  br label %265
 
-176:                                              ; preds = %168
-  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %179 = load i16, ptr %178, align 2, !tbaa !151
-  %180 = shl i16 %179, 1
-  %181 = and i16 %180, -21846
-  %182 = lshr i16 %179, 1
-  %183 = and i16 %182, 21845
-  %184 = or disjoint i16 %181, %183
-  %185 = shl i16 %184, 2
-  %186 = and i16 %185, -13108
-  %187 = lshr i16 %184, 2
-  %188 = and i16 %187, 13107
-  %189 = or disjoint i16 %186, %188
-  %190 = shl i16 %189, 4
-  %191 = and i16 %190, -3856
-  %192 = lshr i16 %189, 4
-  %193 = and i16 %192, 3855
-  %194 = or disjoint i16 %191, %193
-  %195 = load i64, ptr %93, align 8, !tbaa !149
-  %196 = icmp ugt i64 %195, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %179)
-  %.0168 = select i1 %196, i16 %rev, i16 %194
-  %197 = icmp ugt i64 %195, 16
-  %198 = select i1 %197, i16 0, i16 %.0168
-  store i16 %198, ptr %177, align 2, !tbaa !151
-  br label %266
+175:                                              ; preds = %.split
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %178 = load i16, ptr %177, align 2, !tbaa !151
+  %179 = shl i16 %178, 1
+  %180 = and i16 %179, -21846
+  %181 = lshr i16 %178, 1
+  %182 = and i16 %181, 21845
+  %183 = or disjoint i16 %180, %182
+  %184 = shl i16 %183, 2
+  %185 = and i16 %184, -13108
+  %186 = lshr i16 %183, 2
+  %187 = and i16 %186, 13107
+  %188 = or disjoint i16 %185, %187
+  %189 = shl i16 %188, 4
+  %190 = and i16 %189, -3856
+  %191 = lshr i16 %188, 4
+  %192 = and i16 %191, 3855
+  %193 = or disjoint i16 %190, %192
+  %194 = load i64, ptr %93, align 8, !tbaa !149
+  %195 = icmp ugt i64 %194, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %178)
+  %.0168 = select i1 %195, i16 %rev, i16 %193
+  %196 = icmp ugt i64 %194, 16
+  %197 = select i1 %196, i16 0, i16 %.0168
+  store i16 %197, ptr %176, align 2, !tbaa !151
+  br label %265
 
-199:                                              ; preds = %168
-  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %202 = load i32, ptr %201, align 4, !tbaa !153
-  %203 = shl i32 %202, 1
-  %204 = and i32 %203, -1431655766
-  %205 = lshr i32 %202, 1
-  %206 = and i32 %205, 1431655765
-  %207 = or disjoint i32 %204, %206
-  %208 = shl i32 %207, 2
-  %209 = and i32 %208, -858993460
-  %210 = lshr i32 %207, 2
-  %211 = and i32 %210, 858993459
-  %212 = or disjoint i32 %209, %211
-  %213 = shl i32 %212, 4
-  %214 = and i32 %213, -252645136
-  %215 = lshr i32 %212, 4
-  %216 = and i32 %215, 252645135
-  %217 = or disjoint i32 %214, %216
-  %218 = load i64, ptr %93, align 8, !tbaa !149
-  %219 = icmp ugt i64 %218, 8
-  br i1 %219, label %220, label %.thread
+198:                                              ; preds = %.split
+  %199 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %201 = load i32, ptr %200, align 4, !tbaa !153
+  %202 = shl i32 %201, 1
+  %203 = and i32 %202, -1431655766
+  %204 = lshr i32 %201, 1
+  %205 = and i32 %204, 1431655765
+  %206 = or disjoint i32 %203, %205
+  %207 = shl i32 %206, 2
+  %208 = and i32 %207, -858993460
+  %209 = lshr i32 %206, 2
+  %210 = and i32 %209, 858993459
+  %211 = or disjoint i32 %208, %210
+  %212 = shl i32 %211, 4
+  %213 = and i32 %212, -252645136
+  %214 = lshr i32 %211, 4
+  %215 = and i32 %214, 252645135
+  %216 = or disjoint i32 %213, %215
+  %217 = load i64, ptr %93, align 8, !tbaa !149
+  %218 = icmp ugt i64 %217, 8
+  br i1 %218, label %219, label %.thread
 
-220:                                              ; preds = %199
-  %221 = shl i32 %217, 8
-  %222 = and i32 %221, -16711936
-  %223 = lshr i32 %217, 8
-  %224 = and i32 %223, 16711935
-  %225 = or disjoint i32 %222, %224
-  %226 = icmp ugt i64 %218, 16
-  br i1 %226, label %227, label %.thread
+219:                                              ; preds = %198
+  %220 = shl i32 %216, 8
+  %221 = and i32 %220, -16711936
+  %222 = lshr i32 %216, 8
+  %223 = and i32 %222, 16711935
+  %224 = or disjoint i32 %221, %223
+  %225 = icmp ugt i64 %217, 16
+  br i1 %225, label %226, label %.thread
 
-227:                                              ; preds = %220
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %202)
+226:                                              ; preds = %219
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %201)
   br label %.thread
 
-.thread:                                          ; preds = %199, %227, %220
-  %.1166 = phi i32 [ %rev213, %227 ], [ %225, %220 ], [ %217, %199 ]
-  %228 = icmp ugt i64 %218, 32
-  %229 = select i1 %228, i32 0, i32 %.1166
-  store i32 %229, ptr %200, align 4, !tbaa !153
-  br label %266
+.thread:                                          ; preds = %198, %226, %219
+  %.1166 = phi i32 [ %rev214, %226 ], [ %224, %219 ], [ %216, %198 ]
+  %227 = icmp ugt i64 %217, 32
+  %228 = select i1 %227, i32 0, i32 %.1166
+  store i32 %228, ptr %199, align 4, !tbaa !153
+  br label %265
 
-230:                                              ; preds = %168
-  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %233 = load i64, ptr %232, align 8, !tbaa !146
-  %234 = shl i64 %233, 1
-  %235 = and i64 %234, -6148914691236517206
-  %236 = lshr i64 %233, 1
-  %237 = and i64 %236, 6148914691236517205
-  %238 = or disjoint i64 %235, %237
-  %239 = shl i64 %238, 2
-  %240 = and i64 %239, -3689348814741910324
-  %241 = lshr i64 %238, 2
-  %242 = and i64 %241, 3689348814741910323
-  %243 = or disjoint i64 %240, %242
-  %244 = shl i64 %243, 4
-  %245 = and i64 %244, -1085102592571150096
-  %246 = lshr i64 %243, 4
-  %247 = and i64 %246, 1085102592571150095
-  %248 = or disjoint i64 %245, %247
-  %249 = load i64, ptr %93, align 8, !tbaa !149
-  %250 = icmp ugt i64 %249, 8
-  br i1 %250, label %251, label %.thread209
+229:                                              ; preds = %.split
+  %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %232 = load i64, ptr %231, align 8, !tbaa !146
+  %233 = shl i64 %232, 1
+  %234 = and i64 %233, -6148914691236517206
+  %235 = lshr i64 %232, 1
+  %236 = and i64 %235, 6148914691236517205
+  %237 = or disjoint i64 %234, %236
+  %238 = shl i64 %237, 2
+  %239 = and i64 %238, -3689348814741910324
+  %240 = lshr i64 %237, 2
+  %241 = and i64 %240, 3689348814741910323
+  %242 = or disjoint i64 %239, %241
+  %243 = shl i64 %242, 4
+  %244 = and i64 %243, -1085102592571150096
+  %245 = lshr i64 %242, 4
+  %246 = and i64 %245, 1085102592571150095
+  %247 = or disjoint i64 %244, %246
+  %248 = load i64, ptr %93, align 8, !tbaa !149
+  %249 = icmp ugt i64 %248, 8
+  br i1 %249, label %250, label %.thread210
 
-251:                                              ; preds = %230
-  %252 = shl i64 %248, 8
-  %253 = and i64 %252, -71777214294589696
-  %254 = lshr i64 %248, 8
-  %255 = and i64 %254, 71777214294589695
-  %256 = or disjoint i64 %253, %255
-  %257 = icmp ugt i64 %249, 16
-  br i1 %257, label %258, label %.thread209
+250:                                              ; preds = %229
+  %251 = shl i64 %247, 8
+  %252 = and i64 %251, -71777214294589696
+  %253 = lshr i64 %247, 8
+  %254 = and i64 %253, 71777214294589695
+  %255 = or disjoint i64 %252, %254
+  %256 = icmp ugt i64 %248, 16
+  br i1 %256, label %257, label %.thread210
 
-258:                                              ; preds = %251
-  %259 = shl i64 %256, 16
-  %260 = and i64 %259, -281470681808896
-  %261 = lshr i64 %256, 16
-  %262 = and i64 %261, 281470681808895
-  %263 = or disjoint i64 %260, %262
-  br label %.thread209
+257:                                              ; preds = %250
+  %258 = shl i64 %255, 16
+  %259 = and i64 %258, -281470681808896
+  %260 = lshr i64 %255, 16
+  %261 = and i64 %260, 281470681808895
+  %262 = or disjoint i64 %259, %261
+  br label %.thread210
 
-.thread209:                                       ; preds = %230, %258, %251
-  %.1 = phi i64 [ %263, %258 ], [ %256, %251 ], [ %248, %230 ]
-  %264 = icmp ugt i64 %249, 32
-  %265 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %264, i64 %265, i64 %.1
-  store i64 %spec.select187, ptr %231, align 8, !tbaa !146
-  br label %266
+.thread210:                                       ; preds = %229, %257, %250
+  %.1 = phi i64 [ %262, %257 ], [ %255, %250 ], [ %247, %229 ]
+  %263 = icmp ugt i64 %248, 32
+  %264 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %263, i64 %264, i64 %.1
+  store i64 %spec.select187, ptr %230, align 8, !tbaa !146
+  br label %265
 
-266:                                              ; preds = %169, %.thread, %.thread209, %176, %168, %160
-  %267 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %267, %142
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !163
+265:                                              ; preds = %167, %168, %.thread, %.thread210, %175, %.split, %159
+  %266 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %266, %142
+  br i1 %exitcond.not, label %._crit_edge, label %158, !llvm.loop !163
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1098,8 +1108,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vbrev_vP
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -1197,8 +1207,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vbrev_vP
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1283,8 +1293,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vbrev_vP
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -1376,175 +1386,180 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vbrev_vP
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %161
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %160
 
-._crit_edge:                                      ; preds = %268, %134
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #15
-  ret i64 %159
+._crit_edge:                                      ; preds = %267, %134
+  %156 = shl i64 %2, 32
+  %157 = add i64 %156, 17179869184
+  %158 = ashr exact i64 %157, 32
+  %159 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #15
+  ret i64 %158
 
-161:                                              ; preds = %.lr.ph, %268
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %269, %268 ]
-  br i1 %56, label %162, label %170
+160:                                              ; preds = %.lr.ph, %267
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %268, %267 ]
+  br i1 %56, label %161, label %169
 
-162:                                              ; preds = %161
-  %163 = and i64 %.0175214, 63
-  %164 = shl i64 %.0175214, 26
-  %165 = ashr i64 %164, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !146
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not180 = icmp eq i64 %169, 0
-  br i1 %.not180, label %268, label %170
+161:                                              ; preds = %160
+  %162 = and i64 %.0175217, 63
+  %163 = shl i64 %.0175217, 26
+  %164 = ashr i64 %163, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !146
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not180 = icmp ne i64 %168, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %267
 
-170:                                              ; preds = %162, %161
-  switch i64 %156, label %268 [
-    i64 0, label %171
-    i64 1, label %178
-    i64 3, label %201
-    i64 7, label %232
+169:                                              ; preds = %160
+  br i1 %.old188, label %.split, label %267
+
+.split:                                           ; preds = %161, %169
+  switch i64 %155, label %267 [
+    i64 3, label %170
+    i64 4, label %177
+    i64 5, label %200
+    i64 6, label %231
   ]
 
-171:                                              ; preds = %170
-  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %173 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %174 = load i8, ptr %173, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %174)
-  %175 = load i64, ptr %93, align 8, !tbaa !149
-  %176 = icmp ugt i64 %175, 8
-  %177 = select i1 %176, i8 0, i8 %rev181
-  store i8 %177, ptr %172, align 1, !tbaa !150
-  br label %268
+170:                                              ; preds = %.split
+  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %173 = load i8, ptr %172, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %173)
+  %174 = load i64, ptr %93, align 8, !tbaa !149
+  %175 = icmp ugt i64 %174, 8
+  %176 = select i1 %175, i8 0, i8 %rev181
+  store i8 %176, ptr %171, align 1, !tbaa !150
+  br label %267
 
-178:                                              ; preds = %170
-  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %180 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %181 = load i16, ptr %180, align 2, !tbaa !151
-  %182 = shl i16 %181, 1
-  %183 = and i16 %182, -21846
-  %184 = lshr i16 %181, 1
-  %185 = and i16 %184, 21845
-  %186 = or disjoint i16 %183, %185
-  %187 = shl i16 %186, 2
-  %188 = and i16 %187, -13108
-  %189 = lshr i16 %186, 2
-  %190 = and i16 %189, 13107
-  %191 = or disjoint i16 %188, %190
-  %192 = shl i16 %191, 4
-  %193 = and i16 %192, -3856
-  %194 = lshr i16 %191, 4
-  %195 = and i16 %194, 3855
-  %196 = or disjoint i16 %193, %195
-  %197 = load i64, ptr %93, align 8, !tbaa !149
-  %198 = icmp ugt i64 %197, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %181)
-  %.0168 = select i1 %198, i16 %rev, i16 %196
-  %199 = icmp ugt i64 %197, 16
-  %200 = select i1 %199, i16 0, i16 %.0168
-  store i16 %200, ptr %179, align 2, !tbaa !151
-  br label %268
+177:                                              ; preds = %.split
+  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %180 = load i16, ptr %179, align 2, !tbaa !151
+  %181 = shl i16 %180, 1
+  %182 = and i16 %181, -21846
+  %183 = lshr i16 %180, 1
+  %184 = and i16 %183, 21845
+  %185 = or disjoint i16 %182, %184
+  %186 = shl i16 %185, 2
+  %187 = and i16 %186, -13108
+  %188 = lshr i16 %185, 2
+  %189 = and i16 %188, 13107
+  %190 = or disjoint i16 %187, %189
+  %191 = shl i16 %190, 4
+  %192 = and i16 %191, -3856
+  %193 = lshr i16 %190, 4
+  %194 = and i16 %193, 3855
+  %195 = or disjoint i16 %192, %194
+  %196 = load i64, ptr %93, align 8, !tbaa !149
+  %197 = icmp ugt i64 %196, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %180)
+  %.0168 = select i1 %197, i16 %rev, i16 %195
+  %198 = icmp ugt i64 %196, 16
+  %199 = select i1 %198, i16 0, i16 %.0168
+  store i16 %199, ptr %178, align 2, !tbaa !151
+  br label %267
 
-201:                                              ; preds = %170
-  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %203 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %204 = load i32, ptr %203, align 4, !tbaa !153
-  %205 = shl i32 %204, 1
-  %206 = and i32 %205, -1431655766
-  %207 = lshr i32 %204, 1
-  %208 = and i32 %207, 1431655765
-  %209 = or disjoint i32 %206, %208
-  %210 = shl i32 %209, 2
-  %211 = and i32 %210, -858993460
-  %212 = lshr i32 %209, 2
-  %213 = and i32 %212, 858993459
-  %214 = or disjoint i32 %211, %213
-  %215 = shl i32 %214, 4
-  %216 = and i32 %215, -252645136
-  %217 = lshr i32 %214, 4
-  %218 = and i32 %217, 252645135
-  %219 = or disjoint i32 %216, %218
-  %220 = load i64, ptr %93, align 8, !tbaa !149
-  %221 = icmp ugt i64 %220, 8
-  br i1 %221, label %222, label %.thread
+200:                                              ; preds = %.split
+  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %203 = load i32, ptr %202, align 4, !tbaa !153
+  %204 = shl i32 %203, 1
+  %205 = and i32 %204, -1431655766
+  %206 = lshr i32 %203, 1
+  %207 = and i32 %206, 1431655765
+  %208 = or disjoint i32 %205, %207
+  %209 = shl i32 %208, 2
+  %210 = and i32 %209, -858993460
+  %211 = lshr i32 %208, 2
+  %212 = and i32 %211, 858993459
+  %213 = or disjoint i32 %210, %212
+  %214 = shl i32 %213, 4
+  %215 = and i32 %214, -252645136
+  %216 = lshr i32 %213, 4
+  %217 = and i32 %216, 252645135
+  %218 = or disjoint i32 %215, %217
+  %219 = load i64, ptr %93, align 8, !tbaa !149
+  %220 = icmp ugt i64 %219, 8
+  br i1 %220, label %221, label %.thread
 
-222:                                              ; preds = %201
-  %223 = shl i32 %219, 8
-  %224 = and i32 %223, -16711936
-  %225 = lshr i32 %219, 8
-  %226 = and i32 %225, 16711935
-  %227 = or disjoint i32 %224, %226
-  %228 = icmp ugt i64 %220, 16
-  br i1 %228, label %229, label %.thread
+221:                                              ; preds = %200
+  %222 = shl i32 %218, 8
+  %223 = and i32 %222, -16711936
+  %224 = lshr i32 %218, 8
+  %225 = and i32 %224, 16711935
+  %226 = or disjoint i32 %223, %225
+  %227 = icmp ugt i64 %219, 16
+  br i1 %227, label %228, label %.thread
 
-229:                                              ; preds = %222
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %204)
+228:                                              ; preds = %221
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %203)
   br label %.thread
 
-.thread:                                          ; preds = %201, %229, %222
-  %.1166 = phi i32 [ %rev213, %229 ], [ %227, %222 ], [ %219, %201 ]
-  %230 = icmp ugt i64 %220, 32
-  %231 = select i1 %230, i32 0, i32 %.1166
-  store i32 %231, ptr %202, align 4, !tbaa !153
-  br label %268
+.thread:                                          ; preds = %200, %228, %221
+  %.1166 = phi i32 [ %rev214, %228 ], [ %226, %221 ], [ %218, %200 ]
+  %229 = icmp ugt i64 %219, 32
+  %230 = select i1 %229, i32 0, i32 %.1166
+  store i32 %230, ptr %201, align 4, !tbaa !153
+  br label %267
 
-232:                                              ; preds = %170
-  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %234 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %235 = load i64, ptr %234, align 8, !tbaa !146
-  %236 = shl i64 %235, 1
-  %237 = and i64 %236, -6148914691236517206
-  %238 = lshr i64 %235, 1
-  %239 = and i64 %238, 6148914691236517205
-  %240 = or disjoint i64 %237, %239
-  %241 = shl i64 %240, 2
-  %242 = and i64 %241, -3689348814741910324
-  %243 = lshr i64 %240, 2
-  %244 = and i64 %243, 3689348814741910323
-  %245 = or disjoint i64 %242, %244
-  %246 = shl i64 %245, 4
-  %247 = and i64 %246, -1085102592571150096
-  %248 = lshr i64 %245, 4
-  %249 = and i64 %248, 1085102592571150095
-  %250 = or disjoint i64 %247, %249
-  %251 = load i64, ptr %93, align 8, !tbaa !149
-  %252 = icmp ugt i64 %251, 8
-  br i1 %252, label %253, label %.thread209
+231:                                              ; preds = %.split
+  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %234 = load i64, ptr %233, align 8, !tbaa !146
+  %235 = shl i64 %234, 1
+  %236 = and i64 %235, -6148914691236517206
+  %237 = lshr i64 %234, 1
+  %238 = and i64 %237, 6148914691236517205
+  %239 = or disjoint i64 %236, %238
+  %240 = shl i64 %239, 2
+  %241 = and i64 %240, -3689348814741910324
+  %242 = lshr i64 %239, 2
+  %243 = and i64 %242, 3689348814741910323
+  %244 = or disjoint i64 %241, %243
+  %245 = shl i64 %244, 4
+  %246 = and i64 %245, -1085102592571150096
+  %247 = lshr i64 %244, 4
+  %248 = and i64 %247, 1085102592571150095
+  %249 = or disjoint i64 %246, %248
+  %250 = load i64, ptr %93, align 8, !tbaa !149
+  %251 = icmp ugt i64 %250, 8
+  br i1 %251, label %252, label %.thread210
 
-253:                                              ; preds = %232
-  %254 = shl i64 %250, 8
-  %255 = and i64 %254, -71777214294589696
-  %256 = lshr i64 %250, 8
-  %257 = and i64 %256, 71777214294589695
-  %258 = or disjoint i64 %255, %257
-  %259 = icmp ugt i64 %251, 16
-  br i1 %259, label %260, label %.thread209
+252:                                              ; preds = %231
+  %253 = shl i64 %249, 8
+  %254 = and i64 %253, -71777214294589696
+  %255 = lshr i64 %249, 8
+  %256 = and i64 %255, 71777214294589695
+  %257 = or disjoint i64 %254, %256
+  %258 = icmp ugt i64 %250, 16
+  br i1 %258, label %259, label %.thread210
 
-260:                                              ; preds = %253
-  %261 = shl i64 %258, 16
-  %262 = and i64 %261, -281470681808896
-  %263 = lshr i64 %258, 16
-  %264 = and i64 %263, 281470681808895
-  %265 = or disjoint i64 %262, %264
-  br label %.thread209
+259:                                              ; preds = %252
+  %260 = shl i64 %257, 16
+  %261 = and i64 %260, -281470681808896
+  %262 = lshr i64 %257, 16
+  %263 = and i64 %262, 281470681808895
+  %264 = or disjoint i64 %261, %263
+  br label %.thread210
 
-.thread209:                                       ; preds = %232, %260, %253
-  %.1 = phi i64 [ %265, %260 ], [ %258, %253 ], [ %250, %232 ]
-  %266 = icmp ugt i64 %251, 32
-  %267 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %266, i64 %267, i64 %.1
-  store i64 %spec.select187, ptr %233, align 8, !tbaa !146
-  br label %268
+.thread210:                                       ; preds = %231, %259, %252
+  %.1 = phi i64 [ %264, %259 ], [ %257, %252 ], [ %249, %231 ]
+  %265 = icmp ugt i64 %250, 32
+  %266 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %265, i64 %266, i64 %.1
+  store i64 %spec.select187, ptr %232, align 8, !tbaa !146
+  br label %267
 
-268:                                              ; preds = %171, %.thread, %.thread209, %178, %170, %162
-  %269 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %269, %142
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !164
+267:                                              ; preds = %169, %170, %.thread, %.thread210, %177, %.split, %161
+  %268 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %268, %142
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !164
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1553,8 +1568,8 @@ define noundef i64 @_Z20logged_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -1652,8 +1667,8 @@ define noundef i64 @_Z20logged_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1738,8 +1753,8 @@ define noundef i64 @_Z20logged_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -1831,173 +1846,178 @@ define noundef i64 @_Z20logged_rv64i_vbrev_vP11processor_t6insn_tm(ptr noundef %
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %159
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %158
 
-._crit_edge:                                      ; preds = %266, %134
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #15
-  ret i64 %157
+._crit_edge:                                      ; preds = %265, %134
+  %156 = add i64 %2, 4
+  %157 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef 0) #15
+  ret i64 %156
 
-159:                                              ; preds = %.lr.ph, %266
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %267, %266 ]
-  br i1 %56, label %160, label %168
+158:                                              ; preds = %.lr.ph, %265
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %266, %265 ]
+  br i1 %56, label %159, label %167
 
-160:                                              ; preds = %159
-  %161 = and i64 %.0175214, 63
-  %162 = shl i64 %.0175214, 26
-  %163 = ashr i64 %162, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !146
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not180 = icmp eq i64 %167, 0
-  br i1 %.not180, label %266, label %168
+159:                                              ; preds = %158
+  %160 = and i64 %.0175217, 63
+  %161 = shl i64 %.0175217, 26
+  %162 = ashr i64 %161, 32
+  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %162, i1 noundef zeroext false)
+  %164 = load i64, ptr %163, align 8, !tbaa !146
+  %165 = shl nuw i64 1, %160
+  %166 = and i64 %164, %165
+  %.not180 = icmp ne i64 %166, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %265
 
-168:                                              ; preds = %160, %159
-  switch i64 %156, label %266 [
-    i64 0, label %169
-    i64 1, label %176
-    i64 3, label %199
-    i64 7, label %230
+167:                                              ; preds = %158
+  br i1 %.old188, label %.split, label %265
+
+.split:                                           ; preds = %159, %167
+  switch i64 %155, label %265 [
+    i64 3, label %168
+    i64 4, label %175
+    i64 5, label %198
+    i64 6, label %229
   ]
 
-169:                                              ; preds = %168
-  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %172 = load i8, ptr %171, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %172)
-  %173 = load i64, ptr %93, align 8, !tbaa !149
-  %174 = icmp ugt i64 %173, 8
-  %175 = select i1 %174, i8 0, i8 %rev181
-  store i8 %175, ptr %170, align 1, !tbaa !150
-  br label %266
+168:                                              ; preds = %.split
+  %169 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %171 = load i8, ptr %170, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %171)
+  %172 = load i64, ptr %93, align 8, !tbaa !149
+  %173 = icmp ugt i64 %172, 8
+  %174 = select i1 %173, i8 0, i8 %rev181
+  store i8 %174, ptr %169, align 1, !tbaa !150
+  br label %265
 
-176:                                              ; preds = %168
-  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %179 = load i16, ptr %178, align 2, !tbaa !151
-  %180 = shl i16 %179, 1
-  %181 = and i16 %180, -21846
-  %182 = lshr i16 %179, 1
-  %183 = and i16 %182, 21845
-  %184 = or disjoint i16 %181, %183
-  %185 = shl i16 %184, 2
-  %186 = and i16 %185, -13108
-  %187 = lshr i16 %184, 2
-  %188 = and i16 %187, 13107
-  %189 = or disjoint i16 %186, %188
-  %190 = shl i16 %189, 4
-  %191 = and i16 %190, -3856
-  %192 = lshr i16 %189, 4
-  %193 = and i16 %192, 3855
-  %194 = or disjoint i16 %191, %193
-  %195 = load i64, ptr %93, align 8, !tbaa !149
-  %196 = icmp ugt i64 %195, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %179)
-  %.0168 = select i1 %196, i16 %rev, i16 %194
-  %197 = icmp ugt i64 %195, 16
-  %198 = select i1 %197, i16 0, i16 %.0168
-  store i16 %198, ptr %177, align 2, !tbaa !151
-  br label %266
+175:                                              ; preds = %.split
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %178 = load i16, ptr %177, align 2, !tbaa !151
+  %179 = shl i16 %178, 1
+  %180 = and i16 %179, -21846
+  %181 = lshr i16 %178, 1
+  %182 = and i16 %181, 21845
+  %183 = or disjoint i16 %180, %182
+  %184 = shl i16 %183, 2
+  %185 = and i16 %184, -13108
+  %186 = lshr i16 %183, 2
+  %187 = and i16 %186, 13107
+  %188 = or disjoint i16 %185, %187
+  %189 = shl i16 %188, 4
+  %190 = and i16 %189, -3856
+  %191 = lshr i16 %188, 4
+  %192 = and i16 %191, 3855
+  %193 = or disjoint i16 %190, %192
+  %194 = load i64, ptr %93, align 8, !tbaa !149
+  %195 = icmp ugt i64 %194, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %178)
+  %.0168 = select i1 %195, i16 %rev, i16 %193
+  %196 = icmp ugt i64 %194, 16
+  %197 = select i1 %196, i16 0, i16 %.0168
+  store i16 %197, ptr %176, align 2, !tbaa !151
+  br label %265
 
-199:                                              ; preds = %168
-  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %202 = load i32, ptr %201, align 4, !tbaa !153
-  %203 = shl i32 %202, 1
-  %204 = and i32 %203, -1431655766
-  %205 = lshr i32 %202, 1
-  %206 = and i32 %205, 1431655765
-  %207 = or disjoint i32 %204, %206
-  %208 = shl i32 %207, 2
-  %209 = and i32 %208, -858993460
-  %210 = lshr i32 %207, 2
-  %211 = and i32 %210, 858993459
-  %212 = or disjoint i32 %209, %211
-  %213 = shl i32 %212, 4
-  %214 = and i32 %213, -252645136
-  %215 = lshr i32 %212, 4
-  %216 = and i32 %215, 252645135
-  %217 = or disjoint i32 %214, %216
-  %218 = load i64, ptr %93, align 8, !tbaa !149
-  %219 = icmp ugt i64 %218, 8
-  br i1 %219, label %220, label %.thread
+198:                                              ; preds = %.split
+  %199 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %201 = load i32, ptr %200, align 4, !tbaa !153
+  %202 = shl i32 %201, 1
+  %203 = and i32 %202, -1431655766
+  %204 = lshr i32 %201, 1
+  %205 = and i32 %204, 1431655765
+  %206 = or disjoint i32 %203, %205
+  %207 = shl i32 %206, 2
+  %208 = and i32 %207, -858993460
+  %209 = lshr i32 %206, 2
+  %210 = and i32 %209, 858993459
+  %211 = or disjoint i32 %208, %210
+  %212 = shl i32 %211, 4
+  %213 = and i32 %212, -252645136
+  %214 = lshr i32 %211, 4
+  %215 = and i32 %214, 252645135
+  %216 = or disjoint i32 %213, %215
+  %217 = load i64, ptr %93, align 8, !tbaa !149
+  %218 = icmp ugt i64 %217, 8
+  br i1 %218, label %219, label %.thread
 
-220:                                              ; preds = %199
-  %221 = shl i32 %217, 8
-  %222 = and i32 %221, -16711936
-  %223 = lshr i32 %217, 8
-  %224 = and i32 %223, 16711935
-  %225 = or disjoint i32 %222, %224
-  %226 = icmp ugt i64 %218, 16
-  br i1 %226, label %227, label %.thread
+219:                                              ; preds = %198
+  %220 = shl i32 %216, 8
+  %221 = and i32 %220, -16711936
+  %222 = lshr i32 %216, 8
+  %223 = and i32 %222, 16711935
+  %224 = or disjoint i32 %221, %223
+  %225 = icmp ugt i64 %217, 16
+  br i1 %225, label %226, label %.thread
 
-227:                                              ; preds = %220
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %202)
+226:                                              ; preds = %219
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %201)
   br label %.thread
 
-.thread:                                          ; preds = %199, %227, %220
-  %.1166 = phi i32 [ %rev213, %227 ], [ %225, %220 ], [ %217, %199 ]
-  %228 = icmp ugt i64 %218, 32
-  %229 = select i1 %228, i32 0, i32 %.1166
-  store i32 %229, ptr %200, align 4, !tbaa !153
-  br label %266
+.thread:                                          ; preds = %198, %226, %219
+  %.1166 = phi i32 [ %rev214, %226 ], [ %224, %219 ], [ %216, %198 ]
+  %227 = icmp ugt i64 %217, 32
+  %228 = select i1 %227, i32 0, i32 %.1166
+  store i32 %228, ptr %199, align 4, !tbaa !153
+  br label %265
 
-230:                                              ; preds = %168
-  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %233 = load i64, ptr %232, align 8, !tbaa !146
-  %234 = shl i64 %233, 1
-  %235 = and i64 %234, -6148914691236517206
-  %236 = lshr i64 %233, 1
-  %237 = and i64 %236, 6148914691236517205
-  %238 = or disjoint i64 %235, %237
-  %239 = shl i64 %238, 2
-  %240 = and i64 %239, -3689348814741910324
-  %241 = lshr i64 %238, 2
-  %242 = and i64 %241, 3689348814741910323
-  %243 = or disjoint i64 %240, %242
-  %244 = shl i64 %243, 4
-  %245 = and i64 %244, -1085102592571150096
-  %246 = lshr i64 %243, 4
-  %247 = and i64 %246, 1085102592571150095
-  %248 = or disjoint i64 %245, %247
-  %249 = load i64, ptr %93, align 8, !tbaa !149
-  %250 = icmp ugt i64 %249, 8
-  br i1 %250, label %251, label %.thread209
+229:                                              ; preds = %.split
+  %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %232 = load i64, ptr %231, align 8, !tbaa !146
+  %233 = shl i64 %232, 1
+  %234 = and i64 %233, -6148914691236517206
+  %235 = lshr i64 %232, 1
+  %236 = and i64 %235, 6148914691236517205
+  %237 = or disjoint i64 %234, %236
+  %238 = shl i64 %237, 2
+  %239 = and i64 %238, -3689348814741910324
+  %240 = lshr i64 %237, 2
+  %241 = and i64 %240, 3689348814741910323
+  %242 = or disjoint i64 %239, %241
+  %243 = shl i64 %242, 4
+  %244 = and i64 %243, -1085102592571150096
+  %245 = lshr i64 %242, 4
+  %246 = and i64 %245, 1085102592571150095
+  %247 = or disjoint i64 %244, %246
+  %248 = load i64, ptr %93, align 8, !tbaa !149
+  %249 = icmp ugt i64 %248, 8
+  br i1 %249, label %250, label %.thread210
 
-251:                                              ; preds = %230
-  %252 = shl i64 %248, 8
-  %253 = and i64 %252, -71777214294589696
-  %254 = lshr i64 %248, 8
-  %255 = and i64 %254, 71777214294589695
-  %256 = or disjoint i64 %253, %255
-  %257 = icmp ugt i64 %249, 16
-  br i1 %257, label %258, label %.thread209
+250:                                              ; preds = %229
+  %251 = shl i64 %247, 8
+  %252 = and i64 %251, -71777214294589696
+  %253 = lshr i64 %247, 8
+  %254 = and i64 %253, 71777214294589695
+  %255 = or disjoint i64 %252, %254
+  %256 = icmp ugt i64 %248, 16
+  br i1 %256, label %257, label %.thread210
 
-258:                                              ; preds = %251
-  %259 = shl i64 %256, 16
-  %260 = and i64 %259, -281470681808896
-  %261 = lshr i64 %256, 16
-  %262 = and i64 %261, 281470681808895
-  %263 = or disjoint i64 %260, %262
-  br label %.thread209
+257:                                              ; preds = %250
+  %258 = shl i64 %255, 16
+  %259 = and i64 %258, -281470681808896
+  %260 = lshr i64 %255, 16
+  %261 = and i64 %260, 281470681808895
+  %262 = or disjoint i64 %259, %261
+  br label %.thread210
 
-.thread209:                                       ; preds = %230, %258, %251
-  %.1 = phi i64 [ %263, %258 ], [ %256, %251 ], [ %248, %230 ]
-  %264 = icmp ugt i64 %249, 32
-  %265 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %264, i64 %265, i64 %.1
-  store i64 %spec.select187, ptr %231, align 8, !tbaa !146
-  br label %266
+.thread210:                                       ; preds = %229, %257, %250
+  %.1 = phi i64 [ %262, %257 ], [ %255, %250 ], [ %247, %229 ]
+  %263 = icmp ugt i64 %248, 32
+  %264 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %263, i64 %264, i64 %.1
+  store i64 %spec.select187, ptr %230, align 8, !tbaa !146
+  br label %265
 
-266:                                              ; preds = %169, %.thread, %.thread209, %176, %168, %160
-  %267 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %267, %142
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !165
+265:                                              ; preds = %167, %168, %.thread, %.thread210, %175, %.split, %159
+  %266 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %266, %142
+  br i1 %exitcond.not, label %._crit_edge, label %158, !llvm.loop !165
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2006,8 +2026,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vbrev_vP11
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -2105,8 +2125,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vbrev_vP11
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -2191,8 +2211,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vbrev_vP11
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -2284,175 +2304,180 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vbrev_vP11
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %161
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %160
 
-._crit_edge:                                      ; preds = %268, %134
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #15
-  ret i64 %159
+._crit_edge:                                      ; preds = %267, %134
+  %156 = shl i64 %2, 32
+  %157 = add i64 %156, 17179869184
+  %158 = ashr exact i64 %157, 32
+  %159 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #15
+  ret i64 %158
 
-161:                                              ; preds = %.lr.ph, %268
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %269, %268 ]
-  br i1 %56, label %162, label %170
+160:                                              ; preds = %.lr.ph, %267
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %268, %267 ]
+  br i1 %56, label %161, label %169
 
-162:                                              ; preds = %161
-  %163 = and i64 %.0175214, 63
-  %164 = shl i64 %.0175214, 26
-  %165 = ashr i64 %164, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !146
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not180 = icmp eq i64 %169, 0
-  br i1 %.not180, label %268, label %170
+161:                                              ; preds = %160
+  %162 = and i64 %.0175217, 63
+  %163 = shl i64 %.0175217, 26
+  %164 = ashr i64 %163, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !146
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not180 = icmp ne i64 %168, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %267
 
-170:                                              ; preds = %162, %161
-  switch i64 %156, label %268 [
-    i64 0, label %171
-    i64 1, label %178
-    i64 3, label %201
-    i64 7, label %232
+169:                                              ; preds = %160
+  br i1 %.old188, label %.split, label %267
+
+.split:                                           ; preds = %161, %169
+  switch i64 %155, label %267 [
+    i64 3, label %170
+    i64 4, label %177
+    i64 5, label %200
+    i64 6, label %231
   ]
 
-171:                                              ; preds = %170
-  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %173 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %174 = load i8, ptr %173, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %174)
-  %175 = load i64, ptr %93, align 8, !tbaa !149
-  %176 = icmp ugt i64 %175, 8
-  %177 = select i1 %176, i8 0, i8 %rev181
-  store i8 %177, ptr %172, align 1, !tbaa !150
-  br label %268
+170:                                              ; preds = %.split
+  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %173 = load i8, ptr %172, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %173)
+  %174 = load i64, ptr %93, align 8, !tbaa !149
+  %175 = icmp ugt i64 %174, 8
+  %176 = select i1 %175, i8 0, i8 %rev181
+  store i8 %176, ptr %171, align 1, !tbaa !150
+  br label %267
 
-178:                                              ; preds = %170
-  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %180 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %181 = load i16, ptr %180, align 2, !tbaa !151
-  %182 = shl i16 %181, 1
-  %183 = and i16 %182, -21846
-  %184 = lshr i16 %181, 1
-  %185 = and i16 %184, 21845
-  %186 = or disjoint i16 %183, %185
-  %187 = shl i16 %186, 2
-  %188 = and i16 %187, -13108
-  %189 = lshr i16 %186, 2
-  %190 = and i16 %189, 13107
-  %191 = or disjoint i16 %188, %190
-  %192 = shl i16 %191, 4
-  %193 = and i16 %192, -3856
-  %194 = lshr i16 %191, 4
-  %195 = and i16 %194, 3855
-  %196 = or disjoint i16 %193, %195
-  %197 = load i64, ptr %93, align 8, !tbaa !149
-  %198 = icmp ugt i64 %197, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %181)
-  %.0168 = select i1 %198, i16 %rev, i16 %196
-  %199 = icmp ugt i64 %197, 16
-  %200 = select i1 %199, i16 0, i16 %.0168
-  store i16 %200, ptr %179, align 2, !tbaa !151
-  br label %268
+177:                                              ; preds = %.split
+  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %180 = load i16, ptr %179, align 2, !tbaa !151
+  %181 = shl i16 %180, 1
+  %182 = and i16 %181, -21846
+  %183 = lshr i16 %180, 1
+  %184 = and i16 %183, 21845
+  %185 = or disjoint i16 %182, %184
+  %186 = shl i16 %185, 2
+  %187 = and i16 %186, -13108
+  %188 = lshr i16 %185, 2
+  %189 = and i16 %188, 13107
+  %190 = or disjoint i16 %187, %189
+  %191 = shl i16 %190, 4
+  %192 = and i16 %191, -3856
+  %193 = lshr i16 %190, 4
+  %194 = and i16 %193, 3855
+  %195 = or disjoint i16 %192, %194
+  %196 = load i64, ptr %93, align 8, !tbaa !149
+  %197 = icmp ugt i64 %196, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %180)
+  %.0168 = select i1 %197, i16 %rev, i16 %195
+  %198 = icmp ugt i64 %196, 16
+  %199 = select i1 %198, i16 0, i16 %.0168
+  store i16 %199, ptr %178, align 2, !tbaa !151
+  br label %267
 
-201:                                              ; preds = %170
-  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %203 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %204 = load i32, ptr %203, align 4, !tbaa !153
-  %205 = shl i32 %204, 1
-  %206 = and i32 %205, -1431655766
-  %207 = lshr i32 %204, 1
-  %208 = and i32 %207, 1431655765
-  %209 = or disjoint i32 %206, %208
-  %210 = shl i32 %209, 2
-  %211 = and i32 %210, -858993460
-  %212 = lshr i32 %209, 2
-  %213 = and i32 %212, 858993459
-  %214 = or disjoint i32 %211, %213
-  %215 = shl i32 %214, 4
-  %216 = and i32 %215, -252645136
-  %217 = lshr i32 %214, 4
-  %218 = and i32 %217, 252645135
-  %219 = or disjoint i32 %216, %218
-  %220 = load i64, ptr %93, align 8, !tbaa !149
-  %221 = icmp ugt i64 %220, 8
-  br i1 %221, label %222, label %.thread
+200:                                              ; preds = %.split
+  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %203 = load i32, ptr %202, align 4, !tbaa !153
+  %204 = shl i32 %203, 1
+  %205 = and i32 %204, -1431655766
+  %206 = lshr i32 %203, 1
+  %207 = and i32 %206, 1431655765
+  %208 = or disjoint i32 %205, %207
+  %209 = shl i32 %208, 2
+  %210 = and i32 %209, -858993460
+  %211 = lshr i32 %208, 2
+  %212 = and i32 %211, 858993459
+  %213 = or disjoint i32 %210, %212
+  %214 = shl i32 %213, 4
+  %215 = and i32 %214, -252645136
+  %216 = lshr i32 %213, 4
+  %217 = and i32 %216, 252645135
+  %218 = or disjoint i32 %215, %217
+  %219 = load i64, ptr %93, align 8, !tbaa !149
+  %220 = icmp ugt i64 %219, 8
+  br i1 %220, label %221, label %.thread
 
-222:                                              ; preds = %201
-  %223 = shl i32 %219, 8
-  %224 = and i32 %223, -16711936
-  %225 = lshr i32 %219, 8
-  %226 = and i32 %225, 16711935
-  %227 = or disjoint i32 %224, %226
-  %228 = icmp ugt i64 %220, 16
-  br i1 %228, label %229, label %.thread
+221:                                              ; preds = %200
+  %222 = shl i32 %218, 8
+  %223 = and i32 %222, -16711936
+  %224 = lshr i32 %218, 8
+  %225 = and i32 %224, 16711935
+  %226 = or disjoint i32 %223, %225
+  %227 = icmp ugt i64 %219, 16
+  br i1 %227, label %228, label %.thread
 
-229:                                              ; preds = %222
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %204)
+228:                                              ; preds = %221
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %203)
   br label %.thread
 
-.thread:                                          ; preds = %201, %229, %222
-  %.1166 = phi i32 [ %rev213, %229 ], [ %227, %222 ], [ %219, %201 ]
-  %230 = icmp ugt i64 %220, 32
-  %231 = select i1 %230, i32 0, i32 %.1166
-  store i32 %231, ptr %202, align 4, !tbaa !153
-  br label %268
+.thread:                                          ; preds = %200, %228, %221
+  %.1166 = phi i32 [ %rev214, %228 ], [ %226, %221 ], [ %218, %200 ]
+  %229 = icmp ugt i64 %219, 32
+  %230 = select i1 %229, i32 0, i32 %.1166
+  store i32 %230, ptr %201, align 4, !tbaa !153
+  br label %267
 
-232:                                              ; preds = %170
-  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %234 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %235 = load i64, ptr %234, align 8, !tbaa !146
-  %236 = shl i64 %235, 1
-  %237 = and i64 %236, -6148914691236517206
-  %238 = lshr i64 %235, 1
-  %239 = and i64 %238, 6148914691236517205
-  %240 = or disjoint i64 %237, %239
-  %241 = shl i64 %240, 2
-  %242 = and i64 %241, -3689348814741910324
-  %243 = lshr i64 %240, 2
-  %244 = and i64 %243, 3689348814741910323
-  %245 = or disjoint i64 %242, %244
-  %246 = shl i64 %245, 4
-  %247 = and i64 %246, -1085102592571150096
-  %248 = lshr i64 %245, 4
-  %249 = and i64 %248, 1085102592571150095
-  %250 = or disjoint i64 %247, %249
-  %251 = load i64, ptr %93, align 8, !tbaa !149
-  %252 = icmp ugt i64 %251, 8
-  br i1 %252, label %253, label %.thread209
+231:                                              ; preds = %.split
+  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %234 = load i64, ptr %233, align 8, !tbaa !146
+  %235 = shl i64 %234, 1
+  %236 = and i64 %235, -6148914691236517206
+  %237 = lshr i64 %234, 1
+  %238 = and i64 %237, 6148914691236517205
+  %239 = or disjoint i64 %236, %238
+  %240 = shl i64 %239, 2
+  %241 = and i64 %240, -3689348814741910324
+  %242 = lshr i64 %239, 2
+  %243 = and i64 %242, 3689348814741910323
+  %244 = or disjoint i64 %241, %243
+  %245 = shl i64 %244, 4
+  %246 = and i64 %245, -1085102592571150096
+  %247 = lshr i64 %244, 4
+  %248 = and i64 %247, 1085102592571150095
+  %249 = or disjoint i64 %246, %248
+  %250 = load i64, ptr %93, align 8, !tbaa !149
+  %251 = icmp ugt i64 %250, 8
+  br i1 %251, label %252, label %.thread210
 
-253:                                              ; preds = %232
-  %254 = shl i64 %250, 8
-  %255 = and i64 %254, -71777214294589696
-  %256 = lshr i64 %250, 8
-  %257 = and i64 %256, 71777214294589695
-  %258 = or disjoint i64 %255, %257
-  %259 = icmp ugt i64 %251, 16
-  br i1 %259, label %260, label %.thread209
+252:                                              ; preds = %231
+  %253 = shl i64 %249, 8
+  %254 = and i64 %253, -71777214294589696
+  %255 = lshr i64 %249, 8
+  %256 = and i64 %255, 71777214294589695
+  %257 = or disjoint i64 %254, %256
+  %258 = icmp ugt i64 %250, 16
+  br i1 %258, label %259, label %.thread210
 
-260:                                              ; preds = %253
-  %261 = shl i64 %258, 16
-  %262 = and i64 %261, -281470681808896
-  %263 = lshr i64 %258, 16
-  %264 = and i64 %263, 281470681808895
-  %265 = or disjoint i64 %262, %264
-  br label %.thread209
+259:                                              ; preds = %252
+  %260 = shl i64 %257, 16
+  %261 = and i64 %260, -281470681808896
+  %262 = lshr i64 %257, 16
+  %263 = and i64 %262, 281470681808895
+  %264 = or disjoint i64 %261, %263
+  br label %.thread210
 
-.thread209:                                       ; preds = %232, %260, %253
-  %.1 = phi i64 [ %265, %260 ], [ %258, %253 ], [ %250, %232 ]
-  %266 = icmp ugt i64 %251, 32
-  %267 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %266, i64 %267, i64 %.1
-  store i64 %spec.select187, ptr %233, align 8, !tbaa !146
-  br label %268
+.thread210:                                       ; preds = %231, %259, %252
+  %.1 = phi i64 [ %264, %259 ], [ %257, %252 ], [ %249, %231 ]
+  %265 = icmp ugt i64 %250, 32
+  %266 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %265, i64 %266, i64 %.1
+  store i64 %spec.select187, ptr %232, align 8, !tbaa !146
+  br label %267
 
-268:                                              ; preds = %171, %.thread, %.thread209, %178, %170, %162
-  %269 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %269, %142
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !166
+267:                                              ; preds = %169, %170, %.thread, %.thread210, %177, %.split, %161
+  %268 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %268, %142
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !166
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2461,8 +2486,8 @@ define noundef i64 @_Z18fast_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -2560,8 +2585,8 @@ define noundef i64 @_Z18fast_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -2646,8 +2671,8 @@ define noundef i64 @_Z18fast_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -2739,173 +2764,178 @@ define noundef i64 @_Z18fast_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %0,
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %159
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %158
 
-._crit_edge:                                      ; preds = %266, %134
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #15
-  ret i64 %157
+._crit_edge:                                      ; preds = %265, %134
+  %156 = add i64 %2, 4
+  %157 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef 0) #15
+  ret i64 %156
 
-159:                                              ; preds = %.lr.ph, %266
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %267, %266 ]
-  br i1 %56, label %160, label %168
+158:                                              ; preds = %.lr.ph, %265
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %266, %265 ]
+  br i1 %56, label %159, label %167
 
-160:                                              ; preds = %159
-  %161 = and i64 %.0175214, 63
-  %162 = shl i64 %.0175214, 26
-  %163 = ashr i64 %162, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !146
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not180 = icmp eq i64 %167, 0
-  br i1 %.not180, label %266, label %168
+159:                                              ; preds = %158
+  %160 = and i64 %.0175217, 63
+  %161 = shl i64 %.0175217, 26
+  %162 = ashr i64 %161, 32
+  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %162, i1 noundef zeroext false)
+  %164 = load i64, ptr %163, align 8, !tbaa !146
+  %165 = shl nuw i64 1, %160
+  %166 = and i64 %164, %165
+  %.not180 = icmp ne i64 %166, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %265
 
-168:                                              ; preds = %160, %159
-  switch i64 %156, label %266 [
-    i64 0, label %169
-    i64 1, label %176
-    i64 3, label %199
-    i64 7, label %230
+167:                                              ; preds = %158
+  br i1 %.old188, label %.split, label %265
+
+.split:                                           ; preds = %159, %167
+  switch i64 %155, label %265 [
+    i64 3, label %168
+    i64 4, label %175
+    i64 5, label %198
+    i64 6, label %229
   ]
 
-169:                                              ; preds = %168
-  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %172 = load i8, ptr %171, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %172)
-  %173 = load i64, ptr %93, align 8, !tbaa !149
-  %174 = icmp ugt i64 %173, 8
-  %175 = select i1 %174, i8 0, i8 %rev181
-  store i8 %175, ptr %170, align 1, !tbaa !150
-  br label %266
+168:                                              ; preds = %.split
+  %169 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %171 = load i8, ptr %170, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %171)
+  %172 = load i64, ptr %93, align 8, !tbaa !149
+  %173 = icmp ugt i64 %172, 8
+  %174 = select i1 %173, i8 0, i8 %rev181
+  store i8 %174, ptr %169, align 1, !tbaa !150
+  br label %265
 
-176:                                              ; preds = %168
-  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %179 = load i16, ptr %178, align 2, !tbaa !151
-  %180 = shl i16 %179, 1
-  %181 = and i16 %180, -21846
-  %182 = lshr i16 %179, 1
-  %183 = and i16 %182, 21845
-  %184 = or disjoint i16 %181, %183
-  %185 = shl i16 %184, 2
-  %186 = and i16 %185, -13108
-  %187 = lshr i16 %184, 2
-  %188 = and i16 %187, 13107
-  %189 = or disjoint i16 %186, %188
-  %190 = shl i16 %189, 4
-  %191 = and i16 %190, -3856
-  %192 = lshr i16 %189, 4
-  %193 = and i16 %192, 3855
-  %194 = or disjoint i16 %191, %193
-  %195 = load i64, ptr %93, align 8, !tbaa !149
-  %196 = icmp ugt i64 %195, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %179)
-  %.0168 = select i1 %196, i16 %rev, i16 %194
-  %197 = icmp ugt i64 %195, 16
-  %198 = select i1 %197, i16 0, i16 %.0168
-  store i16 %198, ptr %177, align 2, !tbaa !151
-  br label %266
+175:                                              ; preds = %.split
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %178 = load i16, ptr %177, align 2, !tbaa !151
+  %179 = shl i16 %178, 1
+  %180 = and i16 %179, -21846
+  %181 = lshr i16 %178, 1
+  %182 = and i16 %181, 21845
+  %183 = or disjoint i16 %180, %182
+  %184 = shl i16 %183, 2
+  %185 = and i16 %184, -13108
+  %186 = lshr i16 %183, 2
+  %187 = and i16 %186, 13107
+  %188 = or disjoint i16 %185, %187
+  %189 = shl i16 %188, 4
+  %190 = and i16 %189, -3856
+  %191 = lshr i16 %188, 4
+  %192 = and i16 %191, 3855
+  %193 = or disjoint i16 %190, %192
+  %194 = load i64, ptr %93, align 8, !tbaa !149
+  %195 = icmp ugt i64 %194, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %178)
+  %.0168 = select i1 %195, i16 %rev, i16 %193
+  %196 = icmp ugt i64 %194, 16
+  %197 = select i1 %196, i16 0, i16 %.0168
+  store i16 %197, ptr %176, align 2, !tbaa !151
+  br label %265
 
-199:                                              ; preds = %168
-  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %202 = load i32, ptr %201, align 4, !tbaa !153
-  %203 = shl i32 %202, 1
-  %204 = and i32 %203, -1431655766
-  %205 = lshr i32 %202, 1
-  %206 = and i32 %205, 1431655765
-  %207 = or disjoint i32 %204, %206
-  %208 = shl i32 %207, 2
-  %209 = and i32 %208, -858993460
-  %210 = lshr i32 %207, 2
-  %211 = and i32 %210, 858993459
-  %212 = or disjoint i32 %209, %211
-  %213 = shl i32 %212, 4
-  %214 = and i32 %213, -252645136
-  %215 = lshr i32 %212, 4
-  %216 = and i32 %215, 252645135
-  %217 = or disjoint i32 %214, %216
-  %218 = load i64, ptr %93, align 8, !tbaa !149
-  %219 = icmp ugt i64 %218, 8
-  br i1 %219, label %220, label %.thread
+198:                                              ; preds = %.split
+  %199 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %201 = load i32, ptr %200, align 4, !tbaa !153
+  %202 = shl i32 %201, 1
+  %203 = and i32 %202, -1431655766
+  %204 = lshr i32 %201, 1
+  %205 = and i32 %204, 1431655765
+  %206 = or disjoint i32 %203, %205
+  %207 = shl i32 %206, 2
+  %208 = and i32 %207, -858993460
+  %209 = lshr i32 %206, 2
+  %210 = and i32 %209, 858993459
+  %211 = or disjoint i32 %208, %210
+  %212 = shl i32 %211, 4
+  %213 = and i32 %212, -252645136
+  %214 = lshr i32 %211, 4
+  %215 = and i32 %214, 252645135
+  %216 = or disjoint i32 %213, %215
+  %217 = load i64, ptr %93, align 8, !tbaa !149
+  %218 = icmp ugt i64 %217, 8
+  br i1 %218, label %219, label %.thread
 
-220:                                              ; preds = %199
-  %221 = shl i32 %217, 8
-  %222 = and i32 %221, -16711936
-  %223 = lshr i32 %217, 8
-  %224 = and i32 %223, 16711935
-  %225 = or disjoint i32 %222, %224
-  %226 = icmp ugt i64 %218, 16
-  br i1 %226, label %227, label %.thread
+219:                                              ; preds = %198
+  %220 = shl i32 %216, 8
+  %221 = and i32 %220, -16711936
+  %222 = lshr i32 %216, 8
+  %223 = and i32 %222, 16711935
+  %224 = or disjoint i32 %221, %223
+  %225 = icmp ugt i64 %217, 16
+  br i1 %225, label %226, label %.thread
 
-227:                                              ; preds = %220
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %202)
+226:                                              ; preds = %219
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %201)
   br label %.thread
 
-.thread:                                          ; preds = %199, %227, %220
-  %.1166 = phi i32 [ %rev213, %227 ], [ %225, %220 ], [ %217, %199 ]
-  %228 = icmp ugt i64 %218, 32
-  %229 = select i1 %228, i32 0, i32 %.1166
-  store i32 %229, ptr %200, align 4, !tbaa !153
-  br label %266
+.thread:                                          ; preds = %198, %226, %219
+  %.1166 = phi i32 [ %rev214, %226 ], [ %224, %219 ], [ %216, %198 ]
+  %227 = icmp ugt i64 %217, 32
+  %228 = select i1 %227, i32 0, i32 %.1166
+  store i32 %228, ptr %199, align 4, !tbaa !153
+  br label %265
 
-230:                                              ; preds = %168
-  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %233 = load i64, ptr %232, align 8, !tbaa !146
-  %234 = shl i64 %233, 1
-  %235 = and i64 %234, -6148914691236517206
-  %236 = lshr i64 %233, 1
-  %237 = and i64 %236, 6148914691236517205
-  %238 = or disjoint i64 %235, %237
-  %239 = shl i64 %238, 2
-  %240 = and i64 %239, -3689348814741910324
-  %241 = lshr i64 %238, 2
-  %242 = and i64 %241, 3689348814741910323
-  %243 = or disjoint i64 %240, %242
-  %244 = shl i64 %243, 4
-  %245 = and i64 %244, -1085102592571150096
-  %246 = lshr i64 %243, 4
-  %247 = and i64 %246, 1085102592571150095
-  %248 = or disjoint i64 %245, %247
-  %249 = load i64, ptr %93, align 8, !tbaa !149
-  %250 = icmp ugt i64 %249, 8
-  br i1 %250, label %251, label %.thread209
+229:                                              ; preds = %.split
+  %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %232 = load i64, ptr %231, align 8, !tbaa !146
+  %233 = shl i64 %232, 1
+  %234 = and i64 %233, -6148914691236517206
+  %235 = lshr i64 %232, 1
+  %236 = and i64 %235, 6148914691236517205
+  %237 = or disjoint i64 %234, %236
+  %238 = shl i64 %237, 2
+  %239 = and i64 %238, -3689348814741910324
+  %240 = lshr i64 %237, 2
+  %241 = and i64 %240, 3689348814741910323
+  %242 = or disjoint i64 %239, %241
+  %243 = shl i64 %242, 4
+  %244 = and i64 %243, -1085102592571150096
+  %245 = lshr i64 %242, 4
+  %246 = and i64 %245, 1085102592571150095
+  %247 = or disjoint i64 %244, %246
+  %248 = load i64, ptr %93, align 8, !tbaa !149
+  %249 = icmp ugt i64 %248, 8
+  br i1 %249, label %250, label %.thread210
 
-251:                                              ; preds = %230
-  %252 = shl i64 %248, 8
-  %253 = and i64 %252, -71777214294589696
-  %254 = lshr i64 %248, 8
-  %255 = and i64 %254, 71777214294589695
-  %256 = or disjoint i64 %253, %255
-  %257 = icmp ugt i64 %249, 16
-  br i1 %257, label %258, label %.thread209
+250:                                              ; preds = %229
+  %251 = shl i64 %247, 8
+  %252 = and i64 %251, -71777214294589696
+  %253 = lshr i64 %247, 8
+  %254 = and i64 %253, 71777214294589695
+  %255 = or disjoint i64 %252, %254
+  %256 = icmp ugt i64 %248, 16
+  br i1 %256, label %257, label %.thread210
 
-258:                                              ; preds = %251
-  %259 = shl i64 %256, 16
-  %260 = and i64 %259, -281470681808896
-  %261 = lshr i64 %256, 16
-  %262 = and i64 %261, 281470681808895
-  %263 = or disjoint i64 %260, %262
-  br label %.thread209
+257:                                              ; preds = %250
+  %258 = shl i64 %255, 16
+  %259 = and i64 %258, -281470681808896
+  %260 = lshr i64 %255, 16
+  %261 = and i64 %260, 281470681808895
+  %262 = or disjoint i64 %259, %261
+  br label %.thread210
 
-.thread209:                                       ; preds = %230, %258, %251
-  %.1 = phi i64 [ %263, %258 ], [ %256, %251 ], [ %248, %230 ]
-  %264 = icmp ugt i64 %249, 32
-  %265 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %264, i64 %265, i64 %.1
-  store i64 %spec.select187, ptr %231, align 8, !tbaa !146
-  br label %266
+.thread210:                                       ; preds = %229, %257, %250
+  %.1 = phi i64 [ %262, %257 ], [ %255, %250 ], [ %247, %229 ]
+  %263 = icmp ugt i64 %248, 32
+  %264 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %263, i64 %264, i64 %.1
+  store i64 %spec.select187, ptr %230, align 8, !tbaa !146
+  br label %265
 
-266:                                              ; preds = %169, %.thread, %.thread209, %176, %168, %160
-  %267 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %267, %142
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !167
+265:                                              ; preds = %167, %168, %.thread, %.thread210, %175, %.split, %159
+  %266 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %266, %142
+  br i1 %exitcond.not, label %._crit_edge, label %158, !llvm.loop !167
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2914,8 +2944,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vbrev_vP
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -3013,8 +3043,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vbrev_vP
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -3099,8 +3129,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vbrev_vP
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -3192,175 +3222,180 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vbrev_vP
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %161
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %160
 
-._crit_edge:                                      ; preds = %268, %134
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #15
-  ret i64 %159
+._crit_edge:                                      ; preds = %267, %134
+  %156 = shl i64 %2, 32
+  %157 = add i64 %156, 17179869184
+  %158 = ashr exact i64 %157, 32
+  %159 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #15
+  ret i64 %158
 
-161:                                              ; preds = %.lr.ph, %268
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %269, %268 ]
-  br i1 %56, label %162, label %170
+160:                                              ; preds = %.lr.ph, %267
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %268, %267 ]
+  br i1 %56, label %161, label %169
 
-162:                                              ; preds = %161
-  %163 = and i64 %.0175214, 63
-  %164 = shl i64 %.0175214, 26
-  %165 = ashr i64 %164, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !146
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not180 = icmp eq i64 %169, 0
-  br i1 %.not180, label %268, label %170
+161:                                              ; preds = %160
+  %162 = and i64 %.0175217, 63
+  %163 = shl i64 %.0175217, 26
+  %164 = ashr i64 %163, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !146
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not180 = icmp ne i64 %168, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %267
 
-170:                                              ; preds = %162, %161
-  switch i64 %156, label %268 [
-    i64 0, label %171
-    i64 1, label %178
-    i64 3, label %201
-    i64 7, label %232
+169:                                              ; preds = %160
+  br i1 %.old188, label %.split, label %267
+
+.split:                                           ; preds = %161, %169
+  switch i64 %155, label %267 [
+    i64 3, label %170
+    i64 4, label %177
+    i64 5, label %200
+    i64 6, label %231
   ]
 
-171:                                              ; preds = %170
-  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %173 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %174 = load i8, ptr %173, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %174)
-  %175 = load i64, ptr %93, align 8, !tbaa !149
-  %176 = icmp ugt i64 %175, 8
-  %177 = select i1 %176, i8 0, i8 %rev181
-  store i8 %177, ptr %172, align 1, !tbaa !150
-  br label %268
+170:                                              ; preds = %.split
+  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %172 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %173 = load i8, ptr %172, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %173)
+  %174 = load i64, ptr %93, align 8, !tbaa !149
+  %175 = icmp ugt i64 %174, 8
+  %176 = select i1 %175, i8 0, i8 %rev181
+  store i8 %176, ptr %171, align 1, !tbaa !150
+  br label %267
 
-178:                                              ; preds = %170
-  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %180 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %181 = load i16, ptr %180, align 2, !tbaa !151
-  %182 = shl i16 %181, 1
-  %183 = and i16 %182, -21846
-  %184 = lshr i16 %181, 1
-  %185 = and i16 %184, 21845
-  %186 = or disjoint i16 %183, %185
-  %187 = shl i16 %186, 2
-  %188 = and i16 %187, -13108
-  %189 = lshr i16 %186, 2
-  %190 = and i16 %189, 13107
-  %191 = or disjoint i16 %188, %190
-  %192 = shl i16 %191, 4
-  %193 = and i16 %192, -3856
-  %194 = lshr i16 %191, 4
-  %195 = and i16 %194, 3855
-  %196 = or disjoint i16 %193, %195
-  %197 = load i64, ptr %93, align 8, !tbaa !149
-  %198 = icmp ugt i64 %197, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %181)
-  %.0168 = select i1 %198, i16 %rev, i16 %196
-  %199 = icmp ugt i64 %197, 16
-  %200 = select i1 %199, i16 0, i16 %.0168
-  store i16 %200, ptr %179, align 2, !tbaa !151
-  br label %268
+177:                                              ; preds = %.split
+  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %179 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %180 = load i16, ptr %179, align 2, !tbaa !151
+  %181 = shl i16 %180, 1
+  %182 = and i16 %181, -21846
+  %183 = lshr i16 %180, 1
+  %184 = and i16 %183, 21845
+  %185 = or disjoint i16 %182, %184
+  %186 = shl i16 %185, 2
+  %187 = and i16 %186, -13108
+  %188 = lshr i16 %185, 2
+  %189 = and i16 %188, 13107
+  %190 = or disjoint i16 %187, %189
+  %191 = shl i16 %190, 4
+  %192 = and i16 %191, -3856
+  %193 = lshr i16 %190, 4
+  %194 = and i16 %193, 3855
+  %195 = or disjoint i16 %192, %194
+  %196 = load i64, ptr %93, align 8, !tbaa !149
+  %197 = icmp ugt i64 %196, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %180)
+  %.0168 = select i1 %197, i16 %rev, i16 %195
+  %198 = icmp ugt i64 %196, 16
+  %199 = select i1 %198, i16 0, i16 %.0168
+  store i16 %199, ptr %178, align 2, !tbaa !151
+  br label %267
 
-201:                                              ; preds = %170
-  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %203 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %204 = load i32, ptr %203, align 4, !tbaa !153
-  %205 = shl i32 %204, 1
-  %206 = and i32 %205, -1431655766
-  %207 = lshr i32 %204, 1
-  %208 = and i32 %207, 1431655765
-  %209 = or disjoint i32 %206, %208
-  %210 = shl i32 %209, 2
-  %211 = and i32 %210, -858993460
-  %212 = lshr i32 %209, 2
-  %213 = and i32 %212, 858993459
-  %214 = or disjoint i32 %211, %213
-  %215 = shl i32 %214, 4
-  %216 = and i32 %215, -252645136
-  %217 = lshr i32 %214, 4
-  %218 = and i32 %217, 252645135
-  %219 = or disjoint i32 %216, %218
-  %220 = load i64, ptr %93, align 8, !tbaa !149
-  %221 = icmp ugt i64 %220, 8
-  br i1 %221, label %222, label %.thread
+200:                                              ; preds = %.split
+  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %203 = load i32, ptr %202, align 4, !tbaa !153
+  %204 = shl i32 %203, 1
+  %205 = and i32 %204, -1431655766
+  %206 = lshr i32 %203, 1
+  %207 = and i32 %206, 1431655765
+  %208 = or disjoint i32 %205, %207
+  %209 = shl i32 %208, 2
+  %210 = and i32 %209, -858993460
+  %211 = lshr i32 %208, 2
+  %212 = and i32 %211, 858993459
+  %213 = or disjoint i32 %210, %212
+  %214 = shl i32 %213, 4
+  %215 = and i32 %214, -252645136
+  %216 = lshr i32 %213, 4
+  %217 = and i32 %216, 252645135
+  %218 = or disjoint i32 %215, %217
+  %219 = load i64, ptr %93, align 8, !tbaa !149
+  %220 = icmp ugt i64 %219, 8
+  br i1 %220, label %221, label %.thread
 
-222:                                              ; preds = %201
-  %223 = shl i32 %219, 8
-  %224 = and i32 %223, -16711936
-  %225 = lshr i32 %219, 8
-  %226 = and i32 %225, 16711935
-  %227 = or disjoint i32 %224, %226
-  %228 = icmp ugt i64 %220, 16
-  br i1 %228, label %229, label %.thread
+221:                                              ; preds = %200
+  %222 = shl i32 %218, 8
+  %223 = and i32 %222, -16711936
+  %224 = lshr i32 %218, 8
+  %225 = and i32 %224, 16711935
+  %226 = or disjoint i32 %223, %225
+  %227 = icmp ugt i64 %219, 16
+  br i1 %227, label %228, label %.thread
 
-229:                                              ; preds = %222
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %204)
+228:                                              ; preds = %221
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %203)
   br label %.thread
 
-.thread:                                          ; preds = %201, %229, %222
-  %.1166 = phi i32 [ %rev213, %229 ], [ %227, %222 ], [ %219, %201 ]
-  %230 = icmp ugt i64 %220, 32
-  %231 = select i1 %230, i32 0, i32 %.1166
-  store i32 %231, ptr %202, align 4, !tbaa !153
-  br label %268
+.thread:                                          ; preds = %200, %228, %221
+  %.1166 = phi i32 [ %rev214, %228 ], [ %226, %221 ], [ %218, %200 ]
+  %229 = icmp ugt i64 %219, 32
+  %230 = select i1 %229, i32 0, i32 %.1166
+  store i32 %230, ptr %201, align 4, !tbaa !153
+  br label %267
 
-232:                                              ; preds = %170
-  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %234 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %235 = load i64, ptr %234, align 8, !tbaa !146
-  %236 = shl i64 %235, 1
-  %237 = and i64 %236, -6148914691236517206
-  %238 = lshr i64 %235, 1
-  %239 = and i64 %238, 6148914691236517205
-  %240 = or disjoint i64 %237, %239
-  %241 = shl i64 %240, 2
-  %242 = and i64 %241, -3689348814741910324
-  %243 = lshr i64 %240, 2
-  %244 = and i64 %243, 3689348814741910323
-  %245 = or disjoint i64 %242, %244
-  %246 = shl i64 %245, 4
-  %247 = and i64 %246, -1085102592571150096
-  %248 = lshr i64 %245, 4
-  %249 = and i64 %248, 1085102592571150095
-  %250 = or disjoint i64 %247, %249
-  %251 = load i64, ptr %93, align 8, !tbaa !149
-  %252 = icmp ugt i64 %251, 8
-  br i1 %252, label %253, label %.thread209
+231:                                              ; preds = %.split
+  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %234 = load i64, ptr %233, align 8, !tbaa !146
+  %235 = shl i64 %234, 1
+  %236 = and i64 %235, -6148914691236517206
+  %237 = lshr i64 %234, 1
+  %238 = and i64 %237, 6148914691236517205
+  %239 = or disjoint i64 %236, %238
+  %240 = shl i64 %239, 2
+  %241 = and i64 %240, -3689348814741910324
+  %242 = lshr i64 %239, 2
+  %243 = and i64 %242, 3689348814741910323
+  %244 = or disjoint i64 %241, %243
+  %245 = shl i64 %244, 4
+  %246 = and i64 %245, -1085102592571150096
+  %247 = lshr i64 %244, 4
+  %248 = and i64 %247, 1085102592571150095
+  %249 = or disjoint i64 %246, %248
+  %250 = load i64, ptr %93, align 8, !tbaa !149
+  %251 = icmp ugt i64 %250, 8
+  br i1 %251, label %252, label %.thread210
 
-253:                                              ; preds = %232
-  %254 = shl i64 %250, 8
-  %255 = and i64 %254, -71777214294589696
-  %256 = lshr i64 %250, 8
-  %257 = and i64 %256, 71777214294589695
-  %258 = or disjoint i64 %255, %257
-  %259 = icmp ugt i64 %251, 16
-  br i1 %259, label %260, label %.thread209
+252:                                              ; preds = %231
+  %253 = shl i64 %249, 8
+  %254 = and i64 %253, -71777214294589696
+  %255 = lshr i64 %249, 8
+  %256 = and i64 %255, 71777214294589695
+  %257 = or disjoint i64 %254, %256
+  %258 = icmp ugt i64 %250, 16
+  br i1 %258, label %259, label %.thread210
 
-260:                                              ; preds = %253
-  %261 = shl i64 %258, 16
-  %262 = and i64 %261, -281470681808896
-  %263 = lshr i64 %258, 16
-  %264 = and i64 %263, 281470681808895
-  %265 = or disjoint i64 %262, %264
-  br label %.thread209
+259:                                              ; preds = %252
+  %260 = shl i64 %257, 16
+  %261 = and i64 %260, -281470681808896
+  %262 = lshr i64 %257, 16
+  %263 = and i64 %262, 281470681808895
+  %264 = or disjoint i64 %261, %263
+  br label %.thread210
 
-.thread209:                                       ; preds = %232, %260, %253
-  %.1 = phi i64 [ %265, %260 ], [ %258, %253 ], [ %250, %232 ]
-  %266 = icmp ugt i64 %251, 32
-  %267 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %266, i64 %267, i64 %.1
-  store i64 %spec.select187, ptr %233, align 8, !tbaa !146
-  br label %268
+.thread210:                                       ; preds = %231, %259, %252
+  %.1 = phi i64 [ %264, %259 ], [ %257, %252 ], [ %249, %231 ]
+  %265 = icmp ugt i64 %250, 32
+  %266 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %265, i64 %266, i64 %.1
+  store i64 %spec.select187, ptr %232, align 8, !tbaa !146
+  br label %267
 
-268:                                              ; preds = %171, %.thread, %.thread209, %178, %170, %162
-  %269 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %269, %142
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !168
+267:                                              ; preds = %169, %170, %.thread, %.thread210, %177, %.split, %161
+  %268 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %268, %142
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !168
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3369,8 +3404,8 @@ define noundef i64 @_Z20logged_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not211 = icmp eq i64 %7, 0
-  br i1 %.not211, label %12, label %8, !prof !131
+  %.not212 = icmp eq i64 %7, 0
+  br i1 %.not212, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -3468,8 +3503,8 @@ define noundef i64 @_Z20logged_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %
   %55 = and i64 %1, 33554432
   %56 = icmp eq i64 %55, 0
   %57 = and i64 %1, 33558400
-  %or.cond = icmp eq i64 %57, 0
-  br i1 %or.cond, label %58, label %63, !prof !147
+  %or.cond216 = icmp eq i64 %57, 0
+  br i1 %or.cond216, label %58, label %63, !prof !147
 
 58:                                               ; preds = %54
   %59 = call ptr @__cxa_allocate_exception(i64 32) #15
@@ -3554,8 +3589,8 @@ define noundef i64 @_Z20logged_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %6, align 8, !tbaa !3
-  %.not212 = icmp eq i64 %102, 0
-  br i1 %.not212, label %106, label %103, !prof !131
+  %.not213 = icmp eq i64 %102, 0
+  br i1 %.not213, label %106, label %103, !prof !131
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %9, align 8, !tbaa !132
@@ -3647,173 +3682,178 @@ define noundef i64 @_Z20logged_rv64e_vbrev_vP11processor_t6insn_tm(ptr noundef %
   br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %134
-  %155 = add i64 %143, -8
-  %156 = call i64 @llvm.fshl.i64(i64 %155, i64 %155, i64 61)
-  br label %159
+  %.old = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %143)
+  %.old188 = icmp eq i64 %.old, 1
+  %155 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %143, i1 true)
+  br label %158
 
-._crit_edge:                                      ; preds = %266, %134
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %148, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #15
-  ret i64 %157
+._crit_edge:                                      ; preds = %265, %134
+  %156 = add i64 %2, 4
+  %157 = load ptr, ptr %148, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef 0) #15
+  ret i64 %156
 
-159:                                              ; preds = %.lr.ph, %266
-  %.0175214 = phi i64 [ %153, %.lr.ph ], [ %267, %266 ]
-  br i1 %56, label %160, label %168
+158:                                              ; preds = %.lr.ph, %265
+  %.0175217 = phi i64 [ %153, %.lr.ph ], [ %266, %265 ]
+  br i1 %56, label %159, label %167
 
-160:                                              ; preds = %159
-  %161 = and i64 %.0175214, 63
-  %162 = shl i64 %.0175214, 26
-  %163 = ashr i64 %162, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !146
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not180 = icmp eq i64 %167, 0
-  br i1 %.not180, label %266, label %168
+159:                                              ; preds = %158
+  %160 = and i64 %.0175217, 63
+  %161 = shl i64 %.0175217, 26
+  %162 = ashr i64 %161, 32
+  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %162, i1 noundef zeroext false)
+  %164 = load i64, ptr %163, align 8, !tbaa !146
+  %165 = shl nuw i64 1, %160
+  %166 = and i64 %164, %165
+  %.not180 = icmp ne i64 %166, 0
+  %or.cond = select i1 %.not180, i1 %.old188, i1 false
+  br i1 %or.cond, label %.split, label %265
 
-168:                                              ; preds = %160, %159
-  switch i64 %156, label %266 [
-    i64 0, label %169
-    i64 1, label %176
-    i64 3, label %199
-    i64 7, label %230
+167:                                              ; preds = %158
+  br i1 %.old188, label %.split, label %265
+
+.split:                                           ; preds = %159, %167
+  switch i64 %155, label %265 [
+    i64 3, label %168
+    i64 4, label %175
+    i64 5, label %198
+    i64 6, label %229
   ]
 
-169:                                              ; preds = %168
-  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %171 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %172 = load i8, ptr %171, align 1, !tbaa !150
-  %rev181 = call i8 @llvm.bitreverse.i8(i8 %172)
-  %173 = load i64, ptr %93, align 8, !tbaa !149
-  %174 = icmp ugt i64 %173, 8
-  %175 = select i1 %174, i8 0, i8 %rev181
-  store i8 %175, ptr %170, align 1, !tbaa !150
-  br label %266
+168:                                              ; preds = %.split
+  %169 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %170 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %171 = load i8, ptr %170, align 1, !tbaa !150
+  %rev181 = call i8 @llvm.bitreverse.i8(i8 %171)
+  %172 = load i64, ptr %93, align 8, !tbaa !149
+  %173 = icmp ugt i64 %172, 8
+  %174 = select i1 %173, i8 0, i8 %rev181
+  store i8 %174, ptr %169, align 1, !tbaa !150
+  br label %265
 
-176:                                              ; preds = %168
-  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %178 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %179 = load i16, ptr %178, align 2, !tbaa !151
-  %180 = shl i16 %179, 1
-  %181 = and i16 %180, -21846
-  %182 = lshr i16 %179, 1
-  %183 = and i16 %182, 21845
-  %184 = or disjoint i16 %181, %183
-  %185 = shl i16 %184, 2
-  %186 = and i16 %185, -13108
-  %187 = lshr i16 %184, 2
-  %188 = and i16 %187, 13107
-  %189 = or disjoint i16 %186, %188
-  %190 = shl i16 %189, 4
-  %191 = and i16 %190, -3856
-  %192 = lshr i16 %189, 4
-  %193 = and i16 %192, 3855
-  %194 = or disjoint i16 %191, %193
-  %195 = load i64, ptr %93, align 8, !tbaa !149
-  %196 = icmp ugt i64 %195, 8
-  %rev = call i16 @llvm.bitreverse.i16(i16 %179)
-  %.0168 = select i1 %196, i16 %rev, i16 %194
-  %197 = icmp ugt i64 %195, 16
-  %198 = select i1 %197, i16 0, i16 %.0168
-  store i16 %198, ptr %177, align 2, !tbaa !151
-  br label %266
+175:                                              ; preds = %.split
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %177 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %178 = load i16, ptr %177, align 2, !tbaa !151
+  %179 = shl i16 %178, 1
+  %180 = and i16 %179, -21846
+  %181 = lshr i16 %178, 1
+  %182 = and i16 %181, 21845
+  %183 = or disjoint i16 %180, %182
+  %184 = shl i16 %183, 2
+  %185 = and i16 %184, -13108
+  %186 = lshr i16 %183, 2
+  %187 = and i16 %186, 13107
+  %188 = or disjoint i16 %185, %187
+  %189 = shl i16 %188, 4
+  %190 = and i16 %189, -3856
+  %191 = lshr i16 %188, 4
+  %192 = and i16 %191, 3855
+  %193 = or disjoint i16 %190, %192
+  %194 = load i64, ptr %93, align 8, !tbaa !149
+  %195 = icmp ugt i64 %194, 8
+  %rev = call i16 @llvm.bitreverse.i16(i16 %178)
+  %.0168 = select i1 %195, i16 %rev, i16 %193
+  %196 = icmp ugt i64 %194, 16
+  %197 = select i1 %196, i16 0, i16 %.0168
+  store i16 %197, ptr %176, align 2, !tbaa !151
+  br label %265
 
-199:                                              ; preds = %168
-  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %201 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %202 = load i32, ptr %201, align 4, !tbaa !153
-  %203 = shl i32 %202, 1
-  %204 = and i32 %203, -1431655766
-  %205 = lshr i32 %202, 1
-  %206 = and i32 %205, 1431655765
-  %207 = or disjoint i32 %204, %206
-  %208 = shl i32 %207, 2
-  %209 = and i32 %208, -858993460
-  %210 = lshr i32 %207, 2
-  %211 = and i32 %210, 858993459
-  %212 = or disjoint i32 %209, %211
-  %213 = shl i32 %212, 4
-  %214 = and i32 %213, -252645136
-  %215 = lshr i32 %212, 4
-  %216 = and i32 %215, 252645135
-  %217 = or disjoint i32 %214, %216
-  %218 = load i64, ptr %93, align 8, !tbaa !149
-  %219 = icmp ugt i64 %218, 8
-  br i1 %219, label %220, label %.thread
+198:                                              ; preds = %.split
+  %199 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %201 = load i32, ptr %200, align 4, !tbaa !153
+  %202 = shl i32 %201, 1
+  %203 = and i32 %202, -1431655766
+  %204 = lshr i32 %201, 1
+  %205 = and i32 %204, 1431655765
+  %206 = or disjoint i32 %203, %205
+  %207 = shl i32 %206, 2
+  %208 = and i32 %207, -858993460
+  %209 = lshr i32 %206, 2
+  %210 = and i32 %209, 858993459
+  %211 = or disjoint i32 %208, %210
+  %212 = shl i32 %211, 4
+  %213 = and i32 %212, -252645136
+  %214 = lshr i32 %211, 4
+  %215 = and i32 %214, 252645135
+  %216 = or disjoint i32 %213, %215
+  %217 = load i64, ptr %93, align 8, !tbaa !149
+  %218 = icmp ugt i64 %217, 8
+  br i1 %218, label %219, label %.thread
 
-220:                                              ; preds = %199
-  %221 = shl i32 %217, 8
-  %222 = and i32 %221, -16711936
-  %223 = lshr i32 %217, 8
-  %224 = and i32 %223, 16711935
-  %225 = or disjoint i32 %222, %224
-  %226 = icmp ugt i64 %218, 16
-  br i1 %226, label %227, label %.thread
+219:                                              ; preds = %198
+  %220 = shl i32 %216, 8
+  %221 = and i32 %220, -16711936
+  %222 = lshr i32 %216, 8
+  %223 = and i32 %222, 16711935
+  %224 = or disjoint i32 %221, %223
+  %225 = icmp ugt i64 %217, 16
+  br i1 %225, label %226, label %.thread
 
-227:                                              ; preds = %220
-  %rev213 = call i32 @llvm.bitreverse.i32(i32 %202)
+226:                                              ; preds = %219
+  %rev214 = call i32 @llvm.bitreverse.i32(i32 %201)
   br label %.thread
 
-.thread:                                          ; preds = %199, %227, %220
-  %.1166 = phi i32 [ %rev213, %227 ], [ %225, %220 ], [ %217, %199 ]
-  %228 = icmp ugt i64 %218, 32
-  %229 = select i1 %228, i32 0, i32 %.1166
-  store i32 %229, ptr %200, align 4, !tbaa !153
-  br label %266
+.thread:                                          ; preds = %198, %226, %219
+  %.1166 = phi i32 [ %rev214, %226 ], [ %224, %219 ], [ %216, %198 ]
+  %227 = icmp ugt i64 %217, 32
+  %228 = select i1 %227, i32 0, i32 %.1166
+  store i32 %228, ptr %199, align 4, !tbaa !153
+  br label %265
 
-230:                                              ; preds = %168
-  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175214, i1 noundef zeroext true)
-  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175214, i1 noundef zeroext false)
-  %233 = load i64, ptr %232, align 8, !tbaa !146
-  %234 = shl i64 %233, 1
-  %235 = and i64 %234, -6148914691236517206
-  %236 = lshr i64 %233, 1
-  %237 = and i64 %236, 6148914691236517205
-  %238 = or disjoint i64 %235, %237
-  %239 = shl i64 %238, 2
-  %240 = and i64 %239, -3689348814741910324
-  %241 = lshr i64 %238, 2
-  %242 = and i64 %241, 3689348814741910323
-  %243 = or disjoint i64 %240, %242
-  %244 = shl i64 %243, 4
-  %245 = and i64 %244, -1085102592571150096
-  %246 = lshr i64 %243, 4
-  %247 = and i64 %246, 1085102592571150095
-  %248 = or disjoint i64 %245, %247
-  %249 = load i64, ptr %93, align 8, !tbaa !149
-  %250 = icmp ugt i64 %249, 8
-  br i1 %250, label %251, label %.thread209
+229:                                              ; preds = %.split
+  %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %145, i64 noundef %.0175217, i1 noundef zeroext true)
+  %231 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %147, i64 noundef %.0175217, i1 noundef zeroext false)
+  %232 = load i64, ptr %231, align 8, !tbaa !146
+  %233 = shl i64 %232, 1
+  %234 = and i64 %233, -6148914691236517206
+  %235 = lshr i64 %232, 1
+  %236 = and i64 %235, 6148914691236517205
+  %237 = or disjoint i64 %234, %236
+  %238 = shl i64 %237, 2
+  %239 = and i64 %238, -3689348814741910324
+  %240 = lshr i64 %237, 2
+  %241 = and i64 %240, 3689348814741910323
+  %242 = or disjoint i64 %239, %241
+  %243 = shl i64 %242, 4
+  %244 = and i64 %243, -1085102592571150096
+  %245 = lshr i64 %242, 4
+  %246 = and i64 %245, 1085102592571150095
+  %247 = or disjoint i64 %244, %246
+  %248 = load i64, ptr %93, align 8, !tbaa !149
+  %249 = icmp ugt i64 %248, 8
+  br i1 %249, label %250, label %.thread210
 
-251:                                              ; preds = %230
-  %252 = shl i64 %248, 8
-  %253 = and i64 %252, -71777214294589696
-  %254 = lshr i64 %248, 8
-  %255 = and i64 %254, 71777214294589695
-  %256 = or disjoint i64 %253, %255
-  %257 = icmp ugt i64 %249, 16
-  br i1 %257, label %258, label %.thread209
+250:                                              ; preds = %229
+  %251 = shl i64 %247, 8
+  %252 = and i64 %251, -71777214294589696
+  %253 = lshr i64 %247, 8
+  %254 = and i64 %253, 71777214294589695
+  %255 = or disjoint i64 %252, %254
+  %256 = icmp ugt i64 %248, 16
+  br i1 %256, label %257, label %.thread210
 
-258:                                              ; preds = %251
-  %259 = shl i64 %256, 16
-  %260 = and i64 %259, -281470681808896
-  %261 = lshr i64 %256, 16
-  %262 = and i64 %261, 281470681808895
-  %263 = or disjoint i64 %260, %262
-  br label %.thread209
+257:                                              ; preds = %250
+  %258 = shl i64 %255, 16
+  %259 = and i64 %258, -281470681808896
+  %260 = lshr i64 %255, 16
+  %261 = and i64 %260, 281470681808895
+  %262 = or disjoint i64 %259, %261
+  br label %.thread210
 
-.thread209:                                       ; preds = %230, %258, %251
-  %.1 = phi i64 [ %263, %258 ], [ %256, %251 ], [ %248, %230 ]
-  %264 = icmp ugt i64 %249, 32
-  %265 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
-  %spec.select187 = select i1 %264, i64 %265, i64 %.1
-  store i64 %spec.select187, ptr %231, align 8, !tbaa !146
-  br label %266
+.thread210:                                       ; preds = %229, %257, %250
+  %.1 = phi i64 [ %262, %257 ], [ %255, %250 ], [ %247, %229 ]
+  %263 = icmp ugt i64 %248, 32
+  %264 = call i64 @llvm.fshl.i64(i64 %.1, i64 %.1, i64 32)
+  %spec.select187 = select i1 %263, i64 %264, i64 %.1
+  store i64 %spec.select187, ptr %230, align 8, !tbaa !146
+  br label %265
 
-266:                                              ; preds = %169, %.thread, %.thread209, %176, %168, %160
-  %267 = add i64 %.0175214, 1
-  %exitcond.not = icmp eq i64 %267, %142
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !169
+265:                                              ; preds = %167, %168, %.thread, %.thread210, %175, %.split, %159
+  %266 = add i64 %.0175217, 1
+  %exitcond.not = icmp eq i64 %266, %142
+  br i1 %exitcond.not, label %._crit_edge, label %158, !llvm.loop !169
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4128,6 +4168,12 @@ declare i16 @llvm.bitreverse.i16(i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.bitreverse.i8(i8) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #14

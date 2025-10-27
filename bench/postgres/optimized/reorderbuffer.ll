@@ -7983,7 +7983,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %8, label %46
+  br i1 %.not.i, label %8, label %49
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %1 to i64
@@ -7991,7 +7991,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %11 = getelementptr i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %14, label %44
+  br i1 %13, label %14, label %47
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -8005,70 +8005,76 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr i8, ptr %10, i64 12
   %25 = load i16, ptr %24, align 4
-  br i1 %23, label %26, label %42
+  %26 = sext i16 %25 to i32
+  br i1 %23, label %27, label %45
 
-26:                                               ; preds = %14
-  switch i16 %25, label %38 [
-    i16 1, label %27
-    i16 2, label %30
-    i16 4, label %33
-    i16 8, label %36
+27:                                               ; preds = %14
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %26)
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %.split.i, label %42
+
+.split.i:                                         ; preds = %27
+  %30 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %26, i1 true)
+  switch i32 %30, label %42 [
+    i32 0, label %31
+    i32 1, label %34
+    i32 2, label %37
+    i32 3, label %40
   ]
 
-27:                                               ; preds = %26
-  %28 = load i8, ptr %20, align 1
-  %29 = sext i8 %28 to i64
+31:                                               ; preds = %.split.i
+  %32 = load i8, ptr %20, align 1
+  %33 = sext i8 %32 to i64
   br label %fetch_att.exit
 
-30:                                               ; preds = %26
-  %31 = load i16, ptr %20, align 2
-  %32 = sext i16 %31 to i64
+34:                                               ; preds = %.split.i
+  %35 = load i16, ptr %20, align 2
+  %36 = sext i16 %35 to i64
   br label %fetch_att.exit
 
-33:                                               ; preds = %26
-  %34 = load i32, ptr %20, align 4
-  %35 = sext i32 %34 to i64
+37:                                               ; preds = %.split.i
+  %38 = load i32, ptr %20, align 4
+  %39 = sext i32 %38 to i64
   br label %fetch_att.exit
 
-36:                                               ; preds = %26
-  %37 = load i64, ptr %20, align 8
+40:                                               ; preds = %.split.i
+  %41 = load i64, ptr %20, align 8
   br label %fetch_att.exit
 
-38:                                               ; preds = %26
-  %39 = sext i16 %25 to i32
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef range(i32 -32768, 32768) %39) #18
+42:                                               ; preds = %.split.i, %27
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef range(i32 -32768, 32768) %26) #18
   tail call void @errfinish(ptr noundef nonnull @.str.28, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
 
-42:                                               ; preds = %14
-  %43 = ptrtoint ptr %20 to i64
+45:                                               ; preds = %14
+  %46 = ptrtoint ptr %20 to i64
   br label %fetch_att.exit
 
-44:                                               ; preds = %8
-  %45 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #18
+47:                                               ; preds = %8
+  %48 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #18
   br label %fetch_att.exit
 
-46:                                               ; preds = %4
-  %47 = add nsw i32 %1, -1
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %.val20 = load i8, ptr %48, align 1
-  %49 = zext i8 %.val20 to i32
-  %50 = shl nuw nsw i32 1, %47
-  %51 = and i32 %50, %49
-  %.not.i21 = icmp eq i32 %51, 0
-  br i1 %.not.i21, label %52, label %53
+49:                                               ; preds = %4
+  %50 = add nsw i32 %1, -1
+  %51 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %.val20 = load i8, ptr %51, align 1
+  %52 = zext i8 %.val20 to i32
+  %53 = shl nuw nsw i32 1, %50
+  %54 = and i32 %53, %52
+  %.not.i21 = icmp eq i32 %54, 0
+  br i1 %.not.i21, label %55, label %56
 
-52:                                               ; preds = %46
+55:                                               ; preds = %49
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-53:                                               ; preds = %46
-  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #18
+56:                                               ; preds = %49
+  %57 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #18
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %42, %36, %33, %30, %27, %44, %53, %52
-  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %45, %44 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ], [ %43, %42 ]
+fetch_att.exit:                                   ; preds = %45, %40, %37, %34, %31, %47, %56, %55
+  %.1 = phi i64 [ 0, %55 ], [ %57, %56 ], [ %48, %47 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ], [ %46, %45 ]
   ret i64 %.1
 }
 
@@ -8195,6 +8201,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #17

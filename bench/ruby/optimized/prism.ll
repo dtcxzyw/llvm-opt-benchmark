@@ -211,6 +211,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.170 = private unnamed_addr constant [6 x i8] c"PRISM\00", align 1
 @switch.table.pm_string_query_local = private unnamed_addr constant [5 x i32] [i32 -1, i32 0, i32 1, i32 0, i32 0], align 4
 @switch.table.pm_string_query_constant = private unnamed_addr constant [5 x i32] [i32 -1, i32 0, i32 0, i32 1, i32 0], align 4
+@switch.table.pm_integer_node_rational_create = private unnamed_addr constant [4 x i32] [i32 1, i32 3, i32 2, i32 4], align 4
 @switch.table.parse_rescues = private unnamed_addr constant [7 x i32] [i32 4, i32 9, i32 15, i32 19, i32 33, i32 39, i32 49], align 4
 @switch.table.parse_rescues.123 = private unnamed_addr constant [7 x i32] [i32 3, i32 8, i32 14, i32 18, i32 32, i32 38, i32 48], align 4
 @switch.table.parse_rescues.124 = private unnamed_addr constant [7 x i32] [i32 2, i32 7, i32 13, i32 17, i32 31, i32 37, i32 47], align 4
@@ -32788,25 +32789,24 @@ pm_node_alloc.exit:                               ; preds = %3
   store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
-  %17 = add nsw i32 %9, -4
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 30)
-  switch i32 %18, label %22 [
-    i32 0, label %19
-    i32 3, label %20
-    i32 7, label %21
-  ]
+  %17 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %9)
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %.split, label %22
 
-19:                                               ; preds = %pm_node_alloc.exit
+.split:                                           ; preds = %pm_node_alloc.exit
+  %19 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %switch.tableidx = add nsw i32 %19, -2
+  %20 = icmp ult i32 %switch.tableidx, 4
+  br i1 %20, label %switch.lookup, label %22
+
+switch.lookup:                                    ; preds = %.split
+  %21 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_integer_node_rational_create, i64 %21
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 
-20:                                               ; preds = %pm_node_alloc.exit
-  br label %22
-
-21:                                               ; preds = %pm_node_alloc.exit
-  br label %22
-
-22:                                               ; preds = %pm_node_alloc.exit, %21, %20, %19
-  %.0 = phi i32 [ 3, %pm_node_alloc.exit ], [ 1, %19 ], [ 2, %20 ], [ 4, %21 ]
+22:                                               ; preds = %switch.lookup, %.split, %pm_node_alloc.exit
+  %.0 = phi i32 [ 3, %.split ], [ 3, %pm_node_alloc.exit ], [ %switch.load, %switch.lookup ]
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx, i32 noundef %.0, ptr noundef %14, ptr noundef %16) #31
   ret ptr %4
@@ -32857,25 +32857,24 @@ pm_node_alloc.exit.i:                             ; preds = %pm_node_alloc.exit
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %15, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !14
-  %24 = add nsw i32 %21, -4
-  %25 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 30)
-  switch i32 %25, label %pm_integer_node_create.exit [
-    i32 0, label %26
-    i32 3, label %27
-    i32 7, label %28
-  ]
+  %24 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %21)
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %.split.i, label %pm_integer_node_create.exit
 
-26:                                               ; preds = %pm_node_alloc.exit.i
+.split.i:                                         ; preds = %pm_node_alloc.exit.i
+  %26 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %21, i1 true)
+  %switch.tableidx = add nsw i32 %26, -2
+  %27 = icmp ult i32 %switch.tableidx, 4
+  br i1 %27, label %switch.lookup, label %pm_integer_node_create.exit
+
+switch.lookup:                                    ; preds = %.split.i
+  %28 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_integer_node_rational_create, i64 %28
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %pm_integer_node_create.exit
 
-27:                                               ; preds = %pm_node_alloc.exit.i
-  br label %pm_integer_node_create.exit
-
-28:                                               ; preds = %pm_node_alloc.exit.i
-  br label %pm_integer_node_create.exit
-
-pm_integer_node_create.exit:                      ; preds = %pm_node_alloc.exit.i, %26, %27, %28
-  %.0.i = phi i32 [ 3, %pm_node_alloc.exit.i ], [ 1, %26 ], [ 2, %27 ], [ 4, %28 ]
+pm_integer_node_create.exit:                      ; preds = %switch.lookup, %.split.i, %pm_node_alloc.exit.i
+  %.0.i = phi i32 [ 3, %.split.i ], [ 3, %pm_node_alloc.exit.i ], [ %switch.load, %switch.lookup ]
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx.i, i32 noundef %.0.i, ptr noundef %12, ptr noundef %15) #31
   store i16 68, ptr %4, align 8, !tbaa !108
@@ -32925,25 +32924,24 @@ pm_node_alloc.exit:                               ; preds = %3
   store ptr %16, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 1, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !7
-  %17 = add nsw i32 %9, -4
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 30)
-  switch i32 %18, label %22 [
-    i32 0, label %19
-    i32 3, label %20
-    i32 7, label %21
-  ]
+  %17 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %9)
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %.split, label %22
 
-19:                                               ; preds = %pm_node_alloc.exit
+.split:                                           ; preds = %pm_node_alloc.exit
+  %19 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %switch.tableidx = add nsw i32 %19, -2
+  %20 = icmp ult i32 %switch.tableidx, 4
+  br i1 %20, label %switch.lookup, label %22
+
+switch.lookup:                                    ; preds = %.split
+  %21 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_integer_node_rational_create, i64 %21
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 
-20:                                               ; preds = %pm_node_alloc.exit
-  br label %22
-
-21:                                               ; preds = %pm_node_alloc.exit
-  br label %22
-
-22:                                               ; preds = %pm_node_alloc.exit, %21, %20, %19
-  %.0 = phi i32 [ 3, %pm_node_alloc.exit ], [ 1, %19 ], [ 2, %20 ], [ 4, %21 ]
+22:                                               ; preds = %switch.lookup, %.split, %pm_node_alloc.exit
+  %.0 = phi i32 [ 3, %.split ], [ 3, %pm_node_alloc.exit ], [ %switch.load, %switch.lookup ]
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %23 = getelementptr i8, ptr %16, i64 -1
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx, i32 noundef %.0, ptr noundef %14, ptr noundef %23) #31
@@ -32952,85 +32950,46 @@ pm_node_alloc.exit:                               ; preds = %3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias nonnull ptr @pm_integer_node_rational_imaginary_create(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
-  %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #34
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %pm_node_alloc.exit
+  %4 = alloca %struct.pm_token_t, align 8
+  %5 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #34
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %pm_node_alloc.exit
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !105
-  %8 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.94, i32 noundef 32) #31
+7:                                                ; preds = %3
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !105
+  %9 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str.94, i32 noundef 32) #31
   tail call void @abort() #35
   unreachable
 
 pm_node_alloc.exit:                               ; preds = %3
-  %9 = load i32, ptr %0, align 8, !tbaa !107
-  %10 = add i32 %9, 1
-  store i32 %10, ptr %0, align 8, !tbaa !107
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !125
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !126
-  %15 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #34
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %pm_node_alloc.exit.i
-
-17:                                               ; preds = %pm_node_alloc.exit
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !105
-  %19 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %18, i32 noundef 1, ptr noundef nonnull @.str.94, i32 noundef 72) #31
-  tail call void @abort() #35
-  unreachable
-
-pm_node_alloc.exit.i:                             ; preds = %pm_node_alloc.exit
-  %20 = getelementptr i8, ptr %14, i64 -1
-  %21 = zext i16 %1 to i32
-  %22 = or i16 %1, 2
-  %23 = add i32 %9, 2
-  store i32 %23, ptr %0, align 8, !tbaa !107
-  store i16 123, ptr %15, align 8, !tbaa !108
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i16 %22, ptr %.sroa.2.0..sroa_idx.i, align 2, !tbaa !108
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %23, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !7
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !14
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %20, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !14
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 64
-  store i32 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !7
-  %24 = add nsw i32 %21, -4
-  %25 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 30)
-  switch i32 %25, label %pm_integer_node_rational_create.exit [
-    i32 0, label %26
-    i32 3, label %27
-    i32 7, label %28
-  ]
-
-26:                                               ; preds = %pm_node_alloc.exit.i
-  br label %pm_integer_node_rational_create.exit
-
-27:                                               ; preds = %pm_node_alloc.exit.i
-  br label %pm_integer_node_rational_create.exit
-
-28:                                               ; preds = %pm_node_alloc.exit.i
-  br label %pm_integer_node_rational_create.exit
-
-pm_integer_node_rational_create.exit:             ; preds = %pm_node_alloc.exit.i, %26, %27, %28
-  %.0.i = phi i32 [ 3, %pm_node_alloc.exit.i ], [ 1, %26 ], [ 2, %27 ], [ 4, %28 ]
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %29 = getelementptr i8, ptr %14, i64 -2
-  tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx.i, i32 noundef %.0.i, ptr noundef %12, ptr noundef %29) #31
-  store i16 68, ptr %4, align 8, !tbaa !108
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = load i32, ptr %0, align 8, !tbaa !107
+  %11 = add i32 %10, 1
+  store i32 %11, ptr %0, align 8, !tbaa !107
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !125
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !126
+  store i32 60, ptr %4, align 8, !tbaa !124
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %13, ptr %17, align 8, !tbaa !125
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr i8, ptr %15, i64 -1
+  store ptr %19, ptr %18, align 8, !tbaa !126
+  %20 = call fastcc ptr @pm_integer_node_rational_create(ptr noundef nonnull %0, i16 noundef zeroext %1, ptr noundef nonnull %4)
+  store i16 68, ptr %5, align 8, !tbaa !108
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 2, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !108
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %10, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !7
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %14, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %15, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !103
-  ret ptr %4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %11, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %13, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %15, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %20, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !103
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -55929,7 +55888,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #27
+declare i32 @llvm.ctpop.i32(i32) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #27
@@ -55939,6 +55901,9 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #27
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #29

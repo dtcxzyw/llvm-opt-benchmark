@@ -332,7 +332,6 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @switch.table._ZNK4llvm25MachineFunctionProperties5printERNS_11raw_ostreamE = private unnamed_addr constant [12 x ptr] [ptr @.str.25, ptr @.str.27, ptr @.str.31, ptr @.str.28, ptr @.str.24, ptr @.str.26, ptr @.str.29, ptr @.str.30, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35], align 8
 @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv = private unnamed_addr constant [8 x i64] [i64 0, i64 2, i64 1, i64 2, i64 1, i64 2, i64 1, i64 3], align 8
 @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16 = private unnamed_addr constant [8 x ptr] [ptr @.str.3, ptr @.str.41, ptr @.str.44, ptr @.str.41, ptr @.str.44, ptr @.str.42, ptr @.str.43, ptr @.str.45], align 8
-@switch.table._ZNK4llvm24MachineConstantPoolEntry14getSectionKindEPKNS_10DataLayoutE = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 4, i32 10, i32 4, i32 4, i32 4, i32 11], align 4
 
 @_ZN4llvm19MachineFunctionInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm19MachineFunctionInfoD2Ev
 @_ZN4llvm15MachineFunctionC1ERNS_8FunctionERKNS_13TargetMachineERKNS_19TargetSubtargetInfoERNS_9MCContextEj = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i32), ptr @_ZN4llvm15MachineFunctionC2ERNS_8FunctionERKNS_13TargetMachineERKNS_19TargetSubtargetInfoERNS_9MCContextEj
@@ -10244,19 +10243,20 @@ _ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit: ; preds = %2
 
 _ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit: ; preds = %12, %18
   %.0.i2 = phi i32 [ %17, %12 ], [ %33, %18 ]
-  %34 = add i32 %.0.i2, -4
-  %35 = call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 30)
-  %36 = icmp ult i32 %35, 8
-  br i1 %36, label %switch.lookup, label %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit.thread
+  %34 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i2)
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %.split, label %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit.thread
 
-switch.lookup:                                    ; preds = %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit
-  %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm24MachineConstantPoolEntry14getSectionKindEPKNS_10DataLayoutE, i64 %37
-  %switch.load = load i32, ptr %switch.gep, align 4
+.split:                                           ; preds = %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit
+  %36 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0.i2, i1 true)
+  %switch.tableidx = add nsw i32 %36, -2
+  %37 = icmp ult i32 %switch.tableidx, 4
+  %switch.offset = add nuw nsw i32 %36, 6
+  %spec.select = select i1 %37, i32 %switch.offset, i32 4
   br label %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit.thread
 
-_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit.thread: ; preds = %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit, %switch.lookup, %2, %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit
-  %.sroa.0.0.in = phi i32 [ 20, %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit ], [ 20, %2 ], [ %switch.load, %switch.lookup ], [ 4, %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit ]
+_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit.thread: ; preds = %.split, %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit, %2, %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit
+  %.sroa.0.0.in = phi i32 [ 20, %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit ], [ 20, %2 ], [ 4, %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit ], [ %spec.select, %.split ]
   ret i32 %.sroa.0.0.in
 }
 
@@ -14560,7 +14560,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #25
+declare i32 @llvm.ctpop.i32(i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
