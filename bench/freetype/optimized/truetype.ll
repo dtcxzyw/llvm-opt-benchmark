@@ -13203,21 +13203,21 @@ define internal fastcc i32 @tt_set_mm_blend(ptr noundef initializes((1209, 1210)
   br i1 %.not100.not.i, label %.preheader151, label %.loopexit.i, !llvm.loop !576
 
 .preheader150:                                    ; preds = %81, %.preheader150
-  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %.preheader150 ], [ 0, %81 ]
+  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %.preheader150 ], [ 0, %81 ]
   %.0115.i = phi i64 [ %spec.store.select106.i, %.preheader150 ], [ 0, %81 ]
   %93 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef nonnull %32) #22
   %94 = zext i16 %93 to i64
   %95 = shl nuw nsw i64 %94, 1
   %96 = add i64 %95, %73
   %97 = load ptr, ptr %28, align 8, !tbaa !565
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv123.i
+  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv124.i
   %spec.store.select106.i = call i64 @llvm.umax.i64(i64 %.0115.i, i64 %96)
   %spec.store.select109.i = call i64 @llvm.umin.i64(i64 %85, i64 %spec.store.select106.i)
   store i64 %spec.store.select109.i, ptr %98, align 8
-  %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
+  %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %99 = load i16, ptr %59, align 8, !tbaa !572
   %100 = zext i16 %99 to i64
-  %.not98.not.i = icmp samesign ult i64 %indvars.iv123.i, %100
+  %.not98.not.i = icmp samesign ult i64 %indvars.iv124.i, %100
   br i1 %.not98.not.i, label %.preheader150, label %.loopexit.i, !llvm.loop !577
 
 .loopexit.i:                                      ; preds = %.preheader151, %.preheader150
@@ -13298,11 +13298,11 @@ define internal fastcc i32 @tt_set_mm_blend(ptr noundef initializes((1209, 1210)
   br i1 %139, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !580
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre126.i = load i16, ptr %50, align 2, !tbaa !571
+  %.pre127.i = load i16, ptr %50, align 2, !tbaa !571
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %140 = phi i16 [ %.pre126.i, %._crit_edge.loopexit.i ], [ %126, %.preheader.i ]
+  %140 = phi i16 [ %.pre127.i, %._crit_edge.loopexit.i ], [ %126, %.preheader.i ]
   %141 = phi i16 [ %132, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ]
   %142 = add nuw nsw i32 %.2117.i, 1
   %143 = zext i16 %140 to i32
@@ -22047,35 +22047,35 @@ define internal fastcc i32 @tt_face_load_loca(ptr noundef %0, ptr noundef %1) un
   %58 = shl i64 %39, %29
   br i1 %57, label %59, label %64
 
-59:                                               ; preds = %._crit_edge.thread, %._crit_edge
+59: ; preds = %._crit_edge.thread, %._crit_edge
   %60 = phi i64 [ %49, %._crit_edge.thread ], [ %58, %._crit_edge ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !824
   %63 = sub nsw i64 %62, %48
   br label %64
 
-64:                                               ; preds = %59, %._crit_edge
+64:; preds = %59, %._crit_edge
   %65 = phi i64 [ %58, %._crit_edge ], [ %60, %59 ]
   %.2 = phi i64 [ %.155, %._crit_edge ], [ %63, %59 ]
   %.not69 = icmp ugt i64 %65, %.2
   br i1 %.not69, label %69, label %66
 
-66:                                               ; preds = %64
+66:; preds = %64
   %67 = load i64, ptr %37, align 8, !tbaa !283
   %68 = add i64 %67, 1
   store i64 %68, ptr %36, align 8, !tbaa !93
   store i64 %65, ptr %3, align 8, !tbaa !223
   br label %71
 
-69:                                               ; preds = %64
-  %70 = load i64, ptr %36, align 8, !tbaa !93
-  %spec.select = call i64 @llvm.usub.sat.i64(i64 %70, i64 1)
+65:                                               ; preds = %64
+  %66 = load i64, ptr %36, align 8, !tbaa !93
+  %spec.select = call i64 @llvm.usub.sat.i64(i64 %66, i64 1)
   store i64 %spec.select, ptr %37, align 8, !tbaa !283
   %.pre = load i64, ptr %3, align 8, !tbaa !223
   br label %71
 
 71:                                               ; preds = %66, %69, %33
-  %72 = phi i64 [ %65, %66 ], [ %.pre, %69 ], [ %34, %33 ]
+  %.0 = phi i64 [ %65, %66 ], [ %.pre, %69 ], [ %34, %33 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %74 = call i32 @FT_Stream_ExtractFrame(ptr noundef %1, i64 noundef %72, ptr noundef nonnull %73) #22
   br label %75

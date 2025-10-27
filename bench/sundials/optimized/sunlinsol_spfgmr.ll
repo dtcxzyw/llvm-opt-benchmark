@@ -359,7 +359,7 @@ switch.edge:
   store i32 0, ptr %37, align 4, !tbaa !57
   %51 = icmp slt i32 %49, 0
   %52 = select i1 %51, i32 -805, i32 803
-  br label %187
+  br label %188
 
 53:                                               ; preds = %48
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %24, ptr noundef %24) #12
@@ -395,7 +395,7 @@ switch.edge:
 
 67:                                               ; preds = %64
   store i32 0, ptr %37, align 4, !tbaa !57
-  br label %187
+  br label %188
 
 68:                                               ; preds = %64
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %20) #12
@@ -476,7 +476,7 @@ switch.edge:
   store i32 0, ptr %37, align 4, !tbaa !57
   %93 = icmp slt i32 %91, 0
   %94 = select i1 %93, i32 -808, i32 805
-  br label %187
+  br label %188
 
 95:                                               ; preds = %87, %86
   %96 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv374
@@ -492,7 +492,7 @@ switch.edge:
   store i32 0, ptr %37, align 4, !tbaa !57
   %102 = icmp slt i32 %100, 0
   %103 = select i1 %102, i32 -805, i32 803
-  br label %187
+  br label %188
 
 104:                                              ; preds = %95
   br i1 %.not, label %107, label %105
@@ -524,7 +524,7 @@ switch.edge:
 
 118:                                              ; preds = %115
   store i32 0, ptr %37, align 4, !tbaa !57
-  br label %187
+  br label %188
 
 119:                                              ; preds = %115
   %.idx = shl nuw nsw i64 %indvars.iv374, 4
@@ -570,7 +570,7 @@ switch.edge:
 
 137:                                              ; preds = %._crit_edge331
   store i32 0, ptr %37, align 4, !tbaa !57
-  br label %187
+  br label %188
 
 138:                                              ; preds = %._crit_edge331
   store double 1.000000e+00, ptr %41, align 8, !tbaa !59
@@ -616,7 +616,7 @@ switch.edge:
 
 152:                                              ; preds = %151, %150
   store i32 0, ptr %37, align 4, !tbaa !57
-  br label %187
+  br label %188
 
 153:                                              ; preds = %._crit_edge335
   %154 = icmp eq i32 %.0270353, %8
@@ -657,76 +657,76 @@ switch.edge:
   br i1 %.not302341, label %._crit_edge350, label %.lr.ph344.preheader
 
 .lr.ph344.preheader:                              ; preds = %._crit_edge339.thread, %._crit_edge339
-  %166 = phi double [ %165, %._crit_edge339.thread ], [ %.0258355, %._crit_edge339 ]
+  %167 = phi double [ %165, %._crit_edge339.thread ], [ %.0258355, %._crit_edge339 ]
   %wide.trip.count399 = zext i32 %146 to i64
   br label %.lr.ph344
 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph344
   %indvars.iv395 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next396, %.lr.ph344 ]
-  %167 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv395
-  %168 = load double, ptr %167, align 8, !tbaa !59
-  %169 = fmul double %166, %168
-  store double %169, ptr %167, align 8, !tbaa !59
+  %168 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv395
+  %169 = load double, ptr %168, align 8, !tbaa !59
+  %170 = fmul double %167, %169
+  store double %170, ptr %168, align 8, !tbaa !59
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %exitcond400.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count399
-  br i1 %exitcond400.not, label %.lr.ph349.preheader, label %.lr.ph344
+  br i1 %exitcond400.not, label %._crit_edge345, label %.lr.ph344
 
-.lr.ph349.preheader:                              ; preds = %.lr.ph344
+._crit_edge345:                                   ; preds = %.lr.ph344
   %wide.trip.count405 = zext i32 %146 to i64
   br label %.lr.ph349
 
-.lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
+.lr.ph349:                                        ; preds = %._crit_edge345, %.lr.ph349
   %indvars.iv401 = phi i64 [ 0, %.lr.ph349.preheader ], [ %indvars.iv.next402, %.lr.ph349 ]
-  %170 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv401
-  %171 = load double, ptr %170, align 8, !tbaa !59
-  %172 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv401
-  store double %171, ptr %172, align 8, !tbaa !59
-  %173 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv401
-  %174 = load ptr, ptr %173, align 8, !tbaa !58
-  %175 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv401
-  store ptr %174, ptr %175, align 8, !tbaa !58
+  %172 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv401
+  %173 = load double, ptr %172, align 8, !tbaa !59
+  %174 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv401
+  store double %173, ptr %174, align 8, !tbaa !59
+  %175 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv401
+  %176 = load ptr, ptr %175, align 8, !tbaa !58
+  %177 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv401
+  store ptr %176, ptr %177, align 8, !tbaa !58
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next402, %wide.trip.count405
   br i1 %exitcond406.not, label %._crit_edge350, label %.lr.ph349
 
 ._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge339
-  %176 = phi double [ %.0258355, %._crit_edge339 ], [ %166, %.lr.ph349 ]
-  %177 = tail call double @llvm.fabs.f64(double %176)
+  %178 = phi double [ %.0258355, %._crit_edge339 ], [ %167, %.lr.ph349 ]
+  %177 = tail call double @llvm.fabs.f64(double %178)
   %178 = load ptr, ptr %12, align 8, !tbaa !58
   %179 = tail call i32 @N_VLinearCombination(i32 noundef %146, ptr noundef nonnull %41, ptr noundef nonnull %43, ptr noundef %178) #12
   %180 = add nuw nsw i32 %.0270353, 1
   br label %.preheader307
 
 ._crit_edge356:                                   ; preds = %153
-  %181 = fcmp olt double %.3, %65
-  br i1 %181, label %182, label %._crit_edge356.thread
+  %182 = fcmp olt double %.3, %65
+  br i1 %182, label %183, label %._crit_edge356.thread
 
-182:                                              ; preds = %._crit_edge356
-  %183 = load i32, ptr %37, align 4, !tbaa !57
-  %.not304 = icmp eq i32 %183, 0
-  br i1 %.not304, label %185, label %184
+183:                                              ; preds = %._crit_edge356
+  %184 = load i32, ptr %37, align 4, !tbaa !57
+  %.not304 = icmp eq i32 %184, 0
+  br i1 %.not304, label %186, label %185
 
-184:                                              ; preds = %182
+185:                                              ; preds = %183
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %20, ptr noundef %2) #12
-  br label %186
-
-185:                                              ; preds = %182
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef 1.000000e+00, ptr noundef %20, ptr noundef %2) #12
-  br label %186
-
-186:                                              ; preds = %185, %184
-  store i32 0, ptr %37, align 4, !tbaa !57
   br label %187
+
+186:                                              ; preds = %183
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef 1.000000e+00, ptr noundef %20, ptr noundef %2) #12
+  br label %187
+
+187:                                              ; preds = %186, %185
+  store i32 0, ptr %37, align 4, !tbaa !57
+  br label %188
 
 ._crit_edge356.thread:                            ; preds = %68, %._crit_edge356
   store i32 0, ptr %37, align 4, !tbaa !57
-  br label %187
+  br label %188
 
-187:                                              ; preds = %._crit_edge356.thread, %186, %152, %137, %118, %101, %92, %67, %50
+188:                                              ; preds = %._crit_edge356.thread, %187, %152, %137, %118, %101, %92, %67, %50
   %.sink = phi i32 [ 802, %._crit_edge356.thread ], [ 801, %186 ], [ 0, %152 ], [ -811, %137 ], [ 807, %118 ], [ %103, %101 ], [ %94, %92 ], [ 0, %67 ], [ %52, %50 ]
-  %188 = load ptr, ptr %0, align 8, !tbaa !26
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  store i32 %.sink, ptr %189, align 8, !tbaa !27
+  %189 = load ptr, ptr %0, align 8, !tbaa !26
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
+  store i32 %.sink, ptr %190, align 8, !tbaa !27
   ret i32 %.sink
 }
 

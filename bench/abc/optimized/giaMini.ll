@@ -6266,37 +6266,37 @@ define noalias noundef ptr @Gia_MiniAigProcessFile() local_unnamed_addr #1 {
   br label %.outer
 
 ..loopexit_crit_edge:                             ; preds = %Vec_IntPush.exit
-  br label %.loopexit, !llvm.loop !151
+  br label %.outer.outer, !llvm.loop !151
 
-.loopexit:                                        ; preds = %..loopexit_crit_edge, %17
-  %.pre.i23 = phi ptr [ %.pre.i24, %..loopexit_crit_edge ], [ %.pre.i22, %17 ]
-  %11 = add nuw nsw i32 %.013.ph, 1
+.outer.outer:                                     ; preds = %..loopexit_crit_edge, %17
+  %.pre.i22.ph = phi ptr [ %.pre.i24, %..loopexit_crit_edge ], [ %.013.ph, %17 ]
+  %11 = add nuw nsw i32 %.012.ph, 1
   br label %.outer
 
-.outer:                                           ; preds = %.loopexit, %9
-  %.pre.i22 = phi ptr [ %.pre.i23, %.loopexit ], [ %4, %9 ]
-  %.013.ph = phi i32 [ %11, %.loopexit ], [ 0, %9 ]
+.outer:                                           ; preds = %.outer.outer, %9
+  %.013.ph = phi ptr [ %.pre.i23, %.loopexit ], [ %4, %9 ]
+  %.012.ph = phi i32 [ %11, %.loopexit ], [ 0, %9 ]
   %.012.ph = phi i32 [ %15, %.loopexit ], [ 0, %9 ]
   br label %12
 
-12:                                               ; preds = %.outer, %14
-  %.012 = phi i32 [ %15, %14 ], [ %.012.ph, %.outer ]
-  %13 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1000, ptr noundef nonnull %6)
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %45, label %14
+11:                                               ; preds = %.outer, %13
+  %.012 = phi i32 [ %14, %14 ], [ %.012.ph, %.outer ]
+  %12 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1000, ptr noundef nonnull %6)
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %45, label %13
 
-14:                                               ; preds = %12
-  %15 = add nsw i32 %.012, 1
-  %16 = load i8, ptr %1, align 16, !tbaa !66
-  %.not15 = icmp eq i8 %16, 35
-  br i1 %.not15, label %17, label %12, !llvm.loop !151
+13:                                               ; preds = %11
+  %14 = add nsw i32 %.012, 1
+  %15 = load i8, ptr %1, align 16, !tbaa !66
+  %.not15 = icmp eq i8 %15, 35
+  br i1 %.not15, label %16, label %11, !llvm.loop !151
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   %18 = call ptr @strtok(ptr noundef nonnull %10, ptr noundef nonnull @.str.30) #25
   %.not1618 = icmp eq ptr %18, null
-  br i1 %.not1618, label %.loopexit, label %.lr.ph, !llvm.loop !151
+  br i1 %.not1618, label %.outer.outer, label %.lr.ph, !llvm.loop !151
 
-.lr.ph:                                           ; preds = %17
+.lr.ph:                                           ; preds = %16
   br label %19, !llvm.loop !151
 
 19:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
@@ -6358,7 +6358,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.not16 = icmp eq ptr %44, null
   br i1 %.not16, label %..loopexit_crit_edge, label %19, !llvm.loop !152
 
-45:                                               ; preds = %12
+45:                                               ; preds = %11
   %46 = call i32 @fclose(ptr noundef nonnull %6)
   %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.013.ph, i32 noundef %.012)
   %.val = load i32, ptr %3, align 4, !tbaa !34

@@ -10374,7 +10374,7 @@ la_cross_call.exit:                               ; preds = %155, %._crit_edge37
   %162 = getelementptr inbounds nuw i8, ptr %.0217397, i64 32
   %163 = zext nneg i32 %59 to i64
   %wide.trip.count434 = zext nneg i32 %61 to i64
-  %invariant.gep488 = getelementptr inbounds nuw i64, ptr %162, i64 %163
+  %invariant.gep491 = getelementptr inbounds nuw i64, ptr %162, i64 %163
   br label %188
 
 164:                                              ; preds = %.lr.ph375, %186
@@ -10429,8 +10429,8 @@ la_cross_call.exit:                               ; preds = %155, %._crit_edge37
 188:                                              ; preds = %.lr.ph377, %205
   %indvars.iv431 = phi i64 [ 0, %.lr.ph377 ], [ %indvars.iv.next432, %205 ]
   %189 = getelementptr inbounds nuw %struct.TCGCallArgumentLoc, ptr %161, i64 %indvars.iv431
-  %gep489 = getelementptr inbounds nuw i64, ptr %invariant.gep488, i64 %indvars.iv431
-  %190 = load i64, ptr %gep489, align 8
+  %gep492 = getelementptr inbounds nuw i64, ptr %invariant.gep491, i64 %indvars.iv431
+  %190 = load i64, ptr %gep492, align 8
   %191 = inttoptr i64 %190 to ptr
   %192 = load i32, ptr %189, align 4
   %trunc249 = trunc i32 %192 to i8
@@ -10590,9 +10590,9 @@ la_reset_pref.exit295:                            ; preds = %48
   br i1 %.not405, label %._crit_edge383, label %.lr.ph382
 
 .lr.ph382:                                        ; preds = %236, %250, %214, %228, %.loopexit355
-  %.0221.shrunk476 = phi i8 [ %259, %.loopexit355 ], [ 2, %236 ], [ 2, %250 ], [ 4, %214 ], [ 2, %228 ]
-  %.0222.shrunk474 = phi i8 [ %261, %.loopexit355 ], [ 2, %236 ], [ 1, %250 ], [ 2, %214 ], [ 1, %228 ]
-  %.0223472 = phi i32 [ %55, %.loopexit355 ], [ %55, %236 ], [ %.1239, %250 ], [ %55, %214 ], [ %.0238, %228 ]
+  %.0221481 = phi i8 [ %259, %.loopexit355 ], [ 2, %236 ], [ 2, %250 ], [ 4, %214 ], [ 2, %228 ]
+  %.0221.shrunk477 = phi i8 [ %261, %.loopexit355 ], [ 2, %236 ], [ 1, %250 ], [ 2, %214 ], [ 1, %228 ]
+  %.0222.shrunk475 = phi i32 [ %55, %.loopexit355 ], [ %55, %236 ], [ %.1239, %250 ], [ %55, %214 ], [ %.0238, %228 ]
   %275 = getelementptr inbounds nuw i8, ptr %.0217397, i64 32
   %276 = getelementptr inbounds nuw i8, ptr %.0217397, i64 24
   %wide.trip.count444 = zext i8 %.0222.shrunk474 to i64
@@ -10638,15 +10638,15 @@ la_reset_pref.exit297:                            ; preds = %277, %282
   br i1 %exitcond445.not, label %._crit_edge383.loopexit, label %277, !llvm.loop !72
 
 ._crit_edge383.loopexit:                          ; preds = %la_reset_pref.exit297
-  %.0222478 = zext i8 %.0222.shrunk474 to i32
+  %297 = zext i8 %.0222.shrunk474 to i32
   %297 = zext i8 %.0222.shrunk474 to i64
   br label %._crit_edge383
 
 ._crit_edge383:                                   ; preds = %._crit_edge383.loopexit, %.loopexit355
-  %.0222479 = phi i32 [ 0, %.loopexit355 ], [ %.0222478, %._crit_edge383.loopexit ]
-  %.0221.shrunk477 = phi i8 [ %259, %.loopexit355 ], [ %.0221.shrunk476, %._crit_edge383.loopexit ]
-  %.0222.shrunk475 = phi i64 [ 0, %.loopexit355 ], [ %297, %._crit_edge383.loopexit ]
-  %.0223473 = phi i32 [ %55, %.loopexit355 ], [ %.0223472, %._crit_edge383.loopexit ]
+  %.0221482 = phi i32 [ 0, %.loopexit355 ], [ %.0222478, %._crit_edge383.loopexit ]
+  %.0222480 = phi i8 [ %259, %.loopexit355 ], [ %.0221481, %._crit_edge383.loopexit ]
+  %.0221.shrunk478 = phi i64 [ 0, %.loopexit355 ], [ %297, %._crit_edge383.loopexit ]
+  %.0222.shrunk476 = phi i32 [ %55, %.loopexit355 ], [ %.0223472, %._crit_edge383.loopexit ]
   %.8233.lcssa = phi i32 [ 0, %.loopexit355 ], [ %.10235, %._crit_edge383.loopexit ]
   %.0221 = zext i8 %.0221.shrunk477 to i32
   %298 = getelementptr inbounds nuw i8, ptr %57, i64 12
@@ -10971,14 +10971,14 @@ la_func_end.exit313:                              ; preds = %la_reset_pref.exit1
   br i1 %437, label %420, label %._crit_edge392, !llvm.loop !76
 
 ._crit_edge392:                                   ; preds = %436, %la_func_end.exit313
-  %.11.lcssa481 = phi i32 [ %.8233.lcssa, %la_func_end.exit313 ], [ %.12, %436 ]
+  %.11.lcssa484 = phi i32 [ %.8233.lcssa, %la_func_end.exit313 ], [ %.12, %436 ]
   switch i32 %.0223473, label %450 [
     i32 5, label %438
     i32 63, label %438
   ]
 
 438:                                              ; preds = %._crit_edge392, %._crit_edge392
-  %439 = and i32 %.11.lcssa481, 32
+  %439 = and i32 %.11.lcssa484, 32
   %.not261 = icmp eq i32 %439, 0
   br i1 %.not261, label %.thread, label %440
 
@@ -11053,7 +11053,7 @@ output_pref.exit:                                 ; preds = %467, %472
   br i1 %480, label %455, label %.thread, !llvm.loop !77
 
 .thread:                                          ; preds = %205, %478, %la_cross_call.exit, %450, %440, %438, %.loopexit, %la_reset_pref.exit295, %48
-  %.0225 = phi i32 [ %.11.lcssa481, %440 ], [ %.11.lcssa481, %438 ], [ 0, %.loopexit ], [ 0, %48 ], [ 0, %la_reset_pref.exit295 ], [ %.11.lcssa481, %450 ], [ %.5230.lcssa, %la_cross_call.exit ], [ %.11.lcssa481, %478 ], [ %.5230.lcssa, %205 ]
+  %.0225 = phi i32 [ %.11.lcssa484, %440 ], [ %.11.lcssa484, %438 ], [ 0, %.loopexit ], [ 0, %48 ], [ 0, %la_reset_pref.exit295 ], [ %.11.lcssa484, %450 ], [ %.5230.lcssa, %la_cross_call.exit ], [ %.11.lcssa484, %478 ], [ %.5230.lcssa, %205 ]
   %481 = getelementptr inbounds nuw i8, ptr %.0217397, i64 4
   store i32 %.0225, ptr %481, align 4
   %.not = icmp eq ptr %53, null

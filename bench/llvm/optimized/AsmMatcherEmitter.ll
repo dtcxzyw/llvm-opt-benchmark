@@ -20890,7 +20890,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3262:             ; preds = %9633, %9635
   %9638 = icmp eq ptr %.val617, %.val618
   br i1 %9638, label %_ZL24emitCustomOperandParsingRN4llvm11raw_ostreamERNS_13CodeGenTargetERKN12_GLOBAL__N_114AsmMatcherInfoENS_9StringRefERKNS_19StringToOffsetTableEjjbRKNS_6RecordE.exit, label %.lr.ph.i3263
 
-._crit_edge.i3265:                                ; preds = %.lr.ph.i3263
+.lr.ph.i3263.preheader:                           ; preds = %.lr.ph.i3263
   %9639 = load ptr, ptr %4470, align 8, !tbaa !381
   %9640 = load ptr, ptr %57, align 8, !tbaa !383
   %9641 = ptrtoint ptr %9639 to i64

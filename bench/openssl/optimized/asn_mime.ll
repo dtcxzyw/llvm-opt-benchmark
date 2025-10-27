@@ -562,16 +562,16 @@ asn1_write_micalg.exit:                           ; preds = %54, %68, %29, %.loo
   %94 = call i32 %93(i32 noundef 13, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12) #6
   %95 = load ptr, ptr %87, align 8, !tbaa !38
   %.not2526.i = icmp eq ptr %95, %0
-  br i1 %.not2526.i, label %.loopexit.i, label %.lr.ph.i98
+  br i1 %.not2526.i, label %.loopexit.i, label %.lr.ph.i99
 
-.lr.ph.i98:                                       ; preds = %90, %.lr.ph.i98
+.lr.ph.i99:                                       ; preds = %90, %.lr.ph.i99
   %96 = phi ptr [ %97, %.lr.ph.i98 ], [ %95, %90 ]
   %97 = call ptr @BIO_pop(ptr noundef %96) #6
   %98 = load ptr, ptr %87, align 8, !tbaa !38
   %99 = call i32 @BIO_free(ptr noundef %98) #6
   store ptr %97, ptr %87, align 8, !tbaa !38
   %.not25.i = icmp eq ptr %97, %0
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i98, !llvm.loop !39
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i99, !llvm.loop !39
 
 .loopexit.i:                                      ; preds = %.lr.ph.i98, %90
   %.inv.i = icmp sgt i32 %94, 0

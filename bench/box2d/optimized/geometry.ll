@@ -185,14 +185,14 @@ define void @b2MakePolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %.sroa.03.4.vec.insert.i.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i.i, float %50, i64 1
   %51 = fadd float %.052.i, %43
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit.loopexit, label %32, !llvm.loop !23
+  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit, label %32, !llvm.loop !23
 
-b2ComputePolygonCentroid.exit.loopexit:           ; preds = %32
+b2ComputePolygonCentroid.exit:                    ; preds = %32
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.copyload.i, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.copyload.i, i64 1
   br label %b2ComputePolygonCentroid.exit
 
-b2ComputePolygonCentroid.exit:                    ; preds = %b2ComputePolygonCentroid.exit.loopexit, %.._crit_edge_crit_edge.i
+b2ComputePolygonCentroid.exit:; preds = %b2ComputePolygonCentroid.exit, %.._crit_edge_crit_edge.i
   %52 = phi ptr [ %30, %.._crit_edge_crit_edge.i ], [ %28, %b2ComputePolygonCentroid.exit.loopexit ]
   %.sroa.01.4.vec.extract.i.pre-phi.i = phi float [ %.pre57.i, %.._crit_edge_crit_edge.i ], [ %.sroa.0.4.vec.extract.i.i, %b2ComputePolygonCentroid.exit.loopexit ]
   %.sroa.01.0.vec.extract.i.pre-phi.i = phi float [ %.pre56.i, %.._crit_edge_crit_edge.i ], [ %.sroa.0.0.vec.extract.i.i, %b2ComputePolygonCentroid.exit.loopexit ]
@@ -450,14 +450,14 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
   %.sroa.03.4.vec.insert.i.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i.i, float %61, i64 1
   %62 = fadd float %.052.i, %54
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit.loopexit, label %43, !llvm.loop !23
+  br i1 %exitcond.not.i, label %b2ComputePolygonCentroid.exit, label %43, !llvm.loop !23
 
-b2ComputePolygonCentroid.exit.loopexit:           ; preds = %43
+b2ComputePolygonCentroid.exit:                    ; preds = %43
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.copyload.i, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.copyload.i, i64 1
   br label %b2ComputePolygonCentroid.exit
 
-b2ComputePolygonCentroid.exit:                    ; preds = %b2ComputePolygonCentroid.exit.loopexit, %.._crit_edge_crit_edge.i
+b2ComputePolygonCentroid.exit:; preds = %b2ComputePolygonCentroid.exit, %.._crit_edge_crit_edge.i
   %63 = phi ptr [ %41, %.._crit_edge_crit_edge.i ], [ %39, %b2ComputePolygonCentroid.exit.loopexit ]
   %.sroa.01.4.vec.extract.i.pre-phi.i = phi float [ %.pre57.i, %.._crit_edge_crit_edge.i ], [ %.sroa.0.4.vec.extract.i.i, %b2ComputePolygonCentroid.exit.loopexit ]
   %.sroa.01.0.vec.extract.i.pre-phi.i = phi float [ %.pre56.i, %.._crit_edge_crit_edge.i ], [ %.sroa.0.0.vec.extract.i.i, %b2ComputePolygonCentroid.exit.loopexit ]
@@ -1139,12 +1139,12 @@ b2Normalize.exit:                                 ; preds = %71, %83
   %.pre = load <2 x float>, ptr %.phi.trans.insert, align 8
   br label %113
 
-._crit_edge.loopexit:                             ; preds = %113
+._crit_edge:                                      ; preds = %113
   %.sroa.0.0.vec.extract.i124 = extractelement <2 x float> %.sroa.031.0.copyload194, i64 0
   %.sroa.0.4.vec.extract.i127 = extractelement <2 x float> %.sroa.031.0.copyload194, i64 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit.._crit_edge_crit_edge
+._crit_edge:; preds = %._crit_edge, %.loopexit.._crit_edge_crit_edge
   %.sroa.01.4.vec.extract.i112.pre-phi = phi float [ %.pre188, %.loopexit.._crit_edge_crit_edge ], [ %.sroa.0.4.vec.extract.i127, %._crit_edge.loopexit ]
   %.sroa.01.0.vec.extract.i109.pre-phi = phi float [ %.pre187, %.loopexit.._crit_edge_crit_edge ], [ %.sroa.0.0.vec.extract.i124, %._crit_edge.loopexit ]
   %.096.lcssa = phi float [ 0.000000e+00, %.loopexit.._crit_edge_crit_edge ], [ %142, %._crit_edge.loopexit ]
@@ -1231,7 +1231,7 @@ b2Normalize.exit:                                 ; preds = %71, %83
   %141 = fmul float %139, %140
   %142 = fadd float %.096167, %141
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge.loopexit, label %113, !llvm.loop !52
+  br i1 %exitcond181.not, label %._crit_edge, label %113, !llvm.loop !52
 
 143:                                              ; preds = %._crit_edge, %21, %8
   %.8..8..8..fca.1.load = phi <2 x float> [ %.8..8..8..8..fca.1.load.pre, %._crit_edge ], [ %.8..8..8..8..8..8..fca.1.load.i, %21 ], [ %.sroa.4.12.vec.insert.i, %8 ]

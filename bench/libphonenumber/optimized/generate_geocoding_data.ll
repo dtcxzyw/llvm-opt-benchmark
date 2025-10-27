@@ -6650,9 +6650,9 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %12 = load i8, ptr %11, align 1, !tbaa !16
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %13, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %10, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %10, %.lr.ph
   %.04964 = phi ptr [ %15, %.lr.ph ], [ %0, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.04964, i64 256
   %15 = load ptr, ptr %14, align 8, !tbaa !129
@@ -6802,9 +6802,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112
 
 26:                                               ; preds = %2
   %27 = icmp eq i8 %6, 0
-  br i1 %27, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %27, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %26, %.lr.ph
   %.04982 = phi ptr [ %29, %.lr.ph ], [ %0, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %.04982, i64 256
   %29 = load ptr, ptr %28, align 8, !tbaa !64
@@ -6814,7 +6814,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112
   br i1 %.not74, label %.lr.ph, label %._crit_edge, !llvm.loop !250
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %32 = load ptr, ptr %0, align 8, !tbaa !64
+  %33 = load ptr, ptr %0, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i8, ptr %33, align 1, !tbaa !16
   %35 = zext i8 %34 to i32
@@ -7089,15 +7089,15 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
 
 30:                                               ; preds = %2
   %31 = icmp eq i8 %6, 0
-  br i1 %31, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %31, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %30, %.lr.ph
-  %.04988 = phi ptr [ %33, %.lr.ph ], [ %0, %30 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.04988, i64 272
-  %33 = load ptr, ptr %32, align 8, !tbaa !139
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 11
-  %35 = load i8, ptr %34, align 1, !tbaa !16
-  %.not80 = icmp eq i8 %35, 0
+.lr.ph:                                           ; preds = %30, %.lr.ph.preheader
+  %.04988 = phi ptr [ %34, %.lr.ph ], [ %0, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.04988, i64 272
+  %34 = load ptr, ptr %33, align 8, !tbaa !139
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 11
+  %36 = load i8, ptr %35, align 1, !tbaa !16
+  %.not80 = icmp eq i8 %36, 0
   br i1 %.not80, label %.lr.ph, label %._crit_edge, !llvm.loop !259
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -7105,7 +7105,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i8, ptr %37, align 1, !tbaa !16
   %39 = zext i8 %38 to i32
-  %40 = load ptr, ptr %33, align 8, !tbaa !139
+  %40 = load ptr, ptr %34, align 8, !tbaa !139
   br label %41
 
 41:                                               ; preds = %.backedge, %._crit_edge

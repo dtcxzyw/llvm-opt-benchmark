@@ -14890,13 +14890,13 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val.i.i6.i = load i64, ptr %41, align 8
   %cmp.i.i.i7.i = icmp ugt i64 %call.val.i.i6.i, %call3.val.i.i5.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 16
-  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !337
+  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !337
 
-while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
+while.cond10.i.i.preheader:                       ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -16
-  %42 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %call3.val.i3.i.i = load i64, ptr %42, align 8
+  %43 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
+  %call3.val.i3.i.i = load i64, ptr %43, align 8
   %cmp.i.i4.i.i = icmp ugt i64 %call3.val.i.i5.i, %call3.val.i3.i.i
   br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !338
 
@@ -14905,16 +14905,16 @@ while.end18.i.i:                                  ; preds = %while.cond10.i.i
   br i1 %cmp.i.i.i7, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6hermes4inst6OpCodeEmESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer20dumpInstructionStatsEvE3$_1EEET_SH_SH_T0_.exit"
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
-  %43 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
+  %44 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %44 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
   %45 = load i8, ptr %__first.sroa.0.1.i.i, align 1
   %46 = load i8, ptr %__last.sroa.0.1.i.i, align 1
   store i8 %46, ptr %__first.sroa.0.1.i.i, align 1
   store i8 %45, ptr %__last.sroa.0.1.i.i, align 1
   %47 = load i64, ptr %44, align 8
-  %48 = load i64, ptr %43, align 8
+  %48 = load i64, ptr %44, align 8
   store i64 %48, ptr %44, align 8
-  store i64 %47, ptr %43, align 8
+  store i64 %47, ptr %44, align 8
   br label %while.body.i.i6, !llvm.loop !339
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6hermes4inst6OpCodeEmESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer20dumpInstructionStatsEvE3$_1EEET_SH_SH_T0_.exit": ; preds = %while.end18.i.i
@@ -15811,13 +15811,13 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val.i.i6.i = load i64, ptr %73, align 8
   %cmp.i.i.i7.i = icmp ugt i64 %call.val.i.i6.i, %call3.val.i.i5.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 80
-  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !355
+  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !355
 
-while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
+while.cond10.i.i.preheader:                       ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -80
-  %74 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -72
-  %call3.val.i3.i.i = load i64, ptr %74, align 8
+  %75 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -72
+  %call3.val.i3.i.i = load i64, ptr %75, align 8
   %cmp.i.i4.i.i = icmp ugt i64 %call3.val.i.i5.i, %call3.val.i3.i.i
   br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !356
 
@@ -15826,13 +15826,13 @@ while.end18.i.i:                                  ; preds = %while.cond10.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEET_SG_SG_T0_.exit"
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
-  %75 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -72
+  %76 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -72
   %76 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
   %77 = load i32, ptr %__first.sroa.0.1.i.i, align 4
   %78 = load i32, ptr %__last.sroa.0.1.i.i, align 4
   store i32 %78, ptr %__first.sroa.0.1.i.i, align 4
   store i32 %77, ptr %__last.sroa.0.1.i.i, align 4
-  tail call void @_ZSt4swapIN6hermes25FunctionRuntimeStatisticsEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(72) %75) #20
+  tail call void @_ZSt4swapIN6hermes25FunctionRuntimeStatisticsEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(72) %76) #20
   br label %while.body.i.i5, !llvm.loop !357
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEET_SG_SG_T0_.exit": ; preds = %while.end18.i.i

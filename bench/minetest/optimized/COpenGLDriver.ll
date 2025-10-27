@@ -17269,9 +17269,9 @@ if.end:
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 32
   %6 = trunc nuw i64 %5 to i32
-  br i1 %cmp.not, label %while.cond.i, label %if.end17
+  br i1 %cmp.not, label %if.then6, label %if.end17
 
-while.cond.i:                                     ; preds = %if.end, %while.cond.i
+if.then6:                                         ; preds = %if.end, %if.then6
   %i.0.i = phi i32 [ %shl.i, %while.cond.i ], [ 1, %if.end ]
   %cmp.i34 = icmp ult i32 %i.0.i, %4
   %shl.i = shl i32 %i.0.i, 1
@@ -17609,9 +17609,9 @@ if.end:
   store i32 %sideLen, ptr %destSize, align 8, !tbaa !129
   %destSize.sroa_idx = getelementptr inbounds nuw i8, ptr %destSize, i64 4
   store i32 %sideLen, ptr %destSize.sroa_idx, align 4, !tbaa !129
-  br i1 %cmp.not, label %while.cond.i, label %if.end17
+  br i1 %cmp.not, label %if.then6, label %if.end17
 
-while.cond.i:                                     ; preds = %if.end, %while.cond.i
+if.then6:                                         ; preds = %if.end, %if.then6
   %i.0.i = phi i32 [ %shl.i, %while.cond.i ], [ 1, %if.end ]
   %cmp.i31 = icmp ult i32 %i.0.i, %sideLen
   %shl.i = shl i32 %i.0.i, 1

@@ -154,7 +154,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %wide.trip.count = zext i16 %narrow to i64
   br label %.lr.ph
 
-.preheader.loopexit:                              ; preds = %.lr.ph
+.preheader:                                       ; preds = %.lr.ph
   %42 = zext i16 %narrow to i32
   br label %.preheader
 
@@ -184,7 +184,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   tail call void @TupleDescInitEntry(ptr noundef %47, i16 noundef signext %48, ptr noundef null, i32 noundef %54, i32 noundef -1, i32 noundef 0) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
 
 .lr.ph130:                                        ; preds = %.lr.ph130.preheader, %.lr.ph130
   %indvars.iv149 = phi i64 [ %43, %.lr.ph130.preheader ], [ %indvars.iv.next150, %.lr.ph130 ]

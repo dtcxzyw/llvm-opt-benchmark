@@ -977,8 +977,8 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %.lr.ph.i45.i.i
   br i1 %114, label %.lr.ph.preheader.i.i.i, label %.lr.ph.preheader.i.i.i.i, !llvm.loop !44
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %Hsh_IntManHash.exit.i.i, %Vec_IntFill.exit.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i
-  %.val43.val.i.i = phi ptr [ %.val43.val.i.pre62.i, %Vec_IntFill.exit.i.i ], [ %.val43.val.i.pre.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val43.val.i.pre62.i, %Hsh_IntManHash.exit.i.i ]
-  %.val35.i59.i = phi i32 [ %.val3468.i.i, %Vec_IntFill.exit.i.i ], [ %.val35.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val34.i.i, %Hsh_IntManHash.exit.i.i ]
+  %.val.i50.i.i = phi ptr [ %.val43.val.i.pre62.i, %Vec_IntFill.exit.i.i ], [ %.val43.val.i.pre.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val43.val.i.pre62.i, %Hsh_IntManHash.exit.i.i ]
+  %.val43.val.i.i = phi i32 [ %.val3468.i.i, %Vec_IntFill.exit.i.i ], [ %.val35.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val34.i.i, %Hsh_IntManHash.exit.i.i ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
   %115 = getelementptr inbounds nuw i8, ptr %.val43.val.i.i, i64 %.idx.i
   br label %.lr.ph.i.i.i.i

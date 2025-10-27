@@ -10717,13 +10717,13 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN2v85L
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit
   %i.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
-  %12 = load ptr, ptr %ov, align 8
-  %arrayidx = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %12, i64 %i.028
-  %13 = load ptr, ptr %arrayidx, align 8
+  %13 = load ptr, ptr %ov, align 8
+  %arrayidx = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %13, i64 %i.028
+  %14 = load ptr, ptr %arrayidx, align 8
   %origin_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %14 = load i64, ptr %origin_len, align 8
-  %conv = trunc i64 %14 to i32
-  %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %2, ptr noundef %13, i32 noundef 0, i32 noundef %conv) #28
+  %15 = load i64, ptr %origin_len, align 8
+  %conv = trunc i64 %15 to i32
+  %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %2, ptr noundef %14, i32 noundef 0, i32 noundef %conv) #28
   %cmp.i.i.i = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i17, label %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit
 

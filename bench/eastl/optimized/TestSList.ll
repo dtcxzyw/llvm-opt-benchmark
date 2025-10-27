@@ -4158,7 +4158,7 @@ call.i.i.i.i.i.i.noexc.i2275:                     ; preds = %for.body.i.i.i2270
   store ptr %call.i.i.i.i.i.i1.i2273, ptr %pNode.addr.06.i.i.i2271, align 8
   %first.addr.05.i.i.i2272.add = add nuw nsw i64 %first.addr.05.i.i.i2272.idx, 4
   %cmp.not.i.i.i2279 = icmp eq i64 %first.addr.05.i.i.i2272.add, 28
-  br i1 %cmp.not.i.i.i2279, label %while.body.i.i.i2283, label %for.body.i.i.i2270, !llvm.loop !13
+  br i1 %cmp.not.i.i.i2279, label %invoke.cont1158, label %for.body.i.i.i2270, !llvm.loop !13
 
 lpad.i2274:                                       ; preds = %for.body.i.i.i2270
   %343 = landingpad { ptr, i32 }
@@ -4174,7 +4174,7 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6450
   %cmp.not.i.i6453 = icmp eq ptr %344, null
   br i1 %cmp.not.i.i6453, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5873.preheader, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6450, !llvm.loop !9
 
-while.body.i.i.i2283:                             ; preds = %call.i.i.i.i.i.i.noexc.i2275, %while.body.i.i.i2283
+invoke.cont1158:                                  ; preds = %call.i.i.i.i.i.i.noexc.i2275, %invoke.cont1158
   %n.05.i.i.i2284 = phi i32 [ %inc.i.i.i2286, %while.body.i.i.i2283 ], [ 0, %call.i.i.i.i.i.i.noexc.i2275 ]
   %pNode.addr.04.i.i.i2285 = phi ptr [ %345, %while.body.i.i.i2283 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %call.i.i.i.i.i.i.noexc.i2275 ]
   %inc.i.i.i2286 = add i32 %n.05.i.i.i2284, 1
@@ -4277,7 +4277,7 @@ call.i.i.i.i.i.i.noexc.i2341:                     ; preds = %for.body.i.i.i2336
   store ptr %call.i.i.i.i.i.i1.i2339, ptr %pNode.addr.06.i.i.i2337, align 8
   %first.addr.05.i.i.i2338.add = add nuw nsw i64 %first.addr.05.i.i.i2338.idx, 4
   %cmp.not.i.i.i2345 = icmp eq i64 %first.addr.05.i.i.i2338.add, 24
-  br i1 %cmp.not.i.i.i2345, label %while.body.i.i.i2350, label %for.body.i.i.i2336, !llvm.loop !13
+  br i1 %cmp.not.i.i.i2345, label %invoke.cont1183, label %for.body.i.i.i2336, !llvm.loop !13
 
 lpad.i2340:                                       ; preds = %for.body.i.i.i2336
   %358 = landingpad { ptr, i32 }
@@ -4293,7 +4293,7 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6458
   %cmp.not.i.i6461 = icmp eq ptr %359, null
   br i1 %cmp.not.i.i6461, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5873.preheader, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6458, !llvm.loop !9
 
-while.body.i.i.i2350:                             ; preds = %call.i.i.i.i.i.i.noexc.i2341, %while.body.i.i.i2350
+invoke.cont1183:                                  ; preds = %call.i.i.i.i.i.i.noexc.i2341, %invoke.cont1183
   %n.05.i.i.i2351 = phi i32 [ %inc.i.i.i2353, %while.body.i.i.i2350 ], [ 0, %call.i.i.i.i.i.i.noexc.i2341 ]
   %pNode.addr.04.i.i.i2352 = phi ptr [ %360, %while.body.i.i.i2350 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %call.i.i.i.i.i.i.noexc.i2341 ]
   %inc.i.i.i2353 = add i32 %n.05.i.i.i2351, 1
@@ -4396,7 +4396,7 @@ call.i.i.i.i.i.i.noexc.i2408:                     ; preds = %for.body.i.i.i2403
   store ptr %call.i.i.i.i.i.i1.i2406, ptr %pNode.addr.06.i.i.i2404, align 8
   %first.addr.05.i.i.i2405.add = add nuw nsw i64 %first.addr.05.i.i.i2405.idx, 4
   %cmp.not.i.i.i2412 = icmp eq i64 %first.addr.05.i.i.i2405.add, 20
-  br i1 %cmp.not.i.i.i2412, label %while.body.i.i.i2417, label %for.body.i.i.i2403, !llvm.loop !13
+  br i1 %cmp.not.i.i.i2412, label %invoke.cont1208, label %for.body.i.i.i2403, !llvm.loop !13
 
 lpad.i2407:                                       ; preds = %for.body.i.i.i2403
   %373 = landingpad { ptr, i32 }
@@ -4412,7 +4412,7 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6466
   %cmp.not.i.i6469 = icmp eq ptr %374, null
   br i1 %cmp.not.i.i6469, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5873.preheader, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6466, !llvm.loop !9
 
-while.body.i.i.i2417:                             ; preds = %call.i.i.i.i.i.i.noexc.i2408, %while.body.i.i.i2417
+invoke.cont1208:                                  ; preds = %call.i.i.i.i.i.i.noexc.i2408, %invoke.cont1208
   %n.05.i.i.i2418 = phi i32 [ %inc.i.i.i2420, %while.body.i.i.i2417 ], [ 0, %call.i.i.i.i.i.i.noexc.i2408 ]
   %pNode.addr.04.i.i.i2419 = phi ptr [ %375, %while.body.i.i.i2417 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %call.i.i.i.i.i.i.noexc.i2408 ]
   %inc.i.i.i2420 = add i32 %n.05.i.i.i2418, 1

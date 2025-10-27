@@ -8332,9 +8332,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
 
 32:                                               ; preds = %2
   %33 = icmp eq i8 %6, 0
-  br i1 %33, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %33, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %32, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %32, %.lr.ph
   %.04994 = phi ptr [ %35, %.lr.ph ], [ %0, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %.04994, i64 240
   %35 = load ptr, ptr %34, align 8

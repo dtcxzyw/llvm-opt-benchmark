@@ -3787,22 +3787,22 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 4
   %17 = load i32, ptr %16, align 4, !range !640, !noundef !9
   %18 = icmp eq i32 %17, 39
-  br i1 %18, label %19, label %.preheader
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %15, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit
   store i32 1114112, ptr %0, align 8
-  br label %27
+  br label %29
 
-.preheader:                                       ; preds = %15, %.preheader
+25:                                               ; preds = %15, %25
   %.pn.i = phi ptr [ %.0.i.i, %.preheader ], [ %.sroa.0.1, %15 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 40
-  %20 = load i32, ptr %.0.i.i, align 8, !range !233, !noundef !9
-  %21 = icmp ne i32 %20, 4
-  %22 = icmp eq ptr %.0.i.i, %2
-  %or.cond.i.i = or i1 %22, %21
-  br i1 %or.cond.i.i, label %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, label %.preheader
+  %26 = load i32, ptr %.0.i.i, align 8, !range !233, !noundef !9
+  %27 = icmp ne i32 %26, 4
+  %28 = icmp eq ptr %.0.i.i, %2
+  %or.cond.i.i = or i1 %28, %27
+  br i1 %or.cond.i.i, label %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, label %25
 
-_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit: ; preds = %.preheader
+_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit: ; preds = %25
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 12
   %24 = load i8, ptr %23, align 4, !range !444, !noundef !9
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 8
@@ -3816,9 +3816,9 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   store ptr %.0.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %27
+  br label %29
 
-27:                                               ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, %19
+29:                                               ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, %19
   ret void
 }
 

@@ -10,16 +10,16 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr noundef capt
   %3 = alloca %struct.archive_string, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %4
+  br label %5
 
-4:                                                ; preds = %4, %2
-  %.028.i = phi ptr [ %1, %2 ], [ %6, %4 ]
-  %5 = load i8, ptr %.028.i, align 1, !tbaa !4
-  %cond.i = icmp eq i8 %5, 32
-  %6 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
-  br i1 %cond.i, label %4, label %.critedge.i.preheader, !llvm.loop !7
+5:                                                ; preds = %5, %2
+  %.028.i = phi ptr [ %1, %2 ], [ %7, %4 ]
+  %6 = load i8, ptr %.028.i, align 1, !tbaa !4
+  %cond.i = icmp eq i8 %6, 32
+  %7 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
+  br i1 %cond.i, label %5, label %.critedge.i, !llvm.loop !7
 
-.critedge.i.preheader:                            ; preds = %4
+.critedge.i:                                      ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.critedge.i
 

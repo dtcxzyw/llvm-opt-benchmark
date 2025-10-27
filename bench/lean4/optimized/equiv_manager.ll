@@ -147,9 +147,9 @@ define hidden void @_ZN4lean13equiv_manager5mergeEjj(ptr noundef nonnull readonl
   %7 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %.not.i = icmp eq i32 %8, %.08.i
-  br i1 %.not.i, label %_ZN4lean13equiv_manager4findEj.exit, label %5
+  br i1 %.not.i, label %_ZN4lean13equiv_manager4findEj.exit.preheader, label %5
 
-_ZN4lean13equiv_manager4findEj.exit:              ; preds = %5, %_ZN4lean13equiv_manager4findEj.exit
+_ZN4lean13equiv_manager4findEj.exit.preheader:    ; preds = %5, %_ZN4lean13equiv_manager4findEj.exit
   %.08.i20 = phi i32 [ %11, %_ZN4lean13equiv_manager4findEj.exit ], [ %2, %5 ]
   %9 = zext i32 %.08.i20 to i64
   %10 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %9
@@ -158,7 +158,7 @@ _ZN4lean13equiv_manager4findEj.exit:              ; preds = %5, %_ZN4lean13equiv
   br i1 %.not.i21, label %_ZN4lean13equiv_manager4findEj.exit22, label %_ZN4lean13equiv_manager4findEj.exit
 
 _ZN4lean13equiv_manager4findEj.exit22:            ; preds = %_ZN4lean13equiv_manager4findEj.exit
-  %12 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %6
+  %13 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %6
   %13 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %9
   %.not = icmp eq i32 %.08.i, %.08.i20
   br i1 %.not, label %25, label %14
@@ -756,9 +756,9 @@ _ZN4leaneqERKNS_3natES2_.exit69:                  ; preds = %141
   %176 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %173, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !11
   %.not.i.i = icmp eq i32 %177, %.08.i.i
-  br i1 %.not.i.i, label %_ZN4lean13equiv_manager4findEj.exit.i, label %174
+  br i1 %.not.i.i, label %_ZN4lean13equiv_manager4findEj.exit.i.preheader, label %174
 
-_ZN4lean13equiv_manager4findEj.exit.i:            ; preds = %174, %_ZN4lean13equiv_manager4findEj.exit.i
+_ZN4lean13equiv_manager4findEj.exit.i.preheader:  ; preds = %174, %_ZN4lean13equiv_manager4findEj.exit.i
   %.08.i20.i = phi i32 [ %180, %_ZN4lean13equiv_manager4findEj.exit.i ], [ %.08.i61, %174 ]
   %178 = zext i32 %.08.i20.i to i64
   %179 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %173, i64 %178
@@ -767,7 +767,7 @@ _ZN4lean13equiv_manager4findEj.exit.i:            ; preds = %174, %_ZN4lean13equ
   br i1 %.not.i21.i, label %_ZN4lean13equiv_manager4findEj.exit22.i, label %_ZN4lean13equiv_manager4findEj.exit.i
 
 _ZN4lean13equiv_manager4findEj.exit22.i:          ; preds = %_ZN4lean13equiv_manager4findEj.exit.i
-  %181 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %173, i64 %175
+  %182 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %173, i64 %175
   %182 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %173, i64 %178
   %.not.i70 = icmp eq i32 %.08.i.i, %.08.i20.i
   br i1 %.not.i70, label %_ZN4leaneqERKNS_3natES2_.exit, label %183
@@ -881,18 +881,18 @@ define hidden void @_ZN4lean13equiv_manager9add_equivERKNS_4exprES3_(ptr noundef
   %9 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !11
   %.not.i.i = icmp eq i32 %10, %.08.i.i
-  br i1 %.not.i.i, label %_ZN4lean13equiv_manager4findEj.exit.i, label %7
+  br i1 %.not.i.i, label %_ZN4lean13equiv_manager4findEj.exit.i.preheader, label %7
 
-_ZN4lean13equiv_manager4findEj.exit.i:            ; preds = %7, %_ZN4lean13equiv_manager4findEj.exit.i
+_ZN4lean13equiv_manager4findEj.exit.i.preheader:  ; preds = %7, %_ZN4lean13equiv_manager4findEj.exit.i
   %.08.i20.i = phi i32 [ %13, %_ZN4lean13equiv_manager4findEj.exit.i ], [ %5, %7 ]
   %11 = zext i32 %.08.i20.i to i64
   %12 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %13 = load i32, ptr %13, align 4, !tbaa !11
   %.not.i21.i = icmp eq i32 %13, %.08.i20.i
   br i1 %.not.i21.i, label %_ZN4lean13equiv_manager4findEj.exit22.i, label %_ZN4lean13equiv_manager4findEj.exit.i
 
 _ZN4lean13equiv_manager4findEj.exit22.i:          ; preds = %_ZN4lean13equiv_manager4findEj.exit.i
-  %14 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %8
+  %15 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %8
   %15 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %11
   %.not.i = icmp eq i32 %.08.i.i, %.08.i20.i
   br i1 %.not.i, label %_ZN4lean13equiv_manager5mergeEjj.exit, label %16

@@ -15986,7 +15986,7 @@ for.end:                                          ; preds = %entry
   br label %if.end98
 
 if.end:                                           ; preds = %for.body
-  %pattern_103 = getelementptr inbounds nuw i8, ptr %this, i64 3032
+  %arrayidx7103 = getelementptr inbounds nuw i8, ptr %this, i64 3032
   %suffix_table_104 = getelementptr inbounds nuw i8, ptr %this, i64 2028
   %add.ptr6105 = getelementptr inbounds i32, ptr %suffix_table_104, i64 %idx.neg
   %arrayidx7106 = getelementptr inbounds i32, ptr %add.ptr, i64 %0
@@ -17258,7 +17258,7 @@ for.end:                                          ; preds = %entry
   br label %if.end98
 
 if.end:                                           ; preds = %for.body
-  %pattern_103 = getelementptr inbounds nuw i8, ptr %this, i64 3032
+  %arrayidx7103 = getelementptr inbounds nuw i8, ptr %this, i64 3032
   %suffix_table_104 = getelementptr inbounds nuw i8, ptr %this, i64 2028
   %add.ptr6105 = getelementptr inbounds i32, ptr %suffix_table_104, i64 %idx.neg
   %arrayidx7106 = getelementptr inbounds i32, ptr %add.ptr, i64 %0

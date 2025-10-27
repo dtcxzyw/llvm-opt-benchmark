@@ -5760,7 +5760,7 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
   %248 = load ptr, ptr %243, align 8, !tbaa !21
   %249 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.135, ptr noundef %248) #28
   %250 = icmp sgt i32 %246, 1
-  br i1 %250, label %.lr.ph220.preheader, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit
+  br i1 %250, label %.lr.ph220.preheader, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit
 
 .lr.ph220.preheader:                              ; preds = %245
   %wide.trip.count = zext nneg i32 %246 to i64
@@ -5768,14 +5768,14 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
   %indvars.iv = phi i64 [ 1, %.lr.ph220.preheader ], [ %indvars.iv.next, %.lr.ph220 ]
-  %251 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv
-  %252 = load ptr, ptr %251, align 8, !tbaa !21
-  %253 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %252) #28
+  %252 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv
+  %253 = load ptr, ptr %252, align 8, !tbaa !21
+  %254 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %253) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit, label %.lr.ph220, !llvm.loop !130
+  br i1 %exitcond.not, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit, label %.lr.ph220, !llvm.loop !130
 
-_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit: ; preds = %.lr.ph220, %245
+_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit:      ; preds = %.lr.ph220, %245
   %254 = icmp ne i32 %247, 0
   br label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit
 

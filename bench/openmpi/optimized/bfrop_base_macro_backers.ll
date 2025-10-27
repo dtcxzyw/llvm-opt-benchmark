@@ -1155,7 +1155,7 @@ define range(i32 -29, 1) i32 @PMIx_Setenv(ptr noundef %0, ptr noundef %1, i1 nou
 25:                                               ; preds = %23, %21
   %26 = load ptr, ptr %5, align 8, !tbaa !12
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %73, label %28
+  br i1 %27, label %75, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %3, align 8, !tbaa !16
@@ -1175,7 +1175,7 @@ define range(i32 -29, 1) i32 @PMIx_Setenv(ptr noundef %0, ptr noundef %1, i1 nou
 
 pmix_bfrops_base_tma_argv_append_nosize.exit.i:   ; preds = %33, %31
   call void @free(ptr noundef nonnull %26) #44
-  br label %73
+  br label %75
 
 35:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1192,36 +1192,36 @@ pmix_bfrops_base_tma_argv_append_nosize.exit.i:   ; preds = %33, %31
   %.not6.i = icmp eq ptr %42, null
   br i1 %.not6.i, label %pmix_bfrops_base_tma_argv_count.exit.i41.i, label %.lr.ph.i
 
-43:                                               ; preds = %.lr.ph.i
+44:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next.i
-  %45 = load ptr, ptr %44, align 8, !tbaa !12
-  %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %.lr.ph.i.i37.i, label %.lr.ph.i, !llvm.loop !24
+  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next.i
+  %46 = load ptr, ptr %45, align 8, !tbaa !12
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %.preheader.i.i35.i, label %.lr.ph.i, !llvm.loop !24
 
-.lr.ph.i:                                         ; preds = %39, %43
+.lr.ph.i:                                         ; preds = %39, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %39 ]
-  %46 = phi ptr [ %45, %43 ], [ %42, %39 ]
-  %47 = call i32 @strncmp(ptr noundef nonnull %46, ptr noundef nonnull %37, i64 noundef %40) #42
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %43
+  %47 = phi ptr [ %46, %43 ], [ %42, %39 ]
+  %48 = call i32 @strncmp(ptr noundef nonnull %47, ptr noundef nonnull %37, i64 noundef %40) #42
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %44
 
-49:                                               ; preds = %.lr.ph.i
-  br i1 %2, label %50, label %54
+50:                                               ; preds = %.lr.ph.i
+  br i1 %2, label %51, label %55
 
-50:                                               ; preds = %49
-  call void @free(ptr noundef nonnull %46) #44
-  %51 = load ptr, ptr %5, align 8, !tbaa !12
-  %52 = load ptr, ptr %3, align 8, !tbaa !16
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
-  store ptr %51, ptr %53, align 8, !tbaa !12
+51:                                               ; preds = %50
+  call void @free(ptr noundef nonnull %47) #44
+  %52 = load ptr, ptr %5, align 8, !tbaa !12
+  %53 = load ptr, ptr %3, align 8, !tbaa !16
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i
+  store ptr %52, ptr %54, align 8, !tbaa !12
   br label %.thread.i
 
-54:                                               ; preds = %49
+55:                                               ; preds = %50
   call void @free(ptr noundef nonnull %37) #44
   br label %.thread.i
 
-.lr.ph.i.i37.i:                                   ; preds = %43, %.lr.ph.i.i37.i
+.preheader.i.i35.i:                               ; preds = %44, %.lr.ph.i.i37.i
   %.03.i.i38.i = phi i32 [ %55, %.lr.ph.i.i37.i ], [ 0, %43 ]
   %.062.i.i39.i = phi ptr [ %56, %.lr.ph.i.i37.i ], [ %41, %43 ]
   %55 = add nuw nsw i32 %.03.i.i38.i, 1
@@ -1231,48 +1231,48 @@ pmix_bfrops_base_tma_argv_append_nosize.exit.i:   ; preds = %33, %31
   br i1 %.not.i.i40.i, label %pmix_bfrops_base_tma_argv_count.exit.i41.i, label %.lr.ph.i.i37.i, !llvm.loop !15
 
 pmix_bfrops_base_tma_argv_count.exit.i41.i:       ; preds = %.lr.ph.i.i37.i, %39
-  %.07.i.i42.i = phi i32 [ 0, %39 ], [ %55, %.lr.ph.i.i37.i ]
+  %60 = phi i32 [ 0, %39 ], [ %55, %.lr.ph.i.i37.i ]
   %58 = load ptr, ptr %5, align 8, !tbaa !12
-  %59 = add nsw i32 %.07.i.i42.i, 2
-  %60 = sext i32 %59 to i64
-  %61 = shl nsw i64 %60, 3
-  %62 = call noalias noundef ptr @realloc(ptr noundef nonnull %41, i64 noundef %61) #43
-  store ptr %62, ptr %3, align 8, !tbaa !16
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %pmix_bfrops_base_tma_argv_append_nosize.exit46.i, label %64
+  %61 = add nsw i32 %.07.i.i42.i, 2
+  %62 = sext i32 %61 to i64
+  %63 = shl nsw i64 %62, 3
+  %64 = call noalias noundef ptr @realloc(ptr noundef nonnull %41, i64 noundef %63) #43
+  store ptr %64, ptr %3, align 8, !tbaa !16
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %pmix_bfrops_base_tma_argv_append_nosize.exit46.i, label %66
 
-64:                                               ; preds = %pmix_bfrops_base_tma_argv_count.exit.i41.i
-  %65 = call noalias ptr @strdup(ptr noundef readonly %58) #44
-  %66 = sext i32 %.07.i.i42.i to i64
-  %67 = getelementptr inbounds ptr, ptr %62, i64 %66
-  store ptr %65, ptr %67, align 8, !tbaa !12
-  %68 = icmp eq ptr %65, null
-  br i1 %68, label %pmix_bfrops_base_tma_argv_append_nosize.exit46.i, label %69
+66:                                               ; preds = %pmix_bfrops_base_tma_argv_count.exit.i41.i
+  %67 = call noalias ptr @strdup(ptr noundef readonly %58) #44
+  %68 = sext i32 %.07.i.i42.i to i64
+  %69 = getelementptr inbounds ptr, ptr %64, i64 %68
+  store ptr %67, ptr %69, align 8, !tbaa !12
+  %70 = icmp eq ptr %67, null
+  br i1 %70, label %pmix_bfrops_base_tma_argv_append_nosize.exit46.i, label %71
 
-69:                                               ; preds = %64
-  %70 = getelementptr i8, ptr %67, i64 8
-  store ptr null, ptr %70, align 8, !tbaa !12
+71:                                               ; preds = %66
+  %72 = getelementptr i8, ptr %69, i64 8
+  store ptr null, ptr %72, align 8, !tbaa !12
   br label %pmix_bfrops_base_tma_argv_append_nosize.exit46.i
 
-pmix_bfrops_base_tma_argv_append_nosize.exit46.i: ; preds = %69, %64, %pmix_bfrops_base_tma_argv_count.exit.i41.i
-  %71 = load ptr, ptr %6, align 8, !tbaa !12
-  call void @free(ptr noundef %71) #44
+pmix_bfrops_base_tma_argv_append_nosize.exit46.i: ; preds = %71, %66, %pmix_bfrops_base_tma_argv_count.exit.i41.i
+  %73 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @free(ptr noundef %73) #44
   br label %.thread.i
 
-.thread.i:                                        ; preds = %pmix_bfrops_base_tma_argv_append_nosize.exit46.i, %54, %50, %35
+.thread.i:                                        ; preds = %pmix_bfrops_base_tma_argv_append_nosize.exit46.i, %55, %51, %35
   %.sink24.i = phi ptr [ %6, %50 ], [ %5, %54 ], [ %5, %pmix_bfrops_base_tma_argv_append_nosize.exit46.i ], [ %5, %35 ]
   %.2.i = phi i32 [ 0, %50 ], [ -11, %54 ], [ 0, %pmix_bfrops_base_tma_argv_append_nosize.exit46.i ], [ -29, %35 ]
-  %72 = load ptr, ptr %.sink24.i, align 8, !tbaa !12
-  call void @free(ptr noundef %72) #44
+  %74 = load ptr, ptr %.sink24.i, align 8, !tbaa !12
+  call void @free(ptr noundef %74) #44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %73
+  br label %75
 
-73:                                               ; preds = %.thread.i, %pmix_bfrops_base_tma_argv_append_nosize.exit.i, %25
+75:                                               ; preds = %.thread.i, %pmix_bfrops_base_tma_argv_append_nosize.exit.i, %25
   %.1.i = phi i32 [ 0, %pmix_bfrops_base_tma_argv_append_nosize.exit.i ], [ %.2.i, %.thread.i ], [ -29, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pmix_bfrops_base_tma_setenv.exit
 
-pmix_bfrops_base_tma_setenv.exit:                 ; preds = %4, %14, %16, %73
+pmix_bfrops_base_tma_setenv.exit:                 ; preds = %4, %14, %16, %75
   %.027.i = phi i32 [ %.1.i, %73 ], [ -27, %4 ], [ 0, %16 ], [ 0, %14 ]
   ret i32 %.027.i
 }

@@ -32525,9 +32525,9 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   %11 = icmp eq i8 %8, 44
   %or.cond.i.i = or i1 %11, %.not.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %.preheader.i.i, !llvm.loop !853
+  br i1 %or.cond.i.i, label %.critedge.i.i, label %.preheader.i.i.preheader, !llvm.loop !853
 
-.preheader.i.i:                                   ; preds = %.critedge.i.i, %.preheader.i.i
+.preheader.i.i.preheader:                         ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %.preheader.i.i ], [ %indvars.iv.i.i, %.critedge.i.i ]
   %12 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv29.i.i
   %13 = load i8, ptr %12, align 1, !tbaa !14

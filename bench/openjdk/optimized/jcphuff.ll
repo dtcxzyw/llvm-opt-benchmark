@@ -362,7 +362,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %34, %51, %._crit_edge
-  %.05578 = phi i32 [ %.055, %51 ], [ %.055, %._crit_edge ], [ 0, %34 ]
+  %.056.lcssa75 = phi i32 [ %.055, %51 ], [ %.055, %._crit_edge ], [ 0, %34 ]
   %.056.lcssa77 = phi i32 [ %48, %51 ], [ %48, %._crit_edge ], [ 0, %34 ]
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %57 = load i32, ptr %56, align 4

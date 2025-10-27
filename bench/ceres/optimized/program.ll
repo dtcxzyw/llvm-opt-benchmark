@@ -2570,14 +2570,14 @@ _ZNK5ceres8internal7Program34MaxScratchDoublesNeededForEvaluateEv.exit: ; preds 
   br i1 %.not154171, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNK5ceres8internal7Program34MaxScratchDoublesNeededForEvaluateEv.exit
-  %29 = load ptr, ptr %16, align 8, !tbaa !137
-  %30 = load ptr, ptr %14, align 8, !tbaa !138
-  %.not79176.not = icmp eq ptr %29, %30
+  %30 = load ptr, ptr %16, align 8, !tbaa !137
+  %31 = load ptr, ptr %14, align 8, !tbaa !138
+  %.not79176.not = icmp eq ptr %30, %31
   br i1 %.not79176.not, label %.thread145.thread, label %.lr.ph180.preheader
 
 .thread145.thread:                                ; preds = %.preheader
-  %.pre196 = ptrtoint ptr %29 to i64
-  %.pre197 = ptrtoint ptr %30 to i64
+  %.pre196 = ptrtoint ptr %30 to i64
+  %.pre197 = ptrtoint ptr %31 to i64
   %.pre199 = sub i64 %.pre196, %.pre197
   %.pre201 = ashr exact i64 %.pre199, 3
   br label %148
@@ -2872,8 +2872,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 148:                                              ; preds = %.thread145.thread, %.thread145
   %.068.lcssa252 = phi i64 [ 0, %.thread145.thread ], [ %144, %.thread145 ]
-  %149 = phi ptr [ %29, %.thread145.thread ], [ %137, %.thread145 ]
-  %150 = phi ptr [ %30, %.thread145.thread ], [ %138, %.thread145 ]
+  %149 = phi ptr [ %30, %.thread145.thread ], [ %137, %.thread145 ]
+  %150 = phi ptr [ %31, %.thread145.thread ], [ %138, %.thread145 ]
   %.pre-phi202251 = phi i64 [ %.pre201, %.thread145.thread ], [ %142, %.thread145 ]
   %151 = icmp ugt i64 %.pre-phi202251, %.068.lcssa252
   br i1 %151, label %152, label %_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE6resizeEm.exit
