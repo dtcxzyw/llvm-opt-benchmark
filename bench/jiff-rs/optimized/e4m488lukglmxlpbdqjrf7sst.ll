@@ -5187,7 +5187,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %_ZN4jiff6
 _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i: ; preds = %310
   %313 = getelementptr inbounds nuw i8, ptr %289, i64 %293
   %314 = load i8, ptr %313, align 1, !noalias !277, !noundef !8
-  switch i8 %314, label %.thread.thread132.i.thread [
+  switch i8 %314, label %.thread.thread131.i.thread [
     i8 45, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38
     i8 43, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
   ]
@@ -5196,13 +5196,13 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38: ; preds = %_ZN
   %315 = add nuw i64 %.val.i, 2
   store i64 %315, ptr %77, align 8, !noalias !277
   %.not6.i.i = icmp eq i64 %315, %287
-  br i1 %.not6.i.i, label %317, label %.thread.thread132.i.thread
+  br i1 %.not6.i.i, label %317, label %.thread.thread131.i.thread
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i
   %316 = add nuw i64 %.val.i, 2
   store i64 %316, ptr %77, align 8, !noalias !277
   %.not.i.i25 = icmp eq i64 %316, %287
-  br i1 %.not.i.i25, label %323, label %.thread.thread132.i.thread
+  br i1 %.not.i.i25, label %323, label %.thread.thread131.i.thread
 
 317:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !277
@@ -5239,7 +5239,7 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; 
   %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.pn.i36, 0
   %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.pn.i36, 1
   %.not52.i = icmp eq ptr %.sroa.0.1.i37, null
-  br i1 %.not52.i, label %.thread.thread132.i, label %341
+  br i1 %.not52.i, label %.thread.thread131.i, label %341
 
 329:                                              ; preds = %307
   %330 = load i64, ptr %309, align 8, !noalias !274, !noundef !8
@@ -5309,14 +5309,14 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   %353 = extractvalue { ptr, i64 } %347, 0
   %354 = extractvalue { ptr, i64 } %347, 1
   %.not53.i = icmp eq ptr %353, null
-  br i1 %.not53.i, label %.thread.thread132.i, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
+  br i1 %.not53.i, label %.thread.thread131.i, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
-.thread.thread132.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
+.thread.thread131.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
   %.ph = phi i32 [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i ], [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38 ], [ 1, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !274
   br label %360
 
-.thread.thread132.i:                              ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i, %352
+.thread.thread131.i:                              ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i, %352
   %.sroa.7.095109.in.i = phi i64 [ %354, %352 ], [ %.sroa.17.sroa.0.1.in.in.i, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i ]
   %.sroa.7.095109.in.fr.i = freeze i64 %.sroa.7.095109.in.i
   %355 = trunc i64 %.sroa.7.095109.in.fr.i to i32
@@ -5329,12 +5329,12 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !274
   br i1 %358, label %360, label %359, !prof !286
 
-359:                                              ; preds = %.thread.thread132.i
+359:                                              ; preds = %.thread.thread131.i
   call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.6685b5908cdcb8f47694639489d9f370.226, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6685b5908cdcb8f47694639489d9f370.227) #21, !noalias !283
   unreachable
 
-360:                                              ; preds = %.thread.thread132.i.thread, %.thread.thread132.i
-  %361 = phi i32 [ %.ph, %.thread.thread132.i.thread ], [ %spec.select.i, %.thread.thread132.i ]
+360:                                              ; preds = %.thread.thread131.i.thread, %.thread.thread131.i
+  %361 = phi i32 [ %.ph, %.thread.thread131.i.thread ], [ %spec.select.i, %.thread.thread131.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !283
   call fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upto_n_digits17h70e6d779c87cd4eaE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1, i64 noundef 3), !noalias !283
   %362 = load ptr, ptr %11, align 8, !noalias !283, !noundef !8
@@ -5451,15 +5451,15 @@ _ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.thr
   br label %398
 
 397:                                              ; preds = %390, %380
-  %.pn118.i = phi { ptr, i64 } [ %385, %380 ], [ %395, %390 ]
+  %.pn117.i = phi { ptr, i64 } [ %385, %380 ], [ %395, %390 ]
   %.sroa.093.0.i = phi ptr [ %386, %380 ], [ %396, %390 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !283
   br label %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i
 
 _ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i: ; preds = %397, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i"
-  %.pn118.pn.i = phi { ptr, i64 } [ %.pn118.i, %397 ], [ %371, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i" ]
+  %.pn117.pn.i = phi { ptr, i64 } [ %.pn117.i, %397 ], [ %371, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i" ]
   %.sroa.093.1.i = phi ptr [ %.sroa.093.0.i, %397 ], [ %376, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i" ]
-  %.sroa.8.1.i29 = extractvalue { ptr, i64 } %.pn118.pn.i, 1
+  %.sroa.8.1.i29 = extractvalue { ptr, i64 } %.pn117.pn.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !283
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !274
   %.not54.i = icmp eq ptr %.sroa.093.1.i, null
@@ -5473,15 +5473,15 @@ _ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i: 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i23: ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i
   %399 = add nuw i64 %.val.i58.i, 1
   store i64 %399, ptr %77, align 8, !noalias !274
-  %.not119.i = icmp eq i64 %399, %335
-  br i1 %.not119.i, label %408, label %414
+  %.not118.i = icmp eq i64 %399, %335
+  br i1 %.not118.i, label %408, label %414
 
 _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i: ; preds = %439, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i, %419, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i, %334
   %.sroa.035.0.i = phi i8 [ %420, %439 ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i ], [ %420, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i ], [ 0, %334 ], [ %420, %419 ]
   %.sroa.036.0.i = phi i32 [ %441, %439 ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i ], [ 0, %334 ], [ 0, %419 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !274
-  %sext.i = shl i32 %.sroa.051.0.i22, 16
-  %400 = ashr exact i32 %sext.i, 16
+  %sext119.i = shl i32 %.sroa.051.0.i22, 16
+  %400 = ashr exact i32 %sext119.i, 16
   %401 = mul nsw i32 %400, 3600
   %402 = sext i8 %.sroa.035.0.i to i32
   %403 = mul nsw i32 %402, 60
@@ -5566,9 +5566,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i: ; preds =
   br i1 %.not56.i, label %439, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
 439:                                              ; preds = %435
-  %440 = trunc i64 %438 to i32
-  %sext126.i = shl i32 %440, 24
-  %441 = ashr exact i32 %sext126.i, 24
+  %440 = trunc i64 %438 to i8
+  %441 = sext i8 %440 to i32
   br label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i
 
 442:                                              ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i

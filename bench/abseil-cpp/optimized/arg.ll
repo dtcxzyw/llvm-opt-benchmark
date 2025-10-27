@@ -3347,9 +3347,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %0 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %8 to i32
-  %sext.i = shl i32 %.sroa.0.0.extract.trunc.i.i, 24
-  %9 = ashr exact i32 %sext.i, 24
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %8 to i8
+  %9 = sext i8 %.sroa.0.0.extract.trunc.i.i to i32
   store i32 %9, ptr %3, align 4, !tbaa !37
   br label %16
 
@@ -3385,9 +3384,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %0 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %8 to i32
-  %sext.i = shl i32 %.sroa.0.0.extract.trunc.i.i, 24
-  %9 = ashr exact i32 %sext.i, 24
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %8 to i8
+  %9 = sext i8 %.sroa.0.0.extract.trunc.i.i to i32
   store i32 %9, ptr %3, align 4, !tbaa !37
   br label %16
 
@@ -3460,9 +3458,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %0 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %8 to i32
-  %sext.i = shl i32 %.sroa.0.0.extract.trunc.i.i, 16
-  %9 = ashr exact i32 %sext.i, 16
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %8 to i16
+  %9 = sext i16 %.sroa.0.0.extract.trunc.i.i to i32
   store i32 %9, ptr %3, align 4, !tbaa !37
   br label %16
 

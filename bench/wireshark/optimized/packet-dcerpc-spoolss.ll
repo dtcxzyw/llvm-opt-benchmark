@@ -3246,13 +3246,12 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
-  %15 = trunc i64 %14 to i32
+  %15 = trunc i64 %14 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
-  %sext = shl i32 %15, 16
-  %18 = ashr exact i32 %sext, 16
+  %18 = sext i16 %15 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1227, i32 noundef %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -3267,13 +3266,13 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr @ett_PRINTER_INFO, align 4
   %26 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %24, ptr noundef nonnull %21, i32 noundef 0, i32 noundef -1, i32 noundef %25, ptr noundef nonnull %9, ptr noundef nonnull @.str.1229, i32 noundef %18)
-  switch i32 %18, label %54 [
-    i32 0, label %27
-    i32 1, label %29
-    i32 2, label %39
-    i32 3, label %41
-    i32 5, label %46
-    i32 7, label %48
+  switch i16 %15, label %54 [
+    i16 0, label %27
+    i16 1, label %29
+    i16 2, label %39
+    i16 3, label %41
+    i16 5, label %46
+    i16 7, label %48
   ]
 
 27:                                               ; preds = %22
@@ -3536,20 +3535,19 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %6
   %25 = ptrtoint ptr %17 to i64
-  %26 = trunc i64 %25 to i32
-  %sext = shl i32 %26, 16
-  %27 = ashr exact i32 %sext, 16
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  switch i32 %27, label %.lr.ph.split [
-    i32 1, label %.lr.ph.split.us
-    i32 2, label %.lr.ph.split.us42
+  %26 = trunc i64 %25 to i16
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %28 = sext i16 %26 to i32
+  switch i16 %26, label %.lr.ph.split [
+    i16 1, label %.lr.ph.split.us
+    i16 2, label %.lr.ph.split.us42
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.041.us = phi i32 [ %31, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.03940.us = phi i32 [ %32, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %12, align 8
-  %30 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %27, align 8
   %31 = call fastcc i32 @dissect_spoolss_JOB_INFO_1(ptr noundef %29, i32 noundef %.041.us, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5)
   %32 = add nuw i32 %.03940.us, 1
   %33 = load i32, ptr %13, align 4
@@ -3560,7 +3558,7 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
   %.041.us43 = phi i32 [ %96, %.lr.ph.split.us42 ], [ 0, %.lr.ph ]
   %.03940.us44 = phi i32 [ %99, %.lr.ph.split.us42 ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %12, align 8
-  %36 = load ptr, ptr %28, align 8
+  %36 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3642,9 +3640,9 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03940 = phi i32 [ %105, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %102 = load ptr, ptr %28, align 8
+  %102 = load ptr, ptr %27, align 8
   %103 = load ptr, ptr %12, align 8
-  %104 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %102, ptr noundef %2, ptr noundef nonnull @ei_job_info_level, ptr noundef %103, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.1233, i32 noundef %27)
+  %104 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %102, ptr noundef %2, ptr noundef nonnull @ei_job_info_level, ptr noundef %103, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.1233, i32 noundef %28)
   %105 = add nuw i32 %.03940, 1
   %106 = load i32, ptr %13, align 4
   %107 = icmp ult i32 %105, %106
@@ -3749,13 +3747,12 @@ define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
-  %14 = trunc i64 %13 to i32
+  %14 = trunc i64 %13 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
-  %sext = shl i32 %14, 16
-  %17 = ashr exact i32 %sext, 16
+  %17 = sext i16 %14 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.1227, i32 noundef %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -3770,13 +3767,13 @@ define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @ett_PRINTER_INFO, align 4
   %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %23, ptr noundef nonnull %20, i32 noundef 0, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull @.str.1229, i32 noundef %17)
-  switch i32 %17, label %53 [
-    i32 0, label %26
-    i32 1, label %28
-    i32 2, label %38
-    i32 3, label %40
-    i32 5, label %45
-    i32 7, label %47
+  switch i16 %14, label %53 [
+    i16 0, label %26
+    i16 1, label %28
+    i16 2, label %38
+    i16 3, label %40
+    i16 5, label %45
+    i16 7, label %47
   ]
 
 26:                                               ; preds = %21

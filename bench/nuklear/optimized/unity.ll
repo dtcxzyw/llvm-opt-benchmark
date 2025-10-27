@@ -31332,10 +31332,11 @@ define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly capt
   br i1 %or.cond3, label %.preheader1, label %.loopexit
 
 .preheader1:                                      ; preds = %4
-  %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
-  %sext = shl i32 %.sroa.0.0.extract.trunc, 16
-  %8 = ashr exact i32 %sext, 16
-  %9 = ashr i32 %.sroa.0.0.extract.trunc, 16
+  %.sroa.2.0.extract.shift = lshr i64 %3, 16
+  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i16
+  %.sroa.0.0.extract.trunc = trunc i64 %3 to i16
+  %8 = sext i16 %.sroa.0.0.extract.trunc to i32
+  %9 = sext i16 %.sroa.2.0.extract.trunc to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader1, %26
@@ -31344,8 +31345,8 @@ define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly capt
   %10 = add nsw i32 %.05, %9
   %11 = mul nsw i32 %10, %1
   %12 = add i32 %11, %8
-  %sext14 = shl i64 %.0324, 32
-  %13 = ashr exact i64 %sext14, 32
+  %sext = shl i64 %.0324, 32
+  %13 = ashr exact i64 %sext, 32
   br label %14
 
 14:                                               ; preds = %.preheader, %14

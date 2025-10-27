@@ -5039,11 +5039,10 @@ declare i32 @_Py_hashtable_foreach(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @hashtable_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = ptrtoint ptr %1 to i64
-  %6 = trunc i64 %5 to i32
+  %6 = trunc i64 %5 to i8
   %7 = ptrtoint ptr %2 to i64
   %8 = trunc i64 %7 to i32
-  %sext = shl i32 %6, 24
-  %9 = ashr exact i32 %sext, 24
+  %9 = sext i8 %6 to i32
   %10 = add nsw i32 %9, -96
   %11 = icmp eq i32 %10, %8
   br i1 %11, label %13, label %12

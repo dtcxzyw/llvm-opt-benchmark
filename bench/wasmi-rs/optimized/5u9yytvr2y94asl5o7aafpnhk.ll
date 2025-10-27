@@ -2435,8 +2435,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hff1a65a5dedb4eafE.exit.thread.i: ; preds = %8
   %18 = call { i16, i16 } @"_ZN86_$LT$wasmi_ir..span..RegSpanIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a877a5ee41f9a10E"(ptr noalias noundef nonnull align 2 dereferenceable(4) %5), !noalias !357
   %19 = extractvalue { i16, i16 } %18, 0
-  %20 = and i16 %19, 1
-  %21 = icmp eq i16 %20, 0
+  %20 = trunc i16 %19 to i1
+  %21 = xor i1 %20, true
   br label %_ZN4core4iter6traits8iterator12iter_compare17hff974404d4320e84E.exit
 
 _ZN4core4iter6traits8iterator12iter_compare17hff974404d4320e84E.exit: ; preds = %11, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hff1a65a5dedb4eafE.exit.thread.i

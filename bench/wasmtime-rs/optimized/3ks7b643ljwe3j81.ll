@@ -1215,17 +1215,17 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %.not.i.i.i.i = icmp sgt ptr %6, inttoptr (i64 -4096 to ptr)
   %8 = icmp slt ptr %6, null
   %.014.i.i.i.i = and i1 %.not.i.i.i.i, %8
-  %.tr = trunc i64 %7 to i32
   br i1 %.014.i.i.i.i, label %19, label %9
 
 9:                                                ; preds = %2
-  %10 = lshr i32 %.tr, 10
+  %.sroa.522.0.extract.trunc = trunc i64 %7 to i32
+  %10 = lshr i32 %.sroa.522.0.extract.trunc, 10
   %.lobit = and i32 %10, 1
-  %11 = and i32 %.tr, 1052672
+  %11 = and i32 %.sroa.522.0.extract.trunc, 1052672
   %12 = icmp eq i32 %11, 1052672
   %13 = or disjoint i32 %.lobit, 2
   %storemerge.i24 = select i1 %12, i32 %13, i32 %.lobit
-  %14 = lshr i32 %.tr, 9
+  %14 = lshr i32 %.sroa.522.0.extract.trunc, 9
   %15 = and i32 %14, 4
   %storemerge.i25 = or disjoint i32 %storemerge.i24, %15
   %16 = or disjoint i32 %storemerge.i25, 8
@@ -1235,21 +1235,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %17, %masksel
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %18, align 4
-  br label %28
+  br label %24
 
 19:                                               ; preds = %2
-  %20 = shl i32 %.tr, 16
-  %21 = ashr exact i32 %20, 16
-  %22 = sub nsw i32 0, %21
-  %23 = sext i32 %22 to i64
-  %24 = shl nsw i64 %23, 32
-  %25 = or disjoint i64 %24, 2
-  %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %26, ptr %27, align 8
-  br label %28
+  %20 = shl i64 %7, 48
+  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %20, 16
+  %21 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
+  %22 = inttoptr i64 %21 to ptr
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %22, ptr %23, align 8
+  br label %24
 
-28:                                               ; preds = %19, %9
+24:                                               ; preds = %19, %9
   %storemerge = phi i32 [ 1, %19 ], [ 0, %9 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1268,17 +1265,17 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
   %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
-  %.tr = trunc i64 %8 to i32
   br i1 %.014.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
-  %11 = lshr i32 %.tr, 10
+  %.sroa.522.0.extract.trunc = trunc i64 %8 to i32
+  %11 = lshr i32 %.sroa.522.0.extract.trunc, 10
   %.lobit = and i32 %11, 1
-  %12 = and i32 %.tr, 1052672
+  %12 = and i32 %.sroa.522.0.extract.trunc, 1052672
   %13 = icmp eq i32 %12, 1052672
   %14 = or disjoint i32 %.lobit, 2
   %storemerge.i24 = select i1 %13, i32 %14, i32 %.lobit
-  %15 = lshr i32 %.tr, 9
+  %15 = lshr i32 %.sroa.522.0.extract.trunc, 9
   %16 = and i32 %15, 4
   %storemerge.i25 = or disjoint i32 %storemerge.i24, %16
   %17 = or disjoint i32 %storemerge.i25, 8
@@ -1288,21 +1285,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %29
+  br label %25
 
 20:                                               ; preds = %2
-  %21 = shl i32 %.tr, 16
-  %22 = ashr exact i32 %21, 16
-  %23 = sub nsw i32 0, %22
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 32
-  %26 = or disjoint i64 %25, 2
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %28, align 8
-  br label %29
+  %21 = shl i64 %8, 48
+  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
+  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %24, align 8
+  br label %25
 
-29:                                               ; preds = %20, %10
+25:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1321,17 +1315,17 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
   %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
-  %.tr = trunc i64 %8 to i32
   br i1 %.014.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
-  %11 = lshr i32 %.tr, 10
+  %.sroa.522.0.extract.trunc = trunc i64 %8 to i32
+  %11 = lshr i32 %.sroa.522.0.extract.trunc, 10
   %.lobit = and i32 %11, 1
-  %12 = and i32 %.tr, 1052672
+  %12 = and i32 %.sroa.522.0.extract.trunc, 1052672
   %13 = icmp eq i32 %12, 1052672
   %14 = or disjoint i32 %.lobit, 2
   %storemerge.i24 = select i1 %13, i32 %14, i32 %.lobit
-  %15 = lshr i32 %.tr, 9
+  %15 = lshr i32 %.sroa.522.0.extract.trunc, 9
   %16 = and i32 %15, 4
   %storemerge.i25 = or disjoint i32 %storemerge.i24, %16
   %17 = or disjoint i32 %storemerge.i25, 8
@@ -1341,21 +1335,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %29
+  br label %25
 
 20:                                               ; preds = %2
-  %21 = shl i32 %.tr, 16
-  %22 = ashr exact i32 %21, 16
-  %23 = sub nsw i32 0, %22
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 32
-  %26 = or disjoint i64 %25, 2
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %28, align 8
-  br label %29
+  %21 = shl i64 %8, 48
+  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
+  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %24, align 8
+  br label %25
 
-29:                                               ; preds = %20, %10
+25:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1374,17 +1365,17 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
   %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
-  %.tr = trunc i64 %8 to i32
   br i1 %.014.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
-  %11 = lshr i32 %.tr, 10
+  %.sroa.522.0.extract.trunc = trunc i64 %8 to i32
+  %11 = lshr i32 %.sroa.522.0.extract.trunc, 10
   %.lobit = and i32 %11, 1
-  %12 = and i32 %.tr, 1052672
+  %12 = and i32 %.sroa.522.0.extract.trunc, 1052672
   %13 = icmp eq i32 %12, 1052672
   %14 = or disjoint i32 %.lobit, 2
   %storemerge.i24 = select i1 %13, i32 %14, i32 %.lobit
-  %15 = lshr i32 %.tr, 9
+  %15 = lshr i32 %.sroa.522.0.extract.trunc, 9
   %16 = and i32 %15, 4
   %storemerge.i25 = or disjoint i32 %storemerge.i24, %16
   %17 = or disjoint i32 %storemerge.i25, 8
@@ -1394,21 +1385,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %29
+  br label %25
 
 20:                                               ; preds = %2
-  %21 = shl i32 %.tr, 16
-  %22 = ashr exact i32 %21, 16
-  %23 = sub nsw i32 0, %22
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 32
-  %26 = or disjoint i64 %25, 2
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %28, align 8
-  br label %29
+  %21 = shl i64 %8, 48
+  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
+  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %24, align 8
+  br label %25
 
-29:                                               ; preds = %20, %10
+25:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
@@ -1427,17 +1415,17 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
   %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
-  %.tr = trunc i64 %8 to i32
   br i1 %.014.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
-  %11 = lshr i32 %.tr, 10
+  %.sroa.522.0.extract.trunc = trunc i64 %8 to i32
+  %11 = lshr i32 %.sroa.522.0.extract.trunc, 10
   %.lobit = and i32 %11, 1
-  %12 = and i32 %.tr, 1052672
+  %12 = and i32 %.sroa.522.0.extract.trunc, 1052672
   %13 = icmp eq i32 %12, 1052672
   %14 = or disjoint i32 %.lobit, 2
   %storemerge.i24 = select i1 %13, i32 %14, i32 %.lobit
-  %15 = lshr i32 %.tr, 9
+  %15 = lshr i32 %.sroa.522.0.extract.trunc, 9
   %16 = and i32 %15, 4
   %storemerge.i25 = or disjoint i32 %storemerge.i24, %16
   %17 = or disjoint i32 %storemerge.i25, 8
@@ -1447,21 +1435,18 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %storemerge.i27 = or disjoint i32 %18, %masksel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %storemerge.i27, ptr %19, align 4
-  br label %29
+  br label %25
 
 20:                                               ; preds = %2
-  %21 = shl i32 %.tr, 16
-  %22 = ashr exact i32 %21, 16
-  %23 = sub nsw i32 0, %22
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 32
-  %26 = or disjoint i64 %25, 2
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %28, align 8
-  br label %29
+  %21 = shl i64 %8, 48
+  %.sroa.02.0.insert.insert.i.i.i = ashr exact i64 %21, 16
+  %22 = sub nsw i64 2, %.sroa.02.0.insert.insert.i.i.i
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %24, align 8
+  br label %25
 
-29:                                               ; preds = %20, %10
+25:                                               ; preds = %20, %10
   %storemerge = phi i32 [ 1, %20 ], [ 0, %10 ]
   store i32 %storemerge, ptr %0, align 8
   ret void

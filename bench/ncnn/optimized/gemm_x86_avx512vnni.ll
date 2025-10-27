@@ -2899,17 +2899,17 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge372.i.us
 
 ._crit_edge372.i.us:                              ; preds = %173, %.preheader284.i.us
-  %.12823.lcssa758.i.us = phi ptr [ %169, %173 ], [ %66, %.preheader284.i.us ]
-  %.0849.lcssa755.i.us = phi i32 [ %56, %173 ], [ 0, %.preheader284.i.us ]
+  %.12823.lcssa757.i.us = phi ptr [ %169, %173 ], [ %66, %.preheader284.i.us ]
+  %.0849.lcssa754.i.us = phi i32 [ %56, %173 ], [ 0, %.preheader284.i.us ]
   %.18.i.us = phi ptr [ %174, %173 ], [ %.0391.i.us, %.preheader284.i.us ]
-  %175 = or disjoint i32 %.0849.lcssa755.i.us, 1
+  %175 = or disjoint i32 %.0849.lcssa754.i.us, 1
   %176 = icmp slt i32 %175, %5
   br i1 %176, label %.lr.ph381.i.us, label %.preheader282.i.us
 
 .lr.ph381.i.us:                                   ; preds = %._crit_edge372.i.us, %.lr.ph381.i.us
   %.19379.i.us = phi ptr [ %195, %.lr.ph381.i.us ], [ %.18.i.us, %._crit_edge372.i.us ]
-  %.13824378.i.us = phi ptr [ %196, %.lr.ph381.i.us ], [ %.12823.lcssa758.i.us, %._crit_edge372.i.us ]
-  %.1850377.i.us = phi i32 [ %197, %.lr.ph381.i.us ], [ %.0849.lcssa755.i.us, %._crit_edge372.i.us ]
+  %.13824378.i.us = phi ptr [ %196, %.lr.ph381.i.us ], [ %.12823.lcssa757.i.us, %._crit_edge372.i.us ]
+  %.1850377.i.us = phi i32 [ %197, %.lr.ph381.i.us ], [ %.0849.lcssa754.i.us, %._crit_edge372.i.us ]
   %177 = tail call fast <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %.13824378.i.us, <16 x i32> %55, <16 x i1> splat (i1 true), i32 4)
   %178 = getelementptr inbounds nuw i8, ptr %.13824378.i.us, i64 4
   %179 = tail call fast <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %178, <16 x i32> %55, <16 x i1> splat (i1 true), i32 4)
@@ -2938,8 +2938,8 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br i1 %199, label %.lr.ph381.i.us, label %.preheader282.i.us, !llvm.loop !97
 
 .preheader282.i.us:                               ; preds = %.lr.ph381.i.us, %._crit_edge372.i.us
-  %.1850.lcssa.i.us = phi i32 [ %.0849.lcssa755.i.us, %._crit_edge372.i.us ], [ %197, %.lr.ph381.i.us ]
-  %.13824.lcssa.i.us = phi ptr [ %.12823.lcssa758.i.us, %._crit_edge372.i.us ], [ %196, %.lr.ph381.i.us ]
+  %.1850.lcssa.i.us = phi i32 [ %.0849.lcssa754.i.us, %._crit_edge372.i.us ], [ %197, %.lr.ph381.i.us ]
+  %.13824.lcssa.i.us = phi ptr [ %.12823.lcssa757.i.us, %._crit_edge372.i.us ], [ %196, %.lr.ph381.i.us ]
   %.19.lcssa.i.us = phi ptr [ %.18.i.us, %._crit_edge372.i.us ], [ %195, %.lr.ph381.i.us ]
   %200 = icmp slt i32 %.1850.lcssa.i.us, %5
   br i1 %200, label %.lr.ph388.i.us, label %.loopexit283.i.us
@@ -3044,17 +3044,17 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge349.i.us
 
 ._crit_edge349.i.us:                              ; preds = %277, %.preheader287.i.us
-  %.9820.lcssa745.i.us = phi ptr [ %273, %277 ], [ %66, %.preheader287.i.us ]
-  %.0841.lcssa741.i.us = phi i32 [ %56, %277 ], [ 0, %.preheader287.i.us ]
+  %.9820.lcssa744.i.us = phi ptr [ %273, %277 ], [ %66, %.preheader287.i.us ]
+  %.0841.lcssa740.i.us = phi i32 [ %56, %277 ], [ 0, %.preheader287.i.us ]
   %.13.i.us = phi ptr [ %278, %277 ], [ %.0391.i.us, %.preheader287.i.us ]
-  %279 = or disjoint i32 %.0841.lcssa741.i.us, 1
+  %279 = or disjoint i32 %.0841.lcssa740.i.us, 1
   %280 = icmp slt i32 %279, %5
   br i1 %280, label %.lr.ph358.i.us, label %.preheader285.i.us
 
 .lr.ph358.i.us:                                   ; preds = %._crit_edge349.i.us, %.lr.ph358.i.us
   %.14356.i.us = phi ptr [ %307, %.lr.ph358.i.us ], [ %.13.i.us, %._crit_edge349.i.us ]
-  %.10821355.i.us = phi ptr [ %308, %.lr.ph358.i.us ], [ %.9820.lcssa745.i.us, %._crit_edge349.i.us ]
-  %.1842354.i.us = phi i32 [ %309, %.lr.ph358.i.us ], [ %.0841.lcssa741.i.us, %._crit_edge349.i.us ]
+  %.10821355.i.us = phi ptr [ %308, %.lr.ph358.i.us ], [ %.9820.lcssa744.i.us, %._crit_edge349.i.us ]
+  %.1842354.i.us = phi i32 [ %309, %.lr.ph358.i.us ], [ %.0841.lcssa740.i.us, %._crit_edge349.i.us ]
   %281 = load <8 x float>, ptr %.10821355.i.us, align 1, !tbaa !15
   %282 = getelementptr inbounds float, ptr %.10821355.i.us, i64 %27
   %283 = load <8 x float>, ptr %282, align 1, !tbaa !15
@@ -3091,8 +3091,8 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br i1 %311, label %.lr.ph358.i.us, label %.preheader285.i.us, !llvm.loop !100
 
 .preheader285.i.us:                               ; preds = %.lr.ph358.i.us, %._crit_edge349.i.us
-  %.1842.lcssa.i.us = phi i32 [ %.0841.lcssa741.i.us, %._crit_edge349.i.us ], [ %309, %.lr.ph358.i.us ]
-  %.10821.lcssa.i.us = phi ptr [ %.9820.lcssa745.i.us, %._crit_edge349.i.us ], [ %308, %.lr.ph358.i.us ]
+  %.1842.lcssa.i.us = phi i32 [ %.0841.lcssa740.i.us, %._crit_edge349.i.us ], [ %309, %.lr.ph358.i.us ]
+  %.10821.lcssa.i.us = phi ptr [ %.9820.lcssa744.i.us, %._crit_edge349.i.us ], [ %308, %.lr.ph358.i.us ]
   %.14.lcssa.i.us = phi ptr [ %.13.i.us, %._crit_edge349.i.us ], [ %307, %.lr.ph358.i.us ]
   %312 = icmp slt i32 %.1842.lcssa.i.us, %5
   br i1 %312, label %.lr.ph365.i.us, label %.loopexit283.i.us
@@ -3202,17 +3202,17 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge326.i.us
 
 ._crit_edge326.i.us:                              ; preds = %394, %.preheader290.i.us
-  %.5816.lcssa732.i.us = phi ptr [ %390, %394 ], [ %66, %.preheader290.i.us ]
-  %.0838.lcssa728.i.us = phi i32 [ %56, %394 ], [ 0, %.preheader290.i.us ]
+  %.5816.lcssa731.i.us = phi ptr [ %390, %394 ], [ %66, %.preheader290.i.us ]
+  %.0838.lcssa727.i.us = phi i32 [ %56, %394 ], [ 0, %.preheader290.i.us ]
   %.8.i.us = phi ptr [ %395, %394 ], [ %.0391.i.us, %.preheader290.i.us ]
-  %396 = or disjoint i32 %.0838.lcssa728.i.us, 1
+  %396 = or disjoint i32 %.0838.lcssa727.i.us, 1
   %397 = icmp slt i32 %396, %5
   br i1 %397, label %.lr.ph335.i.us, label %.preheader288.i.us
 
 .lr.ph335.i.us:                                   ; preds = %._crit_edge326.i.us, %.lr.ph335.i.us
   %.9333.i.us = phi ptr [ %418, %.lr.ph335.i.us ], [ %.8.i.us, %._crit_edge326.i.us ]
-  %.6817332.i.us = phi ptr [ %419, %.lr.ph335.i.us ], [ %.5816.lcssa732.i.us, %._crit_edge326.i.us ]
-  %.1839331.i.us = phi i32 [ %420, %.lr.ph335.i.us ], [ %.0838.lcssa728.i.us, %._crit_edge326.i.us ]
+  %.6817332.i.us = phi ptr [ %419, %.lr.ph335.i.us ], [ %.5816.lcssa731.i.us, %._crit_edge326.i.us ]
+  %.1839331.i.us = phi i32 [ %420, %.lr.ph335.i.us ], [ %.0838.lcssa727.i.us, %._crit_edge326.i.us ]
   %398 = load <16 x float>, ptr %.6817332.i.us, align 1, !tbaa !15
   %399 = getelementptr inbounds float, ptr %.6817332.i.us, i64 %25
   %400 = load <16 x float>, ptr %399, align 1, !tbaa !15
@@ -3243,8 +3243,8 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br i1 %422, label %.lr.ph335.i.us, label %.preheader288.i.us, !llvm.loop !103
 
 .preheader288.i.us:                               ; preds = %.lr.ph335.i.us, %._crit_edge326.i.us
-  %.1839.lcssa.i.us = phi i32 [ %.0838.lcssa728.i.us, %._crit_edge326.i.us ], [ %420, %.lr.ph335.i.us ]
-  %.6817.lcssa.i.us = phi ptr [ %.5816.lcssa732.i.us, %._crit_edge326.i.us ], [ %419, %.lr.ph335.i.us ]
+  %.1839.lcssa.i.us = phi i32 [ %.0838.lcssa727.i.us, %._crit_edge326.i.us ], [ %420, %.lr.ph335.i.us ]
+  %.6817.lcssa.i.us = phi ptr [ %.5816.lcssa731.i.us, %._crit_edge326.i.us ], [ %419, %.lr.ph335.i.us ]
   %.9.lcssa.i.us = phi ptr [ %.8.i.us, %._crit_edge326.i.us ], [ %418, %.lr.ph335.i.us ]
   %423 = icmp slt i32 %.1839.lcssa.i.us, %5
   br i1 %423, label %.lr.ph342.i.us, label %.loopexit283.i.us
@@ -3344,17 +3344,17 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge.i.us
 
 ._crit_edge.i.us:                                 ; preds = %495, %.preheader293.i.us
-  %.1812.lcssa719.i.us = phi ptr [ %491, %495 ], [ %66, %.preheader293.i.us ]
-  %.0835.lcssa715.i.us = phi i32 [ %56, %495 ], [ 0, %.preheader293.i.us ]
+  %.1812.lcssa718.i.us = phi ptr [ %491, %495 ], [ %66, %.preheader293.i.us ]
+  %.0835.lcssa714.i.us = phi i32 [ %56, %495 ], [ 0, %.preheader293.i.us ]
   %.3.i.us = phi ptr [ %496, %495 ], [ %.0391.i.us, %.preheader293.i.us ]
-  %497 = or disjoint i32 %.0835.lcssa715.i.us, 1
+  %497 = or disjoint i32 %.0835.lcssa714.i.us, 1
   %498 = icmp slt i32 %497, %5
   br i1 %498, label %.lr.ph312.i.us, label %.preheader291.i.us
 
 .lr.ph312.i.us:                                   ; preds = %._crit_edge.i.us, %.lr.ph312.i.us
   %.4310.i.us = phi ptr [ %517, %.lr.ph312.i.us ], [ %.3.i.us, %._crit_edge.i.us ]
-  %.2813309.i.us = phi ptr [ %518, %.lr.ph312.i.us ], [ %.1812.lcssa719.i.us, %._crit_edge.i.us ]
-  %.1836308.i.us = phi i32 [ %519, %.lr.ph312.i.us ], [ %.0835.lcssa715.i.us, %._crit_edge.i.us ]
+  %.2813309.i.us = phi ptr [ %518, %.lr.ph312.i.us ], [ %.1812.lcssa718.i.us, %._crit_edge.i.us ]
+  %.1836308.i.us = phi i32 [ %519, %.lr.ph312.i.us ], [ %.0835.lcssa714.i.us, %._crit_edge.i.us ]
   %499 = load <16 x float>, ptr %.2813309.i.us, align 64, !tbaa !15
   %500 = getelementptr inbounds nuw i8, ptr %.2813309.i.us, i64 64
   %501 = load <16 x float>, ptr %500, align 64, !tbaa !15
@@ -3383,8 +3383,8 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br i1 %521, label %.lr.ph312.i.us, label %.preheader291.i.us, !llvm.loop !106
 
 .preheader291.i.us:                               ; preds = %.lr.ph312.i.us, %._crit_edge.i.us
-  %.1836.lcssa.i.us = phi i32 [ %.0835.lcssa715.i.us, %._crit_edge.i.us ], [ %519, %.lr.ph312.i.us ]
-  %.2813.lcssa.i.us = phi ptr [ %.1812.lcssa719.i.us, %._crit_edge.i.us ], [ %518, %.lr.ph312.i.us ]
+  %.1836.lcssa.i.us = phi i32 [ %.0835.lcssa714.i.us, %._crit_edge.i.us ], [ %519, %.lr.ph312.i.us ]
+  %.2813.lcssa.i.us = phi ptr [ %.1812.lcssa718.i.us, %._crit_edge.i.us ], [ %518, %.lr.ph312.i.us ]
   %.4.lcssa.i.us = phi ptr [ %.3.i.us, %._crit_edge.i.us ], [ %517, %.lr.ph312.i.us ]
   %522 = icmp slt i32 %.1836.lcssa.i.us, %5
   br i1 %522, label %.lr.ph319.i.us, label %.loopexit283.i.us
@@ -3572,24 +3572,24 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge400.i
 
 ._crit_edge400.i:                                 ; preds = %645, %.preheader280.i
-  %.1853.lcssa769.i = phi ptr [ %641, %645 ], [ %584, %.preheader280.i ]
-  %.0868.lcssa765.i = phi i32 [ %558, %645 ], [ 0, %.preheader280.i ]
+  %.1853.lcssa768.i = phi ptr [ %641, %645 ], [ %584, %.preheader280.i ]
+  %.0868.lcssa764.i = phi i32 [ %558, %645 ], [ 0, %.preheader280.i ]
   %.24.i = phi ptr [ %646, %645 ], [ %.21465.i, %.preheader280.i ]
-  %647 = or disjoint i32 %.0868.lcssa765.i, 1
+  %647 = or disjoint i32 %.0868.lcssa764.i, 1
   %648 = icmp slt i32 %647, %5
   br i1 %648, label %.lr.ph409.i, label %.preheader278.i
 
 .preheader278.i:                                  ; preds = %.lr.ph409.i, %._crit_edge400.i
-  %.1869.lcssa.i = phi i32 [ %.0868.lcssa765.i, %._crit_edge400.i ], [ %674, %.lr.ph409.i ]
-  %.2854.lcssa.i = phi ptr [ %.1853.lcssa769.i, %._crit_edge400.i ], [ %673, %.lr.ph409.i ]
+  %.1869.lcssa.i = phi i32 [ %.0868.lcssa764.i, %._crit_edge400.i ], [ %674, %.lr.ph409.i ]
+  %.2854.lcssa.i = phi ptr [ %.1853.lcssa768.i, %._crit_edge400.i ], [ %673, %.lr.ph409.i ]
   %.25.lcssa.i = phi ptr [ %.24.i, %._crit_edge400.i ], [ %672, %.lr.ph409.i ]
   %649 = icmp slt i32 %.1869.lcssa.i, %5
   br i1 %649, label %.lr.ph416.i, label %.loopexit273.i
 
 .lr.ph409.i:                                      ; preds = %._crit_edge400.i, %.lr.ph409.i
   %.25407.i = phi ptr [ %672, %.lr.ph409.i ], [ %.24.i, %._crit_edge400.i ]
-  %.2854406.i = phi ptr [ %673, %.lr.ph409.i ], [ %.1853.lcssa769.i, %._crit_edge400.i ]
-  %.1869405.i = phi i32 [ %674, %.lr.ph409.i ], [ %.0868.lcssa765.i, %._crit_edge400.i ]
+  %.2854406.i = phi ptr [ %673, %.lr.ph409.i ], [ %.1853.lcssa768.i, %._crit_edge400.i ]
+  %.1869405.i = phi i32 [ %674, %.lr.ph409.i ], [ %.0868.lcssa764.i, %._crit_edge400.i ]
   %650 = load <8 x float>, ptr %.2854406.i, align 32, !tbaa !15
   %651 = getelementptr inbounds nuw i8, ptr %.2854406.i, i64 32
   %652 = load <8 x float>, ptr %651, align 32, !tbaa !15
@@ -3716,24 +3716,24 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge423.i
 
 ._crit_edge423.i:                                 ; preds = %749, %.preheader277.i
-  %.5857.lcssa782.i = phi ptr [ %745, %749 ], [ %584, %.preheader277.i ]
-  %.0871.lcssa778.i = phi i32 [ %558, %749 ], [ 0, %.preheader277.i ]
+  %.5857.lcssa781.i = phi ptr [ %745, %749 ], [ %584, %.preheader277.i ]
+  %.0871.lcssa777.i = phi i32 [ %558, %749 ], [ 0, %.preheader277.i ]
   %.29.i = phi ptr [ %750, %749 ], [ %.21465.i, %.preheader277.i ]
-  %751 = or disjoint i32 %.0871.lcssa778.i, 1
+  %751 = or disjoint i32 %.0871.lcssa777.i, 1
   %752 = icmp slt i32 %751, %5
   br i1 %752, label %.lr.ph432.i, label %.preheader275.i
 
 .preheader275.i:                                  ; preds = %.lr.ph432.i, %._crit_edge423.i
-  %.1872.lcssa.i = phi i32 [ %.0871.lcssa778.i, %._crit_edge423.i ], [ %780, %.lr.ph432.i ]
-  %.6858.lcssa.i = phi ptr [ %.5857.lcssa782.i, %._crit_edge423.i ], [ %779, %.lr.ph432.i ]
+  %.1872.lcssa.i = phi i32 [ %.0871.lcssa777.i, %._crit_edge423.i ], [ %780, %.lr.ph432.i ]
+  %.6858.lcssa.i = phi ptr [ %.5857.lcssa781.i, %._crit_edge423.i ], [ %779, %.lr.ph432.i ]
   %.30.lcssa.i = phi ptr [ %.29.i, %._crit_edge423.i ], [ %778, %.lr.ph432.i ]
   %753 = icmp slt i32 %.1872.lcssa.i, %5
   br i1 %753, label %.lr.ph439.i, label %.loopexit273.i
 
 .lr.ph432.i:                                      ; preds = %._crit_edge423.i, %.lr.ph432.i
   %.30430.i = phi ptr [ %778, %.lr.ph432.i ], [ %.29.i, %._crit_edge423.i ]
-  %.6858429.i = phi ptr [ %779, %.lr.ph432.i ], [ %.5857.lcssa782.i, %._crit_edge423.i ]
-  %.1872428.i = phi i32 [ %780, %.lr.ph432.i ], [ %.0871.lcssa778.i, %._crit_edge423.i ]
+  %.6858429.i = phi ptr [ %779, %.lr.ph432.i ], [ %.5857.lcssa781.i, %._crit_edge423.i ]
+  %.1872428.i = phi i32 [ %780, %.lr.ph432.i ], [ %.0871.lcssa777.i, %._crit_edge423.i ]
   %754 = load <8 x float>, ptr %.6858429.i, align 1, !tbaa !15
   %755 = getelementptr inbounds float, ptr %.6858429.i, i64 %543
   %756 = load <8 x float>, ptr %755, align 1, !tbaa !15
@@ -3881,24 +3881,24 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge446.i
 
 ._crit_edge446.i:                                 ; preds = %874, %.preheader274.i
-  %.8860.lcssa794.i = phi ptr [ %870, %874 ], [ %584, %.preheader274.i ]
-  %.0877.lcssa791.i = phi i32 [ %558, %874 ], [ 0, %.preheader274.i ]
+  %.8860.lcssa793.i = phi ptr [ %870, %874 ], [ %584, %.preheader274.i ]
+  %.0877.lcssa790.i = phi i32 [ %558, %874 ], [ 0, %.preheader274.i ]
   %.34.i = phi ptr [ %875, %874 ], [ %.21465.i, %.preheader274.i ]
-  %876 = or disjoint i32 %.0877.lcssa791.i, 1
+  %876 = or disjoint i32 %.0877.lcssa790.i, 1
   %877 = icmp slt i32 %876, %5
   br i1 %877, label %.lr.ph455.i, label %.preheader272.i
 
 .preheader272.i:                                  ; preds = %.lr.ph455.i, %._crit_edge446.i
-  %.1878.lcssa.i = phi i32 [ %.0877.lcssa791.i, %._crit_edge446.i ], [ %903, %.lr.ph455.i ]
-  %.9861.lcssa.i = phi ptr [ %.8860.lcssa794.i, %._crit_edge446.i ], [ %902, %.lr.ph455.i ]
+  %.1878.lcssa.i = phi i32 [ %.0877.lcssa790.i, %._crit_edge446.i ], [ %903, %.lr.ph455.i ]
+  %.9861.lcssa.i = phi ptr [ %.8860.lcssa793.i, %._crit_edge446.i ], [ %902, %.lr.ph455.i ]
   %.35.lcssa.i = phi ptr [ %.34.i, %._crit_edge446.i ], [ %901, %.lr.ph455.i ]
   %878 = icmp slt i32 %.1878.lcssa.i, %5
   br i1 %878, label %.lr.ph462.i, label %.loopexit273.i
 
 .lr.ph455.i:                                      ; preds = %._crit_edge446.i, %.lr.ph455.i
   %.35453.i = phi ptr [ %901, %.lr.ph455.i ], [ %.34.i, %._crit_edge446.i ]
-  %.9861452.i = phi ptr [ %902, %.lr.ph455.i ], [ %.8860.lcssa794.i, %._crit_edge446.i ]
-  %.1878451.i = phi i32 [ %903, %.lr.ph455.i ], [ %.0877.lcssa791.i, %._crit_edge446.i ]
+  %.9861452.i = phi ptr [ %902, %.lr.ph455.i ], [ %.8860.lcssa793.i, %._crit_edge446.i ]
+  %.1878451.i = phi i32 [ %903, %.lr.ph455.i ], [ %.0877.lcssa790.i, %._crit_edge446.i ]
   %879 = tail call fast <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %.9861452.i, <8 x i32> %557, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %880 = getelementptr inbounds nuw i8, ptr %.9861452.i, i64 4
   %881 = tail call fast <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %880, <8 x i32> %557, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
@@ -4048,24 +4048,24 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge473.i
 
 ._crit_edge473.i:                                 ; preds = %978, %.preheader270.i
-  %.1881.lcssa805.i = phi ptr [ %974, %978 ], [ %935, %.preheader270.i ]
-  %.0890.lcssa801.i = phi i32 [ %576, %978 ], [ 0, %.preheader270.i ]
+  %.1881.lcssa804.i = phi ptr [ %974, %978 ], [ %935, %.preheader270.i ]
+  %.0890.lcssa800.i = phi i32 [ %576, %978 ], [ 0, %.preheader270.i ]
   %.40.i = phi ptr [ %979, %978 ], [ %.37515.i, %.preheader270.i ]
-  %980 = or disjoint i32 %.0890.lcssa801.i, 1
+  %980 = or disjoint i32 %.0890.lcssa800.i, 1
   %981 = icmp slt i32 %980, %5
   br i1 %981, label %.lr.ph482.i, label %.preheader268.i
 
 .preheader268.i:                                  ; preds = %.lr.ph482.i, %._crit_edge473.i
-  %.1891.lcssa.i = phi i32 [ %.0890.lcssa801.i, %._crit_edge473.i ], [ %1004, %.lr.ph482.i ]
-  %.2882.lcssa.i = phi ptr [ %.1881.lcssa805.i, %._crit_edge473.i ], [ %1003, %.lr.ph482.i ]
+  %.1891.lcssa.i = phi i32 [ %.0890.lcssa800.i, %._crit_edge473.i ], [ %1004, %.lr.ph482.i ]
+  %.2882.lcssa.i = phi ptr [ %.1881.lcssa804.i, %._crit_edge473.i ], [ %1003, %.lr.ph482.i ]
   %.41.lcssa.i = phi ptr [ %.40.i, %._crit_edge473.i ], [ %1002, %.lr.ph482.i ]
   %982 = icmp slt i32 %.1891.lcssa.i, %5
   br i1 %982, label %.lr.ph489.i, label %.loopexit.i
 
 .lr.ph482.i:                                      ; preds = %._crit_edge473.i, %.lr.ph482.i
   %.41480.i = phi ptr [ %1002, %.lr.ph482.i ], [ %.40.i, %._crit_edge473.i ]
-  %.2882479.i = phi ptr [ %1003, %.lr.ph482.i ], [ %.1881.lcssa805.i, %._crit_edge473.i ]
-  %.1891478.i = phi i32 [ %1004, %.lr.ph482.i ], [ %.0890.lcssa801.i, %._crit_edge473.i ]
+  %.2882479.i = phi ptr [ %1003, %.lr.ph482.i ], [ %.1881.lcssa804.i, %._crit_edge473.i ]
+  %.1891478.i = phi i32 [ %1004, %.lr.ph482.i ], [ %.0890.lcssa800.i, %._crit_edge473.i ]
   %983 = load <4 x float>, ptr %.2882479.i, align 16, !tbaa !15
   %984 = getelementptr inbounds nuw i8, ptr %.2882479.i, i64 16
   %985 = load <4 x float>, ptr %984, align 16, !tbaa !15
@@ -4177,24 +4177,24 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge496.i
 
 ._crit_edge496.i:                                 ; preds = %1067, %.preheader267.i
-  %.4884.lcssa817.i = phi ptr [ %1063, %1067 ], [ %935, %.preheader267.i ]
-  %.0893.lcssa814.i = phi i32 [ %576, %1067 ], [ 0, %.preheader267.i ]
+  %.4884.lcssa816.i = phi ptr [ %1063, %1067 ], [ %935, %.preheader267.i ]
+  %.0893.lcssa813.i = phi i32 [ %576, %1067 ], [ 0, %.preheader267.i ]
   %.45.i = phi ptr [ %1068, %1067 ], [ %.37515.i, %.preheader267.i ]
-  %1069 = or disjoint i32 %.0893.lcssa814.i, 1
+  %1069 = or disjoint i32 %.0893.lcssa813.i, 1
   %1070 = icmp slt i32 %1069, %5
   br i1 %1070, label %.lr.ph505.i, label %.preheader266.i
 
 .preheader266.i:                                  ; preds = %.lr.ph505.i, %._crit_edge496.i
-  %.1894.lcssa.i = phi i32 [ %.0893.lcssa814.i, %._crit_edge496.i ], [ %1093, %.lr.ph505.i ]
-  %.5885.lcssa.i = phi ptr [ %.4884.lcssa817.i, %._crit_edge496.i ], [ %1092, %.lr.ph505.i ]
+  %.1894.lcssa.i = phi i32 [ %.0893.lcssa813.i, %._crit_edge496.i ], [ %1093, %.lr.ph505.i ]
+  %.5885.lcssa.i = phi ptr [ %.4884.lcssa816.i, %._crit_edge496.i ], [ %1092, %.lr.ph505.i ]
   %.46.lcssa.i = phi ptr [ %.45.i, %._crit_edge496.i ], [ %1091, %.lr.ph505.i ]
   %1071 = icmp slt i32 %.1894.lcssa.i, %5
   br i1 %1071, label %.lr.ph512.i, label %.loopexit.i
 
 .lr.ph505.i:                                      ; preds = %._crit_edge496.i, %.lr.ph505.i
   %.46503.i = phi ptr [ %1091, %.lr.ph505.i ], [ %.45.i, %._crit_edge496.i ]
-  %.5885502.i = phi ptr [ %1092, %.lr.ph505.i ], [ %.4884.lcssa817.i, %._crit_edge496.i ]
-  %.1894501.i = phi i32 [ %1093, %.lr.ph505.i ], [ %.0893.lcssa814.i, %._crit_edge496.i ]
+  %.5885502.i = phi ptr [ %1092, %.lr.ph505.i ], [ %.4884.lcssa816.i, %._crit_edge496.i ]
+  %.1894501.i = phi i32 [ %1093, %.lr.ph505.i ], [ %.0893.lcssa813.i, %._crit_edge496.i ]
   %1072 = tail call fast <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr %.5885502.i, <4 x i32> %575, <4 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %1073 = getelementptr inbounds nuw i8, ptr %.5885502.i, i64 4
   %1074 = tail call fast <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr nonnull %1073, <4 x i32> %575, <4 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
@@ -4315,9 +4315,8 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   %1151 = bitcast <16 x i8> %1150 to <2 x i64>
   %1152 = extractelement <2 x i64> %1151, i64 0
   store i64 %1152, ptr %.49523.i, align 8, !tbaa !111
-  %1153 = trunc i64 %1152 to i32
-  %sext.i = shl i32 %1153, 24
-  %1154 = ashr exact i32 %sext.i, 24
+  %1153 = trunc i64 %1152 to i8
+  %1154 = sext i8 %1153 to i32
   %1155 = extractelement <16 x i8> %1150, i64 1
   %1156 = sext i8 %1155 to i32
   %1157 = extractelement <16 x i8> %1150, i64 2
@@ -4357,24 +4356,24 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge526.i
 
 ._crit_edge526.i:                                 ; preds = %1182, %1120
-  %.0846.lcssa827.i = phi i32 [ %926, %1182 ], [ 0, %1120 ]
-  %.0874.lcssa825.i = phi ptr [ %1178, %1182 ], [ %1125, %1120 ]
+  %.0846.lcssa826.i = phi i32 [ %926, %1182 ], [ 0, %1120 ]
+  %.0874.lcssa824.i = phi ptr [ %1178, %1182 ], [ %1125, %1120 ]
   %.50.i = phi ptr [ %1186, %1182 ], [ %.48547.i, %1120 ]
-  %1187 = or disjoint i32 %.0846.lcssa827.i, 1
+  %1187 = or disjoint i32 %.0846.lcssa826.i, 1
   %1188 = icmp slt i32 %1187, %5
   br i1 %1188, label %.lr.ph536.i, label %.preheader264.i
 
 .preheader264.i:                                  ; preds = %.lr.ph536.i, %._crit_edge526.i
-  %.1875.lcssa.i = phi ptr [ %.0874.lcssa825.i, %._crit_edge526.i ], [ %1206, %.lr.ph536.i ]
-  %.1847.lcssa.i = phi i32 [ %.0846.lcssa827.i, %._crit_edge526.i ], [ %1207, %.lr.ph536.i ]
+  %.1875.lcssa.i = phi ptr [ %.0874.lcssa824.i, %._crit_edge526.i ], [ %1206, %.lr.ph536.i ]
+  %.1847.lcssa.i = phi i32 [ %.0846.lcssa826.i, %._crit_edge526.i ], [ %1207, %.lr.ph536.i ]
   %.51.lcssa.i = phi ptr [ %.50.i, %._crit_edge526.i ], [ %1205, %.lr.ph536.i ]
   %1189 = icmp slt i32 %.1847.lcssa.i, %5
   br i1 %1189, label %.lr.ph543.i, label %._crit_edge544.i
 
 .lr.ph536.i:                                      ; preds = %._crit_edge526.i, %.lr.ph536.i
   %.51534.i = phi ptr [ %1205, %.lr.ph536.i ], [ %.50.i, %._crit_edge526.i ]
-  %.1847533.i = phi i32 [ %1207, %.lr.ph536.i ], [ %.0846.lcssa827.i, %._crit_edge526.i ]
-  %.1875532.i = phi ptr [ %1206, %.lr.ph536.i ], [ %.0874.lcssa825.i, %._crit_edge526.i ]
+  %.1847533.i = phi i32 [ %1207, %.lr.ph536.i ], [ %.0846.lcssa826.i, %._crit_edge526.i ]
+  %.1875532.i = phi ptr [ %1206, %.lr.ph536.i ], [ %.0874.lcssa824.i, %._crit_edge526.i ]
   %1190 = load i64, ptr %.1875532.i, align 1, !tbaa !15
   %1191 = insertelement <2 x i64> poison, i64 %1190, i64 0
   %1192 = getelementptr inbounds float, ptr %.1875532.i, i64 %925
@@ -4466,8 +4465,8 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   %1245 = bitcast <16 x i8> %1244 to <4 x i32>
   %1246 = extractelement <4 x i32> %1245, i64 0
   store i32 %1246, ptr %.54554.i, align 4, !tbaa !30
-  %sext710.i = shl i32 %1246, 24
-  %1247 = ashr exact i32 %sext710.i, 24
+  %sext.i = shl i32 %1246, 24
+  %1247 = ashr exact i32 %sext.i, 24
   %1248 = extractelement <16 x i8> %1244, i64 1
   %1249 = sext i8 %1248 to i32
   %1250 = extractelement <16 x i8> %1244, i64 2
@@ -4492,16 +4491,16 @@ define hidden void @_ZN4ncnn35pack_A_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   br label %._crit_edge557.i
 
 ._crit_edge557.i:                                 ; preds = %1263, %1225
-  %.0804.lcssa838.i = phi i32 [ %1116, %1263 ], [ 0, %1225 ]
-  %.0826.lcssa836.i = phi ptr [ %1259, %1263 ], [ %1230, %1225 ]
+  %.0804.lcssa837.i = phi i32 [ %1116, %1263 ], [ 0, %1225 ]
+  %.0826.lcssa835.i = phi ptr [ %1259, %1263 ], [ %1230, %1225 ]
   %.55.i = phi ptr [ %1265, %1263 ], [ %.53570.i, %1225 ]
-  %1266 = icmp slt i32 %.0804.lcssa838.i, %5
+  %1266 = icmp slt i32 %.0804.lcssa837.i, %5
   br i1 %1266, label %.lr.ph566.i, label %._crit_edge567.i
 
 .lr.ph566.i:                                      ; preds = %._crit_edge557.i, %.lr.ph566.i
   %.56564.i = phi ptr [ %1271, %.lr.ph566.i ], [ %.55.i, %._crit_edge557.i ]
-  %.1805563.i = phi i32 [ %1273, %.lr.ph566.i ], [ %.0804.lcssa838.i, %._crit_edge557.i ]
-  %.1827562.i = phi ptr [ %1272, %.lr.ph566.i ], [ %.0826.lcssa836.i, %._crit_edge557.i ]
+  %.1805563.i = phi i32 [ %1273, %.lr.ph566.i ], [ %.0804.lcssa837.i, %._crit_edge557.i ]
+  %.1827562.i = phi ptr [ %1272, %.lr.ph566.i ], [ %.0826.lcssa835.i, %._crit_edge557.i ]
   %1267 = load float, ptr %.1827562.i, align 4, !tbaa !127
   %1268 = fmul fast float %1267, %1233
   %1269 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %1268)
@@ -4721,17 +4720,17 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br label %._crit_edge436.i.us
 
 ._crit_edge436.i.us:                              ; preds = %111, %.preheader394.i.us
-  %.61041.lcssa840.i.us = phi ptr [ %107, %111 ], [ %48, %.preheader394.i.us ]
-  %.01060.lcssa837.i.us = phi i32 [ %37, %111 ], [ 0, %.preheader394.i.us ]
+  %.61041.lcssa837.i.us = phi ptr [ %107, %111 ], [ %48, %.preheader394.i.us ]
+  %.01060.lcssa834.i.us = phi i32 [ %37, %111 ], [ 0, %.preheader394.i.us ]
   %.12.i.us = phi ptr [ %112, %111 ], [ %.0455.i.us, %.preheader394.i.us ]
-  %113 = or disjoint i32 %.01060.lcssa837.i.us, 1
+  %113 = or disjoint i32 %.01060.lcssa834.i.us, 1
   %114 = icmp slt i32 %113, %5
   br i1 %114, label %.lr.ph445.i.us, label %.preheader392.i.us
 
 .lr.ph445.i.us:                                   ; preds = %._crit_edge436.i.us, %.lr.ph445.i.us
   %.13443.i.us = phi ptr [ %133, %.lr.ph445.i.us ], [ %.12.i.us, %._crit_edge436.i.us ]
-  %.71042442.i.us = phi ptr [ %134, %.lr.ph445.i.us ], [ %.61041.lcssa840.i.us, %._crit_edge436.i.us ]
-  %.11061441.i.us = phi i32 [ %135, %.lr.ph445.i.us ], [ %.01060.lcssa837.i.us, %._crit_edge436.i.us ]
+  %.71042442.i.us = phi ptr [ %134, %.lr.ph445.i.us ], [ %.61041.lcssa837.i.us, %._crit_edge436.i.us ]
+  %.11061441.i.us = phi i32 [ %135, %.lr.ph445.i.us ], [ %.01060.lcssa834.i.us, %._crit_edge436.i.us ]
   %115 = load <16 x float>, ptr %.71042442.i.us, align 1, !tbaa !15
   %116 = getelementptr inbounds float, ptr %.71042442.i.us, i64 %32
   %117 = load <16 x float>, ptr %116, align 1, !tbaa !15
@@ -4760,8 +4759,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %137, label %.lr.ph445.i.us, label %.preheader392.i.us, !llvm.loop !137
 
 .preheader392.i.us:                               ; preds = %.lr.ph445.i.us, %._crit_edge436.i.us
-  %.11061.lcssa.i.us = phi i32 [ %.01060.lcssa837.i.us, %._crit_edge436.i.us ], [ %135, %.lr.ph445.i.us ]
-  %.71042.lcssa.i.us = phi ptr [ %.61041.lcssa840.i.us, %._crit_edge436.i.us ], [ %134, %.lr.ph445.i.us ]
+  %.11061.lcssa.i.us = phi i32 [ %.01060.lcssa834.i.us, %._crit_edge436.i.us ], [ %135, %.lr.ph445.i.us ]
+  %.71042.lcssa.i.us = phi ptr [ %.61041.lcssa837.i.us, %._crit_edge436.i.us ], [ %134, %.lr.ph445.i.us ]
   %.13.lcssa.i.us = phi ptr [ %.12.i.us, %._crit_edge436.i.us ], [ %133, %.lr.ph445.i.us ]
   %138 = icmp slt i32 %.11061.lcssa.i.us, %5
   br i1 %138, label %.lr.ph452.i.us, label %.loopexit393.i.us
@@ -4962,10 +4961,10 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %300, label %.lr.ph418.i.us, label %._crit_edge419.thread.i.us, !llvm.loop !140
 
 ._crit_edge419.thread.i.us:                       ; preds = %.lr.ph418.i.us, %._crit_edge419.i.us
-  %.5.lcssa817.i.us = phi ptr [ %.0455.i.us, %._crit_edge419.i.us ], [ %296, %.lr.ph418.i.us ]
-  %.lcssa406815.i.us = phi <16 x i32> [ zeroinitializer, %._crit_edge419.i.us ], [ %294, %.lr.ph418.i.us ]
-  store <16 x i32> %.lcssa406815.i.us, ptr %.5.lcssa817.i.us, align 64, !tbaa !15
-  %301 = getelementptr inbounds nuw i8, ptr %.5.lcssa817.i.us, i64 64
+  %.5.lcssa814.i.us = phi ptr [ %.0455.i.us, %._crit_edge419.i.us ], [ %296, %.lr.ph418.i.us ]
+  %.lcssa406812.i.us = phi <16 x i32> [ zeroinitializer, %._crit_edge419.i.us ], [ %294, %.lr.ph418.i.us ]
+  store <16 x i32> %.lcssa406812.i.us, ptr %.5.lcssa814.i.us, align 64, !tbaa !15
+  %301 = getelementptr inbounds nuw i8, ptr %.5.lcssa814.i.us, i64 64
   br label %.loopexit393.i.us
 
 .preheader395.i.us:                               ; preds = %.split.i.us
@@ -5230,10 +5229,10 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %546, label %.lr.ph.i.us, label %._crit_edge.thread.i.us, !llvm.loop !141
 
 ._crit_edge.thread.i.us:                          ; preds = %.lr.ph.i.us, %._crit_edge.i.us
-  %.2.lcssa809.i.us = phi ptr [ %.0455.i.us, %._crit_edge.i.us ], [ %542, %.lr.ph.i.us ]
-  %.lcssa405807.i.us = phi <16 x i32> [ zeroinitializer, %._crit_edge.i.us ], [ %538, %.lr.ph.i.us ]
-  store <16 x i32> %.lcssa405807.i.us, ptr %.2.lcssa809.i.us, align 64, !tbaa !15
-  %547 = getelementptr inbounds nuw i8, ptr %.2.lcssa809.i.us, i64 64
+  %.2.lcssa806.i.us = phi ptr [ %.0455.i.us, %._crit_edge.i.us ], [ %542, %.lr.ph.i.us ]
+  %.lcssa405804.i.us = phi <16 x i32> [ zeroinitializer, %._crit_edge.i.us ], [ %538, %.lr.ph.i.us ]
+  store <16 x i32> %.lcssa405804.i.us, ptr %.2.lcssa806.i.us, align 64, !tbaa !15
+  %547 = getelementptr inbounds nuw i8, ptr %.2.lcssa806.i.us, i64 64
   br label %.loopexit393.i.us
 
 .loopexit393.i.us:                                ; preds = %.lr.ph452.i.us, %._crit_edge.thread.i.us, %._crit_edge.i.us, %._crit_edge419.thread.i.us, %._crit_edge419.i.us, %200, %149, %.preheader392.i.us, %.split.i.us
@@ -5333,9 +5332,9 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %611 = getelementptr inbounds float, ptr %610, i64 %555
   %612 = getelementptr inbounds nuw float, ptr %611, i64 %indvars.iv769.i
   %613 = load <8 x float>, ptr %612, align 32, !tbaa !15
-  br i1 %575, label %.split1070.i, label %.loopexit387.i
+  br i1 %575, label %.split1067.i, label %.loopexit387.i
 
-.split1070.i:                                     ; preds = %604
+.split1067.i:                                     ; preds = %604
   switch i32 %576, label %.loopexit387.i [
     i32 4, label %.preheader390.i
     i32 3, label %.preheader389.i
@@ -5343,7 +5342,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
     i32 0, label %.preheader388.i
   ]
 
-.preheader390.i:                                  ; preds = %.split1070.i
+.preheader390.i:                                  ; preds = %.split1067.i
   br i1 %556, label %.lr.ph463.i, label %._crit_edge464.i
 
 .lr.ph463.i:                                      ; preds = %.preheader390.i, %.lr.ph463.i
@@ -5495,16 +5494,16 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %559, label %._crit_edge464.thread.i, label %.loopexit387.i
 
 ._crit_edge464.thread.i:                          ; preds = %.lr.ph463.i, %._crit_edge464.i
-  %.17.lcssa848.i = phi ptr [ %.15508.i, %._crit_edge464.i ], [ %746, %.lr.ph463.i ]
-  %.lcssa401846.i = phi <16 x i32> [ zeroinitializer, %._crit_edge464.i ], [ %744, %.lr.ph463.i ]
-  %751 = shufflevector <16 x i32> %.lcssa401846.i, <16 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %752 = shufflevector <16 x i32> %.lcssa401846.i, <16 x i32> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %.17.lcssa845.i = phi ptr [ %.15508.i, %._crit_edge464.i ], [ %746, %.lr.ph463.i ]
+  %.lcssa401843.i = phi <16 x i32> [ zeroinitializer, %._crit_edge464.i ], [ %744, %.lr.ph463.i ]
+  %751 = shufflevector <16 x i32> %.lcssa401843.i, <16 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %752 = shufflevector <16 x i32> %.lcssa401843.i, <16 x i32> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %753 = add <8 x i32> %751, %752
-  store <8 x i32> %753, ptr %.17.lcssa848.i, align 32, !tbaa !15
-  %754 = getelementptr inbounds nuw i8, ptr %.17.lcssa848.i, i64 32
+  store <8 x i32> %753, ptr %.17.lcssa845.i, align 32, !tbaa !15
+  %754 = getelementptr inbounds nuw i8, ptr %.17.lcssa845.i, i64 32
   br label %.loopexit387.i
 
-.preheader389.i:                                  ; preds = %.split1070.i
+.preheader389.i:                                  ; preds = %.split1067.i
   br i1 %560, label %.lr.ph471.i, label %._crit_edge472.i
 
 .lr.ph471.i:                                      ; preds = %.preheader389.i, %.lr.ph471.i
@@ -5646,13 +5645,13 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %559, label %._crit_edge472.thread.i, label %.loopexit387.i
 
 ._crit_edge472.thread.i:                          ; preds = %.lr.ph471.i, %._crit_edge472.i
-  %.20.lcssa858.i = phi ptr [ %.15508.i, %._crit_edge472.i ], [ %877, %.lr.ph471.i ]
-  %.lcssa402856.i = phi <8 x i32> [ zeroinitializer, %._crit_edge472.i ], [ %875, %.lr.ph471.i ]
-  store <8 x i32> %.lcssa402856.i, ptr %.20.lcssa858.i, align 32, !tbaa !15
-  %882 = getelementptr inbounds nuw i8, ptr %.20.lcssa858.i, i64 32
+  %.20.lcssa855.i = phi ptr [ %.15508.i, %._crit_edge472.i ], [ %877, %.lr.ph471.i ]
+  %.lcssa402853.i = phi <8 x i32> [ zeroinitializer, %._crit_edge472.i ], [ %875, %.lr.ph471.i ]
+  store <8 x i32> %.lcssa402853.i, ptr %.20.lcssa855.i, align 32, !tbaa !15
+  %882 = getelementptr inbounds nuw i8, ptr %.20.lcssa855.i, i64 32
   br label %.loopexit387.i
 
-883:                                              ; preds = %.split1070.i
+883:                                              ; preds = %.split1067.i
   %884 = shufflevector <8 x float> %613, <8 x float> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1>
   %885 = shufflevector <8 x float> %613, <8 x float> poison, <8 x i32> <i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3>
   %886 = shufflevector <8 x float> %613, <8 x float> poison, <8 x i32> <i32 4, i32 4, i32 4, i32 4, i32 5, i32 5, i32 5, i32 5>
@@ -5719,7 +5718,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %937 = getelementptr inbounds nuw i8, ptr %.23478.i, i64 64
   br label %.loopexit387.i
 
-.preheader388.i:                                  ; preds = %.split1070.i
+.preheader388.i:                                  ; preds = %.split1067.i
   br i1 %559, label %.lr.ph488.i, label %._crit_edge489.i
 
 .lr.ph488.i:                                      ; preds = %.preheader388.i, %.lr.ph488.i
@@ -5791,24 +5790,24 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br label %._crit_edge489.i
 
 ._crit_edge489.i:                                 ; preds = %994, %.preheader388.i
-  %.61071.lcssa881.i = phi ptr [ %990, %994 ], [ %609, %.preheader388.i ]
-  %.01093.lcssa878.i = phi i32 [ %570, %994 ], [ 0, %.preheader388.i ]
+  %.61071.lcssa878.i = phi ptr [ %990, %994 ], [ %609, %.preheader388.i ]
+  %.01093.lcssa875.i = phi i32 [ %570, %994 ], [ 0, %.preheader388.i ]
   %.27.i = phi ptr [ %995, %994 ], [ %.15508.i, %.preheader388.i ]
-  %996 = or disjoint i32 %.01093.lcssa878.i, 1
+  %996 = or disjoint i32 %.01093.lcssa875.i, 1
   %997 = icmp slt i32 %996, %5
   br i1 %997, label %.lr.ph498.i, label %.preheader386.i
 
 .preheader386.i:                                  ; preds = %.lr.ph498.i, %._crit_edge489.i
-  %.11094.lcssa.i = phi i32 [ %.01093.lcssa878.i, %._crit_edge489.i ], [ %1023, %.lr.ph498.i ]
-  %.71072.lcssa.i = phi ptr [ %.61071.lcssa881.i, %._crit_edge489.i ], [ %1022, %.lr.ph498.i ]
+  %.11094.lcssa.i = phi i32 [ %.01093.lcssa875.i, %._crit_edge489.i ], [ %1023, %.lr.ph498.i ]
+  %.71072.lcssa.i = phi ptr [ %.61071.lcssa878.i, %._crit_edge489.i ], [ %1022, %.lr.ph498.i ]
   %.28.lcssa.i = phi ptr [ %.27.i, %._crit_edge489.i ], [ %1021, %.lr.ph498.i ]
   %998 = icmp slt i32 %.11094.lcssa.i, %5
   br i1 %998, label %.lr.ph505.i, label %.loopexit387.i
 
 .lr.ph498.i:                                      ; preds = %._crit_edge489.i, %.lr.ph498.i
   %.28496.i = phi ptr [ %1021, %.lr.ph498.i ], [ %.27.i, %._crit_edge489.i ]
-  %.71072495.i = phi ptr [ %1022, %.lr.ph498.i ], [ %.61071.lcssa881.i, %._crit_edge489.i ]
-  %.11094494.i = phi i32 [ %1023, %.lr.ph498.i ], [ %.01093.lcssa878.i, %._crit_edge489.i ]
+  %.71072495.i = phi ptr [ %1022, %.lr.ph498.i ], [ %.61071.lcssa878.i, %._crit_edge489.i ]
+  %.11094494.i = phi i32 [ %1023, %.lr.ph498.i ], [ %.01093.lcssa875.i, %._crit_edge489.i ]
   %999 = load <8 x float>, ptr %.71072495.i, align 1, !tbaa !15
   %1000 = getelementptr inbounds float, ptr %.71072495.i, i64 %565
   %1001 = load <8 x float>, ptr %1000, align 1, !tbaa !15
@@ -5859,8 +5858,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %exitcond768.not.i = icmp eq i32 %1037, %5
   br i1 %exitcond768.not.i, label %.loopexit387.i, label %.lr.ph505.i, !llvm.loop !148
 
-.loopexit387.i:                                   ; preds = %.lr.ph505.i, %.preheader386.i, %936, %883, %._crit_edge472.thread.i, %._crit_edge472.i, %._crit_edge464.thread.i, %._crit_edge464.i, %.split1070.i, %604
-  %.25.i = phi ptr [ %.28.lcssa.i, %.preheader386.i ], [ %.15508.i, %883 ], [ %937, %936 ], [ %.15508.i, %._crit_edge472.i ], [ %882, %._crit_edge472.thread.i ], [ %.15508.i, %._crit_edge464.i ], [ %754, %._crit_edge464.thread.i ], [ %.15508.i, %.split1070.i ], [ %.15508.i, %604 ], [ %1035, %.lr.ph505.i ]
+.loopexit387.i:                                   ; preds = %.lr.ph505.i, %.preheader386.i, %936, %883, %._crit_edge472.thread.i, %._crit_edge472.i, %._crit_edge464.thread.i, %._crit_edge464.i, %.split1067.i, %604
+  %.25.i = phi ptr [ %.28.lcssa.i, %.preheader386.i ], [ %.15508.i, %883 ], [ %937, %936 ], [ %.15508.i, %._crit_edge472.i ], [ %882, %._crit_edge472.thread.i ], [ %.15508.i, %._crit_edge464.i ], [ %754, %._crit_edge464.thread.i ], [ %.15508.i, %.split1067.i ], [ %.15508.i, %604 ], [ %1035, %.lr.ph505.i ]
   %indvars.iv.next770.i = add nuw nsw i64 %indvars.iv769.i, 8
   %1038 = or disjoint i64 %indvars.iv.next770.i, 7
   %1039 = icmp slt i64 %1038, %572
@@ -5912,9 +5911,9 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1070 = add nsw i64 %indvars.iv773.i, %591
   %1071 = mul nsw i64 %1070, %600
   %1072 = getelementptr inbounds float, ptr %1069, i64 %1071
-  br i1 %602, label %.split1071.i, label %.loopexit384.i
+  br i1 %602, label %.split1068.i, label %.loopexit384.i
 
-.split1071.i:                                     ; preds = %1067
+.split1068.i:                                     ; preds = %1067
   switch i32 %603, label %.loopexit384.i [
     i32 4, label %1073
     i32 3, label %1152
@@ -5922,7 +5921,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
     i32 0, label %1280
   ]
 
-1073:                                             ; preds = %.split1071.i
+1073:                                             ; preds = %.split1068.i
   %1074 = load ptr, ptr %6, align 8, !tbaa !4
   %1075 = getelementptr float, ptr %1074, i64 %1070
   %1076 = load float, ptr %1075, align 4, !tbaa !127
@@ -6016,13 +6015,13 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %585, label %._crit_edge517.thread.i, label %.loopexit384.i
 
 ._crit_edge517.thread.i:                          ; preds = %.lr.ph516.i, %._crit_edge517.i
-  %.32.lcssa889.i = phi ptr [ %.30563.i, %._crit_edge517.i ], [ %1146, %.lr.ph516.i ]
-  %.lcssa397887.i = phi <4 x i32> [ zeroinitializer, %._crit_edge517.i ], [ %1142, %.lr.ph516.i ]
-  store <4 x i32> %.lcssa397887.i, ptr %.32.lcssa889.i, align 16, !tbaa !15
-  %1151 = getelementptr inbounds nuw i8, ptr %.32.lcssa889.i, i64 16
+  %.32.lcssa886.i = phi ptr [ %.30563.i, %._crit_edge517.i ], [ %1146, %.lr.ph516.i ]
+  %.lcssa397884.i = phi <4 x i32> [ zeroinitializer, %._crit_edge517.i ], [ %1142, %.lr.ph516.i ]
+  store <4 x i32> %.lcssa397884.i, ptr %.32.lcssa886.i, align 16, !tbaa !15
+  %1151 = getelementptr inbounds nuw i8, ptr %.32.lcssa886.i, i64 16
   br label %.loopexit384.i
 
-1152:                                             ; preds = %.split1071.i
+1152:                                             ; preds = %.split1068.i
   %1153 = load ptr, ptr %6, align 8, !tbaa !4
   %1154 = getelementptr float, ptr %1153, i64 %1070
   %1155 = load float, ptr %1154, align 4, !tbaa !127
@@ -6106,13 +6105,13 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %585, label %._crit_edge526.thread.i, label %.loopexit384.i
 
 ._crit_edge526.thread.i:                          ; preds = %.lr.ph525.i, %._crit_edge526.i
-  %.35.lcssa899.i = phi ptr [ %.30563.i, %._crit_edge526.i ], [ %1217, %.lr.ph525.i ]
-  %.lcssa398897.i = phi <4 x i32> [ zeroinitializer, %._crit_edge526.i ], [ %1215, %.lr.ph525.i ]
-  store <4 x i32> %.lcssa398897.i, ptr %.35.lcssa899.i, align 16, !tbaa !15
-  %1222 = getelementptr inbounds nuw i8, ptr %.35.lcssa899.i, i64 16
+  %.35.lcssa896.i = phi ptr [ %.30563.i, %._crit_edge526.i ], [ %1217, %.lr.ph525.i ]
+  %.lcssa398894.i = phi <4 x i32> [ zeroinitializer, %._crit_edge526.i ], [ %1215, %.lr.ph525.i ]
+  store <4 x i32> %.lcssa398894.i, ptr %.35.lcssa896.i, align 16, !tbaa !15
+  %1222 = getelementptr inbounds nuw i8, ptr %.35.lcssa896.i, i64 16
   br label %.loopexit384.i
 
-1223:                                             ; preds = %.split1071.i
+1223:                                             ; preds = %.split1068.i
   %1224 = load ptr, ptr %6, align 8, !tbaa !4
   %1225 = getelementptr float, ptr %1224, i64 %1070
   %1226 = load float, ptr %1225, align 4, !tbaa !127
@@ -6181,7 +6180,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1279 = getelementptr inbounds nuw i8, ptr %.38532.i, i64 32
   br label %.loopexit384.i
 
-1280:                                             ; preds = %.split1071.i
+1280:                                             ; preds = %.split1068.i
   %1281 = load ptr, ptr %6, align 8, !tbaa !4
   %1282 = getelementptr inbounds float, ptr %1281, i64 %591
   %1283 = getelementptr inbounds nuw float, ptr %1282, i64 %indvars.iv773.i
@@ -6239,24 +6238,24 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br label %._crit_edge544.i
 
 ._crit_edge544.i:                                 ; preds = %1323, %1280
-  %.61102.lcssa922.i = phi ptr [ %1319, %1323 ], [ %1072, %1280 ]
-  %.01117.lcssa919.i = phi i32 [ %597, %1323 ], [ 0, %1280 ]
+  %.61102.lcssa919.i = phi ptr [ %1319, %1323 ], [ %1072, %1280 ]
+  %.01117.lcssa916.i = phi i32 [ %597, %1323 ], [ 0, %1280 ]
   %.42.i = phi ptr [ %1324, %1323 ], [ %.30563.i, %1280 ]
-  %1325 = or disjoint i32 %.01117.lcssa919.i, 1
+  %1325 = or disjoint i32 %.01117.lcssa916.i, 1
   %1326 = icmp slt i32 %1325, %5
   br i1 %1326, label %.lr.ph553.i, label %.preheader383.i
 
 .preheader383.i:                                  ; preds = %.lr.ph553.i, %._crit_edge544.i
-  %.11118.lcssa.i = phi i32 [ %.01117.lcssa919.i, %._crit_edge544.i ], [ %1349, %.lr.ph553.i ]
-  %.71103.lcssa.i = phi ptr [ %.61102.lcssa922.i, %._crit_edge544.i ], [ %1348, %.lr.ph553.i ]
+  %.11118.lcssa.i = phi i32 [ %.01117.lcssa916.i, %._crit_edge544.i ], [ %1349, %.lr.ph553.i ]
+  %.71103.lcssa.i = phi ptr [ %.61102.lcssa919.i, %._crit_edge544.i ], [ %1348, %.lr.ph553.i ]
   %.43.lcssa.i = phi ptr [ %.42.i, %._crit_edge544.i ], [ %1347, %.lr.ph553.i ]
   %1327 = icmp slt i32 %.11118.lcssa.i, %5
   br i1 %1327, label %.lr.ph560.i, label %.loopexit384.i
 
 .lr.ph553.i:                                      ; preds = %._crit_edge544.i, %.lr.ph553.i
   %.43551.i = phi ptr [ %1347, %.lr.ph553.i ], [ %.42.i, %._crit_edge544.i ]
-  %.71103550.i = phi ptr [ %1348, %.lr.ph553.i ], [ %.61102.lcssa922.i, %._crit_edge544.i ]
-  %.11118549.i = phi i32 [ %1349, %.lr.ph553.i ], [ %.01117.lcssa919.i, %._crit_edge544.i ]
+  %.71103550.i = phi ptr [ %1348, %.lr.ph553.i ], [ %.61102.lcssa919.i, %._crit_edge544.i ]
+  %.11118549.i = phi i32 [ %1349, %.lr.ph553.i ], [ %.01117.lcssa916.i, %._crit_edge544.i ]
   %1328 = load <4 x float>, ptr %.71103550.i, align 1, !tbaa !15
   %1329 = getelementptr inbounds float, ptr %.71103550.i, i64 %592
   %1330 = load <4 x float>, ptr %1329, align 1, !tbaa !15
@@ -6306,8 +6305,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %exitcond772.not.i = icmp eq i32 %1365, %5
   br i1 %exitcond772.not.i, label %.loopexit384.i, label %.lr.ph560.i, !llvm.loop !155
 
-.loopexit384.i:                                   ; preds = %.lr.ph560.i, %.preheader383.i, %1278, %1223, %._crit_edge526.thread.i, %._crit_edge526.i, %._crit_edge517.thread.i, %._crit_edge517.i, %.split1071.i, %1067
-  %.40.i = phi ptr [ %.43.lcssa.i, %.preheader383.i ], [ %.30563.i, %1223 ], [ %1279, %1278 ], [ %.30563.i, %._crit_edge526.i ], [ %1222, %._crit_edge526.thread.i ], [ %.30563.i, %._crit_edge517.i ], [ %1151, %._crit_edge517.thread.i ], [ %.30563.i, %.split1071.i ], [ %.30563.i, %1067 ], [ %1363, %.lr.ph560.i ]
+.loopexit384.i:                                   ; preds = %.lr.ph560.i, %.preheader383.i, %1278, %1223, %._crit_edge526.thread.i, %._crit_edge526.i, %._crit_edge517.thread.i, %._crit_edge517.i, %.split1068.i, %1067
+  %.40.i = phi ptr [ %.43.lcssa.i, %.preheader383.i ], [ %.30563.i, %1223 ], [ %1279, %1278 ], [ %.30563.i, %._crit_edge526.i ], [ %1222, %._crit_edge526.thread.i ], [ %.30563.i, %._crit_edge517.i ], [ %1151, %._crit_edge517.thread.i ], [ %.30563.i, %.split1068.i ], [ %.30563.i, %1067 ], [ %1363, %.lr.ph560.i ]
   %indvars.iv.next774.i = add nuw nsw i64 %indvars.iv773.i, 4
   %1366 = or disjoint i64 %indvars.iv.next774.i, 3
   %1367 = icmp slt i64 %1366, %599
@@ -6357,9 +6356,9 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1395 = add nsw i64 %indvars.iv777.i, %1062
   %1396 = mul nsw i64 %1395, %1063
   %1397 = getelementptr inbounds float, ptr %1394, i64 %1396
-  br i1 %1065, label %.split1072.i, label %.loopexit381.i
+  br i1 %1065, label %.split1069.i, label %.loopexit381.i
 
-.split1072.i:                                     ; preds = %1392
+.split1069.i:                                     ; preds = %1392
   switch i32 %1066, label %.loopexit381.i [
     i32 4, label %1398
     i32 3, label %1444
@@ -6367,7 +6366,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
     i32 0, label %1549
   ]
 
-1398:                                             ; preds = %.split1072.i
+1398:                                             ; preds = %.split1069.i
   %1399 = load ptr, ptr %6, align 8, !tbaa !4
   %1400 = getelementptr float, ptr %1399, i64 %1395
   %1401 = load float, ptr %1400, align 4, !tbaa !127
@@ -6425,16 +6424,16 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %1048, label %1439, label %.loopexit381.i
 
 1439:                                             ; preds = %._crit_edge572.i, %._crit_edge572.thread.i
-  %.47.lcssa930.i = phi ptr [ %1433, %._crit_edge572.thread.i ], [ %.45624.i, %._crit_edge572.i ]
-  %.lcssa928.i = phi <4 x i32> [ %1438, %._crit_edge572.thread.i ], [ zeroinitializer, %._crit_edge572.i ]
-  %1440 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %.lcssa928.i, <4 x i32> %.lcssa928.i)
+  %.47.lcssa927.i = phi ptr [ %1433, %._crit_edge572.thread.i ], [ %.45624.i, %._crit_edge572.i ]
+  %.lcssa925.i = phi <4 x i32> [ %1438, %._crit_edge572.thread.i ], [ zeroinitializer, %._crit_edge572.i ]
+  %1440 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %.lcssa925.i, <4 x i32> %.lcssa925.i)
   %1441 = bitcast <4 x i32> %1440 to <2 x i64>
   %1442 = extractelement <2 x i64> %1441, i64 0
-  store i64 %1442, ptr %.47.lcssa930.i, align 1, !tbaa !15
-  %1443 = getelementptr inbounds nuw i8, ptr %.47.lcssa930.i, i64 8
+  store i64 %1442, ptr %.47.lcssa927.i, align 1, !tbaa !15
+  %1443 = getelementptr inbounds nuw i8, ptr %.47.lcssa927.i, i64 8
   br label %.loopexit381.i
 
-1444:                                             ; preds = %.split1072.i
+1444:                                             ; preds = %.split1069.i
   %1445 = load ptr, ptr %6, align 8, !tbaa !4
   %1446 = getelementptr float, ptr %1445, i64 %1395
   %1447 = load float, ptr %1446, align 4, !tbaa !127
@@ -6489,16 +6488,16 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %1048, label %1483, label %.loopexit381.i
 
 1483:                                             ; preds = %._crit_edge581.i, %._crit_edge581.thread.i
-  %.50.lcssa940.i = phi ptr [ %1477, %._crit_edge581.thread.i ], [ %.45624.i, %._crit_edge581.i ]
-  %.lcssa396938.i = phi <4 x i32> [ %1482, %._crit_edge581.thread.i ], [ zeroinitializer, %._crit_edge581.i ]
-  %1484 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %.lcssa396938.i, <4 x i32> %.lcssa396938.i)
+  %.50.lcssa937.i = phi ptr [ %1477, %._crit_edge581.thread.i ], [ %.45624.i, %._crit_edge581.i ]
+  %.lcssa396935.i = phi <4 x i32> [ %1482, %._crit_edge581.thread.i ], [ zeroinitializer, %._crit_edge581.i ]
+  %1484 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %.lcssa396935.i, <4 x i32> %.lcssa396935.i)
   %1485 = bitcast <4 x i32> %1484 to <2 x i64>
   %1486 = extractelement <2 x i64> %1485, i64 0
-  store i64 %1486, ptr %.50.lcssa940.i, align 1, !tbaa !15
-  %1487 = getelementptr inbounds nuw i8, ptr %.50.lcssa940.i, i64 8
+  store i64 %1486, ptr %.50.lcssa937.i, align 1, !tbaa !15
+  %1487 = getelementptr inbounds nuw i8, ptr %.50.lcssa937.i, i64 8
   br label %.loopexit381.i
 
-1488:                                             ; preds = %.split1072.i
+1488:                                             ; preds = %.split1069.i
   %1489 = load ptr, ptr %6, align 8, !tbaa !4
   %1490 = getelementptr float, ptr %1489, i64 %1395
   %1491 = load float, ptr %1490, align 4, !tbaa !127
@@ -6534,9 +6533,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1513 = bitcast <16 x i8> %1512 to <2 x i64>
   %1514 = extractelement <2 x i64> %1513, i64 0
   store i64 %1514, ptr %.53589.i, align 8, !tbaa !111
-  %1515 = trunc i64 %1514 to i32
-  %sext.i = shl i32 %1515, 24
-  %1516 = ashr exact i32 %sext.i, 24
+  %1515 = trunc i64 %1514 to i8
+  %1516 = sext i8 %1515 to i32
   %1517 = extractelement <16 x i8> %1512, i64 1
   %1518 = sext i8 %1517 to i32
   %1519 = extractelement <16 x i8> %1512, i64 2
@@ -6575,7 +6573,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1548 = getelementptr inbounds nuw i8, ptr %.53589.i, i64 16
   br label %.loopexit381.i
 
-1549:                                             ; preds = %.split1072.i
+1549:                                             ; preds = %.split1069.i
   %1550 = load ptr, ptr %6, align 8, !tbaa !4
   %1551 = getelementptr float, ptr %1550, i64 %1395
   %1552 = load float, ptr %1551, align 4, !tbaa !127
@@ -6628,9 +6626,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1591 = bitcast <16 x i8> %1590 to <2 x i64>
   %1592 = extractelement <2 x i64> %1591, i64 0
   store i64 %1592, ptr %.56601.i, align 8, !tbaa !111
-  %1593 = trunc i64 %1592 to i32
-  %sext800.i = shl i32 %1593, 24
-  %1594 = ashr exact i32 %sext800.i, 24
+  %1593 = trunc i64 %1592 to i8
+  %1594 = sext i8 %1593 to i32
   %1595 = extractelement <16 x i8> %1590, i64 1
   %1596 = sext i8 %1595 to i32
   %1597 = extractelement <16 x i8> %1590, i64 2
@@ -6670,24 +6667,24 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br label %._crit_edge604.i
 
 ._crit_edge604.i:                                 ; preds = %1622, %1549
-  %.61126.lcssa963.i = phi ptr [ %1618, %1622 ], [ %1397, %1549 ]
-  %.01129.lcssa961.i = phi i32 [ %1059, %1622 ], [ 0, %1549 ]
+  %.61126.lcssa960.i = phi ptr [ %1618, %1622 ], [ %1397, %1549 ]
+  %.01129.lcssa958.i = phi i32 [ %1059, %1622 ], [ 0, %1549 ]
   %.57.i = phi ptr [ %1626, %1622 ], [ %.45624.i, %1549 ]
-  %1627 = or disjoint i32 %.01129.lcssa961.i, 1
+  %1627 = or disjoint i32 %.01129.lcssa958.i, 1
   %1628 = icmp slt i32 %1627, %5
   br i1 %1628, label %.lr.ph614.i, label %.preheader380.i
 
 .preheader380.i:                                  ; preds = %.lr.ph614.i, %._crit_edge604.i
-  %.11130.lcssa.i = phi i32 [ %.01129.lcssa961.i, %._crit_edge604.i ], [ %1650, %.lr.ph614.i ]
-  %.71127.lcssa.i = phi ptr [ %.61126.lcssa963.i, %._crit_edge604.i ], [ %1649, %.lr.ph614.i ]
+  %.11130.lcssa.i = phi i32 [ %.01129.lcssa958.i, %._crit_edge604.i ], [ %1650, %.lr.ph614.i ]
+  %.71127.lcssa.i = phi ptr [ %.61126.lcssa960.i, %._crit_edge604.i ], [ %1649, %.lr.ph614.i ]
   %.58.lcssa.i = phi ptr [ %.57.i, %._crit_edge604.i ], [ %1648, %.lr.ph614.i ]
   %1629 = icmp slt i32 %.11130.lcssa.i, %5
   br i1 %1629, label %.lr.ph621.i, label %.loopexit381.i
 
 .lr.ph614.i:                                      ; preds = %._crit_edge604.i, %.lr.ph614.i
   %.58612.i = phi ptr [ %1648, %.lr.ph614.i ], [ %.57.i, %._crit_edge604.i ]
-  %.71127611.i = phi ptr [ %1649, %.lr.ph614.i ], [ %.61126.lcssa963.i, %._crit_edge604.i ]
-  %.11130610.i = phi i32 [ %1650, %.lr.ph614.i ], [ %.01129.lcssa961.i, %._crit_edge604.i ]
+  %.71127611.i = phi ptr [ %1649, %.lr.ph614.i ], [ %.61126.lcssa960.i, %._crit_edge604.i ]
+  %.11130610.i = phi i32 [ %1650, %.lr.ph614.i ], [ %.01129.lcssa958.i, %._crit_edge604.i ]
   %1630 = load i64, ptr %.71127611.i, align 1, !tbaa !15
   %1631 = insertelement <2 x i64> poison, i64 %1630, i64 0
   %1632 = bitcast <2 x i64> %1631 to <4 x float>
@@ -6742,8 +6739,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %exitcond776.not.i = icmp eq i32 %1665, %5
   br i1 %exitcond776.not.i, label %.loopexit381.i, label %.lr.ph621.i, !llvm.loop !162
 
-.loopexit381.i:                                   ; preds = %.lr.ph621.i, %.preheader380.i, %1544, %1488, %1483, %._crit_edge581.i, %1439, %._crit_edge572.i, %.split1072.i, %1392
-  %.55.i = phi ptr [ %.58.lcssa.i, %.preheader380.i ], [ %.45624.i, %1488 ], [ %1548, %1544 ], [ %.45624.i, %._crit_edge581.i ], [ %1487, %1483 ], [ %.45624.i, %._crit_edge572.i ], [ %1443, %1439 ], [ %.45624.i, %.split1072.i ], [ %.45624.i, %1392 ], [ %1663, %.lr.ph621.i ]
+.loopexit381.i:                                   ; preds = %.lr.ph621.i, %.preheader380.i, %1544, %1488, %1483, %._crit_edge581.i, %1439, %._crit_edge572.i, %.split1069.i, %1392
+  %.55.i = phi ptr [ %.58.lcssa.i, %.preheader380.i ], [ %.45624.i, %1488 ], [ %1548, %1544 ], [ %.45624.i, %._crit_edge581.i ], [ %1487, %1483 ], [ %.45624.i, %._crit_edge572.i ], [ %1443, %1439 ], [ %.45624.i, %.split1069.i ], [ %.45624.i, %1392 ], [ %1663, %.lr.ph621.i ]
   %indvars.iv.next778.i = add nuw nsw i64 %indvars.iv777.i, 2
   %1666 = or disjoint i64 %indvars.iv.next778.i, 1
   %1667 = icmp slt i64 %1666, %1061
@@ -6760,9 +6757,9 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1674 = load ptr, ptr %6, align 8, !tbaa !4
   %1675 = getelementptr inbounds nuw float, ptr %1674, i64 %1671
   %1676 = load float, ptr %1675, align 4, !tbaa !127
-  br i1 %1390, label %.split1073.i, label %.loopexit.i
+  br i1 %1390, label %.split1070.i, label %.loopexit.i
 
-.split1073.i:                                     ; preds = %1668
+.split1070.i:                                     ; preds = %1668
   switch i32 %1391, label %.loopexit.i [
     i32 4, label %1677
     i32 3, label %1701
@@ -6770,7 +6767,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
     i32 0, label %1778
   ]
 
-1677:                                             ; preds = %.split1073.i
+1677:                                             ; preds = %.split1070.i
   %1678 = insertelement <16 x float> poison, float %1676, i64 0
   %1679 = shufflevector <16 x float> %1678, <16 x float> poison, <16 x i32> zeroinitializer
   br i1 %1372, label %.lr.ph633.i, label %._crit_edge634.i
@@ -6800,18 +6797,18 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %1375, label %._crit_edge634.thread.i, label %.loopexit.i
 
 ._crit_edge634.thread.i:                          ; preds = %.lr.ph633.i, %._crit_edge634.i
-  %.62.lcssa973.i = phi ptr [ %.60676.i, %._crit_edge634.i ], [ %1689, %.lr.ph633.i ]
+  %.62.lcssa970.i = phi ptr [ %.60676.i, %._crit_edge634.i ], [ %1689, %.lr.ph633.i ]
   %1694 = phi <4 x i32> [ zeroinitializer, %._crit_edge634.i ], [ %1688, %.lr.ph633.i ]
   %1695 = shufflevector <4 x i32> %1694, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
   %1696 = add <4 x i32> %1695, %1694
   %1697 = shufflevector <4 x i32> %1696, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %1698 = add <4 x i32> %1697, %1696
   %1699 = extractelement <4 x i32> %1698, i64 0
-  store i32 %1699, ptr %.62.lcssa973.i, align 4, !tbaa !30
-  %1700 = getelementptr inbounds nuw i8, ptr %.62.lcssa973.i, i64 4
+  store i32 %1699, ptr %.62.lcssa970.i, align 4, !tbaa !30
+  %1700 = getelementptr inbounds nuw i8, ptr %.62.lcssa970.i, i64 4
   br label %.loopexit.i
 
-1701:                                             ; preds = %.split1073.i
+1701:                                             ; preds = %.split1070.i
   %1702 = insertelement <8 x float> poison, float %1676, i64 0
   %1703 = shufflevector <8 x float> %1702, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %1376, label %.lr.ph643.i, label %._crit_edge644.i
@@ -6831,9 +6828,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1711 = bitcast <16 x i8> %1710 to <2 x i64>
   %1712 = extractelement <2 x i64> %1711, i64 0
   store i64 %1712, ptr %.65641.i, align 8, !tbaa !111
-  %1713 = trunc i64 %1712 to i32
-  %sext801.i = shl i32 %1713, 24
-  %1714 = ashr exact i32 %sext801.i, 24
+  %1713 = trunc i64 %1712 to i8
+  %1714 = sext i8 %1713 to i32
   %1715 = extractelement <16 x i8> %1710, i64 1
   %1716 = sext i8 %1715 to i32
   %1717 = extractelement <16 x i8> %1710, i64 2
@@ -6871,13 +6867,13 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br i1 %1375, label %1743, label %.loopexit.i
 
 1743:                                             ; preds = %._crit_edge644.i, %._crit_edge644.thread.i
-  %.65.lcssa983.i = phi ptr [ %1737, %._crit_edge644.thread.i ], [ %.60676.i, %._crit_edge644.i ]
-  %.01057.lcssa982.i = phi i32 [ %1742, %._crit_edge644.thread.i ], [ 0, %._crit_edge644.i ]
-  store i32 %.01057.lcssa982.i, ptr %.65.lcssa983.i, align 4, !tbaa !30
-  %1744 = getelementptr inbounds nuw i8, ptr %.65.lcssa983.i, i64 4
+  %.65.lcssa980.i = phi ptr [ %1737, %._crit_edge644.thread.i ], [ %.60676.i, %._crit_edge644.i ]
+  %.01057.lcssa979.i = phi i32 [ %1742, %._crit_edge644.thread.i ], [ 0, %._crit_edge644.i ]
+  store i32 %.01057.lcssa979.i, ptr %.65.lcssa980.i, align 4, !tbaa !30
+  %1744 = getelementptr inbounds nuw i8, ptr %.65.lcssa980.i, i64 4
   br label %.loopexit.i
 
-1745:                                             ; preds = %.split1073.i
+1745:                                             ; preds = %.split1070.i
   %1746 = insertelement <4 x float> poison, float %1676, i64 0
   %1747 = shufflevector <4 x float> %1746, <4 x float> poison, <4 x i32> zeroinitializer
   br i1 %1375, label %.lr.ph653.i, label %.loopexit.i
@@ -6899,8 +6895,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1757 = bitcast <16 x i8> %1756 to <4 x i32>
   %1758 = extractelement <4 x i32> %1757, i64 0
   store i32 %1758, ptr %.68651.i, align 4, !tbaa !30
-  %sext802.i = shl i32 %1758, 24
-  %1759 = ashr exact i32 %sext802.i, 24
+  %sext.i = shl i32 %1758, 24
+  %1759 = ashr exact i32 %sext.i, 24
   %1760 = extractelement <16 x i8> %1756, i64 1
   %1761 = sext i8 %1760 to i32
   %1762 = extractelement <16 x i8> %1756, i64 2
@@ -6924,7 +6920,7 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1777 = getelementptr inbounds nuw i8, ptr %.68651.i, i64 8
   br label %.loopexit.i
 
-1778:                                             ; preds = %.split1073.i
+1778:                                             ; preds = %.split1070.i
   %1779 = insertelement <4 x float> poison, float %1676, i64 0
   %1780 = shufflevector <4 x float> %1779, <4 x float> poison, <4 x i32> zeroinitializer
   br i1 %1375, label %.lr.ph663.i, label %._crit_edge664.i
@@ -6946,8 +6942,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %1790 = bitcast <16 x i8> %1789 to <4 x i32>
   %1791 = extractelement <4 x i32> %1790, i64 0
   store i32 %1791, ptr %.71661.i, align 4, !tbaa !30
-  %sext803.i = shl i32 %1791, 24
-  %1792 = ashr exact i32 %sext803.i, 24
+  %sext800.i = shl i32 %1791, 24
+  %1792 = ashr exact i32 %sext800.i, 24
   %1793 = extractelement <16 x i8> %1789, i64 1
   %1794 = sext i8 %1793 to i32
   %1795 = extractelement <16 x i8> %1789, i64 2
@@ -6972,16 +6968,16 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   br label %._crit_edge664.i
 
 ._crit_edge664.i:                                 ; preds = %1808, %1778
-  %.01044.lcssa1003.i = phi i32 [ %1385, %1808 ], [ 0, %1778 ]
-  %.61088.lcssa1001.i = phi ptr [ %1804, %1808 ], [ %1673, %1778 ]
+  %.01044.lcssa1000.i = phi i32 [ %1385, %1808 ], [ 0, %1778 ]
+  %.61088.lcssa998.i = phi ptr [ %1804, %1808 ], [ %1673, %1778 ]
   %.72.i = phi ptr [ %1810, %1808 ], [ %.60676.i, %1778 ]
-  %1811 = icmp slt i32 %.01044.lcssa1003.i, %5
+  %1811 = icmp slt i32 %.01044.lcssa1000.i, %5
   br i1 %1811, label %.lr.ph673.i, label %.loopexit.i
 
 .lr.ph673.i:                                      ; preds = %._crit_edge664.i, %.lr.ph673.i
   %.73671.i = phi ptr [ %1816, %.lr.ph673.i ], [ %.72.i, %._crit_edge664.i ]
-  %.11045670.i = phi i32 [ %1818, %.lr.ph673.i ], [ %.01044.lcssa1003.i, %._crit_edge664.i ]
-  %.71089669.i = phi ptr [ %1817, %.lr.ph673.i ], [ %.61088.lcssa1001.i, %._crit_edge664.i ]
+  %.11045670.i = phi i32 [ %1818, %.lr.ph673.i ], [ %.01044.lcssa1000.i, %._crit_edge664.i ]
+  %.71089669.i = phi ptr [ %1817, %.lr.ph673.i ], [ %.61088.lcssa998.i, %._crit_edge664.i ]
   %1812 = load float, ptr %.71089669.i, align 4, !tbaa !127
   %1813 = fmul fast float %1812, %1676
   %1814 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %1813)
@@ -6996,8 +6992,8 @@ define hidden void @_ZN4ncnn45transpose_pack_A_tile_fp32_to_int8_avx512vnniERKNS
   %exitcond780.not.i = icmp eq i32 %1818, %5
   br i1 %exitcond780.not.i, label %.loopexit.i, label %.lr.ph673.i, !llvm.loop !168
 
-.loopexit.i:                                      ; preds = %.lr.ph673.i, %._crit_edge664.i, %1775, %1745, %1743, %._crit_edge644.i, %._crit_edge634.thread.i, %._crit_edge634.i, %.split1073.i, %1668
-  %.70.i = phi ptr [ %.72.i, %._crit_edge664.i ], [ %.60676.i, %1745 ], [ %1777, %1775 ], [ %.60676.i, %._crit_edge644.i ], [ %1744, %1743 ], [ %.60676.i, %._crit_edge634.i ], [ %1700, %._crit_edge634.thread.i ], [ %.60676.i, %.split1073.i ], [ %.60676.i, %1668 ], [ %1816, %.lr.ph673.i ]
+.loopexit.i:                                      ; preds = %.lr.ph673.i, %._crit_edge664.i, %1775, %1745, %1743, %._crit_edge644.i, %._crit_edge634.thread.i, %._crit_edge634.i, %.split1070.i, %1668
+  %.70.i = phi ptr [ %.72.i, %._crit_edge664.i ], [ %.60676.i, %1745 ], [ %1777, %1775 ], [ %.60676.i, %._crit_edge644.i ], [ %1744, %1743 ], [ %.60676.i, %._crit_edge634.i ], [ %1700, %._crit_edge634.thread.i ], [ %.60676.i, %.split1070.i ], [ %.60676.i, %1668 ], [ %1816, %.lr.ph673.i ]
   %indvars.iv.next782.i = add nsw i64 %indvars.iv781.i, 1
   %exitcond784.not.i = icmp eq i64 %indvars.iv.next782.i, %wide.trip.count.i
   br i1 %exitcond784.not.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %1668, !llvm.loop !169

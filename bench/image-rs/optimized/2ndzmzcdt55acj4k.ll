@@ -28713,13 +28713,13 @@ define noundef i8 @_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0f
   %7 = load i32, ptr %6, align 4, !noundef !15
   switch i32 %7, label %8 [
     i32 1, label %9
-    i32 2, label %13
-    i32 3, label %26
-    i32 4, label %31
-    i32 5, label %36
-    i32 6, label %41
-    i32 7, label %17
-    i32 8, label %23
+    i32 2, label %12
+    i32 3, label %25
+    i32 4, label %30
+    i32 5, label %35
+    i32 6, label %40
+    i32 7, label %16
+    i32 8, label %22
   ]
 
 8:                                                ; preds = %2
@@ -28727,60 +28727,59 @@ define noundef i8 @_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0f
   unreachable
 
 9:                                                ; preds = %2
-  %10 = trunc i32 %5 to i8
-  %11 = and i8 %10, 1
-  %12 = sub nsw i8 0, %11
-  br label %25
+  %10 = trunc i32 %5 to i1
+  %11 = sext i1 %10 to i8
+  br label %24
 
-13:                                               ; preds = %2
-  %14 = trunc i32 %5 to i8
-  %15 = and i8 %14, 3
-  %16 = mul nuw i8 %15, 85
-  br label %25
+12:                                               ; preds = %2
+  %13 = trunc i32 %5 to i8
+  %14 = and i8 %13, 3
+  %15 = mul nuw i8 %14, 85
+  br label %24
 
-17:                                               ; preds = %2
-  %18 = and i32 %5, 127
-  %19 = shl nuw nsw i32 %18, 1
-  %20 = lshr i32 %18, 6
-  %21 = or disjoint i32 %19, %20
-  %22 = trunc nuw i32 %21 to i8
-  br label %25
+16:                                               ; preds = %2
+  %17 = and i32 %5, 127
+  %18 = shl nuw nsw i32 %17, 1
+  %19 = lshr i32 %17, 6
+  %20 = or disjoint i32 %18, %19
+  %21 = trunc nuw i32 %20 to i8
+  br label %24
 
-23:                                               ; preds = %2
-  %24 = trunc i32 %5 to i8
-  br label %25
+22:                                               ; preds = %2
+  %23 = trunc i32 %5 to i8
+  br label %24
 
-25:                                               ; preds = %41, %36, %31, %26, %23, %17, %13, %9
-  %.0 = phi i8 [ %12, %9 ], [ %16, %13 ], [ %30, %26 ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %22, %17 ], [ %24, %23 ]
+24:                                               ; preds = %40, %35, %30, %25, %22, %16, %12, %9
+  %.0 = phi i8 [ %11, %9 ], [ %15, %12 ], [ %29, %25 ], [ %34, %30 ], [ %39, %35 ], [ %44, %40 ], [ %21, %16 ], [ %23, %22 ]
   ret i8 %.0
 
-26:                                               ; preds = %2
-  %27 = and i32 %5, 7
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %28
-  %30 = load i8, ptr %29, align 1, !noundef !15
-  br label %25
+25:                                               ; preds = %2
+  %26 = and i32 %5, 7
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %27
+  %29 = load i8, ptr %28, align 1, !noundef !15
+  br label %24
 
-31:                                               ; preds = %2
-  %32 = and i32 %5, 15
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %33
-  %35 = load i8, ptr %34, align 1, !noundef !15
-  br label %25
+30:                                               ; preds = %2
+  %31 = and i32 %5, 15
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %32
+  %34 = load i8, ptr %33, align 1, !noundef !15
+  br label %24
 
-36:                                               ; preds = %2
-  %37 = and i32 %5, 31
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %38
-  %40 = load i8, ptr %39, align 1, !noundef !15
-  br label %25
+35:                                               ; preds = %2
+  %36 = and i32 %5, 31
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %37
+  %39 = load i8, ptr %38, align 1, !noundef !15
+  br label %24
 
-41:                                               ; preds = %2
-  %42 = and i32 %5, 63
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %43
-  %45 = load i8, ptr %44, align 1, !noundef !15
-  br label %25
+40:                                               ; preds = %2
+  %41 = and i32 %5, 63
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %42
+  %44 = load i8, ptr %43, align 1, !noundef !15
+  br label %24
 }
 
 ; Function Attrs: nonlazybind uwtable

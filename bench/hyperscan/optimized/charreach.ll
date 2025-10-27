@@ -156,7 +156,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr nound
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %15 = add nuw nsw i64 %11, %14
   %.not = icmp eq i64 %15, 2
-  br i1 %.not, label %.preheader, label %47
+  br i1 %.not, label %.preheader, label %45
 
 .preheader:                                       ; preds = %1, %18
   %.0712.i.i = phi i64 [ %19, %18 ], [ 0, %1 ]
@@ -216,20 +216,17 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %18, %30, %_ZNK3ue29CharReach10find_firstEv.exit, %27, %34
   %38 = phi i64 [ %22, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %22, %27 ], [ %22, %34 ], [ %22, %30 ], [ 256, %18 ]
   %.016.i.i = phi i64 [ 256, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %29, %27 ], [ %37, %34 ], [ 256, %30 ], [ 256, %18 ]
-  %39 = trunc i64 %38 to i32
-  %sext = shl i32 %39, 24
-  %40 = ashr exact i32 %sext, 24
-  %41 = trunc i64 %.016.i.i to i8
-  %42 = add i8 %41, -123
-  %43 = icmp ult i8 %42, -26
-  %44 = add i8 %41, -32
-  %.0.i = select i1 %43, i8 %41, i8 %44
-  %45 = sext i8 %.0.i to i32
-  %46 = icmp eq i32 %40, %45
-  br label %47
+  %39 = trunc i64 %38 to i8
+  %40 = trunc i64 %.016.i.i to i8
+  %41 = add i8 %40, -123
+  %42 = icmp ult i8 %41, -26
+  %43 = add i8 %40, -32
+  %.0.i = select i1 %42, i8 %40, i8 %43
+  %44 = icmp eq i8 %.0.i, %39
+  br label %45
 
-47:                                               ; preds = %1, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.0 = phi i1 [ %46, %_ZNK3ue29CharReach9find_nextEm.exit ], [ false, %1 ]
+45:                                               ; preds = %1, %_ZNK3ue29CharReach9find_nextEm.exit
+  %.0 = phi i1 [ %44, %_ZNK3ue29CharReach9find_nextEm.exit ], [ false, %1 ]
   ret i1 %.0
 }
 
