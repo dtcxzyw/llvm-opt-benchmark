@@ -280,29 +280,17 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %128
   %138 = phi ptr [ %129, %128 ], [ %131, %.lr.ph ]
+  %.pre129 = load i32, ptr %138, align 4, !tbaa !11
   switch i32 %.sink, label %._crit_edge.unreachabledefault [
-    i32 10, label %.preheader.preheader
-    i32 12, label %.preheader102.preheader
-    i32 14, label %.preheader104.preheader
-    i32 8, label %.loopexit
+    i32 10, label %.preheader
+    i32 12, label %.preheader102
+    i32 14, label %.preheader104
   ]
 
-.preheader104.preheader:                          ; preds = %._crit_edge
-  %.pre = load i32, ptr %138, align 4, !tbaa !11
-  br label %.preheader104
-
-.preheader102.preheader:                          ; preds = %._crit_edge
-  %.pre128 = load i32, ptr %138, align 4, !tbaa !11
-  br label %.preheader102
-
-.preheader.preheader:                             ; preds = %._crit_edge
-  %.pre129 = load i32, ptr %138, align 4, !tbaa !11
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %139 = phi i32 [ %.pre129, %.preheader.preheader ], [ %173, %.preheader ]
-  %indvars.iv124 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next125, %.preheader ]
-  %.0112 = phi ptr [ %138, %.preheader.preheader ], [ %174, %.preheader ]
+.preheader:                                       ; preds = %._crit_edge, %.preheader
+  %139 = phi i32 [ %173, %.preheader ], [ %.pre129, %._crit_edge ]
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.preheader ], [ 0, %._crit_edge ]
+  %.0112 = phi ptr [ %174, %.preheader ], [ %138, %._crit_edge ]
   %140 = getelementptr inbounds nuw i32, ptr @_ZL4RCON, i64 %indvars.iv124
   %141 = load i32, ptr %140, align 4, !tbaa !11
   %142 = xor i32 %141, %139
@@ -356,10 +344,10 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 10
   br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
-.preheader102:                                    ; preds = %.preheader102.preheader, %.preheader102
-  %185 = phi i32 [ %.pre128, %.preheader102.preheader ], [ %219, %.preheader102 ]
-  %indvars.iv120 = phi i64 [ 0, %.preheader102.preheader ], [ %indvars.iv.next121, %.preheader102 ]
-  %.1110 = phi ptr [ %138, %.preheader102.preheader ], [ %220, %.preheader102 ]
+.preheader102:                                    ; preds = %._crit_edge, %.preheader102
+  %185 = phi i32 [ %219, %.preheader102 ], [ %.pre129, %._crit_edge ]
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.preheader102 ], [ 0, %._crit_edge ]
+  %.1110 = phi ptr [ %220, %.preheader102 ], [ %138, %._crit_edge ]
   %186 = getelementptr inbounds nuw i32, ptr @_ZL4RCON, i64 %indvars.iv120
   %187 = load i32, ptr %186, align 4, !tbaa !11
   %188 = xor i32 %187, %185
@@ -423,10 +411,10 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 8
   br i1 %exitcond123.not, label %.loopexit, label %.preheader102, !llvm.loop !20
 
-.preheader104:                                    ; preds = %.preheader104.preheader, %.preheader104
-  %239 = phi i32 [ %.pre, %.preheader104.preheader ], [ %273, %.preheader104 ]
-  %indvars.iv116 = phi i64 [ 0, %.preheader104.preheader ], [ %indvars.iv.next117, %.preheader104 ]
-  %.2108 = phi ptr [ %138, %.preheader104.preheader ], [ %274, %.preheader104 ]
+.preheader104:                                    ; preds = %._crit_edge, %.preheader104
+  %239 = phi i32 [ %273, %.preheader104 ], [ %.pre129, %._crit_edge ]
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader104 ], [ 0, %._crit_edge ]
+  %.2108 = phi ptr [ %274, %.preheader104 ], [ %138, %._crit_edge ]
   %240 = getelementptr inbounds nuw i32, ptr @_ZL4RCON, i64 %indvars.iv116
   %241 = load i32, ptr %240, align 4, !tbaa !11
   %242 = xor i32 %241, %239
@@ -531,8 +519,8 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
 ._crit_edge.unreachabledefault:                   ; preds = %._crit_edge
   unreachable
 
-.loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %._crit_edge, %3
-  %.0101 = phi i32 [ -32, %3 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ 0, %.preheader102 ], [ 0, %.preheader104 ]
+.loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %3
+  %.0101 = phi i32 [ -32, %3 ], [ 0, %.preheader ], [ 0, %.preheader102 ], [ 0, %.preheader104 ]
   ret i32 %.0101
 }
 

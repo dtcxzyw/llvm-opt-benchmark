@@ -1551,12 +1551,12 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   call void @Curl_pollfds_init(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 10) #19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = call ptr @Curl_llist_head(ptr noundef nonnull %24) #19
-  %.not105129 = icmp eq ptr %25, null
-  br i1 %.not105129, label %._crit_edge, label %.lr.ph
+  %.not105130 = icmp eq ptr %25, null
+  br i1 %.not105130, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %29
-  %.087130 = phi ptr [ %30, %29 ], [ %25, %23 ]
-  %26 = call ptr @Curl_node_elem(ptr noundef nonnull %.087130) #19
+  %.087131 = phi ptr [ %30, %29 ], [ %25, %23 ]
+  %26 = call ptr @Curl_node_elem(ptr noundef nonnull %.087131) #19
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   call fastcc void @multi_getsock(ptr noundef %26, ptr noundef nonnull %27)
   %28 = call i32 @Curl_pollfds_add_ps(ptr noundef nonnull %11, ptr noundef nonnull %27) #19
@@ -1564,7 +1564,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   br i1 %.not121, label %29, label %.loopexit
 
 29:                                               ; preds = %.lr.ph
-  %30 = call ptr @Curl_node_next(ptr noundef nonnull %.087130) #19
+  %30 = call ptr @Curl_node_next(ptr noundef nonnull %.087131) #19
   %.not105 = icmp eq ptr %30, null
   br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !151
 
@@ -1579,16 +1579,16 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   %35 = load i32, ptr %34, align 8, !tbaa !152
   %36 = zext i32 %2 to i64
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %._crit_edge134, label %.lr.ph133
+  br i1 %.not, label %._crit_edge135, label %.lr.ph134
 
-37:                                               ; preds = %.lr.ph133
-  %38 = add nuw nsw i64 %.076131, 1
+37:                                               ; preds = %.lr.ph134
+  %38 = add nuw nsw i64 %.076132, 1
   %exitcond.not = icmp eq i64 %38, %36
-  br i1 %exitcond.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !155
+  br i1 %exitcond.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !155
 
-.lr.ph133:                                        ; preds = %33, %37
-  %.076131 = phi i64 [ %38, %37 ], [ 0, %33 ]
-  %39 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %1, i64 %.076131
+.lr.ph134:                                        ; preds = %33, %37
+  %.076132 = phi i64 [ %38, %37 ], [ 0, %33 ]
+  %39 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %1, i64 %.076132
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i16, ptr %40, align 4, !tbaa !156
   %.280 = and i16 %41, 7
@@ -1597,10 +1597,10 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   %.not120 = icmp eq i32 %43, 0
   br i1 %.not120, label %37, label %.loopexit
 
-._crit_edge134:                                   ; preds = %37, %33
+._crit_edge135:                                   ; preds = %37, %33
   br i1 %6, label %44, label %49
 
-44:                                               ; preds = %._crit_edge134
+44:                                               ; preds = %._crit_edge135
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %46 = load i32, ptr %45, align 8, !tbaa !28
   %.not107 = icmp eq i32 %46, -1
@@ -1611,7 +1611,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   %.not108 = icmp eq i32 %48, 0
   br i1 %.not108, label %49, label %.loopexit
 
-49:                                               ; preds = %47, %44, %._crit_edge134
+49:                                               ; preds = %47, %44, %._crit_edge135
   call fastcc void @multi_timeout(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %9)
   %50 = load i64, ptr %9, align 8, !tbaa !115
   %51 = icmp sgt i64 %50, -1
@@ -1636,31 +1636,31 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   br i1 %.not110, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %61
-  br i1 %.not, label %._crit_edge137, label %.lr.ph136
+  br i1 %.not, label %._crit_edge138, label %.lr.ph137
 
-.lr.ph136:                                        ; preds = %.preheader
+.lr.ph137:                                        ; preds = %.preheader
   %62 = load ptr, ptr %11, align 8, !tbaa !159
   %63 = zext i32 %35 to i64
   %invariant.gep = getelementptr inbounds nuw %struct.pollfd, ptr %62, i64 %63
   br label %64
 
-64:                                               ; preds = %.lr.ph136, %64
-  %.177135 = phi i64 [ 0, %.lr.ph136 ], [ %69, %64 ]
-  %gep = getelementptr inbounds nuw %struct.pollfd, ptr %invariant.gep, i64 %.177135
+64:                                               ; preds = %.lr.ph137, %64
+  %.177136 = phi i64 [ 0, %.lr.ph137 ], [ %69, %64 ]
+  %gep = getelementptr inbounds nuw %struct.pollfd, ptr %invariant.gep, i64 %.177136
   %65 = getelementptr inbounds nuw i8, ptr %gep, i64 6
   %66 = load i16, ptr %65, align 2, !tbaa !160
   %.2 = and i16 %66, 7
-  %67 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %1, i64 %.177135
+  %67 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %1, i64 %.177136
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6
   store i16 %.2, ptr %68, align 2, !tbaa !162
-  %69 = add nuw nsw i64 %.177135, 1
-  %exitcond140.not = icmp eq i64 %69, %36
-  br i1 %exitcond140.not, label %._crit_edge137, label %64, !llvm.loop !163
+  %69 = add nuw nsw i64 %.177136, 1
+  %exitcond141.not = icmp eq i64 %69, %36
+  br i1 %exitcond141.not, label %._crit_edge138, label %64, !llvm.loop !163
 
-._crit_edge137:                                   ; preds = %64, %.preheader
+._crit_edge138:                                   ; preds = %64, %.preheader
   br i1 %6, label %70, label %.thread
 
-70:                                               ; preds = %._crit_edge137
+70:                                               ; preds = %._crit_edge138
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %72 = load i32, ptr %71, align 8, !tbaa !28
   %.not111 = icmp eq i32 %72, -1
@@ -1706,8 +1706,8 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-.thread:                                          ; preds = %61, %73, %92, %70, %._crit_edge137, %49
-  %.081 = phi i32 [ 0, %49 ], [ 0, %61 ], [ %59, %._crit_edge137 ], [ %59, %70 ], [ %59, %73 ], [ %93, %92 ]
+.thread:                                          ; preds = %61, %73, %92, %70, %._crit_edge138, %49
+  %.081 = phi i32 [ 0, %49 ], [ 0, %61 ], [ %59, %._crit_edge138 ], [ %59, %70 ], [ %59, %73 ], [ %93, %92 ]
   %.not116 = icmp eq ptr %4, null
   br i1 %.not116, label %95, label %94
 
@@ -1741,8 +1741,8 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph133, %56, %47, %._crit_edge, %95, %107
-  %.290 = phi i32 [ 0, %95 ], [ 0, %107 ], [ 3, %._crit_edge ], [ 3, %47 ], [ 12, %56 ], [ 3, %.lr.ph133 ], [ 3, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph134, %56, %47, %._crit_edge, %95, %107
+  %.290 = phi i32 [ 0, %95 ], [ 0, %107 ], [ 3, %._crit_edge ], [ 3, %47 ], [ 12, %56 ], [ 3, %.lr.ph134 ], [ 3, %.lr.ph ]
   call void @Curl_pollfds_cleanup(ptr noundef nonnull %11) #19
   br label %108
 

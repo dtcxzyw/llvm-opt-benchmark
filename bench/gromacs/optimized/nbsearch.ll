@@ -1303,10 +1303,10 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
   br i1 %exitcond, label %24, label %8, !llvm.loop !109
 
 24:                                               ; preds = %.thread
-  %25 = icmp eq i32 %.368, 0
-  %26 = icmp eq i32 %.368, %.073
-  %or.cond78 = or i1 %25, %26
-  br i1 %or.cond78, label %.preheader, label %27
+  %25 = icmp ne i32 %.368, 0
+  %26 = icmp ne i32 %.368, %.073
+  %or.cond78.not = and i1 %25, %26
+  br i1 %or.cond78.not, label %27, label %.preheader
 
 27:                                               ; preds = %24
   %28 = fmul float %23, 1.000000e+01
@@ -1322,21 +1322,21 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
   br label %35
 
 35:                                               ; preds = %.preheader, %49
-  %indvars.iv125 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next126, %49 ]
+  %indvars.iv123 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next124, %49 ]
   %.055117 = phi i32 [ 1, %.preheader ], [ %50, %49 ]
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv125
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv123
   %37 = load i8, ptr %36, align 1, !tbaa !38, !range !88, !noundef !89
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %49, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv125
-  %41 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv125
+  %40 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv123
+  %41 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv123
   %42 = load float, ptr %41, align 4, !tbaa !77
   %43 = fdiv float %42, %.075
   %44 = fptosi float %43 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %44, i32 1)
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv125
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv123
   %46 = load i8, ptr %45, align 1, !tbaa !38, !range !88, !noundef !89
   %47 = trunc nuw i8 %46 to i1
   %48 = icmp slt i32 %44, 3
@@ -1346,11 +1346,11 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
 49:                                               ; preds = %39, %35
   %.053 = phi i32 [ %.sroa.speculated, %39 ], [ 1, %35 ]
   %50 = mul nuw nsw i32 %.053, %.055117
-  %51 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv125
+  %51 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv123
   store i32 %.053, ptr %51, align 4, !tbaa !39
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond128 = icmp eq i64 %indvars.iv.next126, 3
-  br i1 %exitcond128, label %52, label %35, !llvm.loop !110
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond126 = icmp eq i64 %indvars.iv.next124, 3
+  br i1 %exitcond126, label %52, label %35, !llvm.loop !110
 
 52:                                               ; preds = %49
   %53 = icmp samesign ult i32 %50, 4
@@ -1372,16 +1372,16 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
 65:                                               ; preds = %54
   %66 = sub nuw nsw i64 %63, %62
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %66)
-  %.pre133 = load ptr, ptr %55, align 8, !tbaa !58
+  %.pre131 = load ptr, ptr %55, align 8, !tbaa !58
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %65, %54
-  %67 = phi ptr [ %.pre133, %65 ], [ %58, %54 ]
+  %67 = phi ptr [ %.pre131, %65 ], [ %58, %54 ]
   br label %68
 
 68:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %indvars.iv129 = phi i64 [ 0, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next130, %_ZNSt6vectorIiSaIiEE5clearEv.exit ]
-  %69 = getelementptr inbounds nuw %"class.std::vector.10", ptr %67, i64 %indvars.iv129
+  %indvars.iv127 = phi i64 [ 0, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next128, %_ZNSt6vectorIiSaIiEE5clearEv.exit ]
+  %69 = getelementptr inbounds nuw %"class.std::vector.10", ptr %67, i64 %indvars.iv127
   %70 = load ptr, ptr %69, align 8, !tbaa !60
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !97
@@ -1393,9 +1393,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %65, %54
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %68, %73
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next130, %63
-  br i1 %exitcond132.not, label %.thread95, label %68, !llvm.loop !111
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next128, %63
+  br i1 %exitcond130.not, label %.thread95, label %68, !llvm.loop !111
 
 .thread95:                                        ; preds = %14, %39, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %52
   %.4 = phi i1 [ false, %52 ], [ true, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ false, %39 ], [ false, %14 ]
@@ -5955,7 +5955,7 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %.loopexit, %197, %
   store i32 0, ptr %13, align 4, !tbaa !182
   br label %201
 
-201:                                              ; preds = %._crit_edge, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit
+201:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit, %._crit_edge
   %.135 = phi i32 [ 0, %._crit_edge ], [ %.034, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
   %202 = call noundef zeroext i1 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_(ptr noundef nonnull align 8 dereferenceable(624) %45, ptr noundef nonnull %33, ptr noundef nonnull %26, ptr noundef nonnull %34)
   br i1 %202, label %44, label %.loopexit82, !llvm.loop !227

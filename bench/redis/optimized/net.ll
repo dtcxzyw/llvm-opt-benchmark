@@ -736,8 +736,8 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   %71 = and i32 %69, 4096
   %.not111 = icmp eq i32 %71, 0
   %. = select i1 %.not111, i32 2, i32 10
-  %.sink224 = select i1 %or.cond129.not, i32 0, i32 %.
-  store i32 %.sink224, ptr %67, align 4, !tbaa !44
+  %.sink225 = select i1 %or.cond129.not, i32 0, i32 %.
+  store i32 %.sink225, ptr %67, align 4, !tbaa !44
   %72 = load ptr, ptr %19, align 8, !tbaa !35
   %73 = call i32 @getaddrinfo(ptr noundef %72, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %74 = icmp ne i32 %73, 0
@@ -757,14 +757,14 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
 82:                                               ; preds = %77, %65
   %.091 = phi i32 [ %81, %77 ], [ %73, %65 ]
   %.not114 = icmp eq i32 %.091, 0
-  br i1 %.not114, label %.preheader141, label %88
+  br i1 %.not114, label %.preheader142, label %88
 
-.preheader141:                                    ; preds = %82
-  %.094169 = load ptr, ptr %9, align 8, !tbaa !31
-  %.not115170 = icmp eq ptr %.094169, null
-  br i1 %.not115170, label %._crit_edge173, label %.preheader.lr.ph
+.preheader142:                                    ; preds = %82
+  %.094170 = load ptr, ptr %9, align 8, !tbaa !31
+  %.not115171 = icmp eq ptr %.094170, null
+  br i1 %.not115171, label %._crit_edge174, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader141
+.preheader.lr.ph:                                 ; preds = %.preheader142
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.not119 = icmp eq i32 %17, 0
@@ -779,27 +779,27 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   br label %184
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %redisNetClose.exit
-  %.094172 = phi ptr [ %.094169, %.preheader.lr.ph ], [ %.094, %redisNetClose.exit ]
-  %.089171 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1153, %redisNetClose.exit ]
-  %90 = getelementptr inbounds nuw i8, ptr %.094172, i64 4
-  %91 = getelementptr inbounds nuw i8, ptr %.094172, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %.094172, i64 12
+  %.094173 = phi ptr [ %.094170, %.preheader.lr.ph ], [ %.094, %redisNetClose.exit ]
+  %.089172 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1154, %redisNetClose.exit ]
+  %90 = getelementptr inbounds nuw i8, ptr %.094173, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.094173, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.094173, i64 12
   %93 = load i32, ptr %90, align 4, !tbaa !44
   %94 = load i32, ptr %91, align 8, !tbaa !42
   %95 = load i32, ptr %92, align 4, !tbaa !45
   %96 = call i32 @socket(i32 noundef %93, i32 noundef %94, i32 noundef %95) #10
   %97 = icmp eq i32 %96, -1
-  br i1 %97, label %redisNetClose.exit, label %.lr.ph168
+  br i1 %97, label %redisNetClose.exit, label %.lr.ph169
 
-.lr.ph168:                                        ; preds = %.preheader
-  %98 = getelementptr inbounds nuw i8, ptr %.094172, i64 16
-  %99 = getelementptr inbounds nuw i8, ptr %.094172, i64 24
-  %smax = call i32 @llvm.smax.i32(i32 %.089171, i32 9)
+.lr.ph169:                                        ; preds = %.preheader
+  %98 = getelementptr inbounds nuw i8, ptr %.094173, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.094173, i64 24
+  %smax = call i32 @llvm.smax.i32(i32 %.089172, i32 9)
   br label %100
 
-100:                                              ; preds = %.lr.ph168, %redisNetClose.exit133
-  %101 = phi i32 [ %96, %.lr.ph168 ], [ %167, %redisNetClose.exit133 ]
-  %.1167 = phi i32 [ %.089171, %.lr.ph168 ], [ %160, %redisNetClose.exit133 ]
+100:                                              ; preds = %.lr.ph169, %redisNetClose.exit134
+  %101 = phi i32 [ %96, %.lr.ph169 ], [ %167, %redisNetClose.exit134 ]
+  %.1168 = phi i32 [ %.089172, %.lr.ph169 ], [ %160, %redisNetClose.exit134 ]
   store i32 %101, ptr %83, align 4, !tbaa !4
   %102 = call fastcc i32 @redisSetBlocking(ptr noundef %0, i32 noundef 0)
   %.not116 = icmp eq i32 %102, 0
@@ -838,32 +838,32 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   br label %.thread
 
 116:                                              ; preds = %111, %110
-  %.093163 = load ptr, ptr %10, align 8, !tbaa !31
-  %.not120164 = icmp eq ptr %.093163, null
-  br i1 %.not120164, label %._crit_edge, label %.lr.ph
+  %.093164 = load ptr, ptr %10, align 8, !tbaa !31
+  %.not120165 = icmp eq ptr %.093164, null
+  br i1 %.not120165, label %._crit_edge, label %.lr.ph
 
 117:                                              ; preds = %.lr.ph
-  %118 = getelementptr inbounds nuw i8, ptr %.093165, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %.093166, i64 40
   %.093 = load ptr, ptr %118, align 8, !tbaa !31
   %.not120 = icmp eq ptr %.093, null
   br i1 %.not120, label %._crit_edge.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %116, %117
-  %.093165 = phi ptr [ %.093, %117 ], [ %.093163, %116 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.093165, i64 24
+  %.093166 = phi ptr [ %.093, %117 ], [ %.093164, %116 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.093166, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !46
-  %121 = getelementptr inbounds nuw i8, ptr %.093165, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.093166, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !47
   %123 = call i32 @bind(i32 noundef %101, ptr noundef %120, i32 noundef %122) #10
   %.not121 = icmp eq i32 %123, -1
   br i1 %.not121, label %117, label %129
 
 ._crit_edge.loopexit:                             ; preds = %117
-  %.pre189 = load ptr, ptr %10, align 8, !tbaa !31
+  %.pre190 = load ptr, ptr %10, align 8, !tbaa !31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %116, %._crit_edge.loopexit
-  %124 = phi ptr [ %.pre189, %._crit_edge.loopexit ], [ null, %116 ]
+  %124 = phi ptr [ %.pre190, %._crit_edge.loopexit ], [ null, %116 ]
   call void @freeaddrinfo(ptr noundef %124) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %125 = tail call ptr @__errno_location() #11
@@ -924,29 +924,29 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
 
 155:                                              ; preds = %148
   %cond = icmp eq i32 %16, 0
-  br i1 %cond, label %174, label %.loopexit140
+  br i1 %cond, label %174, label %.loopexit141
 
 156:                                              ; preds = %148
   %157 = icmp eq i32 %150, 99
   %or.cond4 = select i1 %157, i1 %87, i1 false
-  br i1 %or.cond4, label %158, label %.loopexit140
+  br i1 %or.cond4, label %158, label %.loopexit141
 
 158:                                              ; preds = %156
-  %exitcond = icmp eq i32 %.1167, %smax
+  %exitcond = icmp eq i32 %.1168, %smax
   br i1 %exitcond, label %.thread, label %159
 
 159:                                              ; preds = %158
-  %160 = add i32 %.1167, 1
+  %160 = add i32 %.1168, 1
   %161 = load i32, ptr %83, align 4, !tbaa !4
-  %.not5.i132 = icmp eq i32 %161, -1
-  br i1 %.not5.i132, label %redisNetClose.exit133, label %162
+  %.not5.i133 = icmp eq i32 %161, -1
+  br i1 %.not5.i133, label %redisNetClose.exit134, label %162
 
 162:                                              ; preds = %159
   %163 = call i32 @close(i32 noundef %161) #10
   store i32 -1, ptr %83, align 4, !tbaa !4
-  br label %redisNetClose.exit133
+  br label %redisNetClose.exit134
 
-redisNetClose.exit133:                            ; preds = %159, %162
+redisNetClose.exit134:                            ; preds = %159, %162
   %164 = load i32, ptr %90, align 4, !tbaa !44
   %165 = load i32, ptr %91, align 8, !tbaa !42
   %166 = load i32, ptr %92, align 4, !tbaa !45
@@ -954,12 +954,12 @@ redisNetClose.exit133:                            ; preds = %159, %162
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %redisNetClose.exit, label %100
 
-.loopexit140:                                     ; preds = %156, %155
+.loopexit141:                                     ; preds = %156, %155
   %169 = call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %0, i64 noundef %storemerge.i.ph)
   %.not124 = icmp eq i32 %169, 0
   br i1 %.not124, label %170, label %.thread
 
-170:                                              ; preds = %.loopexit140
+170:                                              ; preds = %.loopexit141
   %171 = call i32 @redisSetTcpNoDelay(ptr noundef nonnull %0)
   %.not125 = icmp eq i32 %171, 0
   br i1 %.not125, label %.loopexit, label %.thread
@@ -979,14 +979,14 @@ redisNetClose.exit133:                            ; preds = %159, %162
   store i32 %176, ptr %14, align 8, !tbaa !19
   br label %.thread
 
-redisNetClose.exit:                               ; preds = %redisNetClose.exit133, %.preheader, %153, %151
-  %.1153 = phi i32 [ %.1167, %153 ], [ %.1167, %151 ], [ %.089171, %.preheader ], [ %160, %redisNetClose.exit133 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.094172, i64 40
+redisNetClose.exit:                               ; preds = %redisNetClose.exit134, %.preheader, %153, %151
+  %.1154 = phi i32 [ %.1168, %153 ], [ %.1168, %151 ], [ %.089172, %.preheader ], [ %160, %redisNetClose.exit134 ]
+  %177 = getelementptr inbounds nuw i8, ptr %.094173, i64 40
   %.094 = load ptr, ptr %177, align 8, !tbaa !31
   %.not115 = icmp eq ptr %.094, null
-  br i1 %.not115, label %._crit_edge173, label %.preheader
+  br i1 %.not115, label %._crit_edge174, label %.preheader
 
-._crit_edge173:                                   ; preds = %redisNetClose.exit, %.preheader141
+._crit_edge174:                                   ; preds = %redisNetClose.exit, %.preheader142
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %178 = tail call ptr @__errno_location() #11
   %179 = load i32, ptr %178, align 4, !tbaa !18
@@ -1000,8 +1000,8 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str.5) #10
   br label %.thread
 
-.thread:                                          ; preds = %100, %158, %._crit_edge, %114, %107, %redisContextTimeoutMsec.exit, %redisContextUpdateConnectTimeout.exit, %.loopexit140, %170, %172, %._crit_edge173, %174
-  %.192 = phi i32 [ 0, %174 ], [ -1, %._crit_edge173 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit140 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %107 ], [ -1, %114 ], [ -1, %._crit_edge ], [ -1, %158 ], [ -1, %100 ]
+.thread:                                          ; preds = %100, %158, %._crit_edge, %114, %107, %redisContextTimeoutMsec.exit, %redisContextUpdateConnectTimeout.exit, %.loopexit141, %170, %172, %._crit_edge174, %174
+  %.192 = phi i32 [ 0, %174 ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %107 ], [ -1, %114 ], [ -1, %._crit_edge ], [ -1, %158 ], [ -1, %100 ]
   %182 = load ptr, ptr %9, align 8, !tbaa !31
   %.not128 = icmp eq ptr %182, null
   br i1 %.not128, label %184, label %183

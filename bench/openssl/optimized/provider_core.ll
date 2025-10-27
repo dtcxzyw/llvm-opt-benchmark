@@ -2378,10 +2378,10 @@ get_provider_store.exit:                          ; preds = %3, %7
   br i1 %28, label %.lr.ph, label %.loopexit.sink.split
 
 .lr.ph:                                           ; preds = %26, %54
-  %.05389.in = phi i32 [ %.05389, %54 ], [ %27, %26 ]
-  %.05988 = phi i32 [ %.261, %54 ], [ %27, %26 ]
-  %.05389 = add nsw i32 %.05389.in, -1
-  %29 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %21, i32 noundef %.05389) #11
+  %.05390.in = phi i32 [ %.05390, %54 ], [ %27, %26 ]
+  %.05989 = phi i32 [ %.261, %54 ], [ %27, %26 ]
+  %.05390 = add nsw i32 %.05390.in, -1
+  %29 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %21, i32 noundef %.05390) #11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !56
   %32 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %31) #11
@@ -2423,62 +2423,62 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %44, %48
   br label %.loopexit.sink.split
 
 51:                                               ; preds = %33
-  %52 = call ptr @OPENSSL_sk_delete(ptr noundef nonnull %21, i32 noundef range(i32 0, 2147483647) %.05389) #11
-  %53 = add nsw i32 %.05988, -1
+  %52 = call ptr @OPENSSL_sk_delete(ptr noundef nonnull %21, i32 noundef range(i32 0, 2147483647) %.05390) #11
+  %53 = add nsw i32 %.05989, -1
   br label %54
 
 54:                                               ; preds = %51, %36
-  %.261 = phi i32 [ %.05988, %36 ], [ %53, %51 ]
+  %.261 = phi i32 [ %.05989, %36 ], [ %53, %51 ]
   %55 = load ptr, ptr %30, align 8, !tbaa !56
   %56 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %55) #11
-  %57 = icmp samesign ugt i32 %.05389.in, 1
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %57 = icmp samesign ugt i32 %.05390.in, 1
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %54
   %58 = load ptr, ptr %15, align 8, !tbaa !25
   %59 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %58) #11
   %60 = icmp sgt i32 %.261, 0
-  br i1 %60, label %.lr.ph92, label %.loopexit
+  br i1 %60, label %.lr.ph93, label %.loopexit
 
-61:                                               ; preds = %.lr.ph92
-  %62 = add nuw nsw i32 %.15490, 1
+61:                                               ; preds = %.lr.ph93
+  %62 = add nuw nsw i32 %.15491, 1
   %exitcond.not = icmp eq i32 %62, %.261
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph92, !llvm.loop !103
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph93, !llvm.loop !104
 
-.lr.ph92:                                         ; preds = %._crit_edge, %61
-  %.15490 = phi i32 [ %62, %61 ], [ 0, %._crit_edge ]
-  %63 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %21, i32 noundef %.15490) #11
+.lr.ph93:                                         ; preds = %._crit_edge, %61
+  %.15491 = phi i32 [ %62, %61 ], [ 0, %._crit_edge ]
+  %63 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %21, i32 noundef %.15491) #11
   %64 = call i32 %1(ptr noundef %63, ptr noundef %2) #11
   %.not67 = icmp eq i32 %64, 0
   br i1 %.not67, label %.loopexit, label %61
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %CRYPTO_DOWN_REF.exit, %26
-  %.05983.ph = phi i32 [ %27, %26 ], [ %.05988, %CRYPTO_DOWN_REF.exit ], [ %.05988, %.lr.ph ]
-  %.356.ph = phi i32 [ 0, %26 ], [ %.05389.in, %CRYPTO_DOWN_REF.exit ], [ %.05389.in, %.lr.ph ]
+  %.05984.ph = phi i32 [ %27, %26 ], [ %.05989, %CRYPTO_DOWN_REF.exit ], [ %.05989, %.lr.ph ]
+  %.356.ph = phi i32 [ 0, %26 ], [ %.05390.in, %CRYPTO_DOWN_REF.exit ], [ %.05390.in, %.lr.ph ]
   %.052.ph = phi i32 [ 1, %26 ], [ 0, %CRYPTO_DOWN_REF.exit ], [ 0, %.lr.ph ]
   %65 = load ptr, ptr %15, align 8, !tbaa !25
   %66 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %65) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.lr.ph92, %.loopexit.sink.split, %._crit_edge
-  %.05983 = phi i32 [ %.261, %._crit_edge ], [ %.05983.ph, %.loopexit.sink.split ], [ %.261, %.lr.ph92 ], [ %.261, %61 ]
-  %.356 = phi i32 [ 0, %._crit_edge ], [ %.356.ph, %.loopexit.sink.split ], [ 0, %.lr.ph92 ], [ 0, %61 ]
-  %.052 = phi i32 [ 1, %._crit_edge ], [ %.052.ph, %.loopexit.sink.split ], [ 1, %61 ], [ 0, %.lr.ph92 ]
-  %67 = icmp slt i32 %.356, %.05983
-  br i1 %67, label %.lr.ph100, label %._crit_edge101
+.loopexit:                                        ; preds = %61, %.lr.ph93, %.loopexit.sink.split, %._crit_edge
+  %.05984 = phi i32 [ %.261, %._crit_edge ], [ %.05984.ph, %.loopexit.sink.split ], [ %.261, %.lr.ph93 ], [ %.261, %61 ]
+  %.356 = phi i32 [ 0, %._crit_edge ], [ %.356.ph, %.loopexit.sink.split ], [ 0, %.lr.ph93 ], [ 0, %61 ]
+  %.052 = phi i32 [ 1, %._crit_edge ], [ %.052.ph, %.loopexit.sink.split ], [ 1, %61 ], [ 0, %.lr.ph93 ]
+  %67 = icmp slt i32 %.356, %.05984
+  br i1 %67, label %.lr.ph101, label %._crit_edge102
 
-.lr.ph100:                                        ; preds = %.loopexit, %CRYPTO_DOWN_REF.exit73
-  %.498 = phi i32 [ %.4, %CRYPTO_DOWN_REF.exit73 ], [ %.356, %.loopexit ]
-  %.197 = phi i32 [ %.2, %CRYPTO_DOWN_REF.exit73 ], [ %.052, %.loopexit ]
-  %68 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %21, i32 noundef %.498) #11
+.lr.ph101:                                        ; preds = %.loopexit, %CRYPTO_DOWN_REF.exit74
+  %.499 = phi i32 [ %.4, %CRYPTO_DOWN_REF.exit74 ], [ %.356, %.loopexit ]
+  %.198 = phi i32 [ %.2, %CRYPTO_DOWN_REF.exit74 ], [ %.052, %.loopexit ]
+  %68 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %21, i32 noundef %.499) #11
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !57
   %72 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %69, i32 noundef -1, ptr noundef nonnull %4, ptr noundef %71) #11
   %.not71 = icmp eq i32 %72, 0
-  br i1 %.not71, label %CRYPTO_DOWN_REF.exit73, label %73
+  br i1 %.not71, label %CRYPTO_DOWN_REF.exit74, label %73
 
-73:                                               ; preds = %.lr.ph100
+73:                                               ; preds = %.lr.ph101
   %74 = load i32, ptr %4, align 4, !tbaa !77
   %75 = icmp slt i32 %74, 1
   br i1 %75, label %76, label %81
@@ -2494,31 +2494,31 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %44, %48
   br label %81
 
 81:                                               ; preds = %76, %79, %73
-  %.3 = phi i32 [ %.197, %79 ], [ %.197, %73 ], [ 0, %76 ]
+  %.3 = phi i32 [ %.198, %79 ], [ %.198, %73 ], [ 0, %76 ]
   %82 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %83 = atomicrmw sub ptr %82, i32 1 release, align 4
   %84 = add nsw i32 %83, -1
   store i32 %84, ptr %4, align 4, !tbaa !77
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %CRYPTO_DOWN_REF.exit73
+  br i1 %85, label %86, label %CRYPTO_DOWN_REF.exit74
 
 86:                                               ; preds = %81
   fence acquire
-  br label %CRYPTO_DOWN_REF.exit73
+  br label %CRYPTO_DOWN_REF.exit74
 
-CRYPTO_DOWN_REF.exit73:                           ; preds = %86, %81, %.lr.ph100
-  %.2 = phi i32 [ 0, %.lr.ph100 ], [ %.3, %81 ], [ %.3, %86 ]
-  %.4 = add i32 %.498, 1
-  %exitcond112.not = icmp eq i32 %.4, %.05983
-  br i1 %exitcond112.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !104
+CRYPTO_DOWN_REF.exit74:                           ; preds = %86, %81, %.lr.ph101
+  %.2 = phi i32 [ 0, %.lr.ph101 ], [ %.3, %81 ], [ %.3, %86 ]
+  %.4 = add i32 %.499, 1
+  %exitcond113.not = icmp eq i32 %.4, %.05984
+  br i1 %exitcond113.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !105
 
-._crit_edge101:                                   ; preds = %CRYPTO_DOWN_REF.exit73, %.loopexit
-  %.1.lcssa = phi i32 [ %.052, %.loopexit ], [ %.2, %CRYPTO_DOWN_REF.exit73 ]
+._crit_edge102:                                   ; preds = %CRYPTO_DOWN_REF.exit74, %.loopexit
+  %.1.lcssa = phi i32 [ %.052, %.loopexit ], [ %.2, %CRYPTO_DOWN_REF.exit74 ]
   call void @OPENSSL_sk_free(ptr noundef nonnull %21) #11
   br label %87
 
-87:                                               ; preds = %14, %12, %11, %._crit_edge101, %23
-  %.0 = phi i32 [ 0, %23 ], [ %.1.lcssa, %._crit_edge101 ], [ 1, %11 ], [ 0, %12 ], [ 0, %14 ]
+87:                                               ; preds = %14, %12, %11, %._crit_edge102, %23
+  %.0 = phi i32 [ 0, %23 ], [ %.1.lcssa, %._crit_edge102 ], [ 1, %11 ], [ 0, %12 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2529,7 +2529,7 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %3) #11
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.loopexit54, label %5
+  br i1 %.not, label %66, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2538,36 +2538,36 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
   %9 = load ptr, ptr %2, align 8, !tbaa !25
   %10 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #11
   %.not47 = icmp eq i8 %8, 0
-  br i1 %.not47, label %.loopexit54, label %11
+  br i1 %.not47, label %66, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %2, align 8, !tbaa !25
   %13 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %12) #11
   %.not48 = icmp eq i32 %13, 0
-  br i1 %.not48, label %.loopexit54, label %14
+  br i1 %.not48, label %66, label %14
 
 14:                                               ; preds = %11
   %15 = load i8, ptr %6, align 8
   %16 = and i8 %15, 1
   %.not49 = icmp eq i8 %16, 0
-  br i1 %.not49, label %.loopexit54.sink.split, label %.preheader
+  br i1 %.not49, label %.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %14
   %17 = load ptr, ptr @ossl_predefined_providers, align 8, !tbaa !3
-  %.not5061 = icmp eq ptr %17, null
-  br i1 %.not5061, label %.loopexit54.sink.split, label %.lr.ph64
+  %.not5064 = icmp eq ptr %17, null
+  br i1 %.not5064, label %.sink.split, label %.lr.ph67
 
-.lr.ph64:                                         ; preds = %.preheader
+.lr.ph67:                                         ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph64, %57
-  %22 = phi ptr [ %17, %.lr.ph64 ], [ %59, %57 ]
-  %.04263 = phi ptr [ @ossl_predefined_providers, %.lr.ph64 ], [ %58, %57 ]
-  %.04462 = phi i32 [ 0, %.lr.ph64 ], [ %.1, %57 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.04263, i64 32
+21:                                               ; preds = %.lr.ph67, %57
+  %22 = phi ptr [ %17, %.lr.ph67 ], [ %59, %57 ]
+  %.04266 = phi ptr [ @ossl_predefined_providers, %.lr.ph67 ], [ %58, %57 ]
+  %.04465 = phi i32 [ 0, %.lr.ph67 ], [ %.1, %57 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.04266, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
   %.not51 = icmp eq i8 %25, 0
@@ -2575,39 +2575,39 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
 
 26:                                               ; preds = %21
   %27 = load i64, ptr %19, align 8, !tbaa !26
-  %.not65 = icmp eq i64 %27, 0
-  br i1 %.not65, label %.loopexit, label %.lr.ph.preheader
+  %.not68 = icmp eq i64 %27, 0
+  br i1 %.not68, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %26
   %28 = load ptr, ptr %18, align 8, !tbaa !27
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
-  %.060 = phi i64 [ %36, %34 ], [ 0, %.lr.ph.preheader ]
-  %.04059 = phi ptr [ %35, %34 ], [ %28, %.lr.ph.preheader ]
-  %29 = load ptr, ptr %.04059, align 8, !tbaa !3
+  %.063 = phi i64 [ %36, %34 ], [ 0, %.lr.ph.preheader ]
+  %.04062 = phi ptr [ %35, %34 ], [ %28, %.lr.ph.preheader ]
+  %29 = load ptr, ptr %.04062, align 8, !tbaa !3
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %22) #12
   %.not52 = icmp eq i32 %30, 0
   br i1 %.not52, label %31, label %34
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.04059, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.04062, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   br label %.loopexit
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.04059, i64 40
-  %36 = add nuw i64 %.060, 1
+  %35 = getelementptr inbounds nuw i8, ptr %.04062, i64 40
+  %36 = add nuw i64 %.063, 1
   %exitcond.not = icmp eq i64 %36, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !105
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !106
 
 .loopexit:                                        ; preds = %34, %26, %31
   %.039 = phi ptr [ %33, %31 ], [ null, %26 ], [ null, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.04263, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.04266, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !60
   %39 = tail call fastcc ptr @provider_new(ptr noundef nonnull %22, ptr noundef %38, ptr noundef %.039)
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit54.sink.split, label %41
+  br i1 %40, label %.sink.split, label %41
 
 41:                                               ; preds = %.loopexit
   %42 = load ptr, ptr %0, align 8, !tbaa !30
@@ -2622,7 +2622,7 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
 
 48:                                               ; preds = %41
   tail call void @ossl_provider_free(ptr noundef nonnull %39)
-  br label %.loopexit54.sink.split
+  br label %.sink.split
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 88
@@ -2634,37 +2634,37 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
 
 54:                                               ; preds = %49
   tail call void @ossl_provider_free(ptr noundef nonnull %39)
-  br label %.loopexit54.sink.split
+  br label %.sink.split
 
 55:                                               ; preds = %49
-  %56 = add nsw i32 %.04462, 1
+  %56 = add nsw i32 %.04465, 1
   br label %57
 
 57:                                               ; preds = %55, %21
-  %.1 = phi i32 [ %56, %55 ], [ %.04462, %21 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.04263, i64 40
+  %.1 = phi i32 [ %56, %55 ], [ %.04465, %21 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.04266, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !3
   %.not50 = icmp eq ptr %59, null
-  br i1 %.not50, label %._crit_edge, label %21, !llvm.loop !106
+  br i1 %.not50, label %._crit_edge, label %21, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %57
   %60 = icmp sgt i32 %.1, 0
-  br i1 %60, label %61, label %.loopexit54.sink.split
+  br i1 %60, label %61, label %.sink.split
 
 61:                                               ; preds = %._crit_edge
   %62 = load i8, ptr %6, align 8
   %63 = and i8 %62, -2
   store i8 %63, ptr %6, align 8
-  br label %.loopexit54.sink.split
+  br label %.sink.split
 
-.loopexit54.sink.split:                           ; preds = %.loopexit, %61, %._crit_edge, %48, %54, %.preheader, %14
+.sink.split:                                      ; preds = %.loopexit, %61, %._crit_edge, %48, %54, %.preheader, %14
   %.045.ph = phi i32 [ 1, %14 ], [ 1, %61 ], [ 0, %._crit_edge ], [ 0, %48 ], [ 0, %54 ], [ 0, %.preheader ], [ 0, %.loopexit ]
   %64 = load ptr, ptr %2, align 8, !tbaa !25
   %65 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %64) #11
-  br label %.loopexit54
+  br label %66
 
-.loopexit54:                                      ; preds = %.loopexit54.sink.split, %11, %5, %1
-  %.045 = phi i32 [ 0, %1 ], [ 1, %5 ], [ 0, %11 ], [ %.045.ph, %.loopexit54.sink.split ]
+66:                                               ; preds = %.sink.split, %11, %5, %1
+  %.045 = phi i32 [ 0, %1 ], [ 1, %5 ], [ 0, %11 ], [ %.045.ph, %.sink.split ]
   ret i32 %.045
 }
 
@@ -2920,7 +2920,7 @@ define range(i32 0, 2) i32 @ossl_provider_set_operation_bit(ptr noundef captures
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %12 = load i64, ptr %11, align 8, !tbaa !107
+  %12 = load i64, ptr %11, align 8, !tbaa !108
   %.not25 = icmp ugt i64 %12, %3
   br i1 %.not25, label %22, label %13
 
@@ -2934,11 +2934,11 @@ define range(i32 0, 2) i32 @ossl_provider_set_operation_bit(ptr noundef captures
 
 18:                                               ; preds = %13
   store ptr %17, ptr %14, align 8, !tbaa !51
-  %19 = load i64, ptr %11, align 8, !tbaa !107
+  %19 = load i64, ptr %11, align 8, !tbaa !108
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
   %21 = sub i64 %16, %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
-  store i64 %16, ptr %11, align 8, !tbaa !107
+  store i64 %16, ptr %11, align 8, !tbaa !108
   br label %22
 
 22:                                               ; preds = %18, %10
@@ -2985,7 +2985,7 @@ define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonl
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %14 = load i64, ptr %13, align 8, !tbaa !107
+  %14 = load i64, ptr %13, align 8, !tbaa !108
   %15 = icmp ugt i64 %14, %4
   br i1 %15, label %16, label %24
 
@@ -3013,7 +3013,7 @@ define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_provider_get_parent(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8, !tbaa !109
   ret ptr %3
 }
 
@@ -3029,7 +3029,7 @@ define range(i32 0, 2) i32 @ossl_provider_is_child(ptr noundef readonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @ossl_provider_set_child(ptr noundef captures(none) initializes((200, 208)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %1, ptr %3, align 8, !tbaa !108
+  store ptr %1, ptr %3, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i8, ptr %4, align 8
   %6 = or i8 %5, 1
@@ -3068,13 +3068,13 @@ get_provider_store.exit:                          ; preds = %2
   %13 = load ptr, ptr %9, align 8, !tbaa !23
   %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %.01214) #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !109
+  %16 = load ptr, ptr %15, align 8, !tbaa !110
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !72
   %19 = tail call i32 %16(ptr noundef %1, ptr noundef %18) #11
   %20 = add nuw nsw i32 %.01214, 1
   %exitcond.not = icmp eq i32 %20, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %21 = load ptr, ptr %5, align 8, !tbaa !25
@@ -3408,13 +3408,13 @@ get_provider_store.exit:                          ; preds = %5
   br i1 %11, label %58, label %12
 
 12:                                               ; preds = %get_provider_store.exit
-  store ptr %0, ptr %10, align 8, !tbaa !111
+  store ptr %0, ptr %10, align 8, !tbaa !112
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %13, align 8, !tbaa !70
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %2, ptr %14, align 8, !tbaa !101
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %3, ptr %15, align 8, !tbaa !109
+  store ptr %3, ptr %15, align 8, !tbaa !110
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %4, ptr %16, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -3470,7 +3470,7 @@ get_provider_store.exit:                          ; preds = %5
 42:                                               ; preds = %40, %35
   %43 = add nuw nsw i32 %.05566, 1
   %exitcond.not = icmp eq i32 %43, %28
-  br i1 %exitcond.not, label %.thread.thread, label %.lr.ph, !llvm.loop !112
+  br i1 %exitcond.not, label %.thread.thread, label %.lr.ph, !llvm.loop !113
 
 .thread:                                          ; preds = %.lr.ph, %40, %25
   %.055.lcssa = phi i32 [ 0, %25 ], [ %.05566, %40 ], [ %.05566, %.lr.ph ]
@@ -3499,7 +3499,7 @@ get_provider_store.exit:                          ; preds = %5
   %53 = tail call i32 %2(ptr noundef %52, ptr noundef %4) #11
   %54 = add nsw i32 %.171, -1
   %.not87 = icmp eq i32 %.171, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph72, !llvm.loop !113
+  br i1 %.not87, label %._crit_edge, label %.lr.ph72, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %.lr.ph72, %.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 2170) #11
@@ -3548,7 +3548,7 @@ get_provider_store.exit:                          ; preds = %1
   %.017 = phi i32 [ %22, %21 ], [ 0, %9 ]
   %14 = load ptr, ptr %10, align 8, !tbaa !23
   %15 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %.017) #11
-  %16 = load ptr, ptr %15, align 8, !tbaa !111
+  %16 = load ptr, ptr %15, align 8, !tbaa !112
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %18, label %21
 
@@ -3561,7 +3561,7 @@ get_provider_store.exit:                          ; preds = %1
 21:                                               ; preds = %.lr.ph
   %22 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %22, %12
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !114
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !115
 
 .loopexit:                                        ; preds = %21, %9, %18
   %23 = load ptr, ptr %6, align 8, !tbaa !25
@@ -3913,11 +3913,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !104 = distinct !{!104, !29}
 !105 = distinct !{!105, !29}
 !106 = distinct !{!106, !29}
-!107 = !{!34, !21, i64 184}
-!108 = !{!34, !39, i64 200}
-!109 = !{!71, !6, i64 24}
-!110 = distinct !{!110, !29}
-!111 = !{!71, !32, i64 0}
-!112 = distinct !{!112, !29}
+!107 = distinct !{!107, !29}
+!108 = !{!34, !21, i64 184}
+!109 = !{!34, !39, i64 200}
+!110 = !{!71, !6, i64 24}
+!111 = distinct !{!111, !29}
+!112 = !{!71, !32, i64 0}
 !113 = distinct !{!113, !29}
 !114 = distinct !{!114, !29}
+!115 = distinct !{!115, !29}

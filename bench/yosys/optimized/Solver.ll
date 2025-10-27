@@ -1912,10 +1912,10 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 
 114:                                              ; preds = %102
   %115 = getelementptr inbounds nuw i8, ptr %.067134, i64 8
-  %.sroa.6.0.insert.ext90 = zext i32 %100 to i64
-  %.sroa.6.0.insert.shift91 = shl nuw i64 %.sroa.6.0.insert.ext90, 32
-  %.sroa.080.0.insert.insert84 = or disjoint i64 %.sroa.6.0.insert.shift91, %91
-  store i64 %.sroa.080.0.insert.insert84, ptr %.067134, align 4
+  %.sroa.6.0.insert.ext91 = zext i32 %100 to i64
+  %.sroa.6.0.insert.shift92 = shl nuw i64 %.sroa.6.0.insert.ext91, 32
+  %.sroa.081.0.insert.insert85 = or disjoint i64 %.sroa.6.0.insert.shift92, %91
+  store i64 %.sroa.081.0.insert.insert85, ptr %.067134, align 4
   br label %.loopexit, !llvm.loop !134
 
 .critedge:                                        ; preds = %99, %102
@@ -1959,8 +1959,8 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %132 = icmp eq i8 %131, %.sroa.01.0.copyload.pre
   %133 = select i1 %132, i8 %121, i8 0
   %134 = or disjoint i8 %133, %.reass
-  %.not.i75 = icmp eq i8 %134, 0
-  br i1 %.not.i75, label %135, label %122
+  %.not.i76 = icmp eq i8 %134, 0
+  br i1 %.not.i76, label %135, label %122
 
 135:                                              ; preds = %123
   %136 = getelementptr inbounds nuw %union.anon, ptr %93, i64 %indvars.iv
@@ -1980,7 +1980,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   br i1 %146, label %147, label %._ZN7Minisat3vecINS_6Solver7WatcherEiE8capacityEi.exit_crit_edge.i
 
 ._ZN7Minisat3vecINS_6Solver7WatcherEiE8capacityEi.exit_crit_edge.i: ; preds = %135
-  %.pre.i76 = load ptr, ptr %141, align 8, !tbaa !112
+  %.pre.i77 = load ptr, ptr %141, align 8, !tbaa !112
   br label %161
 
 147:                                              ; preds = %135
@@ -2013,15 +2013,15 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 
 161:                                              ; preds = %._crit_edge159, %._ZN7Minisat3vecINS_6Solver7WatcherEiE8capacityEi.exit_crit_edge.i
   %162 = phi i32 [ %143, %._ZN7Minisat3vecINS_6Solver7WatcherEiE8capacityEi.exit_crit_edge.i ], [ %.pre160, %._crit_edge159 ]
-  %163 = phi ptr [ %.pre.i76, %._ZN7Minisat3vecINS_6Solver7WatcherEiE8capacityEi.exit_crit_edge.i ], [ %158, %._crit_edge159 ]
+  %163 = phi ptr [ %.pre.i77, %._ZN7Minisat3vecINS_6Solver7WatcherEiE8capacityEi.exit_crit_edge.i ], [ %158, %._crit_edge159 ]
   %164 = add nsw i32 %162, 1
   store i32 %164, ptr %142, align 8, !tbaa !115
   %165 = sext i32 %162 to i64
   %166 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %163, i64 %165
-  %.sroa.6.0.insert.ext95 = zext i32 %100 to i64
-  %.sroa.6.0.insert.shift96 = shl nuw i64 %.sroa.6.0.insert.ext95, 32
-  %.sroa.080.0.insert.insert88 = or disjoint i64 %.sroa.6.0.insert.shift96, %91
-  store i64 %.sroa.080.0.insert.insert88, ptr %166, align 4
+  %.sroa.6.0.insert.ext96 = zext i32 %100 to i64
+  %.sroa.6.0.insert.shift97 = shl nuw i64 %.sroa.6.0.insert.ext96, 32
+  %.sroa.081.0.insert.insert89 = or disjoint i64 %.sroa.6.0.insert.shift97, %91
+  store i64 %.sroa.081.0.insert.insert89, ptr %166, align 4
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %122, %.critedge.._crit_edge_crit_edge
@@ -2029,8 +2029,8 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %167 = getelementptr inbounds nuw i8, ptr %.067134, i64 8
   %.sroa.6.0.insert.ext = zext i32 %100 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
-  %.sroa.080.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %91
-  store i64 %.sroa.080.0.insert.insert, ptr %.067134, align 4
+  %.sroa.081.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %91
+  store i64 %.sroa.081.0.insert.insert, ptr %.067134, align 4
   %168 = ashr i32 %100, 1
   %169 = load ptr, ptr %11, align 8, !tbaa !94
   %170 = sext i32 %168 to i64

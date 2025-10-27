@@ -9351,7 +9351,7 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i32, ptr %212, align 8, !tbaa !60
   %.not115 = icmp eq i32 %213, 0
-  br i1 %.not115, label %.thread143, label %214
+  br i1 %.not115, label %.thread144, label %214
 
 214:                                              ; preds = %209
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -9404,9 +9404,9 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
 233:                                              ; preds = %232, %230
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.thread143
+  br label %.thread144
 
-.thread143:                                       ; preds = %233, %209
+.thread144:                                       ; preds = %233, %209
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %235
 
@@ -9416,8 +9416,8 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %265
 
-235:                                              ; preds = %.thread143, %149
-  %236 = phi i32 [ %210, %.thread143 ], [ %150, %149 ]
+235:                                              ; preds = %.thread144, %149
+  %236 = phi i32 [ %210, %.thread144 ], [ %150, %149 ]
   %237 = load ptr, ptr %32, align 8, !tbaa !92
   %238 = call i64 @evidence_num_alerts(ptr noundef %237) #18
   %.not119 = icmp eq i64 %238, 0
@@ -9442,9 +9442,9 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
   br i1 %.not121, label %258, label %.preheader
 
 .preheader:                                       ; preds = %244, %256
-  %.066145 = phi i64 [ %257, %256 ], [ 0, %244 ]
+  %.066146 = phi i64 [ %257, %256 ], [ 0, %244 ]
   %248 = load ptr, ptr %32, align 8, !tbaa !92
-  %249 = call ptr @evidence_get_indicator(ptr noundef %248, i32 noundef 1, i64 noundef %.066145) #18
+  %249 = call ptr @evidence_get_indicator(ptr noundef %248, i32 noundef 1, i64 noundef %.066146) #18
   %.not123 = icmp eq ptr %249, null
   br i1 %.not123, label %256, label %250
 
@@ -9461,7 +9461,7 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
   br label %256
 
 256:                                              ; preds = %250, %254, %.preheader
-  %257 = add nuw i64 %.066145, 1
+  %257 = add nuw i64 %.066146, 1
   %exitcond.not = icmp eq i64 %257, %243
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
@@ -9540,11 +9540,11 @@ result_should_goto_done.exit:                     ; preds = %273, %268, %265
 
 289:                                              ; preds = %285
   %290 = call i32 @cli_rmdirs(ptr noundef nonnull %284) #18
-  %.pre146 = load ptr, ptr %283, align 8, !tbaa !62
+  %.pre147 = load ptr, ptr %283, align 8, !tbaa !62
   br label %291
 
 291:                                              ; preds = %289, %285
-  %292 = phi ptr [ %.pre146, %289 ], [ %284, %285 ]
+  %292 = phi ptr [ %.pre147, %289 ], [ %284, %285 ]
   call void @free(ptr noundef %292) #18
   br label %293
 
@@ -9579,8 +9579,8 @@ result_should_goto_done.exit:                     ; preds = %273, %268, %265
   call void @cli_event_time_stop(ptr noundef nonnull %301, i32 noundef 0) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %304 = call i64 @times(ptr noundef nonnull %8) #18
-  %.not.i.i136 = icmp eq i64 %304, -1
-  br i1 %.not.i.i136, label %get_thread_times.exit.i137, label %305
+  %.not.i.i137 = icmp eq i64 %304, -1
+  br i1 %.not.i.i137, label %get_thread_times.exit.i138, label %305
 
 305:                                              ; preds = %302
   %306 = call i64 @sysconf(i32 noundef 2) #18
@@ -9591,23 +9591,23 @@ result_should_goto_done.exit:                     ; preds = %273, %268, %265
   %311 = load i64, ptr %8, align 8, !tbaa !211
   %312 = mul i64 %311, 1000000
   %313 = udiv i64 %312, %306
-  br label %get_thread_times.exit.i137
+  br label %get_thread_times.exit.i138
 
-get_thread_times.exit.i137:                       ; preds = %305, %302
+get_thread_times.exit.i138:                       ; preds = %305, %302
   %.025.i = phi i64 [ %310, %305 ], [ 0, %302 ]
-  %.0.i138 = phi i64 [ %313, %305 ], [ 0, %302 ]
+  %.0.i139 = phi i64 [ %313, %305 ], [ 0, %302 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cli_event_int(ptr noundef nonnull %301, i32 noundef 13, i64 noundef %.025.i) #18
-  call void @cli_event_int(ptr noundef nonnull %301, i32 noundef 14, i64 noundef %.0.i138) #18
+  call void @cli_event_int(ptr noundef nonnull %301, i32 noundef 14, i64 noundef %.0.i139) #18
   br label %314
 
-314:                                              ; preds = %328, %get_thread_times.exit.i137
-  %indvars.iv.i139 = phi i64 [ 0, %get_thread_times.exit.i137 ], [ %indvars.iv.next.i140, %328 ]
-  %.0.ptr28.i = phi ptr [ %9, %get_thread_times.exit.i137 ], [ %.0.ptr.i, %328 ]
-  %.0.idx27.i = phi i64 [ 0, %get_thread_times.exit.i137 ], [ %.1.idx.i, %328 ]
+314:                                              ; preds = %328, %get_thread_times.exit.i138
+  %indvars.iv.i140 = phi i64 [ 0, %get_thread_times.exit.i138 ], [ %indvars.iv.next.i141, %328 ]
+  %.0.ptr28.i = phi ptr [ %9, %get_thread_times.exit.i138 ], [ %.0.ptr.i, %328 ]
+  %.0.idx27.i = phi i64 [ 0, %get_thread_times.exit.i138 ], [ %.1.idx.i, %328 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %315 = getelementptr inbounds nuw %struct.anon, ptr @perf_events, i64 %indvars.iv.i139
+  %315 = getelementptr inbounds nuw %struct.anon, ptr @perf_events, i64 %indvars.iv.i140
   %316 = load i32, ptr %315, align 8, !tbaa !205
   call void @cli_event_get(ptr noundef nonnull %301, i32 noundef %316, ptr noundef nonnull %10, ptr noundef nonnull %11) #18
   %317 = icmp slt i64 %.0.idx27.i, 511
@@ -9631,10 +9631,10 @@ get_thread_times.exit.i137:                       ; preds = %305, %302
   %.1.idx.i = phi i64 [ %.0.add.i, %318 ], [ %.0.idx27.i, %314 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
+  %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
   %.0.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.1.idx.i
-  %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, 14
-  br i1 %exitcond.not.i141, label %perf_done.exit, label %314
+  %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, 14
+  br i1 %exitcond.not.i142, label %perf_done.exit, label %314
 
 perf_done.exit:                                   ; preds = %328
   store i8 0, ptr %.0.ptr.i, align 1, !tbaa !13
@@ -9687,8 +9687,8 @@ perf_done.exit:                                   ; preds = %328
   %345 = load i32, ptr %13, align 4, !tbaa !36
   br label %346
 
-346:                                              ; preds = %344, %7
-  %.0 = phi i32 [ 2, %7 ], [ %345, %344 ]
+346:                                              ; preds = %7, %344
+  %.0 = phi i32 [ %345, %344 ], [ 2, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

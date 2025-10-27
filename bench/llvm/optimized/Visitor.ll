@@ -5281,7 +5281,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %_Z
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %124, %238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
-  %.483 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ], [ 3, %238 ], [ 3, %124 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ 3, %173 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ]
   %260 = load ptr, ptr %4, align 8, !tbaa !447
   %261 = icmp eq ptr %260, %78
   br i1 %261, label %263, label %262
@@ -5292,12 +5291,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %_Z
 
 263:                                              ; preds = %262, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  switch i32 %.483, label %.thread241 [
-    i32 0, label %.thread236
-    i32 3, label %.thread236
-  ]
+  br label %.thread236
 
-.thread236:                                       ; preds = %92, %79, %108, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit, %87, %81, %263, %263
+.thread236:                                       ; preds = %263, %92, %79, %108, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit, %87, %81
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.0206.0267, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %264, align 8
   %265 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -5575,7 +5571,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_7VarDeclEEppEv.exit: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread241
 
-.thread241:                                       ; preds = %116, %263, %.thread241.sink.split, %278
+.thread241:                                       ; preds = %116, %.thread241.sink.split, %278
   %377 = load ptr, ptr %3, align 8, !tbaa !447
   %378 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %379 = icmp eq ptr %377, %378

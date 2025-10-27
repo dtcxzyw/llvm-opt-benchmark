@@ -193,9 +193,9 @@ define dso_local i32 @tool_setopt_enum(ptr noundef %0, ptr noundef readonly capt
 23:                                               ; preds = %.lr.ph._crit_edge, %._crit_edge
   br label %24
 
-24:                                               ; preds = %23, %._crit_edge, %.lr.ph._crit_edge, %6
-  %.027 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
-  ret i32 %.027
+24:                                               ; preds = %6, %.lr.ph._crit_edge, %._crit_edge, %23
+  %.2 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
+  ret i32 %.2
 }
 
 declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
@@ -275,9 +275,9 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
 29:                                               ; preds = %27, %25
   br label %30
 
-30:                                               ; preds = %29, %25, %27, %5
-  %.032 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
-  ret i32 %.032
+30:                                               ; preds = %5, %27, %25, %29
+  %.2 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -350,9 +350,9 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
-36:                                               ; preds = %.loopexit, %6
-  %.034 = phi i32 [ %8, %6 ], [ %.233, %.loopexit ]
-  ret i32 %.034
+36:                                               ; preds = %6, %.loopexit
+  %.5 = phi i32 [ %8, %6 ], [ %.233, %.loopexit ]
+  ret i32 %.5
 }
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1

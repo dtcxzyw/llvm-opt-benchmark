@@ -2240,7 +2240,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 129) i32 @apply_all_patches(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -128, 129) i32 @apply_all_patches(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %sub_0.lr.ph, label %._crit_edge
 
@@ -2253,7 +2253,7 @@ sub_0.lr.ph:                                      ; preds = %4
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %sub_0.lr.ph ], [ %indvars.iv.next, %41 ]
-  %.068117 = phi i32 [ 0, %sub_0.lr.ph ], [ %.169, %41 ]
+  %.068118 = phi i32 [ 0, %sub_0.lr.ph ], [ %.169, %41 ]
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = load i8, ptr %10, align 1
@@ -2320,7 +2320,7 @@ set_default_whitespace_mode.exit:                 ; preds = %30, %35
 
 41:                                               ; preds = %15, %set_default_whitespace_mode.exit
   %.pn = phi i32 [ %38, %set_default_whitespace_mode.exit ], [ %16, %15 ]
-  %.169 = or i32 %.pn, %.068117
+  %.169 = or i32 %.pn, %.068118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !105
@@ -2332,22 +2332,22 @@ set_default_whitespace_mode.exit:                 ; preds = %30, %35
   %44 = icmp ne ptr %43, null
   %45 = load ptr, ptr @apply_default_whitespace, align 8
   %46 = icmp ne ptr %45, null
-  %or.cond.i92 = select i1 %44, i1 true, i1 %46
-  br i1 %or.cond.i92, label %set_default_whitespace_mode.exit94, label %47
+  %or.cond.i93 = select i1 %44, i1 true, i1 %46
+  br i1 %or.cond.i93, label %set_default_whitespace_mode.exit95, label %47
 
 47:                                               ; preds = %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !24
-  %.not.i93 = icmp ne i32 %49, 0
-  %50 = zext i1 %.not.i93 to i32
+  %.not.i94 = icmp ne i32 %49, 0
+  %50 = zext i1 %.not.i94 to i32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i32 %50, ptr %51, align 8, !tbaa !29
-  br label %set_default_whitespace_mode.exit94
+  br label %set_default_whitespace_mode.exit95
 
-set_default_whitespace_mode.exit94:               ; preds = %._crit_edge, %47
+set_default_whitespace_mode.exit95:               ; preds = %._crit_edge, %47
   br i1 %5, label %57, label %52
 
-52:                                               ; preds = %set_default_whitespace_mode.exit94
+52:                                               ; preds = %set_default_whitespace_mode.exit95
   %53 = tail call fastcc i32 @apply_patch(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %3)
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.thread, label %55
@@ -2356,8 +2356,8 @@ set_default_whitespace_mode.exit94:               ; preds = %._crit_edge, %47
   %56 = or i32 %53, %.068.lcssa
   br label %57
 
-57:                                               ; preds = %55, %set_default_whitespace_mode.exit94
-  %.2 = phi i32 [ %56, %55 ], [ %.068.lcssa, %set_default_whitespace_mode.exit94 ]
+57:                                               ; preds = %55, %set_default_whitespace_mode.exit95
+  %.2 = phi i32 [ %56, %55 ], [ %.068.lcssa, %set_default_whitespace_mode.exit95 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %59 = load i32, ptr %58, align 8, !tbaa !106
   %.not83 = icmp eq i32 %59, 0
@@ -2374,8 +2374,8 @@ set_default_whitespace_mode.exit94:               ; preds = %._crit_edge, %47
 64:                                               ; preds = %60
   %65 = sub nsw i32 %59, %62
   %66 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
-  %.not.i95 = icmp eq i32 %66, 0
-  br i1 %.not.i95, label %67, label %70
+  %.not.i96 = icmp eq i32 %66, 0
+  br i1 %.not.i96, label %67, label %70
 
 67:                                               ; preds = %64
   %68 = icmp eq i32 %65, 1
@@ -2388,8 +2388,8 @@ set_default_whitespace_mode.exit94:               ; preds = %._crit_edge, %47
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %67, %70
-  %.0.i96 = phi ptr [ %72, %70 ], [ %69, %67 ]
-  tail call void (ptr, ...) @warning(ptr noundef %.0.i96, i32 noundef %65) #21
+  %.0.i97 = phi ptr [ %72, %70 ], [ %69, %67 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i97, i32 noundef %65) #21
   br label %73
 
 73:                                               ; preds = %Q_.exit, %60
@@ -2401,24 +2401,24 @@ Q_.exit:                                          ; preds = %67, %70
 77:                                               ; preds = %73
   %78 = load i32, ptr %58, align 8, !tbaa !106
   %79 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
-  %.not.i97 = icmp eq i32 %79, 0
-  br i1 %.not.i97, label %80, label %83
+  %.not.i98 = icmp eq i32 %79, 0
+  br i1 %.not.i98, label %80, label %83
 
 80:                                               ; preds = %77
   %81 = icmp eq i32 %78, 1
   %82 = select i1 %81, ptr @.str.32, ptr @.str.33
-  br label %Q_.exit99
+  br label %Q_.exit100
 
 83:                                               ; preds = %77
   %84 = sext i32 %78 to i64
   %85 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef range(i64 -2147483648, 2147483648) %84, i32 noundef 5) #21
-  %.pre122 = load i32, ptr %58, align 8, !tbaa !106
-  br label %Q_.exit99
+  %.pre123 = load i32, ptr %58, align 8, !tbaa !106
+  br label %Q_.exit100
 
-Q_.exit99:                                        ; preds = %80, %83
-  %86 = phi i32 [ %.pre122, %83 ], [ %78, %80 ]
-  %.0.i98 = phi ptr [ %85, %83 ], [ %82, %80 ]
-  %87 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i98, i32 noundef %86) #21
+Q_.exit100:                                       ; preds = %80, %83
+  %86 = phi i32 [ %.pre123, %83 ], [ %78, %80 ]
+  %.0.i99 = phi ptr [ %85, %83 ], [ %82, %80 ]
+  %87 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i99, i32 noundef %86) #21
   br label %.thread
 
 88:                                               ; preds = %73
@@ -2435,24 +2435,24 @@ Q_.exit99:                                        ; preds = %80, %83
 
 94:                                               ; preds = %91
   %95 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
-  %.not.i100 = icmp eq i32 %95, 0
-  br i1 %.not.i100, label %96, label %99
+  %.not.i101 = icmp eq i32 %95, 0
+  br i1 %.not.i101, label %96, label %99
 
 96:                                               ; preds = %94
   %97 = icmp eq i32 %90, 1
   %98 = select i1 %97, ptr @.str.34, ptr @.str.35
-  br label %Q_.exit102
+  br label %Q_.exit103
 
 99:                                               ; preds = %94
   %100 = sext i32 %90 to i64
   %101 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef range(i64 -2147483648, 2147483648) %100, i32 noundef 5) #21
   %.pre = load i32, ptr %89, align 8, !tbaa !107
-  br label %Q_.exit102
+  br label %Q_.exit103
 
-Q_.exit102:                                       ; preds = %96, %99
+Q_.exit103:                                       ; preds = %96, %99
   %102 = phi i32 [ %.pre, %99 ], [ %90, %96 ]
-  %.0.i101 = phi ptr [ %101, %99 ], [ %98, %96 ]
-  tail call void (ptr, ...) @warning(ptr noundef %.0.i101, i32 noundef %102) #21
+  %.0.i102 = phi ptr [ %101, %99 ], [ %98, %96 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i102, i32 noundef %102) #21
   br label %114
 
 103:                                              ; preds = %91, %88
@@ -2462,27 +2462,27 @@ Q_.exit102:                                       ; preds = %96, %99
 
 105:                                              ; preds = %103
   %106 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
-  %.not.i103 = icmp eq i32 %106, 0
-  br i1 %.not.i103, label %107, label %110
+  %.not.i104 = icmp eq i32 %106, 0
+  br i1 %.not.i104, label %107, label %110
 
 107:                                              ; preds = %105
   %108 = icmp eq i32 %104, 1
   %109 = select i1 %108, ptr @.str.32, ptr @.str.33
-  br label %Q_.exit105
+  br label %Q_.exit106
 
 110:                                              ; preds = %105
   %111 = sext i32 %104 to i64
   %112 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef range(i64 -2147483648, 2147483648) %111, i32 noundef 5) #21
-  %.pre121 = load i32, ptr %58, align 8, !tbaa !106
-  br label %Q_.exit105
+  %.pre122 = load i32, ptr %58, align 8, !tbaa !106
+  br label %Q_.exit106
 
-Q_.exit105:                                       ; preds = %107, %110
-  %113 = phi i32 [ %.pre121, %110 ], [ %104, %107 ]
-  %.0.i104 = phi ptr [ %112, %110 ], [ %109, %107 ]
-  tail call void (ptr, ...) @warning(ptr noundef %.0.i104, i32 noundef %113) #21
+Q_.exit106:                                       ; preds = %107, %110
+  %113 = phi i32 [ %.pre122, %110 ], [ %104, %107 ]
+  %.0.i105 = phi ptr [ %112, %110 ], [ %109, %107 ]
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i105, i32 noundef %113) #21
   br label %114
 
-114:                                              ; preds = %Q_.exit102, %Q_.exit105, %103, %57
+114:                                              ; preds = %Q_.exit103, %Q_.exit106, %103, %57
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load i32, ptr %115, align 8, !tbaa !108
   %.not88 = icmp eq i32 %116, 0
@@ -2500,16 +2500,16 @@ Q_.exit105:                                       ; preds = %107, %110
 
 124:                                              ; preds = %117
   %125 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
-  %.not4.i106 = icmp eq i32 %125, 0
-  br i1 %.not4.i106, label %_.exit108, label %126
+  %.not4.i107 = icmp eq i32 %125, 0
+  br i1 %.not4.i107, label %_.exit109, label %126
 
 126:                                              ; preds = %124
   %127 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #21
-  br label %_.exit108
+  br label %_.exit109
 
-_.exit108:                                        ; preds = %124, %126
-  %.0.i107 = phi ptr [ %127, %126 ], [ @.str.36, %124 ]
-  %128 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i107) #21
+_.exit109:                                        ; preds = %124, %126
+  %.0.i108 = phi ptr [ %127, %126 ], [ @.str.36, %124 ]
+  %128 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i108) #21
   br label %.thread
 
 129:                                              ; preds = %117, %114
@@ -2517,8 +2517,8 @@ _.exit108:                                        ; preds = %124, %126
   %131 = zext i1 %130 to i32
   br label %.thread
 
-.thread:                                          ; preds = %set_default_whitespace_mode.exit, %15, %_.exit, %52, %129, %_.exit108, %Q_.exit99
-  %.171 = phi i32 [ %53, %52 ], [ -128, %Q_.exit99 ], [ -128, %_.exit108 ], [ %131, %129 ], [ -128, %_.exit ], [ %38, %set_default_whitespace_mode.exit ], [ %16, %15 ]
+.thread:                                          ; preds = %set_default_whitespace_mode.exit, %15, %_.exit, %52, %129, %_.exit109, %Q_.exit100
+  %.171 = phi i32 [ %53, %52 ], [ -128, %Q_.exit100 ], [ -128, %_.exit109 ], [ %131, %129 ], [ -128, %_.exit ], [ %38, %set_default_whitespace_mode.exit ], [ %16, %15 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %133 = tail call i32 @delete_tempfile(ptr noundef nonnull %132) #21
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5173,10 +5173,9 @@ select.unfold.i.i:                                ; preds = %1134, %1127, %1117,
 
 1141:                                             ; preds = %select.unfold.i.i
   switch i32 %.3.i.i.i, label %1491 [
-    i32 0, label %1157
+    i32 2, label %1152
     i32 1, label %1142
     i32 3, label %1147
-    i32 2, label %1152
   ]
 
 1142:                                             ; preds = %1141
@@ -5221,7 +5220,7 @@ _.exit101.i.i:                                    ; preds = %1154, %1152
   %1156 = call i32 (ptr, ...) @error(ptr noundef %.0.i100.i.i, ptr noundef nonnull %918) #21
   br label %1491
 
-1157:                                             ; preds = %1141, %1137, %check_to_create.exit.thread.i.i
+1157:                                             ; preds = %1137, %check_to_create.exit.thread.i.i
   %1158 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 28
   %1159 = load i32, ptr %1158, align 4, !tbaa !112
   %.not82.i.i177 = icmp eq i32 %1159, 0

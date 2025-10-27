@@ -2484,7 +2484,7 @@ read_char.exit.thread:                            ; preds = %52
   %60 = call ptr @PyErr_SetFromErrno(ptr noundef %59) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %162
+  br label %161
 
 61:                                               ; preds = %52
   %62 = add i64 %57, %.0.i.i
@@ -2497,12 +2497,12 @@ read_char.exit:                                   ; preds = %61
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.mask = and i64 %62, 2147483648
   %.not23 = icmp eq i64 %.mask, 0
-  br i1 %.not23, label %64, label %162
+  br i1 %.not23, label %64, label %161
 
 64:                                               ; preds = %read_char.exit
   %65 = load i8, ptr %23, align 1, !tbaa !3
   %.not24 = icmp eq i8 %65, 0
-  br i1 %.not24, label %140, label %66
+  br i1 %.not24, label %139, label %66
 
 66:                                               ; preds = %64
   %67 = load i64, ptr %25, align 8, !tbaa !82
@@ -2550,7 +2550,7 @@ read_ptr.exit.i44:                                ; preds = %80
 
 parse_tasks_in_set.exit.thread:                   ; preds = %read_ptr.exit.thread.i48, %read_ptr.exit.i44
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %162
+  br label %161
 
 83:                                               ; preds = %read_ptr.exit.i44
   %84 = load i64, ptr %12, align 8, !tbaa !8
@@ -2614,7 +2614,7 @@ parse_tasks_in_set.exit.thread75:                 ; preds = %103
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %162
+  br label %161
 
 109:                                              ; preds = %103
   %110 = load i64, ptr %14, align 8, !tbaa !8
@@ -2629,9 +2629,9 @@ parse_tasks_in_set.exit.thread75:                 ; preds = %103
   %.not32.i = icmp eq i32 %116, 0
   br i1 %.not32.i, label %.preheader, label %parse_tasks_in_set.exit.thread79
 
-.preheader:                                       ; preds = %109, %139
-  %.019.i = phi i64 [ %.120.i, %139 ], [ 0, %109 ]
-  %.0.i29 = phi i64 [ %.1.i, %139 ], [ 0, %109 ]
+.preheader:                                       ; preds = %109, %135
+  %.019.i = phi i64 [ %138, %135 ], [ 0, %109 ]
+  %.0.i29 = phi i64 [ %.2.i, %135 ], [ 0, %109 ]
   %117 = load i64, ptr %14, align 8, !tbaa !8
   %118 = icmp slt i64 %.019.i, %117
   br i1 %118, label %119, label %parse_tasks_in_set.exit
@@ -2679,116 +2679,111 @@ parse_tasks_in_set.exit.thread75:                 ; preds = %103
   %134 = load i64, ptr %13, align 8, !tbaa !8
   %.not = icmp eq i64 %133, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %.not, label %139, label %135
+  br i1 %.not, label %parse_tasks_in_set.exit.critedge, label %135
 
 135:                                              ; preds = %.thread61, %132, %122
   %.2.i = phi i64 [ %133, %132 ], [ %.0.i29, %122 ], [ %.0.i29, %.thread61 ]
   %136 = load i64, ptr %15, align 8, !tbaa !8
   %137 = add i64 %136, 16
   store i64 %137, ptr %15, align 8, !tbaa !8
-  %138 = add nsw i64 %.019.i, 1
-  br label %139
+  %138 = add nuw nsw i64 %.019.i, 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  br label %.preheader
 
 .thread66:                                        ; preds = %119, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %parse_tasks_in_set.exit.thread79
 
-139:                                              ; preds = %135, %132
-  %.021.i = phi i32 [ 0, %135 ], [ 3, %132 ]
-  %.120.i = phi i64 [ %138, %135 ], [ %.019.i, %132 ]
-  %.1.i = phi i64 [ %.2.i, %135 ], [ %133, %132 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  switch i32 %.021.i, label %parse_tasks_in_set.exit.thread79 [
-    i32 0, label %.preheader
-    i32 3, label %parse_tasks_in_set.exit
-  ], !llvm.loop !87
-
 parse_tasks_in_set.exit.thread72:                 ; preds = %read_ssize_t.exit, %read_ssize_t.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %162
+  br label %161
 
-parse_tasks_in_set.exit.thread79:                 ; preds = %139, %109, %.thread66
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %162
-
-parse_tasks_in_set.exit:                          ; preds = %.preheader, %139
+parse_tasks_in_set.exit.thread79:                 ; preds = %109, %.thread66
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %161
 
-140:                                              ; preds = %64
+parse_tasks_in_set.exit.critedge:                 ; preds = %132
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  br label %parse_tasks_in_set.exit
+
+parse_tasks_in_set.exit:                          ; preds = %.preheader, %parse_tasks_in_set.exit.critedge
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %160
+
+139:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %141 = load i64, ptr %25, align 8, !tbaa !82
-  %142 = add i64 %141, %3
+  %140 = load i64, ptr %25, align 8, !tbaa !82
+  %141 = add i64 %140, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %144 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %145
+  %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br label %144
 
-145:                                              ; preds = %154, %140
-  %.0.i.i.i30 = phi i64 [ 0, %140 ], [ %155, %154 ]
-  %146 = getelementptr i8, ptr %24, i64 %.0.i.i.i30
-  store ptr %146, ptr %10, align 16, !tbaa !29
-  %147 = sub i64 8, %.0.i.i.i30
-  store i64 %147, ptr %143, align 8, !tbaa !32
-  %148 = add i64 %142, %.0.i.i.i30
-  %149 = inttoptr i64 %148 to ptr
-  store ptr %149, ptr %11, align 16, !tbaa !29
-  store i64 %147, ptr %144, align 8, !tbaa !32
-  %150 = call i64 @process_vm_readv(i32 noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef nonnull %11, i64 noundef 1, i64 noundef 0) #9
-  %151 = icmp slt i64 %150, 0
-  br i1 %151, label %read_ptr.exit.thread.i36, label %154
+144:                                              ; preds = %153, %139
+  %.0.i.i.i30 = phi i64 [ 0, %139 ], [ %154, %153 ]
+  %145 = getelementptr i8, ptr %24, i64 %.0.i.i.i30
+  store ptr %145, ptr %10, align 16, !tbaa !29
+  %146 = sub i64 8, %.0.i.i.i30
+  store i64 %146, ptr %142, align 8, !tbaa !32
+  %147 = add i64 %141, %.0.i.i.i30
+  %148 = inttoptr i64 %147 to ptr
+  store ptr %148, ptr %11, align 16, !tbaa !29
+  store i64 %146, ptr %143, align 8, !tbaa !32
+  %149 = call i64 @process_vm_readv(i32 noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef nonnull %11, i64 noundef 1, i64 noundef 0) #9
+  %150 = icmp slt i64 %149, 0
+  br i1 %150, label %read_ptr.exit.thread.i36, label %153
 
-read_ptr.exit.thread.i36:                         ; preds = %145
-  %152 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
-  %153 = call ptr @PyErr_SetFromErrno(ptr noundef %152) #9
+read_ptr.exit.thread.i36:                         ; preds = %144
+  %151 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
+  %152 = call ptr @PyErr_SetFromErrno(ptr noundef %151) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-154:                                              ; preds = %145
-  %155 = add i64 %150, %.0.i.i.i30
-  %156 = load i64, ptr %143, align 8, !tbaa !32
-  %.not.i.i.i31 = icmp eq i64 %150, %156
-  br i1 %.not.i.i.i31, label %read_ptr.exit.i32, label %145, !llvm.loop !35
+153:                                              ; preds = %144
+  %154 = add i64 %149, %.0.i.i.i30
+  %155 = load i64, ptr %142, align 8, !tbaa !32
+  %.not.i.i.i31 = icmp eq i64 %149, %155
+  br i1 %.not.i.i.i31, label %read_ptr.exit.i32, label %144, !llvm.loop !35
 
-read_ptr.exit.i32:                                ; preds = %154
+read_ptr.exit.i32:                                ; preds = %153
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.mask.i33 = and i64 %155, 2147483648
+  %.mask.i33 = and i64 %154, 2147483648
   %.not.i34 = icmp eq i64 %.mask.i33, 0
-  br i1 %.not.i34, label %157, label %.critedge
+  br i1 %.not.i34, label %156, label %.critedge
 
-157:                                              ; preds = %read_ptr.exit.i32
-  %158 = load i64, ptr %24, align 8, !tbaa !8
-  %159 = and i64 %158, -2
-  store i64 %159, ptr %24, align 8, !tbaa !8
-  %160 = call fastcc i32 @parse_task(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %159, ptr noundef %4)
-  %.not26 = icmp eq i32 %160, 0
+156:                                              ; preds = %read_ptr.exit.i32
+  %157 = load i64, ptr %24, align 8, !tbaa !8
+  %158 = and i64 %157, -2
+  store i64 %158, ptr %24, align 8, !tbaa !8
+  %159 = call fastcc i32 @parse_task(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %158, ptr noundef %4)
+  %.not26 = icmp eq i32 %159, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br i1 %.not26, label %161, label %162
+  br i1 %.not26, label %160, label %161
 
-161:                                              ; preds = %parse_tasks_in_set.exit, %157
-  br label %162
+160:                                              ; preds = %parse_tasks_in_set.exit, %156
+  br label %161
 
 .critedge:                                        ; preds = %read_ptr.exit.i32, %read_ptr.exit.thread.i36
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %162
+  br label %161
 
-162:                                              ; preds = %parse_tasks_in_set.exit.thread79, %parse_tasks_in_set.exit.thread75, %parse_tasks_in_set.exit.thread72, %parse_tasks_in_set.exit.thread, %read_char.exit.thread, %.critedge, %read_char.exit, %157, %161
-  %.1 = phi i32 [ 0, %161 ], [ -1, %157 ], [ -1, %read_char.exit ], [ -1, %.critedge ], [ -1, %read_char.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread72 ], [ -1, %parse_tasks_in_set.exit.thread75 ], [ -1, %parse_tasks_in_set.exit.thread79 ]
+161:                                              ; preds = %parse_tasks_in_set.exit.thread79, %parse_tasks_in_set.exit.thread75, %parse_tasks_in_set.exit.thread72, %parse_tasks_in_set.exit.thread, %read_char.exit.thread, %.critedge, %read_char.exit, %156, %160
+  %.1 = phi i32 [ 0, %160 ], [ -1, %156 ], [ -1, %read_char.exit ], [ -1, %.critedge ], [ -1, %read_char.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread72 ], [ -1, %parse_tasks_in_set.exit.thread75 ], [ -1, %parse_tasks_in_set.exit.thread79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %read_py_ptr.exit.thread
 
-read_py_ptr.exit.thread:                          ; preds = %read_ptr.exit.thread.i, %read_ptr.exit.i, %42, %162
-  %.022 = phi i32 [ %.1, %162 ], [ 0, %42 ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ]
+read_py_ptr.exit.thread:                          ; preds = %read_ptr.exit.thread.i, %read_ptr.exit.i, %42, %161
+  %.022 = phi i32 [ %.1, %161 ], [ 0, %42 ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.022
 }
@@ -2806,7 +2801,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_task(i32 noundef %0, ptr noun
   %12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !88
+  %14 = load i64, ptr %13, align 8, !tbaa !87
   %15 = add i64 %14, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3201,7 +3196,7 @@ read_ptr.exit:                                    ; preds = %30
 33:                                               ; preds = %read_ptr.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 632
-  %35 = load i64, ptr %34, align 8, !tbaa !89
+  %35 = load i64, ptr %34, align 8, !tbaa !88
   %36 = add i64 %35, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3274,7 +3269,7 @@ read_ptr.exit.i:                                  ; preds = %48
 Py_DECREF.exit:                                   ; preds = %58, %60, %63
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %65 = load i64, ptr %64, align 8, !tbaa !90
+  %65 = load i64, ptr %64, align 8, !tbaa !89
   %66 = add i64 %65, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3341,7 +3336,7 @@ read_int.exit:                                    ; preds = %79, %76
   %97 = load i64, ptr %85, align 8, !tbaa !44
   %98 = add i64 %97, %2
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %100 = load i64, ptr %99, align 8, !tbaa !91
+  %100 = load i64, ptr %99, align 8, !tbaa !90
   %101 = add i64 %98, %100
   %102 = call fastcc i32 @read_py_ptr(i32 noundef %0, i64 noundef %101, ptr noundef %15)
   %.not49 = icmp eq i32 %102, 0
@@ -3539,8 +3534,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !84 = !{!11, !9, i64 464}
 !85 = !{!11, !9, i64 480}
 !86 = !{!11, !9, i64 472}
-!87 = distinct !{!87, !36}
-!88 = !{!41, !9, i64 24}
-!89 = !{!11, !9, i64 632}
-!90 = !{!11, !9, i64 648}
-!91 = !{!11, !9, i64 272}
+!87 = !{!41, !9, i64 24}
+!88 = !{!11, !9, i64 632}
+!89 = !{!11, !9, i64 648}
+!90 = !{!11, !9, i64 272}

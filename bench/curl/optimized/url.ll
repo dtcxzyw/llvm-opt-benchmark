@@ -1567,10 +1567,10 @@ define hidden range(i32 0, 28) i32 @Curl_parse_login_details(ptr noundef %0, i64
   %or.cond78 = select i1 %.not68, i1 %28, i1 false
   %29 = ptrtoint ptr %.059 to i64
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.v81.v = select i1 %or.cond78, ptr %6, ptr %30
-  %.v81 = ptrtoint ptr %.v81.v to i64
+  %.v82.v = select i1 %or.cond78, ptr %6, ptr %30
+  %.v82 = ptrtoint ptr %.v82.v to i64
   %31 = xor i64 %29, -1
-  %32 = add i64 %.v81, %31
+  %32 = add i64 %.v82, %31
   br label %33
 
 33:                                               ; preds = %24, %27
@@ -1594,20 +1594,20 @@ define hidden range(i32 0, 28) i32 @Curl_parse_login_details(ptr noundef %0, i64
 
 41:                                               ; preds = %40
   %.not75 = icmp eq i64 %34, 0
-  br i1 %.not75, label %.thread79, label %42
+  br i1 %.not75, label %.thread80, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %44 = tail call ptr @Curl_memdup0(ptr noundef nonnull %43, i64 noundef %34) #11
   %.not76 = icmp eq ptr %44, null
-  br i1 %.not76, label %46, label %.thread79
+  br i1 %.not76, label %46, label %.thread80
 
-.thread79:                                        ; preds = %41, %42
+.thread80:                                        ; preds = %41, %42
   %.056 = phi ptr [ %44, %42 ], [ null, %41 ]
   store ptr %.056, ptr %4, align 8, !tbaa !7
   br label %45
 
-45:                                               ; preds = %.thread79, %40
+45:                                               ; preds = %.thread80, %40
   store ptr %35, ptr %2, align 8, !tbaa !7
   store ptr %.1, ptr %3, align 8, !tbaa !7
   br label %49

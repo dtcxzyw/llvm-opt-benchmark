@@ -5906,7 +5906,7 @@ CopyFromCompoundDictionary.exit.thread:           ; preds = %777, %CopyFromCompo
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 248
   %787 = load i32, ptr %786, align 8, !tbaa !158
   %.not457.i = icmp eq i32 %787, 0
-  br i1 %.not457.i, label %BitMask.exit475.i, label %788
+  br i1 %.not457.i, label %BitMask.exit477.i, label %788
 
 788:                                              ; preds = %782
   %789 = load ptr, ptr %783, align 8, !tbaa !43
@@ -5937,9 +5937,9 @@ CopyFromCompoundDictionary.exit.thread:           ; preds = %777, %CopyFromCompo
   %814 = getelementptr inbounds nuw i8, ptr %802, i64 %813
   %815 = load i8, ptr %814, align 1, !tbaa !44
   %816 = zext i8 %815 to i64
-  br label %BitMask.exit475.i
+  br label %BitMask.exit477.i
 
-BitMask.exit475.i:                                ; preds = %788, %782
+BitMask.exit477.i:                                ; preds = %788, %782
   %817 = phi i64 [ %816, %788 ], [ 0, %782 ]
   %818 = getelementptr inbounds nuw i8, ptr %785, i64 320
   %819 = getelementptr inbounds nuw ptr, ptr %818, i64 %817
@@ -5974,12 +5974,12 @@ BitMask.exit475.i:                                ; preds = %788, %782
   %.not458.i = icmp slt i32 %839, %846
   br i1 %.not458.i, label %847, label %850
 
-847:                                              ; preds = %BitMask.exit475.i
+847:                                              ; preds = %BitMask.exit477.i
   %848 = load i8, ptr %828, align 1, !tbaa !44
   %849 = icmp eq i8 %848, 0
   br i1 %849, label %850, label %.loopexit
 
-850:                                              ; preds = %847, %BitMask.exit475.i
+850:                                              ; preds = %847, %BitMask.exit477.i
   %851 = getelementptr inbounds nuw i8, ptr %785, i64 316
   %852 = load i8, ptr %851, align 4, !tbaa !163
   %853 = icmp ugt i8 %852, 1
@@ -6620,13 +6620,13 @@ ReadCommandInternal.exit.thread:                  ; preds = %SafeReadBits.exit29
   %.promoted401 = load ptr, ptr %158, align 8, !tbaa !40
   br label %176
 
-176:                                              ; preds = %.lr.ph398, %BrotliPullByte.exit.i.i481.i
-  %177 = phi ptr [ %.promoted401, %.lr.ph398 ], [ %186, %BrotliPullByte.exit.i.i481.i ]
-  %178 = phi i64 [ %.promoted396, %.lr.ph398 ], [ %185, %BrotliPullByte.exit.i.i481.i ]
+176:                                              ; preds = %.lr.ph398, %BrotliPullByte.exit.i.i483.i
+  %177 = phi ptr [ %.promoted401, %.lr.ph398 ], [ %186, %BrotliPullByte.exit.i.i483.i ]
+  %178 = phi i64 [ %.promoted396, %.lr.ph398 ], [ %185, %BrotliPullByte.exit.i.i483.i ]
   %179 = icmp eq ptr %177, %175
-  br i1 %179, label %SafeReadSymbol.exit484.i, label %BrotliPullByte.exit.i.i481.i
+  br i1 %179, label %SafeReadSymbol.exit486.i, label %BrotliPullByte.exit.i.i483.i
 
-BrotliPullByte.exit.i.i481.i:                     ; preds = %176
+BrotliPullByte.exit.i.i483.i:                     ; preds = %176
   %180 = load i64, ptr %10, align 8, !tbaa !47
   %181 = load i8, ptr %177, align 1, !tbaa !44
   %182 = zext i8 %181 to i64
@@ -6640,14 +6640,14 @@ BrotliPullByte.exit.i.i481.i:                     ; preds = %176
   %187 = icmp ult i64 %178, 7
   br i1 %187, label %176, label %._crit_edge399, !llvm.loop !62
 
-._crit_edge399:                                   ; preds = %BrotliPullByte.exit.i.i481.i, %.._crit_edge399_crit_edge
-  %188 = phi i64 [ %.promoted396, %.._crit_edge399_crit_edge ], [ %185, %BrotliPullByte.exit.i.i481.i ]
-  %189 = phi i64 [ %.pre466, %.._crit_edge399_crit_edge ], [ %184, %BrotliPullByte.exit.i.i481.i ]
+._crit_edge399:                                   ; preds = %BrotliPullByte.exit.i.i483.i, %.._crit_edge399_crit_edge
+  %188 = phi i64 [ %.promoted396, %.._crit_edge399_crit_edge ], [ %185, %BrotliPullByte.exit.i.i483.i ]
+  %189 = phi i64 [ %.pre466, %.._crit_edge399_crit_edge ], [ %184, %BrotliPullByte.exit.i.i483.i ]
   %190 = and i64 %189, 255
   %191 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %173, i64 %190
   %192 = load i8, ptr %191, align 2, !tbaa !63
   %193 = icmp ugt i8 %192, 8
-  br i1 %193, label %BitMask.exit.i.i, label %SafeReadSymbol.exit484.i.thread
+  br i1 %193, label %BitMask.exit.i.i, label %SafeReadSymbol.exit486.i.thread
 
 BitMask.exit.i.i:                                 ; preds = %._crit_edge399
   %194 = add i64 %188, -8
@@ -6665,34 +6665,34 @@ BitMask.exit.i.i:                                 ; preds = %._crit_edge399
   %206 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %191, i64 %205
   %207 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %206, i64 %198
   %.pre467 = load i8, ptr %207, align 2, !tbaa !63
-  br label %SafeReadSymbol.exit484.i.thread
+  br label %SafeReadSymbol.exit486.i.thread
 
-SafeReadSymbol.exit484.i.thread:                  ; preds = %._crit_edge399, %BitMask.exit.i.i
+SafeReadSymbol.exit486.i.thread:                  ; preds = %._crit_edge399, %BitMask.exit.i.i
   %208 = phi i64 [ %195, %BitMask.exit.i.i ], [ %189, %._crit_edge399 ]
   %209 = phi i64 [ %194, %BitMask.exit.i.i ], [ %188, %._crit_edge399 ]
   %210 = phi i8 [ %.pre467, %BitMask.exit.i.i ], [ %192, %._crit_edge399 ]
-  %.0.i485.i = phi ptr [ %207, %BitMask.exit.i.i ], [ %191, %._crit_edge399 ]
+  %.0.i487.i = phi ptr [ %207, %BitMask.exit.i.i ], [ %191, %._crit_edge399 ]
   %211 = zext i8 %210 to i64
   %212 = sub i64 %209, %211
   store i64 %212, ptr %157, align 8, !tbaa !46
   %213 = lshr i64 %208, %211
   store i64 %213, ptr %10, align 8, !tbaa !47
-  %214 = getelementptr inbounds nuw i8, ptr %.0.i485.i, i64 2
+  %214 = getelementptr inbounds nuw i8, ptr %.0.i487.i, i64 2
   %215 = load i16, ptr %214, align 2, !tbaa !65
   %216 = zext i16 %215 to i64
   br label %218
 
-SafeReadSymbol.exit484.i:                         ; preds = %176
+SafeReadSymbol.exit486.i:                         ; preds = %176
   %217 = call fastcc i32 @SafeDecodeSymbol(ptr noundef %173, ptr noundef nonnull %10, ptr noundef nonnull %4)
   %.not447.i = icmp eq i32 %217, 0
-  br i1 %.not447.i, label %.loopexit342.loopexit, label %SafeReadSymbol.exit484.i._crit_edge
+  br i1 %.not447.i, label %.loopexit342.loopexit, label %SafeReadSymbol.exit486.i._crit_edge
 
-SafeReadSymbol.exit484.i._crit_edge:              ; preds = %SafeReadSymbol.exit484.i
+SafeReadSymbol.exit486.i._crit_edge:              ; preds = %SafeReadSymbol.exit486.i
   %.pre468 = load i64, ptr %4, align 8, !tbaa !25
   br label %218
 
-218:                                              ; preds = %SafeReadSymbol.exit484.i._crit_edge, %SafeReadSymbol.exit484.i.thread
-  %219 = phi i64 [ %.pre468, %SafeReadSymbol.exit484.i._crit_edge ], [ %216, %SafeReadSymbol.exit484.i.thread ]
+218:                                              ; preds = %SafeReadSymbol.exit486.i._crit_edge, %SafeReadSymbol.exit486.i.thread
+  %219 = phi i64 [ %.pre468, %SafeReadSymbol.exit486.i._crit_edge ], [ %216, %SafeReadSymbol.exit486.i.thread ]
   %220 = trunc i64 %219 to i8
   %221 = load ptr, ptr %160, align 8, !tbaa !43
   %222 = getelementptr inbounds i8, ptr %221, i64 %indvars.iv
@@ -6716,7 +6716,7 @@ SafeReadSymbol.exit484.i._crit_edge:              ; preds = %SafeReadSymbol.exit
   %.not448.i = icmp eq i32 %228, 0
   br i1 %.not448.i, label %.thread177, label %169, !llvm.loop !168
 
-.loopexit342.loopexit:                            ; preds = %SafeReadSymbol.exit484.i
+.loopexit342.loopexit:                            ; preds = %SafeReadSymbol.exit486.i
   %231 = trunc nsw i64 %indvars.iv to i32
   br label %.loopexit342
 
@@ -6812,9 +6812,9 @@ BrotliPullByte.exit.i.i.i:                        ; preds = %269
   %284 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %266, i64 %283
   %285 = load i8, ptr %284, align 2, !tbaa !63
   %286 = icmp ugt i8 %285, 8
-  br i1 %286, label %BitMask.exit.i488.i, label %SafeReadSymbol.exit.i.thread
+  br i1 %286, label %BitMask.exit.i490.i, label %SafeReadSymbol.exit.i.thread
 
-BitMask.exit.i488.i:                              ; preds = %._crit_edge405
+BitMask.exit.i490.i:                              ; preds = %._crit_edge405
   %287 = add i64 %281, -8
   %288 = lshr i64 %282, 8
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 2
@@ -6832,17 +6832,17 @@ BitMask.exit.i488.i:                              ; preds = %._crit_edge405
   %.pre471 = load i8, ptr %300, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i.thread
 
-SafeReadSymbol.exit.i.thread:                     ; preds = %._crit_edge405, %BitMask.exit.i488.i
-  %301 = phi i64 [ %288, %BitMask.exit.i488.i ], [ %282, %._crit_edge405 ]
-  %302 = phi i64 [ %287, %BitMask.exit.i488.i ], [ %281, %._crit_edge405 ]
-  %303 = phi i8 [ %.pre471, %BitMask.exit.i488.i ], [ %285, %._crit_edge405 ]
-  %.0.i487.i = phi ptr [ %300, %BitMask.exit.i488.i ], [ %284, %._crit_edge405 ]
+SafeReadSymbol.exit.i.thread:                     ; preds = %._crit_edge405, %BitMask.exit.i490.i
+  %301 = phi i64 [ %288, %BitMask.exit.i490.i ], [ %282, %._crit_edge405 ]
+  %302 = phi i64 [ %287, %BitMask.exit.i490.i ], [ %281, %._crit_edge405 ]
+  %303 = phi i8 [ %.pre471, %BitMask.exit.i490.i ], [ %285, %._crit_edge405 ]
+  %.0.i489.i = phi ptr [ %300, %BitMask.exit.i490.i ], [ %284, %._crit_edge405 ]
   %304 = zext i8 %303 to i64
   %305 = sub i64 %302, %304
   store i64 %305, ptr %157, align 8, !tbaa !46
   %306 = lshr i64 %301, %304
   store i64 %306, ptr %10, align 8, !tbaa !47
-  %307 = getelementptr inbounds nuw i8, ptr %.0.i487.i, i64 2
+  %307 = getelementptr inbounds nuw i8, ptr %.0.i489.i, i64 2
   %308 = load i16, ptr %307, align 2, !tbaa !65
   %309 = trunc i16 %308 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7405,7 +7405,7 @@ CopyFromCompoundDictionary.exit.thread:           ; preds = %611, %CopyFromCompo
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 248
   %621 = load i32, ptr %620, align 8, !tbaa !158
   %.not457.i = icmp eq i32 %621, 0
-  br i1 %.not457.i, label %BitMask.exit475.i, label %622
+  br i1 %.not457.i, label %BitMask.exit477.i, label %622
 
 622:                                              ; preds = %616
   %623 = load ptr, ptr %617, align 8, !tbaa !43
@@ -7436,9 +7436,9 @@ CopyFromCompoundDictionary.exit.thread:           ; preds = %611, %CopyFromCompo
   %648 = getelementptr inbounds nuw i8, ptr %636, i64 %647
   %649 = load i8, ptr %648, align 1, !tbaa !44
   %650 = zext i8 %649 to i64
-  br label %BitMask.exit475.i
+  br label %BitMask.exit477.i
 
-BitMask.exit475.i:                                ; preds = %622, %616
+BitMask.exit477.i:                                ; preds = %622, %616
   %651 = phi i64 [ %650, %622 ], [ 0, %616 ]
   %652 = getelementptr inbounds nuw i8, ptr %619, i64 320
   %653 = getelementptr inbounds nuw ptr, ptr %652, i64 %651
@@ -7473,12 +7473,12 @@ BitMask.exit475.i:                                ; preds = %622, %616
   %.not458.i = icmp slt i32 %673, %680
   br i1 %.not458.i, label %681, label %684
 
-681:                                              ; preds = %BitMask.exit475.i
+681:                                              ; preds = %BitMask.exit477.i
   %682 = load i8, ptr %662, align 1, !tbaa !44
   %683 = icmp eq i8 %682, 0
   br i1 %683, label %684, label %.loopexit
 
-684:                                              ; preds = %681, %BitMask.exit475.i
+684:                                              ; preds = %681, %BitMask.exit477.i
   %685 = getelementptr inbounds nuw i8, ptr %619, i64 316
   %686 = load i8, ptr %685, align 4, !tbaa !163
   %687 = icmp ugt i8 %686, 1

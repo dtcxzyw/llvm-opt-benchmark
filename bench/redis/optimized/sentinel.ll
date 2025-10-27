@@ -3986,48 +3986,48 @@ define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
   %23 = load i32, ptr %20, align 8, !tbaa !187
   %24 = call ptr @sentinelHandleConfiguration(ptr noundef %22, i32 noundef %23)
   %.not19 = icmp eq ptr %24, null
-  br i1 %.not19, label %16, label %26
+  br i1 %.not19, label %16, label %36
 
 25:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %39, label %13, !llvm.loop !193
+  br i1 %exitcond.not, label %26, label %13, !llvm.loop !193
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %28 = load i32, ptr %27, align 8, !tbaa !190
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !188
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !194
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #36
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !194
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.66, i32 noundef %28) #36
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !194
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.67, ptr noundef %30) #36
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !194
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.68, ptr noundef nonnull %24) #36
-  call void @exit(i32 noundef 1) #31
-  unreachable
-
-39:                                               ; preds = %25
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  %41 = load ptr, ptr %40, align 8, !tbaa !182
-  call void @listRelease(ptr noundef %41) #30
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !180
-  call void @listRelease(ptr noundef %44) #30
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !183
-  call void @listRelease(ptr noundef %47) #30
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  call void @zfree(ptr noundef %48) #30
+26:                                               ; preds = %25
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  %28 = load ptr, ptr %27, align 8, !tbaa !182
+  call void @listRelease(ptr noundef %28) #30
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !180
+  call void @listRelease(ptr noundef %31) #30
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !183
+  call void @listRelease(ptr noundef %34) #30
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  call void @zfree(ptr noundef %35) #30
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %49
 
-49:                                               ; preds = %0, %39
+36:                                               ; preds = %18
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %38 = load i32, ptr %37, align 8, !tbaa !190
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !188
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !194
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #36
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !194
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.66, i32 noundef %38) #36
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !194
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.67, ptr noundef %40) #36
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !194
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.68, ptr noundef nonnull %24) #36
+  call void @exit(i32 noundef 1) #31
+  unreachable
+
+49:                                               ; preds = %0, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

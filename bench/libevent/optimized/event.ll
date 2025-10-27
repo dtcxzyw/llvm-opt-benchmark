@@ -5257,13 +5257,13 @@ is_common_timeout.exit:                           ; preds = %11
   %15 = and i32 %14, 255
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %17 = load i32, ptr %16, align 8
-  %.not99 = icmp slt i32 %15, %17
+  %.not102 = icmp slt i32 %15, %17
   %18 = and i64 %9, 1048575
-  %spec.select123 = select i1 %.not99, i64 %18, i64 %9
+  %spec.select126 = select i1 %.not102, i64 %18, i64 %9
   br label %is_common_timeout.exit.thread
 
 is_common_timeout.exit.thread:                    ; preds = %is_common_timeout.exit, %11
-  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8.69 = phi i64 [ %9, %11 ], [ %spec.select123, %is_common_timeout.exit ]
+  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8.69 = phi i64 [ %9, %11 ], [ %spec.select126, %is_common_timeout.exit ]
   %19 = udiv i64 %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8.69, 1000000
   %20 = add nsw i64 %19, %.sroa.0.0.copyload
   store i64 %20, ptr %.sroa.0, align 8
@@ -5331,8 +5331,8 @@ is_common_timeout.exit.thread:                    ; preds = %is_common_timeout.e
   %52 = zext nneg i32 %spec.select to i64
   %53 = shl nuw nsw i64 %52, 3
   %54 = load ptr, ptr @mm_realloc_fn_, align 8
-  %.not.i80 = icmp eq ptr %54, null
-  br i1 %.not.i80, label %57, label %55
+  %.not.i83 = icmp eq ptr %54, null
+  br i1 %.not.i83, label %57, label %55
 
 55:                                               ; preds = %47
   %56 = tail call ptr %54(ptr noundef %51, i64 noundef %53) #26
@@ -5343,30 +5343,30 @@ is_common_timeout.exit.thread:                    ; preds = %is_common_timeout.e
   br label %event_mm_realloc_.exit
 
 event_mm_realloc_.exit:                           ; preds = %55, %57
-  %.0.i81 = phi ptr [ %56, %55 ], [ %58, %57 ]
-  %.not77 = icmp eq ptr %.0.i81, null
-  br i1 %.not77, label %59, label %.thread91
+  %.0.i84 = phi ptr [ %56, %55 ], [ %58, %57 ]
+  %.not77 = icmp eq ptr %.0.i84, null
+  br i1 %.not77, label %59, label %.thread94
 
-.thread91:                                        ; preds = %event_mm_realloc_.exit
+.thread94:                                        ; preds = %event_mm_realloc_.exit
   store i32 %spec.select, ptr %44, align 4
-  store ptr %.0.i81, ptr %50, align 8
+  store ptr %.0.i84, ptr %50, align 8
   br label %60
 
 59:                                               ; preds = %event_mm_realloc_.exit
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.event_base_init_common_timeout) #26
   br label %.loopexit
 
-60:                                               ; preds = %.thread91, %._crit_edge.thread
+60:                                               ; preds = %.thread94, %._crit_edge.thread
   %61 = load ptr, ptr @mm_malloc_fn_, align 8
-  %.not.i82 = icmp eq ptr %61, null
-  br i1 %.not.i82, label %event_mm_calloc_.exit, label %62
+  %.not.i85 = icmp eq ptr %61, null
+  br i1 %.not.i85, label %event_mm_calloc_.exit, label %62
 
 62:                                               ; preds = %60
   %63 = tail call ptr %61(i64 noundef 160) #26
   %.not20.i = icmp eq ptr %63, null
-  br i1 %.not20.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread95
+  br i1 %.not20.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread98
 
-event_mm_calloc_.exit.thread95:                   ; preds = %62
+event_mm_calloc_.exit.thread98:                   ; preds = %62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(160) %63, i8 0, i64 160, i1 false)
   br label %67
 
@@ -5384,13 +5384,13 @@ event_mm_calloc_.exit:                            ; preds = %60
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_init_common_timeout) #26
   br label %.loopexit
 
-67:                                               ; preds = %event_mm_calloc_.exit.thread95, %event_mm_calloc_.exit
-  %.0.i8398 = phi ptr [ %63, %event_mm_calloc_.exit.thread95 ], [ %65, %event_mm_calloc_.exit ]
-  store ptr null, ptr %.0.i8398, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 8
-  store ptr %.0.i8398, ptr %68, align 8
+67:                                               ; preds = %event_mm_calloc_.exit.thread98, %event_mm_calloc_.exit
+  %.0.i86101 = phi ptr [ %63, %event_mm_calloc_.exit.thread98 ], [ %65, %event_mm_calloc_.exit ]
+  store ptr null, ptr %.0.i86101, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 8
+  store ptr %.0.i86101, ptr %68, align 8
   %69 = load i64, ptr %.054.sroa.phi63, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 16
   store i64 %69, ptr %70, align 8
   %71 = load i64, ptr %.054.sroa.phi66, align 8
   %72 = load i32, ptr %24, align 8
@@ -5398,11 +5398,11 @@ event_mm_calloc_.exit:                            ; preds = %60
   %74 = sext i32 %73 to i64
   %75 = or i64 %71, %74
   %76 = or i64 %75, 1342177280
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 24
   store i64 %76, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 32
-  %79 = tail call i32 @event_assign(ptr noundef nonnull %78, ptr noundef nonnull %0, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @common_timeout_callback, ptr noundef nonnull %.0.i8398)
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 32
+  %79 = tail call i32 @event_assign(ptr noundef nonnull %78, ptr noundef nonnull %0, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @common_timeout_callback, ptr noundef nonnull %.0.i86101)
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 48
   %81 = load i16, ptr %80, align 8
   %82 = or i16 %81, 16
   store i16 %82, ptr %80, align 8
@@ -5448,10 +5448,10 @@ event_mm_calloc_.exit:                            ; preds = %60
   br i1 %.not1.i.i.i.i, label %event_debug_map_HT_FIND.exit.i.i, label %99, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %99, %89
-  %103 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 92
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 92
   %104 = load i16, ptr %103, align 4
   %105 = sext i16 %104 to i32
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 88
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 88
   %107 = load i32, ptr %106, align 8
   %108 = load i16, ptr %80, align 8
   %109 = sext i16 %108 to i32
@@ -5471,11 +5471,11 @@ event_debug_map_HT_FIND.exit.i.i:                 ; preds = %101
 event_debug_assert_is_setup_.exit.i:              ; preds = %111, %event_debug_map_HT_FIND.exit.i.i, %67
   %114 = load i16, ptr %80, align 8
   %115 = and i16 %114, 8
-  %.not.i84.not = icmp eq i16 %115, 0
-  br i1 %.not.i84.not, label %116, label %event_priority_set.exit
+  %.not.i87.not = icmp eq i16 %115, 0
+  br i1 %.not.i87.not, label %116, label %event_priority_set.exit
 
 116:                                              ; preds = %event_debug_assert_is_setup_.exit.i
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 96
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 96
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 768
   %120 = load i32, ptr %119, align 8
@@ -5483,12 +5483,12 @@ event_debug_assert_is_setup_.exit.i:              ; preds = %111, %event_debug_m
   br i1 %.not8.i, label %121, label %event_priority_set.exit
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 50
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 50
   store i8 0, ptr %122, align 2
   br label %event_priority_set.exit
 
 event_priority_set.exit:                          ; preds = %event_debug_assert_is_setup_.exit.i, %116, %121
-  %123 = getelementptr inbounds nuw i8, ptr %.0.i8398, i64 152
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i86101, i64 152
   store ptr %0, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %125 = load ptr, ptr %124, align 8
@@ -5497,7 +5497,7 @@ event_priority_set.exit:                          ; preds = %event_debug_assert_
   store i32 %127, ptr %24, align 8
   %128 = sext i32 %126 to i64
   %129 = getelementptr inbounds ptr, ptr %125, i64 %128
-  store ptr %.0.i8398, ptr %129, align 8
+  store ptr %.0.i86101, ptr %129, align 8
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %36

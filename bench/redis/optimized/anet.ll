@@ -506,14 +506,14 @@ define internal fastcc i32 @anetTcpGenericConnect(ptr noundef captures(address_i
   store i32 1, ptr %12, align 8, !tbaa !23
   %13 = call i32 @getaddrinfo(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %.preheader84, label %15
+  br i1 %.not, label %.preheader85, label %15
 
-.preheader84:                                     ; preds = %5
-  %.04995 = load ptr, ptr %9, align 8, !tbaa !24
-  %.not5596 = icmp eq ptr %.04995, null
-  br i1 %.not5596, label %.thread76, label %.lr.ph98
+.preheader85:                                     ; preds = %5
+  %.04996 = load ptr, ptr %9, align 8, !tbaa !24
+  %.not5597 = icmp eq ptr %.04996, null
+  br i1 %.not5597, label %.thread77, label %.lr.ph99
 
-.lr.ph98:                                         ; preds = %.preheader84
+.lr.ph99:                                         ; preds = %.preheader85
   %14 = and i32 %4, 1
   %.not56 = icmp eq i32 %14, 0
   %.not58 = icmp eq ptr %3, null
@@ -524,13 +524,13 @@ define internal fastcc i32 @anetTcpGenericConnect(ptr noundef captures(address_i
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %16)
   br label %84
 
-17:                                               ; preds = %.lr.ph98, %69
-  %.04997 = phi ptr [ %.04995, %.lr.ph98 ], [ %.049, %69 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.04997, i64 4
+17:                                               ; preds = %.lr.ph99, %69
+  %.04998 = phi ptr [ %.04996, %.lr.ph99 ], [ %.049, %69 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.04998, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !22
-  %20 = getelementptr inbounds nuw i8, ptr %.04997, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.04998, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw i8, ptr %.04997, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.04998, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !26
   %24 = call i32 @socket(i32 noundef %19, i32 noundef %21, i32 noundef %23) #11
   %25 = icmp eq i32 %24, -1
@@ -549,7 +549,7 @@ anetSetReuseAddr.exit.thread:                     ; preds = %26
   %31 = call ptr @strerror(i32 noundef %30) #11
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread72
+  br label %.thread73
 
 32:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -577,7 +577,7 @@ anetNonBlock.exit:                                ; preds = %33, %38
   %42 = load i32, ptr %41, align 4, !tbaa !5
   %43 = call ptr @strerror(i32 noundef %42) #11
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull %.str.1.sink.i.i, ptr noundef %43)
-  br label %.thread72
+  br label %.thread73
 
 anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   br i1 %.not58, label %56, label %44
@@ -585,29 +585,29 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
 44:                                               ; preds = %anetNonBlock.exit.thread
   %45 = call i32 @getaddrinfo(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %10) #11
   %.not59 = icmp eq i32 %45, 0
-  br i1 %.not59, label %.preheader, label %.thread79
+  br i1 %.not59, label %.preheader, label %.thread80
 
 .preheader:                                       ; preds = %44
-  %.04891 = load ptr, ptr %10, align 8, !tbaa !24
-  %.not6092 = icmp eq ptr %.04891, null
-  br i1 %.not6092, label %.preheader._crit_edge, label %.lr.ph
+  %.04892 = load ptr, ptr %10, align 8, !tbaa !24
+  %.not6093 = icmp eq ptr %.04892, null
+  br i1 %.not6093, label %.preheader._crit_edge, label %.lr.ph
 
-.thread79:                                        ; preds = %44
+.thread80:                                        ; preds = %44
   %46 = call ptr @gai_strerror(i32 noundef %45) #11
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %46)
-  br label %.thread72
+  br label %.thread73
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i8, ptr %.04893, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.04894, i64 40
   %.048 = load ptr, ptr %48, align 8, !tbaa !24
   %.not60 = icmp eq ptr %.048, null
   br i1 %.not60, label %.preheader._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.preheader, %47
-  %.04893 = phi ptr [ %.048, %47 ], [ %.04891, %.preheader ]
-  %49 = getelementptr inbounds nuw i8, ptr %.04893, i64 24
+  %.04894 = phi ptr [ %.048, %47 ], [ %.04892, %.preheader ]
+  %49 = getelementptr inbounds nuw i8, ptr %.04894, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw i8, ptr %.04893, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.04894, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !28
   %53 = call i32 @bind(i32 noundef %24, ptr %50, i32 noundef %52) #11
   %.not61 = icmp eq i32 %53, -1
@@ -619,9 +619,9 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   br label %56
 
 56:                                               ; preds = %54, %anetNonBlock.exit.thread
-  %57 = getelementptr inbounds nuw i8, ptr %.04997, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.04998, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw i8, ptr %.04997, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.04998, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !28
   %61 = call i32 @connect(i32 noundef %24, ptr %58, i32 noundef %60) #11
   %62 = icmp eq i32 %61, -1
@@ -639,12 +639,12 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   br label %69
 
 69:                                               ; preds = %17, %67
-  %70 = getelementptr inbounds nuw i8, ptr %.04997, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %.04998, i64 40
   %.049 = load ptr, ptr %70, align 8, !tbaa !24
   %.not55 = icmp eq ptr %.049, null
-  br i1 %.not55, label %.thread76, label %17, !llvm.loop !29
+  br i1 %.not55, label %.thread77, label %17, !llvm.loop !29
 
-.thread76:                                        ; preds = %69, %.preheader84
+.thread77:                                        ; preds = %69, %.preheader85
   %71 = tail call ptr @__errno_location() #12
   %72 = load i32, ptr %71, align 4, !tbaa !5
   %73 = call ptr @strerror(i32 noundef %72) #11
@@ -662,22 +662,22 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   %76 = load i32, ptr %75, align 4, !tbaa !5
   %77 = call ptr @strerror(i32 noundef %76) #11
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %77)
-  br label %.thread72
+  br label %.thread73
 
-.thread72:                                        ; preds = %.preheader._crit_edge, %anetSetReuseAddr.exit.thread, %anetNonBlock.exit, %.thread79
+.thread73:                                        ; preds = %.preheader._crit_edge, %anetSetReuseAddr.exit.thread, %anetNonBlock.exit, %.thread80
   %78 = call i32 @close(i32 noundef %24) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %63, %56, %.thread76, %.thread72
-  %.3 = phi i32 [ -1, %.thread72 ], [ -1, %.thread76 ], [ %24, %56 ], [ %24, %63 ]
+.loopexit:                                        ; preds = %63, %56, %.thread77, %.thread73
+  %.3 = phi i32 [ -1, %.thread73 ], [ -1, %.thread77 ], [ %24, %56 ], [ %24, %63 ]
   %79 = load ptr, ptr %9, align 8, !tbaa !24
   call void @freeaddrinfo(ptr noundef %79) #11
   %80 = icmp ne i32 %.3, -1
   %81 = icmp eq ptr %3, null
-  %or.cond.not83 = or i1 %81, %80
+  %or.cond.not84 = or i1 %81, %80
   %.not64 = icmp samesign ult i32 %4, 2
-  %or.cond66 = select i1 %or.cond.not83, i1 true, i1 %.not64
-  br i1 %or.cond66, label %84, label %82
+  %or.cond67 = select i1 %or.cond.not84, i1 true, i1 %.not64
+  br i1 %or.cond67, label %84, label %82
 
 82:                                               ; preds = %.loopexit
   %83 = call fastcc i32 @anetTcpGenericConnect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, i32 noundef %4)

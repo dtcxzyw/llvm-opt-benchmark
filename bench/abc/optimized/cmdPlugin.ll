@@ -2625,7 +2625,7 @@ define i32 @Cmd_CommandAbcLoadPlugIn(ptr noundef %0, i32 noundef %1, ptr noundef
 
 25:                                               ; preds = %22
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.33, ptr noundef %19)
-  br label %.thread80
+  br label %.thread81
 
 26:                                               ; preds = %.thread, %15
   %27 = call i32 @Util_SignalTmpFile(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.34, ptr noundef nonnull %4) #17
@@ -2634,7 +2634,7 @@ define i32 @Cmd_CommandAbcLoadPlugIn(ptr noundef %0, i32 noundef %1, ptr noundef
 
 29:                                               ; preds = %26
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.10)
-  br label %.thread80
+  br label %.thread81
 
 30:                                               ; preds = %26
   %31 = call i32 @close(i32 noundef %27) #17
@@ -2708,21 +2708,21 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %62 = getelementptr inbounds i8, ptr %59, i64 %61
   store i8 0, ptr %62, align 1, !tbaa !34
   %.not53 = icmp eq i32 %.039.ph, 0
-  %.val61.pre = load ptr, ptr %35, align 8, !tbaa !33
+  %.val62.pre = load ptr, ptr %35, align 8, !tbaa !33
   br i1 %.not53, label %64, label %63
 
 63:                                               ; preds = %Vec_StrPush.exit
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 2, ptr noundef nonnull @.str.36, ptr noundef %.val61.pre)
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 2, ptr noundef nonnull @.str.36, ptr noundef %.val62.pre)
   br label %64
 
 64:                                               ; preds = %63, %Vec_StrPush.exit
-  %65 = call i32 @Util_SignalSystem(ptr noundef %.val61.pre) #17
+  %65 = call i32 @Util_SignalSystem(ptr noundef %.val62.pre) #17
   %.not54 = icmp eq i32 %65, 0
   br i1 %.not54, label %67, label %66
 
 66:                                               ; preds = %64
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.37, ptr noundef %.val61.pre)
-  br label %.thread80
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.37, ptr noundef %.val62.pre)
+  br label %.thread81
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %4, align 8, !tbaa !26
@@ -2732,8 +2732,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 .preheader:                                       ; preds = %67
   %71 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1000, ptr noundef nonnull %69)
-  %.not5591 = icmp eq ptr %71, null
-  br i1 %.not5591, label %._crit_edge, label %.lr.ph
+  %.not5592 = icmp eq ptr %71, null
+  br i1 %.not5592, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2741,7 +2741,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 73:                                               ; preds = %67
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.38)
-  br label %.thread80
+  br label %.thread81
 
 74:                                               ; preds = %.lr.ph, %149
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
@@ -2766,8 +2766,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br i1 %87, label %88, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %81
-  %.phi.trans.insert.i63 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %.pre.i64 = load ptr, ptr %.phi.trans.insert.i63, align 8, !tbaa !25
+  %.phi.trans.insert.i64 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %.pre.i65 = load ptr, ptr %.phi.trans.insert.i64, align 8, !tbaa !25
   br label %Vec_PtrPush.exit
 
 88:                                               ; preds = %81
@@ -2777,8 +2777,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !25
-  %.not9.i.i65 = icmp eq ptr %92, null
-  br i1 %.not9.i.i65, label %95, label %93
+  %.not9.i.i66 = icmp eq ptr %92, null
+  br i1 %.not9.i.i66, label %95, label %93
 
 93:                                               ; preds = %90
   %94 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %92, i64 noundef 128) #16
@@ -2818,7 +2818,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %95, %93
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %108
-  %110 = phi ptr [ %.pre.i64, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %109, %108 ], [ %97, %Vec_PtrGrow.exit.i ]
+  %110 = phi ptr [ %.pre.i65, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %109, %108 ], [ %97, %Vec_PtrGrow.exit.i ]
   %111 = load i32, ptr %84, align 4, !tbaa !23
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %84, align 4, !tbaa !23
@@ -2831,12 +2831,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %118 = load i32, ptr %117, align 4, !tbaa !23
   %119 = load i32, ptr %115, align 8, !tbaa !80
   %120 = icmp eq i32 %118, %119
-  br i1 %120, label %121, label %.Vec_PtrGrow.exit11_crit_edge.i66
+  br i1 %120, label %121, label %.Vec_PtrGrow.exit11_crit_edge.i67
 
-.Vec_PtrGrow.exit11_crit_edge.i66:                ; preds = %Vec_PtrPush.exit
-  %.phi.trans.insert.i67 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %.pre.i68 = load ptr, ptr %.phi.trans.insert.i67, align 8, !tbaa !25
-  br label %Vec_PtrPush.exit72
+.Vec_PtrGrow.exit11_crit_edge.i67:                ; preds = %Vec_PtrPush.exit
+  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %.pre.i69 = load ptr, ptr %.phi.trans.insert.i68, align 8, !tbaa !25
+  br label %Vec_PtrPush.exit73
 
 121:                                              ; preds = %Vec_PtrPush.exit
   %122 = icmp slt i32 %118, 16
@@ -2845,31 +2845,31 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !25
-  %.not9.i.i70 = icmp eq ptr %125, null
-  br i1 %.not9.i.i70, label %128, label %126
+  %.not9.i.i71 = icmp eq ptr %125, null
+  br i1 %.not9.i.i71, label %128, label %126
 
 126:                                              ; preds = %123
   %127 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %125, i64 noundef 128) #16
-  br label %Vec_PtrGrow.exit.i71
+  br label %Vec_PtrGrow.exit.i72
 
 128:                                              ; preds = %123
   %129 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #15
-  br label %Vec_PtrGrow.exit.i71
+  br label %Vec_PtrGrow.exit.i72
 
-Vec_PtrGrow.exit.i71:                             ; preds = %128, %126
+Vec_PtrGrow.exit.i72:                             ; preds = %128, %126
   %130 = phi ptr [ %127, %126 ], [ %129, %128 ]
   store ptr %130, ptr %124, align 8, !tbaa !25
   store i32 16, ptr %115, align 8, !tbaa !80
-  br label %Vec_PtrPush.exit72
+  br label %Vec_PtrPush.exit73
 
 131:                                              ; preds = %121
   %132 = shl nuw nsw i32 %118, 1
   %133 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !25
-  %.not9.i10.i69 = icmp eq ptr %134, null
+  %.not9.i10.i70 = icmp eq ptr %134, null
   %135 = zext nneg i32 %132 to i64
   %136 = shl nuw nsw i64 %135, 3
-  br i1 %.not9.i10.i69, label %139, label %137
+  br i1 %.not9.i10.i70, label %139, label %137
 
 137:                                              ; preds = %131
   %138 = call ptr @realloc(ptr noundef nonnull %134, i64 noundef %136) #16
@@ -2883,10 +2883,10 @@ Vec_PtrGrow.exit.i71:                             ; preds = %128, %126
   %142 = phi ptr [ %138, %137 ], [ %140, %139 ]
   store ptr %142, ptr %133, align 8, !tbaa !25
   store i32 %132, ptr %115, align 8, !tbaa !80
-  br label %Vec_PtrPush.exit72
+  br label %Vec_PtrPush.exit73
 
-Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i66, %Vec_PtrGrow.exit.i71, %141
-  %143 = phi ptr [ %.pre.i68, %.Vec_PtrGrow.exit11_crit_edge.i66 ], [ %142, %141 ], [ %130, %Vec_PtrGrow.exit.i71 ]
+Vec_PtrPush.exit73:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i67, %Vec_PtrGrow.exit.i72, %141
+  %143 = phi ptr [ %.pre.i69, %.Vec_PtrGrow.exit11_crit_edge.i67 ], [ %142, %141 ], [ %130, %Vec_PtrGrow.exit.i72 ]
   %144 = load i32, ptr %117, align 4, !tbaa !23
   %145 = add nsw i32 %144, 1
   store i32 %145, ptr %117, align 4, !tbaa !23
@@ -2895,36 +2895,36 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   store ptr %116, ptr %147, align 8, !tbaa !27
   br i1 %.not53, label %149, label %148
 
-148:                                              ; preds = %Vec_PtrPush.exit72
+148:                                              ; preds = %Vec_PtrPush.exit73
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 2, ptr noundef nonnull @.str.39, ptr noundef nonnull %5, ptr noundef %19)
   br label %149
 
-149:                                              ; preds = %148, %Vec_PtrPush.exit72
+149:                                              ; preds = %148, %Vec_PtrPush.exit73
   %150 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1000, ptr noundef nonnull %69)
   %.not55 = icmp eq ptr %150, null
   br i1 %.not55, label %._crit_edge, label %74, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %149, %.preheader
   %151 = call i32 @fclose(ptr noundef nonnull %69)
-  br label %.thread80
+  br label %.thread81
 
-.thread80:                                        ; preds = %25, %73, %66, %29, %._crit_edge
-  %.03886 = phi i32 [ 0, %._crit_edge ], [ -1, %25 ], [ -1, %73 ], [ %65, %66 ], [ -1, %29 ]
-  %.07885 = phi ptr [ %32, %._crit_edge ], [ null, %25 ], [ %32, %73 ], [ %32, %66 ], [ null, %29 ]
+.thread81:                                        ; preds = %25, %73, %66, %29, %._crit_edge
+  %.03887 = phi i32 [ 0, %._crit_edge ], [ -1, %25 ], [ -1, %73 ], [ %65, %66 ], [ -1, %29 ]
+  %.07986 = phi ptr [ %32, %._crit_edge ], [ null, %25 ], [ %32, %73 ], [ %32, %66 ], [ null, %29 ]
   %152 = load ptr, ptr %4, align 8, !tbaa !26
   %.not57 = icmp eq ptr %152, null
   br i1 %.not57, label %154, label %153
 
-153:                                              ; preds = %.thread80
+153:                                              ; preds = %.thread81
   call void @Util_SignalTmpFileRemove(ptr noundef nonnull %152, i32 noundef 0) #17
   br label %154
 
-154:                                              ; preds = %153, %.thread80
-  %155 = icmp eq ptr %.07885, null
+154:                                              ; preds = %153, %.thread81
+  %155 = icmp eq ptr %.07986, null
   br i1 %155, label %Vec_StrFreeP.exit, label %156
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw i8, ptr %.07885, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.07986, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !33
   %.not.i = icmp eq ptr %158, null
   br i1 %.not.i, label %159, label %.thread.i
@@ -2934,7 +2934,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   br label %159
 
 159:                                              ; preds = %.thread.i, %156
-  call void @free(ptr noundef nonnull %.07885) #17
+  call void @free(ptr noundef nonnull %.07986) #17
   br label %Vec_StrFreeP.exit
 
 Vec_StrFreeP.exit:                                ; preds = %154, %159
@@ -2959,7 +2959,7 @@ Vec_StrFreeP.exit:                                ; preds = %154, %159
   br label %164
 
 164:                                              ; preds = %161, %Vec_StrFreeP.exit, %.loopexit
-  %.035 = phi i32 [ 1, %.loopexit ], [ %.03886, %Vec_StrFreeP.exit ], [ %.03886, %161 ]
+  %.035 = phi i32 [ 1, %.loopexit ], [ %.03887, %Vec_StrFreeP.exit ], [ %.03887, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.035
