@@ -1031,29 +1031,31 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
 
 14:                                               ; preds = %9
   %15 = icmp eq i8 %12, 3
-  %16 = icmp eq i8 %12, 2
+  switch i8 %12, label %26 [
+    i8 3, label %16
+    i8 1, label %16
+  ]
+
+16:                                               ; preds = %14, %14
   %17 = icmp eq i32 %6, 5
-  br i1 %16, label %27, label %18
+  br i1 %17, label %36, label %18
 
-18:                                               ; preds = %14
-  br i1 %17, label %36, label %19
+18:                                               ; preds = %16
+  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %20 = add i8 %19, -4
+  %or.cond7 = icmp ult i8 %20, -68
+  br i1 %or.cond7, label %36, label %21
 
-19:                                               ; preds = %18
-  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
-  %21 = add i8 %20, -4
-  %or.cond7 = icmp ult i8 %21, -68
-  br i1 %or.cond7, label %36, label %22
+21:                                               ; preds = %18
+  br i1 %15, label %22, label %31
 
-22:                                               ; preds = %19
-  br i1 %15, label %23, label %31
+22:                                               ; preds = %21
+  %23 = icmp ult i32 %6, 8
+  br i1 %23, label %36, label %24
 
-23:                                               ; preds = %22
-  %24 = icmp ult i32 %6, 8
-  br i1 %24, label %36, label %25
-
-25:                                               ; preds = %23
-  %26 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
-  switch i16 %26, label %36 [
+24:                                               ; preds = %22
+  %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
+  switch i16 %25, label %36 [
     i16 1, label %31
     i16 2, label %31
     i16 3, label %31
@@ -1066,10 +1068,11 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
     i16 -13, label %31
   ]
 
-27:                                               ; preds = %14
-  br i1 %17, label %36, label %28
+26:                                               ; preds = %14
+  %27 = icmp eq i32 %6, 5
+  br i1 %27, label %36, label %28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %26
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %29, label %31
 
@@ -1079,7 +1082,7 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
   %switch42 = icmp ult i8 %.off41, 8
   br i1 %switch42, label %31, label %36
 
-31:                                               ; preds = %29, %28, %22, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
+31:                                               ; preds = %29, %28, %21, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @col_set_str(ptr noundef %33, i32 noundef 35, ptr noundef nonnull @.str.199)
@@ -1088,8 +1091,8 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
   %35 = tail call i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %36
 
-36:                                               ; preds = %4, %29, %27, %25, %23, %19, %18, %9, %31
-  %.0 = phi i1 [ true, %31 ], [ false, %9 ], [ false, %18 ], [ false, %19 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %4 ]
+36:                                               ; preds = %4, %29, %26, %24, %22, %18, %16, %9, %31
+  %.0 = phi i1 [ true, %31 ], [ false, %9 ], [ false, %16 ], [ false, %18 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %29 ], [ false, %4 ]
   ret i1 %.0
 }
 

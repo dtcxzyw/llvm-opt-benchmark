@@ -1949,7 +1949,7 @@ rv34_mc_2mv_skip.exit.i.i.i.i:                    ; preds = %791, %790, %766
 836:                                              ; preds = %._crit_edge.i.i.i.i, %._crit_edge.i.i.i.i
   call fastcc void @rv34_pred_mv(ptr noundef nonnull %12, i32 noundef %546, i32 noundef 0, i32 noundef 0)
   %837 = load i32, ptr %283, align 8, !tbaa !154
-  call fastcc void @rv34_mc(ptr noundef nonnull readonly %12, i32 noundef %546, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef %837, i32 noundef 0, ptr noundef nonnull readonly %284, ptr noundef nonnull readonly %285)
+  call fastcc void @rv34_mc(ptr noundef nonnull readonly %12, i32 noundef range(i32 2, 12) %546, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef %837, i32 noundef 0, ptr noundef nonnull readonly %284, ptr noundef nonnull readonly %285)
   br label %.loopexit.i.i.i
 
 838:                                              ; preds = %._crit_edge.i.i.i.i, %._crit_edge.i.i.i.i
@@ -2130,7 +2130,7 @@ rv34_pred_mv_rv3.exit.i.i.i.i:                    ; preds = %919, %920
   %923 = phi i32 [ %.pre.i.i.i.i, %920 ], [ %841, %919 ]
   %924 = icmp eq i32 %546, 5
   %925 = zext i1 %924 to i32
-  call fastcc void @rv34_mc(ptr noundef nonnull readonly %12, i32 noundef %546, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef range(i32 0, 2) %925, i32 noundef %923, i32 noundef 0, ptr noundef nonnull readonly %284, ptr noundef nonnull readonly %285)
+  call fastcc void @rv34_mc(ptr noundef nonnull readonly %12, i32 noundef range(i32 2, 12) %546, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef range(i32 0, 2) %925, i32 noundef %923, i32 noundef 0, ptr noundef nonnull readonly %284, ptr noundef nonnull readonly %285)
   br label %.loopexit.i.i.i
 
 926:                                              ; preds = %._crit_edge.i.i.i.i, %._crit_edge.i.i.i.i
@@ -5422,7 +5422,7 @@ define internal fastcc void @rv34_mc_2mv(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rv34_pred_mv(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 4) %2, i32 noundef range(i32 -2147483648, 4) %3) unnamed_addr #10 {
+define internal fastcc void @rv34_pred_mv(ptr noundef readonly captures(none) %0, i32 noundef range(i32 2, 12) %1, i32 noundef range(i32 -2147483648, 4) %2, i32 noundef range(i32 -2147483648, 4) %3) unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %6 = load i32, ptr %5, align 4, !tbaa !127
   %7 = shl nsw i32 %6, 1
@@ -5437,8 +5437,8 @@ define internal fastcc void @rv34_pred_mv(ptr noundef readonly captures(none) %0
   %16 = load i8, ptr %15, align 1, !tbaa !10
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
-  %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds i8, ptr @part_sizes_w, i64 %19
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr inbounds nuw i8, ptr @part_sizes_w, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !10
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1224
@@ -5584,7 +5584,7 @@ mid_pred.exit:                                    ; preds = %79, %81, %82, %84
 
 .preheader.us.preheader:                          ; preds = %86, %88, %89, %91
   %.0.i82 = phi i32 [ %.sroa.5.089, %86 ], [ %.sroa.5.089, %89 ], [ %..i84, %88 ], [ %.20.i83, %91 ]
-  %92 = getelementptr inbounds i8, ptr @part_sizes_h, i64 %19
+  %92 = getelementptr inbounds nuw i8, ptr @part_sizes_h, i64 %19
   %93 = load i8, ptr %92, align 1, !tbaa !10
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 6568
   %95 = sext i32 %3 to i64
@@ -5631,7 +5631,7 @@ mid_pred.exit:                                    ; preds = %79, %81, %82, %84
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rv34_pred_mv_b(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #10 {
+define internal fastcc void @rv34_pred_mv_b(ptr noundef readonly captures(none) %0, i32 noundef range(i32 4, 11) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %5 = load i32, ptr %4, align 4, !tbaa !127
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3352
@@ -5863,29 +5863,28 @@ rv34_pred_b_vector.exit:                          ; preds = %112, %124, %126, %1
   br i1 %143, label %.preheader, label %153, !llvm.loop !213
 
 153:                                              ; preds = %.preheader
-  %154 = and i32 %1, -2
-  %or.cond = icmp eq i32 %154, 4
-  br i1 %or.cond, label %155, label %167
+  %or.cond = icmp samesign ult i32 %1, 6
+  br i1 %or.cond, label %154, label %166
 
-155:                                              ; preds = %153
-  %156 = xor i32 %2, 1
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr %139, i64 %157
-  %159 = load ptr, ptr %158, align 8, !tbaa !153
-  %160 = sext i32 %17 to i64
-  %161 = getelementptr inbounds [2 x i16], ptr %159, i64 %160
-  %162 = shl nsw i32 %15, 2
-  store i32 0, ptr %161, align 4, !tbaa !76
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds i8, ptr %161, i64 %163
+154:                                              ; preds = %153
+  %155 = xor i32 %2, 1
+  %156 = zext nneg i32 %155 to i64
+  %157 = getelementptr inbounds nuw ptr, ptr %139, i64 %156
+  %158 = load ptr, ptr %157, align 8, !tbaa !153
+  %159 = sext i32 %17 to i64
+  %160 = getelementptr inbounds [2 x i16], ptr %158, i64 %159
+  %161 = shl nsw i32 %15, 2
+  store i32 0, ptr %160, align 4, !tbaa !76
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %160, i64 %162
+  store i32 0, ptr %163, align 4, !tbaa !76
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 4
   store i32 0, ptr %164, align 4, !tbaa !76
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  %165 = getelementptr inbounds i8, ptr %164, i64 %162
   store i32 0, ptr %165, align 4, !tbaa !76
-  %166 = getelementptr inbounds i8, ptr %165, i64 %163
-  store i32 0, ptr %166, align 4, !tbaa !76
-  br label %167
+  br label %166
 
-167:                                              ; preds = %153, %155
+166:                                              ; preds = %153, %154
   ret void
 }
 

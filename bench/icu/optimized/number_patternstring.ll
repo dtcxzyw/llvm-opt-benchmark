@@ -2632,12 +2632,12 @@ define void @_ZN6icu_776number4impl13PatternParser23patternInfoToPropertiesERNS1
 
 72:                                               ; preds = %58
   %73 = load i32, ptr %32, align 4
-  %spec.select146 = select i1 %.0, i32 -1, i32 %.0119
-  %spec.select147 = select i1 %.0, i32 -1, i32 %73
+  %spec.select147 = select i1 %.0, i32 -1, i32 %.0119
+  %spec.select148 = select i1 %.0, i32 -1, i32 %73
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %spec.select146, ptr %74, align 8, !tbaa !105
+  store i32 %spec.select147, ptr %74, align 8, !tbaa !105
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %spec.select147, ptr %75, align 8, !tbaa !106
+  store i32 %spec.select148, ptr %75, align 8, !tbaa !106
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store double 0.000000e+00, ptr %76, align 8, !tbaa !107
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2645,9 +2645,9 @@ define void @_ZN6icu_776number4impl13PatternParser23patternInfoToPropertiesERNS1
   br label %78
 
 78:                                               ; preds = %69, %72, %50
-  %.sink148 = phi i32 [ -1, %69 ], [ -1, %72 ], [ %57, %50 ]
+  %.sink149 = phi i32 [ -1, %69 ], [ -1, %72 ], [ %57, %50 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.sink148, ptr %79, align 8, !tbaa !109
+  store i32 %.sink149, ptr %79, align 8, !tbaa !109
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %81 = load i8, ptr %80, align 8, !tbaa !65, !range !46, !noundef !47
   %82 = trunc nuw i8 %81 to i1
@@ -2700,9 +2700,9 @@ define void @_ZN6icu_776number4impl13PatternParser23patternInfoToPropertiesERNS1
   br label %110
 
 110:                                              ; preds = %99, %104, %106
-  %.sink150 = phi i32 [ %103, %99 ], [ -1, %104 ], [ -1, %106 ]
+  %.sink151 = phi i32 [ %103, %99 ], [ -1, %104 ], [ -1, %106 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %.sink150, ptr %111, align 4, !tbaa !115
+  store i32 %.sink151, ptr %111, align 4, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %112 = load ptr, ptr %1, align 8, !tbaa !36
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
@@ -5173,9 +5173,8 @@ split:                                            ; preds = %262, %_ZNK6icu_7713
   %291 = select i1 %287, i32 %290, i32 %289
   %292 = add nsw i32 %.0140435, -1
   %293 = add i32 %292, %291
-  %294 = add i32 %.0131436, -3
-  %or.cond8 = icmp ult i32 %294, 2
-  br i1 %or.cond8, label %295, label %300
+  %294 = icmp ugt i32 %.0131436, 2
+  br i1 %294, label %295, label %300
 
 295:                                              ; preds = %split
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -5357,9 +5356,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit248.thread: ; preds = %326, %_ZNK6icu_771
   br label %366
 
 358:                                              ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit248.thread
-  %359 = add i32 %.0131436, -3
-  %or.cond11 = icmp ult i32 %359, 2
-  br i1 %or.cond11, label %360, label %362
+  %359 = icmp ugt i32 %.0131436, 2
+  br i1 %359, label %360, label %362
 
 360:                                              ; preds = %358
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

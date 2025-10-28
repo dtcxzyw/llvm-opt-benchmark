@@ -96755,7 +96755,7 @@ define hidden void @"_ZN11polars_plan3dsl46_$LT$impl$u20$polars_plan..dsl..expr.
   store i64 -9223372036854775795, ptr %0, align 16
   br label %35
 
-24:                                               ; preds = %.critedge8, %45, %44, %42, %40, %39
+24:                                               ; preds = %42, %40, %39
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
@@ -96788,10 +96788,8 @@ define hidden void @"_ZN11polars_plan3dsl46_$LT$impl$u20$polars_plan..dsl..expr.
 36:                                               ; preds = %10
   %37 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %9, label %39 [
-    i64 13, label %40
-    i64 25, label %44
-  ]
+  %cond = icmp eq i64 %5, -9223372036854775795
+  br i1 %cond, label %40, label %39
 
 38:                                               ; preds = %10
   unreachable
@@ -96805,26 +96803,12 @@ define hidden void @"_ZN11polars_plan3dsl46_$LT$impl$u20$polars_plan..dsl..expr.
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h00bc25f230f86340E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #32
           to label %42 unwind label %24
 
-.critedge:                                        ; preds = %.critedge8, %42, %39
+.critedge:                                        ; preds = %42, %39
   resume { ptr, i32 } %37
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$polars_plan..dsl..function_expr..FunctionExpr$GT$17hcf3e9e0853dbed6fE"(ptr noalias noundef align 16 dereferenceable(96) %43) #32
-          to label %.critedge unwind label %24
-
-44:                                               ; preds = %36
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h00bc25f230f86340E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #32
-          to label %45 unwind label %24
-
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$polars_plan..dsl..expr..LazySerde$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..dsl..expr..expr_dyn_fn..ColumnsUdf$GT$$GT$$GT$$GT$17hbb06416a0416c21eE"(ptr noalias noundef align 8 dereferenceable(72) %46) #32
-          to label %.critedge8 unwind label %24
-
-.critedge8:                                       ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$polars_plan..dsl..expr..LazySerde$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..dsl..expr..expr_dyn_fn..FunctionOutputField$GT$$GT$$GT$$GT$17hc6ba46f2a45897bdE"(ptr noalias noundef align 8 dereferenceable(72) %47) #32
           to label %.critedge unwind label %24
 }
 
@@ -171985,8 +171969,8 @@ default.unreachable:                              ; preds = %194
           to label %835 unwind label %826, !noalias !16390
 
 .sink.split:                                      ; preds = %828, %835
-  %.sink279 = phi i8 [ 1, %835 ], [ 0, %828 ]
-  store i8 %.sink279, ptr %3, align 1, !noalias !16390
+  %.sink280 = phi i8 [ 1, %835 ], [ 0, %828 ]
+  store i8 %.sink280, ptr %3, align 1, !noalias !16390
   br label %834
 
 834:                                              ; preds = %.sink.split, %835
@@ -172130,18 +172114,18 @@ default.unreachable:                              ; preds = %194
   %870 = load i16, ptr %869, align 2, !noalias !16390, !noundef !4
   %871 = and i16 %870, 32
   %.not483.i = icmp eq i16 %871, 0
-  br i1 %.not483.i, label %872, label %.sink.split280
+  br i1 %.not483.i, label %872, label %.sink.split281
 
 872:                                              ; preds = %868
   %873 = invoke noundef zeroext i1 @_ZN11polars_plan5plans7options15FunctionOptions14is_elementwise17h5145ee99e5129483E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %217)
           to label %877 unwind label %875, !noalias !16390
 
-.sink.split280:                                   ; preds = %868, %877
-  %.sink281 = phi i8 [ 1, %877 ], [ 0, %868 ]
-  store i8 %.sink281, ptr %3, align 1, !noalias !16390
+.sink.split281:                                   ; preds = %868, %877
+  %.sink282 = phi i8 [ 1, %877 ], [ 0, %868 ]
+  store i8 %.sink282, ptr %3, align 1, !noalias !16390
   br label %874
 
-874:                                              ; preds = %.sink.split280, %877
+874:                                              ; preds = %.sink.split281, %877
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(80) %21, i64 80, i1 false), !noalias !16399
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !16394
   call void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$polars_core..datatypes..field..Field$GT$$GT$17h403572863e9e9bb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26), !noalias !16390
@@ -172159,7 +172143,7 @@ default.unreachable:                              ; preds = %194
   %878 = load i8, ptr %850, align 8, !range !3
   %879 = icmp ne i8 %878, 0
   %or.cond215.not = select i1 %873, i1 true, i1 %879
-  br i1 %or.cond215.not, label %874, label %.sink.split280
+  br i1 %or.cond215.not, label %874, label %.sink.split281
 
 880:                                              ; preds = %861, %840
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !16394

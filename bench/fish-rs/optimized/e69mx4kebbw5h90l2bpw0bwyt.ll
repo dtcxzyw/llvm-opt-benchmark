@@ -15189,8 +15189,8 @@ define internal fastcc range(i64 0, -4294967294) i64 @_ZN4fish8builtins6string16
 
 93:                                               ; preds = %59
   %94 = load i64, ptr %9, align 8, !range !1444, !noalias !1433, !noundef !3
-  %.not9.i.i = icmp eq i64 %94, -9223372036854775806
-  br i1 %.not9.i.i, label %113, label %95
+  %.not10.i.i = icmp eq i64 %94, -9223372036854775806
+  br i1 %.not10.i.i, label %113, label %95
 
 95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1433
@@ -15218,13 +15218,13 @@ define internal fastcc range(i64 0, -4294967294) i64 @_ZN4fish8builtins6string16
 107:                                              ; preds = %95
   %108 = load i64, ptr %8, align 8, !range !795, !alias.scope !1448, !noalias !1433, !noundef !3
   %109 = icmp sgt i64 %108, -9223372036854775807
-  br i1 %109, label %110, label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i"
+  br i1 %109, label %110, label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i"
 
 110:                                              ; preds = %107
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !1441
+          to label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !1441
 
-"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i": ; preds = %110, %107
+"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i": ; preds = %110, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1433
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1433
   br label %_ZN4fish8builtins6string16StringSubCommand10parse_opts17h6b50e25cdba956cfE.exit.thread.i
@@ -15243,7 +15243,7 @@ common.resume.i:                                  ; preds = %193, %185, %176, %1
   %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit.i.i" ], [ %194, %193 ], [ %.pn.i, %136 ], [ %177, %176 ], [ %186, %185 ]
   resume { ptr, i32 } %common.resume.op.i
 
-_ZN4fish8builtins6string16StringSubCommand10parse_opts17h6b50e25cdba956cfE.exit.thread.i: ; preds = %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i", %87, %78
+_ZN4fish8builtins6string16StringSubCommand10parse_opts17h6b50e25cdba956cfE.exit.thread.i: ; preds = %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i", %87, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1433
   call void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$17h5f751a961a23ff89E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11), !noalias !1440
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1433
@@ -17512,8 +17512,8 @@ _ZN10widestring6utfstr8Utf32Str9to_string17hb8bd6abee206602bE.exit: ; preds = %"
 
 344:                                              ; preds = %310
   %345 = load i64, ptr %8, align 8, !range !1444, !noalias !1626, !noundef !3
-  %.not9.i.i.i = icmp eq i64 %345, -9223372036854775806
-  br i1 %.not9.i.i.i, label %364, label %346
+  %.not10.i.i.i = icmp eq i64 %345, -9223372036854775806
+  br i1 %.not10.i.i.i, label %364, label %346
 
 346:                                              ; preds = %344
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1626
@@ -17541,13 +17541,13 @@ _ZN10widestring6utfstr8Utf32Str9to_string17hb8bd6abee206602bE.exit: ; preds = %"
 358:                                              ; preds = %346
   %359 = load i64, ptr %7, align 8, !range !795, !alias.scope !1638, !noalias !1626, !noundef !3
   %360 = icmp sgt i64 %359, -9223372036854775807
-  br i1 %360, label %361, label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i.i"
+  br i1 %360, label %361, label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i.i"
 
 361:                                              ; preds = %358
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-          to label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i.i" unwind label %.loopexit.split-lp.i.i.i, !noalias !1632
+          to label %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i.i" unwind label %.loopexit.split-lp.i.i.i, !noalias !1632
 
-"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i.i": ; preds = %361, %358
+"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i.i": ; preds = %361, %358
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1626
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1626
   br label %_ZN4fish8builtins6string16StringSubCommand10parse_opts17hc19e6c3eb4544210E.exit.thread.i.i
@@ -17562,7 +17562,7 @@ _ZN10widestring6utfstr8Utf32Str9to_string17hb8bd6abee206602bE.exit: ; preds = %"
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1626
   br label %307
 
-_ZN4fish8builtins6string16StringSubCommand10parse_opts17hc19e6c3eb4544210E.exit.thread.i.i: ; preds = %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit13.i.i.i", %338, %329
+_ZN4fish8builtins6string16StringSubCommand10parse_opts17hc19e6c3eb4544210E.exit.thread.i.i: ; preds = %"_ZN4core3ptr56drop_in_place$LT$fish..builtins..string..StringError$GT$17h8da7512704ee80c9E.exit14.i.i.i", %338, %329
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1626
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$17h5f751a961a23ff89E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %.noexc198 unwind label %97

@@ -142,9 +142,8 @@ define dso_local noundef nonnull ptr @_ZN24FunctionInvocationBinary30CreateFunct
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %21, align 8, !tbaa !25
   store i8 0, ptr %20, align 8, !tbaa !28
-  %22 = and i32 %1, -2
-  %or.cond = icmp eq i32 %22, 16
-  br i1 %or.cond, label %23, label %58
+  %22 = icmp samesign ugt i32 %1, 15
+  br i1 %22, label %23, label %58
 
 23:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

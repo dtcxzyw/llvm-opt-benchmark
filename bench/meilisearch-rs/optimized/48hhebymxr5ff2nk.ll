@@ -41907,10 +41907,9 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   call void @llvm.experimental.noalias.scope.decl(metadata !7187)
   call void @llvm.experimental.noalias.scope.decl(metadata !7189)
   %197 = load i64, ptr %196, align 8, !range !539, !alias.scope !7191, !noalias !7192, !noundef !4
-  switch i64 %197, label %default.unreachable [
+  switch i64 %197, label %199 [
     i64 0, label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$11event_scope17hfcc5b17d63e4eb06E.exit"
     i64 1, label %198
-    i64 2, label %199
   ]
 
 198:                                              ; preds = %191
@@ -41990,9 +41989,6 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   %.sroa.5.0..sroa_idx.i3.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i64 %.val3.i.i, ptr %.sroa.5.0..sroa_idx.i3.i.i.i, align 8, !alias.scope !7214, !noalias !7215
   br label %228
-
-default.unreachable:                              ; preds = %191
-  unreachable
 
 "_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$10event_span17hac6fd7ed06c88ca7E.exit.i": ; preds = %225, %223, %198
   %.pr.i = load ptr, ptr %16, align 8, !noalias !7182

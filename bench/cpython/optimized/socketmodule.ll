@@ -3143,9 +3143,8 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
   br label %set_gaierror.exit
 
 .critedge:                                        ; preds = %64
-  %.off = add nsw i32 %4, -1
-  %switch = icmp ult i32 %.off, 9
-  br i1 %switch, label %.thread, label %69
+  %.not78 = icmp eq i32 %4, 0
+  br i1 %.not78, label %69, label %.thread
 
 69:                                               ; preds = %.critedge, %63
   %70 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #15
@@ -3831,7 +3830,7 @@ define internal fastcc ptr @makesockaddr(i32 noundef %0, ptr noundef %1, i64 nou
   %7 = alloca %struct.ifreq, align 8
   %8 = alloca %struct.ifreq, align 8
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %Py_DECREF.exit132, label %10
+  br i1 %9, label %Py_DECREF.exit133, label %10
 
 10:                                               ; preds = %4
   %11 = load i16, ptr %1, align 2, !tbaa !24
@@ -3860,13 +3859,13 @@ make_ipv4_addr.exit.thread:                       ; preds = %12
   %16 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
   %17 = call ptr @PyErr_SetFromErrno(ptr noundef %16) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 make_ipv4_addr.exit:                              ; preds = %12
   %18 = call ptr @PyUnicode_FromString(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not125 = icmp eq ptr %18, null
-  br i1 %.not125, label %Py_DECREF.exit132, label %19
+  %.not126 = icmp eq ptr %18, null
+  br i1 %.not126, label %Py_DECREF.exit133, label %19
 
 19:                                               ; preds = %make_ipv4_addr.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -3875,23 +3874,23 @@ make_ipv4_addr.exit:                              ; preds = %12
   %22 = zext i16 %rev.i to i32
   %23 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, ptr noundef nonnull %18, i32 noundef %22) #13
   %24 = load i32, ptr %18, align 8, !tbaa !18
-  %.not.i131 = icmp sgt i32 %24, -1
-  br i1 %.not.i131, label %25, label %Py_DECREF.exit132
+  %.not.i132 = icmp sgt i32 %24, -1
+  br i1 %.not.i132, label %25, label %Py_DECREF.exit133
 
 25:                                               ; preds = %19
   %26 = add nsw i32 %24, -1
   store i32 %26, ptr %18, align 8, !tbaa !18
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %Py_DECREF.exit132
+  br i1 %27, label %28, label %Py_DECREF.exit133
 
 28:                                               ; preds = %25
   call void @_Py_Dealloc(ptr noundef nonnull %18) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 29:                                               ; preds = %10
   %30 = add nsw i64 %2, -2
-  %.not124 = icmp eq i64 %30, 0
-  br i1 %.not124, label %37, label %31
+  %.not125 = icmp eq i64 %30, 0
+  br i1 %.not125, label %37, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -3901,12 +3900,12 @@ make_ipv4_addr.exit:                              ; preds = %12
 
 35:                                               ; preds = %31
   %36 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %32, i64 noundef %30) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 37:                                               ; preds = %31, %29
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %39 = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %38) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 40:                                               ; preds = %10
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3914,7 +3913,7 @@ make_ipv4_addr.exit:                              ; preds = %12
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i32, ptr %43, align 4, !tbaa !95
   %45 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, i32 noundef %42, i32 noundef %44) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 46:                                               ; preds = %10
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3922,7 +3921,7 @@ make_ipv4_addr.exit:                              ; preds = %12
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !98
   %51 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, i32 noundef %48, i32 noundef %50) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 52:                                               ; preds = %10
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3930,7 +3929,7 @@ make_ipv4_addr.exit:                              ; preds = %12
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !101
   %57 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.93, i32 noundef %54, i32 noundef %56) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 58:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3943,19 +3942,19 @@ make_ipv6_addr.exit.thread:                       ; preds = %58
   %62 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
   %63 = call ptr @PyErr_SetFromErrno(ptr noundef %62) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 make_ipv6_addr.exit:                              ; preds = %58
   %64 = call ptr @PyUnicode_FromString(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not123 = icmp eq ptr %64, null
-  br i1 %.not123, label %Py_DECREF.exit132, label %65
+  %.not124 = icmp eq ptr %64, null
+  br i1 %.not124, label %Py_DECREF.exit133, label %65
 
 65:                                               ; preds = %make_ipv6_addr.exit
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %67 = load i16, ptr %66, align 2, !tbaa !102
-  %rev.i137 = call noundef i16 @llvm.bswap.i16(i16 %67)
-  %68 = zext i16 %rev.i137 to i32
+  %rev.i138 = call noundef i16 @llvm.bswap.i16(i16 %67)
+  %68 = zext i16 %rev.i138 to i32
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !64
   %71 = call noundef i32 @llvm.bswap.i32(i32 %70)
@@ -3963,18 +3962,18 @@ make_ipv6_addr.exit:                              ; preds = %58
   %73 = load i32, ptr %72, align 4, !tbaa !67
   %74 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.94, ptr noundef nonnull %64, i32 noundef %68, i32 noundef %71, i32 noundef %73) #13
   %75 = load i32, ptr %64, align 8, !tbaa !18
-  %.not.i129 = icmp sgt i32 %75, -1
-  br i1 %.not.i129, label %76, label %Py_DECREF.exit132
+  %.not.i130 = icmp sgt i32 %75, -1
+  br i1 %.not.i130, label %76, label %Py_DECREF.exit133
 
 76:                                               ; preds = %65
   %77 = add nsw i32 %75, -1
   store i32 %77, ptr %64, align 8, !tbaa !18
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %Py_DECREF.exit132
+  br i1 %78, label %79, label %Py_DECREF.exit133
 
 79:                                               ; preds = %76
   call void @_Py_Dealloc(ptr noundef nonnull %64) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 80:                                               ; preds = %10
   switch i32 %3, label %115 [
@@ -3987,8 +3986,8 @@ make_ipv6_addr.exit:                              ; preds = %58
 81:                                               ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %83 = tail call fastcc ptr @makebdaddr(ptr noundef nonnull %82)
-  %.not122 = icmp eq ptr %83, null
-  br i1 %.not122, label %Py_DECREF.exit132, label %84
+  %.not123 = icmp eq ptr %83, null
+  br i1 %.not123, label %Py_DECREF.exit133, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -3996,24 +3995,24 @@ make_ipv6_addr.exit:                              ; preds = %58
   %87 = zext i16 %86 to i32
   %88 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, ptr noundef nonnull %83, i32 noundef %87) #13
   %89 = load i32, ptr %83, align 8, !tbaa !18
-  %.not.i127 = icmp sgt i32 %89, -1
-  br i1 %.not.i127, label %90, label %Py_DECREF.exit132
+  %.not.i128 = icmp sgt i32 %89, -1
+  br i1 %.not.i128, label %90, label %Py_DECREF.exit133
 
 90:                                               ; preds = %84
   %91 = add nsw i32 %89, -1
   store i32 %91, ptr %83, align 8, !tbaa !18
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %Py_DECREF.exit132
+  br i1 %92, label %93, label %Py_DECREF.exit133
 
 93:                                               ; preds = %90
   tail call void @_Py_Dealloc(ptr noundef nonnull %83) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 94:                                               ; preds = %80
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %96 = tail call fastcc ptr @makebdaddr(ptr noundef nonnull %95)
-  %.not121 = icmp eq ptr %96, null
-  br i1 %.not121, label %Py_DECREF.exit132, label %97
+  %.not122 = icmp eq ptr %96, null
+  br i1 %.not122, label %Py_DECREF.exit133, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4022,41 +4021,41 @@ make_ipv6_addr.exit:                              ; preds = %58
   %101 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.92, ptr noundef nonnull %96, i32 noundef %100) #13
   %102 = load i32, ptr %96, align 8, !tbaa !18
   %.not.i = icmp sgt i32 %102, -1
-  br i1 %.not.i, label %103, label %Py_DECREF.exit132
+  br i1 %.not.i, label %103, label %Py_DECREF.exit133
 
 103:                                              ; preds = %97
   %104 = add nsw i32 %102, -1
   store i32 %104, ptr %96, align 8, !tbaa !18
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %Py_DECREF.exit132
+  br i1 %105, label %106, label %Py_DECREF.exit133
 
 106:                                              ; preds = %103
   tail call void @_Py_Dealloc(ptr noundef nonnull %96) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 107:                                              ; preds = %80
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %109 = load i16, ptr %108, align 2, !tbaa !108
   %110 = zext i16 %109 to i32
   %111 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.95, i32 noundef %110) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 112:                                              ; preds = %80
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %114 = tail call fastcc ptr @makebdaddr(ptr noundef nonnull %113)
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 115:                                              ; preds = %80
   %116 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %116, ptr noundef nonnull @.str.96) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 117:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !110
-  %.not120 = icmp eq i32 %119, 0
-  br i1 %.not120, label %124, label %120
+  %.not121 = icmp eq i32 %119, 0
+  br i1 %.not121, label %124, label %120
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4070,8 +4069,8 @@ make_ipv6_addr.exit:                              ; preds = %58
   %.0106 = phi ptr [ @.str.91, %117 ], [ %spec.select, %120 ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %126 = load i16, ptr %125, align 2, !tbaa !112
-  %rev.i138 = call noundef i16 @llvm.bswap.i16(i16 %126)
-  %127 = zext i16 %rev.i138 to i32
+  %rev.i139 = call noundef i16 @llvm.bswap.i16(i16 %126)
+  %127 = zext i16 %rev.i139 to i32
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %129 = load i8, ptr %128, align 2, !tbaa !113
   %130 = zext i8 %129 to i32
@@ -4084,7 +4083,7 @@ make_ipv6_addr.exit:                              ; preds = %58
   %137 = zext i8 %136 to i64
   %138 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.97, ptr noundef nonnull %.0106, i32 noundef %127, i32 noundef %130, i32 noundef %133, ptr noundef nonnull %134, i64 noundef %137) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 139:                                              ; preds = %10
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -4106,7 +4105,7 @@ make_ipv6_addr.exit:                              ; preds = %58
   %150 = load i8, ptr %149, align 1, !tbaa !118
   %151 = sext i8 %150 to i32
   %152 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.98, i32 noundef 1, i32 noundef %144, i32 noundef %146, i32 noundef %148, i32 noundef %151) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 153:                                              ; preds = %139
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4117,7 +4116,7 @@ make_ipv6_addr.exit:                              ; preds = %58
   %159 = load i8, ptr %158, align 1, !tbaa !118
   %160 = sext i8 %159 to i32
   %161 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.98, i32 noundef 2, i32 noundef %155, i32 noundef %157, i32 noundef %157, i32 noundef %160) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 162:                                              ; preds = %139
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4128,12 +4127,12 @@ make_ipv6_addr.exit:                              ; preds = %58
   %168 = load i8, ptr %167, align 1, !tbaa !118
   %169 = sext i8 %168 to i32
   %170 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.98, i32 noundef 3, i32 noundef %165, i32 noundef %166, i32 noundef 0, i32 noundef %169) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 171:                                              ; preds = %139
   %172 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %172, ptr noundef nonnull @.str.99) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 173:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4147,11 +4146,11 @@ make_ipv6_addr.exit:                              ; preds = %58
   store i32 %175, ptr %177, align 8, !tbaa !18
   %178 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 35088, ptr noundef nonnull %8) #13
   %179 = icmp eq i32 %178, 0
-  %spec.select126 = select i1 %179, ptr %8, ptr @.str.91
+  %spec.select127 = select i1 %179, ptr %8, ptr @.str.91
   br label %180
 
 180:                                              ; preds = %176, %173
-  %.0104 = phi ptr [ @.str.91, %173 ], [ %spec.select126, %176 ]
+  %.0104 = phi ptr [ @.str.91, %173 ], [ %spec.select127, %176 ]
   switch i32 %3, label %196 [
     i32 6, label %181
     i32 7, label %187
@@ -4183,7 +4182,7 @@ make_ipv6_addr.exit:                              ; preds = %58
 198:                                              ; preds = %196, %187, %181
   %.3 = phi ptr [ %197, %196 ], [ %186, %181 ], [ %195, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 199:                                              ; preds = %10
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -4195,15 +4194,15 @@ make_ipv6_addr.exit:                              ; preds = %58
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %207 = load i32, ptr %206, align 4, !tbaa !123
   %208 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.103, ptr noundef nonnull %200, i64 noundef %201, ptr noundef nonnull %202, i64 noundef %203, i32 noundef %205, i32 noundef %207) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
 209:                                              ; preds = %10
   %210 = zext i16 %11 to i32
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %212 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.104, i32 noundef %210, ptr noundef nonnull %211, i64 noundef 14) #13
-  br label %Py_DECREF.exit132
+  br label %Py_DECREF.exit133
 
-Py_DECREF.exit132:                                ; preds = %106, %103, %97, %93, %90, %84, %79, %76, %65, %make_ipv6_addr.exit.thread, %28, %25, %19, %make_ipv4_addr.exit.thread, %142, %153, %162, %171, %94, %81, %make_ipv6_addr.exit, %35, %37, %make_ipv4_addr.exit, %4, %209, %199, %198, %124, %115, %112, %107, %52, %46, %40
+Py_DECREF.exit133:                                ; preds = %106, %103, %97, %93, %90, %84, %79, %76, %65, %make_ipv6_addr.exit.thread, %28, %25, %19, %make_ipv4_addr.exit.thread, %142, %153, %162, %171, %94, %81, %make_ipv6_addr.exit, %35, %37, %make_ipv4_addr.exit, %4, %209, %199, %198, %124, %115, %112, %107, %52, %46, %40
   %.0 = phi ptr [ %212, %209 ], [ %45, %40 ], [ %51, %46 ], [ %57, %52 ], [ null, %115 ], [ %111, %107 ], [ %114, %112 ], [ %138, %124 ], [ %.3, %198 ], [ %208, %199 ], [ @_Py_NoneStruct, %4 ], [ null, %make_ipv4_addr.exit ], [ %36, %35 ], [ %39, %37 ], [ null, %make_ipv6_addr.exit ], [ null, %81 ], [ null, %94 ], [ %152, %142 ], [ %161, %153 ], [ %170, %162 ], [ null, %171 ], [ null, %make_ipv4_addr.exit.thread ], [ %23, %19 ], [ %23, %25 ], [ %23, %28 ], [ null, %make_ipv6_addr.exit.thread ], [ %74, %65 ], [ %74, %76 ], [ %74, %79 ], [ %88, %84 ], [ %88, %90 ], [ %88, %93 ], [ %101, %97 ], [ %101, %103 ], [ %101, %106 ]
   ret ptr %.0
 }
@@ -8267,8 +8266,8 @@ define internal ptr @sock_sendto(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %2
   %11 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.620, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
-  %.not9 = icmp eq i32 %11, 0
-  br i1 %.not9, label %43, label %17
+  %.not10 = icmp eq i32 %11, 0
+  br i1 %.not10, label %43, label %17
 
 12:                                               ; preds = %2
   %13 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.621, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %4) #13
@@ -8283,8 +8282,8 @@ define internal ptr @sock_sendto(ptr noundef %0, ptr noundef %1) #0 {
 17:                                               ; preds = %12, %10
   %18 = load ptr, ptr %4, align 8, !tbaa !19
   %19 = call fastcc i32 @getsockaddrarg(ptr noundef %0, ptr noundef %18, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.546)
-  %.not10 = icmp eq i32 %19, 0
-  br i1 %.not10, label %20, label %21
+  %.not11 = icmp eq i32 %19, 0
+  br i1 %.not11, label %20, label %21
 
 20:                                               ; preds = %17
   call void @PyBuffer_Release(ptr noundef nonnull %3) #13

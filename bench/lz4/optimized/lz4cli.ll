@@ -812,13 +812,13 @@ sub_1706:                                         ; preds = %.tail699, %sub_1701
   %246 = getelementptr inbounds nuw i8, ptr %230, i64 1
   %247 = load i8, ptr %246, align 1
   %.not1248 = icmp eq i8 %247, 50
-  br i1 %.not1248, label %.tail704, label %.tail714.thread.thread.thread1510
+  br i1 %.not1248, label %.tail704, label %.tail714.thread.thread.thread1516
 
 .tail704:                                         ; preds = %sub_1706
   %248 = getelementptr inbounds nuw i8, ptr %230, i64 2
   %249 = load i8, ptr %248, align 1
   %250 = icmp eq i8 %249, 0
-  br i1 %250, label %251, label %.tail714.thread.thread.thread1510
+  br i1 %250, label %251, label %.tail714.thread.thread.thread1516
 
 251:                                              ; preds = %.tail704
   %252 = getelementptr inbounds nuw i8, ptr %231, i64 2
@@ -844,7 +844,7 @@ sub_1711:                                         ; preds = %sub_0695
   %260 = getelementptr inbounds nuw i8, ptr %230, i64 1
   %261 = load i8, ptr %260, align 1
   %262 = icmp eq i8 %261, 0
-  br i1 %262, label %263, label %.thread1505
+  br i1 %262, label %263, label %.thread1511
 
 263:                                              ; preds = %.tail714
   %264 = tail call i32 @LZ4IO_setOverwrite(ptr noundef %51, i32 noundef 1) #22
@@ -918,13 +918,13 @@ readU32FromChar.exit:                             ; preds = %.critedge.i, %283, 
   %.not4181077 = icmp eq i8 %292, 0
   br i1 %.not4181077, label %.thread553, label %.lr.ph, !llvm.loop !16
 
-.tail714.thread.thread.thread1510:                ; preds = %sub_1706, %.tail704
+.tail714.thread.thread.thread1516:                ; preds = %sub_1706, %.tail704
   store ptr %230, ptr %7, align 8
   br label %370
 
 .tail714.thread.thread:                           ; preds = %.tail714.thread
   store ptr %230, ptr %7, align 8
-  switch i8 %229, label %.thread1505 [
+  switch i8 %229, label %.thread1511 [
     i8 86, label %293
     i8 104, label %.tail714.thread.thread.thread
     i8 72, label %297
@@ -1136,7 +1136,7 @@ readU32FromChar.exit496:                          ; preds = %.critedge.i484, %34
   tail call void @BMK_setDecodeOnlyMode(i32 noundef 1) #22
   br label %.thread550
 
-370:                                              ; preds = %.tail714.thread.thread.thread1510, %.tail714.thread.thread
+370:                                              ; preds = %.tail714.thread.thread.thread1516, %.tail714.thread.thread
   %371 = tail call i32 @LZ4IO_setPassThrough(ptr noundef %51, i32 noundef 1) #22
   br label %.thread550
 
@@ -1398,7 +1398,7 @@ readU32FromChar.exit526:                          ; preds = %.critedge.i514, %47
 480:                                              ; preds = %.tail714.thread.thread
   br label %.thread550
 
-.thread1505:                                      ; preds = %.tail714.thread.thread, %.tail714
+.thread1511:                                      ; preds = %.tail714.thread.thread, %.tail714
   tail call fastcc void @badusage(ptr noundef nonnull %.1.i458)
   unreachable
 
@@ -2035,8 +2035,8 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
   %or.cond15 = select i1 %716, i1 %717, i1 false
   %718 = icmp eq i32 %714, 2
   %or.cond17 = select i1 %539, i1 %718, i1 false
-  %or.cond1727 = select i1 %or.cond15, i1 true, i1 %or.cond17
-  br i1 %or.cond1727, label %.sink.split, label %719
+  %or.cond1733 = select i1 %or.cond15, i1 true, i1 %or.cond17
+  br i1 %or.cond1733, label %.sink.split, label %719
 
 .sink.split:                                      ; preds = %713
   store i32 1, ptr @displayLevel, align 4, !tbaa !9

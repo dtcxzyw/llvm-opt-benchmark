@@ -2206,25 +2206,25 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   %7 = zext nneg i8 %narrow to i32
   %8 = load i8, ptr %6, align 1, !tbaa !18
   %9 = and i8 %8, -8
-  %or.cond38 = icmp eq i8 %9, 48
-  br i1 %or.cond38, label %10, label %22
+  %or.cond39 = icmp eq i8 %9, 48
+  br i1 %or.cond39, label %10, label %22
 
 10:                                               ; preds = %5
   %11 = shl nuw nsw i32 %7, 3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %narrow36 = add nsw i8 %8, -48
-  %13 = zext nneg i8 %narrow36 to i32
+  %narrow37 = add nsw i8 %8, -48
+  %13 = zext nneg i8 %narrow37 to i32
   %14 = or disjoint i32 %11, %13
   %15 = load i8, ptr %12, align 1, !tbaa !18
   %16 = and i8 %15, -8
-  %or.cond39 = icmp eq i8 %16, 48
-  br i1 %or.cond39, label %17, label %22
+  %or.cond40 = icmp eq i8 %16, 48
+  br i1 %or.cond40, label %17, label %22
 
 17:                                               ; preds = %10
   %18 = shl nuw nsw i32 %14, 3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %narrow37 = add nsw i8 %15, -48
-  %20 = zext nneg i8 %narrow37 to i32
+  %narrow38 = add nsw i8 %15, -48
+  %20 = zext nneg i8 %narrow38 to i32
   %21 = or disjoint i32 %18, %20
   br label %22
 
@@ -2256,9 +2256,9 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %35 = phi i8 [ %43, %.lr.ph ], [ %29, %26 ]
-  %.042 = phi i32 [ %41, %.lr.ph ], [ 0, %26 ]
-  %.141 = phi ptr [ %42, %.lr.ph ], [ %25, %26 ]
-  %36 = shl i32 %.042, 4
+  %.043 = phi i32 [ %41, %.lr.ph ], [ 0, %26 ]
+  %.142 = phi ptr [ %42, %.lr.ph ], [ %25, %26 ]
+  %36 = shl i32 %.043, 4
   %37 = sext i8 %35 to i32
   %38 = add i8 %35, -48
   %or.cond.i = icmp ult i8 %38, 10
@@ -2268,14 +2268,14 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   %.sink.i = select i1 %or.cond.i, i32 -48, i32 %..i
   %40 = add i32 %36, %37
   %41 = add i32 %40, %.sink.i
-  %42 = getelementptr inbounds nuw i8, ptr %.141, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.142, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !18
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds i16, ptr %28, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !43
   %47 = and i16 %46, 4096
-  %.not35 = icmp eq i16 %47, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  %.not36 = icmp eq i16 %47, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store ptr %42, ptr %0, align 8, !tbaa !39

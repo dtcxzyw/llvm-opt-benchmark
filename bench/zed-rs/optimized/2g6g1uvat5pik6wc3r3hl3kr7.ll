@@ -671,10 +671,10 @@ define internal void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$regex
 
 "_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17ha7102ce4c8c8b122E.llvm.7238318159812895458.exit.sink.split.i.i.i.i": ; preds = %15, %11, %10
   %.sink.i.i.i.i = phi i64 [ 16, %11 ], [ 8, %10 ], [ 16, %15 ]
-  %.sink2.i.i.i.i = phi i64 [ %13, %11 ], [ %3, %10 ], [ %17, %15 ]
+  %.sink3.i.i.i.i = phi i64 [ %13, %11 ], [ %3, %10 ], [ %17, %15 ]
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i.i.i
   %9 = load ptr, ptr %8, align 8, !alias.scope !230, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink2.i.i.i.i, i64 noundef 1) #26, !noalias !230
+  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink3.i.i.i.i, i64 noundef 1) #26, !noalias !230
   br label %"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17h35d4e33f52a40353E.exit"
 
 10:                                               ; preds = %5
@@ -16448,9 +16448,8 @@ define void @_ZN8terminal18get_color_at_index17h3ae2e6cc16b4e54bE(ptr dead_on_un
   ]
 
 5:                                                ; preds = %3
-  %6 = add i64 %1, -16
-  %or.cond = icmp ult i64 %6, 216
-  br i1 %or.cond, label %68, label %66
+  %6 = icmp ult i64 %1, 232
+  br i1 %6, label %68, label %66
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1256
@@ -16604,9 +16603,8 @@ define void @_ZN8terminal18get_color_at_index17h3ae2e6cc16b4e54bE(ptr dead_on_un
   ret void
 
 66:                                               ; preds = %5
-  %67 = add i64 %1, -232
-  %or.cond1 = icmp ult i64 %67, 24
-  br i1 %or.cond1, label %81, label %80
+  %67 = icmp ult i64 %1, 256
+  br i1 %67, label %81, label %80
 
 68:                                               ; preds = %5
   %69 = trunc nuw i64 %1 to i8

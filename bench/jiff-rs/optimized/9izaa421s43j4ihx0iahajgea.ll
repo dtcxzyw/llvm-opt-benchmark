@@ -5774,11 +5774,11 @@ define noundef zeroext i1 @"_ZN61_$LT$jiff..tz..offset..Offset$u20$as$u20$core..
   %10 = tail call noundef i64 @_ZN4jiff4util1t1C17hf556d0428fe559b5E(i64 noundef 0)
   %11 = sext i32 %9 to i64
   %12 = icmp sgt i64 %10, %11
-  %spec.select30 = select i1 %12, ptr @anon.685b6617d1fa8a6a7d19ae27baeb4562.51, ptr inttoptr (i64 1 to ptr)
-  %spec.select31 = zext i1 %12 to i64
-  store ptr %spec.select30, ptr %8, align 8
+  %spec.select32 = select i1 %12, ptr @anon.685b6617d1fa8a6a7d19ae27baeb4562.51, ptr inttoptr (i64 1 to ptr)
+  %spec.select33 = zext i1 %12 to i64
+  store ptr %spec.select32, ptr %8, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %spec.select31, ptr %13, align 8
+  store i64 %spec.select33, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = tail call noundef i64 @_ZN4jiff4util1t8Constant5value17h092493ee115b2c3bE(i64 noundef 3600)
@@ -5922,8 +5922,8 @@ define noundef zeroext i1 @"_ZN63_$LT$jiff..tz..offset..Offset$u20$as$u20$core..
   %14 = load i32, ptr %0, align 4, !noundef !3
   %15 = sext i32 %14 to i64
   %16 = icmp sgt i64 %13, %15
-  %spec.select102 = select i1 %16, ptr @anon.685b6617d1fa8a6a7d19ae27baeb4562.51, ptr @anon.685b6617d1fa8a6a7d19ae27baeb4562.49
-  store ptr %spec.select102, ptr %12, align 8
+  %spec.select104 = select i1 %16, ptr @anon.685b6617d1fa8a6a7d19ae27baeb4562.51, ptr @anon.685b6617d1fa8a6a7d19ae27baeb4562.49
+  store ptr %spec.select104, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
