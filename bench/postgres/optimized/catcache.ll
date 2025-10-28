@@ -3336,9 +3336,8 @@ declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal i32 @charhashfast(i64 noundef %0) #7 {
-  %2 = trunc i64 %0 to i32
-  %sext = shl i32 %2, 24
-  %3 = ashr exact i32 %sext, 24
+  %2 = trunc i64 %0 to i8
+  %3 = sext i8 %2 to i32
   %4 = lshr i32 %3, 16
   %5 = xor i32 %4, %3
   %6 = mul i32 %5, -2048144789
@@ -3378,9 +3377,8 @@ define internal zeroext i1 @nameeqfast(i64 noundef %0, i64 noundef %1) #8 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal i32 @int2hashfast(i64 noundef %0) #7 {
-  %2 = trunc i64 %0 to i32
-  %sext = shl i32 %2, 16
-  %3 = ashr exact i32 %sext, 16
+  %2 = trunc i64 %0 to i16
+  %3 = sext i16 %2 to i32
   %4 = lshr i32 %3, 16
   %5 = xor i32 %4, %3
   %6 = mul i32 %5, -2048144789

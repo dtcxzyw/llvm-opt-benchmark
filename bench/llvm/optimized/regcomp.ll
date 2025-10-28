@@ -5468,9 +5468,8 @@ nch.exit:                                         ; preds = %629
   br i1 %.not.i148, label %644, label %641
 
 641:                                              ; preds = %.lr.ph.i147
-  %642 = trunc i64 %.082.i to i32
-  %sext.i = shl i32 %642, 24
-  %643 = ashr exact i32 %sext.i, 24
+  %642 = trunc i64 %.082.i to i8
+  %643 = sext i8 %642 to i32
   br label %firstch.exit
 
 644:                                              ; preds = %.lr.ph.i147

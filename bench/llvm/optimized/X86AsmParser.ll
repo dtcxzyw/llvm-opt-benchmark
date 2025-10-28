@@ -7541,9 +7541,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit149.i.i.i: ; preds = %_
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %69, ptr noundef nonnull align 8 dereferenceable(34) %70, ptr noundef nonnull align 8 dereferenceable(34) %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %2440 = load i64, ptr %55, align 8, !tbaa !45
-  %2441 = trunc i64 %2440 to i32
-  %sext.i.i.i = shl i32 %2441, 16
-  %2442 = ashr exact i32 %sext.i.i.i, 16
+  %2441 = trunc i64 %2440 to i16
+  %2442 = sext i16 %2441 to i32
   store i8 10, ptr %1317, align 8, !tbaa !117
   store i8 1, ptr %1318, align 1, !tbaa !113
   store i32 %2442, ptr %74, align 8, !tbaa !116

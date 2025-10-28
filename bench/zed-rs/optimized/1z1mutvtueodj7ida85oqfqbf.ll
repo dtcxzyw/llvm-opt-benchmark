@@ -58370,15 +58370,14 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   %4 = load i64, ptr %1, align 8, !range !15, !alias.scope !15156, !noalias !15157, !noundef !5
   %trunc.i.i = trunc nuw i64 %4 to i1
   %5 = load i64, ptr %2, align 8, !range !15, !alias.scope !15157, !noalias !15156, !noundef !5
+  %trunc1.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i.i, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc2.i.i = trunc nuw nsw i64 %5 to i8
-  %..i.i = sub nsw i8 0, %trunc2.i.i
+  %..i.i = sext i1 %trunc1.i.i to i8
   br label %_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17hdcc03785b4e8b13eE.llvm.3474792849321645876.exit
 
 7:                                                ; preds = %3
-  %trunc1.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc1.i.i, label %8, label %_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17hdcc03785b4e8b13eE.llvm.3474792849321645876.exit
 
 8:                                                ; preds = %7
@@ -58924,15 +58923,14 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %4 = load i64, ptr %1, align 8, !range !15, !alias.scope !15371, !noalias !15372, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %4 to i1
   %5 = load i64, ptr %2, align 8, !range !15, !alias.scope !15372, !noalias !15371, !noundef !5
+  %trunc1.i.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i.i.i, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc2.i.i.i = trunc nuw nsw i64 %5 to i8
-  %..i.i.i = sub nsw i8 0, %trunc2.i.i.i
+  %..i.i.i = sext i1 %trunc1.i.i.i to i8
   br label %_ZN4core3ops8function5FnMut8call_mut17hbdf9f85b94af51feE.llvm.3474792849321645876.exit
 
 7:                                                ; preds = %3
-  %trunc1.i.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc1.i.i.i, label %8, label %_ZN4core3ops8function5FnMut8call_mut17hbdf9f85b94af51feE.llvm.3474792849321645876.exit
 
 8:                                                ; preds = %7
@@ -69918,15 +69916,14 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   %3 = load i64, ptr %0, align 8, !range !15, !alias.scope !20881, !noalias !20884, !noundef !5
   %trunc.i = trunc nuw i64 %3 to i1
   %4 = load i64, ptr %1, align 8, !range !15, !alias.scope !20884, !noalias !20881, !noundef !5
+  %trunc1.i = trunc nuw i64 %4 to i1
   br i1 %trunc.i, label %6, label %5
 
 5:                                                ; preds = %2
-  %trunc2.i = trunc nuw nsw i64 %4 to i8
-  %..i = sub nsw i8 0, %trunc2.i
+  %..i = sext i1 %trunc1.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hff7eef7e53393e21E.llvm.3474792849321645876.exit"
 
 6:                                                ; preds = %2
-  %trunc1.i = trunc nuw i64 %4 to i1
   br i1 %trunc1.i, label %7, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hff7eef7e53393e21E.llvm.3474792849321645876.exit"
 
 7:                                                ; preds = %6
@@ -105345,15 +105342,14 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Option$LT$T$G
   %3 = load i64, ptr %0, align 8, !range !15, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   %4 = load i64, ptr %1, align 8, !range !15, !noundef !5
+  %trunc1 = trunc nuw i64 %4 to i1
   br i1 %trunc, label %6, label %5
 
 5:                                                ; preds = %2
-  %trunc2 = trunc nuw nsw i64 %4 to i8
-  %. = sub nsw i8 0, %trunc2
+  %. = sext i1 %trunc1 to i8
   br label %7
 
 6:                                                ; preds = %2
-  %trunc1 = trunc nuw i64 %4 to i1
   br i1 %trunc1, label %8, label %7
 
 7:                                                ; preds = %6, %5, %8

@@ -1663,11 +1663,8 @@ sw.bb:                                            ; preds = %for.body
 lor.lhs.false:                                    ; preds = %sw.bb
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %sp.0279, i64 1
   %5 = load i8, ptr %sp.0279, align 1
-  %conv = sext i8 %5 to i32
-  %conv3 = trunc i64 %2 to i32
-  %sext = shl i32 %conv3, 24
-  %conv4 = ashr exact i32 %sext, 24
-  %cmp5.not = icmp eq i32 %conv4, %conv
+  %conv3 = trunc i64 %2 to i8
+  %cmp5.not = icmp eq i8 %5, %conv3
   br i1 %cmp5.not, label %for.inc, label %return
 
 sw.bb7:                                           ; preds = %for.body
@@ -2165,9 +2162,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb1:                                           ; preds = %for.body
-  %conv = trunc i64 %4 to i32
-  %sext = shl i32 %conv, 24
-  %conv3 = ashr exact i32 %sext, 24
+  %conv = trunc i64 %4 to i8
+  %conv3 = sext i8 %conv to i32
   %cmp4 = icmp eq i32 %ch, %conv3
   br i1 %cmp4, label %if.then, label %for.inc163
 
@@ -2898,11 +2894,8 @@ sw.bb:                                            ; preds = %for.body
 lor.lhs.false:                                    ; preds = %sw.bb
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %sp.0279, i64 1
   %5 = load i8, ptr %sp.0279, align 1
-  %conv = sext i8 %5 to i32
-  %conv3 = trunc i64 %2 to i32
-  %sext = shl i32 %conv3, 24
-  %conv4 = ashr exact i32 %sext, 24
-  %cmp5.not = icmp eq i32 %conv4, %conv
+  %conv3 = trunc i64 %2 to i8
+  %cmp5.not = icmp eq i8 %5, %conv3
   br i1 %cmp5.not, label %for.inc, label %return
 
 sw.bb7:                                           ; preds = %for.body
@@ -3395,9 +3388,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb1:                                           ; preds = %for.body
-  %conv = trunc i64 %4 to i32
-  %sext = shl i32 %conv, 24
-  %conv3 = ashr exact i32 %sext, 24
+  %conv = trunc i64 %4 to i8
+  %conv3 = sext i8 %conv to i32
   %cmp4 = icmp eq i32 %ch, %conv3
   br i1 %cmp4, label %if.then, label %for.inc245
 

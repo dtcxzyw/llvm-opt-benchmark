@@ -3172,9 +3172,8 @@ define hidden void @_ZN12JVMCIRuntime10vm_messageEhllll(i8 noundef zeroext %0, i
 
 57:                                               ; preds = %49
   %58 = sitofp i64 %2 to double
-  %59 = trunc i64 %2 to i32
-  %sext.i = shl i32 %59, 24
-  %60 = ashr exact i32 %sext.i, 24
+  %59 = trunc i64 %2 to i8
+  %60 = sext i8 %59 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull @.str.123, i64 noundef %2, i64 noundef %2, double noundef %58, i32 noundef %60) #16
   br label %_ZL8decipherlb.exit
 
@@ -3229,9 +3228,8 @@ define hidden void @_ZN12JVMCIRuntime13log_primitiveEP10JavaThreadtlh(ptr nounde
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @tty, align 8
-  %11 = trunc i64 %2 to i32
-  %sext49 = shl i32 %11, 24
-  %12 = ashr exact i32 %sext49, 24
+  %11 = trunc i64 %2 to i8
+  %12 = sext i8 %11 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.16, i32 noundef %12) #16
   br label %33
 
@@ -3244,9 +3242,8 @@ define hidden void @_ZN12JVMCIRuntime13log_primitiveEP10JavaThreadtlh(ptr nounde
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr @tty, align 8
-  %19 = trunc i64 %2 to i32
-  %sext = shl i32 %19, 16
-  %20 = ashr exact i32 %sext, 16
+  %19 = trunc i64 %2 to i16
+  %20 = sext i16 %19 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull @.str.16, i32 noundef %20) #16
   br label %33
 
@@ -10411,9 +10408,8 @@ _ZN14ArgumentPusher8next_argEv.exit4:             ; preds = %115
   store i8 1, ptr %116, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i64, ptr %123, align 8
-  %125 = trunc i64 %124 to i32
-  %sext = shl i32 %125, 24
-  %126 = ashr exact i32 %sext, 24
+  %125 = trunc i64 %124 to i8
+  %126 = sext i8 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 96
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %122, i64 104

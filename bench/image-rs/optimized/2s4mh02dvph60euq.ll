@@ -9181,10 +9181,10 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i": ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
   %34 = call noundef ptr @_ZN3std2io18default_read_exact17hafb8c1a6e12607feE(ptr noalias noundef nonnull align 8 dereferenceable(48) %.pre, ptr noalias noundef nonnull align 1 %4, i64 noundef 2), !noalias !1449
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %79
+  br i1 %35, label %36, label %78
 
-"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit": ; preds = %32, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", %79
-  %.0 = phi ptr [ %34, %79 ], [ %33, %32 ], [ null, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread" ]
+"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit": ; preds = %32, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", %78
+  %.0 = phi ptr [ %34, %78 ], [ %33, %32 ], [ null, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread" ]
   ret ptr %.0
 
 36:                                               ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit", %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
@@ -9198,13 +9198,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %41 = load i32, ptr %12, align 4, !alias.scope !1455, !noundef !4
   switch i32 %41, label %42 [
     i32 1, label %43
-    i32 2, label %47
-    i32 3, label %59
-    i32 4, label %64
-    i32 5, label %69
-    i32 6, label %74
-    i32 7, label %51
-    i32 8, label %57
+    i32 2, label %46
+    i32 3, label %58
+    i32 4, label %63
+    i32 5, label %68
+    i32 6, label %73
+    i32 7, label %50
+    i32 8, label %56
   ]
 
 42:                                               ; preds = %36
@@ -9212,337 +9212,333 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   unreachable
 
 43:                                               ; preds = %36
-  %44 = trunc i32 %40 to i8
-  %45 = and i8 %44, 1
-  %46 = sub nsw i8 0, %45
+  %44 = trunc i32 %40 to i1
+  %45 = sext i1 %44 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-47:                                               ; preds = %36
-  %48 = trunc i32 %40 to i8
-  %49 = and i8 %48, 3
-  %50 = mul nuw i8 %49, 85
+46:                                               ; preds = %36
+  %47 = trunc i32 %40 to i8
+  %48 = and i8 %47, 3
+  %49 = mul nuw i8 %48, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-51:                                               ; preds = %36
-  %52 = shl nuw nsw i32 %40, 1
-  %53 = lshr i32 %40, 6
-  %54 = and i32 %53, 1
-  %55 = or disjoint i32 %54, %52
-  %56 = trunc i32 %55 to i8
+50:                                               ; preds = %36
+  %51 = shl nuw nsw i32 %40, 1
+  %52 = lshr i32 %40, 6
+  %53 = and i32 %52, 1
+  %54 = or disjoint i32 %53, %51
+  %55 = trunc i32 %54 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-57:                                               ; preds = %36
-  %58 = trunc i32 %40 to i8
+56:                                               ; preds = %36
+  %57 = trunc i32 %40 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-59:                                               ; preds = %36
-  %60 = and i32 %40, 7
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %61
-  %63 = load i8, ptr %62, align 1, !noalias !1455, !noundef !4
+58:                                               ; preds = %36
+  %59 = and i32 %40, 7
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %60
+  %62 = load i8, ptr %61, align 1, !noalias !1455, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-64:                                               ; preds = %36
-  %65 = and i32 %40, 15
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %66
-  %68 = load i8, ptr %67, align 1, !noalias !1455, !noundef !4
+63:                                               ; preds = %36
+  %64 = and i32 %40, 15
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %65
+  %67 = load i8, ptr %66, align 1, !noalias !1455, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-69:                                               ; preds = %36
-  %70 = and i32 %40, 31
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %71
-  %73 = load i8, ptr %72, align 1, !noalias !1455, !noundef !4
+68:                                               ; preds = %36
+  %69 = and i32 %40, 31
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %70
+  %72 = load i8, ptr %71, align 1, !noalias !1455, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-74:                                               ; preds = %36
-  %75 = and i32 %40, 63
-  %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %76
-  %78 = load i8, ptr %77, align 1, !noalias !1455, !noundef !4
+73:                                               ; preds = %36
+  %74 = and i32 %40, 63
+  %75 = zext nneg i32 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %75
+  %77 = load i8, ptr %76, align 1, !noalias !1455, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-79:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
+78:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1445
   br label %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit"
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %74, %69, %64, %59, %57, %51, %47, %43
-  %.0.i10 = phi i8 [ %46, %43 ], [ %50, %47 ], [ %63, %59 ], [ %68, %64 ], [ %73, %69 ], [ %78, %74 ], [ %56, %51 ], [ %58, %57 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %73, %68, %63, %58, %56, %50, %46, %43
+  %.0.i10 = phi i8 [ %45, %43 ], [ %49, %46 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %55, %50 ], [ %57, %56 ]
   store i8 %.0.i10, ptr %.sroa.017.037, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1458)
-  %80 = load i32, ptr %13, align 4, !alias.scope !1458, !noundef !4
-  %81 = and i32 %80, 31
-  %82 = lshr i32 %37, %81
-  %83 = load i32, ptr %14, align 4, !alias.scope !1458, !noundef !4
-  switch i32 %83, label %84 [
-    i32 1, label %85
-    i32 2, label %89
-    i32 3, label %101
-    i32 4, label %106
-    i32 5, label %111
-    i32 6, label %116
-    i32 7, label %93
-    i32 8, label %99
+  %79 = load i32, ptr %13, align 4, !alias.scope !1458, !noundef !4
+  %80 = and i32 %79, 31
+  %81 = lshr i32 %37, %80
+  %82 = load i32, ptr %14, align 4, !alias.scope !1458, !noundef !4
+  switch i32 %82, label %83 [
+    i32 1, label %84
+    i32 2, label %87
+    i32 3, label %99
+    i32 4, label %104
+    i32 5, label %109
+    i32 6, label %114
+    i32 7, label %91
+    i32 8, label %97
   ]
 
-84:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+83:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1458
   unreachable
 
-85:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %86 = trunc i32 %82 to i8
-  %87 = and i8 %86, 1
-  %88 = sub nsw i8 0, %87
+84:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %85 = trunc i32 %81 to i1
+  %86 = sext i1 %85 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-89:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %90 = trunc i32 %82 to i8
-  %91 = and i8 %90, 3
-  %92 = mul nuw i8 %91, 85
+87:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %88 = trunc i32 %81 to i8
+  %89 = and i8 %88, 3
+  %90 = mul nuw i8 %89, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-93:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %94 = shl nuw nsw i32 %82, 1
-  %95 = lshr i32 %82, 6
-  %96 = and i32 %95, 1
-  %97 = or disjoint i32 %96, %94
-  %98 = trunc i32 %97 to i8
+91:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %92 = shl nuw nsw i32 %81, 1
+  %93 = lshr i32 %81, 6
+  %94 = and i32 %93, 1
+  %95 = or disjoint i32 %94, %92
+  %96 = trunc i32 %95 to i8
+  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+
+97:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %98 = trunc i32 %81 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
 99:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %100 = trunc i32 %82 to i8
+  %100 = and i32 %81, 7
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %101
+  %103 = load i8, ptr %102, align 1, !noalias !1458, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-101:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %102 = and i32 %82, 7
-  %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %103
-  %105 = load i8, ptr %104, align 1, !noalias !1458, !noundef !4
+104:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %105 = and i32 %81, 15
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %106
+  %108 = load i8, ptr %107, align 1, !noalias !1458, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-106:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %107 = and i32 %82, 15
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %108
-  %110 = load i8, ptr %109, align 1, !noalias !1458, !noundef !4
+109:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %110 = and i32 %81, 31
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %111
+  %113 = load i8, ptr %112, align 1, !noalias !1458, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-111:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %112 = and i32 %82, 31
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %113
-  %115 = load i8, ptr %114, align 1, !noalias !1458, !noundef !4
+114:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %115 = and i32 %81, 63
+  %116 = zext nneg i32 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %116
+  %118 = load i8, ptr %117, align 1, !noalias !1458, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-116:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %117 = and i32 %82, 63
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %118
-  %120 = load i8, ptr %119, align 1, !noalias !1458, !noundef !4
-  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
-
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12: ; preds = %85, %89, %93, %99, %101, %106, %111, %116
-  %.0.i11 = phi i8 [ %88, %85 ], [ %92, %89 ], [ %105, %101 ], [ %110, %106 ], [ %115, %111 ], [ %120, %116 ], [ %98, %93 ], [ %100, %99 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12: ; preds = %84, %87, %91, %97, %99, %104, %109, %114
+  %.0.i11 = phi i8 [ %86, %84 ], [ %90, %87 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %96, %91 ], [ %98, %97 ]
   %.not7 = icmp eq i64 %.0.sroa.speculated.i.i, 1
-  br i1 %.not7, label %165, label %121, !prof !305
+  br i1 %.not7, label %162, label %119, !prof !305
 
-121:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 1
-  store i8 %.0.i11, ptr %122, align 1
+119:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 1
+  store i8 %.0.i11, ptr %120, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1461)
-  %123 = load i32, ptr %15, align 4, !alias.scope !1461, !noundef !4
-  %124 = and i32 %123, 31
-  %125 = lshr i32 %37, %124
-  %126 = load i32, ptr %16, align 4, !alias.scope !1461, !noundef !4
-  switch i32 %126, label %127 [
-    i32 1, label %128
-    i32 2, label %132
-    i32 3, label %144
-    i32 4, label %149
-    i32 5, label %154
-    i32 6, label %159
-    i32 7, label %136
-    i32 8, label %142
+  %121 = load i32, ptr %15, align 4, !alias.scope !1461, !noundef !4
+  %122 = and i32 %121, 31
+  %123 = lshr i32 %37, %122
+  %124 = load i32, ptr %16, align 4, !alias.scope !1461, !noundef !4
+  switch i32 %124, label %125 [
+    i32 1, label %126
+    i32 2, label %129
+    i32 3, label %141
+    i32 4, label %146
+    i32 5, label %151
+    i32 6, label %156
+    i32 7, label %133
+    i32 8, label %139
   ]
 
-127:                                              ; preds = %121
+125:                                              ; preds = %119
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1461
   unreachable
 
-128:                                              ; preds = %121
-  %129 = trunc i32 %125 to i8
-  %130 = and i8 %129, 1
-  %131 = sub nsw i8 0, %130
+126:                                              ; preds = %119
+  %127 = trunc i32 %123 to i1
+  %128 = sext i1 %127 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-132:                                              ; preds = %121
-  %133 = trunc i32 %125 to i8
-  %134 = and i8 %133, 3
-  %135 = mul nuw i8 %134, 85
+129:                                              ; preds = %119
+  %130 = trunc i32 %123 to i8
+  %131 = and i8 %130, 3
+  %132 = mul nuw i8 %131, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-136:                                              ; preds = %121
-  %137 = shl nuw nsw i32 %125, 1
-  %138 = lshr i32 %125, 6
-  %139 = and i32 %138, 1
-  %140 = or disjoint i32 %139, %137
-  %141 = trunc i32 %140 to i8
+133:                                              ; preds = %119
+  %134 = shl nuw nsw i32 %123, 1
+  %135 = lshr i32 %123, 6
+  %136 = and i32 %135, 1
+  %137 = or disjoint i32 %136, %134
+  %138 = trunc i32 %137 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-142:                                              ; preds = %121
-  %143 = trunc i32 %125 to i8
+139:                                              ; preds = %119
+  %140 = trunc i32 %123 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-144:                                              ; preds = %121
-  %145 = and i32 %125, 7
-  %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %146
-  %148 = load i8, ptr %147, align 1, !noalias !1461, !noundef !4
+141:                                              ; preds = %119
+  %142 = and i32 %123, 7
+  %143 = zext nneg i32 %142 to i64
+  %144 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %143
+  %145 = load i8, ptr %144, align 1, !noalias !1461, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-149:                                              ; preds = %121
-  %150 = and i32 %125, 15
-  %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %151
-  %153 = load i8, ptr %152, align 1, !noalias !1461, !noundef !4
+146:                                              ; preds = %119
+  %147 = and i32 %123, 15
+  %148 = zext nneg i32 %147 to i64
+  %149 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %148
+  %150 = load i8, ptr %149, align 1, !noalias !1461, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-154:                                              ; preds = %121
-  %155 = and i32 %125, 31
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %156
-  %158 = load i8, ptr %157, align 1, !noalias !1461, !noundef !4
+151:                                              ; preds = %119
+  %152 = and i32 %123, 31
+  %153 = zext nneg i32 %152 to i64
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %153
+  %155 = load i8, ptr %154, align 1, !noalias !1461, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-159:                                              ; preds = %121
-  %160 = and i32 %125, 63
-  %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %161
-  %163 = load i8, ptr %162, align 1, !noalias !1461, !noundef !4
+156:                                              ; preds = %119
+  %157 = and i32 %123, 63
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %158
+  %160 = load i8, ptr %159, align 1, !noalias !1461, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14: ; preds = %128, %132, %136, %142, %144, %149, %154, %159
-  %.0.i13 = phi i8 [ %131, %128 ], [ %135, %132 ], [ %148, %144 ], [ %153, %149 ], [ %158, %154 ], [ %163, %159 ], [ %141, %136 ], [ %143, %142 ]
-  %164 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
-  br i1 %164, label %166, label %170, !prof !590
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14: ; preds = %126, %129, %133, %139, %141, %146, %151, %156
+  %.0.i13 = phi i8 [ %128, %126 ], [ %132, %129 ], [ %145, %141 ], [ %150, %146 ], [ %155, %151 ], [ %160, %156 ], [ %138, %133 ], [ %140, %139 ]
+  %161 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
+  br i1 %161, label %163, label %167, !prof !590
 
-165:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+162:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.205) #33
   unreachable
 
-166:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 2
-  store i8 %.0.i13, ptr %167, align 1
-  %168 = load i64, ptr %6, align 8, !noundef !4
-  %169 = icmp eq i64 %168, 4
-  br i1 %169, label %171, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+163:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 2
+  store i8 %.0.i13, ptr %164, align 1
+  %165 = load i64, ptr %6, align 8, !noundef !4
+  %166 = icmp eq i64 %165, 4
+  br i1 %166, label %168, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-170:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
+167:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 2, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.206) #33
   unreachable
 
-171:                                              ; preds = %166
-  %172 = load i32, ptr %17, align 4, !noundef !4
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %175
+168:                                              ; preds = %163
+  %169 = load i32, ptr %17, align 4, !noundef !4
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %172
 
-174:                                              ; preds = %171
+171:                                              ; preds = %168
   %.not9 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not9, label %216, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not9, label %212, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-175:                                              ; preds = %171
+172:                                              ; preds = %168
   call void @llvm.experimental.noalias.scope.decl(metadata !1464)
-  %176 = load i32, ptr %18, align 4, !alias.scope !1464, !noundef !4
-  %177 = and i32 %176, 31
-  %178 = lshr i32 %37, %177
-  switch i32 %172, label %179 [
-    i32 1, label %180
-    i32 2, label %184
-    i32 3, label %196
-    i32 4, label %201
-    i32 5, label %206
-    i32 6, label %211
-    i32 7, label %188
-    i32 8, label %194
+  %173 = load i32, ptr %18, align 4, !alias.scope !1464, !noundef !4
+  %174 = and i32 %173, 31
+  %175 = lshr i32 %37, %174
+  switch i32 %169, label %176 [
+    i32 1, label %177
+    i32 2, label %180
+    i32 3, label %192
+    i32 4, label %197
+    i32 5, label %202
+    i32 6, label %207
+    i32 7, label %184
+    i32 8, label %190
   ]
 
-179:                                              ; preds = %175
+176:                                              ; preds = %172
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1464
   unreachable
 
-180:                                              ; preds = %175
-  %181 = trunc i32 %178 to i8
-  %182 = and i8 %181, 1
-  %183 = sub nsw i8 0, %182
+177:                                              ; preds = %172
+  %178 = trunc i32 %175 to i1
+  %179 = sext i1 %178 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-184:                                              ; preds = %175
-  %185 = trunc i32 %178 to i8
-  %186 = and i8 %185, 3
-  %187 = mul nuw i8 %186, 85
+180:                                              ; preds = %172
+  %181 = trunc i32 %175 to i8
+  %182 = and i8 %181, 3
+  %183 = mul nuw i8 %182, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-188:                                              ; preds = %175
-  %189 = shl nuw nsw i32 %178, 1
-  %190 = lshr i32 %178, 6
-  %191 = and i32 %190, 1
-  %192 = or disjoint i32 %191, %189
-  %193 = trunc i32 %192 to i8
+184:                                              ; preds = %172
+  %185 = shl nuw nsw i32 %175, 1
+  %186 = lshr i32 %175, 6
+  %187 = and i32 %186, 1
+  %188 = or disjoint i32 %187, %185
+  %189 = trunc i32 %188 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-194:                                              ; preds = %175
-  %195 = trunc i32 %178 to i8
+190:                                              ; preds = %172
+  %191 = trunc i32 %175 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-196:                                              ; preds = %175
-  %197 = and i32 %178, 7
-  %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %198
-  %200 = load i8, ptr %199, align 1, !noalias !1464, !noundef !4
+192:                                              ; preds = %172
+  %193 = and i32 %175, 7
+  %194 = zext nneg i32 %193 to i64
+  %195 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %194
+  %196 = load i8, ptr %195, align 1, !noalias !1464, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-201:                                              ; preds = %175
-  %202 = and i32 %178, 15
-  %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %203
-  %205 = load i8, ptr %204, align 1, !noalias !1464, !noundef !4
+197:                                              ; preds = %172
+  %198 = and i32 %175, 15
+  %199 = zext nneg i32 %198 to i64
+  %200 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %199
+  %201 = load i8, ptr %200, align 1, !noalias !1464, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-206:                                              ; preds = %175
-  %207 = and i32 %178, 31
-  %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %208
-  %210 = load i8, ptr %209, align 1, !noalias !1464, !noundef !4
+202:                                              ; preds = %172
+  %203 = and i32 %175, 31
+  %204 = zext nneg i32 %203 to i64
+  %205 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %204
+  %206 = load i8, ptr %205, align 1, !noalias !1464, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-211:                                              ; preds = %175
-  %212 = and i32 %178, 63
-  %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %213
-  %215 = load i8, ptr %214, align 1, !noalias !1464, !noundef !4
+207:                                              ; preds = %172
+  %208 = and i32 %175, 63
+  %209 = zext nneg i32 %208 to i64
+  %210 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %209
+  %211 = load i8, ptr %210, align 1, !noalias !1464, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16: ; preds = %180, %184, %188, %194, %196, %201, %206, %211
-  %.0.i15 = phi i8 [ %183, %180 ], [ %187, %184 ], [ %200, %196 ], [ %205, %201 ], [ %210, %206 ], [ %215, %211 ], [ %193, %188 ], [ %195, %194 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16: ; preds = %177, %180, %184, %190, %192, %197, %202, %207
+  %.0.i15 = phi i8 [ %179, %177 ], [ %183, %180 ], [ %196, %192 ], [ %201, %197 ], [ %206, %202 ], [ %211, %207 ], [ %189, %184 ], [ %191, %190 ]
   %.not8 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not8, label %219, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not8, label %215, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-216:                                              ; preds = %174
+212:                                              ; preds = %171
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.207) #33
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %174, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
-  %.0.i15.sink = phi i8 [ %.0.i15, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16 ], [ -1, %174 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 3
-  store i8 %.0.i15.sink, ptr %217, align 1
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %171, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
+  %.0.i15.sink = phi i8 [ %.0.i15, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16 ], [ -1, %171 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 3
+  store i8 %.0.i15.sink, ptr %213, align 1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %166
-  %218 = icmp eq i64 %25, 0
-  br i1 %218, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %163
+  %214 = icmp eq i64 %25, 0
+  br i1 %214, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
 
-219:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
+215:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit16
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.208) #33
   unreachable
 }
@@ -9666,10 +9662,10 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %53 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h7eff25b31aa7ae42E.llvm.98706352026558795"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %5, i64 noundef 2), !noalias !1506
   %54 = icmp eq ptr %53, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1496
-  br i1 %54, label %55, label %99
+  br i1 %54, label %55, label %98
 
-"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit": ; preds = %48, %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i", %99
-  %.0 = phi ptr [ %53, %99 ], [ %46, %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i" ], [ null, %48 ]
+"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit": ; preds = %48, %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i", %98
+  %.0 = phi ptr [ %53, %98 ], [ %46, %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i" ], [ null, %48 ]
   ret ptr %.0
 
 55:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
@@ -9685,13 +9681,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %61 = load i32, ptr %15, align 4, !alias.scope !1513, !noundef !4
   switch i32 %61, label %62 [
     i32 1, label %63
-    i32 2, label %67
-    i32 3, label %79
-    i32 4, label %84
-    i32 5, label %89
-    i32 6, label %94
-    i32 7, label %71
-    i32 8, label %77
+    i32 2, label %66
+    i32 3, label %78
+    i32 4, label %83
+    i32 5, label %88
+    i32 6, label %93
+    i32 7, label %70
+    i32 8, label %76
   ]
 
 62:                                               ; preds = %55
@@ -9699,337 +9695,333 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   unreachable
 
 63:                                               ; preds = %55
-  %64 = trunc i32 %60 to i8
-  %65 = and i8 %64, 1
-  %66 = sub nsw i8 0, %65
+  %64 = trunc i32 %60 to i1
+  %65 = sext i1 %64 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-67:                                               ; preds = %55
-  %68 = trunc i32 %60 to i8
-  %69 = and i8 %68, 3
-  %70 = mul nuw i8 %69, 85
+66:                                               ; preds = %55
+  %67 = trunc i32 %60 to i8
+  %68 = and i8 %67, 3
+  %69 = mul nuw i8 %68, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-71:                                               ; preds = %55
-  %72 = shl nuw nsw i32 %60, 1
-  %73 = lshr i32 %60, 6
-  %74 = and i32 %73, 1
-  %75 = or disjoint i32 %74, %72
-  %76 = trunc i32 %75 to i8
+70:                                               ; preds = %55
+  %71 = shl nuw nsw i32 %60, 1
+  %72 = lshr i32 %60, 6
+  %73 = and i32 %72, 1
+  %74 = or disjoint i32 %73, %71
+  %75 = trunc i32 %74 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-77:                                               ; preds = %55
-  %78 = trunc i32 %60 to i8
+76:                                               ; preds = %55
+  %77 = trunc i32 %60 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-79:                                               ; preds = %55
-  %80 = and i32 %60, 7
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %81
-  %83 = load i8, ptr %82, align 1, !noalias !1513, !noundef !4
+78:                                               ; preds = %55
+  %79 = and i32 %60, 7
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %80
+  %82 = load i8, ptr %81, align 1, !noalias !1513, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-84:                                               ; preds = %55
-  %85 = and i32 %60, 15
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %86
-  %88 = load i8, ptr %87, align 1, !noalias !1513, !noundef !4
+83:                                               ; preds = %55
+  %84 = and i32 %60, 15
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %85
+  %87 = load i8, ptr %86, align 1, !noalias !1513, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-89:                                               ; preds = %55
-  %90 = and i32 %60, 31
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %91
-  %93 = load i8, ptr %92, align 1, !noalias !1513, !noundef !4
+88:                                               ; preds = %55
+  %89 = and i32 %60, 31
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %90
+  %92 = load i8, ptr %91, align 1, !noalias !1513, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-94:                                               ; preds = %55
-  %95 = and i32 %60, 63
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %96
-  %98 = load i8, ptr %97, align 1, !noalias !1513, !noundef !4
+93:                                               ; preds = %55
+  %94 = and i32 %60, 63
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %95
+  %97 = load i8, ptr %96, align 1, !noalias !1513, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-99:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
+98:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1494
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit"
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %94, %89, %84, %79, %77, %71, %67, %63
-  %.0.i = phi i8 [ %66, %63 ], [ %70, %67 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %76, %71 ], [ %78, %77 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %93, %88, %83, %78, %76, %70, %66, %63
+  %.0.i = phi i8 [ %65, %63 ], [ %69, %66 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ %97, %93 ], [ %75, %70 ], [ %77, %76 ]
   store i8 %.0.i, ptr %.sroa.016.064, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1516)
-  %100 = load i32, ptr %16, align 4, !alias.scope !1516, !noundef !4
-  %101 = and i32 %100, 31
-  %102 = lshr i32 %57, %101
-  %103 = load i32, ptr %17, align 4, !alias.scope !1516, !noundef !4
-  switch i32 %103, label %104 [
-    i32 1, label %105
-    i32 2, label %109
-    i32 3, label %121
-    i32 4, label %126
-    i32 5, label %131
-    i32 6, label %136
-    i32 7, label %113
-    i32 8, label %119
+  %99 = load i32, ptr %16, align 4, !alias.scope !1516, !noundef !4
+  %100 = and i32 %99, 31
+  %101 = lshr i32 %57, %100
+  %102 = load i32, ptr %17, align 4, !alias.scope !1516, !noundef !4
+  switch i32 %102, label %103 [
+    i32 1, label %104
+    i32 2, label %107
+    i32 3, label %119
+    i32 4, label %124
+    i32 5, label %129
+    i32 6, label %134
+    i32 7, label %111
+    i32 8, label %117
   ]
 
-104:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+103:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1516
   unreachable
 
-105:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %106 = trunc i32 %102 to i8
-  %107 = and i8 %106, 1
-  %108 = sub nsw i8 0, %107
+104:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %105 = trunc i32 %101 to i1
+  %106 = sext i1 %105 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
-109:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %110 = trunc i32 %102 to i8
-  %111 = and i8 %110, 3
-  %112 = mul nuw i8 %111, 85
+107:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %108 = trunc i32 %101 to i8
+  %109 = and i8 %108, 3
+  %110 = mul nuw i8 %109, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
-113:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %114 = shl nuw nsw i32 %102, 1
-  %115 = lshr i32 %102, 6
-  %116 = and i32 %115, 1
-  %117 = or disjoint i32 %116, %114
-  %118 = trunc i32 %117 to i8
+111:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %112 = shl nuw nsw i32 %101, 1
+  %113 = lshr i32 %101, 6
+  %114 = and i32 %113, 1
+  %115 = or disjoint i32 %114, %112
+  %116 = trunc i32 %115 to i8
+  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
+
+117:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %118 = trunc i32 %101 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
 119:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %120 = trunc i32 %102 to i8
+  %120 = and i32 %101, 7
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %121
+  %123 = load i8, ptr %122, align 1, !noalias !1516, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
-121:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %122 = and i32 %102, 7
-  %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %123
-  %125 = load i8, ptr %124, align 1, !noalias !1516, !noundef !4
+124:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %125 = and i32 %101, 15
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %126
+  %128 = load i8, ptr %127, align 1, !noalias !1516, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
-126:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %127 = and i32 %102, 15
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %128
-  %130 = load i8, ptr %129, align 1, !noalias !1516, !noundef !4
+129:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %130 = and i32 %101, 31
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %131
+  %133 = load i8, ptr %132, align 1, !noalias !1516, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
-131:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %132 = and i32 %102, 31
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %133
-  %135 = load i8, ptr %134, align 1, !noalias !1516, !noundef !4
+134:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %135 = and i32 %101, 63
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %136
+  %138 = load i8, ptr %137, align 1, !noalias !1516, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
 
-136:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %137 = and i32 %102, 63
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %138
-  %140 = load i8, ptr %139, align 1, !noalias !1516, !noundef !4
-  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
-
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11: ; preds = %105, %109, %113, %119, %121, %126, %131, %136
-  %.0.i10 = phi i8 [ %108, %105 ], [ %112, %109 ], [ %125, %121 ], [ %130, %126 ], [ %135, %131 ], [ %140, %136 ], [ %118, %113 ], [ %120, %119 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11: ; preds = %104, %107, %111, %117, %119, %124, %129, %134
+  %.0.i10 = phi i8 [ %106, %104 ], [ %110, %107 ], [ %123, %119 ], [ %128, %124 ], [ %133, %129 ], [ %138, %134 ], [ %116, %111 ], [ %118, %117 ]
   %.not7 = icmp eq i64 %.0.sroa.speculated.i.i, 1
-  br i1 %.not7, label %185, label %141, !prof !305
+  br i1 %.not7, label %182, label %139, !prof !305
 
-141:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.016.064, i64 1
-  store i8 %.0.i10, ptr %142, align 1
+139:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.016.064, i64 1
+  store i8 %.0.i10, ptr %140, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1519)
-  %143 = load i32, ptr %18, align 4, !alias.scope !1519, !noundef !4
-  %144 = and i32 %143, 31
-  %145 = lshr i32 %57, %144
-  %146 = load i32, ptr %19, align 4, !alias.scope !1519, !noundef !4
-  switch i32 %146, label %147 [
-    i32 1, label %148
-    i32 2, label %152
-    i32 3, label %164
-    i32 4, label %169
-    i32 5, label %174
-    i32 6, label %179
-    i32 7, label %156
-    i32 8, label %162
+  %141 = load i32, ptr %18, align 4, !alias.scope !1519, !noundef !4
+  %142 = and i32 %141, 31
+  %143 = lshr i32 %57, %142
+  %144 = load i32, ptr %19, align 4, !alias.scope !1519, !noundef !4
+  switch i32 %144, label %145 [
+    i32 1, label %146
+    i32 2, label %149
+    i32 3, label %161
+    i32 4, label %166
+    i32 5, label %171
+    i32 6, label %176
+    i32 7, label %153
+    i32 8, label %159
   ]
 
-147:                                              ; preds = %141
+145:                                              ; preds = %139
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1519
   unreachable
 
-148:                                              ; preds = %141
-  %149 = trunc i32 %145 to i8
-  %150 = and i8 %149, 1
-  %151 = sub nsw i8 0, %150
+146:                                              ; preds = %139
+  %147 = trunc i32 %143 to i1
+  %148 = sext i1 %147 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-152:                                              ; preds = %141
-  %153 = trunc i32 %145 to i8
-  %154 = and i8 %153, 3
-  %155 = mul nuw i8 %154, 85
+149:                                              ; preds = %139
+  %150 = trunc i32 %143 to i8
+  %151 = and i8 %150, 3
+  %152 = mul nuw i8 %151, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-156:                                              ; preds = %141
-  %157 = shl nuw nsw i32 %145, 1
-  %158 = lshr i32 %145, 6
-  %159 = and i32 %158, 1
-  %160 = or disjoint i32 %159, %157
-  %161 = trunc i32 %160 to i8
+153:                                              ; preds = %139
+  %154 = shl nuw nsw i32 %143, 1
+  %155 = lshr i32 %143, 6
+  %156 = and i32 %155, 1
+  %157 = or disjoint i32 %156, %154
+  %158 = trunc i32 %157 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-162:                                              ; preds = %141
-  %163 = trunc i32 %145 to i8
+159:                                              ; preds = %139
+  %160 = trunc i32 %143 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-164:                                              ; preds = %141
-  %165 = and i32 %145, 7
-  %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %166
-  %168 = load i8, ptr %167, align 1, !noalias !1519, !noundef !4
+161:                                              ; preds = %139
+  %162 = and i32 %143, 7
+  %163 = zext nneg i32 %162 to i64
+  %164 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %163
+  %165 = load i8, ptr %164, align 1, !noalias !1519, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-169:                                              ; preds = %141
-  %170 = and i32 %145, 15
-  %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %171
-  %173 = load i8, ptr %172, align 1, !noalias !1519, !noundef !4
+166:                                              ; preds = %139
+  %167 = and i32 %143, 15
+  %168 = zext nneg i32 %167 to i64
+  %169 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %168
+  %170 = load i8, ptr %169, align 1, !noalias !1519, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-174:                                              ; preds = %141
-  %175 = and i32 %145, 31
-  %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %176
-  %178 = load i8, ptr %177, align 1, !noalias !1519, !noundef !4
+171:                                              ; preds = %139
+  %172 = and i32 %143, 31
+  %173 = zext nneg i32 %172 to i64
+  %174 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %173
+  %175 = load i8, ptr %174, align 1, !noalias !1519, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-179:                                              ; preds = %141
-  %180 = and i32 %145, 63
-  %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %181
-  %183 = load i8, ptr %182, align 1, !noalias !1519, !noundef !4
+176:                                              ; preds = %139
+  %177 = and i32 %143, 63
+  %178 = zext nneg i32 %177 to i64
+  %179 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %178
+  %180 = load i8, ptr %179, align 1, !noalias !1519, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13: ; preds = %148, %152, %156, %162, %164, %169, %174, %179
-  %.0.i12 = phi i8 [ %151, %148 ], [ %155, %152 ], [ %168, %164 ], [ %173, %169 ], [ %178, %174 ], [ %183, %179 ], [ %161, %156 ], [ %163, %162 ]
-  %184 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
-  br i1 %184, label %186, label %190, !prof !590
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13: ; preds = %146, %149, %153, %159, %161, %166, %171, %176
+  %.0.i12 = phi i8 [ %148, %146 ], [ %152, %149 ], [ %165, %161 ], [ %170, %166 ], [ %175, %171 ], [ %180, %176 ], [ %158, %153 ], [ %160, %159 ]
+  %181 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
+  br i1 %181, label %183, label %187, !prof !590
 
-185:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
+182:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit11
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.205) #33
   unreachable
 
-186:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.016.064, i64 2
-  store i8 %.0.i12, ptr %187, align 1
-  %188 = load i64, ptr %8, align 8, !noundef !4
-  %189 = icmp eq i64 %188, 4
-  br i1 %189, label %191, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+183:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.016.064, i64 2
+  store i8 %.0.i12, ptr %184, align 1
+  %185 = load i64, ptr %8, align 8, !noundef !4
+  %186 = icmp eq i64 %185, 4
+  br i1 %186, label %188, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-190:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
+187:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit13
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 2, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.206) #33
   unreachable
 
-191:                                              ; preds = %186
-  %192 = load i32, ptr %20, align 4, !noundef !4
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %195
+188:                                              ; preds = %183
+  %189 = load i32, ptr %20, align 4, !noundef !4
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %192
 
-194:                                              ; preds = %191
+191:                                              ; preds = %188
   %.not9 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not9, label %236, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not9, label %232, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-195:                                              ; preds = %191
+192:                                              ; preds = %188
   call void @llvm.experimental.noalias.scope.decl(metadata !1522)
-  %196 = load i32, ptr %21, align 4, !alias.scope !1522, !noundef !4
-  %197 = and i32 %196, 31
-  %198 = lshr i32 %57, %197
-  switch i32 %192, label %199 [
-    i32 1, label %200
-    i32 2, label %204
-    i32 3, label %216
-    i32 4, label %221
-    i32 5, label %226
-    i32 6, label %231
-    i32 7, label %208
-    i32 8, label %214
+  %193 = load i32, ptr %21, align 4, !alias.scope !1522, !noundef !4
+  %194 = and i32 %193, 31
+  %195 = lshr i32 %57, %194
+  switch i32 %189, label %196 [
+    i32 1, label %197
+    i32 2, label %200
+    i32 3, label %212
+    i32 4, label %217
+    i32 5, label %222
+    i32 6, label %227
+    i32 7, label %204
+    i32 8, label %210
   ]
 
-199:                                              ; preds = %195
+196:                                              ; preds = %192
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1522
   unreachable
 
-200:                                              ; preds = %195
-  %201 = trunc i32 %198 to i8
-  %202 = and i8 %201, 1
-  %203 = sub nsw i8 0, %202
+197:                                              ; preds = %192
+  %198 = trunc i32 %195 to i1
+  %199 = sext i1 %198 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-204:                                              ; preds = %195
-  %205 = trunc i32 %198 to i8
-  %206 = and i8 %205, 3
-  %207 = mul nuw i8 %206, 85
+200:                                              ; preds = %192
+  %201 = trunc i32 %195 to i8
+  %202 = and i8 %201, 3
+  %203 = mul nuw i8 %202, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-208:                                              ; preds = %195
-  %209 = shl nuw nsw i32 %198, 1
-  %210 = lshr i32 %198, 6
-  %211 = and i32 %210, 1
-  %212 = or disjoint i32 %211, %209
-  %213 = trunc i32 %212 to i8
+204:                                              ; preds = %192
+  %205 = shl nuw nsw i32 %195, 1
+  %206 = lshr i32 %195, 6
+  %207 = and i32 %206, 1
+  %208 = or disjoint i32 %207, %205
+  %209 = trunc i32 %208 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-214:                                              ; preds = %195
-  %215 = trunc i32 %198 to i8
+210:                                              ; preds = %192
+  %211 = trunc i32 %195 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-216:                                              ; preds = %195
-  %217 = and i32 %198, 7
-  %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %218
-  %220 = load i8, ptr %219, align 1, !noalias !1522, !noundef !4
+212:                                              ; preds = %192
+  %213 = and i32 %195, 7
+  %214 = zext nneg i32 %213 to i64
+  %215 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %214
+  %216 = load i8, ptr %215, align 1, !noalias !1522, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-221:                                              ; preds = %195
-  %222 = and i32 %198, 15
-  %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %223
-  %225 = load i8, ptr %224, align 1, !noalias !1522, !noundef !4
+217:                                              ; preds = %192
+  %218 = and i32 %195, 15
+  %219 = zext nneg i32 %218 to i64
+  %220 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %219
+  %221 = load i8, ptr %220, align 1, !noalias !1522, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-226:                                              ; preds = %195
-  %227 = and i32 %198, 31
-  %228 = zext nneg i32 %227 to i64
-  %229 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %228
-  %230 = load i8, ptr %229, align 1, !noalias !1522, !noundef !4
+222:                                              ; preds = %192
+  %223 = and i32 %195, 31
+  %224 = zext nneg i32 %223 to i64
+  %225 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %224
+  %226 = load i8, ptr %225, align 1, !noalias !1522, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-231:                                              ; preds = %195
-  %232 = and i32 %198, 63
-  %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %233
-  %235 = load i8, ptr %234, align 1, !noalias !1522, !noundef !4
+227:                                              ; preds = %192
+  %228 = and i32 %195, 63
+  %229 = zext nneg i32 %228 to i64
+  %230 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %229
+  %231 = load i8, ptr %230, align 1, !noalias !1522, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15: ; preds = %200, %204, %208, %214, %216, %221, %226, %231
-  %.0.i14 = phi i8 [ %203, %200 ], [ %207, %204 ], [ %220, %216 ], [ %225, %221 ], [ %230, %226 ], [ %235, %231 ], [ %213, %208 ], [ %215, %214 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15: ; preds = %197, %200, %204, %210, %212, %217, %222, %227
+  %.0.i14 = phi i8 [ %199, %197 ], [ %203, %200 ], [ %216, %212 ], [ %221, %217 ], [ %226, %222 ], [ %231, %227 ], [ %209, %204 ], [ %211, %210 ]
   %.not8 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not8, label %239, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not8, label %235, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-236:                                              ; preds = %194
+232:                                              ; preds = %191
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.207) #33
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %194, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
-  %.0.i14.sink = phi i8 [ %.0.i14, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15 ], [ -1, %194 ]
-  %237 = getelementptr inbounds nuw i8, ptr %.sroa.016.064, i64 3
-  store i8 %.0.i14.sink, ptr %237, align 1
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %191, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
+  %.0.i14.sink = phi i8 [ %.0.i14, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15 ], [ -1, %191 ]
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.016.064, i64 3
+  store i8 %.0.i14.sink, ptr %233, align 1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %186
-  %238 = icmp eq i64 %29, 0
-  br i1 %238, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %183
+  %234 = icmp eq i64 %29, 0
+  br i1 %234, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
 
-239:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
+235:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit15
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.208) #33
   unreachable
 }
@@ -10111,10 +10103,10 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %37 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h7eff25b31aa7ae42E.llvm.98706352026558795"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %5, i64 noundef 4), !noalias !1550
   %38 = icmp eq ptr %37, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1547
-  br i1 %38, label %39, label %82
+  br i1 %38, label %39, label %81
 
-"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader", %82
-  %.0 = phi ptr [ %37, %82 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader" ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit" ]
+"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader", %81
+  %.0 = phi ptr [ %37, %81 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader" ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit" ]
   ret ptr %.0
 
 39:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
@@ -10129,13 +10121,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %44 = load i32, ptr %17, align 4, !alias.scope !1557, !noundef !4
   switch i32 %44, label %45 [
     i32 1, label %46
-    i32 2, label %50
-    i32 3, label %62
-    i32 4, label %67
-    i32 5, label %72
-    i32 6, label %77
-    i32 7, label %54
-    i32 8, label %60
+    i32 2, label %49
+    i32 3, label %61
+    i32 4, label %66
+    i32 5, label %71
+    i32 6, label %76
+    i32 7, label %53
+    i32 8, label %59
   ]
 
 45:                                               ; preds = %39
@@ -10143,337 +10135,333 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   unreachable
 
 46:                                               ; preds = %39
-  %47 = trunc i32 %43 to i8
-  %48 = and i8 %47, 1
-  %49 = sub nsw i8 0, %48
+  %47 = trunc i32 %43 to i1
+  %48 = sext i1 %47 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-50:                                               ; preds = %39
-  %51 = trunc i32 %43 to i8
-  %52 = and i8 %51, 3
-  %53 = mul nuw i8 %52, 85
+49:                                               ; preds = %39
+  %50 = trunc i32 %43 to i8
+  %51 = and i8 %50, 3
+  %52 = mul nuw i8 %51, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-54:                                               ; preds = %39
-  %55 = and i32 %43, 127
-  %56 = shl nuw nsw i32 %55, 1
-  %57 = lshr i32 %55, 6
-  %58 = or disjoint i32 %56, %57
-  %59 = trunc nuw i32 %58 to i8
+53:                                               ; preds = %39
+  %54 = and i32 %43, 127
+  %55 = shl nuw nsw i32 %54, 1
+  %56 = lshr i32 %54, 6
+  %57 = or disjoint i32 %55, %56
+  %58 = trunc nuw i32 %57 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-60:                                               ; preds = %39
-  %61 = trunc i32 %43 to i8
+59:                                               ; preds = %39
+  %60 = trunc i32 %43 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-62:                                               ; preds = %39
-  %63 = and i32 %43, 7
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %64
-  %66 = load i8, ptr %65, align 1, !noalias !1557, !noundef !4
+61:                                               ; preds = %39
+  %62 = and i32 %43, 7
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %63
+  %65 = load i8, ptr %64, align 1, !noalias !1557, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-67:                                               ; preds = %39
-  %68 = and i32 %43, 15
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %69
-  %71 = load i8, ptr %70, align 1, !noalias !1557, !noundef !4
+66:                                               ; preds = %39
+  %67 = and i32 %43, 15
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %68
+  %70 = load i8, ptr %69, align 1, !noalias !1557, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-72:                                               ; preds = %39
-  %73 = and i32 %43, 31
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %74
-  %76 = load i8, ptr %75, align 1, !noalias !1557, !noundef !4
+71:                                               ; preds = %39
+  %72 = and i32 %43, 31
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %73
+  %75 = load i8, ptr %74, align 1, !noalias !1557, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-77:                                               ; preds = %39
-  %78 = and i32 %43, 63
-  %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %79
-  %81 = load i8, ptr %80, align 1, !noalias !1557, !noundef !4
+76:                                               ; preds = %39
+  %77 = and i32 %43, 63
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %78
+  %80 = load i8, ptr %79, align 1, !noalias !1557, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-82:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
+81:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1545
   br label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread"
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %77, %72, %67, %62, %60, %54, %50, %46
-  %.0.i = phi i8 [ %49, %46 ], [ %53, %50 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ], [ %59, %54 ], [ %61, %60 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %76, %71, %66, %61, %59, %53, %49, %46
+  %.0.i = phi i8 [ %48, %46 ], [ %52, %49 ], [ %65, %61 ], [ %70, %66 ], [ %75, %71 ], [ %80, %76 ], [ %58, %53 ], [ %60, %59 ]
   store i8 %.0.i, ptr %.sroa.015.062, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1560)
-  %83 = load i32, ptr %18, align 4, !alias.scope !1560, !noundef !4
-  %84 = and i32 %83, 31
-  %85 = lshr i32 %.val.i.i.i, %84
-  %86 = load i32, ptr %19, align 4, !alias.scope !1560, !noundef !4
-  switch i32 %86, label %87 [
-    i32 1, label %88
-    i32 2, label %92
-    i32 3, label %104
-    i32 4, label %109
-    i32 5, label %114
-    i32 6, label %119
-    i32 7, label %96
-    i32 8, label %102
+  %82 = load i32, ptr %18, align 4, !alias.scope !1560, !noundef !4
+  %83 = and i32 %82, 31
+  %84 = lshr i32 %.val.i.i.i, %83
+  %85 = load i32, ptr %19, align 4, !alias.scope !1560, !noundef !4
+  switch i32 %85, label %86 [
+    i32 1, label %87
+    i32 2, label %90
+    i32 3, label %102
+    i32 4, label %107
+    i32 5, label %112
+    i32 6, label %117
+    i32 7, label %94
+    i32 8, label %100
   ]
 
-87:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+86:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1560
   unreachable
 
-88:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %89 = trunc i32 %85 to i8
-  %90 = and i8 %89, 1
-  %91 = sub nsw i8 0, %90
+87:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %88 = trunc i32 %84 to i1
+  %89 = sext i1 %88 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-92:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %93 = trunc i32 %85 to i8
-  %94 = and i8 %93, 3
-  %95 = mul nuw i8 %94, 85
+90:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %91 = trunc i32 %84 to i8
+  %92 = and i8 %91, 3
+  %93 = mul nuw i8 %92, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-96:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %97 = and i32 %85, 127
-  %98 = shl nuw nsw i32 %97, 1
-  %99 = lshr i32 %97, 6
-  %100 = or disjoint i32 %98, %99
-  %101 = trunc nuw i32 %100 to i8
+94:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %95 = and i32 %84, 127
+  %96 = shl nuw nsw i32 %95, 1
+  %97 = lshr i32 %95, 6
+  %98 = or disjoint i32 %96, %97
+  %99 = trunc nuw i32 %98 to i8
+  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
+
+100:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %101 = trunc i32 %84 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
 102:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %103 = trunc i32 %85 to i8
+  %103 = and i32 %84, 7
+  %104 = zext nneg i32 %103 to i64
+  %105 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %104
+  %106 = load i8, ptr %105, align 1, !noalias !1560, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-104:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %105 = and i32 %85, 7
-  %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %106
-  %108 = load i8, ptr %107, align 1, !noalias !1560, !noundef !4
+107:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %108 = and i32 %84, 15
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %109
+  %111 = load i8, ptr %110, align 1, !noalias !1560, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-109:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %110 = and i32 %85, 15
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %111
-  %113 = load i8, ptr %112, align 1, !noalias !1560, !noundef !4
+112:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %113 = and i32 %84, 31
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %114
+  %116 = load i8, ptr %115, align 1, !noalias !1560, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-114:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %115 = and i32 %85, 31
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %116
-  %118 = load i8, ptr %117, align 1, !noalias !1560, !noundef !4
+117:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %118 = and i32 %84, 63
+  %119 = zext nneg i32 %118 to i64
+  %120 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %119
+  %121 = load i8, ptr %120, align 1, !noalias !1560, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-119:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %120 = and i32 %85, 63
-  %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %121
-  %123 = load i8, ptr %122, align 1, !noalias !1560, !noundef !4
-  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
-
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10: ; preds = %88, %92, %96, %102, %104, %109, %114, %119
-  %.0.i9 = phi i8 [ %91, %88 ], [ %95, %92 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %101, %96 ], [ %103, %102 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10: ; preds = %87, %90, %94, %100, %102, %107, %112, %117
+  %.0.i9 = phi i8 [ %89, %87 ], [ %93, %90 ], [ %106, %102 ], [ %111, %107 ], [ %116, %112 ], [ %121, %117 ], [ %99, %94 ], [ %101, %100 ]
   %.not6 = icmp eq i64 %.0.sroa.speculated.i.i, 1
-  br i1 %.not6, label %168, label %124, !prof !305
+  br i1 %.not6, label %165, label %122, !prof !305
 
-124:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.015.062, i64 1
-  store i8 %.0.i9, ptr %125, align 1
+122:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.015.062, i64 1
+  store i8 %.0.i9, ptr %123, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1563)
-  %126 = load i32, ptr %20, align 4, !alias.scope !1563, !noundef !4
-  %127 = and i32 %126, 31
-  %128 = lshr i32 %.val.i.i.i, %127
-  %129 = load i32, ptr %21, align 4, !alias.scope !1563, !noundef !4
-  switch i32 %129, label %130 [
-    i32 1, label %131
-    i32 2, label %135
-    i32 3, label %147
-    i32 4, label %152
-    i32 5, label %157
-    i32 6, label %162
-    i32 7, label %139
-    i32 8, label %145
+  %124 = load i32, ptr %20, align 4, !alias.scope !1563, !noundef !4
+  %125 = and i32 %124, 31
+  %126 = lshr i32 %.val.i.i.i, %125
+  %127 = load i32, ptr %21, align 4, !alias.scope !1563, !noundef !4
+  switch i32 %127, label %128 [
+    i32 1, label %129
+    i32 2, label %132
+    i32 3, label %144
+    i32 4, label %149
+    i32 5, label %154
+    i32 6, label %159
+    i32 7, label %136
+    i32 8, label %142
   ]
 
-130:                                              ; preds = %124
+128:                                              ; preds = %122
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1563
   unreachable
 
-131:                                              ; preds = %124
-  %132 = trunc i32 %128 to i8
-  %133 = and i8 %132, 1
-  %134 = sub nsw i8 0, %133
+129:                                              ; preds = %122
+  %130 = trunc i32 %126 to i1
+  %131 = sext i1 %130 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-135:                                              ; preds = %124
-  %136 = trunc i32 %128 to i8
-  %137 = and i8 %136, 3
-  %138 = mul nuw i8 %137, 85
+132:                                              ; preds = %122
+  %133 = trunc i32 %126 to i8
+  %134 = and i8 %133, 3
+  %135 = mul nuw i8 %134, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-139:                                              ; preds = %124
-  %140 = and i32 %128, 127
-  %141 = shl nuw nsw i32 %140, 1
-  %142 = lshr i32 %140, 6
-  %143 = or disjoint i32 %141, %142
-  %144 = trunc nuw i32 %143 to i8
+136:                                              ; preds = %122
+  %137 = and i32 %126, 127
+  %138 = shl nuw nsw i32 %137, 1
+  %139 = lshr i32 %137, 6
+  %140 = or disjoint i32 %138, %139
+  %141 = trunc nuw i32 %140 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-145:                                              ; preds = %124
-  %146 = trunc i32 %128 to i8
+142:                                              ; preds = %122
+  %143 = trunc i32 %126 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-147:                                              ; preds = %124
-  %148 = and i32 %128, 7
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %149
-  %151 = load i8, ptr %150, align 1, !noalias !1563, !noundef !4
+144:                                              ; preds = %122
+  %145 = and i32 %126, 7
+  %146 = zext nneg i32 %145 to i64
+  %147 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %146
+  %148 = load i8, ptr %147, align 1, !noalias !1563, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-152:                                              ; preds = %124
-  %153 = and i32 %128, 15
-  %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %154
-  %156 = load i8, ptr %155, align 1, !noalias !1563, !noundef !4
+149:                                              ; preds = %122
+  %150 = and i32 %126, 15
+  %151 = zext nneg i32 %150 to i64
+  %152 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %151
+  %153 = load i8, ptr %152, align 1, !noalias !1563, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-157:                                              ; preds = %124
-  %158 = and i32 %128, 31
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %159
-  %161 = load i8, ptr %160, align 1, !noalias !1563, !noundef !4
+154:                                              ; preds = %122
+  %155 = and i32 %126, 31
+  %156 = zext nneg i32 %155 to i64
+  %157 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %156
+  %158 = load i8, ptr %157, align 1, !noalias !1563, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-162:                                              ; preds = %124
-  %163 = and i32 %128, 63
-  %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %164
-  %166 = load i8, ptr %165, align 1, !noalias !1563, !noundef !4
+159:                                              ; preds = %122
+  %160 = and i32 %126, 63
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %161
+  %163 = load i8, ptr %162, align 1, !noalias !1563, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12: ; preds = %131, %135, %139, %145, %147, %152, %157, %162
-  %.0.i11 = phi i8 [ %134, %131 ], [ %138, %135 ], [ %151, %147 ], [ %156, %152 ], [ %161, %157 ], [ %166, %162 ], [ %144, %139 ], [ %146, %145 ]
-  %167 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
-  br i1 %167, label %169, label %173, !prof !590
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12: ; preds = %129, %132, %136, %142, %144, %149, %154, %159
+  %.0.i11 = phi i8 [ %131, %129 ], [ %135, %132 ], [ %148, %144 ], [ %153, %149 ], [ %158, %154 ], [ %163, %159 ], [ %141, %136 ], [ %143, %142 ]
+  %164 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
+  br i1 %164, label %166, label %170, !prof !590
 
-168:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
+165:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.212) #33
   unreachable
 
-169:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.015.062, i64 2
-  store i8 %.0.i11, ptr %170, align 1
-  %171 = load i64, ptr %7, align 8, !noundef !4
-  %172 = icmp eq i64 %171, 4
-  br i1 %172, label %174, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+166:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.015.062, i64 2
+  store i8 %.0.i11, ptr %167, align 1
+  %168 = load i64, ptr %7, align 8, !noundef !4
+  %169 = icmp eq i64 %168, 4
+  br i1 %169, label %171, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-173:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+170:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 2, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.213) #33
   unreachable
 
-174:                                              ; preds = %169
-  %175 = load i32, ptr %22, align 4, !noundef !4
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %178
+171:                                              ; preds = %166
+  %172 = load i32, ptr %22, align 4, !noundef !4
+  %173 = icmp eq i32 %172, 0
+  br i1 %173, label %174, label %175
 
-177:                                              ; preds = %174
+174:                                              ; preds = %171
   %.not8 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not8, label %219, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not8, label %215, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-178:                                              ; preds = %174
+175:                                              ; preds = %171
   call void @llvm.experimental.noalias.scope.decl(metadata !1566)
-  %179 = load i32, ptr %23, align 4, !alias.scope !1566, !noundef !4
-  %180 = and i32 %179, 31
-  %181 = lshr i32 %.val.i.i.i, %180
-  switch i32 %175, label %182 [
-    i32 1, label %183
-    i32 2, label %187
-    i32 3, label %199
-    i32 4, label %204
-    i32 5, label %209
-    i32 6, label %214
-    i32 7, label %191
-    i32 8, label %197
+  %176 = load i32, ptr %23, align 4, !alias.scope !1566, !noundef !4
+  %177 = and i32 %176, 31
+  %178 = lshr i32 %.val.i.i.i, %177
+  switch i32 %172, label %179 [
+    i32 1, label %180
+    i32 2, label %183
+    i32 3, label %195
+    i32 4, label %200
+    i32 5, label %205
+    i32 6, label %210
+    i32 7, label %187
+    i32 8, label %193
   ]
 
-182:                                              ; preds = %178
+179:                                              ; preds = %175
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1566
   unreachable
 
-183:                                              ; preds = %178
-  %184 = trunc i32 %181 to i8
-  %185 = and i8 %184, 1
-  %186 = sub nsw i8 0, %185
+180:                                              ; preds = %175
+  %181 = trunc i32 %178 to i1
+  %182 = sext i1 %181 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-187:                                              ; preds = %178
-  %188 = trunc i32 %181 to i8
-  %189 = and i8 %188, 3
-  %190 = mul nuw i8 %189, 85
+183:                                              ; preds = %175
+  %184 = trunc i32 %178 to i8
+  %185 = and i8 %184, 3
+  %186 = mul nuw i8 %185, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-191:                                              ; preds = %178
-  %192 = and i32 %181, 127
-  %193 = shl nuw nsw i32 %192, 1
-  %194 = lshr i32 %192, 6
-  %195 = or disjoint i32 %193, %194
-  %196 = trunc nuw i32 %195 to i8
+187:                                              ; preds = %175
+  %188 = and i32 %178, 127
+  %189 = shl nuw nsw i32 %188, 1
+  %190 = lshr i32 %188, 6
+  %191 = or disjoint i32 %189, %190
+  %192 = trunc nuw i32 %191 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-197:                                              ; preds = %178
-  %198 = trunc i32 %181 to i8
+193:                                              ; preds = %175
+  %194 = trunc i32 %178 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-199:                                              ; preds = %178
-  %200 = and i32 %181, 7
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %201
-  %203 = load i8, ptr %202, align 1, !noalias !1566, !noundef !4
+195:                                              ; preds = %175
+  %196 = and i32 %178, 7
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %197
+  %199 = load i8, ptr %198, align 1, !noalias !1566, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-204:                                              ; preds = %178
-  %205 = and i32 %181, 15
-  %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %206
-  %208 = load i8, ptr %207, align 1, !noalias !1566, !noundef !4
+200:                                              ; preds = %175
+  %201 = and i32 %178, 15
+  %202 = zext nneg i32 %201 to i64
+  %203 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %202
+  %204 = load i8, ptr %203, align 1, !noalias !1566, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-209:                                              ; preds = %178
-  %210 = and i32 %181, 31
-  %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %211
-  %213 = load i8, ptr %212, align 1, !noalias !1566, !noundef !4
+205:                                              ; preds = %175
+  %206 = and i32 %178, 31
+  %207 = zext nneg i32 %206 to i64
+  %208 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %207
+  %209 = load i8, ptr %208, align 1, !noalias !1566, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-214:                                              ; preds = %178
-  %215 = and i32 %181, 63
-  %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %216
-  %218 = load i8, ptr %217, align 1, !noalias !1566, !noundef !4
+210:                                              ; preds = %175
+  %211 = and i32 %178, 63
+  %212 = zext nneg i32 %211 to i64
+  %213 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %212
+  %214 = load i8, ptr %213, align 1, !noalias !1566, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14: ; preds = %183, %187, %191, %197, %199, %204, %209, %214
-  %.0.i13 = phi i8 [ %186, %183 ], [ %190, %187 ], [ %203, %199 ], [ %208, %204 ], [ %213, %209 ], [ %218, %214 ], [ %196, %191 ], [ %198, %197 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14: ; preds = %180, %183, %187, %193, %195, %200, %205, %210
+  %.0.i13 = phi i8 [ %182, %180 ], [ %186, %183 ], [ %199, %195 ], [ %204, %200 ], [ %209, %205 ], [ %214, %210 ], [ %192, %187 ], [ %194, %193 ]
   %.not7 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not7, label %222, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not7, label %218, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-219:                                              ; preds = %177
+215:                                              ; preds = %174
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.214) #33
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %177, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
-  %.0.i13.sink = phi i8 [ %.0.i13, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14 ], [ -1, %177 ]
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.015.062, i64 3
-  store i8 %.0.i13.sink, ptr %220, align 1
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %174, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
+  %.0.i13.sink = phi i8 [ %.0.i13, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14 ], [ -1, %174 ]
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.015.062, i64 3
+  store i8 %.0.i13.sink, ptr %216, align 1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %169
-  %221 = icmp eq i64 %31, 0
-  br i1 %221, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %166
+  %217 = icmp eq i64 %31, 0
+  br i1 %217, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
 
-222:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
+218:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.215) #33
   unreachable
 }
@@ -10533,10 +10521,10 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i": ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
   %29 = call noundef ptr @_ZN3std2io18default_read_exact17hafb8c1a6e12607feE(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull align 1 %4, i64 noundef 4), !noalias !1579
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %73
+  br i1 %30, label %31, label %72
 
-"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader", %73
-  %.0 = phi ptr [ %29, %73 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader" ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit" ]
+"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader", %72
+  %.0 = phi ptr [ %29, %72 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.preheader" ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit" ]
   ret ptr %.0
 
 31:                                               ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit", %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
@@ -10549,13 +10537,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   %35 = load i32, ptr %14, align 4, !alias.scope !1585, !noundef !4
   switch i32 %35, label %36 [
     i32 1, label %37
-    i32 2, label %41
-    i32 3, label %53
-    i32 4, label %58
-    i32 5, label %63
-    i32 6, label %68
-    i32 7, label %45
-    i32 8, label %51
+    i32 2, label %40
+    i32 3, label %52
+    i32 4, label %57
+    i32 5, label %62
+    i32 6, label %67
+    i32 7, label %44
+    i32 8, label %50
   ]
 
 36:                                               ; preds = %31
@@ -10563,337 +10551,333 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
   unreachable
 
 37:                                               ; preds = %31
-  %38 = trunc i32 %34 to i8
-  %39 = and i8 %38, 1
-  %40 = sub nsw i8 0, %39
+  %38 = trunc i32 %34 to i1
+  %39 = sext i1 %38 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-41:                                               ; preds = %31
-  %42 = trunc i32 %34 to i8
-  %43 = and i8 %42, 3
-  %44 = mul nuw i8 %43, 85
+40:                                               ; preds = %31
+  %41 = trunc i32 %34 to i8
+  %42 = and i8 %41, 3
+  %43 = mul nuw i8 %42, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-45:                                               ; preds = %31
-  %46 = and i32 %34, 127
-  %47 = shl nuw nsw i32 %46, 1
-  %48 = lshr i32 %46, 6
-  %49 = or disjoint i32 %47, %48
-  %50 = trunc nuw i32 %49 to i8
+44:                                               ; preds = %31
+  %45 = and i32 %34, 127
+  %46 = shl nuw nsw i32 %45, 1
+  %47 = lshr i32 %45, 6
+  %48 = or disjoint i32 %46, %47
+  %49 = trunc nuw i32 %48 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-51:                                               ; preds = %31
-  %52 = trunc i32 %34 to i8
+50:                                               ; preds = %31
+  %51 = trunc i32 %34 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-53:                                               ; preds = %31
-  %54 = and i32 %34, 7
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %55
-  %57 = load i8, ptr %56, align 1, !noalias !1585, !noundef !4
+52:                                               ; preds = %31
+  %53 = and i32 %34, 7
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %54
+  %56 = load i8, ptr %55, align 1, !noalias !1585, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-58:                                               ; preds = %31
-  %59 = and i32 %34, 15
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %60
-  %62 = load i8, ptr %61, align 1, !noalias !1585, !noundef !4
+57:                                               ; preds = %31
+  %58 = and i32 %34, 15
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %59
+  %61 = load i8, ptr %60, align 1, !noalias !1585, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-63:                                               ; preds = %31
-  %64 = and i32 %34, 31
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %65
-  %67 = load i8, ptr %66, align 1, !noalias !1585, !noundef !4
+62:                                               ; preds = %31
+  %63 = and i32 %34, 31
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %64
+  %66 = load i8, ptr %65, align 1, !noalias !1585, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-68:                                               ; preds = %31
-  %69 = and i32 %34, 63
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %70
-  %72 = load i8, ptr %71, align 1, !noalias !1585, !noundef !4
+67:                                               ; preds = %31
+  %68 = and i32 %34, 63
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %69
+  %71 = load i8, ptr %70, align 1, !noalias !1585, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
 
-73:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
+72:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1575
   br label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread"
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %68, %63, %58, %53, %51, %45, %41, %37
-  %.0.i = phi i8 [ %40, %37 ], [ %44, %41 ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %50, %45 ], [ %52, %51 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit: ; preds = %67, %62, %57, %52, %50, %44, %40, %37
+  %.0.i = phi i8 [ %39, %37 ], [ %43, %40 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %49, %44 ], [ %51, %50 ]
   store i8 %.0.i, ptr %.sroa.015.034, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1588)
-  %74 = load i32, ptr %15, align 4, !alias.scope !1588, !noundef !4
-  %75 = and i32 %74, 31
-  %76 = lshr i32 %.val.i.i.i, %75
-  %77 = load i32, ptr %16, align 4, !alias.scope !1588, !noundef !4
-  switch i32 %77, label %78 [
-    i32 1, label %79
-    i32 2, label %83
-    i32 3, label %95
-    i32 4, label %100
-    i32 5, label %105
-    i32 6, label %110
-    i32 7, label %87
-    i32 8, label %93
+  %73 = load i32, ptr %15, align 4, !alias.scope !1588, !noundef !4
+  %74 = and i32 %73, 31
+  %75 = lshr i32 %.val.i.i.i, %74
+  %76 = load i32, ptr %16, align 4, !alias.scope !1588, !noundef !4
+  switch i32 %76, label %77 [
+    i32 1, label %78
+    i32 2, label %81
+    i32 3, label %93
+    i32 4, label %98
+    i32 5, label %103
+    i32 6, label %108
+    i32 7, label %85
+    i32 8, label %91
   ]
 
-78:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+77:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1588
   unreachable
 
-79:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %80 = trunc i32 %76 to i8
-  %81 = and i8 %80, 1
-  %82 = sub nsw i8 0, %81
+78:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %79 = trunc i32 %75 to i1
+  %80 = sext i1 %79 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-83:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %84 = trunc i32 %76 to i8
-  %85 = and i8 %84, 3
-  %86 = mul nuw i8 %85, 85
+81:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %82 = trunc i32 %75 to i8
+  %83 = and i8 %82, 3
+  %84 = mul nuw i8 %83, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-87:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %88 = and i32 %76, 127
-  %89 = shl nuw nsw i32 %88, 1
-  %90 = lshr i32 %88, 6
-  %91 = or disjoint i32 %89, %90
-  %92 = trunc nuw i32 %91 to i8
+85:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %86 = and i32 %75, 127
+  %87 = shl nuw nsw i32 %86, 1
+  %88 = lshr i32 %86, 6
+  %89 = or disjoint i32 %87, %88
+  %90 = trunc nuw i32 %89 to i8
+  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
+
+91:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %92 = trunc i32 %75 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
 93:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %94 = trunc i32 %76 to i8
+  %94 = and i32 %75, 7
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %95
+  %97 = load i8, ptr %96, align 1, !noalias !1588, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-95:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %96 = and i32 %76, 7
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %97
-  %99 = load i8, ptr %98, align 1, !noalias !1588, !noundef !4
+98:                                               ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %99 = and i32 %75, 15
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %100
+  %102 = load i8, ptr %101, align 1, !noalias !1588, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-100:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %101 = and i32 %76, 15
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %102
-  %104 = load i8, ptr %103, align 1, !noalias !1588, !noundef !4
+103:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %104 = and i32 %75, 31
+  %105 = zext nneg i32 %104 to i64
+  %106 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %105
+  %107 = load i8, ptr %106, align 1, !noalias !1588, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-105:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %106 = and i32 %76, 31
-  %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %107
-  %109 = load i8, ptr %108, align 1, !noalias !1588, !noundef !4
+108:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
+  %109 = and i32 %75, 63
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %110
+  %112 = load i8, ptr %111, align 1, !noalias !1588, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
 
-110:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit
-  %111 = and i32 %76, 63
-  %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %112
-  %114 = load i8, ptr %113, align 1, !noalias !1588, !noundef !4
-  br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
-
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10: ; preds = %79, %83, %87, %93, %95, %100, %105, %110
-  %.0.i9 = phi i8 [ %82, %79 ], [ %86, %83 ], [ %99, %95 ], [ %104, %100 ], [ %109, %105 ], [ %114, %110 ], [ %92, %87 ], [ %94, %93 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10: ; preds = %78, %81, %85, %91, %93, %98, %103, %108
+  %.0.i9 = phi i8 [ %80, %78 ], [ %84, %81 ], [ %97, %93 ], [ %102, %98 ], [ %107, %103 ], [ %112, %108 ], [ %90, %85 ], [ %92, %91 ]
   %.not6 = icmp eq i64 %.0.sroa.speculated.i.i, 1
-  br i1 %.not6, label %159, label %115, !prof !305
+  br i1 %.not6, label %156, label %113, !prof !305
 
-115:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.015.034, i64 1
-  store i8 %.0.i9, ptr %116, align 1
+113:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.015.034, i64 1
+  store i8 %.0.i9, ptr %114, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1591)
-  %117 = load i32, ptr %17, align 4, !alias.scope !1591, !noundef !4
-  %118 = and i32 %117, 31
-  %119 = lshr i32 %.val.i.i.i, %118
-  %120 = load i32, ptr %18, align 4, !alias.scope !1591, !noundef !4
-  switch i32 %120, label %121 [
-    i32 1, label %122
-    i32 2, label %126
-    i32 3, label %138
-    i32 4, label %143
-    i32 5, label %148
-    i32 6, label %153
-    i32 7, label %130
-    i32 8, label %136
+  %115 = load i32, ptr %17, align 4, !alias.scope !1591, !noundef !4
+  %116 = and i32 %115, 31
+  %117 = lshr i32 %.val.i.i.i, %116
+  %118 = load i32, ptr %18, align 4, !alias.scope !1591, !noundef !4
+  switch i32 %118, label %119 [
+    i32 1, label %120
+    i32 2, label %123
+    i32 3, label %135
+    i32 4, label %140
+    i32 5, label %145
+    i32 6, label %150
+    i32 7, label %127
+    i32 8, label %133
   ]
 
-121:                                              ; preds = %115
+119:                                              ; preds = %113
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1591
   unreachable
 
-122:                                              ; preds = %115
-  %123 = trunc i32 %119 to i8
-  %124 = and i8 %123, 1
-  %125 = sub nsw i8 0, %124
+120:                                              ; preds = %113
+  %121 = trunc i32 %117 to i1
+  %122 = sext i1 %121 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-126:                                              ; preds = %115
-  %127 = trunc i32 %119 to i8
-  %128 = and i8 %127, 3
-  %129 = mul nuw i8 %128, 85
+123:                                              ; preds = %113
+  %124 = trunc i32 %117 to i8
+  %125 = and i8 %124, 3
+  %126 = mul nuw i8 %125, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-130:                                              ; preds = %115
-  %131 = and i32 %119, 127
-  %132 = shl nuw nsw i32 %131, 1
-  %133 = lshr i32 %131, 6
-  %134 = or disjoint i32 %132, %133
-  %135 = trunc nuw i32 %134 to i8
+127:                                              ; preds = %113
+  %128 = and i32 %117, 127
+  %129 = shl nuw nsw i32 %128, 1
+  %130 = lshr i32 %128, 6
+  %131 = or disjoint i32 %129, %130
+  %132 = trunc nuw i32 %131 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-136:                                              ; preds = %115
-  %137 = trunc i32 %119 to i8
+133:                                              ; preds = %113
+  %134 = trunc i32 %117 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-138:                                              ; preds = %115
-  %139 = and i32 %119, 7
-  %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %140
-  %142 = load i8, ptr %141, align 1, !noalias !1591, !noundef !4
+135:                                              ; preds = %113
+  %136 = and i32 %117, 7
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %137
+  %139 = load i8, ptr %138, align 1, !noalias !1591, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-143:                                              ; preds = %115
-  %144 = and i32 %119, 15
-  %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %145
-  %147 = load i8, ptr %146, align 1, !noalias !1591, !noundef !4
+140:                                              ; preds = %113
+  %141 = and i32 %117, 15
+  %142 = zext nneg i32 %141 to i64
+  %143 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %142
+  %144 = load i8, ptr %143, align 1, !noalias !1591, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-148:                                              ; preds = %115
-  %149 = and i32 %119, 31
-  %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %150
-  %152 = load i8, ptr %151, align 1, !noalias !1591, !noundef !4
+145:                                              ; preds = %113
+  %146 = and i32 %117, 31
+  %147 = zext nneg i32 %146 to i64
+  %148 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %147
+  %149 = load i8, ptr %148, align 1, !noalias !1591, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-153:                                              ; preds = %115
-  %154 = and i32 %119, 63
-  %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %155
-  %157 = load i8, ptr %156, align 1, !noalias !1591, !noundef !4
+150:                                              ; preds = %113
+  %151 = and i32 %117, 63
+  %152 = zext nneg i32 %151 to i64
+  %153 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %152
+  %154 = load i8, ptr %153, align 1, !noalias !1591, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12: ; preds = %122, %126, %130, %136, %138, %143, %148, %153
-  %.0.i11 = phi i8 [ %125, %122 ], [ %129, %126 ], [ %142, %138 ], [ %147, %143 ], [ %152, %148 ], [ %157, %153 ], [ %135, %130 ], [ %137, %136 ]
-  %158 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
-  br i1 %158, label %160, label %164, !prof !590
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12: ; preds = %120, %123, %127, %133, %135, %140, %145, %150
+  %.0.i11 = phi i8 [ %122, %120 ], [ %126, %123 ], [ %139, %135 ], [ %144, %140 ], [ %149, %145 ], [ %154, %150 ], [ %132, %127 ], [ %134, %133 ]
+  %155 = icmp ugt i64 %.0.sroa.speculated.i.i, 2
+  br i1 %155, label %157, label %161, !prof !590
 
-159:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
+156:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit10
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.212) #33
   unreachable
 
-160:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.015.034, i64 2
-  store i8 %.0.i11, ptr %161, align 1
-  %162 = load i64, ptr %6, align 8, !noundef !4
-  %163 = icmp eq i64 %162, 4
-  br i1 %163, label %165, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
+157:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.015.034, i64 2
+  store i8 %.0.i11, ptr %158, align 1
+  %159 = load i64, ptr %6, align 8, !noundef !4
+  %160 = icmp eq i64 %159, 4
+  br i1 %160, label %162, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-164:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
+161:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit12
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 2, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.213) #33
   unreachable
 
-165:                                              ; preds = %160
-  %166 = load i32, ptr %19, align 4, !noundef !4
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %169
+162:                                              ; preds = %157
+  %163 = load i32, ptr %19, align 4, !noundef !4
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %166
 
-168:                                              ; preds = %165
+165:                                              ; preds = %162
   %.not8 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not8, label %210, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not8, label %206, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-169:                                              ; preds = %165
+166:                                              ; preds = %162
   call void @llvm.experimental.noalias.scope.decl(metadata !1594)
-  %170 = load i32, ptr %20, align 4, !alias.scope !1594, !noundef !4
-  %171 = and i32 %170, 31
-  %172 = lshr i32 %.val.i.i.i, %171
-  switch i32 %166, label %173 [
-    i32 1, label %174
-    i32 2, label %178
-    i32 3, label %190
-    i32 4, label %195
-    i32 5, label %200
-    i32 6, label %205
-    i32 7, label %182
-    i32 8, label %188
+  %167 = load i32, ptr %20, align 4, !alias.scope !1594, !noundef !4
+  %168 = and i32 %167, 31
+  %169 = lshr i32 %.val.i.i.i, %168
+  switch i32 %163, label %170 [
+    i32 1, label %171
+    i32 2, label %174
+    i32 3, label %186
+    i32 4, label %191
+    i32 5, label %196
+    i32 6, label %201
+    i32 7, label %178
+    i32 8, label %184
   ]
 
-173:                                              ; preds = %169
+170:                                              ; preds = %166
   call void @_ZN5image6codecs3bmp7decoder8Bitfield4read19panic_cold_explicit17he63aed4c1f6522a5E.llvm.6960974148744716740(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.167.llvm.6960974148744716740) #33, !noalias !1594
   unreachable
 
-174:                                              ; preds = %169
-  %175 = trunc i32 %172 to i8
-  %176 = and i8 %175, 1
-  %177 = sub nsw i8 0, %176
+171:                                              ; preds = %166
+  %172 = trunc i32 %169 to i1
+  %173 = sext i1 %172 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-178:                                              ; preds = %169
-  %179 = trunc i32 %172 to i8
-  %180 = and i8 %179, 3
-  %181 = mul nuw i8 %180, 85
+174:                                              ; preds = %166
+  %175 = trunc i32 %169 to i8
+  %176 = and i8 %175, 3
+  %177 = mul nuw i8 %176, 85
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-182:                                              ; preds = %169
-  %183 = and i32 %172, 127
-  %184 = shl nuw nsw i32 %183, 1
-  %185 = lshr i32 %183, 6
-  %186 = or disjoint i32 %184, %185
-  %187 = trunc nuw i32 %186 to i8
+178:                                              ; preds = %166
+  %179 = and i32 %169, 127
+  %180 = shl nuw nsw i32 %179, 1
+  %181 = lshr i32 %179, 6
+  %182 = or disjoint i32 %180, %181
+  %183 = trunc nuw i32 %182 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-188:                                              ; preds = %169
-  %189 = trunc i32 %172 to i8
+184:                                              ; preds = %166
+  %185 = trunc i32 %169 to i8
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-190:                                              ; preds = %169
-  %191 = and i32 %172, 7
-  %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %192
-  %194 = load i8, ptr %193, align 1, !noalias !1594, !noundef !4
+186:                                              ; preds = %166
+  %187 = and i32 %169, 7
+  %188 = zext nneg i32 %187 to i64
+  %189 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_3_BIT_TO_8_BIT17hce26285596827be3E.llvm.6960974148744716740, i64 %188
+  %190 = load i8, ptr %189, align 1, !noalias !1594, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-195:                                              ; preds = %169
-  %196 = and i32 %172, 15
-  %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %197
-  %199 = load i8, ptr %198, align 1, !noalias !1594, !noundef !4
+191:                                              ; preds = %166
+  %192 = and i32 %169, 15
+  %193 = zext nneg i32 %192 to i64
+  %194 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_4_BIT_TO_8_BIT17hf3afefc9ed090e7eE.llvm.6960974148744716740, i64 %193
+  %195 = load i8, ptr %194, align 1, !noalias !1594, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-200:                                              ; preds = %169
-  %201 = and i32 %172, 31
-  %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %202
-  %204 = load i8, ptr %203, align 1, !noalias !1594, !noundef !4
+196:                                              ; preds = %166
+  %197 = and i32 %169, 31
+  %198 = zext nneg i32 %197 to i64
+  %199 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_5_BIT_TO_8_BIT17h94bdcc330f01fa2dE.llvm.6960974148744716740, i64 %198
+  %200 = load i8, ptr %199, align 1, !noalias !1594, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-205:                                              ; preds = %169
-  %206 = and i32 %172, 63
-  %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %207
-  %209 = load i8, ptr %208, align 1, !noalias !1594, !noundef !4
+201:                                              ; preds = %166
+  %202 = and i32 %169, 63
+  %203 = zext nneg i32 %202 to i64
+  %204 = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs3bmp7decoder27LOOKUP_TABLE_6_BIT_TO_8_BIT17hedc682e0adc013c9E.llvm.6960974148744716740, i64 %203
+  %205 = load i8, ptr %204, align 1, !noalias !1594, !noundef !4
   br label %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
 
-_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14: ; preds = %174, %178, %182, %188, %190, %195, %200, %205
-  %.0.i13 = phi i8 [ %177, %174 ], [ %181, %178 ], [ %194, %190 ], [ %199, %195 ], [ %204, %200 ], [ %209, %205 ], [ %187, %182 ], [ %189, %188 ]
+_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14: ; preds = %171, %174, %178, %184, %186, %191, %196, %201
+  %.0.i13 = phi i8 [ %173, %171 ], [ %177, %174 ], [ %190, %186 ], [ %195, %191 ], [ %200, %196 ], [ %205, %201 ], [ %183, %178 ], [ %185, %184 ]
   %.not7 = icmp eq i64 %.0.sroa.speculated.i.i, 3
-  br i1 %.not7, label %213, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
+  br i1 %.not7, label %209, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", !prof !305
 
-210:                                              ; preds = %168
+206:                                              ; preds = %165
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.214) #33
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %168, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
-  %.0.i13.sink = phi i8 [ %.0.i13, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14 ], [ -1, %168 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.015.034, i64 3
-  store i8 %.0.i13.sink, ptr %211, align 1
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split": ; preds = %165, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
+  %.0.i13.sink = phi i8 [ %.0.i13, %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14 ], [ -1, %165 ]
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.015.034, i64 3
+  store i8 %.0.i13.sink, ptr %207, align 1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %160
-  %212 = icmp eq i64 %27, 0
-  br i1 %212, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h0ede18cc1d0408feE.exit.sink.split", %157
+  %208 = icmp eq i64 %27, 0
+  br i1 %208, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
 
-213:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
+209:                                              ; preds = %_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0fE.exit14
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.215) #33
   unreachable
 }

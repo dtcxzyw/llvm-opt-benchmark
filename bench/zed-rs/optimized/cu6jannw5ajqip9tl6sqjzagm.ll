@@ -15040,15 +15040,14 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   %4 = load i64, ptr %0, align 8, !range !48, !alias.scope !3021, !noalias !3022, !noundef !4
   %trunc.i.i = trunc nuw i64 %4 to i1
   %5 = load i64, ptr %1, align 8, !range !48, !alias.scope !3022, !noalias !3021, !noundef !4
+  %trunc1.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i.i, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc2.i.i = trunc nuw nsw i64 %5 to i8
-  %..i.i = sub nsw i8 0, %trunc2.i.i
+  %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6afd542033095ff7E.exit"
 
 7:                                                ; preds = %3
-  %trunc1.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc1.i.i, label %8, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h6afd542033095ff7E.exit"
 
 8:                                                ; preds = %7

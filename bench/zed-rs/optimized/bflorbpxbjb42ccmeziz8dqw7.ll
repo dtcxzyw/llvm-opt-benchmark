@@ -144,7 +144,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i.i.i, label %34, label %33
 
 33:                                               ; preds = %21
-  %trunc2.i.i.i.i.i.i.i.i.neg.i.i.i.i = sext i1 %.sroa.06.0.i.i.i.i.i.i to i8
+  %..i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %.sroa.06.0.i.i.i.i.i.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 34:                                               ; preds = %21
@@ -155,7 +155,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %35, %33
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %36, %35 ], [ %trunc2.i.i.i.i.i.i.i.i.neg.i.i.i.i, %33 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %36, %35 ], [ %..i.i.i.i.i.i.i.i.i.i.i.i, %33 ]
   %37 = icmp eq i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %37, label %38, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h29cf621aea44b22aE.exit.i.i.i.i.i.i.i"
 
@@ -447,7 +447,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %29
 
 29:                                               ; preds = %17
-  %trunc2.i.i.i.i.i.i.i.i.neg.i.i.i.i.i = sext i1 %.sroa.06.0.i.i.i.i.i.i.i to i8
+  %..i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %.sroa.06.0.i.i.i.i.i.i.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 30:                                               ; preds = %17
@@ -458,7 +458,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %31, %29
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %32, %31 ], [ %trunc2.i.i.i.i.i.i.i.i.neg.i.i.i.i.i, %29 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %32, %31 ], [ %..i.i.i.i.i.i.i.i.i.i.i.i.i, %29 ]
   %33 = icmp eq i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %33, label %34, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h29cf621aea44b22aE.exit.i.i.i.i.i.i.i.i"
 
@@ -1388,7 +1388,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i.i, label %37, label %36
 
 36:                                               ; preds = %24
-  %trunc2.i.i.i.i.i.i.i.i.neg.i.i.i = sext i1 %.sroa.06.0.i.i.i.i.i to i8
+  %..i.i.i.i.i.i.i.i.i.i.i = sext i1 %.sroa.06.0.i.i.i.i.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i"
 
 37:                                               ; preds = %24
@@ -1399,7 +1399,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %38, %36
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %39, %38 ], [ %trunc2.i.i.i.i.i.i.i.i.neg.i.i.i, %36 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %39, %38 ], [ %..i.i.i.i.i.i.i.i.i.i.i, %36 ]
   %40 = icmp eq i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %40, label %41, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h29cf621aea44b22aE.exit.i.i.i.i.i.i"
 
@@ -6329,7 +6329,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i, label %36, label %35
 
 35:                                               ; preds = %22
-  %trunc2.i.i.i.i.i.i.i.i.neg.i.i = sext i1 %.sroa.06.0.i.i.i.i to i8
+  %..i.i.i.i.i.i.i.i.i.i = sext i1 %.sroa.06.0.i.i.i.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i"
 
 36:                                               ; preds = %22
@@ -6340,7 +6340,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i"
 
 "_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h1cec507317698e8aE.exit.i.i.i.i.i.i.i.i.i": ; preds = %37, %35
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %38, %37 ], [ %trunc2.i.i.i.i.i.i.i.i.neg.i.i, %35 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %38, %37 ], [ %..i.i.i.i.i.i.i.i.i.i, %35 ]
   %39 = icmp eq i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %39, label %40, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h29cf621aea44b22aE.exit.i.i.i.i.i"
 

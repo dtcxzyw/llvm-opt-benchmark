@@ -72,7 +72,7 @@ define dso_local void @_ZNK4absl4Time2InENS_8TimeZoneE(ptr dead_on_unwind noalia
   store i8 0, ptr %20, align 4, !tbaa !27, !alias.scope !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @.str, ptr %21, align 8, !tbaa !28, !alias.scope !16
-  br label %97
+  br label %95
 
 22:                                               ; preds = %3
   %23 = icmp eq i64 %.sroa.032.0.copyload, -9223372036854775808
@@ -105,7 +105,7 @@ define dso_local void @_ZNK4absl4Time2InENS_8TimeZoneE(ptr dead_on_unwind noalia
   store i8 0, ptr %35, align 4, !tbaa !27, !alias.scope !29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @.str, ptr %36, align 8, !tbaa !28, !alias.scope !29
-  br label %97
+  br label %95
 
 37:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -121,103 +121,105 @@ define dso_local void @_ZNK4absl4Time2InENS_8TimeZoneE(ptr dead_on_unwind noalia
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i64 %.sroa.052.0.copyload, ptr %0, align 8, !tbaa !8
-  %.sroa.553.8.extract.trunc = trunc i64 %.sroa.553.0.copyload to i32
-  %sext = shl i32 %.sroa.553.8.extract.trunc, 24
-  %40 = ashr exact i32 %sext, 24
+  %.sroa.553.8.extract.trunc = trunc i64 %.sroa.553.0.copyload to i8
+  %40 = sext i8 %.sroa.553.8.extract.trunc to i32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %40, ptr %41, align 8, !tbaa !19
-  %42 = shl i32 %.sroa.553.8.extract.trunc, 16
-  %43 = ashr i32 %42, 24
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %43, ptr %44, align 4, !tbaa !20
-  %45 = shl i32 %.sroa.553.8.extract.trunc, 8
-  %46 = ashr i32 %45, 24
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %46, ptr %47, align 8, !tbaa !21
-  %48 = ashr i32 %.sroa.553.8.extract.trunc, 24
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %48, ptr %49, align 4, !tbaa !22
-  %sh.diff = lshr i64 %.sroa.553.0.copyload, 8
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %50 = ashr i32 %tr.sh.diff, 24
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %50, ptr %51, align 8, !tbaa !23
+  %.sroa.553.9.extract.shift = lshr i64 %.sroa.553.0.copyload, 8
+  %.sroa.553.9.extract.trunc = trunc i64 %.sroa.553.9.extract.shift to i8
+  %42 = sext i8 %.sroa.553.9.extract.trunc to i32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %42, ptr %43, align 4, !tbaa !20
+  %.sroa.553.10.extract.shift = lshr i64 %.sroa.553.0.copyload, 16
+  %.sroa.553.10.extract.trunc = trunc i64 %.sroa.553.10.extract.shift to i8
+  %44 = sext i8 %.sroa.553.10.extract.trunc to i32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %44, ptr %45, align 8, !tbaa !21
+  %.sroa.553.11.extract.shift = lshr i64 %.sroa.553.0.copyload, 24
+  %.sroa.553.11.extract.trunc = trunc i64 %.sroa.553.11.extract.shift to i8
+  %46 = sext i8 %.sroa.553.11.extract.trunc to i32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %46, ptr %47, align 4, !tbaa !22
+  %.sroa.553.12.extract.shift = lshr i64 %.sroa.553.0.copyload, 32
+  %.sroa.553.12.extract.trunc = trunc i64 %.sroa.553.12.extract.shift to i8
+  %48 = sext i8 %.sroa.553.12.extract.trunc to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %48, ptr %49, align 8, !tbaa !23
   %.sroa.24.0.copyload = load i32, ptr %.sroa.233.0..sroa_idx, align 4, !tbaa !4
   store i64 0, ptr %38, align 4
   store i32 %.sroa.24.0.copyload, ptr %39, align 4, !tbaa !4
-  %52 = srem i64 %.sroa.052.0.copyload, 400
-  %53 = add nsw i64 %52, 2400
-  %.sroa.447.8.extract.trunc = trunc i64 %.sroa.553.0.copyload to i8
-  %54 = icmp slt i8 %.sroa.447.8.extract.trunc, 3
-  %.neg.i = sext i1 %54 to i64
-  %55 = add nsw i64 %53, %.neg.i
-  %56 = lshr i64 %55, 2
-  %.lhs.trunc.i = trunc nuw nsw i64 %55 to i16
-  %57 = udiv i16 %.lhs.trunc.i, 100
-  %.zext.i = zext nneg i16 %57 to i64
-  %58 = udiv i16 %.lhs.trunc.i, 400
-  %.zext10.i = zext nneg i16 %58 to i64
-  %sext64 = shl i64 %.sroa.553.0.copyload, 56
-  %59 = ashr exact i64 %sext64, 56
-  %60 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !4
-  %62 = add nsw i32 %61, %43
-  %63 = sext i32 %62 to i64
-  %64 = add nuw nsw i64 %56, %55
-  %65 = sub nuw nsw i64 %64, %.zext.i
-  %66 = add nuw nsw i64 %65, %.zext10.i
-  %67 = add nsw i64 %66, %63
-  %68 = srem i64 %67, 7
-  %69 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 24
-  %71 = load i32, ptr %70, align 4, !tbaa !33
-  %switch.tableidx.i = add i32 %71, -1
-  %72 = icmp ult i32 %switch.tableidx.i, 6
-  %switch.offset.i = add i32 %71, 1
-  %.0.i = select i1 %72, i32 %switch.offset.i, i32 1
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.0.i, ptr %73, align 8, !tbaa !24
-  %74 = icmp sgt i8 %.sroa.447.8.extract.trunc, 2
-  %75 = and i64 %.sroa.052.0.copyload, 3
-  %76 = icmp eq i64 %75, 0
-  %or.cond = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond, label %77, label %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit
+  %50 = srem i64 %.sroa.052.0.copyload, 400
+  %51 = add nsw i64 %50, 2400
+  %52 = icmp slt i8 %.sroa.553.8.extract.trunc, 3
+  %.neg.i = sext i1 %52 to i64
+  %53 = add nsw i64 %51, %.neg.i
+  %54 = lshr i64 %53, 2
+  %.lhs.trunc.i = trunc nuw nsw i64 %53 to i16
+  %55 = udiv i16 %.lhs.trunc.i, 100
+  %.zext.i = zext nneg i16 %55 to i64
+  %56 = udiv i16 %.lhs.trunc.i, 400
+  %.zext10.i = zext nneg i16 %56 to i64
+  %sext = shl i64 %.sroa.553.0.copyload, 56
+  %57 = ashr exact i64 %sext, 56
+  %58 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = add nsw i32 %59, %42
+  %61 = sext i32 %60 to i64
+  %62 = add nuw nsw i64 %54, %53
+  %63 = sub nuw nsw i64 %62, %.zext.i
+  %64 = add nuw nsw i64 %63, %.zext10.i
+  %65 = add nsw i64 %64, %61
+  %66 = srem i64 %65, 7
+  %67 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 24
+  %69 = load i32, ptr %68, align 4, !tbaa !33
+  %switch.tableidx.i = add i32 %69, -1
+  %70 = icmp ult i32 %switch.tableidx.i, 6
+  %switch.offset.i = add i32 %69, 1
+  %.0.i = select i1 %70, i32 %switch.offset.i, i32 1
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %.0.i, ptr %71, align 8, !tbaa !24
+  %72 = icmp sgt i8 %.sroa.553.8.extract.trunc, 2
+  %73 = and i64 %.sroa.052.0.copyload, 3
+  %74 = icmp eq i64 %73, 0
+  %or.cond = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond, label %75, label %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit
 
-77:                                               ; preds = %37
-  %78 = srem i64 %.sroa.052.0.copyload, 100
-  %.not.i.i = icmp eq i64 %78, 0
-  br i1 %.not.i.i, label %79, label %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit
+75:                                               ; preds = %37
+  %76 = srem i64 %.sroa.052.0.copyload, 100
+  %.not.i.i = icmp eq i64 %76, 0
+  br i1 %.not.i.i, label %77, label %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit
 
-79:                                               ; preds = %77
-  %80 = icmp eq i64 %52, 0
-  %81 = zext i1 %80 to i32
+77:                                               ; preds = %75
+  %78 = icmp eq i64 %50, 0
+  %79 = zext i1 %78 to i32
   br label %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit
 
-_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit: ; preds = %37, %77, %79
-  %82 = phi i32 [ 0, %37 ], [ 1, %77 ], [ %81, %79 ]
-  %83 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 %59
-  %84 = load i32, ptr %83, align 4, !tbaa !4
-  %85 = add nsw i32 %82, %43
-  %86 = add i32 %85, %84
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %86, ptr %87, align 4, !tbaa !25
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %89, ptr %90, align 8, !tbaa !26
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %92 = load i8, ptr %91, align 4, !tbaa !39, !range !40, !noundef !41
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i8 %92, ptr %93, align 4, !tbaa !27
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !42
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %95, ptr %96, align 8, !tbaa !28
+_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit: ; preds = %37, %75, %77
+  %80 = phi i32 [ 0, %37 ], [ 1, %75 ], [ %79, %77 ]
+  %81 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 %57
+  %82 = load i32, ptr %81, align 4, !tbaa !4
+  %83 = add nsw i32 %80, %42
+  %84 = add i32 %83, %82
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %84, ptr %85, align 4, !tbaa !25
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %87 = load i32, ptr %86, align 8, !tbaa !35
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %87, ptr %88, align 8, !tbaa !26
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %90 = load i8, ptr %89, align 4, !tbaa !39, !range !40, !noundef !41
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i8 %90, ptr %91, align 4, !tbaa !27
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %93 = load ptr, ptr %92, align 8, !tbaa !42
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %93, ptr %94, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %97
+  br label %95
 
-97:                                               ; preds = %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit, %24, %9
+95:                                               ; preds = %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit, %24, %9
   ret void
 }
 
@@ -1026,7 +1028,7 @@ define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr dead_on
   store i32 0, ptr %17, align 4, !tbaa !80, !alias.scope !76
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %18, align 4, !tbaa !83, !alias.scope !76
-  br label %56
+  br label %55
 
 19:                                               ; preds = %8
   %20 = icmp slt i64 %1, -300000000000
@@ -1044,7 +1046,7 @@ define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr dead_on
   store i32 0, ptr %24, align 4, !tbaa !80, !alias.scope !84
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %25, align 4, !tbaa !83, !alias.scope !84
-  br label %56
+  br label %55
 
 _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit: ; preds = %19
   %26 = sext i32 %2 to i64
@@ -1100,40 +1102,45 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %44, align 4, !tbaa !83
   %.not = icmp eq i64 %1, %.fca.0.extract.i
-  %.sroa.5.8.extract.trunc = trunc i64 %.fca.1.extract.i to i32
-  %sext = shl i32 %.sroa.5.8.extract.trunc, 24
-  %45 = ashr exact i32 %sext, 24
+  %.sroa.5.8.extract.trunc = trunc i64 %.fca.1.extract.i to i8
+  %45 = sext i8 %.sroa.5.8.extract.trunc to i32
   %.not14 = icmp eq i32 %2, %45
   %or.cond = select i1 %.not, i1 %.not14, i1 false
-  br i1 %or.cond, label %46, label %55
+  br i1 %or.cond, label %46, label %54
 
 46:                                               ; preds = %43
-  %47 = shl i32 %.sroa.5.8.extract.trunc, 16
-  %48 = ashr i32 %47, 24
-  %.not15 = icmp eq i32 %3, %48
-  br i1 %.not15, label %49, label %55
+  %.sroa.5.9.extract.shift = lshr i64 %.fca.1.extract.i, 8
+  %.sroa.5.9.extract.trunc = trunc i64 %.sroa.5.9.extract.shift to i8
+  %47 = sext i8 %.sroa.5.9.extract.trunc to i32
+  %.not15 = icmp eq i32 %3, %47
+  br i1 %.not15, label %48, label %54
 
-49:                                               ; preds = %46
-  %50 = shl i32 %.sroa.5.8.extract.trunc, 8
-  %51 = ashr i32 %50, 24
-  %.not16 = icmp eq i32 %4, %51
-  %52 = ashr i32 %.sroa.5.8.extract.trunc, 24
-  %.not17 = icmp eq i32 %5, %52
-  %or.cond31 = select i1 %.not16, i1 %.not17, i1 false
-  br i1 %or.cond31, label %53, label %55
+48:                                               ; preds = %46
+  %.sroa.5.10.extract.shift = lshr i64 %.fca.1.extract.i, 16
+  %.sroa.5.10.extract.trunc = trunc i64 %.sroa.5.10.extract.shift to i8
+  %49 = sext i8 %.sroa.5.10.extract.trunc to i32
+  %.not16 = icmp eq i32 %4, %49
+  br i1 %.not16, label %50, label %54
 
-53:                                               ; preds = %49
-  %sh.diff = lshr i64 %.fca.1.extract.i, 8
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %54 = ashr i32 %tr.sh.diff, 24
-  %.not18 = icmp eq i32 %6, %54
-  br i1 %.not18, label %56, label %55
+50:                                               ; preds = %48
+  %.sroa.5.11.extract.shift = lshr i64 %.fca.1.extract.i, 24
+  %.sroa.5.11.extract.trunc = trunc i64 %.sroa.5.11.extract.shift to i8
+  %51 = sext i8 %.sroa.5.11.extract.trunc to i32
+  %.not17 = icmp eq i32 %5, %51
+  br i1 %.not17, label %52, label %54
 
-55:                                               ; preds = %53, %49, %46, %43
+52:                                               ; preds = %50
+  %.sroa.5.8.insert.ext = lshr i64 %.fca.1.extract.i, 32
+  %.sroa.5.12.extract.trunc = trunc i64 %.sroa.5.8.insert.ext to i8
+  %53 = sext i8 %.sroa.5.12.extract.trunc to i32
+  %.not18 = icmp eq i32 %6, %53
+  br i1 %.not18, label %55, label %54
+
+54:                                               ; preds = %52, %50, %48, %46, %43
   store i8 1, ptr %44, align 4, !tbaa !83
-  br label %56
+  br label %55
 
-56:                                               ; preds = %53, %55, %21, %14
+55:                                               ; preds = %52, %54, %21, %14
   ret void
 }
 
@@ -1242,107 +1249,110 @@ _ZNK4absl8TimeZone2AtENS_4TimeE.exit:             ; preds = %14, %11, %16
   %.sroa.29.0 = phi i32 [ 0, %11 ], [ %19, %16 ], [ 0, %14 ]
   %.sroa.10.0 = phi i64 [ %.fca.1.extract.i.i.i.i.i, %11 ], [ %.sroa.2.0.copyload.i.i, %16 ], [ 257, %14 ]
   %.sroa.0.0 = phi i64 [ %13, %11 ], [ %.sroa.0.0.copyload.i.i, %16 ], [ -9223372036854775808, %14 ]
-  %sh.diff = lshr i64 %.sroa.10.0, 8
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %20 = ashr i32 %tr.sh.diff, 24
+  %.sroa.10.12.extract.shift = lshr i64 %.sroa.10.0, 32
+  %.sroa.10.12.extract.trunc = trunc i64 %.sroa.10.12.extract.shift to i8
+  %20 = sext i8 %.sroa.10.12.extract.trunc to i32
   store i32 %20, ptr %0, align 8, !tbaa !96
-  %21 = trunc i64 %.sroa.10.0 to i32
-  %22 = ashr i32 %21, 24
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %22, ptr %23, align 4, !tbaa !95
-  %24 = shl i32 %21, 8
-  %25 = ashr i32 %24, 24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %25, ptr %26, align 8, !tbaa !94
-  %27 = shl i32 %21, 16
-  %28 = ashr i32 %27, 24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %28, ptr %29, align 4, !tbaa !93
+  %.sroa.10.11.extract.shift = lshr i64 %.sroa.10.0, 24
+  %.sroa.10.11.extract.trunc = trunc i64 %.sroa.10.11.extract.shift to i8
+  %21 = sext i8 %.sroa.10.11.extract.trunc to i32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %21, ptr %22, align 4, !tbaa !95
+  %.sroa.10.10.extract.shift = lshr i64 %.sroa.10.0, 16
+  %.sroa.10.10.extract.trunc = trunc i64 %.sroa.10.10.extract.shift to i8
+  %23 = sext i8 %.sroa.10.10.extract.trunc to i32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %23, ptr %24, align 8, !tbaa !94
+  %.sroa.10.9.extract.shift = lshr i64 %.sroa.10.0, 8
+  %.sroa.10.9.extract.trunc = trunc i64 %.sroa.10.9.extract.shift to i8
+  %25 = sext i8 %.sroa.10.9.extract.trunc to i32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %25, ptr %26, align 4, !tbaa !93
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.0 to i8
-  %30 = sext i8 %.sroa.10.8.extract.trunc to i32
-  %31 = add nsw i32 %30, -1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %31, ptr %32, align 8, !tbaa !92
-  %33 = icmp slt i64 %.sroa.0.0, -2147481748
-  br i1 %33, label %39, label %34
+  %27 = sext i8 %.sroa.10.8.extract.trunc to i32
+  %28 = add nsw i32 %27, -1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %28, ptr %29, align 8, !tbaa !92
+  %30 = icmp slt i64 %.sroa.0.0, -2147481748
+  br i1 %30, label %36, label %31
 
-34:                                               ; preds = %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
-  %35 = icmp sgt i64 %.sroa.0.0, 2147483647
-  br i1 %35, label %39, label %36
+31:                                               ; preds = %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
+  %32 = icmp sgt i64 %.sroa.0.0, 2147483647
+  br i1 %32, label %36, label %33
 
-36:                                               ; preds = %34
-  %37 = trunc nsw i64 %.sroa.0.0 to i32
-  %38 = add nsw i32 %37, -1900
-  br label %39
+33:                                               ; preds = %31
+  %34 = trunc nsw i64 %.sroa.0.0 to i32
+  %35 = add nsw i32 %34, -1900
+  br label %36
 
-39:                                               ; preds = %34, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, %36
-  %.sink = phi i32 [ %38, %36 ], [ -2147483648, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit ], [ 2147481747, %34 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink, ptr %40, align 4, !tbaa !90
-  %41 = srem i64 %.sroa.0.0, 400
-  %42 = add nsw i64 %41, 2400
-  %43 = icmp slt i8 %.sroa.10.8.extract.trunc, 3
-  %.neg.i.i = sext i1 %43 to i64
-  %44 = add nsw i64 %42, %.neg.i.i
-  %45 = lshr i64 %44, 2
-  %.lhs.trunc.i.i = trunc nuw nsw i64 %44 to i16
-  %46 = udiv i16 %.lhs.trunc.i.i, 100
-  %.zext.i.i = zext nneg i16 %46 to i64
-  %47 = udiv i16 %.lhs.trunc.i.i, 400
-  %.zext10.i.i = zext nneg i16 %47 to i64
+36:                                               ; preds = %31, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, %33
+  %.sink = phi i32 [ %35, %33 ], [ -2147483648, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit ], [ 2147481747, %31 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink, ptr %37, align 4, !tbaa !90
+  %38 = srem i64 %.sroa.0.0, 400
+  %39 = add nsw i64 %38, 2400
+  %40 = icmp slt i8 %.sroa.10.8.extract.trunc, 3
+  %.neg.i.i = sext i1 %40 to i64
+  %41 = add nsw i64 %39, %.neg.i.i
+  %42 = lshr i64 %41, 2
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %41 to i16
+  %43 = udiv i16 %.lhs.trunc.i.i, 100
+  %.zext.i.i = zext nneg i16 %43 to i64
+  %44 = udiv i16 %.lhs.trunc.i.i, 400
+  %.zext10.i.i = zext nneg i16 %44 to i64
   %sext.i = shl i64 %.sroa.10.0, 56
-  %48 = ashr exact i64 %sext.i, 54
-  %49 = getelementptr inbounds i8, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !4
-  %51 = add nsw i32 %50, %28
-  %52 = sext i32 %51 to i64
-  %53 = add nuw nsw i64 %45, %44
-  %54 = sub nuw nsw i64 %53, %.zext.i.i
-  %55 = add nuw nsw i64 %54, %.zext10.i.i
-  %56 = add nsw i64 %55, %52
-  %57 = srem i64 %56, 7
-  %58 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 24
-  %60 = load i32, ptr %59, align 4, !tbaa !33
-  %61 = icmp ult i32 %60, 7
-  br i1 %61, label %switch.lookup, label %64
+  %45 = ashr exact i64 %sext.i, 54
+  %46 = getelementptr inbounds i8, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !4
+  %48 = add nsw i32 %47, %25
+  %49 = sext i32 %48 to i64
+  %50 = add nuw nsw i64 %42, %41
+  %51 = sub nuw nsw i64 %50, %.zext.i.i
+  %52 = add nuw nsw i64 %51, %.zext10.i.i
+  %53 = add nsw i64 %52, %49
+  %54 = srem i64 %53, 7
+  %55 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 24
+  %57 = load i32, ptr %56, align 4, !tbaa !33
+  %58 = icmp ult i32 %57, 7
+  br i1 %58, label %switch.lookup, label %61
 
-switch.lookup:                                    ; preds = %39
-  %62 = zext nneg i32 %60 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 %62
+switch.lookup:                                    ; preds = %36
+  %59 = zext nneg i32 %57 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %switch.load, ptr %63, align 8, !tbaa !107
-  br label %64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %switch.load, ptr %60, align 8, !tbaa !107
+  br label %61
 
-64:                                               ; preds = %39, %switch.lookup
-  %65 = icmp sgt i8 %.sroa.10.8.extract.trunc, 2
-  %66 = and i64 %.sroa.0.0, 3
-  %67 = icmp eq i64 %66, 0
-  %or.cond.i = and i1 %65, %67
-  br i1 %or.cond.i, label %68, label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
+61:                                               ; preds = %36, %switch.lookup
+  %62 = icmp sgt i8 %.sroa.10.8.extract.trunc, 2
+  %63 = and i64 %.sroa.0.0, 3
+  %64 = icmp eq i64 %63, 0
+  %or.cond.i = and i1 %62, %64
+  br i1 %or.cond.i, label %65, label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
 
-68:                                               ; preds = %64
-  %69 = srem i64 %.sroa.0.0, 100
-  %.not.i.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i.i, label %70, label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
+65:                                               ; preds = %61
+  %66 = srem i64 %.sroa.0.0, 100
+  %.not.i.i.i = icmp eq i64 %66, 0
+  br i1 %.not.i.i.i, label %67, label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
 
-70:                                               ; preds = %68
-  %71 = icmp eq i64 %41, 0
-  %72 = zext i1 %71 to i32
+67:                                               ; preds = %65
+  %68 = icmp eq i64 %38, 0
+  %69 = zext i1 %68 to i32
   br label %_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit
 
-_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit: ; preds = %64, %68, %70
-  %73 = phi i32 [ 0, %64 ], [ 1, %68 ], [ %72, %70 ]
-  %74 = getelementptr inbounds i8, ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 %48
-  %75 = load i32, ptr %74, align 4, !tbaa !4
-  %76 = add nsw i32 %28, -1
-  %77 = add nsw i32 %76, %73
-  %78 = add i32 %77, %75
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %78, ptr %79, align 4, !tbaa !108
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.29.0, ptr %80, align 8, !tbaa !100
+_ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE.exit: ; preds = %61, %65, %67
+  %70 = phi i32 [ 0, %61 ], [ 1, %65 ], [ %69, %67 ]
+  %71 = getelementptr inbounds i8, ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 %45
+  %72 = load i32, ptr %71, align 4, !tbaa !4
+  %73 = add nsw i32 %25, -1
+  %74 = add nsw i32 %73, %70
+  %75 = add i32 %74, %72
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %75, ptr %76, align 4, !tbaa !108
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.sroa.29.0, ptr %77, align 8, !tbaa !100
   ret void
 }
 

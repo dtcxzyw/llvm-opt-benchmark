@@ -12246,9 +12246,8 @@ text_format_parse_format.exit:                    ; preds = %180, %158, %124, %1
   br label %236
 
 227:                                              ; preds = %224
-  %228 = trunc i64 %.093 to i32
-  %sext = shl i32 %228, 16
-  %229 = ashr exact i32 %sext, 16
+  %228 = trunc i64 %.093 to i16
+  %229 = sext i16 %228 to i32
   br label %236
 
 230:                                              ; preds = %224

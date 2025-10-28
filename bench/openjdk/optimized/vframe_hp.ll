@@ -2302,9 +2302,8 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_valueEP20StackVal
   br label %50
 
 18:                                               ; preds = %5
-  %.sroa.018.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i64 %4 to i32
-  %sext = shl i32 %.sroa.018.sroa.0.sroa.0.sroa.0.0.extract.trunc, 24
-  %19 = ashr exact i32 %sext, 24
+  %.sroa.018.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i64 %4 to i8
+  %19 = sext i8 %.sroa.018.sroa.0.sroa.0.sroa.0.0.extract.trunc to i32
   tail call void @_ZN20StackValueCollection10set_int_atEii(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %3, i32 noundef %19) #12
   br label %50
 

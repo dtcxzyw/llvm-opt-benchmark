@@ -77,7 +77,7 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %10 = load i32, ptr %9, align 4
   %.not96 = icmp eq i32 %10, %3
   %or.cond = select i1 %.not, i1 %.not96, i1 false
-  br i1 %or.cond, label %11, label %388
+  br i1 %or.cond, label %11, label %396
 
 11:                                               ; preds = %4
   %12 = srem i32 %2, 6
@@ -85,7 +85,7 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %14 = and i32 %13, 1
   %15 = or i32 %14, %12
   %or.cond104 = icmp eq i32 %15, 0
-  br i1 %or.cond104, label %16, label %388
+  br i1 %or.cond104, label %16, label %396
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -98,7 +98,7 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %24 = mul nsw i32 %3, %2
   %25 = sext i32 %24 to i64
   %26 = icmp ult i64 %23, %25
-  br i1 %26, label %388, label %27
+  br i1 %26, label %396, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -120,19 +120,19 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 2176
   %45 = load i8, ptr %44, align 8, !tbaa !35, !range !47, !noundef !48
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %388
+  br i1 %46, label %47, label %396
 
 47:                                               ; preds = %27
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 2176
   %49 = load i8, ptr %48, align 8, !tbaa !35, !range !47, !noundef !48
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %388
+  br i1 %50, label %51, label %396
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 2176
   %53 = load i8, ptr %52, align 8, !tbaa !35, !range !47, !noundef !48
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %388
+  br i1 %54, label %55, label %396
 
 55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -211,10 +211,10 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw i16, ptr %86, i64 %113
   store i16 %91, ptr %114, align 2, !tbaa !61
-  %.not140 = icmp eq i32 %3, 0
-  br i1 %.not140, label %._crit_edge139, label %.lr.ph138
+  %.not135 = icmp eq i32 %3, 0
+  br i1 %.not135, label %._crit_edge134, label %.lr.ph133
 
-.lr.ph138:                                        ; preds = %55
+.lr.ph133:                                        ; preds = %55
   %115 = getelementptr inbounds nuw i8, ptr %35, i64 2117
   %116 = getelementptr inbounds nuw i8, ptr %35, i64 2152
   %117 = getelementptr inbounds nuw i8, ptr %35, i64 2116
@@ -226,42 +226,42 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %123 = getelementptr inbounds nuw i8, ptr %43, i64 2116
   br label %124
 
-._crit_edge139:                                   ; preds = %._crit_edge, %55
+._crit_edge134:                                   ; preds = %._crit_edge, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %388
+  br label %396
 
-124:                                              ; preds = %.lr.ph138, %._crit_edge
-  %.093136 = phi i32 [ 0, %.lr.ph138 ], [ %136, %._crit_edge ]
-  %125 = icmp eq i32 %.093136, 0
+124:                                              ; preds = %.lr.ph133, %._crit_edge
+  %.093131 = phi i32 [ 0, %.lr.ph133 ], [ %136, %._crit_edge ]
+  %125 = icmp eq i32 %.093131, 0
   %126 = select i1 %125, i32 6, i32 0
   %127 = icmp ult i32 %126, %2
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %124
-  %128 = mul i32 %.093136, %2
-  %129 = or disjoint i32 %.093136, 1
+  %128 = mul i32 %.093131, %2
+  %129 = or disjoint i32 %.093131, 1
   %130 = mul i32 %129, %2
   %131 = add i32 %130, -3
-  %132 = add i32 %.093136, -2
+  %132 = add i32 %.093131, -2
   %133 = mul i32 %132, %2
   %134 = or disjoint i32 %133, 1
   %135 = or disjoint i32 %133, 2
   br label %138
 
-._crit_edge:                                      ; preds = %_ZN9HuffTable6decodeER7BitPump.exit134, %124
-  %136 = add i32 %.093136, 2
+._crit_edge:                                      ; preds = %_ZN9HuffTable6decodeER7BitPump.exit129, %124
+  %136 = add i32 %.093131, 2
   %137 = icmp ult i32 %136, %3
-  br i1 %137, label %124, label %._crit_edge139, !llvm.loop !63
+  br i1 %137, label %124, label %._crit_edge134, !llvm.loop !63
 
-138:                                              ; preds = %.lr.ph, %_ZN9HuffTable6decodeER7BitPump.exit134
-  %.092135 = phi i32 [ %126, %.lr.ph ], [ %386, %_ZN9HuffTable6decodeER7BitPump.exit134 ]
-  %139 = icmp eq i32 %.092135, 0
+138:                                              ; preds = %.lr.ph, %_ZN9HuffTable6decodeER7BitPump.exit129
+  %.092130 = phi i32 [ %126, %.lr.ph ], [ %394, %_ZN9HuffTable6decodeER7BitPump.exit129 ]
+  %139 = icmp eq i32 %.092130, 0
   br i1 %139, label %150, label %140
 
 140:                                              ; preds = %138
-  %141 = add i32 %.092135, %128
+  %141 = add i32 %.092130, %128
   %142 = add i32 %141, -3
-  %143 = add i32 %131, %.092135
+  %143 = add i32 %131, %.092130
   %144 = zext i32 %143 to i64
   %145 = getelementptr inbounds nuw i16, ptr %86, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !61
@@ -305,371 +305,373 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %163 = trunc i64 %160 to i32
   %164 = lshr i32 %163, 16
   %165 = and i32 %164, 255
-  %sext.i = shl i32 %163, 16
-  %166 = icmp eq i32 %sext.i, -2147483648
-  %167 = load i8, ptr %117, align 4, !range !47
-  %168 = trunc nuw i8 %167 to i1
-  %or.cond.i = select i1 %166, i1 %168, i1 false
-  br i1 %or.cond.i, label %169, label %176
+  %166 = and i64 %160, 65535
+  %167 = icmp eq i64 %166, 32768
+  %168 = load i8, ptr %117, align 4, !range !47
+  %169 = trunc nuw i8 %168 to i1
+  %or.cond.i = select i1 %167, i1 %169, i1 false
+  br i1 %or.cond.i, label %170, label %177
 
-169:                                              ; preds = %162
-  %170 = icmp samesign ugt i32 %165, 16
-  br i1 %170, label %171, label %_ZN9HuffTable6decodeER7BitPump.exit
+170:                                              ; preds = %162
+  %171 = icmp samesign ugt i32 %165, 16
+  br i1 %171, label %172, label %_ZN9HuffTable6decodeER7BitPump.exit
 
-171:                                              ; preds = %169
-  %172 = add nsw i32 %165, -16
-  %173 = load ptr, ptr %5, align 8, !tbaa !49
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %172)
+172:                                              ; preds = %170
+  %173 = add nsw i32 %165, -16
+  %174 = load ptr, ptr %5, align 8, !tbaa !49
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load ptr, ptr %175, align 8
+  call void %176(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %173)
   br label %_ZN9HuffTable6decodeER7BitPump.exit
 
-176:                                              ; preds = %162
-  %177 = ashr exact i32 %sext.i, 16
-  %178 = load ptr, ptr %5, align 8, !tbaa !49
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = load ptr, ptr %179, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %165)
+177:                                              ; preds = %162
+  %178 = trunc i64 %160 to i32
+  %179 = and i32 %178, 65535
+  %180 = load ptr, ptr %5, align 8, !tbaa !49
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %182 = load ptr, ptr %181, align 8
+  call void %182(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %165)
   br label %_ZN9HuffTable6decodeER7BitPump.exit
 
 .thread.i:                                        ; preds = %153, %150
-  %181 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %183 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZN9HuffTable6decodeER7BitPump.exit
 
-_ZN9HuffTable6decodeER7BitPump.exit:              ; preds = %169, %171, %176, %.thread.i
-  %.0.i = phi i32 [ %181, %.thread.i ], [ -32768, %169 ], [ -32768, %171 ], [ %177, %176 ]
-  %182 = add nsw i32 %.0.i, %.091
-  %183 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
-  %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %.thread.i109, label %185
+_ZN9HuffTable6decodeER7BitPump.exit:              ; preds = %170, %172, %177, %.thread.i
+  %.0.i = phi i32 [ %183, %.thread.i ], [ -32768, %170 ], [ -32768, %172 ], [ %179, %177 ]
+  %184 = add i32 %.0.i, %.091
+  %185 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
+  %186 = trunc nuw i8 %185 to i1
+  br i1 %186, label %.thread.i108, label %187
 
-185:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit
-  %186 = load ptr, ptr %5, align 8, !tbaa !49
-  %187 = load ptr, ptr %186, align 8
-  %188 = call noundef i32 %187(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %189 = zext i32 %188 to i64
-  %190 = load ptr, ptr %116, align 8, !tbaa !66
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %189
-  %192 = load i64, ptr %191, align 8, !tbaa !67
-  %193 = and i64 %192, 4294967296
-  %.not.i105 = icmp eq i64 %193, 0
-  br i1 %.not.i105, label %.thread.i109, label %194
+187:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit
+  %188 = load ptr, ptr %5, align 8, !tbaa !49
+  %189 = load ptr, ptr %188, align 8
+  %190 = call noundef i32 %189(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %191 = zext i32 %190 to i64
+  %192 = load ptr, ptr %116, align 8, !tbaa !66
+  %193 = getelementptr inbounds nuw i64, ptr %192, i64 %191
+  %194 = load i64, ptr %193, align 8, !tbaa !67
+  %195 = and i64 %194, 4294967296
+  %.not.i105 = icmp eq i64 %195, 0
+  br i1 %.not.i105, label %.thread.i108, label %196
 
-194:                                              ; preds = %185
-  %195 = trunc i64 %192 to i32
-  %196 = lshr i32 %195, 16
-  %197 = and i32 %196, 255
-  %sext.i106 = shl i32 %195, 16
-  %198 = icmp eq i32 %sext.i106, -2147483648
-  %199 = load i8, ptr %117, align 4, !range !47
-  %200 = trunc nuw i8 %199 to i1
-  %or.cond.i107 = select i1 %198, i1 %200, i1 false
-  br i1 %or.cond.i107, label %201, label %208
+196:                                              ; preds = %187
+  %197 = trunc i64 %194 to i32
+  %198 = lshr i32 %197, 16
+  %199 = and i32 %198, 255
+  %200 = and i64 %194, 65535
+  %201 = icmp eq i64 %200, 32768
+  %202 = load i8, ptr %117, align 4, !range !47
+  %203 = trunc nuw i8 %202 to i1
+  %or.cond.i106 = select i1 %201, i1 %203, i1 false
+  br i1 %or.cond.i106, label %204, label %211
 
-201:                                              ; preds = %194
-  %202 = icmp samesign ugt i32 %197, 16
-  br i1 %202, label %203, label %_ZN9HuffTable6decodeER7BitPump.exit110
+204:                                              ; preds = %196
+  %205 = icmp samesign ugt i32 %199, 16
+  br i1 %205, label %206, label %_ZN9HuffTable6decodeER7BitPump.exit109
 
-203:                                              ; preds = %201
-  %204 = add nsw i32 %197, -16
-  %205 = load ptr, ptr %5, align 8, !tbaa !49
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %207 = load ptr, ptr %206, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %204)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit110
+206:                                              ; preds = %204
+  %207 = add nsw i32 %199, -16
+  %208 = load ptr, ptr %5, align 8, !tbaa !49
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %207)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit109
 
-208:                                              ; preds = %194
-  %209 = ashr exact i32 %sext.i106, 16
-  %210 = load ptr, ptr %5, align 8, !tbaa !49
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %212 = load ptr, ptr %211, align 8
-  call void %212(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %197)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit110
+211:                                              ; preds = %196
+  %212 = trunc i64 %194 to i32
+  %213 = and i32 %212, 65535
+  %214 = load ptr, ptr %5, align 8, !tbaa !49
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %216 = load ptr, ptr %215, align 8
+  call void %216(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %199)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit109
 
-.thread.i109:                                     ; preds = %185, %_ZN9HuffTable6decodeER7BitPump.exit
-  %213 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit110
+.thread.i108:                                     ; preds = %187, %_ZN9HuffTable6decodeER7BitPump.exit
+  %217 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit109
 
-_ZN9HuffTable6decodeER7BitPump.exit110:           ; preds = %201, %203, %208, %.thread.i109
-  %.0.i108 = phi i32 [ %213, %.thread.i109 ], [ -32768, %201 ], [ -32768, %203 ], [ %209, %208 ]
-  %214 = add nsw i32 %.0.i108, %182
-  %215 = select i1 %139, i32 %182, i32 %.090
-  %216 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
-  %217 = trunc nuw i8 %216 to i1
-  br i1 %217, label %.thread.i115, label %218
+_ZN9HuffTable6decodeER7BitPump.exit109:           ; preds = %204, %206, %211, %.thread.i108
+  %.0.i107 = phi i32 [ %217, %.thread.i108 ], [ -32768, %204 ], [ -32768, %206 ], [ %213, %211 ]
+  %218 = add i32 %.0.i107, %184
+  %219 = select i1 %139, i32 %184, i32 %.090
+  %220 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
+  %221 = trunc nuw i8 %220 to i1
+  br i1 %221, label %.thread.i113, label %222
 
-218:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit110
-  %219 = load ptr, ptr %5, align 8, !tbaa !49
-  %220 = load ptr, ptr %219, align 8
-  %221 = call noundef i32 %220(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %222 = zext i32 %221 to i64
-  %223 = load ptr, ptr %116, align 8, !tbaa !66
-  %224 = getelementptr inbounds nuw i64, ptr %223, i64 %222
-  %225 = load i64, ptr %224, align 8, !tbaa !67
-  %226 = and i64 %225, 4294967296
-  %.not.i111 = icmp eq i64 %226, 0
-  br i1 %.not.i111, label %.thread.i115, label %227
+222:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit109
+  %223 = load ptr, ptr %5, align 8, !tbaa !49
+  %224 = load ptr, ptr %223, align 8
+  %225 = call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %226 = zext i32 %225 to i64
+  %227 = load ptr, ptr %116, align 8, !tbaa !66
+  %228 = getelementptr inbounds nuw i64, ptr %227, i64 %226
+  %229 = load i64, ptr %228, align 8, !tbaa !67
+  %230 = and i64 %229, 4294967296
+  %.not.i110 = icmp eq i64 %230, 0
+  br i1 %.not.i110, label %.thread.i113, label %231
 
-227:                                              ; preds = %218
-  %228 = trunc i64 %225 to i32
-  %229 = lshr i32 %228, 16
-  %230 = and i32 %229, 255
-  %sext.i112 = shl i32 %228, 16
-  %231 = icmp eq i32 %sext.i112, -2147483648
-  %232 = load i8, ptr %117, align 4, !range !47
-  %233 = trunc nuw i8 %232 to i1
-  %or.cond.i113 = select i1 %231, i1 %233, i1 false
-  br i1 %or.cond.i113, label %234, label %241
+231:                                              ; preds = %222
+  %232 = trunc i64 %229 to i32
+  %233 = lshr i32 %232, 16
+  %234 = and i32 %233, 255
+  %235 = and i64 %229, 65535
+  %236 = icmp eq i64 %235, 32768
+  %237 = load i8, ptr %117, align 4, !range !47
+  %238 = trunc nuw i8 %237 to i1
+  %or.cond.i111 = select i1 %236, i1 %238, i1 false
+  br i1 %or.cond.i111, label %239, label %246
 
-234:                                              ; preds = %227
-  %235 = icmp samesign ugt i32 %230, 16
-  br i1 %235, label %236, label %_ZN9HuffTable6decodeER7BitPump.exit116
+239:                                              ; preds = %231
+  %240 = icmp samesign ugt i32 %234, 16
+  br i1 %240, label %241, label %_ZN9HuffTable6decodeER7BitPump.exit114
 
-236:                                              ; preds = %234
-  %237 = add nsw i32 %230, -16
-  %238 = load ptr, ptr %5, align 8, !tbaa !49
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %240 = load ptr, ptr %239, align 8
-  call void %240(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %237)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit116
-
-241:                                              ; preds = %227
-  %242 = ashr exact i32 %sext.i112, 16
+241:                                              ; preds = %239
+  %242 = add nsw i32 %234, -16
   %243 = load ptr, ptr %5, align 8, !tbaa !49
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load ptr, ptr %244, align 8
-  call void %245(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %230)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit116
+  call void %245(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %242)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit114
 
-.thread.i115:                                     ; preds = %218, %_ZN9HuffTable6decodeER7BitPump.exit110
-  %246 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit116
+246:                                              ; preds = %231
+  %247 = trunc i64 %229 to i32
+  %248 = and i32 %247, 65535
+  %249 = load ptr, ptr %5, align 8, !tbaa !49
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %251 = load ptr, ptr %250, align 8
+  call void %251(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %234)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit114
 
-_ZN9HuffTable6decodeER7BitPump.exit116:           ; preds = %234, %236, %241, %.thread.i115
-  %.0.i114 = phi i32 [ %246, %.thread.i115 ], [ -32768, %234 ], [ -32768, %236 ], [ %242, %241 ]
-  %247 = add nsw i32 %.0.i114, %215
-  %248 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
-  %249 = trunc nuw i8 %248 to i1
-  br i1 %249, label %.thread.i121, label %250
+.thread.i113:                                     ; preds = %222, %_ZN9HuffTable6decodeER7BitPump.exit109
+  %252 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit114
 
-250:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit116
-  %251 = load ptr, ptr %5, align 8, !tbaa !49
-  %252 = load ptr, ptr %251, align 8
-  %253 = call noundef i32 %252(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %254 = zext i32 %253 to i64
-  %255 = load ptr, ptr %116, align 8, !tbaa !66
-  %256 = getelementptr inbounds nuw i64, ptr %255, i64 %254
-  %257 = load i64, ptr %256, align 8, !tbaa !67
-  %258 = and i64 %257, 4294967296
-  %.not.i117 = icmp eq i64 %258, 0
-  br i1 %.not.i117, label %.thread.i121, label %259
+_ZN9HuffTable6decodeER7BitPump.exit114:           ; preds = %239, %241, %246, %.thread.i113
+  %.0.i112 = phi i32 [ %252, %.thread.i113 ], [ -32768, %239 ], [ -32768, %241 ], [ %248, %246 ]
+  %253 = add i32 %.0.i112, %219
+  %254 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
+  %255 = trunc nuw i8 %254 to i1
+  br i1 %255, label %.thread.i118, label %256
 
-259:                                              ; preds = %250
-  %260 = trunc i64 %257 to i32
-  %261 = lshr i32 %260, 16
-  %262 = and i32 %261, 255
-  %sext.i118 = shl i32 %260, 16
-  %263 = icmp eq i32 %sext.i118, -2147483648
-  %264 = load i8, ptr %117, align 4, !range !47
-  %265 = trunc nuw i8 %264 to i1
-  %or.cond.i119 = select i1 %263, i1 %265, i1 false
-  br i1 %or.cond.i119, label %266, label %273
+256:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit114
+  %257 = load ptr, ptr %5, align 8, !tbaa !49
+  %258 = load ptr, ptr %257, align 8
+  %259 = call noundef i32 %258(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %260 = zext i32 %259 to i64
+  %261 = load ptr, ptr %116, align 8, !tbaa !66
+  %262 = getelementptr inbounds nuw i64, ptr %261, i64 %260
+  %263 = load i64, ptr %262, align 8, !tbaa !67
+  %264 = and i64 %263, 4294967296
+  %.not.i115 = icmp eq i64 %264, 0
+  br i1 %.not.i115, label %.thread.i118, label %265
 
-266:                                              ; preds = %259
-  %267 = icmp samesign ugt i32 %262, 16
-  br i1 %267, label %268, label %_ZN9HuffTable6decodeER7BitPump.exit122
+265:                                              ; preds = %256
+  %266 = trunc i64 %263 to i32
+  %267 = lshr i32 %266, 16
+  %268 = and i32 %267, 255
+  %269 = and i64 %263, 65535
+  %270 = icmp eq i64 %269, 32768
+  %271 = load i8, ptr %117, align 4, !range !47
+  %272 = trunc nuw i8 %271 to i1
+  %or.cond.i116 = select i1 %270, i1 %272, i1 false
+  br i1 %or.cond.i116, label %273, label %280
 
-268:                                              ; preds = %266
-  %269 = add nsw i32 %262, -16
-  %270 = load ptr, ptr %5, align 8, !tbaa !49
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %269)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit122
+273:                                              ; preds = %265
+  %274 = icmp samesign ugt i32 %268, 16
+  br i1 %274, label %275, label %_ZN9HuffTable6decodeER7BitPump.exit119
 
-273:                                              ; preds = %259
-  %274 = ashr exact i32 %sext.i118, 16
-  %275 = load ptr, ptr %5, align 8, !tbaa !49
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  %277 = load ptr, ptr %276, align 8
-  call void %277(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %262)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit122
+275:                                              ; preds = %273
+  %276 = add nsw i32 %268, -16
+  %277 = load ptr, ptr %5, align 8, !tbaa !49
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  %279 = load ptr, ptr %278, align 8
+  call void %279(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %276)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit119
 
-.thread.i121:                                     ; preds = %250, %_ZN9HuffTable6decodeER7BitPump.exit116
-  %278 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit122
-
-_ZN9HuffTable6decodeER7BitPump.exit122:           ; preds = %266, %268, %273, %.thread.i121
-  %.0.i120 = phi i32 [ %278, %.thread.i121 ], [ -32768, %266 ], [ -32768, %268 ], [ %274, %273 ]
-  %279 = add nsw i32 %.0.i120, %247
-  %280 = load i8, ptr %118, align 1, !tbaa !65, !range !47, !noundef !48
-  %281 = trunc nuw i8 %280 to i1
-  br i1 %281, label %.thread.i127, label %282
-
-282:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit122
+280:                                              ; preds = %265
+  %281 = trunc i64 %263 to i32
+  %282 = and i32 %281, 65535
   %283 = load ptr, ptr %5, align 8, !tbaa !49
-  %284 = load ptr, ptr %283, align 8
-  %285 = call noundef i32 %284(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %286 = zext i32 %285 to i64
-  %287 = load ptr, ptr %119, align 8, !tbaa !66
-  %288 = getelementptr inbounds nuw i64, ptr %287, i64 %286
-  %289 = load i64, ptr %288, align 8, !tbaa !67
-  %290 = and i64 %289, 4294967296
-  %.not.i123 = icmp eq i64 %290, 0
-  br i1 %.not.i123, label %.thread.i127, label %291
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %285 = load ptr, ptr %284, align 8
+  call void %285(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %268)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit119
 
-291:                                              ; preds = %282
-  %292 = trunc i64 %289 to i32
-  %293 = lshr i32 %292, 16
-  %294 = and i32 %293, 255
-  %sext.i124 = shl i32 %292, 16
-  %295 = icmp eq i32 %sext.i124, -2147483648
-  %296 = load i8, ptr %120, align 4, !range !47
-  %297 = trunc nuw i8 %296 to i1
-  %or.cond.i125 = select i1 %295, i1 %297, i1 false
-  br i1 %or.cond.i125, label %298, label %305
+.thread.i118:                                     ; preds = %256, %_ZN9HuffTable6decodeER7BitPump.exit114
+  %286 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit119
 
-298:                                              ; preds = %291
-  %299 = icmp samesign ugt i32 %294, 16
-  br i1 %299, label %300, label %_ZN9HuffTable6decodeER7BitPump.exit128
+_ZN9HuffTable6decodeER7BitPump.exit119:           ; preds = %273, %275, %280, %.thread.i118
+  %.0.i117 = phi i32 [ %286, %.thread.i118 ], [ -32768, %273 ], [ -32768, %275 ], [ %282, %280 ]
+  %287 = add i32 %.0.i117, %253
+  %288 = load i8, ptr %118, align 1, !tbaa !65, !range !47, !noundef !48
+  %289 = trunc nuw i8 %288 to i1
+  br i1 %289, label %.thread.i123, label %290
 
-300:                                              ; preds = %298
-  %301 = add nsw i32 %294, -16
-  %302 = load ptr, ptr %5, align 8, !tbaa !49
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  %304 = load ptr, ptr %303, align 8
-  call void %304(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %301)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit128
+290:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit119
+  %291 = load ptr, ptr %5, align 8, !tbaa !49
+  %292 = load ptr, ptr %291, align 8
+  %293 = call noundef i32 %292(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %294 = zext i32 %293 to i64
+  %295 = load ptr, ptr %119, align 8, !tbaa !66
+  %296 = getelementptr inbounds nuw i64, ptr %295, i64 %294
+  %297 = load i64, ptr %296, align 8, !tbaa !67
+  %298 = and i64 %297, 4294967296
+  %.not.i120 = icmp eq i64 %298, 0
+  br i1 %.not.i120, label %.thread.i123, label %299
 
-305:                                              ; preds = %291
-  %306 = ashr exact i32 %sext.i124, 16
-  %307 = load ptr, ptr %5, align 8, !tbaa !49
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %309 = load ptr, ptr %308, align 8
-  call void %309(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %294)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit128
+299:                                              ; preds = %290
+  %300 = trunc i64 %297 to i32
+  %301 = lshr i32 %300, 16
+  %302 = and i32 %301, 255
+  %303 = trunc i64 %297 to i16
+  %304 = icmp eq i16 %303, -32768
+  %305 = load i8, ptr %120, align 4, !range !47
+  %306 = trunc nuw i8 %305 to i1
+  %or.cond.i121 = select i1 %304, i1 %306, i1 false
+  br i1 %or.cond.i121, label %307, label %314
 
-.thread.i127:                                     ; preds = %282, %_ZN9HuffTable6decodeER7BitPump.exit122
-  %310 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit128
+307:                                              ; preds = %299
+  %308 = icmp samesign ugt i32 %302, 16
+  br i1 %308, label %309, label %_ZN9HuffTable6decodeER7BitPump.exit124
 
-_ZN9HuffTable6decodeER7BitPump.exit128:           ; preds = %298, %300, %305, %.thread.i127
-  %.0.i126 = phi i32 [ %310, %.thread.i127 ], [ -32768, %298 ], [ -32768, %300 ], [ %306, %305 ]
-  %311 = load i8, ptr %121, align 1, !tbaa !65, !range !47, !noundef !48
-  %312 = trunc nuw i8 %311 to i1
-  br i1 %312, label %.thread.i133, label %313
+309:                                              ; preds = %307
+  %310 = add nsw i32 %302, -16
+  %311 = load ptr, ptr %5, align 8, !tbaa !49
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
+  %313 = load ptr, ptr %312, align 8
+  call void %313(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %310)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit124
 
-313:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit128
-  %314 = load ptr, ptr %5, align 8, !tbaa !49
-  %315 = load ptr, ptr %314, align 8
-  %316 = call noundef i32 %315(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %317 = zext i32 %316 to i64
-  %318 = load ptr, ptr %122, align 8, !tbaa !66
-  %319 = getelementptr inbounds nuw i64, ptr %318, i64 %317
-  %320 = load i64, ptr %319, align 8, !tbaa !67
-  %321 = and i64 %320, 4294967296
-  %.not.i129 = icmp eq i64 %321, 0
-  br i1 %.not.i129, label %.thread.i133, label %322
+314:                                              ; preds = %299
+  %315 = load ptr, ptr %5, align 8, !tbaa !49
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  %317 = load ptr, ptr %316, align 8
+  call void %317(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %302)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit124
 
-322:                                              ; preds = %313
-  %323 = trunc i64 %320 to i32
-  %324 = lshr i32 %323, 16
-  %325 = and i32 %324, 255
-  %sext.i130 = shl i32 %323, 16
-  %326 = icmp eq i32 %sext.i130, -2147483648
-  %327 = load i8, ptr %123, align 4, !range !47
-  %328 = trunc nuw i8 %327 to i1
-  %or.cond.i131 = select i1 %326, i1 %328, i1 false
-  br i1 %or.cond.i131, label %329, label %336
+.thread.i123:                                     ; preds = %290, %_ZN9HuffTable6decodeER7BitPump.exit119
+  %318 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %319 = trunc i32 %318 to i16
+  br label %_ZN9HuffTable6decodeER7BitPump.exit124
 
-329:                                              ; preds = %322
-  %330 = icmp samesign ugt i32 %325, 16
-  br i1 %330, label %331, label %_ZN9HuffTable6decodeER7BitPump.exit134
+_ZN9HuffTable6decodeER7BitPump.exit124:           ; preds = %307, %309, %314, %.thread.i123
+  %.0.i122 = phi i16 [ %319, %.thread.i123 ], [ -32768, %307 ], [ -32768, %309 ], [ %303, %314 ]
+  %320 = load i8, ptr %121, align 1, !tbaa !65, !range !47, !noundef !48
+  %321 = trunc nuw i8 %320 to i1
+  br i1 %321, label %.thread.i128, label %322
 
-331:                                              ; preds = %329
-  %332 = add nsw i32 %325, -16
-  %333 = load ptr, ptr %5, align 8, !tbaa !49
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %335 = load ptr, ptr %334, align 8
-  call void %335(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %332)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit134
+322:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit124
+  %323 = load ptr, ptr %5, align 8, !tbaa !49
+  %324 = load ptr, ptr %323, align 8
+  %325 = call noundef i32 %324(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %326 = zext i32 %325 to i64
+  %327 = load ptr, ptr %122, align 8, !tbaa !66
+  %328 = getelementptr inbounds nuw i64, ptr %327, i64 %326
+  %329 = load i64, ptr %328, align 8, !tbaa !67
+  %330 = and i64 %329, 4294967296
+  %.not.i125 = icmp eq i64 %330, 0
+  br i1 %.not.i125, label %.thread.i128, label %331
 
-336:                                              ; preds = %322
-  %337 = ashr exact i32 %sext.i130, 16
-  %338 = load ptr, ptr %5, align 8, !tbaa !49
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
-  %340 = load ptr, ptr %339, align 8
-  call void %340(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %325)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit134
+331:                                              ; preds = %322
+  %332 = trunc i64 %329 to i32
+  %333 = lshr i32 %332, 16
+  %334 = and i32 %333, 255
+  %335 = trunc i64 %329 to i16
+  %336 = icmp eq i16 %335, -32768
+  %337 = load i8, ptr %123, align 4, !range !47
+  %338 = trunc nuw i8 %337 to i1
+  %or.cond.i126 = select i1 %336, i1 %338, i1 false
+  br i1 %or.cond.i126, label %339, label %346
 
-.thread.i133:                                     ; preds = %313, %_ZN9HuffTable6decodeER7BitPump.exit128
-  %341 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %43, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit134
+339:                                              ; preds = %331
+  %340 = icmp samesign ugt i32 %334, 16
+  br i1 %340, label %341, label %_ZN9HuffTable6decodeER7BitPump.exit129
 
-_ZN9HuffTable6decodeER7BitPump.exit134:           ; preds = %329, %331, %336, %.thread.i133
-  %.0.i132 = phi i32 [ %341, %.thread.i133 ], [ -32768, %329 ], [ -32768, %331 ], [ %337, %336 ]
-  %342 = add i32 %.092135, %128
-  %343 = add i32 %342, 3
-  %344 = add i32 %.092135, %130
-  %345 = add i32 %344, 3
-  %346 = trunc i32 %182 to i16
-  %347 = zext i32 %342 to i64
-  %348 = getelementptr inbounds nuw i16, ptr %86, i64 %347
-  store i16 %346, ptr %348, align 2, !tbaa !61
-  %349 = trunc i32 %.0.i126 to i16
-  %350 = add i16 %.089.in, %349
-  %351 = or disjoint i32 %342, 1
-  %352 = zext i32 %351 to i64
-  %353 = getelementptr inbounds nuw i16, ptr %86, i64 %352
-  store i16 %350, ptr %353, align 2, !tbaa !61
-  %354 = trunc i32 %.0.i132 to i16
-  %355 = add i16 %.088.in, %354
-  %356 = add i32 %342, 2
-  %357 = zext i32 %356 to i64
+341:                                              ; preds = %339
+  %342 = add nsw i32 %334, -16
+  %343 = load ptr, ptr %5, align 8, !tbaa !49
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %345 = load ptr, ptr %344, align 8
+  call void %345(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %342)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit129
+
+346:                                              ; preds = %331
+  %347 = load ptr, ptr %5, align 8, !tbaa !49
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  %349 = load ptr, ptr %348, align 8
+  call void %349(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %334)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit129
+
+.thread.i128:                                     ; preds = %322, %_ZN9HuffTable6decodeER7BitPump.exit124
+  %350 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %43, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %351 = trunc i32 %350 to i16
+  br label %_ZN9HuffTable6decodeER7BitPump.exit129
+
+_ZN9HuffTable6decodeER7BitPump.exit129:           ; preds = %339, %341, %346, %.thread.i128
+  %.0.i127 = phi i16 [ %351, %.thread.i128 ], [ -32768, %339 ], [ -32768, %341 ], [ %335, %346 ]
+  %352 = add i32 %.092130, %128
+  %353 = add i32 %352, 3
+  %354 = add i32 %.092130, %130
+  %355 = add i32 %354, 3
+  %356 = trunc i32 %184 to i16
+  %357 = zext i32 %352 to i64
   %358 = getelementptr inbounds nuw i16, ptr %86, i64 %357
-  store i16 %355, ptr %358, align 2, !tbaa !61
-  %359 = trunc i32 %214 to i16
-  %360 = zext i32 %343 to i64
-  %361 = getelementptr inbounds nuw i16, ptr %86, i64 %360
-  store i16 %359, ptr %361, align 2, !tbaa !61
-  %362 = add i32 %342, 4
-  %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds nuw i16, ptr %86, i64 %363
-  store i16 %350, ptr %364, align 2, !tbaa !61
-  %365 = add i32 %342, 5
-  %366 = zext i32 %365 to i64
-  %367 = getelementptr inbounds nuw i16, ptr %86, i64 %366
-  store i16 %355, ptr %367, align 2, !tbaa !61
-  %368 = trunc i32 %247 to i16
-  %369 = zext i32 %344 to i64
-  %370 = getelementptr inbounds nuw i16, ptr %86, i64 %369
-  store i16 %368, ptr %370, align 2, !tbaa !61
-  %371 = add i32 %344, 1
-  %372 = zext i32 %371 to i64
-  %373 = getelementptr inbounds nuw i16, ptr %86, i64 %372
-  store i16 %350, ptr %373, align 2, !tbaa !61
-  %374 = add i32 %344, 2
-  %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw i16, ptr %86, i64 %375
-  store i16 %355, ptr %376, align 2, !tbaa !61
-  %377 = trunc i32 %279 to i16
-  %378 = zext i32 %345 to i64
-  %379 = getelementptr inbounds nuw i16, ptr %86, i64 %378
-  store i16 %377, ptr %379, align 2, !tbaa !61
-  %380 = add i32 %344, 4
-  %381 = zext i32 %380 to i64
-  %382 = getelementptr inbounds nuw i16, ptr %86, i64 %381
-  store i16 %350, ptr %382, align 2, !tbaa !61
-  %383 = add i32 %344, 5
-  %384 = zext i32 %383 to i64
-  %385 = getelementptr inbounds nuw i16, ptr %86, i64 %384
-  store i16 %355, ptr %385, align 2, !tbaa !61
-  %386 = add i32 %.092135, 6
-  %387 = icmp ult i32 %386, %2
-  br i1 %387, label %138, label %._crit_edge, !llvm.loop !68
+  store i16 %356, ptr %358, align 2, !tbaa !61
+  %359 = add i16 %.0.i122, %.089.in
+  %360 = or disjoint i32 %352, 1
+  %361 = zext i32 %360 to i64
+  %362 = getelementptr inbounds nuw i16, ptr %86, i64 %361
+  store i16 %359, ptr %362, align 2, !tbaa !61
+  %363 = add i16 %.0.i127, %.088.in
+  %364 = add i32 %352, 2
+  %365 = zext i32 %364 to i64
+  %366 = getelementptr inbounds nuw i16, ptr %86, i64 %365
+  store i16 %363, ptr %366, align 2, !tbaa !61
+  %367 = trunc i32 %218 to i16
+  %368 = zext i32 %353 to i64
+  %369 = getelementptr inbounds nuw i16, ptr %86, i64 %368
+  store i16 %367, ptr %369, align 2, !tbaa !61
+  %370 = add i32 %352, 4
+  %371 = zext i32 %370 to i64
+  %372 = getelementptr inbounds nuw i16, ptr %86, i64 %371
+  store i16 %359, ptr %372, align 2, !tbaa !61
+  %373 = add i32 %352, 5
+  %374 = zext i32 %373 to i64
+  %375 = getelementptr inbounds nuw i16, ptr %86, i64 %374
+  store i16 %363, ptr %375, align 2, !tbaa !61
+  %376 = trunc i32 %253 to i16
+  %377 = zext i32 %354 to i64
+  %378 = getelementptr inbounds nuw i16, ptr %86, i64 %377
+  store i16 %376, ptr %378, align 2, !tbaa !61
+  %379 = add i32 %354, 1
+  %380 = zext i32 %379 to i64
+  %381 = getelementptr inbounds nuw i16, ptr %86, i64 %380
+  store i16 %359, ptr %381, align 2, !tbaa !61
+  %382 = add i32 %354, 2
+  %383 = zext i32 %382 to i64
+  %384 = getelementptr inbounds nuw i16, ptr %86, i64 %383
+  store i16 %363, ptr %384, align 2, !tbaa !61
+  %385 = trunc i32 %287 to i16
+  %386 = zext i32 %355 to i64
+  %387 = getelementptr inbounds nuw i16, ptr %86, i64 %386
+  store i16 %385, ptr %387, align 2, !tbaa !61
+  %388 = add i32 %354, 4
+  %389 = zext i32 %388 to i64
+  %390 = getelementptr inbounds nuw i16, ptr %86, i64 %389
+  store i16 %359, ptr %390, align 2, !tbaa !61
+  %391 = add i32 %354, 5
+  %392 = zext i32 %391 to i64
+  %393 = getelementptr inbounds nuw i16, ptr %86, i64 %392
+  store i16 %363, ptr %393, align 2, !tbaa !61
+  %394 = add i32 %.092130, 6
+  %395 = icmp ult i32 %394, %2
+  br i1 %395, label %138, label %._crit_edge, !llvm.loop !68
 
-388:                                              ; preds = %._crit_edge139, %51, %47, %27, %16, %11, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %16 ], [ true, %._crit_edge139 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
+396:                                              ; preds = %._crit_edge134, %51, %47, %27, %16, %11, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %16 ], [ true, %._crit_edge134 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -697,40 +699,40 @@ define linkonce_odr noundef i32 @_ZN9HuffTable6decodeER7BitPump(ptr noundef nonn
   %17 = trunc i64 %14 to i32
   %18 = lshr i32 %17, 16
   %19 = and i32 %18, 255
-  %sext = shl i32 %17, 16
-  %20 = icmp eq i32 %sext, -2147483648
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2116
-  %22 = load i8, ptr %21, align 4, !range !47
-  %23 = trunc nuw i8 %22 to i1
-  %or.cond = select i1 %20, i1 %23, i1 false
-  br i1 %or.cond, label %24, label %31
+  %20 = trunc i64 %14 to i16
+  %21 = icmp eq i16 %20, -32768
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2116
+  %23 = load i8, ptr %22, align 4, !range !47
+  %24 = trunc nuw i8 %23 to i1
+  %or.cond = select i1 %21, i1 %24, i1 false
+  br i1 %or.cond, label %25, label %32
 
-24:                                               ; preds = %16
-  %25 = icmp samesign ugt i32 %19, 16
-  br i1 %25, label %26, label %37
+25:                                               ; preds = %16
+  %26 = icmp samesign ugt i32 %19, 16
+  br i1 %26, label %27, label %38
 
-26:                                               ; preds = %24
-  %27 = add nsw i32 %19, -16
-  %28 = load ptr, ptr %1, align 8, !tbaa !49
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %27)
-  br label %37
+27:                                               ; preds = %25
+  %28 = add nsw i32 %19, -16
+  %29 = load ptr, ptr %1, align 8, !tbaa !49
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %28)
+  br label %38
 
-31:                                               ; preds = %16
-  %32 = ashr exact i32 %sext, 16
-  %33 = load ptr, ptr %1, align 8, !tbaa !49
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19)
-  br label %37
+32:                                               ; preds = %16
+  %33 = sext i16 %20 to i32
+  %34 = load ptr, ptr %1, align 8, !tbaa !49
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19)
+  br label %38
 
 .thread:                                          ; preds = %2, %6
-  %36 = tail call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %37
+  %37 = tail call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %38
 
-37:                                               ; preds = %31, %26, %24, %.thread
-  %.0 = phi i32 [ %36, %.thread ], [ -32768, %24 ], [ -32768, %26 ], [ %32, %31 ]
+38:                                               ; preds = %32, %27, %25, %.thread
+  %.0 = phi i32 [ %37, %.thread ], [ -32768, %25 ], [ -32768, %27 ], [ %33, %32 ]
   ret i32 %.0
 }
 

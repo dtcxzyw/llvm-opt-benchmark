@@ -1588,9 +1588,8 @@ slot_getattr.exit144.i.i.i:                       ; preds = %slot_getsomeattrs.e
 392:                                              ; preds = %slot_getattr.exit144.i.i.i
   %393 = load ptr, ptr %387, align 8
   %394 = load i64, ptr %393, align 8
-  %395 = trunc i64 %394 to i32
-  %sext.i.i.i = shl i32 %395, 16
-  %396 = ashr exact i32 %sext.i.i.i, 16
+  %395 = trunc i64 %394 to i16
+  %396 = sext i16 %395 to i32
   %397 = call zeroext i1 @bms_is_member(i32 noundef %396, ptr noundef nonnull %.0120.i.i.i) #11
   br i1 %397, label %398, label %442, !llvm.loop !15
 

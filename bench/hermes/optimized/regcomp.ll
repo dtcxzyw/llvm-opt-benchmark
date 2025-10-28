@@ -5279,9 +5279,8 @@ for.body.i208:                                    ; preds = %nch.exit, %for.inc.
   br i1 %tobool.not.i212, label %for.inc.i, label %if.then.i213
 
 if.then.i213:                                     ; preds = %for.body.i208
-  %conv2.i214 = trunc i64 %i.03.i to i32
-  %sext.i = shl i32 %conv2.i214, 24
-  %conv6.i = ashr exact i32 %sext.i, 24
+  %conv2.i214 = trunc i64 %i.03.i to i8
+  %conv6.i = sext i8 %conv2.i214 to i32
   br label %firstch.exit
 
 for.inc.i:                                        ; preds = %for.body.i208

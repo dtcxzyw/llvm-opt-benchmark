@@ -194,7 +194,7 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i8, ptr %13, align 8, !tbaa !7, !range !27, !noundef !28
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %125, label %16
+  br i1 %15, label %123, label %16
 
 16:                                               ; preds = %3
   %17 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs acquire, align 8
@@ -360,458 +360,455 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread79: ; preds = %104, %97, %90, %83, %76, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %110 = trunc i64 %.sroa.2.0.copyload to i32
   %.sroa.22.8.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.2.0.copyload to i8
   %.sroa.43.8.extract.shift.i.i.i.i.i = lshr i64 %.sroa.2.0.copyload, 8
   %.sroa.43.8.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.43.8.extract.shift.i.i.i.i.i to i8
-  %111 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %37, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i, i64 noundef 1970, i8 noundef signext 1, i8 noundef signext 1) #14
-  %112 = shl i32 %110, 8
-  %113 = ashr i32 %112, 24
-  %114 = sext i32 %113 to i64
-  %.pn.i.i.i.i = mul i64 %111, 24
-  %115 = add i64 %.pn.i.i.i.i, %114
-  %116 = ashr i32 %110, 24
-  %117 = sext i32 %116 to i64
-  %.pn.i.i.i = mul i64 %115, 60
-  %118 = add i64 %.pn.i.i.i, %117
-  %tr.sh.diff.i.i = trunc i64 %.sroa.43.8.extract.shift.i.i.i.i.i to i32
-  %119 = ashr i32 %tr.sh.diff.i.i, 24
-  %120 = sext i32 %119 to i64
-  %.pn.i.i = mul i64 %118, 60
-  %121 = add i64 %.pn.i.i, %120
+  %110 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %37, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i, i64 noundef 1970, i8 noundef signext 1, i8 noundef signext 1) #14
+  %111 = shl i64 %.sroa.2.0.copyload, 40
+  %112 = ashr i64 %111, 56
+  %.pn.i.i.i.i = mul i64 %110, 24
+  %113 = add i64 %112, %.pn.i.i.i.i
+  %114 = shl i64 %.sroa.2.0.copyload, 32
+  %115 = ashr i64 %114, 56
+  %.pn.i.i.i = mul i64 %113, 60
+  %116 = add i64 %.pn.i.i.i, %115
+  %117 = shl i64 %.sroa.2.0.copyload, 24
+  %118 = ashr i64 %117, 56
+  %.pn.i.i = mul i64 %116, 60
+  %119 = add i64 %.pn.i.i, %118
   br label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
 
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread: ; preds = %99, %92, %85, %78, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread77, %63, %56, %49, %42, %36, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread79
-  %.sroa.020.0 = phi i64 [ %121, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread79 ], [ -9223372036854775808, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ -9223372036854775808, %36 ], [ -9223372036854775808, %42 ], [ -9223372036854775808, %49 ], [ -9223372036854775808, %56 ], [ -9223372036854775808, %63 ], [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread77 ], [ 9223372036854775807, %78 ], [ 9223372036854775807, %85 ], [ 9223372036854775807, %92 ], [ 9223372036854775807, %99 ]
+  %.sroa.020.0 = phi i64 [ %119, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread79 ], [ -9223372036854775808, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ -9223372036854775808, %36 ], [ -9223372036854775808, %42 ], [ -9223372036854775808, %49 ], [ -9223372036854775808, %56 ], [ -9223372036854775808, %63 ], [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread77 ], [ 9223372036854775807, %78 ], [ 9223372036854775807, %85 ], [ 9223372036854775807, %92 ], [ 9223372036854775807, %99 ]
   store i32 0, ptr %0, align 8, !tbaa !46
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.020.0, ptr %120, align 8, !tbaa !26
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.020.0, ptr %121, align 8, !tbaa !26
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.020.0, ptr %122, align 8, !tbaa !26
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.020.0, ptr %123, align 8, !tbaa !26
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.020.0, ptr %124, align 8, !tbaa !26
-  br label %320
+  br label %318
 
-125:                                              ; preds = %3
-  %126 = load i64, ptr %2, align 8, !tbaa !40
-  %127 = icmp slt i64 %126, 0
-  br i1 %127, label %128, label %134
+123:                                              ; preds = %3
+  %124 = load i64, ptr %2, align 8, !tbaa !40
+  %125 = icmp slt i64 %124, 0
+  br i1 %125, label %126, label %132
 
-128:                                              ; preds = %125
-  %129 = icmp samesign ult i64 %126, -2147481748
-  br i1 %129, label %130, label %140
+126:                                              ; preds = %123
+  %127 = icmp samesign ult i64 %124, -2147481748
+  br i1 %127, label %128, label %138
 
-130:                                              ; preds = %128
+128:                                              ; preds = %126
   store i32 0, ptr %0, align 8, !tbaa !46
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %129, align 8, !tbaa !26
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -9223372036854775808, ptr %130, align 8, !tbaa !26
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %131, align 8, !tbaa !26
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -9223372036854775808, ptr %132, align 8, !tbaa !26
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -9223372036854775808, ptr %133, align 8, !tbaa !26
-  br label %320
+  br label %318
 
-134:                                              ; preds = %125
-  %135 = icmp samesign ugt i64 %126, 2147485547
-  br i1 %135, label %136, label %140
+132:                                              ; preds = %123
+  %133 = icmp samesign ugt i64 %124, 2147485547
+  br i1 %133, label %134, label %138
 
-136:                                              ; preds = %134
+134:                                              ; preds = %132
   store i32 0, ptr %0, align 8, !tbaa !46
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 9223372036854775807, ptr %135, align 8, !tbaa !26
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 9223372036854775807, ptr %136, align 8, !tbaa !26
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 9223372036854775807, ptr %137, align 8, !tbaa !26
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 9223372036854775807, ptr %138, align 8, !tbaa !26
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 9223372036854775807, ptr %139, align 8, !tbaa !26
-  br label %320
+  br label %318
 
-140:                                              ; preds = %134, %128
+138:                                              ; preds = %132, %126
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %141 = trunc i64 %126 to i32
-  %142 = add i32 %141, -1900
-  %143 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 %142, ptr %143, align 4, !tbaa !29
-  %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %145 = load i8, ptr %144, align 8, !tbaa !41
-  %146 = sext i8 %145 to i32
-  %147 = add nsw i32 %146, -1
-  %148 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 %147, ptr %148, align 8, !tbaa !31
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %150 = load i8, ptr %149, align 1, !tbaa !42
-  %151 = sext i8 %150 to i32
-  %152 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %151, ptr %152, align 4, !tbaa !32
-  %153 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %154 = load i8, ptr %153, align 2, !tbaa !43
-  %155 = sext i8 %154 to i32
-  %156 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %155, ptr %156, align 8, !tbaa !33
-  %157 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %158 = load i8, ptr %157, align 1, !tbaa !44
-  %159 = sext i8 %158 to i32
-  %160 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %159, ptr %160, align 4, !tbaa !34
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %162 = load i8, ptr %161, align 4, !tbaa !45
-  %163 = sext i8 %162 to i32
-  store i32 %163, ptr %11, align 8, !tbaa !35
-  %164 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %164, align 8, !tbaa !38
-  %165 = call i64 @mktime(ptr noundef nonnull %11) #14
-  store i64 %165, ptr %9, align 8, !tbaa !26
-  %166 = icmp eq i64 %165, -1
-  br i1 %166, label %167, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
+  %139 = trunc i64 %124 to i32
+  %140 = add i32 %139, -1900
+  %141 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store i32 %140, ptr %141, align 4, !tbaa !29
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %143 = load i8, ptr %142, align 8, !tbaa !41
+  %144 = sext i8 %143 to i32
+  %145 = add nsw i32 %144, -1
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i32 %145, ptr %146, align 8, !tbaa !31
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %148 = load i8, ptr %147, align 1, !tbaa !42
+  %149 = sext i8 %148 to i32
+  %150 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 %149, ptr %150, align 4, !tbaa !32
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %152 = load i8, ptr %151, align 2, !tbaa !43
+  %153 = sext i8 %152 to i32
+  %154 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 %153, ptr %154, align 8, !tbaa !33
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %156 = load i8, ptr %155, align 1, !tbaa !44
+  %157 = sext i8 %156 to i32
+  %158 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %157, ptr %158, align 4, !tbaa !34
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %160 = load i8, ptr %159, align 4, !tbaa !45
+  %161 = sext i8 %160 to i32
+  store i32 %161, ptr %11, align 8, !tbaa !35
+  %162 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i32 0, ptr %162, align 8, !tbaa !38
+  %163 = call i64 @mktime(ptr noundef nonnull %11) #14
+  store i64 %163, ptr %9, align 8, !tbaa !26
+  %164 = icmp eq i64 %163, -1
+  br i1 %164, label %165, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
 
-167:                                              ; preds = %140
+165:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %168 = call noundef ptr @localtime_r(ptr noundef nonnull %9, ptr noundef nonnull %8) #14
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81, label %170
+  %166 = call noundef ptr @localtime_r(ptr noundef nonnull %9, ptr noundef nonnull %8) #14
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81, label %168
 
-170:                                              ; preds = %167
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 20
-  %172 = load i32, ptr %171, align 4, !tbaa !29
-  %173 = load i32, ptr %143, align 4, !tbaa !29
-  %.not.i = icmp eq i32 %172, %173
-  br i1 %.not.i, label %174, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 20
+  %170 = load i32, ptr %169, align 4, !tbaa !29
+  %171 = load i32, ptr %141, align 4, !tbaa !29
+  %.not.i = icmp eq i32 %170, %171
+  br i1 %.not.i, label %172, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %176 = load i32, ptr %175, align 8, !tbaa !31
-  %177 = load i32, ptr %148, align 8, !tbaa !31
-  %.not34.i = icmp eq i32 %176, %177
-  br i1 %.not34.i, label %178, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %174 = load i32, ptr %173, align 8, !tbaa !31
+  %175 = load i32, ptr %146, align 8, !tbaa !31
+  %.not34.i = icmp eq i32 %174, %175
+  br i1 %.not34.i, label %176, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds nuw i8, ptr %168, i64 12
-  %180 = load i32, ptr %179, align 4, !tbaa !32
-  %181 = load i32, ptr %152, align 4, !tbaa !32
-  %.not35.i = icmp eq i32 %180, %181
-  br i1 %.not35.i, label %182, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
+176:                                              ; preds = %172
+  %177 = getelementptr inbounds nuw i8, ptr %166, i64 12
+  %178 = load i32, ptr %177, align 4, !tbaa !32
+  %179 = load i32, ptr %150, align 4, !tbaa !32
+  %.not35.i = icmp eq i32 %178, %179
+  br i1 %.not35.i, label %180, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
 
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %184 = load i32, ptr %183, align 8, !tbaa !33
-  %185 = load i32, ptr %156, align 8, !tbaa !33
-  %.not36.i = icmp eq i32 %184, %185
-  br i1 %.not36.i, label %186, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %182 = load i32, ptr %181, align 8, !tbaa !33
+  %183 = load i32, ptr %154, align 8, !tbaa !33
+  %.not36.i = icmp eq i32 %182, %183
+  br i1 %.not36.i, label %184, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
 
-186:                                              ; preds = %182
-  %187 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %188 = load i32, ptr %187, align 4, !tbaa !34
-  %189 = load i32, ptr %160, align 4, !tbaa !34
-  %.not37.i = icmp eq i32 %188, %189
+184:                                              ; preds = %180
+  %185 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %186 = load i32, ptr %185, align 4, !tbaa !34
+  %187 = load i32, ptr %158, align 4, !tbaa !34
+  %.not37.i = icmp eq i32 %186, %187
   br i1 %.not37.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81: ; preds = %186, %182, %178, %174, %170, %167
+_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81: ; preds = %184, %180, %176, %172, %168, %165
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %289
+  br label %287
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit: ; preds = %186
-  %190 = load i32, ptr %168, align 8, !tbaa !35
-  %191 = load i32, ptr %11, align 8, !tbaa !35
-  %.not38.i = icmp eq i32 %190, %191
+_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit: ; preds = %184
+  %188 = load i32, ptr %166, align 8, !tbaa !35
+  %189 = load i32, ptr %11, align 8, !tbaa !35
+  %.not38.i = icmp eq i32 %188, %189
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not38.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread, label %289
+  br i1 %.not38.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread, label %287
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread: ; preds = %140, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit
-  %192 = load i64, ptr %2, align 8, !tbaa !40
-  %193 = trunc i64 %192 to i32
-  %194 = add i32 %193, -1900
-  %195 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 %194, ptr %195, align 4, !tbaa !29
-  %196 = load i8, ptr %144, align 8, !tbaa !41
-  %197 = sext i8 %196 to i32
-  %198 = add nsw i32 %197, -1
-  %199 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 %198, ptr %199, align 8, !tbaa !31
-  %200 = load i8, ptr %149, align 1, !tbaa !42
-  %201 = sext i8 %200 to i32
-  %202 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %201, ptr %202, align 4, !tbaa !32
-  %203 = load i8, ptr %153, align 2, !tbaa !43
-  %204 = sext i8 %203 to i32
-  %205 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %204, ptr %205, align 8, !tbaa !33
-  %206 = load i8, ptr %157, align 1, !tbaa !44
-  %207 = sext i8 %206 to i32
-  %208 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %207, ptr %208, align 4, !tbaa !34
-  %209 = load i8, ptr %161, align 4, !tbaa !45
-  %210 = sext i8 %209 to i32
-  store i32 %210, ptr %12, align 8, !tbaa !35
-  %211 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 1, ptr %211, align 8, !tbaa !38
-  %212 = call i64 @mktime(ptr noundef nonnull %12) #14
-  store i64 %212, ptr %10, align 8, !tbaa !26
-  %213 = icmp eq i64 %212, -1
-  br i1 %213, label %214, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread
+_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread: ; preds = %138, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit
+  %190 = load i64, ptr %2, align 8, !tbaa !40
+  %191 = trunc i64 %190 to i32
+  %192 = add i32 %191, -1900
+  %193 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i32 %192, ptr %193, align 4, !tbaa !29
+  %194 = load i8, ptr %142, align 8, !tbaa !41
+  %195 = sext i8 %194 to i32
+  %196 = add nsw i32 %195, -1
+  %197 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 %196, ptr %197, align 8, !tbaa !31
+  %198 = load i8, ptr %147, align 1, !tbaa !42
+  %199 = sext i8 %198 to i32
+  %200 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 %199, ptr %200, align 4, !tbaa !32
+  %201 = load i8, ptr %151, align 2, !tbaa !43
+  %202 = sext i8 %201 to i32
+  %203 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %202, ptr %203, align 8, !tbaa !33
+  %204 = load i8, ptr %155, align 1, !tbaa !44
+  %205 = sext i8 %204 to i32
+  %206 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %205, ptr %206, align 4, !tbaa !34
+  %207 = load i8, ptr %159, align 4, !tbaa !45
+  %208 = sext i8 %207 to i32
+  store i32 %208, ptr %12, align 8, !tbaa !35
+  %209 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i32 1, ptr %209, align 8, !tbaa !38
+  %210 = call i64 @mktime(ptr noundef nonnull %12) #14
+  store i64 %210, ptr %10, align 8, !tbaa !26
+  %211 = icmp eq i64 %210, -1
+  br i1 %211, label %212, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread
 
-214:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
+212:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %215 = call noundef ptr @localtime_r(ptr noundef nonnull %10, ptr noundef nonnull %7) #14
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84, label %217
+  %213 = call noundef ptr @localtime_r(ptr noundef nonnull %10, ptr noundef nonnull %7) #14
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84, label %215
 
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 20
-  %219 = load i32, ptr %218, align 4, !tbaa !29
-  %220 = load i32, ptr %195, align 4, !tbaa !29
-  %.not.i44 = icmp eq i32 %219, %220
-  br i1 %.not.i44, label %221, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
+215:                                              ; preds = %212
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 20
+  %217 = load i32, ptr %216, align 4, !tbaa !29
+  %218 = load i32, ptr %193, align 4, !tbaa !29
+  %.not.i44 = icmp eq i32 %217, %218
+  br i1 %.not.i44, label %219, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
 
-221:                                              ; preds = %217
-  %222 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %223 = load i32, ptr %222, align 8, !tbaa !31
-  %224 = load i32, ptr %199, align 8, !tbaa !31
-  %.not34.i47 = icmp eq i32 %223, %224
-  br i1 %.not34.i47, label %225, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
+219:                                              ; preds = %215
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %221 = load i32, ptr %220, align 8, !tbaa !31
+  %222 = load i32, ptr %197, align 8, !tbaa !31
+  %.not34.i47 = icmp eq i32 %221, %222
+  br i1 %.not34.i47, label %223, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
 
-225:                                              ; preds = %221
-  %226 = getelementptr inbounds nuw i8, ptr %215, i64 12
-  %227 = load i32, ptr %226, align 4, !tbaa !32
-  %228 = load i32, ptr %202, align 4, !tbaa !32
-  %.not35.i48 = icmp eq i32 %227, %228
-  br i1 %.not35.i48, label %229, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
+223:                                              ; preds = %219
+  %224 = getelementptr inbounds nuw i8, ptr %213, i64 12
+  %225 = load i32, ptr %224, align 4, !tbaa !32
+  %226 = load i32, ptr %200, align 4, !tbaa !32
+  %.not35.i48 = icmp eq i32 %225, %226
+  br i1 %.not35.i48, label %227, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
 
-229:                                              ; preds = %225
-  %230 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %231 = load i32, ptr %230, align 8, !tbaa !33
-  %232 = load i32, ptr %205, align 8, !tbaa !33
-  %.not36.i49 = icmp eq i32 %231, %232
-  br i1 %.not36.i49, label %233, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
+227:                                              ; preds = %223
+  %228 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %229 = load i32, ptr %228, align 8, !tbaa !33
+  %230 = load i32, ptr %203, align 8, !tbaa !33
+  %.not36.i49 = icmp eq i32 %229, %230
+  br i1 %.not36.i49, label %231, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
 
-233:                                              ; preds = %229
-  %234 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  %235 = load i32, ptr %234, align 4, !tbaa !34
-  %236 = load i32, ptr %208, align 4, !tbaa !34
-  %.not37.i50 = icmp eq i32 %235, %236
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  %233 = load i32, ptr %232, align 4, !tbaa !34
+  %234 = load i32, ptr %206, align 4, !tbaa !34
+  %.not37.i50 = icmp eq i32 %233, %234
   br i1 %.not37.i50, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84: ; preds = %233, %229, %225, %221, %217, %214
+_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84: ; preds = %231, %227, %223, %219, %215, %212
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %289
+  br label %287
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52: ; preds = %233
-  %237 = load i32, ptr %215, align 8, !tbaa !35
-  %238 = load i32, ptr %12, align 8, !tbaa !35
-  %.not38.i51 = icmp eq i32 %237, %238
+_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52: ; preds = %231
+  %235 = load i32, ptr %213, align 8, !tbaa !35
+  %236 = load i32, ptr %12, align 8, !tbaa !35
+  %.not38.i51 = icmp eq i32 %235, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not38.i51, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread, label %289
+  br i1 %.not38.i51, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread, label %287
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread: ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52
-  %239 = load i32, ptr %164, align 8, !tbaa !38
-  %240 = load i32, ptr %211, align 8, !tbaa !38
-  %241 = icmp eq i32 %239, %240
-  %242 = load i64, ptr %9, align 8
-  br i1 %241, label %243, label %249
+  %237 = load i32, ptr %162, align 8, !tbaa !38
+  %238 = load i32, ptr %209, align 8, !tbaa !38
+  %239 = icmp eq i32 %237, %238
+  %240 = load i64, ptr %9, align 8
+  br i1 %239, label %241, label %247
 
-243:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread
-  %.not40 = icmp eq i32 %239, 0
-  %244 = load i64, ptr %10, align 8
-  %245 = select i1 %.not40, i64 %242, i64 %244
+241:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread
+  %.not40 = icmp eq i32 %237, 0
+  %242 = load i64, ptr %10, align 8
+  %243 = select i1 %.not40, i64 %240, i64 %242
   store i32 0, ptr %0, align 8, !tbaa !46
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %245, ptr %246, align 8, !tbaa !26
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %245, ptr %247, align 8, !tbaa !26
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %245, ptr %248, align 8, !tbaa !26
-  br label %319
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %243, ptr %244, align 8, !tbaa !26
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %243, ptr %245, align 8, !tbaa !26
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %243, ptr %246, align 8, !tbaa !26
+  br label %317
 
-249:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread
-  %250 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.val41 = load i64, ptr %250, align 8, !tbaa !36
-  %251 = load i64, ptr %10, align 8, !tbaa !26
-  %252 = icmp slt i64 %242, %251
-  br i1 %252, label %253, label %255
+247:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread
+  %248 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.val41 = load i64, ptr %248, align 8, !tbaa !36
+  %249 = load i64, ptr %10, align 8, !tbaa !26
+  %250 = icmp slt i64 %240, %249
+  br i1 %250, label %251, label %253
 
-253:                                              ; preds = %249
-  store i64 %251, ptr %9, align 8, !tbaa !26
-  store i64 %242, ptr %10, align 8, !tbaa !26
-  %254 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.val = load i64, ptr %254, align 8, !tbaa !36
-  br label %255
+251:                                              ; preds = %247
+  store i64 %249, ptr %9, align 8, !tbaa !26
+  store i64 %240, ptr %10, align 8, !tbaa !26
+  %252 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.val = load i64, ptr %252, align 8, !tbaa !36
+  br label %253
 
-255:                                              ; preds = %253, %249
-  %256 = phi i64 [ %251, %253 ], [ %242, %249 ]
-  %257 = phi i64 [ %242, %253 ], [ %251, %249 ]
-  %.035 = phi i64 [ %.val, %253 ], [ %.val41, %249 ]
+253:                                              ; preds = %251, %247
+  %254 = phi i64 [ %249, %251 ], [ %240, %247 ]
+  %255 = phi i64 [ %240, %251 ], [ %249, %247 ]
+  %.035 = phi i64 [ %.val, %251 ], [ %.val41, %247 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %257, ptr %4, align 8, !tbaa !26
+  store i64 %255, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %258
+  br label %256
 
-258:                                              ; preds = %._crit_edge.i, %255
-  %.012.i = phi i64 [ %256, %255 ], [ %.214.i, %._crit_edge.i ]
-  %.011.i = phi i64 [ undef, %255 ], [ %.1.i54, %._crit_edge.i ]
-  %259 = load i64, ptr %4, align 8, !tbaa !26
-  %260 = add nsw i64 %259, 1
-  %.not.i53 = icmp eq i64 %260, %.012.i
-  br i1 %.not.i53, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %261
+256:                                              ; preds = %._crit_edge.i, %253
+  %.012.i = phi i64 [ %254, %253 ], [ %.214.i, %._crit_edge.i ]
+  %.011.i = phi i64 [ undef, %253 ], [ %.1.i54, %._crit_edge.i ]
+  %257 = load i64, ptr %4, align 8, !tbaa !26
+  %258 = add nsw i64 %257, 1
+  %.not.i53 = icmp eq i64 %258, %.012.i
+  br i1 %.not.i53, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %259
 
-261:                                              ; preds = %258
+259:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %262 = sub nsw i64 %.012.i, %259
-  %263 = sdiv i64 %262, 2
-  %264 = add nsw i64 %263, %259
-  store i64 %264, ptr %6, align 8, !tbaa !26
-  %265 = call noundef ptr @localtime_r(ptr noundef nonnull %6, ptr noundef nonnull %5) #14
-  %.not17.not.i = icmp eq ptr %265, null
-  br i1 %.not17.not.i, label %.preheader.i, label %268
+  %260 = sub nsw i64 %.012.i, %257
+  %261 = sdiv i64 %260, 2
+  %262 = add nsw i64 %261, %257
+  store i64 %262, ptr %6, align 8, !tbaa !26
+  %263 = call noundef ptr @localtime_r(ptr noundef nonnull %6, ptr noundef nonnull %5) #14
+  %.not17.not.i = icmp eq ptr %263, null
+  br i1 %.not17.not.i, label %.preheader.i, label %266
 
-.preheader.i:                                     ; preds = %261
-  %266 = load i64, ptr %4, align 8, !tbaa !26
-  %267 = add nsw i64 %266, 1
-  store i64 %267, ptr %4, align 8, !tbaa !26
-  %.not1821.i = icmp eq i64 %267, %.012.i
+.preheader.i:                                     ; preds = %259
+  %264 = load i64, ptr %4, align 8, !tbaa !26
+  %265 = add nsw i64 %264, 1
+  store i64 %265, ptr %4, align 8, !tbaa !26
+  %.not1821.i = icmp eq i64 %265, %.012.i
   br i1 %.not1821.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
 
-268:                                              ; preds = %261
-  %269 = getelementptr i8, ptr %265, i64 40
-  %.val20.i = load i64, ptr %269, align 8, !tbaa !36
-  %270 = icmp eq i64 %.val20.i, %.035
-  %271 = load i64, ptr %6, align 8, !tbaa !26
-  br i1 %270, label %._crit_edge.i, label %272
+266:                                              ; preds = %259
+  %267 = getelementptr i8, ptr %263, i64 40
+  %.val20.i = load i64, ptr %267, align 8, !tbaa !36
+  %268 = icmp eq i64 %.val20.i, %.035
+  %269 = load i64, ptr %6, align 8, !tbaa !26
+  br i1 %268, label %._crit_edge.i, label %270
 
-272:                                              ; preds = %268
-  store i64 %271, ptr %4, align 8, !tbaa !26
+270:                                              ; preds = %266
+  store i64 %269, ptr %4, align 8, !tbaa !26
   br label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %277
-  %273 = call noundef ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %.not19.i = icmp eq ptr %273, null
-  br i1 %.not19.i, label %277, label %274
+.lr.ph.i:                                         ; preds = %.preheader.i, %275
+  %271 = call noundef ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  %.not19.i = icmp eq ptr %271, null
+  br i1 %.not19.i, label %275, label %272
 
-274:                                              ; preds = %.lr.ph.i
-  %275 = getelementptr i8, ptr %273, i64 40
-  %.val.i = load i64, ptr %275, align 8, !tbaa !36
-  %276 = icmp eq i64 %.val.i, %.035
-  br i1 %276, label %.._crit_edge.loopexit_crit_edge.i, label %277
+272:                                              ; preds = %.lr.ph.i
+  %273 = getelementptr i8, ptr %271, i64 40
+  %.val.i = load i64, ptr %273, align 8, !tbaa !36
+  %274 = icmp eq i64 %.val.i, %.035
+  br i1 %274, label %.._crit_edge.loopexit_crit_edge.i, label %275
 
-.._crit_edge.loopexit_crit_edge.i:                ; preds = %274
+.._crit_edge.loopexit_crit_edge.i:                ; preds = %272
   %.pre.pre.i = load i64, ptr %4, align 8, !tbaa !26
   br label %._crit_edge.i
 
-277:                                              ; preds = %274, %.lr.ph.i
-  %278 = load i64, ptr %4, align 8, !tbaa !26
-  %279 = add nsw i64 %278, 1
-  store i64 %279, ptr %4, align 8, !tbaa !26
-  %.not18.i = icmp eq i64 %279, %.012.i
+275:                                              ; preds = %272, %.lr.ph.i
+  %276 = load i64, ptr %4, align 8, !tbaa !26
+  %277 = add nsw i64 %276, 1
+  store i64 %277, ptr %4, align 8, !tbaa !26
+  %.not18.i = icmp eq i64 %277, %.012.i
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !51
 
-._crit_edge.i:                                    ; preds = %277, %.._crit_edge.loopexit_crit_edge.i, %272, %268
-  %.214.i = phi i64 [ %.012.i, %272 ], [ %.012.i, %.._crit_edge.loopexit_crit_edge.i ], [ %271, %268 ], [ %.012.i, %277 ]
-  %.1.i54 = phi i64 [ %.011.i, %272 ], [ %.pre.pre.i, %.._crit_edge.loopexit_crit_edge.i ], [ %.011.i, %268 ], [ %.012.i, %277 ]
+._crit_edge.i:                                    ; preds = %275, %.._crit_edge.loopexit_crit_edge.i, %270, %266
+  %.214.i = phi i64 [ %.012.i, %270 ], [ %.012.i, %.._crit_edge.loopexit_crit_edge.i ], [ %269, %266 ], [ %.012.i, %275 ]
+  %.1.i54 = phi i64 [ %.011.i, %270 ], [ %.pre.pre.i, %.._crit_edge.loopexit_crit_edge.i ], [ %.011.i, %266 ], [ %.012.i, %275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not17.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %258, !llvm.loop !53
+  br i1 %.not17.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %256, !llvm.loop !53
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit: ; preds = %258, %._crit_edge.i, %._crit_edge.thread.i
-  %.2.i = phi i64 [ %.012.i, %._crit_edge.thread.i ], [ %.1.i54, %._crit_edge.i ], [ %.012.i, %258 ]
+_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit: ; preds = %256, %._crit_edge.i, %._crit_edge.thread.i
+  %.2.i = phi i64 [ %.012.i, %._crit_edge.thread.i ], [ %.1.i54, %._crit_edge.i ], [ %.012.i, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not39 = icmp eq i32 %239, 0
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not39, label %286, label %283
+  %.not39 = icmp eq i32 %237, 0
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %.not39, label %284, label %281
 
-283:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
-  %284 = load i64, ptr %9, align 8, !tbaa !26
-  %285 = load i64, ptr %10, align 8, !tbaa !26
+281:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
+  %282 = load i64, ptr %9, align 8, !tbaa !26
+  %283 = load i64, ptr %10, align 8, !tbaa !26
   store i32 1, ptr %0, align 8, !tbaa !46
-  store i64 %284, ptr %280, align 8, !tbaa !26
-  store i64 %.2.i, ptr %281, align 8, !tbaa !26
-  store i64 %285, ptr %282, align 8, !tbaa !26
-  br label %319
+  store i64 %282, ptr %278, align 8, !tbaa !26
+  store i64 %.2.i, ptr %279, align 8, !tbaa !26
+  store i64 %283, ptr %280, align 8, !tbaa !26
+  br label %317
 
-286:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
-  %287 = load i64, ptr %10, align 8, !tbaa !26
-  %288 = load i64, ptr %9, align 8, !tbaa !26
+284:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
+  %285 = load i64, ptr %10, align 8, !tbaa !26
+  %286 = load i64, ptr %9, align 8, !tbaa !26
   store i32 2, ptr %0, align 8, !tbaa !46
-  store i64 %287, ptr %280, align 8, !tbaa !26
-  store i64 %.2.i, ptr %281, align 8, !tbaa !26
-  store i64 %288, ptr %282, align 8, !tbaa !26
-  br label %319
+  store i64 %285, ptr %278, align 8, !tbaa !26
+  store i64 %.2.i, ptr %279, align 8, !tbaa !26
+  store i64 %286, ptr %280, align 8, !tbaa !26
+  br label %317
 
-289:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit
-  %290 = load i64, ptr %2, align 8, !tbaa !40
-  %291 = icmp slt i64 %290, 1970
-  br i1 %291, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %292
+287:                                              ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52.thread84, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread81, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit52, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit
+  %288 = load i64, ptr %2, align 8, !tbaa !40
+  %289 = icmp slt i64 %288, 1970
+  br i1 %289, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %290
 
-292:                                              ; preds = %289
-  %293 = icmp eq i64 %290, 1970
-  br i1 %293, label %294, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
+290:                                              ; preds = %287
+  %291 = icmp eq i64 %288, 1970
+  br i1 %291, label %292, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
 
-294:                                              ; preds = %292
-  %295 = load i8, ptr %144, align 8, !tbaa !41
-  %296 = icmp slt i8 %295, 1
-  br i1 %296, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %297
+292:                                              ; preds = %290
+  %293 = load i8, ptr %142, align 8, !tbaa !41
+  %294 = icmp slt i8 %293, 1
+  br i1 %294, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %295
 
-297:                                              ; preds = %294
-  %298 = icmp eq i8 %295, 1
-  br i1 %298, label %299, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
+295:                                              ; preds = %292
+  %296 = icmp eq i8 %293, 1
+  br i1 %296, label %297, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
 
-299:                                              ; preds = %297
-  %300 = load i8, ptr %149, align 1, !tbaa !42
-  %301 = icmp slt i8 %300, 1
-  br i1 %301, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %302
+297:                                              ; preds = %295
+  %298 = load i8, ptr %147, align 1, !tbaa !42
+  %299 = icmp slt i8 %298, 1
+  br i1 %299, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %300
 
-302:                                              ; preds = %299
-  %303 = icmp eq i8 %300, 1
-  br i1 %303, label %304, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
+300:                                              ; preds = %297
+  %301 = icmp eq i8 %298, 1
+  br i1 %301, label %302, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
 
-304:                                              ; preds = %302
-  %305 = load i8, ptr %153, align 2, !tbaa !43
-  %306 = icmp slt i8 %305, 0
-  br i1 %306, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %307
+302:                                              ; preds = %300
+  %303 = load i8, ptr %151, align 2, !tbaa !43
+  %304 = icmp slt i8 %303, 0
+  br i1 %304, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %305
 
-307:                                              ; preds = %304
-  %308 = icmp eq i8 %305, 0
-  br i1 %308, label %309, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
+305:                                              ; preds = %302
+  %306 = icmp eq i8 %303, 0
+  br i1 %306, label %307, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
 
-309:                                              ; preds = %307
-  %310 = load i8, ptr %157, align 1, !tbaa !44
-  %311 = icmp slt i8 %310, 0
-  br i1 %311, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %312
+307:                                              ; preds = %305
+  %308 = load i8, ptr %155, align 1, !tbaa !44
+  %309 = icmp slt i8 %308, 0
+  br i1 %309, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %310
 
-312:                                              ; preds = %309
-  %313 = icmp eq i8 %310, 0
-  %314 = load i8, ptr %161, align 4
-  %315 = icmp slt i8 %314, 0
-  %or.cond = select i1 %313, i1 %315, i1 false
+310:                                              ; preds = %307
+  %311 = icmp eq i8 %308, 0
+  %312 = load i8, ptr %159, align 4
+  %313 = icmp slt i8 %312, 0
+  %or.cond = select i1 %311, i1 %313, i1 false
   br i1 %or.cond, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87: ; preds = %312, %307, %302, %297, %292
+_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87: ; preds = %310, %305, %300, %295, %290
   br label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread: ; preds = %312, %309, %304, %299, %294, %289, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
-  %.sroa.0.0 = phi i64 [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87 ], [ -9223372036854775808, %289 ], [ -9223372036854775808, %294 ], [ -9223372036854775808, %299 ], [ -9223372036854775808, %304 ], [ -9223372036854775808, %309 ], [ -9223372036854775808, %312 ]
+_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread: ; preds = %310, %307, %302, %297, %292, %287, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87
+  %.sroa.0.0 = phi i64 [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread87 ], [ -9223372036854775808, %287 ], [ -9223372036854775808, %292 ], [ -9223372036854775808, %297 ], [ -9223372036854775808, %302 ], [ -9223372036854775808, %307 ], [ -9223372036854775808, %310 ]
   store i32 0, ptr %0, align 8, !tbaa !46
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.0.0, ptr %314, align 8, !tbaa !26
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0, ptr %315, align 8, !tbaa !26
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.0.0, ptr %316, align 8, !tbaa !26
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0, ptr %317, align 8, !tbaa !26
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.0.0, ptr %318, align 8, !tbaa !26
-  br label %319
+  br label %317
 
-319:                                              ; preds = %283, %286, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, %243
+317:                                              ; preds = %281, %284, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit55.thread, %241
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %320
+  br label %318
 
-320:                                              ; preds = %319, %136, %130, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
+318:                                              ; preds = %317, %134, %128, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
   ret void
 }
 

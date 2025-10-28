@@ -23903,9 +23903,8 @@ _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfrom
   br label %97
 
 73:                                               ; preds = %60
-  %.sroa.08.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i64 %61 to i32
-  %sext = shl i32 %.sroa.08.sroa.0.sroa.0.sroa.0.0.extract.trunc, 24
-  %74 = ashr exact i32 %sext, 24
+  %.sroa.08.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i64 %61 to i8
+  %74 = sext i8 %.sroa.08.sroa.0.sroa.0.sroa.0.0.extract.trunc to i32
   store i8 0, ptr %65, align 1
   store i32 1, ptr %68, align 8
   store i32 %74, ptr %63, align 8

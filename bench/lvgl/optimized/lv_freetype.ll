@@ -555,21 +555,19 @@ freetype_on_font_set_cbs.exit:                    ; preds = %99, %101, %102
   %136 = load i16, ptr %135, align 2, !tbaa !95
   %137 = sext i16 %136 to i64
   %138 = call i64 @FT_MulFix(i64 noundef %134, i64 noundef %137) #8
-  %139 = trunc i64 %138 to i32
-  %140 = getelementptr inbounds nuw i8, ptr %105, i64 148
-  %141 = load i16, ptr %140, align 4, !tbaa !96
-  %142 = sext i16 %141 to i64
-  %143 = call i64 @FT_MulFix(i64 noundef %134, i64 noundef %142) #8
-  %144 = lshr i64 %143, 6
-  %145 = trunc i64 %144 to i8
-  %146 = getelementptr inbounds nuw i8, ptr %54, i64 41
-  store i8 %145, ptr %146, align 1, !tbaa !97
-  %147 = shl i32 %139, 18
-  %148 = ashr i32 %147, 24
-  %149 = call i32 @llvm.smax.i32(i32 %148, i32 1)
-  %150 = trunc nuw nsw i32 %149 to i8
-  %151 = getelementptr inbounds nuw i8, ptr %54, i64 42
-  store i8 %150, ptr %151, align 2, !tbaa !98
+  %139 = lshr i64 %138, 6
+  %140 = trunc i64 %139 to i8
+  %141 = getelementptr inbounds nuw i8, ptr %105, i64 148
+  %142 = load i16, ptr %141, align 4, !tbaa !96
+  %143 = sext i16 %142 to i64
+  %144 = call i64 @FT_MulFix(i64 noundef %134, i64 noundef %143) #8
+  %145 = lshr i64 %144, 6
+  %146 = trunc i64 %145 to i8
+  %147 = getelementptr inbounds nuw i8, ptr %54, i64 41
+  store i8 %146, ptr %147, align 1, !tbaa !97
+  %148 = call i8 @llvm.smax.i8(i8 %140, i8 1)
+  %149 = getelementptr inbounds nuw i8, ptr %54, i64 42
+  store i8 %148, ptr %149, align 2, !tbaa !98
   br label %lv_freetype_drop_face_id.exit
 
 lv_freetype_drop_face_id.exit:                    ; preds = %49, %44, %lv_freetype_drop_face_id.exit83, %113, %114
@@ -773,7 +771,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i8 @llvm.smax.i8(i8, i8) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #7

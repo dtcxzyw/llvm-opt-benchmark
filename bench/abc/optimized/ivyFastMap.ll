@@ -861,7 +861,7 @@ Ivy_FastMapNodeAreaDerefed.exit125.i:             ; preds = %386, %Ivy_FastMapNo
 
 395:                                              ; preds = %390, %Ivy_FastMapNodeAreaDerefed.exit125.i
   store i8 %305, ptr %270, align 4, !tbaa !40
-  %396 = sext i8 %305 to i64
+  %396 = sext i32 %308 to i64
   %397 = shl nsw i64 %396, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %304, ptr nonnull align 16 @Ivy_FastMapNodeArea.Store, i64 %397, i1 false)
   store i16 %.0.lcssa.i.i, ptr %383, align 4, !tbaa !39

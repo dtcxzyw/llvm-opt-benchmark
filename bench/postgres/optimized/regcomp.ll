@@ -11895,9 +11895,8 @@ define internal fastcc void @compact(ptr noundef readonly captures(none) %0, ptr
 65:                                               ; preds = %38
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %67 = load i64, ptr %66, align 8
-  %68 = trunc i64 %67 to i32
-  %sext = shl i32 %68, 16
-  %69 = ashr exact i32 %sext, 16
+  %68 = trunc i64 %67 to i16
+  %69 = sext i16 %68 to i32
   %70 = add nsw i32 %69, 1
   br label %maxcolor.exit
 

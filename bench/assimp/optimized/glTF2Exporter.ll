@@ -23099,7 +23099,7 @@ define linkonce_odr hidden noundef ptr @_ZN10glTFCommon19FindObjectInContextERN9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 3
-  br i1 %8, label %9, label %64
+  br i1 %8, label %9, label %66
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23130,74 +23130,74 @@ define linkonce_odr hidden noundef ptr @_ZN10glTFCommon19FindObjectInContextERN9
   br i1 %.not9.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9
-  %28 = and i64 %18, 1152921504606846976
-  %.not.i.i.i.i.i.i = icmp eq i64 %28, 0
-  %sh.diff.i = lshr i64 %17, 16
-  %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
-  %29 = ashr i32 %tr.sh.diff.i, 24
-  %30 = sub nsw i32 13, %29
-  %31 = select i1 %.not.i.i.i.i.i.i, i32 %11, i32 %30
-  %32 = and i64 %17, 281474976710655
-  %33 = inttoptr i64 %32 to ptr
-  %34 = select i1 %.not.i.i.i.i.i.i, ptr %33, ptr %5
-  %35 = zext i32 %31 to i64
-  br label %36
+  %28 = lshr i64 %17, 40
+  %29 = trunc i64 %28 to i8
+  %30 = and i64 %18, 1152921504606846976
+  %.not.i.i.i.i.i.i = icmp eq i64 %30, 0
+  %31 = sext i8 %29 to i32
+  %32 = sub nsw i32 13, %31
+  %33 = select i1 %.not.i.i.i.i.i.i, i32 %11, i32 %32
+  %34 = and i64 %17, 281474976710655
+  %35 = inttoptr i64 %34 to ptr
+  %36 = select i1 %.not.i.i.i.i.i.i, ptr %35, ptr %5
+  %37 = zext i32 %33 to i64
+  br label %38
 
-36:                                               ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %55, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 14
-  %38 = load i16, ptr %37, align 2
-  %39 = and i16 %38, 4096
-  %.not.i.i13.i.i.i.i = icmp eq i16 %39, 0
-  %40 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 13
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = sub nsw i32 13, %42
-  %44 = load i32, ptr %.010.i.i.i, align 8
-  %45 = select i1 %.not.i.i13.i.i.i.i, i32 %44, i32 %43
-  %.not.i.i.i.i = icmp eq i32 %31, %45
-  br i1 %.not.i.i.i.i, label %46, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
+38:                                               ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %.lr.ph.i.i.i
+  %.010.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %57, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 14
+  %40 = load i16, ptr %39, align 2
+  %41 = and i16 %40, 4096
+  %.not.i.i13.i.i.i.i = icmp eq i16 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 13
+  %43 = load i8, ptr %42, align 1
+  %44 = sext i8 %43 to i32
+  %45 = sub nsw i32 13, %44
+  %46 = load i32, ptr %.010.i.i.i, align 8
+  %47 = select i1 %.not.i.i13.i.i.i.i, i32 %46, i32 %45
+  %.not.i.i.i.i = icmp eq i32 %33, %47
+  br i1 %.not.i.i.i.i, label %48, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
 
-46:                                               ; preds = %36
-  %47 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %49, 281474976710655
-  %51 = inttoptr i64 %50 to ptr
-  %52 = select i1 %.not.i.i13.i.i.i.i, ptr %51, ptr %.010.i.i.i
-  %53 = icmp eq ptr %34, %52
-  br i1 %53, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %51, 281474976710655
+  %53 = inttoptr i64 %52 to ptr
+  %54 = select i1 %.not.i.i13.i.i.i.i, ptr %53, ptr %.010.i.i.i
+  %55 = icmp eq ptr %36, %54
+  br i1 %55, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i
 
-_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i: ; preds = %46
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %34, ptr %52, i64 %35)
-  %54 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %54, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
+_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i: ; preds = %48
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr %36, ptr %54, i64 %37)
+  %56 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %56, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
 
-_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %36
-  %55 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %55, %27
-  br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %36, !llvm.loop !230
+_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %38
+  %57 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %57, %27
+  br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %38, !llvm.loop !230
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit: ; preds = %46, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %9
-  %.0.lcssa.i.i.i = phi ptr [ %24, %9 ], [ %27, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ], [ %.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %.010.i.i.i, %46 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit: ; preds = %48, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %9
+  %.0.lcssa.i.i.i = phi ptr [ %24, %9 ], [ %27, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ], [ %.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %.010.i.i.i, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %56 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %24, i64 %26
-  %57 = icmp eq ptr %.0.lcssa.i.i.i, %56
-  br i1 %57, label %64, label %58
+  %58 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %24, i64 %26
+  %59 = icmp eq ptr %.0.lcssa.i.i.i, %58
+  br i1 %59, label %66, label %60
 
-58:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit
-  %59 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 30
-  %61 = load i16, ptr %60, align 2
-  %62 = icmp eq i16 %61, 3
-  br i1 %62, label %64, label %63
+60:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit
+  %61 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 30
+  %63 = load i16, ptr %62, align 2
+  %64 = icmp eq i16 %63, 3
+  br i1 %64, label %66, label %65
 
-63:                                               ; preds = %58
+65:                                               ; preds = %60
   call void @_ZN10glTFCommon24throwUnexpectedTypeErrorILi7EEEvRAT__KcPS1_S4_S4_(ptr noundef nonnull align 1 dereferenceable(7) @.str.93, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  br label %64
+  br label %66
 
-64:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, %63, %58, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit ], [ %59, %63 ], [ %59, %58 ]
+66:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, %65, %60, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit ], [ %61, %65 ], [ %61, %60 ]
   ret ptr %.0
 }
 
@@ -23207,7 +23207,7 @@ define linkonce_odr hidden noundef ptr @_ZN10glTFCommon18FindArrayInContextERN9r
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 3
-  br i1 %8, label %9, label %64
+  br i1 %8, label %9, label %66
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23238,74 +23238,74 @@ define linkonce_odr hidden noundef ptr @_ZN10glTFCommon18FindArrayInContextERN9r
   br i1 %.not9.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9
-  %28 = and i64 %18, 1152921504606846976
-  %.not.i.i.i.i.i.i = icmp eq i64 %28, 0
-  %sh.diff.i = lshr i64 %17, 16
-  %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
-  %29 = ashr i32 %tr.sh.diff.i, 24
-  %30 = sub nsw i32 13, %29
-  %31 = select i1 %.not.i.i.i.i.i.i, i32 %11, i32 %30
-  %32 = and i64 %17, 281474976710655
-  %33 = inttoptr i64 %32 to ptr
-  %34 = select i1 %.not.i.i.i.i.i.i, ptr %33, ptr %5
-  %35 = zext i32 %31 to i64
-  br label %36
+  %28 = lshr i64 %17, 40
+  %29 = trunc i64 %28 to i8
+  %30 = and i64 %18, 1152921504606846976
+  %.not.i.i.i.i.i.i = icmp eq i64 %30, 0
+  %31 = sext i8 %29 to i32
+  %32 = sub nsw i32 13, %31
+  %33 = select i1 %.not.i.i.i.i.i.i, i32 %11, i32 %32
+  %34 = and i64 %17, 281474976710655
+  %35 = inttoptr i64 %34 to ptr
+  %36 = select i1 %.not.i.i.i.i.i.i, ptr %35, ptr %5
+  %37 = zext i32 %33 to i64
+  br label %38
 
-36:                                               ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %55, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 14
-  %38 = load i16, ptr %37, align 2
-  %39 = and i16 %38, 4096
-  %.not.i.i13.i.i.i.i = icmp eq i16 %39, 0
-  %40 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 13
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = sub nsw i32 13, %42
-  %44 = load i32, ptr %.010.i.i.i, align 8
-  %45 = select i1 %.not.i.i13.i.i.i.i, i32 %44, i32 %43
-  %.not.i.i.i.i = icmp eq i32 %31, %45
-  br i1 %.not.i.i.i.i, label %46, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
+38:                                               ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %.lr.ph.i.i.i
+  %.010.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %57, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 14
+  %40 = load i16, ptr %39, align 2
+  %41 = and i16 %40, 4096
+  %.not.i.i13.i.i.i.i = icmp eq i16 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 13
+  %43 = load i8, ptr %42, align 1
+  %44 = sext i8 %43 to i32
+  %45 = sub nsw i32 13, %44
+  %46 = load i32, ptr %.010.i.i.i, align 8
+  %47 = select i1 %.not.i.i13.i.i.i.i, i32 %46, i32 %45
+  %.not.i.i.i.i = icmp eq i32 %33, %47
+  br i1 %.not.i.i.i.i, label %48, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
 
-46:                                               ; preds = %36
-  %47 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %49, 281474976710655
-  %51 = inttoptr i64 %50 to ptr
-  %52 = select i1 %.not.i.i13.i.i.i.i, ptr %51, ptr %.010.i.i.i
-  %53 = icmp eq ptr %34, %52
-  br i1 %53, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %51, 281474976710655
+  %53 = inttoptr i64 %52 to ptr
+  %54 = select i1 %.not.i.i13.i.i.i.i, ptr %53, ptr %.010.i.i.i
+  %55 = icmp eq ptr %36, %54
+  br i1 %55, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i
 
-_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i: ; preds = %46
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %34, ptr %52, i64 %35)
-  %54 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %54, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
+_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i: ; preds = %48
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr %36, ptr %54, i64 %37)
+  %56 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %56, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
 
-_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %36
-  %55 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %55, %27
-  br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %36, !llvm.loop !230
+_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %38
+  %57 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %57, %27
+  br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %38, !llvm.loop !230
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit: ; preds = %46, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %9
-  %.0.lcssa.i.i.i = phi ptr [ %24, %9 ], [ %27, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ], [ %.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %.010.i.i.i, %46 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit: ; preds = %48, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %9
+  %.0.lcssa.i.i.i = phi ptr [ %24, %9 ], [ %27, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ], [ %.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %.010.i.i.i, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %56 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %24, i64 %26
-  %57 = icmp eq ptr %.0.lcssa.i.i.i, %56
-  br i1 %57, label %64, label %58
+  %58 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %24, i64 %26
+  %59 = icmp eq ptr %.0.lcssa.i.i.i, %58
+  br i1 %59, label %66, label %60
 
-58:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit
-  %59 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 30
-  %61 = load i16, ptr %60, align 2
-  %62 = icmp eq i16 %61, 4
-  br i1 %62, label %64, label %63
+60:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit
+  %61 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 30
+  %63 = load i16, ptr %62, align 2
+  %64 = icmp eq i16 %63, 4
+  br i1 %64, label %66, label %65
 
-63:                                               ; preds = %58
+65:                                               ; preds = %60
   call void @_ZN10glTFCommon24throwUnexpectedTypeErrorILi6EEEvRAT__KcPS1_S4_S4_(ptr noundef nonnull align 1 dereferenceable(6) @.str.101, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  br label %64
+  br label %66
 
-64:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, %63, %58, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit ], [ %59, %63 ], [ %59, %58 ]
+66:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, %65, %60, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit ], [ %61, %65 ], [ %61, %60 ]
   ret ptr %.0
 }
 
@@ -44304,71 +44304,71 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN9
   br i1 %.not9.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %22 = and i64 %12, 1152921504606846976
-  %.not.i.i.i.i.i.i = icmp eq i64 %22, 0
-  %sh.diff = lshr i64 %11, 16
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %23 = ashr i32 %tr.sh.diff, 24
-  %24 = sub nsw i32 13, %23
-  %25 = select i1 %.not.i.i.i.i.i.i, i32 %5, i32 %24
-  %26 = and i64 %11, 281474976710655
-  %27 = inttoptr i64 %26 to ptr
-  %28 = select i1 %.not.i.i.i.i.i.i, ptr %27, ptr %3
-  %29 = zext i32 %25 to i64
-  br label %30
+  %22 = lshr i64 %11, 40
+  %23 = trunc i64 %22 to i8
+  %24 = and i64 %12, 1152921504606846976
+  %.not.i.i.i.i.i.i = icmp eq i64 %24, 0
+  %25 = sext i8 %23 to i32
+  %26 = sub nsw i32 13, %25
+  %27 = select i1 %.not.i.i.i.i.i.i, i32 %5, i32 %26
+  %28 = and i64 %11, 281474976710655
+  %29 = inttoptr i64 %28 to ptr
+  %30 = select i1 %.not.i.i.i.i.i.i, ptr %29, ptr %3
+  %31 = zext i32 %27 to i64
+  br label %32
 
-30:                                               ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i ], [ %49, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 14
-  %32 = load i16, ptr %31, align 2
-  %33 = and i16 %32, 4096
-  %.not.i.i13.i.i.i.i = icmp eq i16 %33, 0
-  %34 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 13
-  %35 = load i8, ptr %34, align 1
-  %36 = sext i8 %35 to i32
-  %37 = sub nsw i32 13, %36
-  %38 = load i32, ptr %.010.i.i.i, align 8
-  %39 = select i1 %.not.i.i13.i.i.i.i, i32 %38, i32 %37
-  %.not.i.i.i.i = icmp eq i32 %25, %39
-  br i1 %.not.i.i.i.i, label %40, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
+32:                                               ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %.lr.ph.i.i.i
+  %.010.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i ], [ %51, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ]
+  %33 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 14
+  %34 = load i16, ptr %33, align 2
+  %35 = and i16 %34, 4096
+  %.not.i.i13.i.i.i.i = icmp eq i16 %35, 0
+  %36 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 13
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = sub nsw i32 13, %38
+  %40 = load i32, ptr %.010.i.i.i, align 8
+  %41 = select i1 %.not.i.i13.i.i.i.i, i32 %40, i32 %39
+  %.not.i.i.i.i = icmp eq i32 %27, %41
+  br i1 %.not.i.i.i.i, label %42, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
 
-40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = and i64 %43, 281474976710655
-  %45 = inttoptr i64 %44 to ptr
-  %46 = select i1 %.not.i.i13.i.i.i.i, ptr %45, ptr %.010.i.i.i
-  %47 = icmp eq ptr %28, %46
-  br i1 %47, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = and i64 %45, 281474976710655
+  %47 = inttoptr i64 %46 to ptr
+  %48 = select i1 %.not.i.i13.i.i.i.i, ptr %47, ptr %.010.i.i.i
+  %49 = icmp eq ptr %30, %48
+  br i1 %49, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i
 
-_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i: ; preds = %40
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %28, ptr %46, i64 %29)
-  %48 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %48, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
+_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i: ; preds = %42
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr %30, ptr %48, i64 %31)
+  %50 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %50, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i
 
-_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %30
-  %49 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %49, %21
-  br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %30, !llvm.loop !230
+_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %32
+  %51 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %51, %21
+  br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i, label %32, !llvm.loop !230
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %40, %2
-  %.0.lcssa.i.i.i = phi ptr [ %18, %2 ], [ %21, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ], [ %.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %.010.i.i.i, %40 ]
-  %50 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %18, i64 %20
-  %.not.i = icmp eq ptr %.0.lcssa.i.i.i, %50
-  br i1 %.not.i, label %53, label %51
-
-51:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 16
-  br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EE.exit
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %42, %2
+  %.0.lcssa.i.i.i = phi ptr [ %18, %2 ], [ %21, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread7.i.i.i ], [ %.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %.010.i.i.i, %42 ]
+  %52 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %18, i64 %20
+  %.not.i = icmp eq ptr %.0.lcssa.i.i.i, %52
+  br i1 %.not.i, label %55, label %53
 
 53:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i
-  %54 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EEE6buffer)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 16
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EE.exit
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EE.exit: ; preds = %53, %51
-  %.0.i = phi ptr [ %52, %51 ], [ %54, %53 ]
+55:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EEPNS_13GenericMemberIS2_S5_EERKNS0_IS2_T_EE.exit.i
+  %56 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EEE6buffer)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
+  br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EE.exit
+
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEixIS5_EERS6_RKNS0_IS2_T_EE.exit: ; preds = %55, %53
+  %.0.i = phi ptr [ %54, %53 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
@@ -44378,13 +44378,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 7
-  switch i16 %5, label %198 [
+  switch i16 %5, label %202 [
     i16 0, label %6
     i16 1, label %8
     i16 2, label %10
     i16 3, label %12
-    i16 4, label %107
-    i16 5, label %141
+    i16 4, label %109
+    i16 5, label %143
   ]
 
 6:                                                ; preds = %2
@@ -44419,7 +44419,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 60
   br label %33
 
-24:                                               ; preds = %89
+24:                                               ; preds = %91
   %25 = getelementptr inbounds nuw i8, ptr %.02951, i64 32
   %26 = load ptr, ptr %15, align 8
   %27 = ptrtoint ptr %26 to i64
@@ -44443,333 +44443,333 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4
   %40 = and i64 %39, 281474976710655
   %41 = inttoptr i64 %40 to ptr
   %42 = select i1 %.not.i.i, ptr %41, ptr %.02951
-  %sh.diff63 = lshr i64 %39, 16
-  %tr.sh.diff64 = trunc i64 %sh.diff63 to i32
-  %43 = ashr i32 %tr.sh.diff64, 24
-  %44 = sub nsw i32 13, %43
-  %45 = load i32, ptr %.02951, align 8
-  %46 = select i1 %.not.i.i, i32 %45, i32 %44
-  %47 = load ptr, ptr %21, align 8
-  %48 = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %47, %48
-  br i1 %.not.i.i.i, label %87, label %49, !prof !5
+  %43 = lshr i64 %39, 40
+  %44 = trunc i64 %43 to i8
+  %45 = sext i8 %44 to i32
+  %46 = sub nsw i32 13, %45
+  %47 = load i32, ptr %.02951, align 8
+  %48 = select i1 %.not.i.i, i32 %47, i32 %46
+  %49 = load ptr, ptr %21, align 8
+  %50 = load ptr, ptr %22, align 8
+  %.not.i.i.i = icmp eq ptr %49, %50
+  br i1 %.not.i.i.i, label %89, label %51, !prof !5
 
-49:                                               ; preds = %33
-  %50 = getelementptr inbounds i8, ptr %47, i64 -16
-  %51 = load i64, ptr %50, align 8
-  %.not6.i.i.i = icmp eq i64 %51, 0
-  br i1 %.not6.i.i.i, label %84, label %52
+51:                                               ; preds = %33
+  %52 = getelementptr inbounds i8, ptr %49, i64 -16
+  %53 = load i64, ptr %52, align 8
+  %.not6.i.i.i = icmp eq i64 %53, 0
+  br i1 %.not6.i.i.i, label %86, label %54
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %47, i64 -8
-  %54 = load i8, ptr %53, align 8, !range !10, !noundef !11
-  %55 = trunc nuw i8 %54 to i1
-  %56 = load ptr, ptr %1, align 8
-  br i1 %55, label %57, label %69
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %49, i64 -8
+  %56 = load i8, ptr %55, align 8, !range !10, !noundef !11
+  %57 = trunc nuw i8 %56 to i1
+  %58 = load ptr, ptr %1, align 8
+  br i1 %57, label %59, label %71
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %59 to i64
-  %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %65 = icmp slt i64 %64, 1
-  br i1 %65, label %66, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i, !prof !5
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = ptrtoint ptr %61 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %67 = icmp slt i64 %66, 1
+  br i1 %67, label %68, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i, !prof !5
 
-66:                                               ; preds = %57
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %56, i64 noundef 1)
-  %.pre.i.i.i.i = load ptr, ptr %60, align 8
+68:                                               ; preds = %59
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef 1)
+  %.pre.i.i.i.i = load ptr, ptr %62, align 8
   br label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i
 
-_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i: ; preds = %66, %57
-  %67 = phi ptr [ %61, %57 ], [ %.pre.i.i.i.i, %66 ]
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store ptr %68, ptr %60, align 8
-  store i8 44, ptr %67, align 1
-  br label %84
+_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i: ; preds = %68, %59
+  %69 = phi ptr [ %63, %59 ], [ %.pre.i.i.i.i, %68 ]
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store ptr %70, ptr %62, align 8
+  store i8 44, ptr %69, align 1
+  br label %86
 
-69:                                               ; preds = %52
-  %70 = and i64 %51, 1
-  %71 = icmp eq i64 %70, 0
-  %72 = select i1 %71, i8 44, i8 58
-  %73 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %56, i64 24
+71:                                               ; preds = %54
+  %72 = and i64 %53, 1
+  %73 = icmp eq i64 %72, 0
+  %74 = select i1 %73, i8 44, i8 58
+  %75 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %76 = load ptr, ptr %75, align 8
-  %77 = ptrtoint ptr %74 to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = icmp slt i64 %79, 1
-  br i1 %80, label %81, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i, !prof !5
+  %77 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = ptrtoint ptr %76 to i64
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = icmp slt i64 %81, 1
+  br i1 %82, label %83, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i, !prof !5
 
-81:                                               ; preds = %69
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %56, i64 noundef 1)
-  %.pre.i7.i.i.i = load ptr, ptr %75, align 8
+83:                                               ; preds = %71
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef 1)
+  %.pre.i7.i.i.i = load ptr, ptr %77, align 8
   br label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i
 
-_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i: ; preds = %81, %69
-  %82 = phi ptr [ %76, %69 ], [ %.pre.i7.i.i.i, %81 ]
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store ptr %83, ptr %75, align 8
-  store i8 %72, ptr %82, align 1
-  br label %84
+_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i: ; preds = %83, %71
+  %84 = phi ptr [ %78, %71 ], [ %.pre.i7.i.i.i, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  store ptr %85, ptr %77, align 8
+  store i8 %74, ptr %84, align 1
+  br label %86
 
-84:                                               ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i, %49
-  %85 = load i64, ptr %50, align 8
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %50, align 8
+86:                                               ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i.i, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i.i, %51
+  %87 = load i64, ptr %52, align 8
+  %88 = add i64 %87, 1
+  store i64 %88, ptr %52, align 8
   br label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit
 
-87:                                               ; preds = %33
+89:                                               ; preds = %33
   store i8 1, ptr %23, align 4
   br label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit
 
-_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit: ; preds = %84, %87
-  %88 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %42, i32 noundef %46)
-  br i1 %88, label %89, label %.thread, !prof !487
+_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit: ; preds = %86, %89
+  %90 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %42, i32 noundef %48)
+  br i1 %90, label %91, label %.thread, !prof !487
 
-89:                                               ; preds = %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit
-  %90 = getelementptr inbounds nuw i8, ptr %.02951, i64 16
-  %91 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_6WriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(61) %1)
-  br i1 %91, label %24, label %.thread, !prof !487
+91:                                               ; preds = %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit
+  %92 = getelementptr inbounds nuw i8, ptr %.02951, i64 16
+  %93 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_6WriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(61) %1)
+  br i1 %93, label %24, label %.thread, !prof !487
 
 ._crit_edge54:                                    ; preds = %24, %14
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 -16
-  store ptr %94, ptr %92, align 8
-  %95 = load ptr, ptr %1, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 -16
+  store ptr %96, ptr %94, align 8
+  %97 = load ptr, ptr %1, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %99 = load ptr, ptr %98, align 8
-  %100 = ptrtoint ptr %97 to i64
-  %101 = ptrtoint ptr %99 to i64
-  %102 = sub i64 %100, %101
-  %103 = icmp slt i64 %102, 1
-  br i1 %103, label %104, label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit, !prof !5
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %101 = load ptr, ptr %100, align 8
+  %102 = ptrtoint ptr %99 to i64
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = icmp slt i64 %104, 1
+  br i1 %105, label %106, label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit, !prof !5
 
-104:                                              ; preds = %._crit_edge54
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %95, i64 noundef 1)
-  %.pre.i.i.i = load ptr, ptr %98, align 8
+106:                                              ; preds = %._crit_edge54
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %97, i64 noundef 1)
+  %.pre.i.i.i = load ptr, ptr %100, align 8
   br label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit
 
-_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit: ; preds = %._crit_edge54, %104
-  %105 = phi ptr [ %99, %._crit_edge54 ], [ %.pre.i.i.i, %104 ]
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
-  store ptr %106, ptr %98, align 8
-  store i8 125, ptr %105, align 1
+_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit: ; preds = %._crit_edge54, %106
+  %107 = phi ptr [ %101, %._crit_edge54 ], [ %.pre.i.i.i, %106 ]
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  store ptr %108, ptr %100, align 8
+  store i8 125, ptr %107, align 1
   br label %.thread
 
-107:                                              ; preds = %2
-  %108 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(61) %1)
-  br i1 %108, label %109, label %.thread, !prof !487
+109:                                              ; preds = %2
+  %110 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(61) %1)
+  br i1 %110, label %111, label %.thread, !prof !487
 
-109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %111 = load i32, ptr %0, align 8
-  %.not48 = icmp eq i32 %111, 0
+111:                                              ; preds = %109
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %113 = load i32, ptr %0, align 8
+  %.not48 = icmp eq i32 %113, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %109
-  %112 = load ptr, ptr %110, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %114 = and i64 %113, 281474976710655
-  %115 = inttoptr i64 %114 to ptr
+.lr.ph.preheader:                                 ; preds = %111
+  %114 = load ptr, ptr %112, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %116 = and i64 %115, 281474976710655
+  %117 = inttoptr i64 %116 to ptr
   br label %.lr.ph
 
-116:                                              ; preds = %.lr.ph
-  %117 = getelementptr inbounds nuw i8, ptr %.049, i64 16
-  %118 = load ptr, ptr %110, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %120 = and i64 %119, 281474976710655
-  %121 = inttoptr i64 %120 to ptr
-  %122 = load i32, ptr %0, align 8
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %121, i64 %123
-  %.not = icmp eq ptr %117, %124
+118:                                              ; preds = %.lr.ph
+  %119 = getelementptr inbounds nuw i8, ptr %.049, i64 16
+  %120 = load ptr, ptr %112, align 8
+  %121 = ptrtoint ptr %120 to i64
+  %122 = and i64 %121, 281474976710655
+  %123 = inttoptr i64 %122 to ptr
+  %124 = load i32, ptr %0, align 8
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %123, i64 %125
+  %.not = icmp eq ptr %119, %126
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !489
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %116
-  %.049 = phi ptr [ %117, %116 ], [ %115, %.lr.ph.preheader ]
-  %125 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_6WriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %.049, ptr noundef nonnull align 8 dereferenceable(61) %1)
-  br i1 %125, label %116, label %.thread, !prof !487
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %118
+  %.049 = phi ptr [ %119, %118 ], [ %117, %.lr.ph.preheader ]
+  %127 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_6WriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %.049, ptr noundef nonnull align 8 dereferenceable(61) %1)
+  br i1 %127, label %118, label %.thread, !prof !487
 
-._crit_edge:                                      ; preds = %116, %109
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 -16
-  store ptr %128, ptr %126, align 8
-  %129 = load ptr, ptr %1, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 24
+._crit_edge:                                      ; preds = %118, %111
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 -16
+  store ptr %130, ptr %128, align 8
+  %131 = load ptr, ptr %1, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
-  %134 = ptrtoint ptr %131 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = icmp slt i64 %136, 1
-  br i1 %137, label %138, label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit, !prof !5
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %135 = load ptr, ptr %134, align 8
+  %136 = ptrtoint ptr %133 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = icmp slt i64 %138, 1
+  br i1 %139, label %140, label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit, !prof !5
 
-138:                                              ; preds = %._crit_edge
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %129, i64 noundef 1)
-  %.pre.i.i.i35 = load ptr, ptr %132, align 8
+140:                                              ; preds = %._crit_edge
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %131, i64 noundef 1)
+  %.pre.i.i.i35 = load ptr, ptr %134, align 8
   br label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit
 
-_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit: ; preds = %._crit_edge, %138
-  %139 = phi ptr [ %133, %._crit_edge ], [ %.pre.i.i.i35, %138 ]
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
-  store ptr %140, ptr %132, align 8
-  store i8 93, ptr %139, align 1
+_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit: ; preds = %._crit_edge, %140
+  %141 = phi ptr [ %135, %._crit_edge ], [ %.pre.i.i.i35, %140 ]
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
+  store ptr %142, ptr %134, align 8
+  store i8 93, ptr %141, align 1
   br label %.thread
 
-141:                                              ; preds = %2
-  %142 = and i16 %4, 4096
-  %.not.i.i36 = icmp eq i16 %142, 0
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = ptrtoint ptr %144 to i64
-  %146 = and i64 %145, 281474976710655
-  %147 = inttoptr i64 %146 to ptr
-  %148 = select i1 %.not.i.i36, ptr %147, ptr %0
-  %sh.diff = lshr i64 %145, 16
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %149 = ashr i32 %tr.sh.diff, 24
-  %150 = sub nsw i32 13, %149
-  %151 = load i32, ptr %0, align 8
-  %152 = select i1 %.not.i.i36, i32 %151, i32 %150
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %156 = load ptr, ptr %155, align 8
-  %.not.i.i38 = icmp eq ptr %154, %156
-  br i1 %.not.i.i38, label %195, label %157, !prof !5
+143:                                              ; preds = %2
+  %144 = and i16 %4, 4096
+  %.not.i.i36 = icmp eq i16 %144, 0
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = ptrtoint ptr %146 to i64
+  %148 = and i64 %147, 281474976710655
+  %149 = inttoptr i64 %148 to ptr
+  %150 = select i1 %.not.i.i36, ptr %149, ptr %0
+  %151 = lshr i64 %147, 40
+  %152 = trunc i64 %151 to i8
+  %153 = sext i8 %152 to i32
+  %154 = sub nsw i32 13, %153
+  %155 = load i32, ptr %0, align 8
+  %156 = select i1 %.not.i.i36, i32 %155, i32 %154
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %160 = load ptr, ptr %159, align 8
+  %.not.i.i38 = icmp eq ptr %158, %160
+  br i1 %.not.i.i38, label %199, label %161, !prof !5
 
-157:                                              ; preds = %141
-  %158 = getelementptr inbounds i8, ptr %154, i64 -16
-  %159 = load i64, ptr %158, align 8
-  %.not6.i.i = icmp eq i64 %159, 0
-  br i1 %.not6.i.i, label %192, label %160
+161:                                              ; preds = %143
+  %162 = getelementptr inbounds i8, ptr %158, i64 -16
+  %163 = load i64, ptr %162, align 8
+  %.not6.i.i = icmp eq i64 %163, 0
+  br i1 %.not6.i.i, label %196, label %164
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %154, i64 -8
-  %162 = load i8, ptr %161, align 8, !range !10, !noundef !11
-  %163 = trunc nuw i8 %162 to i1
-  %164 = load ptr, ptr %1, align 8
-  br i1 %163, label %165, label %177
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %158, i64 -8
+  %166 = load i8, ptr %165, align 8, !range !10, !noundef !11
+  %167 = trunc nuw i8 %166 to i1
+  %168 = load ptr, ptr %1, align 8
+  br i1 %167, label %169, label %181
 
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  %169 = load ptr, ptr %168, align 8
-  %170 = ptrtoint ptr %167 to i64
-  %171 = ptrtoint ptr %169 to i64
-  %172 = sub i64 %170, %171
-  %173 = icmp slt i64 %172, 1
-  br i1 %173, label %174, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i, !prof !5
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 32
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %173 = load ptr, ptr %172, align 8
+  %174 = ptrtoint ptr %171 to i64
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %174, %175
+  %177 = icmp slt i64 %176, 1
+  br i1 %177, label %178, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i, !prof !5
 
-174:                                              ; preds = %165
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %164, i64 noundef 1)
-  %.pre.i.i.i39 = load ptr, ptr %168, align 8
+178:                                              ; preds = %169
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %168, i64 noundef 1)
+  %.pre.i.i.i39 = load ptr, ptr %172, align 8
   br label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i
 
-_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i: ; preds = %174, %165
-  %175 = phi ptr [ %169, %165 ], [ %.pre.i.i.i39, %174 ]
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
-  store ptr %176, ptr %168, align 8
-  store i8 44, ptr %175, align 1
-  br label %192
+_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i: ; preds = %178, %169
+  %179 = phi ptr [ %173, %169 ], [ %.pre.i.i.i39, %178 ]
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 1
+  store ptr %180, ptr %172, align 8
+  store i8 44, ptr %179, align 1
+  br label %196
 
-177:                                              ; preds = %160
-  %178 = and i64 %159, 1
-  %179 = icmp eq i64 %178, 0
-  %180 = select i1 %179, i8 44, i8 58
-  %181 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  %184 = load ptr, ptr %183, align 8
-  %185 = ptrtoint ptr %182 to i64
-  %186 = ptrtoint ptr %184 to i64
-  %187 = sub i64 %185, %186
-  %188 = icmp slt i64 %187, 1
-  br i1 %188, label %189, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i, !prof !5
+181:                                              ; preds = %164
+  %182 = and i64 %163, 1
+  %183 = icmp eq i64 %182, 0
+  %184 = select i1 %183, i8 44, i8 58
+  %185 = getelementptr inbounds nuw i8, ptr %168, i64 32
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %188 = load ptr, ptr %187, align 8
+  %189 = ptrtoint ptr %186 to i64
+  %190 = ptrtoint ptr %188 to i64
+  %191 = sub i64 %189, %190
+  %192 = icmp slt i64 %191, 1
+  br i1 %192, label %193, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i, !prof !5
 
-189:                                              ; preds = %177
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %164, i64 noundef 1)
-  %.pre.i7.i.i = load ptr, ptr %183, align 8
+193:                                              ; preds = %181
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %168, i64 noundef 1)
+  %.pre.i7.i.i = load ptr, ptr %187, align 8
   br label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i
 
-_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i: ; preds = %189, %177
-  %190 = phi ptr [ %184, %177 ], [ %.pre.i7.i.i, %189 ]
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 1
-  store ptr %191, ptr %183, align 8
-  store i8 %180, ptr %190, align 1
-  br label %192
+_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i: ; preds = %193, %181
+  %194 = phi ptr [ %188, %181 ], [ %.pre.i7.i.i, %193 ]
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1
+  store ptr %195, ptr %187, align 8
+  store i8 %184, ptr %194, align 1
+  br label %196
 
-192:                                              ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i, %157
-  %193 = load i64, ptr %158, align 8
-  %194 = add i64 %193, 1
-  store i64 %194, ptr %158, align 8
+196:                                              ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit8.i.i, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit.i.i, %161
+  %197 = load i64, ptr %162, align 8
+  %198 = add i64 %197, 1
+  store i64 %198, ptr %162, align 8
   br label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit
 
-195:                                              ; preds = %141
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i8 1, ptr %196, align 4
+199:                                              ; preds = %143
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  store i8 1, ptr %200, align 4
   br label %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit
 
-_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit: ; preds = %192, %195
-  %197 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %148, i32 noundef %152)
+_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit: ; preds = %196, %199
+  %201 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %150, i32 noundef %156)
   br label %.thread
 
-198:                                              ; preds = %2
-  %199 = and i16 %4, 512
-  %.not43 = icmp eq i16 %199, 0
-  br i1 %.not43, label %203, label %200
+202:                                              ; preds = %2
+  %203 = and i16 %4, 512
+  %.not43 = icmp eq i16 %203, 0
+  br i1 %.not43, label %207, label %204
 
-200:                                              ; preds = %198
-  %201 = load double, ptr %0, align 8
-  %202 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6DoubleEd(ptr noundef nonnull align 8 dereferenceable(61) %1, double noundef %201)
+204:                                              ; preds = %202
+  %205 = load double, ptr %0, align 8
+  %206 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6DoubleEd(ptr noundef nonnull align 8 dereferenceable(61) %1, double noundef %205)
   br label %.thread
 
-203:                                              ; preds = %198
-  %204 = and i16 %4, 32
-  %.not44 = icmp eq i16 %204, 0
-  br i1 %.not44, label %208, label %205
+207:                                              ; preds = %202
+  %208 = and i16 %4, 32
+  %.not44 = icmp eq i16 %208, 0
+  br i1 %.not44, label %212, label %209
 
-205:                                              ; preds = %203
-  %206 = load i32, ptr %0, align 8
-  %207 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi(ptr noundef nonnull align 8 dereferenceable(61) %1, i32 noundef %206)
+209:                                              ; preds = %207
+  %210 = load i32, ptr %0, align 8
+  %211 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi(ptr noundef nonnull align 8 dereferenceable(61) %1, i32 noundef %210)
   br label %.thread
 
-208:                                              ; preds = %203
-  %209 = and i16 %4, 64
-  %.not45 = icmp eq i16 %209, 0
-  br i1 %.not45, label %213, label %210
+212:                                              ; preds = %207
+  %213 = and i16 %4, 64
+  %.not45 = icmp eq i16 %213, 0
+  br i1 %.not45, label %217, label %214
 
-210:                                              ; preds = %208
-  %211 = load i32, ptr %0, align 8
-  %212 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4UintEj(ptr noundef nonnull align 8 dereferenceable(61) %1, i32 noundef %211)
+214:                                              ; preds = %212
+  %215 = load i32, ptr %0, align 8
+  %216 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4UintEj(ptr noundef nonnull align 8 dereferenceable(61) %1, i32 noundef %215)
   br label %.thread
 
-213:                                              ; preds = %208
-  %214 = and i16 %4, 128
-  %.not46 = icmp eq i16 %214, 0
-  %215 = load i64, ptr %0, align 8
-  br i1 %.not46, label %218, label %216
+217:                                              ; preds = %212
+  %218 = and i16 %4, 128
+  %.not46 = icmp eq i16 %218, 0
+  %219 = load i64, ptr %0, align 8
+  br i1 %.not46, label %222, label %220
 
-216:                                              ; preds = %213
-  %217 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE5Int64El(ptr noundef nonnull align 8 dereferenceable(61) %1, i64 noundef %215)
+220:                                              ; preds = %217
+  %221 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE5Int64El(ptr noundef nonnull align 8 dereferenceable(61) %1, i64 noundef %219)
   br label %.thread
 
-218:                                              ; preds = %213
-  %219 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6Uint64Em(ptr noundef nonnull align 8 dereferenceable(61) %1, i64 noundef %215)
+222:                                              ; preds = %217
+  %223 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6Uint64Em(ptr noundef nonnull align 8 dereferenceable(61) %1, i64 noundef %219)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %89, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit, %107, %12, %218, %216, %210, %205, %200, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit, %10, %8, %6
-  %.030 = phi i1 [ %202, %200 ], [ %207, %205 ], [ %212, %210 ], [ %217, %216 ], [ %219, %218 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit ], [ %197, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit ], [ false, %12 ], [ false, %107 ], [ false, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit ], [ false, %89 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %91, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit, %109, %12, %222, %220, %214, %209, %204, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit, %10, %8, %6
+  %.030 = phi i1 [ %206, %204 ], [ %211, %209 ], [ %216, %214 ], [ %221, %220 ], [ %223, %222 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit ], [ %201, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit ], [ false, %12 ], [ false, %109 ], [ false, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit ], [ false, %91 ], [ false, %.lr.ph ]
   ret i1 %.030
 }
 
@@ -48295,13 +48295,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 7
-  switch i16 %5, label %210 [
+  switch i16 %5, label %214 [
     i16 0, label %6
     i16 1, label %33
     i16 2, label %64
     i16 3, label %91
-    i16 4, label %152
-    i16 5, label %197
+    i16 4, label %154
+    i16 5, label %199
   ]
 
 6:                                                ; preds = %2
@@ -48509,7 +48509,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19Generic
   %123 = inttoptr i64 %122 to ptr
   br label %.lr.ph57
 
-124:                                              ; preds = %147
+124:                                              ; preds = %149
   %125 = getelementptr inbounds nuw i8, ptr %.02955, i64 32
   %126 = load ptr, ptr %118, align 8
   %127 = ptrtoint ptr %126 to i64
@@ -48533,213 +48533,213 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19Generic
   %139 = and i64 %138, 281474976710655
   %140 = inttoptr i64 %139 to ptr
   %141 = select i1 %.not.i.i, ptr %140, ptr %.02955
-  %sh.diff64 = lshr i64 %138, 16
-  %tr.sh.diff65 = trunc i64 %sh.diff64 to i32
-  %142 = ashr i32 %tr.sh.diff65, 24
-  %143 = sub nsw i32 13, %142
-  %144 = load i32, ptr %.02955, align 8
-  %145 = select i1 %.not.i.i, i32 %144, i32 %143
+  %142 = lshr i64 %138, 40
+  %143 = trunc i64 %142 to i8
+  %144 = sext i8 %143 to i32
+  %145 = sub nsw i32 13, %144
+  %146 = load i32, ptr %.02955, align 8
+  %147 = select i1 %.not.i.i, i32 %146, i32 %145
   tail call void @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE12PrettyPrefixENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 5)
-  %146 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %141, i32 noundef %145)
-  br i1 %146, label %147, label %.thread, !prof !487
+  %148 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %141, i32 noundef %147)
+  br i1 %148, label %149, label %.thread, !prof !487
 
-147:                                              ; preds = %.lr.ph57
-  %148 = getelementptr inbounds nuw i8, ptr %.02955, i64 16
-  %149 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_12PrettyWriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  br i1 %149, label %124, label %.thread, !prof !487
+149:                                              ; preds = %.lr.ph57
+  %150 = getelementptr inbounds nuw i8, ptr %.02955, i64 16
+  %151 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_12PrettyWriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  br i1 %151, label %124, label %.thread, !prof !487
 
 ._crit_edge58:                                    ; preds = %124, %115
-  %150 = phi i32 [ 0, %115 ], [ %130, %124 ]
-  %151 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %150)
+  %152 = phi i32 [ 0, %115 ], [ %130, %124 ]
+  %153 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %152)
   br label %.thread
 
-152:                                              ; preds = %2
+154:                                              ; preds = %2
   tail call void @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE12PrettyPrefixENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 4)
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %156 = load ptr, ptr %155, align 8
-  %157 = ptrtoint ptr %154 to i64
-  %158 = ptrtoint ptr %156 to i64
-  %159 = sub i64 %157, %158
-  %160 = icmp slt i64 %159, 16
-  br i1 %160, label %161, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38, !prof !5
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %158 = load ptr, ptr %157, align 8
+  %159 = ptrtoint ptr %156 to i64
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = icmp slt i64 %161, 16
+  br i1 %162, label %163, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38, !prof !5
 
-161:                                              ; preds = %152
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm(ptr noundef nonnull align 8 dereferenceable(48) %162, i64 noundef 1)
-  %.pre.i40 = load ptr, ptr %155, align 8
+163:                                              ; preds = %154
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm(ptr noundef nonnull align 8 dereferenceable(48) %164, i64 noundef 1)
+  %.pre.i40 = load ptr, ptr %157, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38: ; preds = %161, %152
-  %163 = phi ptr [ %156, %152 ], [ %.pre.i40, %161 ]
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store ptr %164, ptr %155, align 8
-  store i64 0, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i8 1, ptr %165, align 8
-  %166 = load ptr, ptr %1, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %166, i64 24
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38: ; preds = %163, %154
+  %165 = phi ptr [ %158, %154 ], [ %.pre.i40, %163 ]
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  store ptr %166, ptr %157, align 8
+  store i64 0, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store i8 1, ptr %167, align 8
+  %168 = load ptr, ptr %1, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %170 = load ptr, ptr %169, align 8
-  %171 = ptrtoint ptr %168 to i64
-  %172 = ptrtoint ptr %170 to i64
-  %173 = sub i64 %171, %172
-  %174 = icmp slt i64 %173, 1
-  br i1 %174, label %175, label %176, !prof !5
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %172 = load ptr, ptr %171, align 8
+  %173 = ptrtoint ptr %170 to i64
+  %174 = ptrtoint ptr %172 to i64
+  %175 = sub i64 %173, %174
+  %176 = icmp slt i64 %175, 1
+  br i1 %176, label %177, label %178, !prof !5
 
-175:                                              ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %166, i64 noundef 1)
-  %.pre.i.i.i39 = load ptr, ptr %169, align 8
-  br label %176
+177:                                              ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %168, i64 noundef 1)
+  %.pre.i.i.i39 = load ptr, ptr %171, align 8
+  br label %178
 
-176:                                              ; preds = %175, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38
-  %177 = phi ptr [ %170, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38 ], [ %.pre.i.i.i39, %175 ]
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 1
-  store ptr %178, ptr %169, align 8
-  store i8 91, ptr %177, align 1
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %180 = load i32, ptr %0, align 8
-  %.not52 = icmp eq i32 %180, 0
+178:                                              ; preds = %177, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38
+  %179 = phi ptr [ %172, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS_6WriterINS_19GenericStringBufferINS_4UTF8IcEES2_EES8_S8_S2_Lj0EE5LevelEEEvm.exit.i38 ], [ %.pre.i.i.i39, %177 ]
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 1
+  store ptr %180, ptr %171, align 8
+  store i8 91, ptr %179, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %182 = load i32, ptr %0, align 8
+  %.not52 = icmp eq i32 %182, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %176
-  %181 = load ptr, ptr %179, align 8
-  %182 = ptrtoint ptr %181 to i64
-  %183 = and i64 %182, 281474976710655
-  %184 = inttoptr i64 %183 to ptr
+.lr.ph.preheader:                                 ; preds = %178
+  %183 = load ptr, ptr %181, align 8
+  %184 = ptrtoint ptr %183 to i64
+  %185 = and i64 %184, 281474976710655
+  %186 = inttoptr i64 %185 to ptr
   br label %.lr.ph
 
-185:                                              ; preds = %.lr.ph
-  %186 = getelementptr inbounds nuw i8, ptr %.053, i64 16
-  %187 = load ptr, ptr %179, align 8
-  %188 = ptrtoint ptr %187 to i64
-  %189 = and i64 %188, 281474976710655
-  %190 = inttoptr i64 %189 to ptr
-  %191 = load i32, ptr %0, align 8
-  %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %190, i64 %192
-  %.not = icmp eq ptr %186, %193
+187:                                              ; preds = %.lr.ph
+  %188 = getelementptr inbounds nuw i8, ptr %.053, i64 16
+  %189 = load ptr, ptr %181, align 8
+  %190 = ptrtoint ptr %189 to i64
+  %191 = and i64 %190, 281474976710655
+  %192 = inttoptr i64 %191 to ptr
+  %193 = load i32, ptr %0, align 8
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %192, i64 %194
+  %.not = icmp eq ptr %188, %195
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !498
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %185
-  %.053 = phi ptr [ %186, %185 ], [ %184, %.lr.ph.preheader ]
-  %194 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_12PrettyWriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %.053, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  br i1 %194, label %185, label %.thread, !prof !487
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %187
+  %.053 = phi ptr [ %188, %187 ], [ %186, %.lr.ph.preheader ]
+  %196 = tail call noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE6AcceptINS_12PrettyWriterINS_19GenericStringBufferIS2_S4_EES2_S2_S4_Lj0EEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %.053, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  br i1 %196, label %187, label %.thread, !prof !487
 
-._crit_edge:                                      ; preds = %185, %176
-  %195 = phi i32 [ 0, %176 ], [ %191, %185 ]
-  %196 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %195)
+._crit_edge:                                      ; preds = %187, %178
+  %197 = phi i32 [ 0, %178 ], [ %193, %187 ]
+  %198 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %197)
   br label %.thread
 
-197:                                              ; preds = %2
-  %198 = and i16 %4, 4096
-  %.not.i.i41 = icmp eq i16 %198, 0
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = ptrtoint ptr %200 to i64
-  %202 = and i64 %201, 281474976710655
-  %203 = inttoptr i64 %202 to ptr
-  %204 = select i1 %.not.i.i41, ptr %203, ptr %0
-  %sh.diff = lshr i64 %201, 16
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %205 = ashr i32 %tr.sh.diff, 24
-  %206 = sub nsw i32 13, %205
-  %207 = load i32, ptr %0, align 8
-  %208 = select i1 %.not.i.i41, i32 %207, i32 %206
+199:                                              ; preds = %2
+  %200 = and i16 %4, 4096
+  %.not.i.i41 = icmp eq i16 %200, 0
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = ptrtoint ptr %202 to i64
+  %204 = and i64 %203, 281474976710655
+  %205 = inttoptr i64 %204 to ptr
+  %206 = select i1 %.not.i.i41, ptr %205, ptr %0
+  %207 = lshr i64 %203, 40
+  %208 = trunc i64 %207 to i8
+  %209 = sext i8 %208 to i32
+  %210 = sub nsw i32 13, %209
+  %211 = load i32, ptr %0, align 8
+  %212 = select i1 %.not.i.i41, i32 %211, i32 %210
   tail call void @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE12PrettyPrefixENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 5)
-  %209 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %204, i32 noundef %208)
+  %213 = tail call noundef zeroext i1 @_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %206, i32 noundef %212)
   br label %.thread
 
-210:                                              ; preds = %2
-  %211 = and i16 %4, 512
-  %.not47 = icmp eq i16 %211, 0
-  br i1 %.not47, label %215, label %212
+214:                                              ; preds = %2
+  %215 = and i16 %4, 512
+  %.not47 = icmp eq i16 %215, 0
+  br i1 %.not47, label %219, label %216
 
-212:                                              ; preds = %210
-  %213 = load double, ptr %0, align 8
-  %214 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6DoubleEd(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %213)
+216:                                              ; preds = %214
+  %217 = load double, ptr %0, align 8
+  %218 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6DoubleEd(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %217)
   br label %.thread
 
-215:                                              ; preds = %210
-  %216 = and i16 %4, 32
-  %.not48 = icmp eq i16 %216, 0
-  br i1 %.not48, label %243, label %217
+219:                                              ; preds = %214
+  %220 = and i16 %4, 32
+  %.not48 = icmp eq i16 %220, 0
+  br i1 %.not48, label %247, label %221
 
-217:                                              ; preds = %215
-  %218 = load i32, ptr %0, align 8
+221:                                              ; preds = %219
+  %222 = load i32, ptr %0, align 8
   tail call void @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE12PrettyPrefixENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 6)
-  %219 = load ptr, ptr %1, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 24
-  %223 = load ptr, ptr %222, align 8
-  %224 = ptrtoint ptr %221 to i64
-  %225 = ptrtoint ptr %223 to i64
-  %226 = sub i64 %224, %225
-  %227 = icmp slt i64 %226, 11
-  br i1 %227, label %228, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i, !prof !5
+  %223 = load ptr, ptr %1, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %223, i64 24
+  %227 = load ptr, ptr %226, align 8
+  %228 = ptrtoint ptr %225 to i64
+  %229 = ptrtoint ptr %227 to i64
+  %230 = sub i64 %228, %229
+  %231 = icmp slt i64 %230, 11
+  br i1 %231, label %232, label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i, !prof !5
 
-228:                                              ; preds = %217
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %219, i64 noundef 11)
-  %.pre.i.i.i43 = load ptr, ptr %222, align 8
+232:                                              ; preds = %221
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %223, i64 noundef 11)
+  %.pre.i.i.i43 = load ptr, ptr %226, align 8
   br label %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i
 
-_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i: ; preds = %228, %217
-  %229 = phi ptr [ %223, %217 ], [ %.pre.i.i.i43, %228 ]
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 11
-  store ptr %230, ptr %222, align 8
-  %231 = icmp slt i32 %218, 0
-  br i1 %231, label %232, label %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit
+_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i: ; preds = %232, %221
+  %233 = phi ptr [ %227, %221 ], [ %.pre.i.i.i43, %232 ]
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 11
+  store ptr %234, ptr %226, align 8
+  %235 = icmp slt i32 %222, 0
+  br i1 %235, label %236, label %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit
 
-232:                                              ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 1
-  store i8 45, ptr %229, align 1
-  %234 = sub i32 0, %218
+236:                                              ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 1
+  store i8 45, ptr %233, align 1
+  %238 = sub i32 0, %222
   br label %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit
 
-_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit: ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i, %232
-  %.05.i.i.i = phi ptr [ %233, %232 ], [ %229, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i ]
-  %.0.i.i.i = phi i32 [ %234, %232 ], [ %218, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i ]
-  %235 = tail call noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 noundef %.0.i.i.i, ptr noundef %.05.i.i.i)
-  %236 = load ptr, ptr %1, align 8
-  %237 = ptrtoint ptr %235 to i64
-  %238 = ptrtoint ptr %229 to i64
-  %.neg.neg.i.i = sub i64 %237, %238
-  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr i8, ptr %240, i64 %.neg.neg.i.i
-  %242 = getelementptr i8, ptr %241, i64 -11
-  store ptr %242, ptr %239, align 8
+_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit: ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i, %236
+  %.05.i.i.i = phi ptr [ %237, %236 ], [ %233, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i ]
+  %.0.i.i.i = phi i32 [ %238, %236 ], [ %222, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit.i.i ]
+  %239 = tail call noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 noundef %.0.i.i.i, ptr noundef %.05.i.i.i)
+  %240 = load ptr, ptr %1, align 8
+  %241 = ptrtoint ptr %239 to i64
+  %242 = ptrtoint ptr %233 to i64
+  %.neg.neg.i.i = sub i64 %241, %242
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 24
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr i8, ptr %244, i64 %.neg.neg.i.i
+  %246 = getelementptr i8, ptr %245, i64 -11
+  store ptr %246, ptr %243, align 8
   br label %.thread
 
-243:                                              ; preds = %215
-  %244 = and i16 %4, 64
-  %.not49 = icmp eq i16 %244, 0
-  br i1 %.not49, label %248, label %245
+247:                                              ; preds = %219
+  %248 = and i16 %4, 64
+  %.not49 = icmp eq i16 %248, 0
+  br i1 %.not49, label %252, label %249
 
-245:                                              ; preds = %243
-  %246 = load i32, ptr %0, align 8
-  %247 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4UintEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %246)
+249:                                              ; preds = %247
+  %250 = load i32, ptr %0, align 8
+  %251 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4UintEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %250)
   br label %.thread
 
-248:                                              ; preds = %243
-  %249 = and i16 %4, 128
-  %.not50 = icmp eq i16 %249, 0
-  %250 = load i64, ptr %0, align 8
-  br i1 %.not50, label %253, label %251
+252:                                              ; preds = %247
+  %253 = and i16 %4, 128
+  %.not50 = icmp eq i16 %253, 0
+  %254 = load i64, ptr %0, align 8
+  br i1 %.not50, label %257, label %255
 
-251:                                              ; preds = %248
-  %252 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE5Int64El(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %250)
+255:                                              ; preds = %252
+  %256 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE5Int64El(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %254)
   br label %.thread
 
-253:                                              ; preds = %248
-  %254 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6Uint64Em(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %250)
+257:                                              ; preds = %252
+  %258 = tail call noundef zeroext i1 @_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6Uint64Em(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %254)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %147, %.lr.ph57, %253, %251, %245, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit, %212, %197, %._crit_edge, %._crit_edge58, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit
-  %.030 = phi i1 [ %214, %212 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit ], [ %247, %245 ], [ %252, %251 ], [ %254, %253 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36 ], [ %151, %._crit_edge58 ], [ %196, %._crit_edge ], [ %209, %197 ], [ false, %.lr.ph57 ], [ false, %147 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %149, %.lr.ph57, %257, %255, %249, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit, %216, %199, %._crit_edge, %._crit_edge58, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit
+  %.030 = phi i1 [ %218, %216 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit ], [ %251, %249 ], [ %256, %255 ], [ %258, %257 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36 ], [ %153, %._crit_edge58 ], [ %198, %._crit_edge ], [ %213, %199 ], [ false, %.lr.ph57 ], [ false, %149 ], [ false, %.lr.ph ]
   ret i1 %.030
 }
 

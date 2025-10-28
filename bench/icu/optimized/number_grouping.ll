@@ -96,8 +96,8 @@ define void @_ZN6icu_776number4impl7Grouper13setLocaleDataERKNS1_17ParsedPattern
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val15 = load ptr, ptr %10, align 8, !tbaa !42
-  %11 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_776LocaleE(ptr %.val15)
+  %.val14 = load ptr, ptr %10, align 8, !tbaa !42
+  %11 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_776LocaleE(ptr %.val14)
   %12 = sext i16 %11 to i32
   %13 = tail call i32 @uprv_max_77(i32 noundef 2, i32 noundef %12)
   %14 = trunc i32 %13 to i16

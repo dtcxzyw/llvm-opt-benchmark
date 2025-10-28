@@ -12147,9 +12147,8 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit244: ; preds = %635, %.pre
 712:                                              ; preds = %709
   %713 = sext i64 %710 to i128
   %714 = call fastcc noundef i128 @"_ZN4core3num22_$LT$impl$u20$i128$GT$10rem_euclid17h574252342cfab4faE"(i128 noundef %701, i128 noundef %713)
-  %extract.t216 = trunc nsw i128 %714 to i64
-  %sext = shl i64 %extract.t216, 32
-  %715 = ashr exact i64 %sext, 32
+  %extract.t216 = trunc i128 %714 to i32
+  %715 = sext i32 %extract.t216 to i64
   br label %716
 
 716:                                              ; preds = %709, %712

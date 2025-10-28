@@ -3968,15 +3968,14 @@ define noundef range(i8 -1, 2) i8 @"_ZN82_$LT$uv_distribution_types..requirement
 
 "_ZN72_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..Ord$GT$3cmp17hd5665a86373025aeE.exit.thread.i.i": ; preds = %"_ZN72_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..Ord$GT$3cmp17hd5665a86373025aeE.exit.i.i", %170
   %trunc.i.i = trunc nuw i64 %88 to i1
+  %trunc6.i.i = trunc nuw i64 %92 to i1
   br i1 %trunc.i.i, label %183, label %182
 
 182:                                              ; preds = %"_ZN72_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..Ord$GT$3cmp17hd5665a86373025aeE.exit.thread.i.i"
-  %trunc7.i.i = trunc nuw nsw i64 %92 to i8
-  %..i.i = sub nsw i8 0, %trunc7.i.i
+  %..i.i = sext i1 %trunc6.i.i to i8
   br label %"_ZN55_$LT$uv_git_types..GitUrl$u20$as$u20$core..cmp..Ord$GT$3cmp17hca340c0f42f2c873E.exit.i"
 
 183:                                              ; preds = %"_ZN72_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..Ord$GT$3cmp17hd5665a86373025aeE.exit.thread.i.i"
-  %trunc6.i.i = trunc nuw i64 %92 to i1
   br i1 %trunc6.i.i, label %184, label %"_ZN88_$LT$uv_distribution_types..requirement..RequirementSource$u20$as$u20$core..cmp..Ord$GT$3cmp17h4e1c953cd2399d2fE.exit"
 
 184:                                              ; preds = %183

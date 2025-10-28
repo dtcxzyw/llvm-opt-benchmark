@@ -61530,6 +61530,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd7119803d0a490dbE.exit: ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = load i64, ptr %10, align 8, !range !267, !noundef !4
   %trunc = trunc nuw i64 %76 to i1
+  %trunc27 = trunc nuw i64 %.sroa.0.0 to i1
   br i1 %trunc, label %85, label %.thread114
 
 77:                                               ; preds = %73
@@ -61554,12 +61555,10 @@ _ZN4core3ops8function6FnOnce9call_once17hd7119803d0a490dbE.exit53: ; preds = %73
   br label %74
 
 .thread114:                                       ; preds = %74
-  %trunc29 = trunc nuw nsw i64 %.sroa.0.0 to i8
-  %.41 = sub nsw i8 0, %trunc29
+  %.41 = sext i1 %trunc27 to i8
   br label %"_ZN4core3ptr50drop_in_place$LT$syntax..token_text..TokenText$GT$17hdf54488ad03785e4E.exit75"
 
 85:                                               ; preds = %74
-  %trunc27 = trunc nuw i64 %.sroa.0.0 to i1
   br i1 %trunc27, label %89, label %86
 
 86:                                               ; preds = %85

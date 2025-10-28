@@ -48887,15 +48887,14 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN163_$LT$sum_tree..tree_map..MapKey
   %12 = load i64, ptr %4, align 8, !range !107, !alias.scope !15135, !noalias !15138, !noundef !11
   %trunc.i = trunc nuw i64 %12 to i1
   %13 = load i64, ptr %6, align 8, !range !107, !alias.scope !15138, !noalias !15135, !noundef !11
+  %trunc1.i = trunc nuw i64 %13 to i1
   br i1 %trunc.i, label %15, label %14
 
 14:                                               ; preds = %11
-  %trunc2.i = trunc nuw nsw i64 %13 to i8
-  %..i = sub nsw i8 0, %trunc2.i
+  %..i = sext i1 %trunc1.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h64f76e5ed8d56dc4E.exit"
 
 15:                                               ; preds = %11
-  %trunc1.i = trunc nuw i64 %13 to i1
   br i1 %trunc1.i, label %16, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h64f76e5ed8d56dc4E.exit"
 
 16:                                               ; preds = %15
@@ -60803,15 +60802,14 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   %4 = load i64, ptr %0, align 8, !range !107, !alias.scope !18509, !noalias !18510, !noundef !11
   %trunc.i.i = trunc nuw i64 %4 to i1
   %5 = load i64, ptr %1, align 8, !range !107, !alias.scope !18510, !noalias !18509, !noundef !11
+  %trunc1.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i.i, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc2.i.i = trunc nuw nsw i64 %5 to i8
-  %..i.i = sub nsw i8 0, %trunc2.i.i
+  %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h0c53b0da8ca074d6E.exit"
 
 7:                                                ; preds = %3
-  %trunc1.i.i = trunc nuw i64 %5 to i1
   br i1 %trunc1.i.i, label %8, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h0c53b0da8ca074d6E.exit"
 
 8:                                                ; preds = %7
@@ -60843,24 +60841,22 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %5, align 8
   %trunc.i.i = trunc nuw i64 %.val to i1
-  br i1 %trunc.i.i, label %8, label %6
+  %trunc1.i.i = trunc nuw i64 %.val2 to i1
+  br i1 %trunc.i.i, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc2.i.i = trunc i64 %.val2 to i8
-  %7 = and i8 %trunc2.i.i, 1
-  %..i.i = sub nsw i8 0, %7
+  %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5eb06ef0b9b8a841E.exit"
 
-8:                                                ; preds = %3
-  %trunc1.i.i = trunc nuw i64 %.val2 to i1
-  br i1 %trunc1.i.i, label %9, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5eb06ef0b9b8a841E.exit"
+7:                                                ; preds = %3
+  br i1 %trunc1.i.i, label %8, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5eb06ef0b9b8a841E.exit"
 
-9:                                                ; preds = %8
-  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
+8:                                                ; preds = %7
+  %9 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5eb06ef0b9b8a841E.exit"
 
-"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5eb06ef0b9b8a841E.exit": ; preds = %6, %8, %9
-  %.sroa.0.0.i.i = phi i8 [ %10, %9 ], [ %..i.i, %6 ], [ 1, %8 ]
+"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5eb06ef0b9b8a841E.exit": ; preds = %6, %7, %8
+  %.sroa.0.0.i.i = phi i8 [ %9, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
   ret i8 %.sroa.0.0.i.i
 }
 
@@ -60920,15 +60916,14 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18523)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18526)
   %trunc.i.i.i = trunc nuw i64 %4 to i1
+  %trunc1.i.i.i = trunc nuw i64 %6 to i1
   br i1 %trunc.i.i.i, label %13, label %12
 
 12:                                               ; preds = %11
-  %trunc2.i.i.i = trunc nuw nsw i64 %6 to i8
-  %..i.i.i = sub nsw i8 0, %trunc2.i.i.i
+  %..i.i.i = sext i1 %trunc1.i.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h2e95abf792957a4fE.exit"
 
 13:                                               ; preds = %11
-  %trunc1.i.i.i = trunc nuw i64 %6 to i1
   br i1 %trunc1.i.i.i, label %14, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h2e95abf792957a4fE.exit"
 
 14:                                               ; preds = %13
@@ -111998,15 +111993,14 @@ define hidden noundef ptr @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17
   call void @llvm.experimental.noalias.scope.decl(metadata !30992)
   %43 = load i64, ptr %1, align 8, !range !107, !alias.scope !30995, !noalias !30992, !noundef !11
   %trunc.i = trunc nuw i64 %43 to i1
+  %trunc1.i = trunc nuw i64 %42 to i1
   br i1 %trunc.i, label %45, label %44
 
 44:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h539d350285fee454E.exit.thread38"
-  %trunc2.i = trunc nuw nsw i64 %42 to i8
-  %..i = sub nsw i8 0, %trunc2.i
+  %..i = sext i1 %trunc1.i to i8
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h64f76e5ed8d56dc4E.exit"
 
 45:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h539d350285fee454E.exit.thread38"
-  %trunc1.i = trunc nuw i64 %42 to i1
   br i1 %trunc1.i, label %46, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h539d350285fee454E.exit.thread"
 
 46:                                               ; preds = %45

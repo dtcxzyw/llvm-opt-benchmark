@@ -21,17 +21,14 @@ define dso_local range(i64 -1, 2) i64 @btboolcmp(ptr noundef readonly captures(n
 define dso_local range(i64 -65535, 65536) i64 @btint2cmp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i64, ptr %5, align 8
-  %7 = trunc i64 %6 to i32
-  %sext = shl i32 %4, 16
-  %8 = ashr exact i32 %sext, 16
-  %sext3 = shl i32 %7, 16
-  %9 = ashr exact i32 %sext3, 16
-  %10 = sub nsw i32 %8, %9
-  %11 = sext i32 %10 to i64
-  ret i64 %11
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %sext = shl i64 %3, 48
+  %6 = ashr exact i64 %sext, 48
+  %sext3 = shl i64 %5, 48
+  %7 = ashr exact i64 %sext3, 48
+  %8 = sub nsw i64 %6, %7
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -46,12 +43,10 @@ define dso_local noundef i64 @btint2sortsupport(ptr noundef readonly captures(no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -65535, 65536) i32 @btint2fastcmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #2 {
-  %4 = trunc i64 %0 to i32
-  %5 = trunc i64 %1 to i32
-  %sext = shl i32 %4, 16
-  %6 = ashr exact i32 %sext, 16
-  %sext4 = shl i32 %5, 16
-  %7 = ashr exact i32 %sext4, 16
+  %4 = trunc i64 %0 to i16
+  %5 = trunc i64 %1 to i16
+  %6 = sext i16 %4 to i32
+  %7 = sext i16 %5 to i32
   %8 = sub nsw i32 %6, %7
   ret i32 %8
 }
@@ -130,12 +125,11 @@ define dso_local range(i64 -1, 2) i64 @btint84cmp(ptr noundef readonly captures(
 define dso_local range(i64 -1, 2) i64 @btint24cmp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i32
+  %4 = trunc i64 %3 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %sext = shl i32 %4, 16
-  %8 = ashr exact i32 %sext, 16
+  %8 = sext i16 %4 to i32
   %.0 = tail call i64 @llvm.scmp.i64.i32(i32 %8, i32 %7)
   ret i64 %.0
 }
@@ -147,9 +141,8 @@ define dso_local range(i64 -1, 2) i64 @btint42cmp(ptr noundef readonly captures(
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = trunc i64 %6 to i32
-  %sext = shl i32 %7, 16
-  %8 = ashr exact i32 %sext, 16
+  %7 = trunc i64 %6 to i16
+  %8 = sext i16 %7 to i32
   %.0 = tail call i64 @llvm.scmp.i64.i32(i32 %4, i32 %8)
   ret i64 %.0
 }

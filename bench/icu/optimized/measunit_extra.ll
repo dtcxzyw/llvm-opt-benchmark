@@ -3408,10 +3408,9 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   br i1 %.not.i, label %55, label %.critedge.sink.split
 
 55:                                               ; preds = %54
-  %56 = trunc i64 %.sroa.0.1.i to i32
-  %sext.i = shl i32 %56, 24
-  %57 = ashr exact i32 %sext.i, 24
-  %58 = mul nsw i32 %57, %.sroa.7.2.i
+  %56 = trunc i64 %.sroa.0.1.i to i8
+  %57 = sext i8 %56 to i32
+  %58 = mul nsw i32 %.sroa.7.2.i, %57
   br label %63
 
 59:                                               ; preds = %.preheader.i

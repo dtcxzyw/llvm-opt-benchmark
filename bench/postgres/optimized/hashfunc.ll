@@ -14,9 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i64 0, 4294967296) i64 @hashchar(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i32
-  %sext = shl i32 %4, 24
-  %5 = ashr exact i32 %sext, 24
+  %4 = trunc i64 %3 to i8
+  %5 = sext i8 %4 to i32
   %6 = tail call i32 @hash_bytes_uint32(i32 noundef %5) #5
   %7 = zext i32 %6 to i64
   ret i64 %7
@@ -26,9 +25,8 @@ define dso_local range(i64 0, 4294967296) i64 @hashchar(ptr noundef readonly cap
 define dso_local i64 @hashcharextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i32
-  %sext = shl i32 %4, 24
-  %5 = ashr exact i32 %sext, 24
+  %4 = trunc i64 %3 to i8
+  %5 = sext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %5, i64 noundef %7) #5
@@ -39,9 +37,8 @@ define dso_local i64 @hashcharextended(ptr noundef readonly captures(none) %0) l
 define dso_local range(i64 0, 4294967296) i64 @hashint2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i32
-  %sext = shl i32 %4, 16
-  %5 = ashr exact i32 %sext, 16
+  %4 = trunc i64 %3 to i16
+  %5 = sext i16 %4 to i32
   %6 = tail call i32 @hash_bytes_uint32(i32 noundef %5) #5
   %7 = zext i32 %6 to i64
   ret i64 %7
@@ -51,9 +48,8 @@ define dso_local range(i64 0, 4294967296) i64 @hashint2(ptr noundef readonly cap
 define dso_local i64 @hashint2extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i32
-  %sext = shl i32 %4, 16
-  %5 = ashr exact i32 %sext, 16
+  %4 = trunc i64 %3 to i16
+  %5 = sext i16 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %5, i64 noundef %7) #5

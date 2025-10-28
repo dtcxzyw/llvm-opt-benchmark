@@ -67,85 +67,84 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit: ; preds = %11, %switch.lookup
 
 _ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit: ; preds = %17, %22
   %.0.i8 = phi i64 [ %21, %17 ], [ %23, %22 ]
-  %sh.diff = lshr i64 %3, 8
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %24 = ashr i32 %tr.sh.diff, 24
-  %25 = trunc i64 %3 to i32
-  %26 = ashr i32 %25, 24
-  %27 = shl i32 %25, 8
-  %28 = ashr i32 %27, 24
-  %29 = shl i32 %25, 16
-  %30 = ashr i32 %29, 24
-  %sext = shl i32 %25, 24
-  %31 = ashr exact i32 %sext, 24
-  %32 = icmp eq i32 %9, 1
-  %33 = select i1 %32, ptr @.str.1, ptr @.str.2
+  %24 = shl i64 %3, 24
+  %25 = ashr i64 %24, 56
+  %26 = shl i64 %3, 32
+  %27 = ashr i64 %26, 56
+  %28 = shl i64 %3, 40
+  %29 = ashr i64 %28, 56
+  %30 = shl i64 %3, 48
+  %31 = ashr i64 %30, 56
+  %sext = shl i64 %3, 56
+  %32 = ashr exact i64 %sext, 56
+  %33 = icmp eq i32 %9, 1
+  %34 = select i1 %33, ptr @.str.1, ptr @.str.2
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4
   %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %.0.i, align 1, !noalias !4
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i.i to i64
-  %34 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %34, ptr %12, align 8, !tbaa !7, !noalias !4
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %35, align 8, !tbaa !10, !noalias !4
-  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.0.0.insert.ext.i.i.i16.i = zext i32 %31 to i64
-  %37 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i16.i to ptr
-  store ptr %37, ptr %36, align 8, !tbaa !7, !noalias !4
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %38, align 8, !tbaa !10, !noalias !4
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sroa.0.0.insert.ext.i.i.i18.i = zext i32 %30 to i64
-  %40 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i18.i to ptr
-  store ptr %40, ptr %39, align 8, !tbaa !7, !noalias !4
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %41, align 8, !tbaa !10, !noalias !4
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %.sroa.0.0.insert.ext.i.i.i20.i = zext i32 %28 to i64
-  %43 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i20.i to ptr
-  store ptr %43, ptr %42, align 8, !tbaa !7, !noalias !4
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %44, align 8, !tbaa !10, !noalias !4
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %.sroa.0.0.insert.ext.i.i.i22.i = zext i32 %26 to i64
-  %46 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i22.i to ptr
-  store ptr %46, ptr %45, align 8, !tbaa !7, !noalias !4
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %47, align 8, !tbaa !10, !noalias !4
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %.sroa.0.0.insert.ext.i.i.i24.i = zext i32 %24 to i64
-  %49 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i24.i to ptr
-  store ptr %49, ptr %48, align 8, !tbaa !7, !noalias !4
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %50, align 8, !tbaa !10, !noalias !4
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %52 = inttoptr i64 %.0.i8 to ptr
-  store ptr %52, ptr %51, align 8, !tbaa !7, !noalias !4
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %53, align 8, !tbaa !10, !noalias !4
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  %35 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
+  store ptr %35, ptr %12, align 8, !tbaa !7, !noalias !4
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %36, align 8, !tbaa !10, !noalias !4
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.0.0.insert.ext.i.i.i16.i = and i64 %32, 4294967295
+  %38 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i16.i to ptr
+  store ptr %38, ptr %37, align 8, !tbaa !7, !noalias !4
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %39, align 8, !tbaa !10, !noalias !4
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.0.0.insert.ext.i.i.i18.i = and i64 %31, 4294967295
+  %41 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i18.i to ptr
+  store ptr %41, ptr %40, align 8, !tbaa !7, !noalias !4
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %42, align 8, !tbaa !10, !noalias !4
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %.sroa.0.0.insert.ext.i.i.i20.i = and i64 %29, 4294967295
+  %44 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i20.i to ptr
+  store ptr %44, ptr %43, align 8, !tbaa !7, !noalias !4
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %45, align 8, !tbaa !10, !noalias !4
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %.sroa.0.0.insert.ext.i.i.i22.i = and i64 %27, 4294967295
+  %47 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i22.i to ptr
+  store ptr %47, ptr %46, align 8, !tbaa !7, !noalias !4
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %48, align 8, !tbaa !10, !noalias !4
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %.sroa.0.0.insert.ext.i.i.i24.i = and i64 %25, 4294967295
+  %50 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i24.i to ptr
+  store ptr %50, ptr %49, align 8, !tbaa !7, !noalias !4
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %51, align 8, !tbaa !10, !noalias !4
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %53 = inttoptr i64 %.0.i8 to ptr
+  store ptr %53, ptr %52, align 8, !tbaa !7, !noalias !4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %54, align 8, !tbaa !10, !noalias !4
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %.sroa.0.0.insert.ext.i.i.i27.i = zext i32 %6 to i64
-  %55 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i27.i to ptr
-  store ptr %55, ptr %54, align 8, !tbaa !7, !noalias !4
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %56, align 8, !tbaa !10, !noalias !4
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  store ptr %7, ptr %57, align 8, !tbaa !7, !noalias !4
-  %58 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %58, align 8, !tbaa !10, !noalias !4
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  %56 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i27.i to ptr
+  store ptr %56, ptr %55, align 8, !tbaa !7, !noalias !4
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %57, align 8, !tbaa !10, !noalias !4
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  store ptr %7, ptr %58, align 8, !tbaa !7, !noalias !4
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %59, align 8, !tbaa !10, !noalias !4
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %.sroa.0.0.insert.ext.i.i.i29.i = zext i32 %8 to i64
-  %60 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i29.i to ptr
-  store ptr %60, ptr %59, align 8, !tbaa !7, !noalias !4
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %61, align 8, !tbaa !10, !noalias !4
-  %62 = getelementptr inbounds nuw i8, ptr %12, i64 160
-  store ptr %33, ptr %62, align 8, !tbaa !7, !noalias !4
-  %63 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %63, align 8, !tbaa !10, !noalias !4
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 176
-  store ptr %10, ptr %64, align 8, !tbaa !7, !noalias !4
-  %65 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %65, align 8, !tbaa !10, !noalias !4
+  %61 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i29.i to ptr
+  store ptr %61, ptr %60, align 8, !tbaa !7, !noalias !4
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 152
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %62, align 8, !tbaa !10, !noalias !4
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 160
+  store ptr %34, ptr %63, align 8, !tbaa !7, !noalias !4
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 168
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %64, align 8, !tbaa !10, !noalias !4
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 176
+  store ptr %10, ptr %65, align 8, !tbaa !7, !noalias !4
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %66, align 8, !tbaa !10, !noalias !4
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str, i64 46, ptr nonnull %12, i64 12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !4
   ret void

@@ -5360,16 +5360,16 @@ define internal fastcc range(i32 -1, 1) i32 @long_format_binary(ptr noundef read
 
 9:                                                ; preds = %7
   %10 = getelementptr i8, ptr %0, i64 8
-  %.val280 = load ptr, ptr %10, align 8, !tbaa !26
-  %11 = getelementptr i8, ptr %.val280, i64 168
-  %.val281 = load i64, ptr %11, align 8, !tbaa !44
-  %12 = and i64 %.val281, 16777216
+  %.val276 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = getelementptr i8, ptr %.val276, i64 168
+  %.val277 = load i64, ptr %11, align 8, !tbaa !44
+  %12 = and i64 %.val277, 16777216
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %9, %7
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.2, i32 noundef 2400) #16
-  br label %294
+  br label %291
 
 14:                                               ; preds = %9
   %15 = getelementptr i8, ptr %0, i64 16
@@ -5425,7 +5425,7 @@ define internal fastcc range(i32 -1, 1) i32 @long_format_binary(ptr noundef read
 42:                                               ; preds = %24
   %43 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
   tail call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.37) #16
-  br label %294
+  br label %291
 
 44:                                               ; preds = %.thread, %22
   %.0225 = phi i64 [ 1, %22 ], [ %41, %.thread ]
@@ -5459,7 +5459,7 @@ define internal fastcc range(i32 -1, 1) i32 @long_format_binary(ptr noundef read
 59:                                               ; preds = %50, %58
   %60 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %4, i64 noundef %spec.select, i32 noundef 120) #16
   %61 = icmp eq i32 %60, -1
-  br i1 %61, label %294, label %.critedge
+  br i1 %61, label %291, label %.critedge
 
 62:                                               ; preds = %44
   %.not269 = icmp eq ptr %5, null
@@ -5470,542 +5470,537 @@ define internal fastcc range(i32 -1, 1) i32 @long_format_binary(ptr noundef read
   %65 = tail call ptr @_PyBytesWriter_Prepare(ptr noundef nonnull %5, ptr noundef %64, i64 noundef %spec.select) #16
   store ptr %65, ptr %6, align 8, !tbaa !154
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %294, label %.critedge.thread332
+  br i1 %66, label %291, label %.critedge.thread328
 
 67:                                               ; preds = %62
   %68 = tail call ptr @PyUnicode_New(i64 noundef %spec.select, i32 noundef 120) #16
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %294, label %111
+  br i1 %69, label %291, label %110
 
 .critedge:                                        ; preds = %50, %58, %59
   %.not270 = icmp eq ptr %5, null
-  br i1 %.not270, label %108, label %.critedge..critedge.thread332_crit_edge
+  br i1 %.not270, label %107, label %.critedge..critedge.thread328_crit_edge
 
-.critedge..critedge.thread332_crit_edge:          ; preds = %.critedge
+.critedge..critedge.thread328_crit_edge:          ; preds = %.critedge
   %.pre = load ptr, ptr %6, align 8, !tbaa !154
-  br label %.critedge.thread332
+  br label %.critedge.thread328
 
-.critedge.thread332:                              ; preds = %.critedge..critedge.thread332_crit_edge, %63
-  %70 = phi ptr [ %.pre, %.critedge..critedge.thread332_crit_edge ], [ %65, %63 ]
+.critedge.thread328:                              ; preds = %.critedge..critedge.thread328_crit_edge, %63
+  %70 = phi ptr [ %.pre, %.critedge..critedge.thread328_crit_edge ], [ %65, %63 ]
   %71 = getelementptr i8, ptr %70, i64 %spec.select
-  br i1 %23, label %76, label %.lr.ph
+  br i1 %23, label %77, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.critedge.thread332
+.lr.ph:                                           ; preds = %.critedge.thread328
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = add nuw nsw i32 %1, 255
-  %74 = zext nneg i32 %.0239 to i64
-  %75 = add nsw i64 %16, -1
-  br label %78
+  %74 = zext nneg i32 %73 to i64
+  %75 = zext nneg i32 %.0239 to i64
+  %76 = add nsw i64 %16, -1
+  br label %79
 
-76:                                               ; preds = %.critedge.thread332
-  %77 = getelementptr i8, ptr %71, i64 -1
-  store i8 48, ptr %77, align 1, !tbaa !29
-  br label %.loopexit349
+77:                                               ; preds = %.critedge.thread328
+  %78 = getelementptr i8, ptr %71, i64 -1
+  store i8 48, ptr %78, align 1, !tbaa !29
+  br label %.loopexit345
 
-78:                                               ; preds = %.lr.ph, %100
-  %.0241364 = phi i64 [ 0, %.lr.ph ], [ %101, %100 ]
-  %.0242363 = phi i32 [ 0, %.lr.ph ], [ %96, %100 ]
-  %.0244362 = phi i64 [ 0, %.lr.ph ], [ %97, %100 ]
-  %.1247361 = phi ptr [ %71, %.lr.ph ], [ %95, %100 ]
-  %79 = getelementptr i32, ptr %72, i64 %.0241364
-  %80 = load i32, ptr %79, align 4, !tbaa !33
-  %81 = zext i32 %80 to i64
-  %82 = zext nneg i32 %.0242363 to i64
-  %83 = shl i64 %81, %82
-  %84 = or i64 %83, %.0244362
-  %85 = add i32 %.0242363, 30
-  %86 = icmp slt i64 %.0241364, %75
-  br label %87
+79:                                               ; preds = %.lr.ph, %99
+  %.0241360 = phi i64 [ 0, %.lr.ph ], [ %100, %99 ]
+  %.0242359 = phi i32 [ 0, %.lr.ph ], [ %95, %99 ]
+  %.0244358 = phi i64 [ 0, %.lr.ph ], [ %96, %99 ]
+  %.1247357 = phi ptr [ %71, %.lr.ph ], [ %94, %99 ]
+  %80 = getelementptr i32, ptr %72, i64 %.0241360
+  %81 = load i32, ptr %80, align 4, !tbaa !33
+  %82 = zext i32 %81 to i64
+  %83 = zext nneg i32 %.0242359 to i64
+  %84 = shl i64 %82, %83
+  %85 = or i64 %84, %.0244358
+  %86 = add i32 %.0242359, 30
+  %87 = icmp slt i64 %.0241360, %76
+  br label %88
 
-87:                                               ; preds = %87, %78
-  %.2248 = phi ptr [ %.1247361, %78 ], [ %95, %87 ]
-  %.1245 = phi i64 [ %84, %78 ], [ %97, %87 ]
-  %.1243 = phi i32 [ %85, %78 ], [ %96, %87 ]
-  %88 = trunc i64 %.1245 to i32
-  %89 = and i32 %73, %88
-  %90 = trunc i32 %89 to i8
+88:                                               ; preds = %88, %79
+  %.2248 = phi ptr [ %.1247357, %79 ], [ %94, %88 ]
+  %.1245 = phi i64 [ %85, %79 ], [ %96, %88 ]
+  %.1243 = phi i32 [ %86, %79 ], [ %95, %88 ]
+  %89 = and i64 %.1245, %74
+  %90 = trunc i64 %89 to i8
   %91 = icmp slt i8 %90, 10
-  %92 = select i1 %91, i32 48, i32 87
-  %93 = add i32 %92, %89
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr i8, ptr %.2248, i64 -1
-  store i8 %94, ptr %95, align 1, !tbaa !29
-  %96 = sub i32 %.1243, %.0239
-  %97 = lshr i64 %.1245, %74
-  %98 = icmp sge i32 %96, %.0239
-  %99 = icmp ne i64 %97, 0
-  %.in279 = select i1 %86, i1 %98, i1 %99
-  br i1 %.in279, label %87, label %100, !llvm.loop !174
+  %92 = select i1 %91, i8 48, i8 87
+  %93 = add i8 %92, %90
+  %94 = getelementptr i8, ptr %.2248, i64 -1
+  store i8 %93, ptr %94, align 1, !tbaa !29
+  %95 = sub i32 %.1243, %.0239
+  %96 = lshr i64 %.1245, %75
+  %97 = icmp sge i32 %95, %.0239
+  %98 = icmp ne i64 %96, 0
+  %.in275 = select i1 %87, i1 %97, i1 %98
+  br i1 %.in275, label %88, label %99, !llvm.loop !174
 
-100:                                              ; preds = %87
-  %101 = add nuw nsw i64 %.0241364, 1
-  %exitcond.not = icmp eq i64 %101, %16
-  br i1 %exitcond.not, label %.loopexit349, label %78, !llvm.loop !175
+99:                                               ; preds = %88
+  %100 = add nuw nsw i64 %.0241360, 1
+  %exitcond.not = icmp eq i64 %100, %16
+  br i1 %exitcond.not, label %.loopexit345, label %79, !llvm.loop !175
 
-.loopexit349:                                     ; preds = %100, %76
-  %.0246 = phi ptr [ %77, %76 ], [ %95, %100 ]
-  br i1 %.not267, label %105, label %102
+.loopexit345:                                     ; preds = %99, %77
+  %.0246 = phi ptr [ %78, %77 ], [ %94, %99 ]
+  br i1 %.not267, label %104, label %101
 
-102:                                              ; preds = %.loopexit349
-  %103 = getelementptr i8, ptr %.0246, i64 -1
+101:                                              ; preds = %.loopexit345
+  %102 = getelementptr i8, ptr %.0246, i64 -1
   %switch.selectcmp = icmp eq i32 %1, 8
   %switch.select = select i1 %switch.selectcmp, i8 111, i8 98
-  %switch.selectcmp426 = icmp eq i32 %1, 16
-  %switch.select427 = select i1 %switch.selectcmp426, i8 120, i8 %switch.select
-  store i8 %switch.select427, ptr %103, align 1, !tbaa !29
-  %104 = getelementptr i8, ptr %.0246, i64 -2
-  store i8 48, ptr %104, align 1, !tbaa !29
-  br label %105
+  %switch.selectcmp422 = icmp eq i32 %1, 16
+  %switch.select423 = select i1 %switch.selectcmp422, i8 120, i8 %switch.select
+  store i8 %switch.select423, ptr %102, align 1, !tbaa !29
+  %103 = getelementptr i8, ptr %.0246, i64 -2
+  store i8 48, ptr %103, align 1, !tbaa !29
+  br label %104
 
-105:                                              ; preds = %102, %.loopexit349
-  %.3249 = phi ptr [ %104, %102 ], [ %.0246, %.loopexit349 ]
-  br i1 %18, label %106, label %284
+104:                                              ; preds = %101, %.loopexit345
+  %.3249 = phi ptr [ %103, %101 ], [ %.0246, %.loopexit345 ]
+  br i1 %18, label %105, label %281
 
-106:                                              ; preds = %105
-  %107 = getelementptr i8, ptr %.3249, i64 -1
-  store i8 45, ptr %107, align 1, !tbaa !29
-  br label %284
+105:                                              ; preds = %104
+  %106 = getelementptr i8, ptr %.3249, i64 -1
+  store i8 45, ptr %106, align 1, !tbaa !29
+  br label %281
 
-108:                                              ; preds = %.critedge
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %110 = load i32, ptr %109, align 8, !tbaa !163
-  br label %116
+107:                                              ; preds = %.critedge
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %109 = load i32, ptr %108, align 8, !tbaa !163
+  br label %115
 
-111:                                              ; preds = %67
-  %112 = getelementptr inbounds nuw i8, ptr %68, i64 34
-  %113 = load i16, ptr %112, align 2
-  %114 = and i16 %113, 7
-  %115 = zext nneg i16 %114 to i32
-  br label %116
+110:                                              ; preds = %67
+  %111 = getelementptr inbounds nuw i8, ptr %68, i64 34
+  %112 = load i16, ptr %111, align 2
+  %113 = and i16 %112, 7
+  %114 = zext nneg i16 %113 to i32
+  br label %115
 
-116:                                              ; preds = %111, %108
-  %.0213329342 = phi ptr [ null, %108 ], [ %68, %111 ]
-  %117 = phi i32 [ %110, %108 ], [ %115, %111 ]
-  switch i32 %117, label %229 [
-    i32 1, label %118
-    i32 2, label %173
+115:                                              ; preds = %110, %107
+  %.0213325338 = phi ptr [ null, %107 ], [ %68, %110 ]
+  %116 = phi i32 [ %109, %107 ], [ %114, %110 ]
+  switch i32 %116, label %226 [
+    i32 1, label %117
+    i32 2, label %171
   ]
 
-118:                                              ; preds = %116
-  br i1 %.not268, label %130, label %119
+117:                                              ; preds = %115
+  br i1 %.not268, label %129, label %118
 
-119:                                              ; preds = %118
-  %120 = load ptr, ptr %4, align 8, !tbaa !164
-  %121 = getelementptr i8, ptr %120, i64 34
-  %.val.i = load i16, ptr %121, align 2
-  %122 = and i16 %.val.i, 8
-  %.not.i = icmp eq i16 %122, 0
-  br i1 %.not.i, label %125, label %123
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %4, align 8, !tbaa !164
+  %120 = getelementptr i8, ptr %119, i64 34
+  %.val.i = load i16, ptr %120, align 2
+  %121 = and i16 %.val.i, 8
+  %.not.i = icmp eq i16 %121, 0
+  br i1 %.not.i, label %124, label %122
 
-123:                                              ; preds = %119
-  %124 = and i16 %.val.i, 16
-  %.not.i.i283 = icmp eq i16 %124, 0
-  %.0.v.i.i = select i1 %.not.i.i283, i64 56, i64 40
-  %.0.i.i284 = getelementptr i8, ptr %120, i64 %.0.v.i.i
+122:                                              ; preds = %118
+  %123 = and i16 %.val.i, 16
+  %.not.i.i279 = icmp eq i16 %123, 0
+  %.0.v.i.i = select i1 %.not.i.i279, i64 56, i64 40
+  %.0.i.i280 = getelementptr i8, ptr %119, i64 %.0.v.i.i
   br label %_PyUnicode_DATA.exit
 
-125:                                              ; preds = %119
-  %126 = getelementptr i8, ptr %120, i64 56
-  %.val4.i = load ptr, ptr %126, align 8, !tbaa !29
+124:                                              ; preds = %118
+  %125 = getelementptr i8, ptr %119, i64 56
+  %.val4.i = load ptr, ptr %125, align 8, !tbaa !29
   br label %_PyUnicode_DATA.exit
 
-_PyUnicode_DATA.exit:                             ; preds = %123, %125
-  %.0.i = phi ptr [ %.0.i.i284, %123 ], [ %.val4.i, %125 ]
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %128 = load i64, ptr %127, align 8, !tbaa !153
-  %129 = getelementptr i8, ptr %.0.i, i64 %128
-  br label %_PyUnicode_DATA.exit292
+_PyUnicode_DATA.exit:                             ; preds = %122, %124
+  %.0.i = phi ptr [ %.0.i.i280, %122 ], [ %.val4.i, %124 ]
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %127 = load i64, ptr %126, align 8, !tbaa !153
+  %128 = getelementptr i8, ptr %.0.i, i64 %127
+  br label %_PyUnicode_DATA.exit288
 
-130:                                              ; preds = %118
-  %131 = getelementptr i8, ptr %.0213329342, i64 34
-  %.val.i285 = load i16, ptr %131, align 2
-  %132 = and i16 %.val.i285, 8
-  %.not.i286 = icmp eq i16 %132, 0
-  br i1 %.not.i286, label %135, label %133
+129:                                              ; preds = %117
+  %130 = getelementptr i8, ptr %.0213325338, i64 34
+  %.val.i281 = load i16, ptr %130, align 2
+  %131 = and i16 %.val.i281, 8
+  %.not.i282 = icmp eq i16 %131, 0
+  br i1 %.not.i282, label %134, label %132
 
-133:                                              ; preds = %130
-  %134 = and i16 %.val.i285, 16
-  %.not.i.i287 = icmp eq i16 %134, 0
-  %.0.v.i.i288 = select i1 %.not.i.i287, i64 56, i64 40
-  %.0.i.i289 = getelementptr i8, ptr %.0213329342, i64 %.0.v.i.i288
-  br label %_PyUnicode_DATA.exit292
+132:                                              ; preds = %129
+  %133 = and i16 %.val.i281, 16
+  %.not.i.i283 = icmp eq i16 %133, 0
+  %.0.v.i.i284 = select i1 %.not.i.i283, i64 56, i64 40
+  %.0.i.i285 = getelementptr i8, ptr %.0213325338, i64 %.0.v.i.i284
+  br label %_PyUnicode_DATA.exit288
 
-135:                                              ; preds = %130
-  %136 = getelementptr i8, ptr %.0213329342, i64 56
-  %.val4.i291 = load ptr, ptr %136, align 8, !tbaa !29
-  br label %_PyUnicode_DATA.exit292
+134:                                              ; preds = %129
+  %135 = getelementptr i8, ptr %.0213325338, i64 56
+  %.val4.i287 = load ptr, ptr %135, align 8, !tbaa !29
+  br label %_PyUnicode_DATA.exit288
 
-_PyUnicode_DATA.exit292:                          ; preds = %135, %133, %_PyUnicode_DATA.exit
-  %.pn275 = phi ptr [ %129, %_PyUnicode_DATA.exit ], [ %.0.i.i289, %133 ], [ %.val4.i291, %135 ]
-  %.0233 = getelementptr i8, ptr %.pn275, i64 %spec.select
-  br i1 %23, label %141, label %.lr.ph375
+_PyUnicode_DATA.exit288:                          ; preds = %134, %132, %_PyUnicode_DATA.exit
+  %.pn273 = phi ptr [ %128, %_PyUnicode_DATA.exit ], [ %.0.i.i285, %132 ], [ %.val4.i287, %134 ]
+  %.0233 = getelementptr i8, ptr %.pn273, i64 %spec.select
+  br i1 %23, label %141, label %.lr.ph371
 
-.lr.ph375:                                        ; preds = %_PyUnicode_DATA.exit292
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %138 = add nuw nsw i32 %1, 255
+.lr.ph371:                                        ; preds = %_PyUnicode_DATA.exit288
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %137 = add nuw nsw i32 %1, 255
+  %138 = zext nneg i32 %137 to i64
   %139 = zext nneg i32 %.0239 to i64
   %140 = add nsw i64 %16, -1
   br label %143
 
-141:                                              ; preds = %_PyUnicode_DATA.exit292
+141:                                              ; preds = %_PyUnicode_DATA.exit288
   %142 = getelementptr i8, ptr %.0233, i64 -1
   store i8 48, ptr %142, align 1, !tbaa !29
-  br label %.loopexit345
+  br label %.loopexit341
 
-143:                                              ; preds = %.lr.ph375, %165
-  %.0228374 = phi i64 [ 0, %.lr.ph375 ], [ %166, %165 ]
-  %.0229373 = phi i32 [ 0, %.lr.ph375 ], [ %161, %165 ]
-  %.0231372 = phi i64 [ 0, %.lr.ph375 ], [ %162, %165 ]
-  %.2235371 = phi ptr [ %.0233, %.lr.ph375 ], [ %160, %165 ]
-  %144 = getelementptr i32, ptr %137, i64 %.0228374
+143:                                              ; preds = %.lr.ph371, %163
+  %.0228370 = phi i64 [ 0, %.lr.ph371 ], [ %164, %163 ]
+  %.0229369 = phi i32 [ 0, %.lr.ph371 ], [ %159, %163 ]
+  %.0231368 = phi i64 [ 0, %.lr.ph371 ], [ %160, %163 ]
+  %.2235367 = phi ptr [ %.0233, %.lr.ph371 ], [ %158, %163 ]
+  %144 = getelementptr i32, ptr %136, i64 %.0228370
   %145 = load i32, ptr %144, align 4, !tbaa !33
   %146 = zext i32 %145 to i64
-  %147 = zext nneg i32 %.0229373 to i64
+  %147 = zext nneg i32 %.0229369 to i64
   %148 = shl i64 %146, %147
-  %149 = or i64 %148, %.0231372
-  %150 = add i32 %.0229373, 30
-  %151 = icmp slt i64 %.0228374, %140
+  %149 = or i64 %148, %.0231368
+  %150 = add i32 %.0229369, 30
+  %151 = icmp slt i64 %.0228370, %140
   br label %152
 
 152:                                              ; preds = %152, %143
-  %.3236 = phi ptr [ %.2235371, %143 ], [ %160, %152 ]
-  %.1232 = phi i64 [ %149, %143 ], [ %162, %152 ]
-  %.1230 = phi i32 [ %150, %143 ], [ %161, %152 ]
-  %153 = trunc i64 %.1232 to i32
-  %154 = and i32 %138, %153
-  %155 = trunc i32 %154 to i8
-  %156 = icmp slt i8 %155, 10
-  %157 = select i1 %156, i32 48, i32 87
-  %158 = add i32 %157, %154
-  %159 = trunc i32 %158 to i8
-  %160 = getelementptr i8, ptr %.3236, i64 -1
-  store i8 %159, ptr %160, align 1, !tbaa !29
-  %161 = sub i32 %.1230, %.0239
-  %162 = lshr i64 %.1232, %139
-  %163 = icmp sge i32 %161, %.0239
-  %164 = icmp ne i64 %162, 0
-  %.in277 = select i1 %151, i1 %163, i1 %164
-  br i1 %.in277, label %152, label %165, !llvm.loop !176
+  %.3236 = phi ptr [ %.2235367, %143 ], [ %158, %152 ]
+  %.1232 = phi i64 [ %149, %143 ], [ %160, %152 ]
+  %.1230 = phi i32 [ %150, %143 ], [ %159, %152 ]
+  %153 = and i64 %.1232, %138
+  %154 = trunc i64 %153 to i8
+  %155 = icmp slt i8 %154, 10
+  %156 = select i1 %155, i8 48, i8 87
+  %157 = add i8 %156, %154
+  %158 = getelementptr i8, ptr %.3236, i64 -1
+  store i8 %157, ptr %158, align 1, !tbaa !29
+  %159 = sub i32 %.1230, %.0239
+  %160 = lshr i64 %.1232, %139
+  %161 = icmp sge i32 %159, %.0239
+  %162 = icmp ne i64 %160, 0
+  %.in274 = select i1 %151, i1 %161, i1 %162
+  br i1 %.in274, label %152, label %163, !llvm.loop !176
 
-165:                                              ; preds = %152
-  %166 = add nuw nsw i64 %.0228374, 1
-  %exitcond399.not = icmp eq i64 %166, %16
-  br i1 %exitcond399.not, label %.loopexit345, label %143, !llvm.loop !177
+163:                                              ; preds = %152
+  %164 = add nuw nsw i64 %.0228370, 1
+  %exitcond395.not = icmp eq i64 %164, %16
+  br i1 %exitcond395.not, label %.loopexit341, label %143, !llvm.loop !177
 
-.loopexit345:                                     ; preds = %165, %141
-  %.1234 = phi ptr [ %142, %141 ], [ %160, %165 ]
-  br i1 %.not267, label %170, label %167
+.loopexit341:                                     ; preds = %163, %141
+  %.1234 = phi ptr [ %142, %141 ], [ %158, %163 ]
+  br i1 %.not267, label %168, label %165
 
-167:                                              ; preds = %.loopexit345
-  %168 = getelementptr i8, ptr %.1234, i64 -1
-  %switch.selectcmp428 = icmp eq i32 %1, 8
-  %switch.select429 = select i1 %switch.selectcmp428, i8 111, i8 98
-  %switch.selectcmp430 = icmp eq i32 %1, 16
-  %switch.select431 = select i1 %switch.selectcmp430, i8 120, i8 %switch.select429
-  store i8 %switch.select431, ptr %168, align 1, !tbaa !29
-  %169 = getelementptr i8, ptr %.1234, i64 -2
-  store i8 48, ptr %169, align 1, !tbaa !29
-  br label %170
+165:                                              ; preds = %.loopexit341
+  %166 = getelementptr i8, ptr %.1234, i64 -1
+  %switch.selectcmp424 = icmp eq i32 %1, 8
+  %switch.select425 = select i1 %switch.selectcmp424, i8 111, i8 98
+  %switch.selectcmp426 = icmp eq i32 %1, 16
+  %switch.select427 = select i1 %switch.selectcmp426, i8 120, i8 %switch.select425
+  store i8 %switch.select427, ptr %166, align 1, !tbaa !29
+  %167 = getelementptr i8, ptr %.1234, i64 -2
+  store i8 48, ptr %167, align 1, !tbaa !29
+  br label %168
 
-170:                                              ; preds = %167, %.loopexit345
-  %.4237 = phi ptr [ %169, %167 ], [ %.1234, %.loopexit345 ]
-  br i1 %18, label %171, label %284
+168:                                              ; preds = %165, %.loopexit341
+  %.4237 = phi ptr [ %167, %165 ], [ %.1234, %.loopexit341 ]
+  br i1 %18, label %169, label %281
 
-171:                                              ; preds = %170
-  %172 = getelementptr i8, ptr %.4237, i64 -1
-  store i8 45, ptr %172, align 1, !tbaa !29
-  br label %284
-
-173:                                              ; preds = %116
-  br i1 %.not268, label %185, label %174
-
-174:                                              ; preds = %173
-  %175 = load ptr, ptr %4, align 8, !tbaa !164
-  %176 = getelementptr i8, ptr %175, i64 34
-  %.val.i293 = load i16, ptr %176, align 2
-  %177 = and i16 %.val.i293, 8
-  %.not.i294 = icmp eq i16 %177, 0
-  br i1 %.not.i294, label %180, label %178
-
-178:                                              ; preds = %174
-  %179 = and i16 %.val.i293, 16
-  %.not.i.i295 = icmp eq i16 %179, 0
-  %.0.v.i.i296 = select i1 %.not.i.i295, i64 56, i64 40
-  %.0.i.i297 = getelementptr i8, ptr %175, i64 %.0.v.i.i296
-  br label %_PyUnicode_DATA.exit300
-
-180:                                              ; preds = %174
-  %181 = getelementptr i8, ptr %175, i64 56
-  %.val4.i299 = load ptr, ptr %181, align 8, !tbaa !29
-  br label %_PyUnicode_DATA.exit300
-
-_PyUnicode_DATA.exit300:                          ; preds = %178, %180
-  %.0.i298 = phi ptr [ %.0.i.i297, %178 ], [ %.val4.i299, %180 ]
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %183 = load i64, ptr %182, align 8, !tbaa !153
-  %184 = getelementptr i16, ptr %.0.i298, i64 %183
-  br label %_PyUnicode_DATA.exit308
-
-185:                                              ; preds = %173
-  %186 = getelementptr i8, ptr %.0213329342, i64 34
-  %.val.i301 = load i16, ptr %186, align 2
-  %187 = and i16 %.val.i301, 8
-  %.not.i302 = icmp eq i16 %187, 0
-  br i1 %.not.i302, label %190, label %188
-
-188:                                              ; preds = %185
-  %189 = and i16 %.val.i301, 16
-  %.not.i.i303 = icmp eq i16 %189, 0
-  %.0.v.i.i304 = select i1 %.not.i.i303, i64 56, i64 40
-  %.0.i.i305 = getelementptr i8, ptr %.0213329342, i64 %.0.v.i.i304
-  br label %_PyUnicode_DATA.exit308
-
-190:                                              ; preds = %185
-  %191 = getelementptr i8, ptr %.0213329342, i64 56
-  %.val4.i307 = load ptr, ptr %191, align 8, !tbaa !29
-  br label %_PyUnicode_DATA.exit308
-
-_PyUnicode_DATA.exit308:                          ; preds = %190, %188, %_PyUnicode_DATA.exit300
-  %.pn271 = phi ptr [ %184, %_PyUnicode_DATA.exit300 ], [ %.0.i.i305, %188 ], [ %.val4.i307, %190 ]
-  %.0219 = getelementptr i16, ptr %.pn271, i64 %spec.select
-  br i1 %23, label %196, label %.lr.ph369
-
-.lr.ph369:                                        ; preds = %_PyUnicode_DATA.exit308
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %193 = add nuw nsw i32 %1, 255
-  %194 = zext nneg i32 %.0239 to i64
-  %195 = add nsw i64 %16, -1
-  br label %198
-
-196:                                              ; preds = %_PyUnicode_DATA.exit308
-  %197 = getelementptr i8, ptr %.0219, i64 -2
-  store i16 48, ptr %197, align 2, !tbaa !78
-  br label %.loopexit347
-
-198:                                              ; preds = %.lr.ph369, %221
-  %.0214368 = phi i64 [ 0, %.lr.ph369 ], [ %222, %221 ]
-  %.0215367 = phi i32 [ 0, %.lr.ph369 ], [ %217, %221 ]
-  %.0217366 = phi i64 [ 0, %.lr.ph369 ], [ %218, %221 ]
-  %.2221365 = phi ptr [ %.0219, %.lr.ph369 ], [ %216, %221 ]
-  %199 = getelementptr i32, ptr %192, i64 %.0214368
-  %200 = load i32, ptr %199, align 4, !tbaa !33
-  %201 = zext i32 %200 to i64
-  %202 = zext nneg i32 %.0215367 to i64
-  %203 = shl i64 %201, %202
-  %204 = or i64 %203, %.0217366
-  %205 = add i32 %.0215367, 30
-  %206 = icmp slt i64 %.0214368, %195
-  br label %207
-
-207:                                              ; preds = %207, %198
-  %.3222 = phi ptr [ %.2221365, %198 ], [ %216, %207 ]
-  %.1218 = phi i64 [ %204, %198 ], [ %218, %207 ]
-  %.1216 = phi i32 [ %205, %198 ], [ %217, %207 ]
-  %208 = trunc i64 %.1218 to i32
-  %209 = and i32 %193, %208
-  %210 = trunc i32 %209 to i8
-  %211 = icmp slt i8 %210, 10
-  %212 = select i1 %211, i32 48, i32 87
-  %213 = add i32 %212, %209
-  %214 = trunc i32 %213 to i16
-  %sext273 = shl i16 %214, 8
-  %215 = ashr exact i16 %sext273, 8
-  %216 = getelementptr i8, ptr %.3222, i64 -2
-  store i16 %215, ptr %216, align 2, !tbaa !78
-  %217 = sub i32 %.1216, %.0239
-  %218 = lshr i64 %.1218, %194
-  %219 = icmp sge i32 %217, %.0239
-  %220 = icmp ne i64 %218, 0
-  %.in274 = select i1 %206, i1 %219, i1 %220
-  br i1 %.in274, label %207, label %221, !llvm.loop !178
-
-221:                                              ; preds = %207
-  %222 = add nuw nsw i64 %.0214368, 1
-  %exitcond398.not = icmp eq i64 %222, %16
-  br i1 %exitcond398.not, label %.loopexit347, label %198, !llvm.loop !179
-
-.loopexit347:                                     ; preds = %221, %196
-  %.1220 = phi ptr [ %197, %196 ], [ %216, %221 ]
-  br i1 %.not267, label %226, label %223
-
-223:                                              ; preds = %.loopexit347
-  %224 = getelementptr i8, ptr %.1220, i64 -2
-  %switch.selectcmp432 = icmp eq i32 %1, 8
-  %switch.select433 = select i1 %switch.selectcmp432, i16 111, i16 98
-  %switch.selectcmp434 = icmp eq i32 %1, 16
-  %switch.select435 = select i1 %switch.selectcmp434, i16 120, i16 %switch.select433
-  store i16 %switch.select435, ptr %224, align 2, !tbaa !78
-  %225 = getelementptr i8, ptr %.1220, i64 -4
-  store i16 48, ptr %225, align 2, !tbaa !78
-  br label %226
-
-226:                                              ; preds = %223, %.loopexit347
-  %.4223 = phi ptr [ %225, %223 ], [ %.1220, %.loopexit347 ]
-  br i1 %18, label %227, label %284
-
-227:                                              ; preds = %226
-  %228 = getelementptr i8, ptr %.4223, i64 -2
-  store i16 45, ptr %228, align 2, !tbaa !78
-  br label %284
-
-229:                                              ; preds = %116
-  br i1 %.not268, label %241, label %230
-
-230:                                              ; preds = %229
-  %231 = load ptr, ptr %4, align 8, !tbaa !164
-  %232 = getelementptr i8, ptr %231, i64 34
-  %.val.i309 = load i16, ptr %232, align 2
-  %233 = and i16 %.val.i309, 8
-  %.not.i310 = icmp eq i16 %233, 0
-  br i1 %.not.i310, label %236, label %234
-
-234:                                              ; preds = %230
-  %235 = and i16 %.val.i309, 16
-  %.not.i.i311 = icmp eq i16 %235, 0
-  %.0.v.i.i312 = select i1 %.not.i.i311, i64 56, i64 40
-  %.0.i.i313 = getelementptr i8, ptr %231, i64 %.0.v.i.i312
-  br label %_PyUnicode_DATA.exit316
-
-236:                                              ; preds = %230
-  %237 = getelementptr i8, ptr %231, i64 56
-  %.val4.i315 = load ptr, ptr %237, align 8, !tbaa !29
-  br label %_PyUnicode_DATA.exit316
-
-_PyUnicode_DATA.exit316:                          ; preds = %234, %236
-  %.0.i314 = phi ptr [ %.0.i.i313, %234 ], [ %.val4.i315, %236 ]
-  %238 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %239 = load i64, ptr %238, align 8, !tbaa !153
-  %240 = getelementptr i32, ptr %.0.i314, i64 %239
-  br label %_PyUnicode_DATA.exit324
-
-241:                                              ; preds = %229
-  %242 = getelementptr i8, ptr %.0213329342, i64 34
-  %.val.i317 = load i16, ptr %242, align 2
-  %243 = and i16 %.val.i317, 8
-  %.not.i318 = icmp eq i16 %243, 0
-  br i1 %.not.i318, label %246, label %244
-
-244:                                              ; preds = %241
-  %245 = and i16 %.val.i317, 16
-  %.not.i.i319 = icmp eq i16 %245, 0
-  %.0.v.i.i320 = select i1 %.not.i.i319, i64 56, i64 40
-  %.0.i.i321 = getelementptr i8, ptr %.0213329342, i64 %.0.v.i.i320
-  br label %_PyUnicode_DATA.exit324
-
-246:                                              ; preds = %241
-  %247 = getelementptr i8, ptr %.0213329342, i64 56
-  %.val4.i323 = load ptr, ptr %247, align 8, !tbaa !29
-  br label %_PyUnicode_DATA.exit324
-
-_PyUnicode_DATA.exit324:                          ; preds = %246, %244, %_PyUnicode_DATA.exit316
-  %.pn = phi ptr [ %240, %_PyUnicode_DATA.exit316 ], [ %.0.i.i321, %244 ], [ %.val4.i323, %246 ]
-  %.0211 = getelementptr i32, ptr %.pn, i64 %spec.select
-  br i1 %23, label %252, label %.lr.ph381
-
-.lr.ph381:                                        ; preds = %_PyUnicode_DATA.exit324
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %249 = add nuw nsw i32 %1, 255
-  %250 = zext nneg i32 %.0239 to i64
-  %251 = add nsw i64 %16, -1
-  br label %254
-
-252:                                              ; preds = %_PyUnicode_DATA.exit324
-  %253 = getelementptr i8, ptr %.0211, i64 -4
-  store i32 48, ptr %253, align 4, !tbaa !33
-  br label %.loopexit
-
-254:                                              ; preds = %.lr.ph381, %276
-  %.0206380 = phi i64 [ 0, %.lr.ph381 ], [ %277, %276 ]
-  %.0207379 = phi i32 [ 0, %.lr.ph381 ], [ %272, %276 ]
-  %.0209378 = phi i64 [ 0, %.lr.ph381 ], [ %273, %276 ]
-  %.2377 = phi ptr [ %.0211, %.lr.ph381 ], [ %271, %276 ]
-  %255 = getelementptr i32, ptr %248, i64 %.0206380
-  %256 = load i32, ptr %255, align 4, !tbaa !33
-  %257 = zext i32 %256 to i64
-  %258 = zext nneg i32 %.0207379 to i64
-  %259 = shl i64 %257, %258
-  %260 = or i64 %259, %.0209378
-  %261 = add i32 %.0207379, 30
-  %262 = icmp slt i64 %.0206380, %251
-  br label %263
-
-263:                                              ; preds = %263, %254
-  %.3 = phi ptr [ %.2377, %254 ], [ %271, %263 ]
-  %.1210 = phi i64 [ %260, %254 ], [ %273, %263 ]
-  %.1208 = phi i32 [ %261, %254 ], [ %272, %263 ]
-  %264 = trunc i64 %.1210 to i32
-  %265 = and i32 %249, %264
-  %266 = trunc i32 %265 to i8
-  %267 = icmp slt i8 %266, 10
-  %268 = select i1 %267, i32 48, i32 87
-  %269 = add i32 %268, %265
-  %sext = shl i32 %269, 24
-  %270 = ashr exact i32 %sext, 24
-  %271 = getelementptr i8, ptr %.3, i64 -4
-  store i32 %270, ptr %271, align 4, !tbaa !33
-  %272 = sub i32 %.1208, %.0239
-  %273 = lshr i64 %.1210, %250
-  %274 = icmp sge i32 %272, %.0239
-  %275 = icmp ne i64 %273, 0
-  %.in = select i1 %262, i1 %274, i1 %275
-  br i1 %.in, label %263, label %276, !llvm.loop !180
-
-276:                                              ; preds = %263
-  %277 = add nuw nsw i64 %.0206380, 1
-  %exitcond400.not = icmp eq i64 %277, %16
-  br i1 %exitcond400.not, label %.loopexit, label %254, !llvm.loop !181
-
-.loopexit:                                        ; preds = %276, %252
-  %.1212 = phi ptr [ %253, %252 ], [ %271, %276 ]
-  br i1 %.not267, label %281, label %278
-
-278:                                              ; preds = %.loopexit
-  %279 = getelementptr i8, ptr %.1212, i64 -4
-  %switch.selectcmp436 = icmp eq i32 %1, 8
-  %switch.select437 = select i1 %switch.selectcmp436, i32 111, i32 98
-  %switch.selectcmp438 = icmp eq i32 %1, 16
-  %switch.select439 = select i1 %switch.selectcmp438, i32 120, i32 %switch.select437
-  store i32 %switch.select439, ptr %279, align 4, !tbaa !33
-  %280 = getelementptr i8, ptr %.1212, i64 -8
-  store i32 48, ptr %280, align 4, !tbaa !33
+169:                                              ; preds = %168
+  %170 = getelementptr i8, ptr %.4237, i64 -1
+  store i8 45, ptr %170, align 1, !tbaa !29
   br label %281
 
-281:                                              ; preds = %278, %.loopexit
-  %.4 = phi ptr [ %280, %278 ], [ %.1212, %.loopexit ]
-  br i1 %18, label %282, label %284
+171:                                              ; preds = %115
+  br i1 %.not268, label %183, label %172
+
+172:                                              ; preds = %171
+  %173 = load ptr, ptr %4, align 8, !tbaa !164
+  %174 = getelementptr i8, ptr %173, i64 34
+  %.val.i289 = load i16, ptr %174, align 2
+  %175 = and i16 %.val.i289, 8
+  %.not.i290 = icmp eq i16 %175, 0
+  br i1 %.not.i290, label %178, label %176
+
+176:                                              ; preds = %172
+  %177 = and i16 %.val.i289, 16
+  %.not.i.i291 = icmp eq i16 %177, 0
+  %.0.v.i.i292 = select i1 %.not.i.i291, i64 56, i64 40
+  %.0.i.i293 = getelementptr i8, ptr %173, i64 %.0.v.i.i292
+  br label %_PyUnicode_DATA.exit296
+
+178:                                              ; preds = %172
+  %179 = getelementptr i8, ptr %173, i64 56
+  %.val4.i295 = load ptr, ptr %179, align 8, !tbaa !29
+  br label %_PyUnicode_DATA.exit296
+
+_PyUnicode_DATA.exit296:                          ; preds = %176, %178
+  %.0.i294 = phi ptr [ %.0.i.i293, %176 ], [ %.val4.i295, %178 ]
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %181 = load i64, ptr %180, align 8, !tbaa !153
+  %182 = getelementptr i16, ptr %.0.i294, i64 %181
+  br label %_PyUnicode_DATA.exit304
+
+183:                                              ; preds = %171
+  %184 = getelementptr i8, ptr %.0213325338, i64 34
+  %.val.i297 = load i16, ptr %184, align 2
+  %185 = and i16 %.val.i297, 8
+  %.not.i298 = icmp eq i16 %185, 0
+  br i1 %.not.i298, label %188, label %186
+
+186:                                              ; preds = %183
+  %187 = and i16 %.val.i297, 16
+  %.not.i.i299 = icmp eq i16 %187, 0
+  %.0.v.i.i300 = select i1 %.not.i.i299, i64 56, i64 40
+  %.0.i.i301 = getelementptr i8, ptr %.0213325338, i64 %.0.v.i.i300
+  br label %_PyUnicode_DATA.exit304
+
+188:                                              ; preds = %183
+  %189 = getelementptr i8, ptr %.0213325338, i64 56
+  %.val4.i303 = load ptr, ptr %189, align 8, !tbaa !29
+  br label %_PyUnicode_DATA.exit304
+
+_PyUnicode_DATA.exit304:                          ; preds = %188, %186, %_PyUnicode_DATA.exit296
+  %.pn271 = phi ptr [ %182, %_PyUnicode_DATA.exit296 ], [ %.0.i.i301, %186 ], [ %.val4.i303, %188 ]
+  %.0219 = getelementptr i16, ptr %.pn271, i64 %spec.select
+  br i1 %23, label %195, label %.lr.ph365
+
+.lr.ph365:                                        ; preds = %_PyUnicode_DATA.exit304
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %191 = add nuw nsw i32 %1, 255
+  %192 = zext nneg i32 %191 to i64
+  %193 = zext nneg i32 %.0239 to i64
+  %194 = add nsw i64 %16, -1
+  br label %197
+
+195:                                              ; preds = %_PyUnicode_DATA.exit304
+  %196 = getelementptr i8, ptr %.0219, i64 -2
+  store i16 48, ptr %196, align 2, !tbaa !78
+  br label %.loopexit343
+
+197:                                              ; preds = %.lr.ph365, %218
+  %.0214364 = phi i64 [ 0, %.lr.ph365 ], [ %219, %218 ]
+  %.0215363 = phi i32 [ 0, %.lr.ph365 ], [ %214, %218 ]
+  %.0217362 = phi i64 [ 0, %.lr.ph365 ], [ %215, %218 ]
+  %.2221361 = phi ptr [ %.0219, %.lr.ph365 ], [ %213, %218 ]
+  %198 = getelementptr i32, ptr %190, i64 %.0214364
+  %199 = load i32, ptr %198, align 4, !tbaa !33
+  %200 = zext i32 %199 to i64
+  %201 = zext nneg i32 %.0215363 to i64
+  %202 = shl i64 %200, %201
+  %203 = or i64 %202, %.0217362
+  %204 = add i32 %.0215363, 30
+  %205 = icmp slt i64 %.0214364, %194
+  br label %206
+
+206:                                              ; preds = %206, %197
+  %.3222 = phi ptr [ %.2221361, %197 ], [ %213, %206 ]
+  %.1218 = phi i64 [ %203, %197 ], [ %215, %206 ]
+  %.1216 = phi i32 [ %204, %197 ], [ %214, %206 ]
+  %207 = and i64 %.1218, %192
+  %208 = trunc i64 %207 to i8
+  %209 = icmp slt i8 %208, 10
+  %210 = select i1 %209, i8 48, i8 87
+  %211 = add i8 %210, %208
+  %212 = sext i8 %211 to i16
+  %213 = getelementptr i8, ptr %.3222, i64 -2
+  store i16 %212, ptr %213, align 2, !tbaa !78
+  %214 = sub i32 %.1216, %.0239
+  %215 = lshr i64 %.1218, %193
+  %216 = icmp sge i32 %214, %.0239
+  %217 = icmp ne i64 %215, 0
+  %.in272 = select i1 %205, i1 %216, i1 %217
+  br i1 %.in272, label %206, label %218, !llvm.loop !178
+
+218:                                              ; preds = %206
+  %219 = add nuw nsw i64 %.0214364, 1
+  %exitcond394.not = icmp eq i64 %219, %16
+  br i1 %exitcond394.not, label %.loopexit343, label %197, !llvm.loop !179
+
+.loopexit343:                                     ; preds = %218, %195
+  %.1220 = phi ptr [ %196, %195 ], [ %213, %218 ]
+  br i1 %.not267, label %223, label %220
+
+220:                                              ; preds = %.loopexit343
+  %221 = getelementptr i8, ptr %.1220, i64 -2
+  %switch.selectcmp428 = icmp eq i32 %1, 8
+  %switch.select429 = select i1 %switch.selectcmp428, i16 111, i16 98
+  %switch.selectcmp430 = icmp eq i32 %1, 16
+  %switch.select431 = select i1 %switch.selectcmp430, i16 120, i16 %switch.select429
+  store i16 %switch.select431, ptr %221, align 2, !tbaa !78
+  %222 = getelementptr i8, ptr %.1220, i64 -4
+  store i16 48, ptr %222, align 2, !tbaa !78
+  br label %223
+
+223:                                              ; preds = %220, %.loopexit343
+  %.4223 = phi ptr [ %222, %220 ], [ %.1220, %.loopexit343 ]
+  br i1 %18, label %224, label %281
+
+224:                                              ; preds = %223
+  %225 = getelementptr i8, ptr %.4223, i64 -2
+  store i16 45, ptr %225, align 2, !tbaa !78
+  br label %281
+
+226:                                              ; preds = %115
+  br i1 %.not268, label %238, label %227
+
+227:                                              ; preds = %226
+  %228 = load ptr, ptr %4, align 8, !tbaa !164
+  %229 = getelementptr i8, ptr %228, i64 34
+  %.val.i305 = load i16, ptr %229, align 2
+  %230 = and i16 %.val.i305, 8
+  %.not.i306 = icmp eq i16 %230, 0
+  br i1 %.not.i306, label %233, label %231
+
+231:                                              ; preds = %227
+  %232 = and i16 %.val.i305, 16
+  %.not.i.i307 = icmp eq i16 %232, 0
+  %.0.v.i.i308 = select i1 %.not.i.i307, i64 56, i64 40
+  %.0.i.i309 = getelementptr i8, ptr %228, i64 %.0.v.i.i308
+  br label %_PyUnicode_DATA.exit312
+
+233:                                              ; preds = %227
+  %234 = getelementptr i8, ptr %228, i64 56
+  %.val4.i311 = load ptr, ptr %234, align 8, !tbaa !29
+  br label %_PyUnicode_DATA.exit312
+
+_PyUnicode_DATA.exit312:                          ; preds = %231, %233
+  %.0.i310 = phi ptr [ %.0.i.i309, %231 ], [ %.val4.i311, %233 ]
+  %235 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %236 = load i64, ptr %235, align 8, !tbaa !153
+  %237 = getelementptr i32, ptr %.0.i310, i64 %236
+  br label %_PyUnicode_DATA.exit320
+
+238:                                              ; preds = %226
+  %239 = getelementptr i8, ptr %.0213325338, i64 34
+  %.val.i313 = load i16, ptr %239, align 2
+  %240 = and i16 %.val.i313, 8
+  %.not.i314 = icmp eq i16 %240, 0
+  br i1 %.not.i314, label %243, label %241
+
+241:                                              ; preds = %238
+  %242 = and i16 %.val.i313, 16
+  %.not.i.i315 = icmp eq i16 %242, 0
+  %.0.v.i.i316 = select i1 %.not.i.i315, i64 56, i64 40
+  %.0.i.i317 = getelementptr i8, ptr %.0213325338, i64 %.0.v.i.i316
+  br label %_PyUnicode_DATA.exit320
+
+243:                                              ; preds = %238
+  %244 = getelementptr i8, ptr %.0213325338, i64 56
+  %.val4.i319 = load ptr, ptr %244, align 8, !tbaa !29
+  br label %_PyUnicode_DATA.exit320
+
+_PyUnicode_DATA.exit320:                          ; preds = %243, %241, %_PyUnicode_DATA.exit312
+  %.pn = phi ptr [ %237, %_PyUnicode_DATA.exit312 ], [ %.0.i.i317, %241 ], [ %.val4.i319, %243 ]
+  %.0211 = getelementptr i32, ptr %.pn, i64 %spec.select
+  br i1 %23, label %250, label %.lr.ph377
+
+.lr.ph377:                                        ; preds = %_PyUnicode_DATA.exit320
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %246 = add nuw nsw i32 %1, 255
+  %247 = zext nneg i32 %246 to i64
+  %248 = zext nneg i32 %.0239 to i64
+  %249 = add nsw i64 %16, -1
+  br label %252
+
+250:                                              ; preds = %_PyUnicode_DATA.exit320
+  %251 = getelementptr i8, ptr %.0211, i64 -4
+  store i32 48, ptr %251, align 4, !tbaa !33
+  br label %.loopexit
+
+252:                                              ; preds = %.lr.ph377, %273
+  %.0206376 = phi i64 [ 0, %.lr.ph377 ], [ %274, %273 ]
+  %.0207375 = phi i32 [ 0, %.lr.ph377 ], [ %269, %273 ]
+  %.0209374 = phi i64 [ 0, %.lr.ph377 ], [ %270, %273 ]
+  %.2373 = phi ptr [ %.0211, %.lr.ph377 ], [ %268, %273 ]
+  %253 = getelementptr i32, ptr %245, i64 %.0206376
+  %254 = load i32, ptr %253, align 4, !tbaa !33
+  %255 = zext i32 %254 to i64
+  %256 = zext nneg i32 %.0207375 to i64
+  %257 = shl i64 %255, %256
+  %258 = or i64 %257, %.0209374
+  %259 = add i32 %.0207375, 30
+  %260 = icmp slt i64 %.0206376, %249
+  br label %261
+
+261:                                              ; preds = %261, %252
+  %.3 = phi ptr [ %.2373, %252 ], [ %268, %261 ]
+  %.1210 = phi i64 [ %258, %252 ], [ %270, %261 ]
+  %.1208 = phi i32 [ %259, %252 ], [ %269, %261 ]
+  %262 = and i64 %.1210, %247
+  %263 = trunc i64 %262 to i8
+  %264 = icmp slt i8 %263, 10
+  %265 = select i1 %264, i8 48, i8 87
+  %266 = add i8 %265, %263
+  %267 = sext i8 %266 to i32
+  %268 = getelementptr i8, ptr %.3, i64 -4
+  store i32 %267, ptr %268, align 4, !tbaa !33
+  %269 = sub i32 %.1208, %.0239
+  %270 = lshr i64 %.1210, %248
+  %271 = icmp sge i32 %269, %.0239
+  %272 = icmp ne i64 %270, 0
+  %.in = select i1 %260, i1 %271, i1 %272
+  br i1 %.in, label %261, label %273, !llvm.loop !180
+
+273:                                              ; preds = %261
+  %274 = add nuw nsw i64 %.0206376, 1
+  %exitcond396.not = icmp eq i64 %274, %16
+  br i1 %exitcond396.not, label %.loopexit, label %252, !llvm.loop !181
+
+.loopexit:                                        ; preds = %273, %250
+  %.1212 = phi ptr [ %251, %250 ], [ %268, %273 ]
+  br i1 %.not267, label %278, label %275
+
+275:                                              ; preds = %.loopexit
+  %276 = getelementptr i8, ptr %.1212, i64 -4
+  %switch.selectcmp432 = icmp eq i32 %1, 8
+  %switch.select433 = select i1 %switch.selectcmp432, i32 111, i32 98
+  %switch.selectcmp434 = icmp eq i32 %1, 16
+  %switch.select435 = select i1 %switch.selectcmp434, i32 120, i32 %switch.select433
+  store i32 %switch.select435, ptr %276, align 4, !tbaa !33
+  %277 = getelementptr i8, ptr %.1212, i64 -8
+  store i32 48, ptr %277, align 4, !tbaa !33
+  br label %278
+
+278:                                              ; preds = %275, %.loopexit
+  %.4 = phi ptr [ %277, %275 ], [ %.1212, %.loopexit ]
+  br i1 %18, label %279, label %281
+
+279:                                              ; preds = %278
+  %280 = getelementptr i8, ptr %.4, i64 -4
+  store i32 45, ptr %280, align 4, !tbaa !33
+  br label %281
+
+281:                                              ; preds = %168, %169, %223, %224, %278, %279, %104, %105
+  %.not270326 = phi i1 [ true, %168 ], [ true, %169 ], [ true, %223 ], [ true, %224 ], [ true, %278 ], [ true, %279 ], [ false, %104 ], [ false, %105 ]
+  %.0213324 = phi ptr [ %.0213325338, %168 ], [ %.0213325338, %169 ], [ %.0213325338, %223 ], [ %.0213325338, %224 ], [ %.0213325338, %278 ], [ %.0213325338, %279 ], [ null, %104 ], [ null, %105 ]
+  br i1 %.not268, label %286, label %282
 
 282:                                              ; preds = %281
-  %283 = getelementptr i8, ptr %.4, i64 -4
-  store i32 45, ptr %283, align 4, !tbaa !33
-  br label %284
+  %283 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %284 = load i64, ptr %283, align 8, !tbaa !153
+  %285 = add i64 %284, %spec.select
+  store i64 %285, ptr %283, align 8, !tbaa !153
+  br label %291
 
-284:                                              ; preds = %170, %171, %226, %227, %281, %282, %105, %106
-  %.not270330 = phi i1 [ true, %170 ], [ true, %171 ], [ true, %226 ], [ true, %227 ], [ true, %281 ], [ true, %282 ], [ false, %105 ], [ false, %106 ]
-  %.0213328 = phi ptr [ %.0213329342, %170 ], [ %.0213329342, %171 ], [ %.0213329342, %226 ], [ %.0213329342, %227 ], [ %.0213329342, %281 ], [ %.0213329342, %282 ], [ null, %105 ], [ null, %106 ]
-  br i1 %.not268, label %289, label %285
+286:                                              ; preds = %281
+  br i1 %.not270326, label %290, label %287
 
-285:                                              ; preds = %284
-  %286 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %287 = load i64, ptr %286, align 8, !tbaa !153
-  %288 = add i64 %287, %spec.select
-  store i64 %288, ptr %286, align 8, !tbaa !153
-  br label %294
+287:                                              ; preds = %286
+  %288 = load ptr, ptr %6, align 8, !tbaa !154
+  %289 = getelementptr i8, ptr %288, i64 %spec.select
+  store ptr %289, ptr %6, align 8, !tbaa !154
+  br label %291
 
-289:                                              ; preds = %284
-  br i1 %.not270330, label %293, label %290
+290:                                              ; preds = %286
+  store ptr %.0213324, ptr %3, align 8, !tbaa !4
+  br label %291
 
-290:                                              ; preds = %289
-  %291 = load ptr, ptr %6, align 8, !tbaa !154
-  %292 = getelementptr i8, ptr %291, i64 %spec.select
-  store ptr %292, ptr %6, align 8, !tbaa !154
-  br label %294
-
-293:                                              ; preds = %289
-  store ptr %.0213328, ptr %3, align 8, !tbaa !4
-  br label %294
-
-294:                                              ; preds = %42, %285, %293, %290, %67, %63, %59, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %42 ], [ -1, %59 ], [ -1, %63 ], [ -1, %67 ], [ 0, %290 ], [ 0, %293 ], [ 0, %285 ]
+291:                                              ; preds = %42, %282, %290, %287, %67, %63, %59, %13
+  %.0 = phi i32 [ -1, %13 ], [ -1, %42 ], [ -1, %59 ], [ -1, %63 ], [ -1, %67 ], [ 0, %287 ], [ 0, %290 ], [ 0, %282 ]
   ret i32 %.0
 }
 

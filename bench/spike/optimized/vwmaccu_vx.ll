@@ -74,8 +74,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vwmaccu_vx
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not228 = icmp eq i64 %7, 0
-  br i1 %.not228, label %12, label %8, !prof !131
+  %.not227 = icmp eq i64 %7, 0
+  br i1 %.not227, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -238,11 +238,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vwmaccu_vx
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i197 = icmp eq i32 %94, 0
+  %.not.i196 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i197, %97
+  %98 = or i1 %.not.i196, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -347,8 +347,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not229 = icmp eq i64 %147, 0
-  br i1 %.not229, label %151, label %148, !prof !131
+  %.not228 = icmp eq i64 %147, 0
+  br i1 %.not228, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -442,7 +442,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %204
 
-._crit_edge:                                      ; preds = %318, %179
+._crit_edge:                                      ; preds = %317, %179
   %200 = shl i64 %2, 32
   %201 = add i64 %200, 17179869184
   %202 = ashr exact i64 %201, 32
@@ -450,32 +450,32 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %203, i64 noundef 0) #15
   ret i64 %202
 
-204:                                              ; preds = %.lr.ph, %318
-  %.0184230 = phi i64 [ %194, %.lr.ph ], [ %319, %318 ]
+204:                                              ; preds = %.lr.ph, %317
+  %.0184229 = phi i64 [ %194, %.lr.ph ], [ %318, %317 ]
   br i1 %83, label %205, label %213
 
 205:                                              ; preds = %204
-  %206 = and i64 %.0184230, 63
-  %207 = shl i64 %.0184230, 26
+  %206 = and i64 %.0184229, 63
+  %207 = shl i64 %.0184229, 26
   %208 = ashr i64 %207, 32
   %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %208, i1 noundef zeroext false)
   %210 = load i64, ptr %209, align 8, !tbaa !146
   %211 = shl nuw i64 1, %206
   %212 = and i64 %210, %211
   %.not191 = icmp eq i64 %212, 0
-  br i1 %.not191, label %318, label %213
+  br i1 %.not191, label %317, label %213
 
 213:                                              ; preds = %205, %204
-  switch i64 %188, label %318 [
+  switch i64 %188, label %317 [
     i64 8, label %214
     i64 16, label %250
-    i64 32, label %285
+    i64 32, label %284
   ]
 
 214:                                              ; preds = %213
-  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %216 = load i64, ptr %199, align 8, !tbaa !146
-  %217 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %217 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %218 = load i8, ptr %217, align 1, !tbaa !152
   %219 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %219, label %240 [
@@ -484,34 +484,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 220:                                              ; preds = %214
-  %221 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %221 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %222 = load i16, ptr %221, align 2, !tbaa !153
   %223 = zext i8 %218 to i16
   %224 = trunc i64 %216 to i16
   %225 = and i16 %224, 255
   %226 = mul nuw i16 %225, %223
   %227 = add i16 %222, %226
-  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %227, ptr %228, align 2, !tbaa !153
-  br label %318
+  br label %317
 
 229:                                              ; preds = %214
-  %230 = trunc i64 %216 to i32
-  %231 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %230 = trunc i64 %216 to i8
+  %231 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %232 = load i32, ptr %231, align 4, !tbaa !155
   %233 = sext i8 %218 to i32
   %234 = and i32 %233, 65535
-  %sext193 = shl i32 %230, 24
-  %235 = ashr exact i32 %sext193, 24
+  %235 = sext i8 %230 to i32
   %236 = and i32 %235, 65535
   %237 = mul nuw i32 %234, %236
   %238 = add i32 %232, %237
-  %239 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %239 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %238, ptr %239, align 4, !tbaa !155
-  br label %318
+  br label %317
 
 240:                                              ; preds = %214
-  %241 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %241 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %242 = load i64, ptr %241, align 8, !tbaa !146
   %243 = sext i8 %218 to i64
   %244 = and i64 %243, 4294967295
@@ -520,14 +519,14 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %246 = and i64 %245, 4294967295
   %247 = mul nuw i64 %244, %246
   %248 = add i64 %242, %247
-  %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i64 %248, ptr %249, align 8, !tbaa !146
-  br label %318
+  br label %317
 
 250:                                              ; preds = %213
-  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %252 = load i64, ptr %199, align 8, !tbaa !146
-  %253 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %253 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %254 = load i16, ptr %253, align 2, !tbaa !153
   %255 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %255, label %274 [
@@ -536,94 +535,93 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 256:                                              ; preds = %250
-  %257 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %257 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %258 = load i16, ptr %257, align 2, !tbaa !153
   %259 = and i16 %254, 255
   %260 = trunc i64 %252 to i16
   %261 = and i16 %260, 255
   %262 = mul nuw i16 %259, %261
   %263 = add i16 %258, %262
-  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %263, ptr %264, align 2, !tbaa !153
-  br label %318
+  br label %317
 
 265:                                              ; preds = %250
-  %266 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %266 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %267 = load i32, ptr %266, align 4, !tbaa !155
   %268 = zext i16 %254 to i32
   %269 = trunc i64 %252 to i32
   %270 = and i32 %269, 65535
   %271 = mul nuw i32 %270, %268
   %272 = add i32 %267, %271
-  %273 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %273 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %272, ptr %273, align 4, !tbaa !155
-  br label %318
+  br label %317
 
 274:                                              ; preds = %250
-  %275 = trunc i64 %252 to i32
-  %276 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %277 = load i64, ptr %276, align 8, !tbaa !146
-  %278 = sext i16 %254 to i64
-  %279 = and i64 %278, 4294967295
-  %sext = shl i32 %275, 16
-  %280 = ashr exact i32 %sext, 16
-  %281 = zext i32 %280 to i64
-  %282 = mul nuw i64 %279, %281
-  %283 = add i64 %277, %282
-  %284 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %283, ptr %284, align 8, !tbaa !146
-  br label %318
+  %275 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %276 = load i64, ptr %275, align 8, !tbaa !146
+  %277 = sext i16 %254 to i64
+  %278 = and i64 %277, 4294967295
+  %sext = shl i64 %252, 48
+  %279 = ashr exact i64 %sext, 48
+  %280 = and i64 %279, 4294967295
+  %281 = mul nuw i64 %278, %280
+  %282 = add i64 %276, %281
+  %283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %282, ptr %283, align 8, !tbaa !146
+  br label %317
 
-285:                                              ; preds = %213
-  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  %287 = load i64, ptr %199, align 8, !tbaa !146
-  %288 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
-  %289 = load i32, ptr %288, align 4, !tbaa !155
-  %290 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %290, label %310 [
-    i64 8, label %291
-    i64 16, label %301
+284:                                              ; preds = %213
+  %285 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  %286 = load i64, ptr %199, align 8, !tbaa !146
+  %287 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
+  %288 = load i32, ptr %287, align 4, !tbaa !155
+  %289 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %289, label %309 [
+    i64 8, label %290
+    i64 16, label %300
   ]
 
-291:                                              ; preds = %285
-  %292 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %293 = load i16, ptr %292, align 2, !tbaa !153
-  %294 = and i32 %289, 255
-  %295 = trunc i64 %287 to i32
-  %296 = and i32 %295, 255
-  %297 = mul nuw nsw i32 %294, %296
-  %298 = trunc nuw i32 %297 to i16
-  %299 = add i16 %293, %298
-  %300 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i16 %299, ptr %300, align 2, !tbaa !153
-  br label %318
+290:                                              ; preds = %284
+  %291 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %292 = load i16, ptr %291, align 2, !tbaa !153
+  %293 = and i32 %288, 255
+  %294 = trunc i64 %286 to i32
+  %295 = and i32 %294, 255
+  %296 = mul nuw nsw i32 %293, %295
+  %297 = trunc nuw i32 %296 to i16
+  %298 = add i16 %292, %297
+  %299 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i16 %298, ptr %299, align 2, !tbaa !153
+  br label %317
 
-301:                                              ; preds = %285
-  %302 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %303 = load i32, ptr %302, align 4, !tbaa !155
-  %304 = and i32 %289, 65535
-  %305 = trunc i64 %287 to i32
-  %306 = and i32 %305, 65535
-  %307 = mul nuw i32 %304, %306
-  %308 = add i32 %303, %307
-  %309 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i32 %308, ptr %309, align 4, !tbaa !155
-  br label %318
+300:                                              ; preds = %284
+  %301 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %302 = load i32, ptr %301, align 4, !tbaa !155
+  %303 = and i32 %288, 65535
+  %304 = trunc i64 %286 to i32
+  %305 = and i32 %304, 65535
+  %306 = mul nuw i32 %303, %305
+  %307 = add i32 %302, %306
+  %308 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i32 %307, ptr %308, align 4, !tbaa !155
+  br label %317
 
-310:                                              ; preds = %285
-  %311 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %312 = load i64, ptr %311, align 8, !tbaa !146
-  %313 = zext i32 %289 to i64
-  %314 = and i64 %287, 4294967295
-  %315 = mul nuw i64 %314, %313
-  %316 = add i64 %312, %315
-  %317 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %316, ptr %317, align 8, !tbaa !146
-  br label %318
+309:                                              ; preds = %284
+  %310 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %311 = load i64, ptr %310, align 8, !tbaa !146
+  %312 = zext i32 %288 to i64
+  %313 = and i64 %286, 4294967295
+  %314 = mul nuw i64 %313, %312
+  %315 = add i64 %311, %314
+  %316 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %315, ptr %316, align 8, !tbaa !146
+  br label %317
 
-318:                                              ; preds = %240, %229, %220, %274, %265, %256, %213, %310, %301, %291, %205
-  %319 = add i64 %.0184230, 1
-  %exitcond.not = icmp eq i64 %319, %187
+317:                                              ; preds = %240, %229, %220, %274, %265, %256, %213, %309, %300, %290, %205
+  %318 = add i64 %.0184229, 1
+  %exitcond.not = icmp eq i64 %318, %187
   br i1 %exitcond.not, label %._crit_edge, label %204, !llvm.loop !156
 }
 
@@ -753,8 +751,8 @@ define noundef i64 @_Z21fast_rv64i_vwmaccu_vxP11processor_t6insn_tm(ptr noundef 
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not228 = icmp eq i64 %7, 0
-  br i1 %.not228, label %12, label %8, !prof !131
+  %.not227 = icmp eq i64 %7, 0
+  br i1 %.not227, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -917,11 +915,11 @@ define noundef i64 @_Z21fast_rv64i_vwmaccu_vxP11processor_t6insn_tm(ptr noundef 
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i197 = icmp eq i32 %94, 0
+  %.not.i196 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i197, %97
+  %98 = or i1 %.not.i196, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -1026,8 +1024,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not229 = icmp eq i64 %147, 0
-  br i1 %.not229, label %151, label %148, !prof !131
+  %.not228 = icmp eq i64 %147, 0
+  br i1 %.not228, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -1121,38 +1119,38 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %202
 
-._crit_edge:                                      ; preds = %316, %179
+._crit_edge:                                      ; preds = %315, %179
   %200 = add i64 %2, 4
   %201 = load ptr, ptr %189, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %201, i64 noundef 0) #15
   ret i64 %200
 
-202:                                              ; preds = %.lr.ph, %316
-  %.0184230 = phi i64 [ %194, %.lr.ph ], [ %317, %316 ]
+202:                                              ; preds = %.lr.ph, %315
+  %.0184229 = phi i64 [ %194, %.lr.ph ], [ %316, %315 ]
   br i1 %83, label %203, label %211
 
 203:                                              ; preds = %202
-  %204 = and i64 %.0184230, 63
-  %205 = shl i64 %.0184230, 26
+  %204 = and i64 %.0184229, 63
+  %205 = shl i64 %.0184229, 26
   %206 = ashr i64 %205, 32
   %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %206, i1 noundef zeroext false)
   %208 = load i64, ptr %207, align 8, !tbaa !146
   %209 = shl nuw i64 1, %204
   %210 = and i64 %208, %209
   %.not191 = icmp eq i64 %210, 0
-  br i1 %.not191, label %316, label %211
+  br i1 %.not191, label %315, label %211
 
 211:                                              ; preds = %203, %202
-  switch i64 %188, label %316 [
+  switch i64 %188, label %315 [
     i64 8, label %212
     i64 16, label %248
-    i64 32, label %283
+    i64 32, label %282
   ]
 
 212:                                              ; preds = %211
-  %213 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %213 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %214 = load i64, ptr %199, align 8, !tbaa !146
-  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %216 = load i8, ptr %215, align 1, !tbaa !152
   %217 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %217, label %238 [
@@ -1161,34 +1159,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 218:                                              ; preds = %212
-  %219 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %219 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %220 = load i16, ptr %219, align 2, !tbaa !153
   %221 = zext i8 %216 to i16
   %222 = trunc i64 %214 to i16
   %223 = and i16 %222, 255
   %224 = mul nuw i16 %223, %221
   %225 = add i16 %220, %224
-  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %225, ptr %226, align 2, !tbaa !153
-  br label %316
+  br label %315
 
 227:                                              ; preds = %212
-  %228 = trunc i64 %214 to i32
-  %229 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %228 = trunc i64 %214 to i8
+  %229 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %230 = load i32, ptr %229, align 4, !tbaa !155
   %231 = sext i8 %216 to i32
   %232 = and i32 %231, 65535
-  %sext193 = shl i32 %228, 24
-  %233 = ashr exact i32 %sext193, 24
+  %233 = sext i8 %228 to i32
   %234 = and i32 %233, 65535
   %235 = mul nuw i32 %232, %234
   %236 = add i32 %230, %235
-  %237 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %237 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %236, ptr %237, align 4, !tbaa !155
-  br label %316
+  br label %315
 
 238:                                              ; preds = %212
-  %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %240 = load i64, ptr %239, align 8, !tbaa !146
   %241 = sext i8 %216 to i64
   %242 = and i64 %241, 4294967295
@@ -1197,14 +1194,14 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %244 = and i64 %243, 4294967295
   %245 = mul nuw i64 %242, %244
   %246 = add i64 %240, %245
-  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i64 %246, ptr %247, align 8, !tbaa !146
-  br label %316
+  br label %315
 
 248:                                              ; preds = %211
-  %249 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %249 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %250 = load i64, ptr %199, align 8, !tbaa !146
-  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %252 = load i16, ptr %251, align 2, !tbaa !153
   %253 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %253, label %272 [
@@ -1213,94 +1210,93 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 254:                                              ; preds = %248
-  %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %256 = load i16, ptr %255, align 2, !tbaa !153
   %257 = and i16 %252, 255
   %258 = trunc i64 %250 to i16
   %259 = and i16 %258, 255
   %260 = mul nuw i16 %257, %259
   %261 = add i16 %256, %260
-  %262 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %262 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %261, ptr %262, align 2, !tbaa !153
-  br label %316
+  br label %315
 
 263:                                              ; preds = %248
-  %264 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %264 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %265 = load i32, ptr %264, align 4, !tbaa !155
   %266 = zext i16 %252 to i32
   %267 = trunc i64 %250 to i32
   %268 = and i32 %267, 65535
   %269 = mul nuw i32 %268, %266
   %270 = add i32 %265, %269
-  %271 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %271 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %270, ptr %271, align 4, !tbaa !155
-  br label %316
+  br label %315
 
 272:                                              ; preds = %248
-  %273 = trunc i64 %250 to i32
-  %274 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %275 = load i64, ptr %274, align 8, !tbaa !146
-  %276 = sext i16 %252 to i64
-  %277 = and i64 %276, 4294967295
-  %sext = shl i32 %273, 16
-  %278 = ashr exact i32 %sext, 16
-  %279 = zext i32 %278 to i64
-  %280 = mul nuw i64 %277, %279
-  %281 = add i64 %275, %280
-  %282 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %281, ptr %282, align 8, !tbaa !146
-  br label %316
+  %273 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %274 = load i64, ptr %273, align 8, !tbaa !146
+  %275 = sext i16 %252 to i64
+  %276 = and i64 %275, 4294967295
+  %sext = shl i64 %250, 48
+  %277 = ashr exact i64 %sext, 48
+  %278 = and i64 %277, 4294967295
+  %279 = mul nuw i64 %276, %278
+  %280 = add i64 %274, %279
+  %281 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %280, ptr %281, align 8, !tbaa !146
+  br label %315
 
-283:                                              ; preds = %211
-  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  %285 = load i64, ptr %199, align 8, !tbaa !146
-  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
-  %287 = load i32, ptr %286, align 4, !tbaa !155
-  %288 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %288, label %308 [
-    i64 8, label %289
-    i64 16, label %299
+282:                                              ; preds = %211
+  %283 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  %284 = load i64, ptr %199, align 8, !tbaa !146
+  %285 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
+  %286 = load i32, ptr %285, align 4, !tbaa !155
+  %287 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %287, label %307 [
+    i64 8, label %288
+    i64 16, label %298
   ]
 
-289:                                              ; preds = %283
-  %290 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %291 = load i16, ptr %290, align 2, !tbaa !153
-  %292 = and i32 %287, 255
-  %293 = trunc i64 %285 to i32
-  %294 = and i32 %293, 255
-  %295 = mul nuw nsw i32 %292, %294
-  %296 = trunc nuw i32 %295 to i16
-  %297 = add i16 %291, %296
-  %298 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i16 %297, ptr %298, align 2, !tbaa !153
-  br label %316
+288:                                              ; preds = %282
+  %289 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %290 = load i16, ptr %289, align 2, !tbaa !153
+  %291 = and i32 %286, 255
+  %292 = trunc i64 %284 to i32
+  %293 = and i32 %292, 255
+  %294 = mul nuw nsw i32 %291, %293
+  %295 = trunc nuw i32 %294 to i16
+  %296 = add i16 %290, %295
+  %297 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i16 %296, ptr %297, align 2, !tbaa !153
+  br label %315
 
-299:                                              ; preds = %283
-  %300 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %301 = load i32, ptr %300, align 4, !tbaa !155
-  %302 = and i32 %287, 65535
-  %303 = trunc i64 %285 to i32
-  %304 = and i32 %303, 65535
-  %305 = mul nuw i32 %302, %304
-  %306 = add i32 %301, %305
-  %307 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i32 %306, ptr %307, align 4, !tbaa !155
-  br label %316
+298:                                              ; preds = %282
+  %299 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %300 = load i32, ptr %299, align 4, !tbaa !155
+  %301 = and i32 %286, 65535
+  %302 = trunc i64 %284 to i32
+  %303 = and i32 %302, 65535
+  %304 = mul nuw i32 %301, %303
+  %305 = add i32 %300, %304
+  %306 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i32 %305, ptr %306, align 4, !tbaa !155
+  br label %315
 
-308:                                              ; preds = %283
-  %309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %310 = load i64, ptr %309, align 8, !tbaa !146
-  %311 = zext i32 %287 to i64
-  %312 = and i64 %285, 4294967295
-  %313 = mul nuw i64 %312, %311
-  %314 = add i64 %310, %313
-  %315 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %314, ptr %315, align 8, !tbaa !146
-  br label %316
+307:                                              ; preds = %282
+  %308 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %309 = load i64, ptr %308, align 8, !tbaa !146
+  %310 = zext i32 %286 to i64
+  %311 = and i64 %284, 4294967295
+  %312 = mul nuw i64 %311, %310
+  %313 = add i64 %309, %312
+  %314 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %313, ptr %314, align 8, !tbaa !146
+  br label %315
 
-316:                                              ; preds = %238, %227, %218, %272, %263, %254, %211, %308, %299, %289, %203
-  %317 = add i64 %.0184230, 1
-  %exitcond.not = icmp eq i64 %317, %187
+315:                                              ; preds = %238, %227, %218, %272, %263, %254, %211, %307, %298, %288, %203
+  %316 = add i64 %.0184229, 1
+  %exitcond.not = icmp eq i64 %316, %187
   br i1 %exitcond.not, label %._crit_edge, label %202, !llvm.loop !165
 }
 
@@ -1310,8 +1306,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vwmaccu_
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not228 = icmp eq i64 %7, 0
-  br i1 %.not228, label %12, label %8, !prof !131
+  %.not227 = icmp eq i64 %7, 0
+  br i1 %.not227, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -1474,11 +1470,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vwmaccu_
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i197 = icmp eq i32 %94, 0
+  %.not.i196 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i197, %97
+  %98 = or i1 %.not.i196, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -1583,8 +1579,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not229 = icmp eq i64 %147, 0
-  br i1 %.not229, label %151, label %148, !prof !131
+  %.not228 = icmp eq i64 %147, 0
+  br i1 %.not228, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -1678,7 +1674,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %204
 
-._crit_edge:                                      ; preds = %318, %179
+._crit_edge:                                      ; preds = %317, %179
   %200 = shl i64 %2, 32
   %201 = add i64 %200, 17179869184
   %202 = ashr exact i64 %201, 32
@@ -1686,32 +1682,32 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %203, i64 noundef 0) #15
   ret i64 %202
 
-204:                                              ; preds = %.lr.ph, %318
-  %.0184230 = phi i64 [ %194, %.lr.ph ], [ %319, %318 ]
+204:                                              ; preds = %.lr.ph, %317
+  %.0184229 = phi i64 [ %194, %.lr.ph ], [ %318, %317 ]
   br i1 %83, label %205, label %213
 
 205:                                              ; preds = %204
-  %206 = and i64 %.0184230, 63
-  %207 = shl i64 %.0184230, 26
+  %206 = and i64 %.0184229, 63
+  %207 = shl i64 %.0184229, 26
   %208 = ashr i64 %207, 32
   %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %208, i1 noundef zeroext false)
   %210 = load i64, ptr %209, align 8, !tbaa !146
   %211 = shl nuw i64 1, %206
   %212 = and i64 %210, %211
   %.not191 = icmp eq i64 %212, 0
-  br i1 %.not191, label %318, label %213
+  br i1 %.not191, label %317, label %213
 
 213:                                              ; preds = %205, %204
-  switch i64 %188, label %318 [
+  switch i64 %188, label %317 [
     i64 8, label %214
     i64 16, label %250
-    i64 32, label %285
+    i64 32, label %284
   ]
 
 214:                                              ; preds = %213
-  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %216 = load i64, ptr %199, align 8, !tbaa !146
-  %217 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %217 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %218 = load i8, ptr %217, align 1, !tbaa !152
   %219 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %219, label %240 [
@@ -1720,34 +1716,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 220:                                              ; preds = %214
-  %221 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %221 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %222 = load i16, ptr %221, align 2, !tbaa !153
   %223 = zext i8 %218 to i16
   %224 = trunc i64 %216 to i16
   %225 = and i16 %224, 255
   %226 = mul nuw i16 %225, %223
   %227 = add i16 %222, %226
-  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %227, ptr %228, align 2, !tbaa !153
-  br label %318
+  br label %317
 
 229:                                              ; preds = %214
-  %230 = trunc i64 %216 to i32
-  %231 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %230 = trunc i64 %216 to i8
+  %231 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %232 = load i32, ptr %231, align 4, !tbaa !155
   %233 = sext i8 %218 to i32
   %234 = and i32 %233, 65535
-  %sext193 = shl i32 %230, 24
-  %235 = ashr exact i32 %sext193, 24
+  %235 = sext i8 %230 to i32
   %236 = and i32 %235, 65535
   %237 = mul nuw i32 %234, %236
   %238 = add i32 %232, %237
-  %239 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %239 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %238, ptr %239, align 4, !tbaa !155
-  br label %318
+  br label %317
 
 240:                                              ; preds = %214
-  %241 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %241 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %242 = load i64, ptr %241, align 8, !tbaa !146
   %243 = sext i8 %218 to i64
   %244 = and i64 %243, 4294967295
@@ -1756,14 +1751,14 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %246 = and i64 %245, 4294967295
   %247 = mul nuw i64 %244, %246
   %248 = add i64 %242, %247
-  %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i64 %248, ptr %249, align 8, !tbaa !146
-  br label %318
+  br label %317
 
 250:                                              ; preds = %213
-  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %252 = load i64, ptr %199, align 8, !tbaa !146
-  %253 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %253 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %254 = load i16, ptr %253, align 2, !tbaa !153
   %255 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %255, label %274 [
@@ -1772,94 +1767,93 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 256:                                              ; preds = %250
-  %257 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %257 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %258 = load i16, ptr %257, align 2, !tbaa !153
   %259 = and i16 %254, 255
   %260 = trunc i64 %252 to i16
   %261 = and i16 %260, 255
   %262 = mul nuw i16 %259, %261
   %263 = add i16 %258, %262
-  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %263, ptr %264, align 2, !tbaa !153
-  br label %318
+  br label %317
 
 265:                                              ; preds = %250
-  %266 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %266 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %267 = load i32, ptr %266, align 4, !tbaa !155
   %268 = zext i16 %254 to i32
   %269 = trunc i64 %252 to i32
   %270 = and i32 %269, 65535
   %271 = mul nuw i32 %270, %268
   %272 = add i32 %267, %271
-  %273 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %273 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %272, ptr %273, align 4, !tbaa !155
-  br label %318
+  br label %317
 
 274:                                              ; preds = %250
-  %275 = trunc i64 %252 to i32
-  %276 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %277 = load i64, ptr %276, align 8, !tbaa !146
-  %278 = sext i16 %254 to i64
-  %279 = and i64 %278, 4294967295
-  %sext = shl i32 %275, 16
-  %280 = ashr exact i32 %sext, 16
-  %281 = zext i32 %280 to i64
-  %282 = mul nuw i64 %279, %281
-  %283 = add i64 %277, %282
-  %284 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %283, ptr %284, align 8, !tbaa !146
-  br label %318
+  %275 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %276 = load i64, ptr %275, align 8, !tbaa !146
+  %277 = sext i16 %254 to i64
+  %278 = and i64 %277, 4294967295
+  %sext = shl i64 %252, 48
+  %279 = ashr exact i64 %sext, 48
+  %280 = and i64 %279, 4294967295
+  %281 = mul nuw i64 %278, %280
+  %282 = add i64 %276, %281
+  %283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %282, ptr %283, align 8, !tbaa !146
+  br label %317
 
-285:                                              ; preds = %213
-  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  %287 = load i64, ptr %199, align 8, !tbaa !146
-  %288 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
-  %289 = load i32, ptr %288, align 4, !tbaa !155
-  %290 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %290, label %310 [
-    i64 8, label %291
-    i64 16, label %301
+284:                                              ; preds = %213
+  %285 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  %286 = load i64, ptr %199, align 8, !tbaa !146
+  %287 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
+  %288 = load i32, ptr %287, align 4, !tbaa !155
+  %289 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %289, label %309 [
+    i64 8, label %290
+    i64 16, label %300
   ]
 
-291:                                              ; preds = %285
-  %292 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %293 = load i16, ptr %292, align 2, !tbaa !153
-  %294 = and i32 %289, 255
-  %295 = trunc i64 %287 to i32
-  %296 = and i32 %295, 255
-  %297 = mul nuw nsw i32 %294, %296
-  %298 = trunc nuw i32 %297 to i16
-  %299 = add i16 %293, %298
-  %300 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i16 %299, ptr %300, align 2, !tbaa !153
-  br label %318
+290:                                              ; preds = %284
+  %291 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %292 = load i16, ptr %291, align 2, !tbaa !153
+  %293 = and i32 %288, 255
+  %294 = trunc i64 %286 to i32
+  %295 = and i32 %294, 255
+  %296 = mul nuw nsw i32 %293, %295
+  %297 = trunc nuw i32 %296 to i16
+  %298 = add i16 %292, %297
+  %299 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i16 %298, ptr %299, align 2, !tbaa !153
+  br label %317
 
-301:                                              ; preds = %285
-  %302 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %303 = load i32, ptr %302, align 4, !tbaa !155
-  %304 = and i32 %289, 65535
-  %305 = trunc i64 %287 to i32
-  %306 = and i32 %305, 65535
-  %307 = mul nuw i32 %304, %306
-  %308 = add i32 %303, %307
-  %309 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i32 %308, ptr %309, align 4, !tbaa !155
-  br label %318
+300:                                              ; preds = %284
+  %301 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %302 = load i32, ptr %301, align 4, !tbaa !155
+  %303 = and i32 %288, 65535
+  %304 = trunc i64 %286 to i32
+  %305 = and i32 %304, 65535
+  %306 = mul nuw i32 %303, %305
+  %307 = add i32 %302, %306
+  %308 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i32 %307, ptr %308, align 4, !tbaa !155
+  br label %317
 
-310:                                              ; preds = %285
-  %311 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %312 = load i64, ptr %311, align 8, !tbaa !146
-  %313 = zext i32 %289 to i64
-  %314 = and i64 %287, 4294967295
-  %315 = mul nuw i64 %314, %313
-  %316 = add i64 %312, %315
-  %317 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %316, ptr %317, align 8, !tbaa !146
-  br label %318
+309:                                              ; preds = %284
+  %310 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %311 = load i64, ptr %310, align 8, !tbaa !146
+  %312 = zext i32 %288 to i64
+  %313 = and i64 %286, 4294967295
+  %314 = mul nuw i64 %313, %312
+  %315 = add i64 %311, %314
+  %316 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %315, ptr %316, align 8, !tbaa !146
+  br label %317
 
-318:                                              ; preds = %240, %229, %220, %274, %265, %256, %213, %310, %301, %291, %205
-  %319 = add i64 %.0184230, 1
-  %exitcond.not = icmp eq i64 %319, %187
+317:                                              ; preds = %240, %229, %220, %274, %265, %256, %213, %309, %300, %290, %205
+  %318 = add i64 %.0184229, 1
+  %exitcond.not = icmp eq i64 %318, %187
   br i1 %exitcond.not, label %._crit_edge, label %204, !llvm.loop !166
 }
 
@@ -1869,8 +1863,8 @@ define noundef i64 @_Z23logged_rv64i_vwmaccu_vxP11processor_t6insn_tm(ptr nounde
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not228 = icmp eq i64 %7, 0
-  br i1 %.not228, label %12, label %8, !prof !131
+  %.not227 = icmp eq i64 %7, 0
+  br i1 %.not227, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -2033,11 +2027,11 @@ define noundef i64 @_Z23logged_rv64i_vwmaccu_vxP11processor_t6insn_tm(ptr nounde
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i197 = icmp eq i32 %94, 0
+  %.not.i196 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i197, %97
+  %98 = or i1 %.not.i196, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -2142,8 +2136,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not229 = icmp eq i64 %147, 0
-  br i1 %.not229, label %151, label %148, !prof !131
+  %.not228 = icmp eq i64 %147, 0
+  br i1 %.not228, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -2237,38 +2231,38 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %202
 
-._crit_edge:                                      ; preds = %316, %179
+._crit_edge:                                      ; preds = %315, %179
   %200 = add i64 %2, 4
   %201 = load ptr, ptr %189, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %201, i64 noundef 0) #15
   ret i64 %200
 
-202:                                              ; preds = %.lr.ph, %316
-  %.0184230 = phi i64 [ %194, %.lr.ph ], [ %317, %316 ]
+202:                                              ; preds = %.lr.ph, %315
+  %.0184229 = phi i64 [ %194, %.lr.ph ], [ %316, %315 ]
   br i1 %83, label %203, label %211
 
 203:                                              ; preds = %202
-  %204 = and i64 %.0184230, 63
-  %205 = shl i64 %.0184230, 26
+  %204 = and i64 %.0184229, 63
+  %205 = shl i64 %.0184229, 26
   %206 = ashr i64 %205, 32
   %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %206, i1 noundef zeroext false)
   %208 = load i64, ptr %207, align 8, !tbaa !146
   %209 = shl nuw i64 1, %204
   %210 = and i64 %208, %209
   %.not191 = icmp eq i64 %210, 0
-  br i1 %.not191, label %316, label %211
+  br i1 %.not191, label %315, label %211
 
 211:                                              ; preds = %203, %202
-  switch i64 %188, label %316 [
+  switch i64 %188, label %315 [
     i64 8, label %212
     i64 16, label %248
-    i64 32, label %283
+    i64 32, label %282
   ]
 
 212:                                              ; preds = %211
-  %213 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %213 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %214 = load i64, ptr %199, align 8, !tbaa !146
-  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %216 = load i8, ptr %215, align 1, !tbaa !152
   %217 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %217, label %238 [
@@ -2277,34 +2271,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 218:                                              ; preds = %212
-  %219 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %219 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %220 = load i16, ptr %219, align 2, !tbaa !153
   %221 = zext i8 %216 to i16
   %222 = trunc i64 %214 to i16
   %223 = and i16 %222, 255
   %224 = mul nuw i16 %223, %221
   %225 = add i16 %220, %224
-  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %225, ptr %226, align 2, !tbaa !153
-  br label %316
+  br label %315
 
 227:                                              ; preds = %212
-  %228 = trunc i64 %214 to i32
-  %229 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %228 = trunc i64 %214 to i8
+  %229 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %230 = load i32, ptr %229, align 4, !tbaa !155
   %231 = sext i8 %216 to i32
   %232 = and i32 %231, 65535
-  %sext193 = shl i32 %228, 24
-  %233 = ashr exact i32 %sext193, 24
+  %233 = sext i8 %228 to i32
   %234 = and i32 %233, 65535
   %235 = mul nuw i32 %232, %234
   %236 = add i32 %230, %235
-  %237 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %237 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %236, ptr %237, align 4, !tbaa !155
-  br label %316
+  br label %315
 
 238:                                              ; preds = %212
-  %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %240 = load i64, ptr %239, align 8, !tbaa !146
   %241 = sext i8 %216 to i64
   %242 = and i64 %241, 4294967295
@@ -2313,14 +2306,14 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %244 = and i64 %243, 4294967295
   %245 = mul nuw i64 %242, %244
   %246 = add i64 %240, %245
-  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i64 %246, ptr %247, align 8, !tbaa !146
-  br label %316
+  br label %315
 
 248:                                              ; preds = %211
-  %249 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %249 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   %250 = load i64, ptr %199, align 8, !tbaa !146
-  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
+  %251 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
   %252 = load i16, ptr %251, align 2, !tbaa !153
   %253 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %253, label %272 [
@@ -2329,94 +2322,93 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 254:                                              ; preds = %248
-  %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %256 = load i16, ptr %255, align 2, !tbaa !153
   %257 = and i16 %252, 255
   %258 = trunc i64 %250 to i16
   %259 = and i16 %258, 255
   %260 = mul nuw i16 %257, %259
   %261 = add i16 %256, %260
-  %262 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %262 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i16 %261, ptr %262, align 2, !tbaa !153
-  br label %316
+  br label %315
 
 263:                                              ; preds = %248
-  %264 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
+  %264 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
   %265 = load i32, ptr %264, align 4, !tbaa !155
   %266 = zext i16 %252 to i32
   %267 = trunc i64 %250 to i32
   %268 = and i32 %267, 65535
   %269 = mul nuw i32 %268, %266
   %270 = add i32 %265, %269
-  %271 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
+  %271 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
   store i32 %270, ptr %271, align 4, !tbaa !155
-  br label %316
+  br label %315
 
 272:                                              ; preds = %248
-  %273 = trunc i64 %250 to i32
-  %274 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %275 = load i64, ptr %274, align 8, !tbaa !146
-  %276 = sext i16 %252 to i64
-  %277 = and i64 %276, 4294967295
-  %sext = shl i32 %273, 16
-  %278 = ashr exact i32 %sext, 16
-  %279 = zext i32 %278 to i64
-  %280 = mul nuw i64 %277, %279
-  %281 = add i64 %275, %280
-  %282 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %281, ptr %282, align 8, !tbaa !146
-  br label %316
+  %273 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %274 = load i64, ptr %273, align 8, !tbaa !146
+  %275 = sext i16 %252 to i64
+  %276 = and i64 %275, 4294967295
+  %sext = shl i64 %250, 48
+  %277 = ashr exact i64 %sext, 48
+  %278 = and i64 %277, 4294967295
+  %279 = mul nuw i64 %276, %278
+  %280 = add i64 %274, %279
+  %281 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %280, ptr %281, align 8, !tbaa !146
+  br label %315
 
-283:                                              ; preds = %211
-  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  %285 = load i64, ptr %199, align 8, !tbaa !146
-  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184230, i1 noundef zeroext false)
-  %287 = load i32, ptr %286, align 4, !tbaa !155
-  %288 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %288, label %308 [
-    i64 8, label %289
-    i64 16, label %299
+282:                                              ; preds = %211
+  %283 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  %284 = load i64, ptr %199, align 8, !tbaa !146
+  %285 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0184229, i1 noundef zeroext false)
+  %286 = load i32, ptr %285, align 4, !tbaa !155
+  %287 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %287, label %307 [
+    i64 8, label %288
+    i64 16, label %298
   ]
 
-289:                                              ; preds = %283
-  %290 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %291 = load i16, ptr %290, align 2, !tbaa !153
-  %292 = and i32 %287, 255
-  %293 = trunc i64 %285 to i32
-  %294 = and i32 %293, 255
-  %295 = mul nuw nsw i32 %292, %294
-  %296 = trunc nuw i32 %295 to i16
-  %297 = add i16 %291, %296
-  %298 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i16 %297, ptr %298, align 2, !tbaa !153
-  br label %316
+288:                                              ; preds = %282
+  %289 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %290 = load i16, ptr %289, align 2, !tbaa !153
+  %291 = and i32 %286, 255
+  %292 = trunc i64 %284 to i32
+  %293 = and i32 %292, 255
+  %294 = mul nuw nsw i32 %291, %293
+  %295 = trunc nuw i32 %294 to i16
+  %296 = add i16 %290, %295
+  %297 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i16 %296, ptr %297, align 2, !tbaa !153
+  br label %315
 
-299:                                              ; preds = %283
-  %300 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %301 = load i32, ptr %300, align 4, !tbaa !155
-  %302 = and i32 %287, 65535
-  %303 = trunc i64 %285 to i32
-  %304 = and i32 %303, 65535
-  %305 = mul nuw i32 %302, %304
-  %306 = add i32 %301, %305
-  %307 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i32 %306, ptr %307, align 4, !tbaa !155
-  br label %316
+298:                                              ; preds = %282
+  %299 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %300 = load i32, ptr %299, align 4, !tbaa !155
+  %301 = and i32 %286, 65535
+  %302 = trunc i64 %284 to i32
+  %303 = and i32 %302, 65535
+  %304 = mul nuw i32 %301, %303
+  %305 = add i32 %300, %304
+  %306 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i32 %305, ptr %306, align 4, !tbaa !155
+  br label %315
 
-308:                                              ; preds = %283
-  %309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext false)
-  %310 = load i64, ptr %309, align 8, !tbaa !146
-  %311 = zext i32 %287 to i64
-  %312 = and i64 %285, 4294967295
-  %313 = mul nuw i64 %312, %311
-  %314 = add i64 %310, %313
-  %315 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184230, i1 noundef zeroext true)
-  store i64 %314, ptr %315, align 8, !tbaa !146
-  br label %316
+307:                                              ; preds = %282
+  %308 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext false)
+  %309 = load i64, ptr %308, align 8, !tbaa !146
+  %310 = zext i32 %286 to i64
+  %311 = and i64 %284, 4294967295
+  %312 = mul nuw i64 %311, %310
+  %313 = add i64 %309, %312
+  %314 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0184229, i1 noundef zeroext true)
+  store i64 %313, ptr %314, align 8, !tbaa !146
+  br label %315
 
-316:                                              ; preds = %238, %227, %218, %272, %263, %254, %211, %308, %299, %289, %203
-  %317 = add i64 %.0184230, 1
-  %exitcond.not = icmp eq i64 %317, %187
+315:                                              ; preds = %238, %227, %218, %272, %263, %254, %211, %307, %298, %288, %203
+  %316 = add i64 %.0184229, 1
+  %exitcond.not = icmp eq i64 %316, %187
   br i1 %exitcond.not, label %._crit_edge, label %202, !llvm.loop !167
 }
 
@@ -2426,8 +2418,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vwmaccu_vx
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not243 = icmp eq i64 %7, 0
-  br i1 %.not243, label %12, label %8, !prof !131
+  %.not242 = icmp eq i64 %7, 0
+  br i1 %.not242, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -2590,11 +2582,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vwmaccu_vx
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i206 = icmp eq i32 %94, 0
+  %.not.i205 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i206, %97
+  %98 = or i1 %.not.i205, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -2699,8 +2691,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not244 = icmp eq i64 %147, 0
-  br i1 %.not244, label %151, label %148, !prof !131
+  %.not243 = icmp eq i64 %147, 0
+  br i1 %.not243, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -2795,7 +2787,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %205
 
-._crit_edge:                                      ; preds = %337, %179
+._crit_edge:                                      ; preds = %336, %179
   %201 = shl i64 %2, 32
   %202 = add i64 %201, 17179869184
   %203 = ashr exact i64 %202, 32
@@ -2803,30 +2795,30 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %204, i64 noundef 0) #15
   ret i64 %203
 
-205:                                              ; preds = %.lr.ph, %337
-  %.0191245 = phi i64 [ %194, %.lr.ph ], [ %338, %337 ]
+205:                                              ; preds = %.lr.ph, %336
+  %.0191244 = phi i64 [ %194, %.lr.ph ], [ %337, %336 ]
   br i1 %83, label %206, label %214
 
 206:                                              ; preds = %205
-  %207 = and i64 %.0191245, 63
-  %208 = shl i64 %.0191245, 26
+  %207 = and i64 %.0191244, 63
+  %208 = shl i64 %.0191244, 26
   %209 = ashr i64 %208, 32
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %209, i1 noundef zeroext false)
   %211 = load i64, ptr %210, align 8, !tbaa !146
   %212 = shl nuw i64 1, %207
   %213 = and i64 %211, %212
   %.not198 = icmp eq i64 %213, 0
-  br i1 %.not198, label %337, label %214
+  br i1 %.not198, label %336, label %214
 
 214:                                              ; preds = %206, %205
-  switch i64 %188, label %337 [
+  switch i64 %188, label %336 [
     i64 8, label %215
     i64 16, label %257
-    i64 32, label %298
+    i64 32, label %297
   ]
 
 215:                                              ; preds = %214
-  %216 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %216 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %217, label %222, !prof !131
 
 217:                                              ; preds = %215
@@ -2843,7 +2835,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 222:                                              ; preds = %215
   %223 = load i64, ptr %200, align 8, !tbaa !146
-  %224 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %224 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %225 = load i8, ptr %224, align 1, !tbaa !152
   %226 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %226, label %247 [
@@ -2852,34 +2844,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 227:                                              ; preds = %222
-  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %229 = load i16, ptr %228, align 2, !tbaa !153
   %230 = zext i8 %225 to i16
   %231 = trunc i64 %223 to i16
   %232 = and i16 %231, 255
   %233 = mul nuw i16 %232, %230
   %234 = add i16 %229, %233
-  %235 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %235 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %234, ptr %235, align 2, !tbaa !153
-  br label %337
+  br label %336
 
 236:                                              ; preds = %222
-  %237 = trunc i64 %223 to i32
-  %238 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %237 = trunc i64 %223 to i8
+  %238 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %239 = load i32, ptr %238, align 4, !tbaa !155
   %240 = sext i8 %225 to i32
   %241 = and i32 %240, 65535
-  %sext200 = shl i32 %237, 24
-  %242 = ashr exact i32 %sext200, 24
+  %242 = sext i8 %237 to i32
   %243 = and i32 %242, 65535
   %244 = mul nuw i32 %241, %243
   %245 = add i32 %239, %244
-  %246 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %246 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %245, ptr %246, align 4, !tbaa !155
-  br label %337
+  br label %336
 
 247:                                              ; preds = %222
-  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %249 = load i64, ptr %248, align 8, !tbaa !146
   %250 = sext i8 %225 to i64
   %251 = and i64 %250, 4294967295
@@ -2888,12 +2879,12 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %253 = and i64 %252, 4294967295
   %254 = mul nuw i64 %251, %253
   %255 = add i64 %249, %254
-  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i64 %255, ptr %256, align 8, !tbaa !146
-  br label %337
+  br label %336
 
 257:                                              ; preds = %214
-  %258 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %258 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %259, label %264, !prof !131
 
 259:                                              ; preds = %257
@@ -2910,7 +2901,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 264:                                              ; preds = %257
   %265 = load i64, ptr %200, align 8, !tbaa !146
-  %266 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %266 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %267 = load i16, ptr %266, align 2, !tbaa !153
   %268 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %268, label %287 [
@@ -2919,109 +2910,108 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 269:                                              ; preds = %264
-  %270 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %270 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %271 = load i16, ptr %270, align 2, !tbaa !153
   %272 = and i16 %267, 255
   %273 = trunc i64 %265 to i16
   %274 = and i16 %273, 255
   %275 = mul nuw i16 %272, %274
   %276 = add i16 %271, %275
-  %277 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %277 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %276, ptr %277, align 2, !tbaa !153
-  br label %337
+  br label %336
 
 278:                                              ; preds = %264
-  %279 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %279 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %280 = load i32, ptr %279, align 4, !tbaa !155
   %281 = zext i16 %267 to i32
   %282 = trunc i64 %265 to i32
   %283 = and i32 %282, 65535
   %284 = mul nuw i32 %283, %281
   %285 = add i32 %280, %284
-  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %285, ptr %286, align 4, !tbaa !155
-  br label %337
+  br label %336
 
 287:                                              ; preds = %264
-  %288 = trunc i64 %265 to i32
-  %289 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %290 = load i64, ptr %289, align 8, !tbaa !146
-  %291 = sext i16 %267 to i64
-  %292 = and i64 %291, 4294967295
-  %sext = shl i32 %288, 16
-  %293 = ashr exact i32 %sext, 16
-  %294 = zext i32 %293 to i64
-  %295 = mul nuw i64 %292, %294
-  %296 = add i64 %290, %295
-  %297 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %296, ptr %297, align 8, !tbaa !146
-  br label %337
+  %288 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %289 = load i64, ptr %288, align 8, !tbaa !146
+  %290 = sext i16 %267 to i64
+  %291 = and i64 %290, 4294967295
+  %sext = shl i64 %265, 48
+  %292 = ashr exact i64 %sext, 48
+  %293 = and i64 %292, 4294967295
+  %294 = mul nuw i64 %291, %293
+  %295 = add i64 %289, %294
+  %296 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %295, ptr %296, align 8, !tbaa !146
+  br label %336
 
-298:                                              ; preds = %214
-  %299 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  br i1 %198, label %300, label %305, !prof !131
+297:                                              ; preds = %214
+  %298 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  br i1 %198, label %299, label %304, !prof !131
 
-300:                                              ; preds = %298
-  %301 = call ptr @__cxa_allocate_exception(i64 32) #15
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store i64 2, ptr %302, align 8, !tbaa !134
-  %303 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  store i8 0, ptr %303, align 8, !tbaa !136
-  %304 = getelementptr inbounds nuw i8, ptr %301, i64 24
-  store i64 %1, ptr %304, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %301, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %301, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
+299:                                              ; preds = %297
+  %300 = call ptr @__cxa_allocate_exception(i64 32) #15
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
+  store i64 2, ptr %301, align 8, !tbaa !134
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  store i8 0, ptr %302, align 8, !tbaa !136
+  %303 = getelementptr inbounds nuw i8, ptr %300, i64 24
+  store i64 %1, ptr %303, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %300, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %300, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
   unreachable
 
-305:                                              ; preds = %298
-  %306 = load i64, ptr %200, align 8, !tbaa !146
-  %307 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
-  %308 = load i32, ptr %307, align 4, !tbaa !155
-  %309 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %309, label %329 [
-    i64 8, label %310
-    i64 16, label %320
+304:                                              ; preds = %297
+  %305 = load i64, ptr %200, align 8, !tbaa !146
+  %306 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
+  %307 = load i32, ptr %306, align 4, !tbaa !155
+  %308 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %308, label %328 [
+    i64 8, label %309
+    i64 16, label %319
   ]
 
-310:                                              ; preds = %305
-  %311 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %312 = load i16, ptr %311, align 2, !tbaa !153
-  %313 = and i32 %308, 255
-  %314 = trunc i64 %306 to i32
-  %315 = and i32 %314, 255
-  %316 = mul nuw nsw i32 %313, %315
-  %317 = trunc nuw i32 %316 to i16
-  %318 = add i16 %312, %317
-  %319 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i16 %318, ptr %319, align 2, !tbaa !153
-  br label %337
+309:                                              ; preds = %304
+  %310 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %311 = load i16, ptr %310, align 2, !tbaa !153
+  %312 = and i32 %307, 255
+  %313 = trunc i64 %305 to i32
+  %314 = and i32 %313, 255
+  %315 = mul nuw nsw i32 %312, %314
+  %316 = trunc nuw i32 %315 to i16
+  %317 = add i16 %311, %316
+  %318 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i16 %317, ptr %318, align 2, !tbaa !153
+  br label %336
 
-320:                                              ; preds = %305
-  %321 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %322 = load i32, ptr %321, align 4, !tbaa !155
-  %323 = and i32 %308, 65535
-  %324 = trunc i64 %306 to i32
-  %325 = and i32 %324, 65535
-  %326 = mul nuw i32 %323, %325
-  %327 = add i32 %322, %326
-  %328 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i32 %327, ptr %328, align 4, !tbaa !155
-  br label %337
+319:                                              ; preds = %304
+  %320 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %321 = load i32, ptr %320, align 4, !tbaa !155
+  %322 = and i32 %307, 65535
+  %323 = trunc i64 %305 to i32
+  %324 = and i32 %323, 65535
+  %325 = mul nuw i32 %322, %324
+  %326 = add i32 %321, %325
+  %327 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i32 %326, ptr %327, align 4, !tbaa !155
+  br label %336
 
-329:                                              ; preds = %305
-  %330 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %331 = load i64, ptr %330, align 8, !tbaa !146
-  %332 = zext i32 %308 to i64
-  %333 = and i64 %306, 4294967295
-  %334 = mul nuw i64 %333, %332
-  %335 = add i64 %331, %334
-  %336 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %335, ptr %336, align 8, !tbaa !146
-  br label %337
+328:                                              ; preds = %304
+  %329 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %330 = load i64, ptr %329, align 8, !tbaa !146
+  %331 = zext i32 %307 to i64
+  %332 = and i64 %305, 4294967295
+  %333 = mul nuw i64 %332, %331
+  %334 = add i64 %330, %333
+  %335 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %334, ptr %335, align 8, !tbaa !146
+  br label %336
 
-337:                                              ; preds = %247, %236, %227, %287, %278, %269, %214, %329, %320, %310, %206
-  %338 = add i64 %.0191245, 1
-  %exitcond.not = icmp eq i64 %338, %187
+336:                                              ; preds = %247, %236, %227, %287, %278, %269, %214, %328, %319, %309, %206
+  %337 = add i64 %.0191244, 1
+  %exitcond.not = icmp eq i64 %337, %187
   br i1 %exitcond.not, label %._crit_edge, label %205, !llvm.loop !168
 }
 
@@ -3031,8 +3021,8 @@ define noundef i64 @_Z21fast_rv64e_vwmaccu_vxP11processor_t6insn_tm(ptr noundef 
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not243 = icmp eq i64 %7, 0
-  br i1 %.not243, label %12, label %8, !prof !131
+  %.not242 = icmp eq i64 %7, 0
+  br i1 %.not242, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -3195,11 +3185,11 @@ define noundef i64 @_Z21fast_rv64e_vwmaccu_vxP11processor_t6insn_tm(ptr noundef 
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i206 = icmp eq i32 %94, 0
+  %.not.i205 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i206, %97
+  %98 = or i1 %.not.i205, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -3304,8 +3294,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not244 = icmp eq i64 %147, 0
-  br i1 %.not244, label %151, label %148, !prof !131
+  %.not243 = icmp eq i64 %147, 0
+  br i1 %.not243, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -3400,36 +3390,36 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %203
 
-._crit_edge:                                      ; preds = %335, %179
+._crit_edge:                                      ; preds = %334, %179
   %201 = add i64 %2, 4
   %202 = load ptr, ptr %189, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %202, i64 noundef 0) #15
   ret i64 %201
 
-203:                                              ; preds = %.lr.ph, %335
-  %.0191245 = phi i64 [ %194, %.lr.ph ], [ %336, %335 ]
+203:                                              ; preds = %.lr.ph, %334
+  %.0191244 = phi i64 [ %194, %.lr.ph ], [ %335, %334 ]
   br i1 %83, label %204, label %212
 
 204:                                              ; preds = %203
-  %205 = and i64 %.0191245, 63
-  %206 = shl i64 %.0191245, 26
+  %205 = and i64 %.0191244, 63
+  %206 = shl i64 %.0191244, 26
   %207 = ashr i64 %206, 32
   %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %207, i1 noundef zeroext false)
   %209 = load i64, ptr %208, align 8, !tbaa !146
   %210 = shl nuw i64 1, %205
   %211 = and i64 %209, %210
   %.not198 = icmp eq i64 %211, 0
-  br i1 %.not198, label %335, label %212
+  br i1 %.not198, label %334, label %212
 
 212:                                              ; preds = %204, %203
-  switch i64 %188, label %335 [
+  switch i64 %188, label %334 [
     i64 8, label %213
     i64 16, label %255
-    i64 32, label %296
+    i64 32, label %295
   ]
 
 213:                                              ; preds = %212
-  %214 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %214 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %215, label %220, !prof !131
 
 215:                                              ; preds = %213
@@ -3446,7 +3436,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 220:                                              ; preds = %213
   %221 = load i64, ptr %200, align 8, !tbaa !146
-  %222 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %222 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %223 = load i8, ptr %222, align 1, !tbaa !152
   %224 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %224, label %245 [
@@ -3455,34 +3445,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 225:                                              ; preds = %220
-  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %227 = load i16, ptr %226, align 2, !tbaa !153
   %228 = zext i8 %223 to i16
   %229 = trunc i64 %221 to i16
   %230 = and i16 %229, 255
   %231 = mul nuw i16 %230, %228
   %232 = add i16 %227, %231
-  %233 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %233 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %232, ptr %233, align 2, !tbaa !153
-  br label %335
+  br label %334
 
 234:                                              ; preds = %220
-  %235 = trunc i64 %221 to i32
-  %236 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %235 = trunc i64 %221 to i8
+  %236 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %237 = load i32, ptr %236, align 4, !tbaa !155
   %238 = sext i8 %223 to i32
   %239 = and i32 %238, 65535
-  %sext200 = shl i32 %235, 24
-  %240 = ashr exact i32 %sext200, 24
+  %240 = sext i8 %235 to i32
   %241 = and i32 %240, 65535
   %242 = mul nuw i32 %239, %241
   %243 = add i32 %237, %242
-  %244 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %244 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %243, ptr %244, align 4, !tbaa !155
-  br label %335
+  br label %334
 
 245:                                              ; preds = %220
-  %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %247 = load i64, ptr %246, align 8, !tbaa !146
   %248 = sext i8 %223 to i64
   %249 = and i64 %248, 4294967295
@@ -3491,12 +3480,12 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %251 = and i64 %250, 4294967295
   %252 = mul nuw i64 %249, %251
   %253 = add i64 %247, %252
-  %254 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %254 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i64 %253, ptr %254, align 8, !tbaa !146
-  br label %335
+  br label %334
 
 255:                                              ; preds = %212
-  %256 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %256 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %257, label %262, !prof !131
 
 257:                                              ; preds = %255
@@ -3513,7 +3502,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 262:                                              ; preds = %255
   %263 = load i64, ptr %200, align 8, !tbaa !146
-  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %265 = load i16, ptr %264, align 2, !tbaa !153
   %266 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %266, label %285 [
@@ -3522,109 +3511,108 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 267:                                              ; preds = %262
-  %268 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %268 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %269 = load i16, ptr %268, align 2, !tbaa !153
   %270 = and i16 %265, 255
   %271 = trunc i64 %263 to i16
   %272 = and i16 %271, 255
   %273 = mul nuw i16 %270, %272
   %274 = add i16 %269, %273
-  %275 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %275 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %274, ptr %275, align 2, !tbaa !153
-  br label %335
+  br label %334
 
 276:                                              ; preds = %262
-  %277 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %277 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %278 = load i32, ptr %277, align 4, !tbaa !155
   %279 = zext i16 %265 to i32
   %280 = trunc i64 %263 to i32
   %281 = and i32 %280, 65535
   %282 = mul nuw i32 %281, %279
   %283 = add i32 %278, %282
-  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %283, ptr %284, align 4, !tbaa !155
-  br label %335
+  br label %334
 
 285:                                              ; preds = %262
-  %286 = trunc i64 %263 to i32
-  %287 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %288 = load i64, ptr %287, align 8, !tbaa !146
-  %289 = sext i16 %265 to i64
-  %290 = and i64 %289, 4294967295
-  %sext = shl i32 %286, 16
-  %291 = ashr exact i32 %sext, 16
-  %292 = zext i32 %291 to i64
-  %293 = mul nuw i64 %290, %292
-  %294 = add i64 %288, %293
-  %295 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %294, ptr %295, align 8, !tbaa !146
-  br label %335
+  %286 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %287 = load i64, ptr %286, align 8, !tbaa !146
+  %288 = sext i16 %265 to i64
+  %289 = and i64 %288, 4294967295
+  %sext = shl i64 %263, 48
+  %290 = ashr exact i64 %sext, 48
+  %291 = and i64 %290, 4294967295
+  %292 = mul nuw i64 %289, %291
+  %293 = add i64 %287, %292
+  %294 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %293, ptr %294, align 8, !tbaa !146
+  br label %334
 
-296:                                              ; preds = %212
-  %297 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  br i1 %198, label %298, label %303, !prof !131
+295:                                              ; preds = %212
+  %296 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  br i1 %198, label %297, label %302, !prof !131
 
-298:                                              ; preds = %296
-  %299 = call ptr @__cxa_allocate_exception(i64 32) #15
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  store i64 2, ptr %300, align 8, !tbaa !134
-  %301 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  store i8 0, ptr %301, align 8, !tbaa !136
-  %302 = getelementptr inbounds nuw i8, ptr %299, i64 24
-  store i64 %1, ptr %302, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %299, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %299, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
+297:                                              ; preds = %295
+  %298 = call ptr @__cxa_allocate_exception(i64 32) #15
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
+  store i64 2, ptr %299, align 8, !tbaa !134
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 16
+  store i8 0, ptr %300, align 8, !tbaa !136
+  %301 = getelementptr inbounds nuw i8, ptr %298, i64 24
+  store i64 %1, ptr %301, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %298, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %298, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
   unreachable
 
-303:                                              ; preds = %296
-  %304 = load i64, ptr %200, align 8, !tbaa !146
-  %305 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
-  %306 = load i32, ptr %305, align 4, !tbaa !155
-  %307 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %307, label %327 [
-    i64 8, label %308
-    i64 16, label %318
+302:                                              ; preds = %295
+  %303 = load i64, ptr %200, align 8, !tbaa !146
+  %304 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
+  %305 = load i32, ptr %304, align 4, !tbaa !155
+  %306 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %306, label %326 [
+    i64 8, label %307
+    i64 16, label %317
   ]
 
-308:                                              ; preds = %303
-  %309 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %310 = load i16, ptr %309, align 2, !tbaa !153
-  %311 = and i32 %306, 255
-  %312 = trunc i64 %304 to i32
-  %313 = and i32 %312, 255
-  %314 = mul nuw nsw i32 %311, %313
-  %315 = trunc nuw i32 %314 to i16
-  %316 = add i16 %310, %315
-  %317 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i16 %316, ptr %317, align 2, !tbaa !153
-  br label %335
+307:                                              ; preds = %302
+  %308 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %309 = load i16, ptr %308, align 2, !tbaa !153
+  %310 = and i32 %305, 255
+  %311 = trunc i64 %303 to i32
+  %312 = and i32 %311, 255
+  %313 = mul nuw nsw i32 %310, %312
+  %314 = trunc nuw i32 %313 to i16
+  %315 = add i16 %309, %314
+  %316 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i16 %315, ptr %316, align 2, !tbaa !153
+  br label %334
 
-318:                                              ; preds = %303
-  %319 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %320 = load i32, ptr %319, align 4, !tbaa !155
-  %321 = and i32 %306, 65535
-  %322 = trunc i64 %304 to i32
-  %323 = and i32 %322, 65535
-  %324 = mul nuw i32 %321, %323
-  %325 = add i32 %320, %324
-  %326 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i32 %325, ptr %326, align 4, !tbaa !155
-  br label %335
+317:                                              ; preds = %302
+  %318 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %319 = load i32, ptr %318, align 4, !tbaa !155
+  %320 = and i32 %305, 65535
+  %321 = trunc i64 %303 to i32
+  %322 = and i32 %321, 65535
+  %323 = mul nuw i32 %320, %322
+  %324 = add i32 %319, %323
+  %325 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i32 %324, ptr %325, align 4, !tbaa !155
+  br label %334
 
-327:                                              ; preds = %303
-  %328 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %329 = load i64, ptr %328, align 8, !tbaa !146
-  %330 = zext i32 %306 to i64
-  %331 = and i64 %304, 4294967295
-  %332 = mul nuw i64 %331, %330
-  %333 = add i64 %329, %332
-  %334 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %333, ptr %334, align 8, !tbaa !146
-  br label %335
+326:                                              ; preds = %302
+  %327 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %328 = load i64, ptr %327, align 8, !tbaa !146
+  %329 = zext i32 %305 to i64
+  %330 = and i64 %303, 4294967295
+  %331 = mul nuw i64 %330, %329
+  %332 = add i64 %328, %331
+  %333 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %332, ptr %333, align 8, !tbaa !146
+  br label %334
 
-335:                                              ; preds = %245, %234, %225, %285, %276, %267, %212, %327, %318, %308, %204
-  %336 = add i64 %.0191245, 1
-  %exitcond.not = icmp eq i64 %336, %187
+334:                                              ; preds = %245, %234, %225, %285, %276, %267, %212, %326, %317, %307, %204
+  %335 = add i64 %.0191244, 1
+  %exitcond.not = icmp eq i64 %335, %187
   br i1 %exitcond.not, label %._crit_edge, label %203, !llvm.loop !169
 }
 
@@ -3634,8 +3622,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vwmaccu_
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not243 = icmp eq i64 %7, 0
-  br i1 %.not243, label %12, label %8, !prof !131
+  %.not242 = icmp eq i64 %7, 0
+  br i1 %.not242, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -3798,11 +3786,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vwmaccu_
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i206 = icmp eq i32 %94, 0
+  %.not.i205 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i206, %97
+  %98 = or i1 %.not.i205, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -3907,8 +3895,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not244 = icmp eq i64 %147, 0
-  br i1 %.not244, label %151, label %148, !prof !131
+  %.not243 = icmp eq i64 %147, 0
+  br i1 %.not243, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -4003,7 +3991,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %205
 
-._crit_edge:                                      ; preds = %337, %179
+._crit_edge:                                      ; preds = %336, %179
   %201 = shl i64 %2, 32
   %202 = add i64 %201, 17179869184
   %203 = ashr exact i64 %202, 32
@@ -4011,30 +3999,30 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %204, i64 noundef 0) #15
   ret i64 %203
 
-205:                                              ; preds = %.lr.ph, %337
-  %.0191245 = phi i64 [ %194, %.lr.ph ], [ %338, %337 ]
+205:                                              ; preds = %.lr.ph, %336
+  %.0191244 = phi i64 [ %194, %.lr.ph ], [ %337, %336 ]
   br i1 %83, label %206, label %214
 
 206:                                              ; preds = %205
-  %207 = and i64 %.0191245, 63
-  %208 = shl i64 %.0191245, 26
+  %207 = and i64 %.0191244, 63
+  %208 = shl i64 %.0191244, 26
   %209 = ashr i64 %208, 32
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %209, i1 noundef zeroext false)
   %211 = load i64, ptr %210, align 8, !tbaa !146
   %212 = shl nuw i64 1, %207
   %213 = and i64 %211, %212
   %.not198 = icmp eq i64 %213, 0
-  br i1 %.not198, label %337, label %214
+  br i1 %.not198, label %336, label %214
 
 214:                                              ; preds = %206, %205
-  switch i64 %188, label %337 [
+  switch i64 %188, label %336 [
     i64 8, label %215
     i64 16, label %257
-    i64 32, label %298
+    i64 32, label %297
   ]
 
 215:                                              ; preds = %214
-  %216 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %216 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %217, label %222, !prof !131
 
 217:                                              ; preds = %215
@@ -4051,7 +4039,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 222:                                              ; preds = %215
   %223 = load i64, ptr %200, align 8, !tbaa !146
-  %224 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %224 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %225 = load i8, ptr %224, align 1, !tbaa !152
   %226 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %226, label %247 [
@@ -4060,34 +4048,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 227:                                              ; preds = %222
-  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %228 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %229 = load i16, ptr %228, align 2, !tbaa !153
   %230 = zext i8 %225 to i16
   %231 = trunc i64 %223 to i16
   %232 = and i16 %231, 255
   %233 = mul nuw i16 %232, %230
   %234 = add i16 %229, %233
-  %235 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %235 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %234, ptr %235, align 2, !tbaa !153
-  br label %337
+  br label %336
 
 236:                                              ; preds = %222
-  %237 = trunc i64 %223 to i32
-  %238 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %237 = trunc i64 %223 to i8
+  %238 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %239 = load i32, ptr %238, align 4, !tbaa !155
   %240 = sext i8 %225 to i32
   %241 = and i32 %240, 65535
-  %sext200 = shl i32 %237, 24
-  %242 = ashr exact i32 %sext200, 24
+  %242 = sext i8 %237 to i32
   %243 = and i32 %242, 65535
   %244 = mul nuw i32 %241, %243
   %245 = add i32 %239, %244
-  %246 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %246 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %245, ptr %246, align 4, !tbaa !155
-  br label %337
+  br label %336
 
 247:                                              ; preds = %222
-  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %249 = load i64, ptr %248, align 8, !tbaa !146
   %250 = sext i8 %225 to i64
   %251 = and i64 %250, 4294967295
@@ -4096,12 +4083,12 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %253 = and i64 %252, 4294967295
   %254 = mul nuw i64 %251, %253
   %255 = add i64 %249, %254
-  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i64 %255, ptr %256, align 8, !tbaa !146
-  br label %337
+  br label %336
 
 257:                                              ; preds = %214
-  %258 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %258 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %259, label %264, !prof !131
 
 259:                                              ; preds = %257
@@ -4118,7 +4105,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 264:                                              ; preds = %257
   %265 = load i64, ptr %200, align 8, !tbaa !146
-  %266 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %266 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %267 = load i16, ptr %266, align 2, !tbaa !153
   %268 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %268, label %287 [
@@ -4127,109 +4114,108 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 269:                                              ; preds = %264
-  %270 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %270 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %271 = load i16, ptr %270, align 2, !tbaa !153
   %272 = and i16 %267, 255
   %273 = trunc i64 %265 to i16
   %274 = and i16 %273, 255
   %275 = mul nuw i16 %272, %274
   %276 = add i16 %271, %275
-  %277 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %277 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %276, ptr %277, align 2, !tbaa !153
-  br label %337
+  br label %336
 
 278:                                              ; preds = %264
-  %279 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %279 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %280 = load i32, ptr %279, align 4, !tbaa !155
   %281 = zext i16 %267 to i32
   %282 = trunc i64 %265 to i32
   %283 = and i32 %282, 65535
   %284 = mul nuw i32 %283, %281
   %285 = add i32 %280, %284
-  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %285, ptr %286, align 4, !tbaa !155
-  br label %337
+  br label %336
 
 287:                                              ; preds = %264
-  %288 = trunc i64 %265 to i32
-  %289 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %290 = load i64, ptr %289, align 8, !tbaa !146
-  %291 = sext i16 %267 to i64
-  %292 = and i64 %291, 4294967295
-  %sext = shl i32 %288, 16
-  %293 = ashr exact i32 %sext, 16
-  %294 = zext i32 %293 to i64
-  %295 = mul nuw i64 %292, %294
-  %296 = add i64 %290, %295
-  %297 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %296, ptr %297, align 8, !tbaa !146
-  br label %337
+  %288 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %289 = load i64, ptr %288, align 8, !tbaa !146
+  %290 = sext i16 %267 to i64
+  %291 = and i64 %290, 4294967295
+  %sext = shl i64 %265, 48
+  %292 = ashr exact i64 %sext, 48
+  %293 = and i64 %292, 4294967295
+  %294 = mul nuw i64 %291, %293
+  %295 = add i64 %289, %294
+  %296 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %295, ptr %296, align 8, !tbaa !146
+  br label %336
 
-298:                                              ; preds = %214
-  %299 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  br i1 %198, label %300, label %305, !prof !131
+297:                                              ; preds = %214
+  %298 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  br i1 %198, label %299, label %304, !prof !131
 
-300:                                              ; preds = %298
-  %301 = call ptr @__cxa_allocate_exception(i64 32) #15
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store i64 2, ptr %302, align 8, !tbaa !134
-  %303 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  store i8 0, ptr %303, align 8, !tbaa !136
-  %304 = getelementptr inbounds nuw i8, ptr %301, i64 24
-  store i64 %1, ptr %304, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %301, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %301, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
+299:                                              ; preds = %297
+  %300 = call ptr @__cxa_allocate_exception(i64 32) #15
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
+  store i64 2, ptr %301, align 8, !tbaa !134
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  store i8 0, ptr %302, align 8, !tbaa !136
+  %303 = getelementptr inbounds nuw i8, ptr %300, i64 24
+  store i64 %1, ptr %303, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %300, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %300, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
   unreachable
 
-305:                                              ; preds = %298
-  %306 = load i64, ptr %200, align 8, !tbaa !146
-  %307 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
-  %308 = load i32, ptr %307, align 4, !tbaa !155
-  %309 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %309, label %329 [
-    i64 8, label %310
-    i64 16, label %320
+304:                                              ; preds = %297
+  %305 = load i64, ptr %200, align 8, !tbaa !146
+  %306 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
+  %307 = load i32, ptr %306, align 4, !tbaa !155
+  %308 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %308, label %328 [
+    i64 8, label %309
+    i64 16, label %319
   ]
 
-310:                                              ; preds = %305
-  %311 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %312 = load i16, ptr %311, align 2, !tbaa !153
-  %313 = and i32 %308, 255
-  %314 = trunc i64 %306 to i32
-  %315 = and i32 %314, 255
-  %316 = mul nuw nsw i32 %313, %315
-  %317 = trunc nuw i32 %316 to i16
-  %318 = add i16 %312, %317
-  %319 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i16 %318, ptr %319, align 2, !tbaa !153
-  br label %337
+309:                                              ; preds = %304
+  %310 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %311 = load i16, ptr %310, align 2, !tbaa !153
+  %312 = and i32 %307, 255
+  %313 = trunc i64 %305 to i32
+  %314 = and i32 %313, 255
+  %315 = mul nuw nsw i32 %312, %314
+  %316 = trunc nuw i32 %315 to i16
+  %317 = add i16 %311, %316
+  %318 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i16 %317, ptr %318, align 2, !tbaa !153
+  br label %336
 
-320:                                              ; preds = %305
-  %321 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %322 = load i32, ptr %321, align 4, !tbaa !155
-  %323 = and i32 %308, 65535
-  %324 = trunc i64 %306 to i32
-  %325 = and i32 %324, 65535
-  %326 = mul nuw i32 %323, %325
-  %327 = add i32 %322, %326
-  %328 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i32 %327, ptr %328, align 4, !tbaa !155
-  br label %337
+319:                                              ; preds = %304
+  %320 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %321 = load i32, ptr %320, align 4, !tbaa !155
+  %322 = and i32 %307, 65535
+  %323 = trunc i64 %305 to i32
+  %324 = and i32 %323, 65535
+  %325 = mul nuw i32 %322, %324
+  %326 = add i32 %321, %325
+  %327 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i32 %326, ptr %327, align 4, !tbaa !155
+  br label %336
 
-329:                                              ; preds = %305
-  %330 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %331 = load i64, ptr %330, align 8, !tbaa !146
-  %332 = zext i32 %308 to i64
-  %333 = and i64 %306, 4294967295
-  %334 = mul nuw i64 %333, %332
-  %335 = add i64 %331, %334
-  %336 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %335, ptr %336, align 8, !tbaa !146
-  br label %337
+328:                                              ; preds = %304
+  %329 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %330 = load i64, ptr %329, align 8, !tbaa !146
+  %331 = zext i32 %307 to i64
+  %332 = and i64 %305, 4294967295
+  %333 = mul nuw i64 %332, %331
+  %334 = add i64 %330, %333
+  %335 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %334, ptr %335, align 8, !tbaa !146
+  br label %336
 
-337:                                              ; preds = %247, %236, %227, %287, %278, %269, %214, %329, %320, %310, %206
-  %338 = add i64 %.0191245, 1
-  %exitcond.not = icmp eq i64 %338, %187
+336:                                              ; preds = %247, %236, %227, %287, %278, %269, %214, %328, %319, %309, %206
+  %337 = add i64 %.0191244, 1
+  %exitcond.not = icmp eq i64 %337, %187
   br i1 %exitcond.not, label %._crit_edge, label %205, !llvm.loop !170
 }
 
@@ -4239,8 +4225,8 @@ define noundef i64 @_Z23logged_rv64e_vwmaccu_vxP11processor_t6insn_tm(ptr nounde
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266824
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %.not243 = icmp eq i64 %7, 0
-  br i1 %.not243, label %12, label %8, !prof !131
+  %.not242 = icmp eq i64 %7, 0
+  br i1 %.not242, label %12, label %8, !prof !131
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -4403,11 +4389,11 @@ define noundef i64 @_Z23logged_rv64e_vwmaccu_vxP11processor_t6insn_tm(ptr nounde
   %92 = and i64 %91, 31
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = fptoui float %48 to i32
-  %.not.i206 = icmp eq i32 %94, 0
+  %.not.i205 = icmp eq i32 %94, 0
   %95 = add i32 %94, 31
   %96 = and i32 %95, %93
   %97 = icmp eq i32 %96, 0
-  %98 = or i1 %.not.i206, %97
+  %98 = or i1 %.not.i205, %97
   br i1 %98, label %104, label %99, !prof !133
 
 99:                                               ; preds = %90
@@ -4512,8 +4498,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 146:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %147 = load i64, ptr %6, align 8, !tbaa !3
-  %.not244 = icmp eq i64 %147, 0
-  br i1 %.not244, label %151, label %148, !prof !131
+  %.not243 = icmp eq i64 %147, 0
+  br i1 %.not243, label %151, label %148, !prof !131
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %9, align 8, !tbaa !132
@@ -4608,36 +4594,36 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %203
 
-._crit_edge:                                      ; preds = %335, %179
+._crit_edge:                                      ; preds = %334, %179
   %201 = add i64 %2, 4
   %202 = load ptr, ptr %189, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %202, i64 noundef 0) #15
   ret i64 %201
 
-203:                                              ; preds = %.lr.ph, %335
-  %.0191245 = phi i64 [ %194, %.lr.ph ], [ %336, %335 ]
+203:                                              ; preds = %.lr.ph, %334
+  %.0191244 = phi i64 [ %194, %.lr.ph ], [ %335, %334 ]
   br i1 %83, label %204, label %212
 
 204:                                              ; preds = %203
-  %205 = and i64 %.0191245, 63
-  %206 = shl i64 %.0191245, 26
+  %205 = and i64 %.0191244, 63
+  %206 = shl i64 %.0191244, 26
   %207 = ashr i64 %206, 32
   %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef 0, i64 noundef %207, i1 noundef zeroext false)
   %209 = load i64, ptr %208, align 8, !tbaa !146
   %210 = shl nuw i64 1, %205
   %211 = and i64 %209, %210
   %.not198 = icmp eq i64 %211, 0
-  br i1 %.not198, label %335, label %212
+  br i1 %.not198, label %334, label %212
 
 212:                                              ; preds = %204, %203
-  switch i64 %188, label %335 [
+  switch i64 %188, label %334 [
     i64 8, label %213
     i64 16, label %255
-    i64 32, label %296
+    i64 32, label %295
   ]
 
 213:                                              ; preds = %212
-  %214 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %214 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %215, label %220, !prof !131
 
 215:                                              ; preds = %213
@@ -4654,7 +4640,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 220:                                              ; preds = %213
   %221 = load i64, ptr %200, align 8, !tbaa !146
-  %222 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %222 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %223 = load i8, ptr %222, align 1, !tbaa !152
   %224 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %224, label %245 [
@@ -4663,34 +4649,33 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 225:                                              ; preds = %220
-  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %226 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %227 = load i16, ptr %226, align 2, !tbaa !153
   %228 = zext i8 %223 to i16
   %229 = trunc i64 %221 to i16
   %230 = and i16 %229, 255
   %231 = mul nuw i16 %230, %228
   %232 = add i16 %227, %231
-  %233 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %233 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %232, ptr %233, align 2, !tbaa !153
-  br label %335
+  br label %334
 
 234:                                              ; preds = %220
-  %235 = trunc i64 %221 to i32
-  %236 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %235 = trunc i64 %221 to i8
+  %236 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %237 = load i32, ptr %236, align 4, !tbaa !155
   %238 = sext i8 %223 to i32
   %239 = and i32 %238, 65535
-  %sext200 = shl i32 %235, 24
-  %240 = ashr exact i32 %sext200, 24
+  %240 = sext i8 %235 to i32
   %241 = and i32 %240, 65535
   %242 = mul nuw i32 %239, %241
   %243 = add i32 %237, %242
-  %244 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %244 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %243, ptr %244, align 4, !tbaa !155
-  br label %335
+  br label %334
 
 245:                                              ; preds = %220
-  %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %247 = load i64, ptr %246, align 8, !tbaa !146
   %248 = sext i8 %223 to i64
   %249 = and i64 %248, 4294967295
@@ -4699,12 +4684,12 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %251 = and i64 %250, 4294967295
   %252 = mul nuw i64 %249, %251
   %253 = add i64 %247, %252
-  %254 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %254 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i64 %253, ptr %254, align 8, !tbaa !146
-  br label %335
+  br label %334
 
 255:                                              ; preds = %212
-  %256 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %256 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   br i1 %198, label %257, label %262, !prof !131
 
 257:                                              ; preds = %255
@@ -4721,7 +4706,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
 
 262:                                              ; preds = %255
   %263 = load i64, ptr %200, align 8, !tbaa !146
-  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
+  %264 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
   %265 = load i16, ptr %264, align 2, !tbaa !153
   %266 = load i64, ptr %56, align 8, !tbaa !148
   switch i64 %266, label %285 [
@@ -4730,109 +4715,108 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   ]
 
 267:                                              ; preds = %262
-  %268 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %268 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %269 = load i16, ptr %268, align 2, !tbaa !153
   %270 = and i16 %265, 255
   %271 = trunc i64 %263 to i16
   %272 = and i16 %271, 255
   %273 = mul nuw i16 %270, %272
   %274 = add i16 %269, %273
-  %275 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %275 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i16 %274, ptr %275, align 2, !tbaa !153
-  br label %335
+  br label %334
 
 276:                                              ; preds = %262
-  %277 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
+  %277 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
   %278 = load i32, ptr %277, align 4, !tbaa !155
   %279 = zext i16 %265 to i32
   %280 = trunc i64 %263 to i32
   %281 = and i32 %280, 65535
   %282 = mul nuw i32 %281, %279
   %283 = add i32 %278, %282
-  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
+  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
   store i32 %283, ptr %284, align 4, !tbaa !155
-  br label %335
+  br label %334
 
 285:                                              ; preds = %262
-  %286 = trunc i64 %263 to i32
-  %287 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %288 = load i64, ptr %287, align 8, !tbaa !146
-  %289 = sext i16 %265 to i64
-  %290 = and i64 %289, 4294967295
-  %sext = shl i32 %286, 16
-  %291 = ashr exact i32 %sext, 16
-  %292 = zext i32 %291 to i64
-  %293 = mul nuw i64 %290, %292
-  %294 = add i64 %288, %293
-  %295 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %294, ptr %295, align 8, !tbaa !146
-  br label %335
+  %286 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %287 = load i64, ptr %286, align 8, !tbaa !146
+  %288 = sext i16 %265 to i64
+  %289 = and i64 %288, 4294967295
+  %sext = shl i64 %263, 48
+  %290 = ashr exact i64 %sext, 48
+  %291 = and i64 %290, 4294967295
+  %292 = mul nuw i64 %289, %291
+  %293 = add i64 %287, %292
+  %294 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %293, ptr %294, align 8, !tbaa !146
+  br label %334
 
-296:                                              ; preds = %212
-  %297 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  br i1 %198, label %298, label %303, !prof !131
+295:                                              ; preds = %212
+  %296 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  br i1 %198, label %297, label %302, !prof !131
 
-298:                                              ; preds = %296
-  %299 = call ptr @__cxa_allocate_exception(i64 32) #15
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  store i64 2, ptr %300, align 8, !tbaa !134
-  %301 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  store i8 0, ptr %301, align 8, !tbaa !136
-  %302 = getelementptr inbounds nuw i8, ptr %299, i64 24
-  store i64 %1, ptr %302, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %299, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %299, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
+297:                                              ; preds = %295
+  %298 = call ptr @__cxa_allocate_exception(i64 32) #15
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
+  store i64 2, ptr %299, align 8, !tbaa !134
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 16
+  store i8 0, ptr %300, align 8, !tbaa !136
+  %301 = getelementptr inbounds nuw i8, ptr %298, i64 24
+  store i64 %1, ptr %301, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %298, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %298, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #16
   unreachable
 
-303:                                              ; preds = %296
-  %304 = load i64, ptr %200, align 8, !tbaa !146
-  %305 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191245, i1 noundef zeroext false)
-  %306 = load i32, ptr %305, align 4, !tbaa !155
-  %307 = load i64, ptr %56, align 8, !tbaa !148
-  switch i64 %307, label %327 [
-    i64 8, label %308
-    i64 16, label %318
+302:                                              ; preds = %295
+  %303 = load i64, ptr %200, align 8, !tbaa !146
+  %304 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %92, i64 noundef %.0191244, i1 noundef zeroext false)
+  %305 = load i32, ptr %304, align 4, !tbaa !155
+  %306 = load i64, ptr %56, align 8, !tbaa !148
+  switch i64 %306, label %326 [
+    i64 8, label %307
+    i64 16, label %317
   ]
 
-308:                                              ; preds = %303
-  %309 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %310 = load i16, ptr %309, align 2, !tbaa !153
-  %311 = and i32 %306, 255
-  %312 = trunc i64 %304 to i32
-  %313 = and i32 %312, 255
-  %314 = mul nuw nsw i32 %311, %313
-  %315 = trunc nuw i32 %314 to i16
-  %316 = add i16 %310, %315
-  %317 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i16 %316, ptr %317, align 2, !tbaa !153
-  br label %335
+307:                                              ; preds = %302
+  %308 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %309 = load i16, ptr %308, align 2, !tbaa !153
+  %310 = and i32 %305, 255
+  %311 = trunc i64 %303 to i32
+  %312 = and i32 %311, 255
+  %313 = mul nuw nsw i32 %310, %312
+  %314 = trunc nuw i32 %313 to i16
+  %315 = add i16 %309, %314
+  %316 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i16 %315, ptr %316, align 2, !tbaa !153
+  br label %334
 
-318:                                              ; preds = %303
-  %319 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %320 = load i32, ptr %319, align 4, !tbaa !155
-  %321 = and i32 %306, 65535
-  %322 = trunc i64 %304 to i32
-  %323 = and i32 %322, 65535
-  %324 = mul nuw i32 %321, %323
-  %325 = add i32 %320, %324
-  %326 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i32 %325, ptr %326, align 4, !tbaa !155
-  br label %335
+317:                                              ; preds = %302
+  %318 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %319 = load i32, ptr %318, align 4, !tbaa !155
+  %320 = and i32 %305, 65535
+  %321 = trunc i64 %303 to i32
+  %322 = and i32 %321, 65535
+  %323 = mul nuw i32 %320, %322
+  %324 = add i32 %319, %323
+  %325 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i32 %324, ptr %325, align 4, !tbaa !155
+  br label %334
 
-327:                                              ; preds = %303
-  %328 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext false)
-  %329 = load i64, ptr %328, align 8, !tbaa !146
-  %330 = zext i32 %306 to i64
-  %331 = and i64 %304, 4294967295
-  %332 = mul nuw i64 %331, %330
-  %333 = add i64 %329, %332
-  %334 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191245, i1 noundef zeroext true)
-  store i64 %333, ptr %334, align 8, !tbaa !146
-  br label %335
+326:                                              ; preds = %302
+  %327 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext false)
+  %328 = load i64, ptr %327, align 8, !tbaa !146
+  %329 = zext i32 %305 to i64
+  %330 = and i64 %303, 4294967295
+  %331 = mul nuw i64 %330, %329
+  %332 = add i64 %328, %331
+  %333 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %18, i64 noundef %68, i64 noundef %.0191244, i1 noundef zeroext true)
+  store i64 %332, ptr %333, align 8, !tbaa !146
+  br label %334
 
-335:                                              ; preds = %245, %234, %225, %285, %276, %267, %212, %327, %318, %308, %204
-  %336 = add i64 %.0191245, 1
-  %exitcond.not = icmp eq i64 %336, %187
+334:                                              ; preds = %245, %234, %225, %285, %276, %267, %212, %326, %317, %307, %204
+  %335 = add i64 %.0191244, 1
+  %exitcond.not = icmp eq i64 %335, %187
   br i1 %exitcond.not, label %._crit_edge, label %203, !llvm.loop !171
 }
 

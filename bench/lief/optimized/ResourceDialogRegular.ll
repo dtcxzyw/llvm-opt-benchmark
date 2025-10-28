@@ -1249,9 +1249,8 @@ _ZNK4LIEF12BinaryStream4readIsEEN2tl8expectedIT_11lief_errorsEEv.exit43: ; preds
   store i16 %77, ptr %112, align 4, !tbaa !69
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 22
   store i16 %90, ptr %113, align 2, !tbaa !70
-  %.sroa.049.0.extract.trunc = trunc i64 %92 to i32
-  %sext = shl i32 %.sroa.049.0.extract.trunc, 16
-  %114 = ashr exact i32 %sext, 16
+  %.sroa.049.0.extract.trunc = trunc i64 %92 to i16
+  %114 = sext i16 %.sroa.049.0.extract.trunc to i32
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %114, ptr %115, align 8, !tbaa !71
   %116 = call noundef i64 @_ZNK4LIEF12BinaryStream5alignEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 2) #22

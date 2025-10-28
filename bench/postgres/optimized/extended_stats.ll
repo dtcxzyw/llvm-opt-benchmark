@@ -1217,9 +1217,8 @@ define internal fastcc ptr @fetch_statentries_for_relation(ptr noundef %0, i32 n
   %37 = call i64 @SysCacheGetAttr(i32 noundef 64, ptr noundef nonnull %8, i16 noundef signext 7, ptr noundef nonnull %4) #9
   %38 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %39 = trunc nuw i8 %38 to i1
-  %40 = trunc i64 %37 to i32
-  %sext = shl i32 %40, 16
-  %41 = ashr exact i32 %sext, 16
+  %40 = trunc i64 %37 to i16
+  %41 = sext i16 %40 to i32
   %42 = select i1 %39, i32 -1, i32 %41
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %42, ptr %43, align 8

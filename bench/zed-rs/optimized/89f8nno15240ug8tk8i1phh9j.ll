@@ -5479,24 +5479,22 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.val3 = load i16, ptr %5, align 2
   %trunc.i.i = trunc nuw i16 %.val to i1
-  br i1 %trunc.i.i, label %8, label %6
+  %trunc1.i.i = trunc nuw i16 %.val2 to i1
+  br i1 %trunc.i.i, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc2.i.i = trunc i16 %.val2 to i8
-  %7 = and i8 %trunc2.i.i, 1
-  %..i.i = sub nsw i8 0, %7
+  %..i.i = sext i1 %trunc1.i.i to i8
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h25bb0e13b79bb896E.exit"
 
-8:                                                ; preds = %3
-  %trunc1.i.i = trunc nuw i16 %.val2 to i1
-  br i1 %trunc1.i.i, label %9, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h25bb0e13b79bb896E.exit"
+7:                                                ; preds = %3
+  br i1 %trunc1.i.i, label %8, label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h25bb0e13b79bb896E.exit"
 
-9:                                                ; preds = %8
-  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16 %.val1, i16 %.val3)
+8:                                                ; preds = %7
+  %9 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16 %.val1, i16 %.val3)
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h25bb0e13b79bb896E.exit"
 
-"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h25bb0e13b79bb896E.exit": ; preds = %6, %8, %9
-  %.sroa.0.0.i.i = phi i8 [ %10, %9 ], [ %..i.i, %6 ], [ 1, %8 ]
+"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h25bb0e13b79bb896E.exit": ; preds = %6, %7, %8
+  %.sroa.0.0.i.i = phi i8 [ %9, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
   ret i8 %.sroa.0.0.i.i
 }
 

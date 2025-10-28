@@ -245,7 +245,7 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   store i32 %19, ptr %2, align 4, !tbaa !10
   store i32 %19, ptr %4, align 4, !tbaa !10
   store i32 %19, ptr %6, align 4, !tbaa !10
-  br label %107
+  br label %111
 
 20:                                               ; preds = %1
   %21 = mul nsw i32 %15, 16383
@@ -274,96 +274,95 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   %43 = add nsw i32 %42, %41
   %44 = load i64, ptr %4, align 8
   %.not114 = icmp eq i64 %44, 0
-  br i1 %.not114, label %80, label %45
+  br i1 %.not114, label %84, label %45
 
 45:                                               ; preds = %20
-  %46 = trunc i64 %44 to i32
-  %47 = trunc i64 %44 to i32
-  %sext117 = shl i32 %47, 16
-  %48 = ashr exact i32 %sext117, 16
-  %49 = mul nsw i32 %48, 16383
-  %sh.diff = lshr i64 %44, 16
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %50 = ashr i32 %tr.sh.diff, 16
-  %51 = mul nsw i32 %50, 8867
-  %52 = add nsw i32 %49, %25
-  %53 = add nsw i32 %52, %51
-  %54 = mul nsw i32 %48, -16383
-  %55 = mul nsw i32 %50, 21407
-  %56 = add nsw i32 %54, %27
-  %57 = sub nsw i32 %56, %55
-  %58 = add nsw i32 %54, %28
-  %59 = add nsw i32 %58, %55
-  %60 = add nsw i32 %49, %29
-  %61 = sub nsw i32 %60, %51
-  %62 = ashr i32 %46, 16
-  %63 = mul nsw i32 %62, 12873
-  %64 = add nsw i32 %63, %34
-  %sh.diff121 = lshr i64 %44, 32
-  %tr.sh.diff122 = trunc nuw i64 %sh.diff121 to i32
-  %65 = ashr i32 %tr.sh.diff122, 16
-  %66 = mul nsw i32 %65, 4520
-  %67 = add nsw i32 %64, %66
-  %68 = mul nsw i32 %62, -22725
-  %69 = add nsw i32 %68, %37
-  %70 = mul nsw i32 %65, -12873
-  %71 = add nsw i32 %69, %70
-  %72 = mul nsw i32 %62, 4520
-  %73 = add nsw i32 %72, %40
-  %74 = mul nsw i32 %65, 19266
+  %46 = lshr i64 %44, 16
+  %47 = trunc i64 %46 to i16
+  %48 = lshr i64 %44, 32
+  %49 = trunc i64 %48 to i16
+  %50 = trunc i64 %44 to i16
+  %51 = sext i16 %50 to i32
+  %52 = mul nsw i32 %51, 16383
+  %53 = sext i16 %49 to i32
+  %54 = mul nsw i32 %53, 8867
+  %55 = add nsw i32 %52, %25
+  %56 = add nsw i32 %55, %54
+  %57 = mul nsw i32 %51, -16383
+  %58 = mul nsw i32 %53, 21407
+  %59 = add nsw i32 %57, %27
+  %60 = sub nsw i32 %59, %58
+  %61 = add nsw i32 %57, %28
+  %62 = add nsw i32 %61, %58
+  %63 = add nsw i32 %52, %29
+  %64 = sub nsw i32 %63, %54
+  %65 = sext i16 %47 to i32
+  %66 = mul nsw i32 %65, 12873
+  %67 = add nsw i32 %66, %34
+  %68 = ashr i64 %44, 48
+  %69 = trunc nsw i64 %68 to i32
+  %70 = mul nsw i32 %69, 4520
+  %71 = add nsw i32 %67, %70
+  %72 = mul nsw i32 %65, -22725
+  %73 = add nsw i32 %72, %37
+  %74 = mul nsw i32 %69, -12873
   %75 = add nsw i32 %73, %74
-  %76 = mul nsw i32 %62, 19266
-  %77 = add nsw i32 %76, %43
-  %78 = mul nsw i32 %65, -22725
+  %76 = mul nsw i32 %65, 4520
+  %77 = add nsw i32 %76, %40
+  %78 = mul nsw i32 %69, 19266
   %79 = add nsw i32 %77, %78
-  br label %80
+  %80 = mul nsw i32 %65, 19266
+  %81 = add nsw i32 %80, %43
+  %82 = mul nsw i32 %69, -22725
+  %83 = add nsw i32 %81, %82
+  br label %84
 
-80:                                               ; preds = %45, %20
-  %.0112 = phi i32 [ %53, %45 ], [ %25, %20 ]
-  %.0111 = phi i32 [ %57, %45 ], [ %27, %20 ]
-  %.0110 = phi i32 [ %59, %45 ], [ %28, %20 ]
-  %.0109 = phi i32 [ %61, %45 ], [ %29, %20 ]
-  %.0108 = phi i32 [ %67, %45 ], [ %34, %20 ]
-  %.0107 = phi i32 [ %71, %45 ], [ %37, %20 ]
-  %.0106 = phi i32 [ %75, %45 ], [ %40, %20 ]
-  %.0105 = phi i32 [ %79, %45 ], [ %43, %20 ]
-  %81 = add i32 %.0108, %.0112
-  %82 = lshr i32 %81, 11
-  %83 = trunc i32 %82 to i16
-  store i16 %83, ptr %0, align 2, !tbaa !6
-  %84 = sub i32 %.0112, %.0108
-  %85 = lshr i32 %84, 11
-  %86 = trunc i32 %85 to i16
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %86, ptr %87, align 2, !tbaa !6
-  %88 = add i32 %.0107, %.0111
+84:                                               ; preds = %45, %20
+  %.0112 = phi i32 [ %56, %45 ], [ %25, %20 ]
+  %.0111 = phi i32 [ %60, %45 ], [ %27, %20 ]
+  %.0110 = phi i32 [ %62, %45 ], [ %28, %20 ]
+  %.0109 = phi i32 [ %64, %45 ], [ %29, %20 ]
+  %.0108 = phi i32 [ %71, %45 ], [ %34, %20 ]
+  %.0107 = phi i32 [ %75, %45 ], [ %37, %20 ]
+  %.0106 = phi i32 [ %79, %45 ], [ %40, %20 ]
+  %.0105 = phi i32 [ %83, %45 ], [ %43, %20 ]
+  %85 = add i32 %.0108, %.0112
+  %86 = lshr i32 %85, 11
+  %87 = trunc i32 %86 to i16
+  store i16 %87, ptr %0, align 2, !tbaa !6
+  %88 = sub i32 %.0112, %.0108
   %89 = lshr i32 %88, 11
   %90 = trunc i32 %89 to i16
-  store i16 %90, ptr %10, align 2, !tbaa !6
-  %91 = sub i32 %.0111, %.0107
-  %92 = lshr i32 %91, 11
-  %93 = trunc i32 %92 to i16
-  store i16 %93, ptr %6, align 2, !tbaa !6
-  %94 = add i32 %.0106, %.0110
-  %95 = lshr i32 %94, 11
-  %96 = trunc i32 %95 to i16
-  store i16 %96, ptr %2, align 2, !tbaa !6
-  %97 = sub i32 %.0110, %.0106
-  %98 = lshr i32 %97, 11
-  %99 = trunc i32 %98 to i16
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %99, ptr %100, align 2, !tbaa !6
-  %101 = add i32 %.0105, %.0109
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i16 %90, ptr %91, align 2, !tbaa !6
+  %92 = add i32 %.0107, %.0111
+  %93 = lshr i32 %92, 11
+  %94 = trunc i32 %93 to i16
+  store i16 %94, ptr %10, align 2, !tbaa !6
+  %95 = sub i32 %.0111, %.0107
+  %96 = lshr i32 %95, 11
+  %97 = trunc i32 %96 to i16
+  store i16 %97, ptr %6, align 2, !tbaa !6
+  %98 = add i32 %.0106, %.0110
+  %99 = lshr i32 %98, 11
+  %100 = trunc i32 %99 to i16
+  store i16 %100, ptr %2, align 2, !tbaa !6
+  %101 = sub i32 %.0110, %.0106
   %102 = lshr i32 %101, 11
   %103 = trunc i32 %102 to i16
-  store i16 %103, ptr %31, align 2, !tbaa !6
-  %104 = sub i32 %.0109, %.0105
-  %105 = lshr i32 %104, 11
-  %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %4, align 2, !tbaa !6
-  br label %107
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %103, ptr %104, align 2, !tbaa !6
+  %105 = add i32 %.0105, %.0109
+  %106 = lshr i32 %105, 11
+  %107 = trunc i32 %106 to i16
+  store i16 %107, ptr %31, align 2, !tbaa !6
+  %108 = sub i32 %.0109, %.0105
+  %109 = lshr i32 %108, 11
+  %110 = trunc i32 %109 to i16
+  store i16 %110, ptr %4, align 2, !tbaa !6
+  br label %111
 
-107:                                              ; preds = %80, %16
+111:                                              ; preds = %84, %16
   ret void
 }
 
@@ -1017,7 +1016,7 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   store i32 %19, ptr %2, align 4, !tbaa !10
   store i32 %19, ptr %4, align 4, !tbaa !10
   store i32 %19, ptr %6, align 4, !tbaa !10
-  br label %107
+  br label %111
 
 20:                                               ; preds = %1
   %21 = shl nsw i32 %15, 14
@@ -1046,96 +1045,95 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   %43 = add nsw i32 %42, %41
   %44 = load i64, ptr %4, align 8
   %.not114 = icmp eq i64 %44, 0
-  br i1 %.not114, label %80, label %45
+  br i1 %.not114, label %84, label %45
 
 45:                                               ; preds = %20
-  %46 = trunc i64 %44 to i32
-  %47 = trunc i64 %44 to i32
-  %sext117 = shl i32 %47, 16
-  %48 = ashr exact i32 %sext117, 16
-  %49 = ashr exact i32 %sext117, 2
-  %sh.diff = lshr i64 %44, 16
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %50 = ashr i32 %tr.sh.diff, 16
-  %51 = mul nsw i32 %50, 8867
-  %52 = add i32 %49, %25
-  %53 = add i32 %52, %51
-  %54 = mul nsw i32 %48, -16384
-  %55 = mul nsw i32 %50, 21407
-  %56 = add i32 %54, %27
-  %57 = sub i32 %56, %55
-  %58 = add i32 %54, %28
-  %59 = add i32 %58, %55
-  %60 = add i32 %49, %29
-  %61 = sub i32 %60, %51
-  %62 = ashr i32 %46, 16
-  %63 = mul nsw i32 %62, 12873
-  %64 = add nsw i32 %63, %34
-  %sh.diff121 = lshr i64 %44, 32
-  %tr.sh.diff122 = trunc nuw i64 %sh.diff121 to i32
-  %65 = ashr i32 %tr.sh.diff122, 16
-  %66 = mul nsw i32 %65, 4520
-  %67 = add nsw i32 %64, %66
-  %68 = mul nsw i32 %62, -22725
-  %69 = add nsw i32 %68, %37
-  %70 = mul nsw i32 %65, -12873
-  %71 = add nsw i32 %69, %70
-  %72 = mul nsw i32 %62, 4520
-  %73 = add nsw i32 %72, %40
-  %74 = mul nsw i32 %65, 19265
+  %46 = lshr i64 %44, 16
+  %47 = trunc i64 %46 to i16
+  %48 = lshr i64 %44, 32
+  %49 = trunc i64 %48 to i16
+  %50 = trunc i64 %44 to i16
+  %51 = sext i16 %50 to i32
+  %52 = shl nsw i32 %51, 14
+  %53 = sext i16 %49 to i32
+  %54 = mul nsw i32 %53, 8867
+  %55 = add i32 %52, %25
+  %56 = add i32 %55, %54
+  %57 = mul nsw i32 %51, -16384
+  %58 = mul nsw i32 %53, 21407
+  %59 = add i32 %57, %27
+  %60 = sub i32 %59, %58
+  %61 = add i32 %57, %28
+  %62 = add i32 %61, %58
+  %63 = add i32 %52, %29
+  %64 = sub i32 %63, %54
+  %65 = sext i16 %47 to i32
+  %66 = mul nsw i32 %65, 12873
+  %67 = add nsw i32 %66, %34
+  %68 = ashr i64 %44, 48
+  %69 = trunc nsw i64 %68 to i32
+  %70 = mul nsw i32 %69, 4520
+  %71 = add nsw i32 %67, %70
+  %72 = mul nsw i32 %65, -22725
+  %73 = add nsw i32 %72, %37
+  %74 = mul nsw i32 %69, -12873
   %75 = add nsw i32 %73, %74
-  %76 = mul nsw i32 %62, 19265
-  %77 = add nsw i32 %76, %43
-  %78 = mul nsw i32 %65, -22725
+  %76 = mul nsw i32 %65, 4520
+  %77 = add nsw i32 %76, %40
+  %78 = mul nsw i32 %69, 19265
   %79 = add nsw i32 %77, %78
-  br label %80
+  %80 = mul nsw i32 %65, 19265
+  %81 = add nsw i32 %80, %43
+  %82 = mul nsw i32 %69, -22725
+  %83 = add nsw i32 %81, %82
+  br label %84
 
-80:                                               ; preds = %45, %20
-  %.0112 = phi i32 [ %53, %45 ], [ %25, %20 ]
-  %.0111 = phi i32 [ %57, %45 ], [ %27, %20 ]
-  %.0110 = phi i32 [ %59, %45 ], [ %28, %20 ]
-  %.0109 = phi i32 [ %61, %45 ], [ %29, %20 ]
-  %.0108 = phi i32 [ %67, %45 ], [ %34, %20 ]
-  %.0107 = phi i32 [ %71, %45 ], [ %37, %20 ]
-  %.0106 = phi i32 [ %75, %45 ], [ %40, %20 ]
-  %.0105 = phi i32 [ %79, %45 ], [ %43, %20 ]
-  %81 = add i32 %.0108, %.0112
-  %82 = lshr i32 %81, 12
-  %83 = trunc i32 %82 to i16
-  store i16 %83, ptr %0, align 2, !tbaa !6
-  %84 = sub i32 %.0112, %.0108
-  %85 = lshr i32 %84, 12
-  %86 = trunc i32 %85 to i16
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %86, ptr %87, align 2, !tbaa !6
-  %88 = add i32 %.0107, %.0111
+84:                                               ; preds = %45, %20
+  %.0112 = phi i32 [ %56, %45 ], [ %25, %20 ]
+  %.0111 = phi i32 [ %60, %45 ], [ %27, %20 ]
+  %.0110 = phi i32 [ %62, %45 ], [ %28, %20 ]
+  %.0109 = phi i32 [ %64, %45 ], [ %29, %20 ]
+  %.0108 = phi i32 [ %71, %45 ], [ %34, %20 ]
+  %.0107 = phi i32 [ %75, %45 ], [ %37, %20 ]
+  %.0106 = phi i32 [ %79, %45 ], [ %40, %20 ]
+  %.0105 = phi i32 [ %83, %45 ], [ %43, %20 ]
+  %85 = add i32 %.0108, %.0112
+  %86 = lshr i32 %85, 12
+  %87 = trunc i32 %86 to i16
+  store i16 %87, ptr %0, align 2, !tbaa !6
+  %88 = sub i32 %.0112, %.0108
   %89 = lshr i32 %88, 12
   %90 = trunc i32 %89 to i16
-  store i16 %90, ptr %10, align 2, !tbaa !6
-  %91 = sub i32 %.0111, %.0107
-  %92 = lshr i32 %91, 12
-  %93 = trunc i32 %92 to i16
-  store i16 %93, ptr %6, align 2, !tbaa !6
-  %94 = add i32 %.0106, %.0110
-  %95 = lshr i32 %94, 12
-  %96 = trunc i32 %95 to i16
-  store i16 %96, ptr %2, align 2, !tbaa !6
-  %97 = sub i32 %.0110, %.0106
-  %98 = lshr i32 %97, 12
-  %99 = trunc i32 %98 to i16
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %99, ptr %100, align 2, !tbaa !6
-  %101 = add i32 %.0105, %.0109
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i16 %90, ptr %91, align 2, !tbaa !6
+  %92 = add i32 %.0107, %.0111
+  %93 = lshr i32 %92, 12
+  %94 = trunc i32 %93 to i16
+  store i16 %94, ptr %10, align 2, !tbaa !6
+  %95 = sub i32 %.0111, %.0107
+  %96 = lshr i32 %95, 12
+  %97 = trunc i32 %96 to i16
+  store i16 %97, ptr %6, align 2, !tbaa !6
+  %98 = add i32 %.0106, %.0110
+  %99 = lshr i32 %98, 12
+  %100 = trunc i32 %99 to i16
+  store i16 %100, ptr %2, align 2, !tbaa !6
+  %101 = sub i32 %.0110, %.0106
   %102 = lshr i32 %101, 12
   %103 = trunc i32 %102 to i16
-  store i16 %103, ptr %31, align 2, !tbaa !6
-  %104 = sub i32 %.0109, %.0105
-  %105 = lshr i32 %104, 12
-  %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %4, align 2, !tbaa !6
-  br label %107
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %103, ptr %104, align 2, !tbaa !6
+  %105 = add i32 %.0105, %.0109
+  %106 = lshr i32 %105, 12
+  %107 = trunc i32 %106 to i16
+  store i16 %107, ptr %31, align 2, !tbaa !6
+  %108 = sub i32 %.0109, %.0105
+  %109 = lshr i32 %108, 12
+  %110 = trunc i32 %109 to i16
+  store i16 %110, ptr %4, align 2, !tbaa !6
+  br label %111
 
-107:                                              ; preds = %80, %16
+111:                                              ; preds = %84, %16
   ret void
 }
 
@@ -1772,7 +1770,7 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   store i32 %20, ptr %2, align 4, !tbaa !10
   store i32 %20, ptr %4, align 4, !tbaa !10
   store i32 %20, ptr %6, align 4, !tbaa !10
-  br label %108
+  br label %112
 
 21:                                               ; preds = %1
   %22 = mul nsw i32 %15, 32767
@@ -1801,96 +1799,95 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   %44 = add nsw i32 %43, %42
   %45 = load i64, ptr %4, align 8
   %.not114 = icmp eq i64 %45, 0
-  br i1 %.not114, label %81, label %46
+  br i1 %.not114, label %85, label %46
 
 46:                                               ; preds = %21
-  %47 = trunc i64 %45 to i32
-  %48 = trunc i64 %45 to i32
-  %sext117 = shl i32 %48, 16
-  %49 = ashr exact i32 %sext117, 16
-  %50 = mul nsw i32 %49, 32767
-  %sh.diff = lshr i64 %45, 16
-  %tr.sh.diff = trunc i64 %sh.diff to i32
-  %51 = ashr i32 %tr.sh.diff, 16
-  %52 = mul nsw i32 %51, 17734
-  %53 = add i32 %50, %26
-  %54 = add i32 %53, %52
-  %55 = mul nsw i32 %49, -32767
-  %56 = mul nsw i32 %51, 42813
-  %57 = add i32 %55, %28
-  %58 = sub i32 %57, %56
-  %59 = add i32 %55, %29
-  %60 = add i32 %59, %56
-  %61 = add i32 %50, %30
-  %62 = sub i32 %61, %52
-  %63 = ashr i32 %47, 16
-  %64 = mul nsw i32 %63, 25746
-  %65 = add i32 %64, %35
-  %sh.diff121 = lshr i64 %45, 32
-  %tr.sh.diff122 = trunc nuw i64 %sh.diff121 to i32
-  %66 = ashr i32 %tr.sh.diff122, 16
-  %67 = mul nsw i32 %66, 9041
-  %68 = add i32 %65, %67
-  %69 = mul nsw i32 %63, -45451
-  %70 = add i32 %69, %38
-  %71 = mul nsw i32 %66, -25746
-  %72 = add i32 %70, %71
-  %73 = mul nsw i32 %63, 9041
-  %74 = add i32 %73, %41
-  %75 = mul nsw i32 %66, 38531
+  %47 = lshr i64 %45, 16
+  %48 = trunc i64 %47 to i16
+  %49 = lshr i64 %45, 32
+  %50 = trunc i64 %49 to i16
+  %51 = trunc i64 %45 to i16
+  %52 = sext i16 %51 to i32
+  %53 = mul nsw i32 %52, 32767
+  %54 = sext i16 %50 to i32
+  %55 = mul nsw i32 %54, 17734
+  %56 = add i32 %53, %26
+  %57 = add i32 %56, %55
+  %58 = mul nsw i32 %52, -32767
+  %59 = mul nsw i32 %54, 42813
+  %60 = add i32 %58, %28
+  %61 = sub i32 %60, %59
+  %62 = add i32 %58, %29
+  %63 = add i32 %62, %59
+  %64 = add i32 %53, %30
+  %65 = sub i32 %64, %55
+  %66 = sext i16 %48 to i32
+  %67 = mul nsw i32 %66, 25746
+  %68 = add i32 %67, %35
+  %69 = ashr i64 %45, 48
+  %70 = trunc nsw i64 %69 to i32
+  %71 = mul nsw i32 %70, 9041
+  %72 = add i32 %68, %71
+  %73 = mul nsw i32 %66, -45451
+  %74 = add i32 %73, %38
+  %75 = mul nsw i32 %70, -25746
   %76 = add i32 %74, %75
-  %77 = mul nsw i32 %63, 38531
-  %78 = add i32 %77, %44
-  %79 = mul nsw i32 %66, -45451
+  %77 = mul nsw i32 %66, 9041
+  %78 = add i32 %77, %41
+  %79 = mul nsw i32 %70, 38531
   %80 = add i32 %78, %79
-  br label %81
+  %81 = mul nsw i32 %66, 38531
+  %82 = add i32 %81, %44
+  %83 = mul nsw i32 %70, -45451
+  %84 = add i32 %82, %83
+  br label %85
 
-81:                                               ; preds = %46, %21
-  %.0112 = phi i32 [ %54, %46 ], [ %26, %21 ]
-  %.0111 = phi i32 [ %58, %46 ], [ %28, %21 ]
-  %.0110 = phi i32 [ %60, %46 ], [ %29, %21 ]
-  %.0109 = phi i32 [ %62, %46 ], [ %30, %21 ]
-  %.0108 = phi i32 [ %68, %46 ], [ %35, %21 ]
-  %.0107 = phi i32 [ %72, %46 ], [ %38, %21 ]
-  %.0106 = phi i32 [ %76, %46 ], [ %41, %21 ]
-  %.0105 = phi i32 [ %80, %46 ], [ %44, %21 ]
-  %82 = add i32 %.0108, %.0112
-  %83 = lshr i32 %82, 16
-  %84 = trunc nuw i32 %83 to i16
-  store i16 %84, ptr %0, align 2, !tbaa !6
-  %85 = sub i32 %.0112, %.0108
-  %86 = lshr i32 %85, 16
-  %87 = trunc nuw i32 %86 to i16
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %87, ptr %88, align 2, !tbaa !6
-  %89 = add i32 %.0107, %.0111
+85:                                               ; preds = %46, %21
+  %.0112 = phi i32 [ %57, %46 ], [ %26, %21 ]
+  %.0111 = phi i32 [ %61, %46 ], [ %28, %21 ]
+  %.0110 = phi i32 [ %63, %46 ], [ %29, %21 ]
+  %.0109 = phi i32 [ %65, %46 ], [ %30, %21 ]
+  %.0108 = phi i32 [ %72, %46 ], [ %35, %21 ]
+  %.0107 = phi i32 [ %76, %46 ], [ %38, %21 ]
+  %.0106 = phi i32 [ %80, %46 ], [ %41, %21 ]
+  %.0105 = phi i32 [ %84, %46 ], [ %44, %21 ]
+  %86 = add i32 %.0108, %.0112
+  %87 = lshr i32 %86, 16
+  %88 = trunc nuw i32 %87 to i16
+  store i16 %88, ptr %0, align 2, !tbaa !6
+  %89 = sub i32 %.0112, %.0108
   %90 = lshr i32 %89, 16
   %91 = trunc nuw i32 %90 to i16
-  store i16 %91, ptr %10, align 2, !tbaa !6
-  %92 = sub i32 %.0111, %.0107
-  %93 = lshr i32 %92, 16
-  %94 = trunc nuw i32 %93 to i16
-  store i16 %94, ptr %6, align 2, !tbaa !6
-  %95 = add i32 %.0106, %.0110
-  %96 = lshr i32 %95, 16
-  %97 = trunc nuw i32 %96 to i16
-  store i16 %97, ptr %2, align 2, !tbaa !6
-  %98 = sub i32 %.0110, %.0106
-  %99 = lshr i32 %98, 16
-  %100 = trunc nuw i32 %99 to i16
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %100, ptr %101, align 2, !tbaa !6
-  %102 = add i32 %.0105, %.0109
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i16 %91, ptr %92, align 2, !tbaa !6
+  %93 = add i32 %.0107, %.0111
+  %94 = lshr i32 %93, 16
+  %95 = trunc nuw i32 %94 to i16
+  store i16 %95, ptr %10, align 2, !tbaa !6
+  %96 = sub i32 %.0111, %.0107
+  %97 = lshr i32 %96, 16
+  %98 = trunc nuw i32 %97 to i16
+  store i16 %98, ptr %6, align 2, !tbaa !6
+  %99 = add i32 %.0106, %.0110
+  %100 = lshr i32 %99, 16
+  %101 = trunc nuw i32 %100 to i16
+  store i16 %101, ptr %2, align 2, !tbaa !6
+  %102 = sub i32 %.0110, %.0106
   %103 = lshr i32 %102, 16
   %104 = trunc nuw i32 %103 to i16
-  store i16 %104, ptr %32, align 2, !tbaa !6
-  %105 = sub i32 %.0109, %.0105
-  %106 = lshr i32 %105, 16
-  %107 = trunc nuw i32 %106 to i16
-  store i16 %107, ptr %4, align 2, !tbaa !6
-  br label %108
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 %104, ptr %105, align 2, !tbaa !6
+  %106 = add i32 %.0105, %.0109
+  %107 = lshr i32 %106, 16
+  %108 = trunc nuw i32 %107 to i16
+  store i16 %108, ptr %32, align 2, !tbaa !6
+  %109 = sub i32 %.0109, %.0105
+  %110 = lshr i32 %109, 16
+  %111 = trunc nuw i32 %110 to i16
+  store i16 %111, ptr %4, align 2, !tbaa !6
+  br label %112
 
-108:                                              ; preds = %81, %16
+112:                                              ; preds = %85, %16
   ret void
 }
 

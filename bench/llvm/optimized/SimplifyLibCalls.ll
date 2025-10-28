@@ -1540,10 +1540,9 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit75:    ; preds = %_ZNK4llvm11Constant
   br i1 %.not93, label %_ZNK4llvm9StringRef4findEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit75
-  %153 = trunc i64 %.0.i.i73 to i32
+  %153 = trunc i64 %.0.i.i73 to i8
   %154 = load ptr, ptr %7, align 8, !tbaa !237
-  %sext = shl i32 %153, 24
-  %155 = ashr exact i32 %sext, 24
+  %155 = sext i8 %153 to i32
   %156 = call ptr @memchr(ptr noundef %154, i32 noundef %155, i64 noundef %152) #26
   %.not.i.i = icmp eq ptr %156, null
   %157 = ptrtoint ptr %156 to i64
@@ -6245,10 +6244,9 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %151
   %156 = load ptr, ptr %155, align 8
   %.0.in.i.i = select i1 %154, ptr %155, ptr %156
   %.0.i.i174 = load i64, ptr %.0.in.i.i, align 8, !tbaa !112
-  %157 = trunc i64 %.0.i.i174 to i32
+  %157 = trunc i64 %.0.i.i174 to i8
   %158 = load ptr, ptr %13, align 8, !tbaa !237
-  %sext = shl i32 %157, 24
-  %159 = ashr exact i32 %sext, 24
+  %159 = sext i8 %157 to i32
   %160 = call ptr @memchr(ptr noundef %158, i32 noundef %159, i64 noundef %149) #26
   %.not.i.i = icmp eq ptr %160, null
   %161 = ptrtoint ptr %160 to i64
@@ -7931,10 +7929,9 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %42, %49
   br i1 %.not71, label %_ZNK4llvm9StringRef4findEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
-  %54 = trunc i64 %.0.i.i to i32
+  %54 = trunc i64 %.0.i.i to i8
   %55 = load ptr, ptr %4, align 8, !tbaa !237
-  %sext = shl i32 %54, 24
-  %56 = ashr exact i32 %sext, 24
+  %56 = sext i8 %54 to i32
   %57 = call ptr @memchr(ptr noundef %55, i32 noundef %56, i64 noundef %53) #26
   %.not.i.i = icmp eq ptr %57, null
   %58 = ptrtoint ptr %57 to i64
