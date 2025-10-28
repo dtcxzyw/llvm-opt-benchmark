@@ -1217,7 +1217,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr readnone cap
 99:                                               ; preds = %86
   br label %xhci_trb_type_string.exit
 
-default.unreachable7:                             ; preds = %175, %86
+default.unreachable:                              ; preds = %175, %86
   unreachable
 
 xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, %96, %97, %98, %99
@@ -1342,7 +1342,7 @@ xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, 
 187:                                              ; preds = %175
   br label %xhci_trb_type_string.exit3
 
-xhci_trb_type_string.exit3:                       ; preds = %175, %181, %182, %183, %184, %185, %186, %187
+default.unreachable3:                             ; preds = %175, %181, %182, %183, %184, %185, %186, %187
   %188 = phi ptr [ @.str.48, %187 ], [ @.str.47, %186 ], [ @.str.46, %185 ], [ @.str.45, %184 ], [ @.str.44, %183 ], [ @.str.43, %182 ], [ @.str.42, %181 ], [ @.str.41, %175 ]
   %189 = and i32 %30, 512
   %190 = icmp eq i32 %189, 0

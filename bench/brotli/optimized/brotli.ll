@@ -805,8 +805,8 @@ ParseInt.exit.i:                                  ; preds = %201
   br i1 %276, label %.loopexit559.i, label %ParseBase64.exit.i
 
 ParseBase64.exit.i:                               ; preds = %._crit_edge.i.i, %239
-  %.067.lcssa104.i.i = phi i64 [ %.168.ph.i.i, %._crit_edge.i.i ], [ 0, %239 ]
-  store i64 %.067.lcssa104.i.i, ptr %8, align 8, !tbaa !39
+  %.067.lcssa103.i.i = phi i64 [ %.168.ph.i.i, %._crit_edge.i.i ], [ 0, %239 ]
+  store i64 %.067.lcssa103.i.i, ptr %8, align 8, !tbaa !39
   br label %289
 
 .loopexit559.i:                                   ; preds = %._crit_edge.i.i, %265, %256, %246
@@ -2577,8 +2577,8 @@ define internal fastcc range(i32 0, 2) i32 @ParseBase64(ptr noundef readonly cap
   br i1 %41, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.067.lcssa104 = phi i64 [ %.168.ph, %._crit_edge ], [ 0, %3 ]
-  store i64 %.067.lcssa104, ptr %2, align 8, !tbaa !39
+  %.067.lcssa103 = phi i64 [ %.168.ph, %._crit_edge ], [ 0, %3 ]
+  store i64 %.067.lcssa103, ptr %2, align 8, !tbaa !39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %21, %30, %._crit_edge, %._crit_edge.thread

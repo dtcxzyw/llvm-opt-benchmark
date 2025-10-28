@@ -2877,7 +2877,7 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.77, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.77, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #21
-  br label %63
+  br label %64
 
 14:                                               ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
@@ -2885,7 +2885,7 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %9) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.78, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
-  br label %63
+  br label %64
 
 16:                                               ; preds = %3
   %17 = lshr i16 %1, 6
@@ -2908,15 +2908,15 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   %.0 = phi i32 [ %20, %16 ], [ %27, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %29 = trunc i16 %17 to i8
-  %30 = and i8 %29, 7
-  %31 = add nuw nsw i8 %30, 97
-  store i8 %31, ptr %6, align 1, !noalias !28
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %33 = lshr i16 %18, 3
-  %34 = trunc nuw nsw i16 %33 to i8
-  %35 = add nuw nsw i8 %34, 49
-  store i8 %35, ptr %32, align 1, !noalias !28
+  %30 = trunc i16 %17 to i8
+  %31 = and i8 %30, 7
+  %32 = add nuw nsw i8 %31, 97
+  store i8 %32, ptr %6, align 1, !noalias !28
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %34 = lshr i16 %18, 3
+  %35 = trunc nuw nsw i16 %34 to i8
+  %36 = add nuw nsw i8 %35, 49
+  store i8 %36, ptr %33, align 1, !noalias !28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21, !noalias !28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ESt16initializer_listIcERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull %6, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
@@ -2924,59 +2924,59 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %36 = trunc nuw nsw i32 %.0 to i8
-  %37 = and i8 %36, 7
-  %38 = add nuw nsw i8 %37, 97
-  store i8 %38, ptr %4, align 1, !noalias !31
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %40 = lshr i32 %.0, 3
-  %41 = trunc nuw nsw i32 %40 to i8
-  %42 = add nuw nsw i8 %41, 49
-  store i8 %42, ptr %39, align 1, !noalias !31
+  %37 = trunc nuw nsw i32 %.0 to i8
+  %38 = and i8 %37, 7
+  %39 = add nuw nsw i8 %38, 97
+  store i8 %39, ptr %4, align 1, !noalias !31
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %41 = lshr i32 %.0, 3
+  %42 = trunc nuw nsw i32 %41 to i8
+  %43 = add nuw nsw i8 %42, 49
+  store i8 %43, ptr %40, align 1, !noalias !31
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ESt16initializer_listIcERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr nonnull %4, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %43 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21, !noalias !34
-  %44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21, !noalias !34
-  %45 = add i64 %44, %43
-  %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21, !noalias !34
-  %47 = icmp ugt i64 %45, %46
-  br i1 %47, label %48, label %52
+  %44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21, !noalias !34
+  %45 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21, !noalias !34
+  %46 = add i64 %45, %44
+  %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21, !noalias !34
+  %48 = icmp ugt i64 %46, %47
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %28
-  %49 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21, !noalias !34
-  %.not.i = icmp ugt i64 %45, %49
-  br i1 %.not.i, label %52, label %50
+49:                                               ; preds = %28
+  %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21, !noalias !34
+  %.not.i = icmp ugt i64 %46, %50
+  br i1 %.not.i, label %53, label %51
 
-50:                                               ; preds = %48
-  %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %10) #21, !noalias !34
+51:                                               ; preds = %49
+  %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %10) #21, !noalias !34
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
-52:                                               ; preds = %48, %28
-  %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21, !noalias !34
+53:                                               ; preds = %49, %28
+  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21, !noalias !34
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
-_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %50, %52
-  %.sink.i = phi ptr [ %53, %52 ], [ %51, %50 ]
+_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %51, %53
+  %.sink.i = phi ptr [ %54, %52 ], [ %52, %50 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %54 = icmp sgt i16 %1, 16383
-  br i1 %54, label %55, label %63
+  %55 = icmp sgt i16 %1, 16383
+  br i1 %55, label %56, label %64
 
-55:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
-  %56 = lshr i16 %1, 12
-  %57 = and i16 %56, 3
-  %58 = zext nneg i16 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr @.str.79, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
-  %61 = load i8, ptr %60, align 1
-  %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %61) #21
-  br label %63
+56:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
+  %57 = lshr i16 %1, 12
+  %58 = and i16 %57, 3
+  %59 = zext nneg i16 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr @.str.79, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 2
+  %62 = load i8, ptr %61, align 1
+  %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %62) #21
+  br label %64
 
-63:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit, %55, %14, %12
+64:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit, %56, %14, %12
   ret void
 }
 
@@ -3709,19 +3709,19 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UC
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
   switch i32 %2, label %5 [
-    i32 0, label %.sink.split
+    i32 0, label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %.sink.split
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
 
-.sink.split:                                      ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ %1, %4 ], [ @"_ZTIZN9Stockfish3UCIC1EiPPcE3$_0", %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %5
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-5:                                                ; preds = %.sink.split, %3
+"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -3761,8 +3761,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6Op
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val = load i64, ptr %1, align 8
-  store i64 %.val, ptr %0, align 8
+  %.val.i = load i64, ptr %1, align 8
+  store i64 %.val.i, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -3817,8 +3817,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6Op
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val = load i64, ptr %1, align 8
-  store i64 %.val, ptr %0, align 8
+  %.val.i = load i64, ptr %1, align 8
+  store i64 %.val.i, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -3851,8 +3851,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6Op
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val = load i64, ptr %1, align 8
-  store i64 %.val, ptr %0, align 8
+  %.val.i = load i64, ptr %1, align 8
+  store i64 %.val.i, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -3873,19 +3873,19 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UC
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
   switch i32 %2, label %5 [
-    i32 0, label %.sink.split
+    i32 0, label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %.sink.split
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
 
-.sink.split:                                      ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ %1, %4 ], [ @"_ZTIZN9Stockfish3UCIC1EiPPcE3$_4", %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %5
+  br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-5:                                                ; preds = %.sink.split, %3
+"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -4014,8 +4014,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6Op
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val = load i64, ptr %1, align 8
-  store i64 %.val, ptr %0, align 8
+  %.val.i = load i64, ptr %1, align 8
+  store i64 %.val.i, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -4370,8 +4370,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9Stockfish6Op
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val = load i64, ptr %1, align 8
-  store i64 %.val, ptr %0, align 8
+  %.val.i = load i64, ptr %1, align 8
+  store i64 %.val.i, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN9Stockfish3UCIC1EiPPcE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

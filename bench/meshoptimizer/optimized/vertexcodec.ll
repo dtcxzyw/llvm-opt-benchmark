@@ -1104,8 +1104,8 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %551, %541, %53
 .loopexit.i:                                      ; preds = %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, %450
   %.050.lcssa.i.i = phi ptr [ %451, %450 ], [ %.0.i.i.i, %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i ]
   %.not61.lcssa.i.i = phi i1 [ %281, %450 ], [ %.not61.i.i, %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i ]
-  %.not68.not185.i = icmp ne ptr %.050.lcssa.i.i, null
-  %.not68.not.not.i = select i1 %.not61.lcssa.i.i, i1 %.not68.not185.i, i1 false
+  %.not68.not184.i = icmp ne ptr %.050.lcssa.i.i, null
+  %.not68.not.not.i = select i1 %.not61.lcssa.i.i, i1 %.not68.not184.i, i1 false
   br i1 %.not68.not.not.i, label %.thread96.i, label %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit.thread
 
 .thread96.i:                                      ; preds = %.loopexit.i, %443, %.thread86.i
@@ -1498,9 +1498,9 @@ define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1
   %114 = shufflevector <2 x i64> %102, <2 x i64> %113, <2 x i32> <i32 0, i32 2>
   %115 = bitcast <2 x i64> %114 to <16 x i8>
   %116 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %86, <16 x i8> %115)
-  %.inner184 = select <16 x i1> %96, <16 x i8> zeroinitializer, <16 x i8> %.inner
-  %.inner185 = or <16 x i8> %.inner184, %116
-  store <16 x i8> %.inner185, ptr %70, align 16, !tbaa !8
+  %.inner181 = select <16 x i1> %96, <16 x i8> zeroinitializer, <16 x i8> %.inner
+  %.inner182 = or <16 x i8> %.inner181, %116
+  store <16 x i8> %.inner182, ptr %70, align 16, !tbaa !8
   %117 = getelementptr inbounds nuw i8, ptr %85, i64 %83
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i
 
@@ -1521,8 +1521,8 @@ define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1
   %131 = bitcast <8 x i16> %130 to <16 x i8>
   %132 = bitcast <2 x i64> %126 to <16 x i8>
   %133 = shufflevector <16 x i8> %131, <16 x i8> %132, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner186 = and <16 x i8> %133, splat (i8 15)
-  %134 = icmp eq <16 x i8> %.inner186, splat (i8 15)
+  %.inner183 = and <16 x i8> %133, splat (i8 15)
+  %134 = icmp eq <16 x i8> %.inner183, splat (i8 15)
   %bc73.i.i = bitcast <16 x i1> %134 to <2 x i8>
   %135 = extractelement <2 x i8> %bc73.i.i, i64 0
   %136 = extractelement <2 x i8> %bc73.i.i, i64 1
@@ -1544,9 +1544,9 @@ define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1
   %152 = shufflevector <2 x i64> %140, <2 x i64> %151, <2 x i32> <i32 0, i32 2>
   %153 = bitcast <2 x i64> %152 to <16 x i8>
   %154 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %128, <16 x i8> %153)
-  %.inner187 = select <16 x i1> %134, <16 x i8> zeroinitializer, <16 x i8> %.inner186
-  %.inner188 = or <16 x i8> %.inner187, %154
-  store <16 x i8> %.inner188, ptr %70, align 16, !tbaa !8
+  %.inner184 = select <16 x i1> %134, <16 x i8> zeroinitializer, <16 x i8> %.inner183
+  %.inner185 = or <16 x i8> %.inner184, %154
+  store <16 x i8> %.inner185, ptr %70, align 16, !tbaa !8
   %155 = getelementptr inbounds nuw i8, ptr %127, i64 %125
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i
 
@@ -1589,7 +1589,7 @@ define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 %187
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i
 
-default.unreachable165:                           ; preds = %684, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i, %.lr.ph.i, %554
+default.unreachable.i:                            ; preds = %684, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i, %.lr.ph.i, %554
   unreachable
 
 _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %159, %156, %118, %75, %74
@@ -1636,8 +1636,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %159, %156, %118, %7
   %212 = lshr <8 x i16> %211, splat (i16 2)
   %213 = bitcast <8 x i16> %212 to <16 x i8>
   %214 = shufflevector <16 x i8> %213, <16 x i8> %210, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner189 = and <16 x i8> %214, splat (i8 3)
-  %215 = icmp eq <16 x i8> %.inner189, splat (i8 3)
+  %.inner186 = and <16 x i8> %214, splat (i8 3)
+  %215 = icmp eq <16 x i8> %.inner186, splat (i8 3)
   %bc75.i60.i = bitcast <16 x i1> %215 to <2 x i8>
   %216 = extractelement <2 x i8> %bc75.i60.i, i64 0
   %217 = extractelement <2 x i8> %bc75.i60.i, i64 1
@@ -1659,9 +1659,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %159, %156, %118, %7
   %233 = shufflevector <2 x i64> %221, <2 x i64> %232, <2 x i32> <i32 0, i32 2>
   %234 = bitcast <2 x i64> %233 to <16 x i8>
   %235 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %205, <16 x i8> %234)
-  %.inner190 = select <16 x i1> %215, <16 x i8> zeroinitializer, <16 x i8> %.inner189
-  %.inner191 = or <16 x i8> %.inner190, %235
-  store <16 x i8> %.inner191, ptr %189, align 16, !tbaa !8
+  %.inner187 = select <16 x i1> %215, <16 x i8> zeroinitializer, <16 x i8> %.inner186
+  %.inner188 = or <16 x i8> %.inner187, %235
+  store <16 x i8> %.inner188, ptr %189, align 16, !tbaa !8
   %236 = getelementptr inbounds nuw i8, ptr %204, i64 %202
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i
 
@@ -1682,8 +1682,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %159, %156, %118, %7
   %250 = bitcast <8 x i16> %249 to <16 x i8>
   %251 = bitcast <2 x i64> %245 to <16 x i8>
   %252 = shufflevector <16 x i8> %250, <16 x i8> %251, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner192 = and <16 x i8> %252, splat (i8 15)
-  %253 = icmp eq <16 x i8> %.inner192, splat (i8 15)
+  %.inner189 = and <16 x i8> %252, splat (i8 15)
+  %253 = icmp eq <16 x i8> %.inner189, splat (i8 15)
   %bc73.i58.i = bitcast <16 x i1> %253 to <2 x i8>
   %254 = extractelement <2 x i8> %bc73.i58.i, i64 0
   %255 = extractelement <2 x i8> %bc73.i58.i, i64 1
@@ -1705,9 +1705,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %159, %156, %118, %7
   %271 = shufflevector <2 x i64> %259, <2 x i64> %270, <2 x i32> <i32 0, i32 2>
   %272 = bitcast <2 x i64> %271 to <16 x i8>
   %273 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %247, <16 x i8> %272)
-  %.inner193 = select <16 x i1> %253, <16 x i8> zeroinitializer, <16 x i8> %.inner192
-  %.inner194 = or <16 x i8> %.inner193, %273
-  store <16 x i8> %.inner194, ptr %189, align 16, !tbaa !8
+  %.inner190 = select <16 x i1> %253, <16 x i8> zeroinitializer, <16 x i8> %.inner189
+  %.inner191 = or <16 x i8> %.inner190, %273
+  store <16 x i8> %.inner191, ptr %189, align 16, !tbaa !8
   %274 = getelementptr inbounds nuw i8, ptr %246, i64 %244
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i
 
@@ -1794,8 +1794,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i: ; preds = %278, %275, %237, %
   %331 = lshr <8 x i16> %330, splat (i16 2)
   %332 = bitcast <8 x i16> %331 to <16 x i8>
   %333 = shufflevector <16 x i8> %332, <16 x i8> %329, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner195 = and <16 x i8> %333, splat (i8 3)
-  %334 = icmp eq <16 x i8> %.inner195, splat (i8 3)
+  %.inner192 = and <16 x i8> %333, splat (i8 3)
+  %334 = icmp eq <16 x i8> %.inner192, splat (i8 3)
   %bc75.i66.i = bitcast <16 x i1> %334 to <2 x i8>
   %335 = extractelement <2 x i8> %bc75.i66.i, i64 0
   %336 = extractelement <2 x i8> %bc75.i66.i, i64 1
@@ -1817,9 +1817,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i: ; preds = %278, %275, %237, %
   %352 = shufflevector <2 x i64> %340, <2 x i64> %351, <2 x i32> <i32 0, i32 2>
   %353 = bitcast <2 x i64> %352 to <16 x i8>
   %354 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %324, <16 x i8> %353)
-  %.inner196 = select <16 x i1> %334, <16 x i8> zeroinitializer, <16 x i8> %.inner195
-  %.inner197 = or <16 x i8> %.inner196, %354
-  store <16 x i8> %.inner197, ptr %308, align 16, !tbaa !8
+  %.inner193 = select <16 x i1> %334, <16 x i8> zeroinitializer, <16 x i8> %.inner192
+  %.inner194 = or <16 x i8> %.inner193, %354
+  store <16 x i8> %.inner194, ptr %308, align 16, !tbaa !8
   %355 = getelementptr inbounds nuw i8, ptr %323, i64 %321
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i
 
@@ -1840,8 +1840,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i: ; preds = %278, %275, %237, %
   %369 = bitcast <8 x i16> %368 to <16 x i8>
   %370 = bitcast <2 x i64> %364 to <16 x i8>
   %371 = shufflevector <16 x i8> %369, <16 x i8> %370, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner198 = and <16 x i8> %371, splat (i8 15)
-  %372 = icmp eq <16 x i8> %.inner198, splat (i8 15)
+  %.inner195 = and <16 x i8> %371, splat (i8 15)
+  %372 = icmp eq <16 x i8> %.inner195, splat (i8 15)
   %bc73.i64.i = bitcast <16 x i1> %372 to <2 x i8>
   %373 = extractelement <2 x i8> %bc73.i64.i, i64 0
   %374 = extractelement <2 x i8> %bc73.i64.i, i64 1
@@ -1863,9 +1863,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i: ; preds = %278, %275, %237, %
   %390 = shufflevector <2 x i64> %378, <2 x i64> %389, <2 x i32> <i32 0, i32 2>
   %391 = bitcast <2 x i64> %390 to <16 x i8>
   %392 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %366, <16 x i8> %391)
-  %.inner199 = select <16 x i1> %372, <16 x i8> zeroinitializer, <16 x i8> %.inner198
-  %.inner200 = or <16 x i8> %.inner199, %392
-  store <16 x i8> %.inner200, ptr %308, align 16, !tbaa !8
+  %.inner196 = select <16 x i1> %372, <16 x i8> zeroinitializer, <16 x i8> %.inner195
+  %.inner197 = or <16 x i8> %.inner196, %392
+  store <16 x i8> %.inner197, ptr %308, align 16, !tbaa !8
   %393 = getelementptr inbounds nuw i8, ptr %365, i64 %363
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i
 
@@ -1951,8 +1951,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i: ; preds = %397, %394, %356, %
   %449 = lshr <8 x i16> %448, splat (i16 2)
   %450 = bitcast <8 x i16> %449 to <16 x i8>
   %451 = shufflevector <16 x i8> %450, <16 x i8> %447, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner201 = and <16 x i8> %451, splat (i8 3)
-  %452 = icmp eq <16 x i8> %.inner201, splat (i8 3)
+  %.inner198 = and <16 x i8> %451, splat (i8 3)
+  %452 = icmp eq <16 x i8> %.inner198, splat (i8 3)
   %bc75.i72.i = bitcast <16 x i1> %452 to <2 x i8>
   %453 = extractelement <2 x i8> %bc75.i72.i, i64 0
   %454 = extractelement <2 x i8> %bc75.i72.i, i64 1
@@ -1974,9 +1974,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i: ; preds = %397, %394, %356, %
   %470 = shufflevector <2 x i64> %458, <2 x i64> %469, <2 x i32> <i32 0, i32 2>
   %471 = bitcast <2 x i64> %470 to <16 x i8>
   %472 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %442, <16 x i8> %471)
-  %.inner202 = select <16 x i1> %452, <16 x i8> zeroinitializer, <16 x i8> %.inner201
-  %.inner203 = or <16 x i8> %.inner202, %472
-  store <16 x i8> %.inner203, ptr %427, align 16, !tbaa !8
+  %.inner199 = select <16 x i1> %452, <16 x i8> zeroinitializer, <16 x i8> %.inner198
+  %.inner200 = or <16 x i8> %.inner199, %472
+  store <16 x i8> %.inner200, ptr %427, align 16, !tbaa !8
   %473 = getelementptr inbounds nuw i8, ptr %441, i64 %439
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i
 
@@ -1997,8 +1997,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i: ; preds = %397, %394, %356, %
   %487 = bitcast <8 x i16> %486 to <16 x i8>
   %488 = bitcast <2 x i64> %482 to <16 x i8>
   %489 = shufflevector <16 x i8> %487, <16 x i8> %488, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner204 = and <16 x i8> %489, splat (i8 15)
-  %490 = icmp eq <16 x i8> %.inner204, splat (i8 15)
+  %.inner201 = and <16 x i8> %489, splat (i8 15)
+  %490 = icmp eq <16 x i8> %.inner201, splat (i8 15)
   %bc73.i70.i = bitcast <16 x i1> %490 to <2 x i8>
   %491 = extractelement <2 x i8> %bc73.i70.i, i64 0
   %492 = extractelement <2 x i8> %bc73.i70.i, i64 1
@@ -2020,9 +2020,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i: ; preds = %397, %394, %356, %
   %508 = shufflevector <2 x i64> %496, <2 x i64> %507, <2 x i32> <i32 0, i32 2>
   %509 = bitcast <2 x i64> %508 to <16 x i8>
   %510 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %484, <16 x i8> %509)
-  %.inner205 = select <16 x i1> %490, <16 x i8> zeroinitializer, <16 x i8> %.inner204
-  %.inner206 = or <16 x i8> %.inner205, %510
-  store <16 x i8> %.inner206, ptr %427, align 16, !tbaa !8
+  %.inner202 = select <16 x i1> %490, <16 x i8> zeroinitializer, <16 x i8> %.inner201
+  %.inner203 = or <16 x i8> %.inner202, %510
+  store <16 x i8> %.inner203, ptr %427, align 16, !tbaa !8
   %511 = getelementptr inbounds nuw i8, ptr %483, i64 %481
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i
 
@@ -2133,8 +2133,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %515, %512, %474, %
   %585 = lshr <8 x i16> %584, splat (i16 2)
   %586 = bitcast <8 x i16> %585 to <16 x i8>
   %587 = shufflevector <16 x i8> %586, <16 x i8> %583, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner207 = and <16 x i8> %587, splat (i8 3)
-  %588 = icmp eq <16 x i8> %.inner207, splat (i8 3)
+  %.inner204 = and <16 x i8> %587, splat (i8 3)
+  %588 = icmp eq <16 x i8> %.inner204, splat (i8 3)
   %bc75.i78.i = bitcast <16 x i1> %588 to <2 x i8>
   %589 = extractelement <2 x i8> %bc75.i78.i, i64 0
   %590 = extractelement <2 x i8> %bc75.i78.i, i64 1
@@ -2156,9 +2156,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %515, %512, %474, %
   %606 = shufflevector <2 x i64> %594, <2 x i64> %605, <2 x i32> <i32 0, i32 2>
   %607 = bitcast <2 x i64> %606 to <16 x i8>
   %608 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %578, <16 x i8> %607)
-  %.inner208 = select <16 x i1> %588, <16 x i8> zeroinitializer, <16 x i8> %.inner207
-  %.inner209 = or <16 x i8> %.inner208, %608
-  store <16 x i8> %.inner209, ptr %558, align 1, !tbaa !8
+  %.inner205 = select <16 x i1> %588, <16 x i8> zeroinitializer, <16 x i8> %.inner204
+  %.inner206 = or <16 x i8> %.inner205, %608
+  store <16 x i8> %.inner206, ptr %558, align 1, !tbaa !8
   %609 = getelementptr inbounds nuw i8, ptr %577, i64 %575
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i
 
@@ -2179,8 +2179,8 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %515, %512, %474, %
   %623 = bitcast <8 x i16> %622 to <16 x i8>
   %624 = bitcast <2 x i64> %618 to <16 x i8>
   %625 = shufflevector <16 x i8> %623, <16 x i8> %624, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.inner210 = and <16 x i8> %625, splat (i8 15)
-  %626 = icmp eq <16 x i8> %.inner210, splat (i8 15)
+  %.inner207 = and <16 x i8> %625, splat (i8 15)
+  %626 = icmp eq <16 x i8> %.inner207, splat (i8 15)
   %bc73.i76.i = bitcast <16 x i1> %626 to <2 x i8>
   %627 = extractelement <2 x i8> %bc73.i76.i, i64 0
   %628 = extractelement <2 x i8> %bc73.i76.i, i64 1
@@ -2202,9 +2202,9 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %515, %512, %474, %
   %644 = shufflevector <2 x i64> %632, <2 x i64> %643, <2 x i32> <i32 0, i32 2>
   %645 = bitcast <2 x i64> %644 to <16 x i8>
   %646 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %620, <16 x i8> %645)
-  %.inner211 = select <16 x i1> %626, <16 x i8> zeroinitializer, <16 x i8> %.inner210
-  %.inner212 = or <16 x i8> %.inner211, %646
-  store <16 x i8> %.inner212, ptr %558, align 1, !tbaa !8
+  %.inner208 = select <16 x i1> %626, <16 x i8> zeroinitializer, <16 x i8> %.inner207
+  %.inner209 = or <16 x i8> %.inner208, %646
+  store <16 x i8> %.inner209, ptr %558, align 1, !tbaa !8
   %647 = getelementptr inbounds nuw i8, ptr %619, i64 %617
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i
 
@@ -3374,13 +3374,13 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   br i1 %or.cond.i, label %433, label %.lr.ph.i, !llvm.loop !46
 
 433:                                              ; preds = %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
-  %.not.not171 = icmp ne ptr %.0.i.i, null
-  %.not.not.not = select i1 %.not.i, i1 %.not.not171, i1 false
+  %.not.not170 = icmp ne ptr %.0.i.i, null
+  %.not.not.not = select i1 %.not.i, i1 %.not.not170, i1 false
   br i1 %.not.not.not, label %.thread, label %.critedge
 
 .thread122:                                       ; preds = %58
-  %.not126.not172 = icmp ne ptr %.278142, null
-  %.not126.not.not = select i1 %.not29.i, i1 %.not126.not172, i1 false
+  %.not126.not171 = icmp ne ptr %.278142, null
+  %.not126.not.not = select i1 %.not29.i, i1 %.not126.not171, i1 false
   br i1 %.not126.not.not, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %42, %46, %.thread122, %433
@@ -3459,9 +3459,9 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %.04455.us.i = phi ptr [ %483, %._crit_edge.us.i100 ], [ %9, %.split.us.i.preheader ]
   %.04554.us.i = phi ptr [ %484, %._crit_edge.us.i100 ], [ %460, %.split.us.i.preheader ]
   %462 = load i16, ptr %.04554.us.i, align 1
-  br label %.critedge180
+  br label %.critedge179
 
-.critedge180:                                     ; preds = %.critedge180, %.split.us.i
+.critedge179:                                     ; preds = %.critedge179, %.split.us.i
   %.03953.us.i = phi i64 [ 0, %.split.us.i ], [ %482, %.critedge180 ]
   %.152.us.i = phi i16 [ %462, %.split.us.i ], [ %475, %.critedge180 ]
   %.04251.us.i = phi i64 [ %.04356.us.i, %.split.us.i ], [ %481, %.critedge180 ]
@@ -3488,9 +3488,9 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %481 = add i64 %.04251.us.i, %4
   %482 = add nuw i64 %.03953.us.i, 1
   %exitcond.not.i99 = icmp eq i64 %482, %3
-  br i1 %exitcond.not.i99, label %._crit_edge.us.i100, label %.critedge180, !llvm.loop !50
+  br i1 %exitcond.not.i99, label %._crit_edge.us.i100, label %.critedge179, !llvm.loop !50
 
-._crit_edge.us.i100:                              ; preds = %.critedge180
+._crit_edge.us.i100:                              ; preds = %.critedge179
   %483 = getelementptr inbounds nuw i8, ptr %.04455.us.i, i64 %25
   %484 = getelementptr inbounds nuw i8, ptr %.04554.us.i, i64 2
   br i1 %461, label %.split.us.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, !llvm.loop !51
@@ -3568,7 +3568,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %exitcond.not.i103 = icmp eq i64 %523, 4
   br i1 %exitcond.not.i103, label %.preheader.us.i, label %516, !llvm.loop !55
 
-default.unreachable164:                           ; preds = %435
+default.unreachable163:                           ; preds = %435
   unreachable
 
 _ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit: ; preds = %498, %._crit_edge.us.i100, %._crit_edge.us.i, %485, %458, %.thread130

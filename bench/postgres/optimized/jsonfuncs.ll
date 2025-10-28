@@ -2311,7 +2311,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   %190 = icmp eq i8 %188, 18
   %191 = select i1 %190, i32 16, i32 0
   %192 = select i1 %or.cond156.i65, i32 8, i32 %191
-  br label %.thread114
+  br label %.thread112
 
 193:                                              ; preds = %176
   %194 = and i32 %185, 1
@@ -2321,15 +2321,15 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
 195:                                              ; preds = %193
   %196 = lshr i32 %185, 1
   %197 = add nsw i32 %196, -1
-  br label %.thread114
+  br label %.thread112
 
 198:                                              ; preds = %193
   %199 = load i32, ptr %.0126.i, align 4
   %200 = lshr i32 %199, 2
   %201 = add nsw i32 %200, -4
-  br label %.thread114
+  br label %.thread112
 
-.thread114:                                       ; preds = %187, %195, %198
+.thread112:                                       ; preds = %187, %195, %198
   %202 = phi i32 [ %192, %187 ], [ %197, %195 ], [ %201, %198 ]
   store i32 %202, ptr %182, align 8
   %203 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %14) #14
@@ -2524,7 +2524,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   %exitcond.not = icmp eq i32 %304, %162
   br i1 %exitcond.not, label %._crit_edge, label %216, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.loopexit84, %.thread114, %205
+._crit_edge:                                      ; preds = %.loopexit84, %.thread112, %205
   %.1123.i.lcssa = phi i8 [ %.0122.i, %205 ], [ %.0122.i, %.thread114 ], [ %.2124.i, %.loopexit84 ]
   %305 = trunc nuw i8 %.1123.i.lcssa to i1
   %306 = and i32 %7, 32

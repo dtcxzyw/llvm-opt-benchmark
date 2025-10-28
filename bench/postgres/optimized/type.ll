@@ -94,13 +94,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
-  %.not27 = icmp eq ptr %0, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq ptr %0, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %ECPGmake_struct_member.exit
-  %.02229 = phi ptr [ %85, %ECPGmake_struct_member.exit ], [ %0, %1 ]
-  %.02628 = phi ptr [ %.1, %ECPGmake_struct_member.exit ], [ null, %1 ]
-  %2 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
+  %.02228 = phi ptr [ %85, %ECPGmake_struct_member.exit ], [ %0, %1 ]
+  %.02527 = phi ptr [ %.1, %ECPGmake_struct_member.exit ], [ null, %1 ]
+  %2 = getelementptr inbounds nuw i8, ptr %.02228, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %62 [
@@ -219,7 +219,7 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(addres
 
 73:                                               ; preds = %26, %42, %62, %5
   %.0 = phi ptr [ %67, %62 ], [ %12, %5 ], [ %33, %26 ], [ %56, %42 ]
-  %74 = load ptr, ptr %.02229, align 8
+  %74 = load ptr, ptr %.02228, align 8
   %75 = tail call ptr @mm_alloc(i64 noundef 24) #7
   %76 = tail call ptr @mm_strdup(ptr noundef %74) #7
   store ptr %76, ptr %75, align 8
@@ -230,7 +230,7 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(addres
   br label %79
 
 79:                                               ; preds = %80, %73
-  %.0.i = phi ptr [ %.02628, %73 ], [ %82, %80 ]
+  %.0.i = phi ptr [ %.02527, %73 ], [ %82, %80 ]
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %ECPGmake_struct_member.exit, label %80
 
@@ -246,15 +246,15 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(addres
   br label %ECPGmake_struct_member.exit
 
 ECPGmake_struct_member.exit:                      ; preds = %79, %.critedge.i
-  %.1 = phi ptr [ %.02628, %.critedge.i ], [ %75, %79 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.02229, i64 16
+  %.1 = phi ptr [ %.02527, %.critedge.i ], [ %75, %79 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
   %85 = load ptr, ptr %84, align 8
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %ECPGmake_struct_member.exit, %1
-  %.026.lcssa = phi ptr [ null, %1 ], [ %.1, %ECPGmake_struct_member.exit ]
-  ret ptr %.026.lcssa
+  %.025.lcssa = phi ptr [ null, %1 ], [ %.1, %ECPGmake_struct_member.exit ]
+  ret ptr %.025.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1139,7 +1139,7 @@ sub_0158:                                         ; preds = %84, %76
   br i1 %.not167, label %sub_1159, label %.tail157
 
 sub_1159:                                         ; preds = %sub_0158.thread, %sub_0158
-  %.0182 = phi ptr [ %83, %sub_0158.thread ], [ @.str.42, %sub_0158 ]
+  %.0181 = phi ptr [ %83, %sub_0158.thread ], [ @.str.42, %sub_0158 ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
@@ -1147,9 +1147,9 @@ sub_1159:                                         ; preds = %sub_0158.thread, %s
   br label %.tail157
 
 .tail157:                                         ; preds = %sub_0154, %sub_0158, %sub_1159
-  %.0181 = phi ptr [ @.str.42, %sub_0158 ], [ %.0182, %sub_1159 ], [ @.str.42, %sub_0154 ]
+  %.0180 = phi ptr [ @.str.42, %sub_0158 ], [ %.0181, %sub_1159 ], [ @.str.42, %sub_0154 ]
   %92 = phi ptr [ %3, %sub_0158 ], [ %91, %sub_1159 ], [ %3, %sub_0154 ]
-  %93 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %92, ptr noundef nonnull %.0181) #7
+  %93 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %92, ptr noundef nonnull %.0180) #7
   br label %132
 
 94:                                               ; preds = %20
@@ -1216,9 +1216,9 @@ sub_1163:                                         ; preds = %sub_0162
   br label %127
 
 127:                                              ; preds = %125, %.tail161, %126
-  %.str.37.sink186 = phi ptr [ @.str.37, %126 ], [ @.str.35, %.tail161 ], [ @.str.35, %125 ]
+  %.str.37.sink185 = phi ptr [ @.str.37, %126 ], [ @.str.35, %.tail161 ], [ @.str.35, %125 ]
   %128 = select i1 %17, ptr @.str.36, ptr %6
-  %129 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %24, ptr noundef nonnull %.str.37.sink186, ptr noundef nonnull %128, ptr noundef nonnull %1) #7
+  %129 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %24, ptr noundef nonnull %.str.37.sink185, ptr noundef nonnull %128, ptr noundef nonnull %1) #7
   %130 = tail call ptr @ecpg_type_name(i32 noundef %2) #7
   %131 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %29, ptr noundef nonnull @.str.41, ptr noundef %130) #7
   br label %132
@@ -1249,8 +1249,8 @@ sub_1163:                                         ; preds = %sub_0162
   %142 = icmp ult i32 %switch.tableidx, 32
   %switch.shifted = lshr i32 -1550860289, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  %or.cond187 = select i1 %142, i1 %switch.lobit, i1 false
-  br i1 %or.cond187, label %switch.lookup, label %143
+  %or.cond186 = select i1 %142, i1 %switch.lobit, i1 false
+  br i1 %or.cond186, label %switch.lookup, label %143
 
 143:                                              ; preds = %141
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef range(i32 30, 29) %2) #7
@@ -1268,25 +1268,25 @@ get_type.exit:                                    ; preds = %switch.lookup, %143
   br label %151
 
 146:                                              ; preds = %139
-  %switch.tableidx188 = add i32 %2, -1
-  %147 = icmp ult i32 %switch.tableidx188, 32
-  %switch.shifted191 = lshr i32 -1550860289, %switch.tableidx188
-  %switch.lobit192 = trunc i32 %switch.shifted191 to i1
-  %or.cond195 = select i1 %147, i1 %switch.lobit192, i1 false
-  br i1 %or.cond195, label %switch.lookup190, label %148
+  %switch.tableidx187 = add i32 %2, -1
+  %147 = icmp ult i32 %switch.tableidx187, 32
+  %switch.shifted190 = lshr i32 -1550860289, %switch.tableidx187
+  %switch.lobit191 = trunc i32 %switch.shifted190 to i1
+  %or.cond194 = select i1 %147, i1 %switch.lobit191, i1 false
+  br i1 %or.cond194, label %switch.lookup189, label %148
 
 148:                                              ; preds = %146
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef range(i32 30, 29) %2) #7
   br label %get_type.exit144
 
-switch.lookup190:                                 ; preds = %146
-  %149 = zext nneg i32 %switch.tableidx188 to i64
-  %switch.gep193 = getelementptr inbounds nuw ptr, ptr @switch.table.ECPGdump_a_simple.1, i64 %149
-  %switch.load194 = load ptr, ptr %switch.gep193, align 8
+switch.lookup189:                                 ; preds = %146
+  %149 = zext nneg i32 %switch.tableidx187 to i64
+  %switch.gep192 = getelementptr inbounds nuw ptr, ptr @switch.table.ECPGdump_a_simple.1, i64 %149
+  %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %get_type.exit144
 
-get_type.exit144:                                 ; preds = %switch.lookup190, %148
-  %.0.i143 = phi ptr [ null, %148 ], [ %switch.load194, %switch.lookup190 ]
+get_type.exit144:                                 ; preds = %switch.lookup189, %148
+  %.0.i143 = phi ptr [ null, %148 ], [ %switch.load193, %switch.lookup190 ]
   %150 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef %.0.i143, ptr noundef %24, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   br label %151
 

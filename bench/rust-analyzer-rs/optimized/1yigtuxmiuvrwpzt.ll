@@ -14006,7 +14006,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$4read17h805ffecac
   %43 = icmp eq i64 %42, 5
   br i1 %43, label %.critedge28.preheader, label %44
 
-default.unreachable61:                            ; preds = %84, %131, %261, %"_ZN8lock_api6rwlock38RwLockUpgradableReadGuard$LT$R$C$T$GT$7upgrade17h383b68fa9bc93545E.exit.i"
+default.unreachable60:                            ; preds = %84, %131, %261, %"_ZN8lock_api6rwlock38RwLockUpgradableReadGuard$LT$R$C$T$GT$7upgrade17h383b68fa9bc93545E.exit.i"
   unreachable
 
 44:                                               ; preds = %5
@@ -14135,7 +14135,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
     i32 1, label %261
     i32 2, label %261
     i32 3, label %261
-    i32 4, label %279
+    i32 4, label %267
   ]
 
 "_ZN4core3ptr304drop_in_place$LT$salsa..derived..slot..ProbeState$LT$salsa..runtime..StampedValue$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ProcMacroSpanQuery$GT$$GT$$GT$$GT$17he9cccfc9616bc80aE.exit": ; preds = %84
@@ -14686,7 +14686,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %.val31)
   br label %87
 
-263:                                              ; preds = %261
+266:                                              ; preds = %261
   %264 = icmp ne ptr %.val31, null
   call void @llvm.assume(i1 %264)
   %265 = atomicrmw sub ptr %.val31, i64 16 release, align 8
@@ -14714,9 +14714,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   ret void
 
-279:                                              ; preds = %84
-  %280 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %280, i64 28, i1 false)
+267:                                              ; preds = %84
+  %268 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %268, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %278
 }
@@ -17061,7 +17061,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$4read17he4bf63e4f
   %45 = icmp eq i64 %44, 5
   br i1 %45, label %.critedge28.preheader, label %46
 
-default.unreachable60:                            ; preds = %86, %133, %285, %"_ZN8lock_api6rwlock38RwLockUpgradableReadGuard$LT$R$C$T$GT$7upgrade17h944314d5e04f84e6E.exit.i"
+default.unreachable59:                            ; preds = %86, %133, %285, %"_ZN8lock_api6rwlock38RwLockUpgradableReadGuard$LT$R$C$T$GT$7upgrade17h944314d5e04f84e6E.exit.i"
   unreachable
 
 46:                                               ; preds = %5
@@ -17190,7 +17190,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
     i32 1, label %285
     i32 2, label %285
     i32 3, label %285
-    i32 4, label %302
+    i32 4, label %291
   ]
 
 "_ZN4core3ptr448drop_in_place$LT$salsa..derived..slot..ProbeState$LT$salsa..runtime..StampedValue$LT$$LP$triomphe..arc..Arc$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$hir_expand..fixup..SyntaxFixupUndoInfo$C$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$RP$$GT$$C$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..MacroArgQuery$GT$$GT$$GT$$GT$17h0e93177c07ab872aE.exit": ; preds = %86
@@ -17838,9 +17838,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   ret void
 
-302:                                              ; preds = %86
-  %303 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %303, i64 48, i1 false)
+291:                                              ; preds = %86
+  %292 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %292, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %301
 }

@@ -8803,7 +8803,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store ptr %54, ptr %16, align 8, !alias.scope !1230, !noalias !1231
   %.sroa.0.0.copyload1.i = load i64, ptr %52, align 8, !noalias !1234
   %55 = icmp eq i64 %.sroa.0.0.copyload1.i, 2
-  br i1 %55, label %.split.loop.exit104, label %56
+  br i1 %55, label %.split.loop.exit103, label %56
 
 56:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb010afad23f62382E.exit.i"
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -8892,7 +8892,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store ptr %83, ptr %77, align 8, !alias.scope !1263, !noalias !1256
   %.sroa.0.0.copyload1.i16 = load i64, ptr %82, align 8, !noalias !1264
   %84 = icmp eq i64 %.sroa.0.0.copyload1.i16, 2
-  br i1 %84, label %._crit_edge80.loopexit.split.loop.exit107, label %85
+  br i1 %84, label %._crit_edge80.loopexit.split.loop.exit106, label %85
 
 85:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb010afad23f62382E.exit.i15"
   %.sroa.6.0..sroa_idx2.i17 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -8964,11 +8964,11 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   invoke void @"_ZN4core3ptr318drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$gpui..elements..div..Div$GT$$C$$LT$gpui..elements..div..Div$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$gpui..elements..div..Div$C$alloc..vec..Vec$LT$gpui..elements..div..Div$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b11ffd1dbaeb4c8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #48
           to label %common.resume unwind label %137
 
-._crit_edge80.loopexit.split.loop.exit107:        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb010afad23f62382E.exit.i15"
+._crit_edge80.loopexit.split.loop.exit106:        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb010afad23f62382E.exit.i15"
   %107 = getelementptr inbounds nuw i8, ptr %82, i64 720
   br label %._crit_edge80
 
-._crit_edge80:                                    ; preds = %129, %._crit_edge80.loopexit.split.loop.exit107, %._crit_edge
+._crit_edge80:                                    ; preds = %129, %._crit_edge80.loopexit.split.loop.exit106, %._crit_edge
   %108 = phi ptr [ %79, %._crit_edge ], [ %107, %._crit_edge80.loopexit.split.loop.exit107 ], [ %135, %129 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1281
   store ptr %14, ptr %4, align 8, !noalias !1281
@@ -9082,11 +9082,11 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %exitcond.not = icmp eq i64 %143, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %50
 
-.split.loop.exit104:                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb010afad23f62382E.exit.i"
+.split.loop.exit103:                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb010afad23f62382E.exit.i"
   %144 = getelementptr inbounds nuw i8, ptr %52, i64 720
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %50, %.split.loop.exit104
+.split.loop.exit:                                 ; preds = %50, %.split.loop.exit103
   %145 = phi ptr [ %144, %.split.loop.exit104 ], [ %52, %50 ]
   store i64 %.sroa.7.079, ptr %.sink9.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1301
@@ -19227,7 +19227,7 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
     i8 4, label %59
   ]
 
-default.unreachable35:                            ; preds = %.split
+default.unreachable33:                            ; preds = %.split
   unreachable
 
 55:                                               ; preds = %51
@@ -20232,8 +20232,8 @@ define hidden void @"_ZN3qoi6decode16Decoder$LT$R$GT$8new_impl17hfd6d38a51bb9284
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %20
-  %.not72.i.i = icmp eq i32 %.sroa.0.0.copyload.i, 1718185841
-  br i1 %.not72.i.i, label %23, label %31
+  %.not71.i.i = icmp eq i32 %.sroa.0.0.copyload.i, 1718185841
+  br i1 %.not71.i.i, label %23, label %31
 
 23:                                               ; preds = %22
   %24 = zext i32 %18 to i64
@@ -25305,8 +25305,8 @@ define hidden void @"_ZN5image6codecs3qoi19QoiDecoder$LT$R$GT$3new17h696d88b6224
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %30
-  %.not72.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 1718185841
-  br i1 %.not72.i.i.i, label %33, label %42
+  %.not71.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 1718185841
+  br i1 %.not71.i.i.i, label %33, label %42
 
 33:                                               ; preds = %32
   %34 = zext i32 %28 to i64
@@ -28605,7 +28605,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   br i1 %or.cond389.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h920eba214feac694E.exit.thread.i", label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h920eba214feac694E.exit.thread.i": ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i3.i.i", %207
-  %.sroa.0284.0459.i = phi i64 [ %187, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i" ], [ -9223372036854775808, %207 ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i3.i.i" ]
+  %.sroa.0284.0458.i = phi i64 [ %187, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i" ], [ -9223372036854775808, %207 ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i3.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !5666
   %214 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 2, ptr %214, align 1, !noalias !5666
@@ -28680,8 +28680,8 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %236 = zext nneg i32 %229 to i64
   %237 = add nuw nsw i64 %235, %236
   %238 = shl nuw nsw i64 %237, 2
-  %.not453.i = icmp samesign ult i64 %238, %149
-  br i1 %.not453.i, label %239, label %.split418.us.i
+  %.not452.i = icmp samesign ult i64 %238, %149
+  br i1 %.not452.i, label %239, label %.split418.us.i
 
 239:                                              ; preds = %233
   %240 = getelementptr inbounds nuw i8, ptr %193, i64 %238
@@ -28729,7 +28729,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %249 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17h81af15a4f285a359E"(ptr noalias noundef align 8 dereferenceable(32) %22) #48, !noalias !5670
-  switch i64 %.sroa.0284.0459.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i273.i" [
+  switch i64 %.sroa.0284.0458.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i273.i" [
     i64 -9223372036854775808, label %.body.i
     i64 0, label %.body.i
   ]
@@ -28745,17 +28745,17 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   store i8 6, ptr %.sroa.4109.0..sroa_idx.i, align 8, !alias.scope !5659, !noalias !5726
   %.sroa.5110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.5110.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4104.i, i64 31, i1 false), !noalias !5726
-  switch i64 %.sroa.0284.0459.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i.i" [
+  switch i64 %.sroa.0284.0458.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit.i"
     i64 0, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit.i"
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i.i": ; preds = %250
-  call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef %.sroa.0284.0459.i, i64 noundef 1) #47, !noalias !5775
+  call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef %.sroa.0284.0458.i, i64 noundef 1) #47, !noalias !5775
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i273.i": ; preds = %248
-  call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef %.sroa.0284.0459.i, i64 noundef 1) #47, !noalias !5784
+  call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef %.sroa.0284.0458.i, i64 noundef 1) #47, !noalias !5784
   br label %.body.i
 
 251:                                              ; preds = %201

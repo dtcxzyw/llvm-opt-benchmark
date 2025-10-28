@@ -827,10 +827,10 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   br label %41
 
 .thread:                                          ; preds = %22, %21, %20, %19, %18, %17, %16, %15, %23, %25, %27, %29, %33
-  %.03742 = phi ptr [ %.037, %33 ], [ @.str.336, %29 ], [ @.str.334, %27 ], [ @.str.335, %25 ], [ @.str.334, %23 ], [ @.str.326, %15 ], [ @.str.333, %22 ], [ @.str.332, %21 ], [ @.str.331, %20 ], [ @.str.330, %19 ], [ @.str.329, %18 ], [ @.str.328, %17 ], [ @.str.327, %16 ]
+  %.03741 = phi ptr [ %.037, %33 ], [ @.str.336, %29 ], [ @.str.334, %27 ], [ @.str.335, %25 ], [ @.str.334, %23 ], [ @.str.326, %15 ], [ @.str.333, %22 ], [ @.str.332, %21 ], [ @.str.331, %20 ], [ @.str.330, %19 ], [ @.str.329, %18 ], [ @.str.328, %17 ], [ @.str.327, %16 ]
   %38 = load i32, ptr @proto_ansi_637_tele, align 4
   %39 = load i32, ptr %11, align 4
-  %40 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.324, ptr noundef nonnull %.03742, i32 noundef %39)
+  %40 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.324, ptr noundef nonnull %.03741, i32 noundef %39)
   br label %41
 
 41:                                               ; preds = %.thread, %35
@@ -3325,8 +3325,8 @@ define internal void @trans_param_cause_codes(ptr noundef %0, ptr readnone captu
   %17 = and i32 %14, 3
   %.not = icmp eq i32 %17, 0
   %18 = icmp eq i32 %3, 1
-  %or.cond = or i1 %18, %.not
-  br i1 %or.cond, label %67, label %19
+  %or.cond47 = or i1 %18, %.not
+  br i1 %or.cond47, label %67, label %19
 
 19:                                               ; preds = %7
   %20 = add i32 %4, 1
