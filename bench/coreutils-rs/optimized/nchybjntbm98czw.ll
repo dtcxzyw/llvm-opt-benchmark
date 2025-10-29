@@ -2103,6 +2103,7 @@ default.unreachable:                              ; preds = %547, %546, %525
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 525:                                              ; preds = %523
+  %trunc19.i.i = trunc nuw i8 %.064.i to i1
   switch i8 %.0.i, label %default.unreachable [
     i8 0, label %526
     i8 1, label %527
@@ -2110,18 +2111,15 @@ default.unreachable:                              ; preds = %547, %546, %525
   ]
 
 526:                                              ; preds = %525
-  %trunc19.i.i = trunc nuw i8 %.064.i to i1
   %anon.c1442423ab71096c578c2ca821fd175a.144.anon.c1442423ab71096c578c2ca821fd175a.145.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.145, ptr @anon.c1442423ab71096c578c2ca821fd175a.144
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 527:                                              ; preds = %525
-  %trunc18.i.i = trunc nuw i8 %.064.i to i1
-  %anon.c1442423ab71096c578c2ca821fd175a.146.anon.c1442423ab71096c578c2ca821fd175a.147.i.i = select i1 %trunc18.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.147, ptr @anon.c1442423ab71096c578c2ca821fd175a.146
+  %anon.c1442423ab71096c578c2ca821fd175a.146.anon.c1442423ab71096c578c2ca821fd175a.147.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.147, ptr @anon.c1442423ab71096c578c2ca821fd175a.146
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 528:                                              ; preds = %525
-  %trunc.i.i = trunc nuw i8 %.064.i to i1
-  %anon.c1442423ab71096c578c2ca821fd175a.145.anon.c1442423ab71096c578c2ca821fd175a.144.i.i = select i1 %trunc.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.144, ptr @anon.c1442423ab71096c578c2ca821fd175a.145
+  %anon.c1442423ab71096c578c2ca821fd175a.145.anon.c1442423ab71096c578c2ca821fd175a.144.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.144, ptr @anon.c1442423ab71096c578c2ca821fd175a.145
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 switch.lookup:                                    ; preds = %523

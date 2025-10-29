@@ -2037,29 +2037,25 @@ declare void @cuddLocalCacheClearDead(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @ddReportRefMess(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   switch i32 %1, label %7 [
-    i32 2147483647, label %3
-    i32 -1, label %11
+    i32 2147483647, label %5
+    i32 -1, label %9
   ]
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %5 = load ptr, ptr %4, align 8, !tbaa !92
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1) #14
-  br label %11
+5:                                                ; preds = %2
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1) #14
+  br label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %9 = load ptr, ptr %8, align 8, !tbaa !92
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef %1) #14
-  br label %11
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef %1) #14
+  br label %9
 
-11:                                               ; preds = %2, %7, %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %13 = load ptr, ptr %12, align 8, !tbaa !92
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 24, i64 1, ptr %13)
-  %15 = load ptr, ptr %12, align 8, !tbaa !92
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 161, i64 1, ptr %15)
+9:                                                ; preds = %2, %7, %5
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 24, i64 1, ptr %4)
+  %11 = load ptr, ptr %3, align 8, !tbaa !92
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 161, i64 1, ptr %11)
   tail call void @abort() #15
   unreachable
 }

@@ -1387,7 +1387,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit300: ; preds = %_ZN12_GLO
 define i32 @ucptrie_toBinary_77(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #7 {
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %97
+  br i1 %6, label %7, label %86
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -1415,131 +1415,120 @@ define i32 @ucptrie_toBinary_77(ptr noundef readonly captures(none) %0, ptr noun
 
 19:                                               ; preds = %15, %7
   store i32 1, ptr %3, align 4, !tbaa !3
-  br label %97
+  br label %86
 
 20:                                               ; preds = %15, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !35
   %23 = shl nsw i32 %22, 1
   %24 = add nsw i32 %23, 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %26 = load i32, ptr %25, align 4, !tbaa !28
   switch i8 %11, label %default.unreachable75 [
-    i8 0, label %25
+    i8 0, label %27
     i8 1, label %31
-    i8 2, label %36
+    i8 2, label %34
   ]
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !28
-  %28 = add i32 %27, %22
+27:                                               ; preds = %20
+  %28 = add i32 %26, %22
   %29 = shl i32 %28, 1
   %30 = add i32 %29, 16
-  br label %40
+  br label %36
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %33 = load i32, ptr %32, align 4, !tbaa !28
-  %34 = shl nsw i32 %33, 2
-  %35 = add nsw i32 %34, %24
-  br label %40
+  %32 = shl nsw i32 %26, 2
+  %33 = add nsw i32 %32, %24
+  br label %36
 
-36:                                               ; preds = %20
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !28
-  %39 = add nsw i32 %38, %24
-  br label %40
+34:                                               ; preds = %20
+  %35 = add nsw i32 %26, %24
+  br label %36
 
-default.unreachable75:                            ; preds = %44, %20
+default.unreachable75:                            ; preds = %39, %20
   unreachable
 
-40:                                               ; preds = %36, %31, %25
-  %41 = phi i32 [ %27, %25 ], [ %33, %31 ], [ %38, %36 ]
-  %.066 = phi i32 [ %30, %25 ], [ %35, %31 ], [ %39, %36 ]
-  %42 = icmp slt i32 %2, %.066
-  br i1 %42, label %43, label %44
+36:                                               ; preds = %34, %31, %27
+  %.066 = phi i32 [ %30, %27 ], [ %33, %31 ], [ %35, %34 ]
+  %37 = icmp slt i32 %2, %.066
+  br i1 %37, label %38, label %39
 
-43:                                               ; preds = %40
+38:                                               ; preds = %36
   store i32 15, ptr %3, align 4, !tbaa !3
-  br label %97
+  br label %86
 
-44:                                               ; preds = %40
+39:                                               ; preds = %36
   store i32 1416784179, ptr %1, align 4, !tbaa !7
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %46 = lshr i32 %41, 4
-  %47 = and i32 %46, 61440
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = load i32, ptr %48, align 8, !tbaa !30
-  %50 = lshr i32 %49, 8
-  %51 = and i32 %50, 3840
-  %52 = shl nuw nsw i8 %9, 6
-  %53 = or disjoint i8 %11, %52
-  %54 = zext nneg i8 %53 to i32
-  %55 = or disjoint i32 %47, %54
-  %56 = or disjoint i32 %55, %51
-  %57 = trunc nuw i32 %56 to i16
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 %57, ptr %58, align 4, !tbaa !11
-  %59 = trunc i32 %22 to i16
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i16 %59, ptr %60, align 2, !tbaa !12
-  %61 = trunc i32 %41 to i16
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 %61, ptr %62, align 4, !tbaa !13
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %64 = load i16, ptr %63, align 2, !tbaa !29
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i16 %64, ptr %65, align 2, !tbaa !14
-  %66 = trunc i32 %49 to i16
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i16 %66, ptr %67, align 4, !tbaa !15
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %69 = load i32, ptr %68, align 8, !tbaa !27
-  %70 = lshr i32 %69, 9
-  %71 = trunc i32 %70 to i16
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i16 %71, ptr %72, align 2, !tbaa !16
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %74 = load ptr, ptr %0, align 8, !tbaa !17
-  %75 = sext i32 %23 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 2 %74, i64 %75, i1 false)
-  %76 = load i32, ptr %21, align 8, !tbaa !35
-  %77 = shl nsw i32 %76, 1
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %73, i64 %78
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %41 = lshr i32 %26, 4
+  %42 = and i32 %41, 61440
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load i32, ptr %43, align 8, !tbaa !30
+  %45 = lshr i32 %44, 8
+  %46 = and i32 %45, 3840
+  %47 = shl nuw nsw i8 %9, 6
+  %48 = or disjoint i8 %11, %47
+  %49 = zext nneg i8 %48 to i32
+  %50 = or disjoint i32 %42, %49
+  %51 = or disjoint i32 %50, %46
+  %52 = trunc nuw i32 %51 to i16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i16 %52, ptr %53, align 4, !tbaa !11
+  %54 = trunc i32 %22 to i16
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  store i16 %54, ptr %55, align 2, !tbaa !12
+  %56 = trunc i32 %26 to i16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i16 %56, ptr %57, align 4, !tbaa !13
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %59 = load i16, ptr %58, align 2, !tbaa !29
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  store i16 %59, ptr %60, align 2, !tbaa !14
+  %61 = trunc i32 %44 to i16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i16 %61, ptr %62, align 4, !tbaa !15
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %64 = load i32, ptr %63, align 8, !tbaa !27
+  %65 = lshr i32 %64, 9
+  %66 = trunc i32 %65 to i16
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  store i16 %66, ptr %67, align 2, !tbaa !16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %69 = load ptr, ptr %0, align 8, !tbaa !17
+  %70 = sext i32 %23 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr align 2 %69, i64 %70, i1 false)
+  %71 = load i32, ptr %21, align 8, !tbaa !35
+  %72 = shl nsw i32 %71, 1
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %68, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !21
+  %77 = load i32, ptr %40, align 4, !tbaa !28
   switch i8 %11, label %default.unreachable75 [
-    i8 0, label %80
-    i8 1, label %86
-    i8 2, label %92
+    i8 0, label %78
+    i8 1, label %81
+    i8 2, label %84
   ]
 
-80:                                               ; preds = %44
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !21
-  %83 = load i32, ptr %45, align 4, !tbaa !28
-  %84 = shl nsw i32 %83, 1
-  %85 = sext i32 %84 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 2 %82, i64 %85, i1 false)
-  br label %97
+78:                                               ; preds = %39
+  %79 = shl nsw i32 %77, 1
+  %80 = sext i32 %79 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 2 %76, i64 %80, i1 false)
+  br label %86
 
-86:                                               ; preds = %44
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !21
-  %89 = load i32, ptr %45, align 4, !tbaa !28
-  %90 = shl nsw i32 %89, 2
-  %91 = sext i32 %90 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 4 %88, i64 %91, i1 false)
-  br label %97
+81:                                               ; preds = %39
+  %82 = shl nsw i32 %77, 2
+  %83 = sext i32 %82 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 4 %76, i64 %83, i1 false)
+  br label %86
 
-92:                                               ; preds = %44
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !21
-  %95 = load i32, ptr %45, align 4, !tbaa !28
-  %96 = sext i32 %95 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %94, i64 %96, i1 false)
-  br label %97
+84:                                               ; preds = %39
+  %85 = sext i32 %77 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %76, i64 %85, i1 false)
+  br label %86
 
-97:                                               ; preds = %19, %80, %86, %92, %43, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %19 ], [ %.066, %80 ], [ %.066, %86 ], [ %.066, %92 ], [ %.066, %43 ]
+86:                                               ; preds = %19, %78, %81, %84, %38, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %19 ], [ %.066, %78 ], [ %.066, %81 ], [ %.066, %84 ], [ %.066, %38 ]
   ret i32 %.0
 }
 

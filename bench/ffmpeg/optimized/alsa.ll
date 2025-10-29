@@ -364,7 +364,7 @@ define internal fastcc range(i32 -38, 1) i32 @find_reorder_func(ptr noundef capt
   %10 = alloca %struct.AVChannelLayout, align 8
   %11 = alloca %struct.AVChannelLayout, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %78, label %12
+  br i1 %.not, label %69, label %12
 
 12:                                               ; preds = %4
   store i32 1, ptr %5, align 8, !tbaa !40
@@ -376,7 +376,7 @@ define internal fastcc range(i32 -38, 1) i32 @find_reorder_func(ptr noundef capt
   store ptr null, ptr %15, align 8, !tbaa !46
   %16 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %5) #11
   %.not26 = icmp eq i32 %16, 0
-  br i1 %.not26, label %78, label %17
+  br i1 %.not26, label %69, label %17
 
 17:                                               ; preds = %12
   store i32 1, ptr %6, align 8, !tbaa !40
@@ -388,7 +388,7 @@ define internal fastcc range(i32 -38, 1) i32 @find_reorder_func(ptr noundef capt
   store ptr null, ptr %20, align 8, !tbaa !46
   %21 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %6) #11
   %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %78, label %22
+  br i1 %.not27, label %69, label %22
 
 22:                                               ; preds = %17
   %switch.tableidx = add i32 %1, -65536
@@ -396,7 +396,7 @@ define internal fastcc range(i32 -38, 1) i32 @find_reorder_func(ptr noundef capt
   %switch.shifted = lshr i32 3149823, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
   %or.cond = select i1 %23, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %78
+  br i1 %or.cond, label %switch.lookup, label %69
 
 switch.lookup:                                    ; preds = %22
   %24 = zext nneg i32 %switch.tableidx to i64
@@ -423,140 +423,130 @@ switch.lookup:                                    ; preds = %22
   store ptr null, ptr %32, align 8, !tbaa !46
   %33 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %8) #11
   %.not29 = icmp eq i32 %33, 0
-  br i1 %.not29, label %34, label %43
+  br i1 %.not29, label %34, label %40
 
 34:                                               ; preds = %29, %switch.lookup
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   switch i32 %switch.load, label %default.unreachable34 [
-    i32 0, label %35
+    i32 0, label %36
     i32 1, label %37
-    i32 2, label %39
-    i32 3, label %41
+    i32 2, label %38
+    i32 3, label %39
   ]
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int8_out_50, ptr %36, align 8, !tbaa !41
-  br label %78
+36:                                               ; preds = %34
+  store ptr @alsa_reorder_int8_out_50, ptr %35, align 8, !tbaa !41
+  br label %69
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int16_out_50, ptr %38, align 8, !tbaa !41
-  br label %78
+  store ptr @alsa_reorder_int16_out_50, ptr %35, align 8, !tbaa !41
+  br label %69
+
+38:                                               ; preds = %34
+  store ptr @alsa_reorder_int32_out_50, ptr %35, align 8, !tbaa !41
+  br label %69
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int32_out_50, ptr %40, align 8, !tbaa !41
-  br label %78
+  store ptr @alsa_reorder_f32_out_50, ptr %35, align 8, !tbaa !41
+  br label %69
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_f32_out_50, ptr %42, align 8, !tbaa !41
-  br label %78
-
-43:                                               ; preds = %29
+40:                                               ; preds = %29
   store i32 1, ptr %9, align 8, !tbaa !40
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 6, ptr %44, align 4, !tbaa !27
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 63, ptr %45, align 8, !tbaa !25
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr null, ptr %46, align 8, !tbaa !46
-  %47 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %9) #11
-  %.not30 = icmp eq i32 %47, 0
-  br i1 %.not30, label %53, label %48
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 6, ptr %41, align 4, !tbaa !27
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 63, ptr %42, align 8, !tbaa !25
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr null, ptr %43, align 8, !tbaa !46
+  %44 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %9) #11
+  %.not30 = icmp eq i32 %44, 0
+  br i1 %.not30, label %50, label %45
 
-48:                                               ; preds = %43
+45:                                               ; preds = %40
   store i32 1, ptr %10, align 8, !tbaa !40
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 6, ptr %49, align 4, !tbaa !27
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 1551, ptr %50, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %51, align 8, !tbaa !46
-  %52 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %10) #11
-  %.not31 = icmp eq i32 %52, 0
-  br i1 %.not31, label %53, label %62
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 6, ptr %46, align 4, !tbaa !27
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 1551, ptr %47, align 8, !tbaa !25
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr null, ptr %48, align 8, !tbaa !46
+  %49 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %10) #11
+  %.not31 = icmp eq i32 %49, 0
+  br i1 %.not31, label %50, label %56
 
-53:                                               ; preds = %48, %43
+50:                                               ; preds = %45, %40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   switch i32 %switch.load, label %default.unreachable34 [
-    i32 0, label %54
-    i32 1, label %56
-    i32 2, label %58
-    i32 3, label %60
+    i32 0, label %52
+    i32 1, label %53
+    i32 2, label %54
+    i32 3, label %55
   ]
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int8_out_51, ptr %55, align 8, !tbaa !41
-  br label %78
+52:                                               ; preds = %50
+  store ptr @alsa_reorder_int8_out_51, ptr %51, align 8, !tbaa !41
+  br label %69
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int16_out_51, ptr %57, align 8, !tbaa !41
-  br label %78
+53:                                               ; preds = %50
+  store ptr @alsa_reorder_int16_out_51, ptr %51, align 8, !tbaa !41
+  br label %69
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int32_out_51, ptr %59, align 8, !tbaa !41
-  br label %78
+54:                                               ; preds = %50
+  store ptr @alsa_reorder_int32_out_51, ptr %51, align 8, !tbaa !41
+  br label %69
 
-60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_f32_out_51, ptr %61, align 8, !tbaa !41
-  br label %78
+55:                                               ; preds = %50
+  store ptr @alsa_reorder_f32_out_51, ptr %51, align 8, !tbaa !41
+  br label %69
 
-62:                                               ; preds = %48
+56:                                               ; preds = %45
   store i32 1, ptr %11, align 8, !tbaa !40
-  %63 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 8, ptr %63, align 4, !tbaa !27
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 1599, ptr %64, align 8, !tbaa !25
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr null, ptr %65, align 8, !tbaa !46
-  %66 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %11) #11
-  %.not32 = icmp eq i32 %66, 0
-  br i1 %.not32, label %69, label %._crit_edge
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 8, ptr %57, align 4, !tbaa !27
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 1599, ptr %58, align 8, !tbaa !25
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr null, ptr %59, align 8, !tbaa !46
+  %60 = call i32 @av_channel_layout_compare(ptr noundef %2, ptr noundef nonnull %11) #11
+  %.not32 = icmp eq i32 %60, 0
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br i1 %.not32, label %64, label %._crit_edge
 
-._crit_edge:                                      ; preds = %62
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !41
-  %67 = icmp eq ptr %.pre, null
-  %68 = select i1 %67, i32 -38, i32 0
-  br label %78
+._crit_edge:                                      ; preds = %56
+  %.pre = load ptr, ptr %61, align 8, !tbaa !41
+  %62 = icmp eq ptr %.pre, null
+  %63 = select i1 %62, i32 -38, i32 0
+  br label %69
 
-69:                                               ; preds = %62
+64:                                               ; preds = %56
   switch i32 %switch.load, label %default.unreachable34 [
-    i32 0, label %70
-    i32 1, label %72
-    i32 2, label %74
-    i32 3, label %76
+    i32 0, label %65
+    i32 1, label %66
+    i32 2, label %67
+    i32 3, label %68
   ]
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int8_out_71, ptr %71, align 8, !tbaa !41
-  br label %78
+65:                                               ; preds = %64
+  store ptr @alsa_reorder_int8_out_71, ptr %61, align 8, !tbaa !41
+  br label %69
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int16_out_71, ptr %73, align 8, !tbaa !41
-  br label %78
+66:                                               ; preds = %64
+  store ptr @alsa_reorder_int16_out_71, ptr %61, align 8, !tbaa !41
+  br label %69
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_int32_out_71, ptr %75, align 8, !tbaa !41
-  br label %78
+67:                                               ; preds = %64
+  store ptr @alsa_reorder_int32_out_71, ptr %61, align 8, !tbaa !41
+  br label %69
 
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @alsa_reorder_f32_out_71, ptr %77, align 8, !tbaa !41
-  br label %78
+68:                                               ; preds = %64
+  store ptr @alsa_reorder_f32_out_71, ptr %61, align 8, !tbaa !41
+  br label %69
 
-default.unreachable34:                            ; preds = %69, %53, %34
+default.unreachable34:                            ; preds = %64, %50, %34
   unreachable
 
-78:                                               ; preds = %22, %41, %39, %37, %35, %76, %74, %72, %70, %54, %56, %58, %60, %._crit_edge, %12, %17, %4
-  %.025 = phi i32 [ -38, %4 ], [ 0, %17 ], [ 0, %12 ], [ -38, %22 ], [ %68, %._crit_edge ], [ 0, %60 ], [ 0, %58 ], [ 0, %56 ], [ 0, %54 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ], [ 0, %76 ], [ 0, %35 ], [ 0, %37 ], [ 0, %39 ], [ 0, %41 ]
+69:                                               ; preds = %22, %39, %38, %37, %36, %68, %67, %66, %65, %52, %53, %54, %55, %._crit_edge, %12, %17, %4
+  %.025 = phi i32 [ -38, %4 ], [ 0, %17 ], [ 0, %12 ], [ -38, %22 ], [ %63, %._crit_edge ], [ 0, %55 ], [ 0, %54 ], [ 0, %53 ], [ 0, %52 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ]
   ret i32 %.025
 }
 

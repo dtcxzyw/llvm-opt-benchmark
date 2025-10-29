@@ -9099,8 +9099,8 @@ _ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCR
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 0, i64 48, i1 false)
   tail call void @_ZNSt6vectorIS_ItSaItEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef 392)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store ptr %spec.select, ptr %35, align 8, !tbaa !186
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  store ptr %spec.select, ptr %35, align 8, !tbaa !186
   store i32 %spec.select14, ptr %36, align 8, !tbaa !187
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 124

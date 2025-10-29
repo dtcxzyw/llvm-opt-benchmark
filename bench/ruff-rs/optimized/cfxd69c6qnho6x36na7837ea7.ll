@@ -11254,6 +11254,9 @@ default.unreachable69:                            ; preds = %8
 switch.lookup:                                    ; preds = %36
   %45 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %4, i64 %39
   %46 = sub nuw i64 %28, %39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %47 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN21ruff_python_formatter9statement8stmt_try11format_case17h10228231daff99a0E, i64 %47
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -11263,9 +11266,6 @@ switch.lookup:                                    ; preds = %36
   %49 = zext nneg i8 %2 to i64
   %switch.gep74 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN21ruff_python_formatter9statement8stmt_try11format_case17h10228231daff99a0E.54, i64 %49
   %switch.load75 = load ptr, ptr %switch.gep74, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %switch.load75, ptr %13, align 8
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %switch.load73, ptr %50, align 8

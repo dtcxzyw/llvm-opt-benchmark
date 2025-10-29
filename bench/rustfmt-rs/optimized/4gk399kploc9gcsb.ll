@@ -3488,15 +3488,15 @@ _ZN12rustc_errors7emitter7Emitter33render_multispans_macro_backtrace17he3c51805a
 switch.lookup:                                    ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %64 = load i8, ptr %58, align 4, !range !478, !noundef !5
-  %65 = zext nneg i8 %64 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.127, i64 %65
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %66 = zext nneg i8 %64 to i64
-  %switch.gep154 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.128, i64 %66
-  %switch.load155 = load i64, ptr %switch.gep154, align 8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.127, i64 %66
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %67 = zext nneg i8 %64 to i64
+  %switch.gep152 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.128, i64 %67
+  %switch.load153 = load i64, ptr %switch.gep152, align 8
   store ptr %switch.load, ptr %17, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %switch.load155, ptr %67, align 8
+  store i64 %switch.load153, ptr %65, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %17, ptr %15, align 8
@@ -3526,20 +3526,20 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %switch.lookup156
+  br label %switch.lookup154
 
-switch.lookup156:                                 ; preds = %82, %_ZN5alloc3fmt6format17h35125637d547cb53E.exit
+switch.lookup154:                                 ; preds = %82, %_ZN5alloc3fmt6format17h35125637d547cb53E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %71 = load i8, ptr %45, align 4, !range !478, !noundef !5
-  %72 = zext nneg i8 %71 to i64
-  %switch.gep157 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.127, i64 %72
-  %switch.load158 = load ptr, ptr %switch.gep157, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %73 = zext nneg i8 %71 to i64
-  %switch.gep159 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.128, i64 %73
-  %switch.load160 = load i64, ptr %switch.gep159, align 8
-  store ptr %switch.load158, ptr %14, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %switch.load160, ptr %74, align 8
+  %switch.gep155 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.127, i64 %73
+  %switch.load156 = load ptr, ptr %switch.gep155, align 8
+  %74 = zext nneg i8 %71 to i64
+  %switch.gep157 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12rustc_errors7emitter7Emitter58fix_multispans_in_extern_macros_and_render_macro_backtrace17hca86f94d12de77a8E.128, i64 %74
+  %switch.load158 = load i64, ptr %switch.gep157, align 8
+  store ptr %switch.load156, ptr %14, align 8
+  store i64 %switch.load158, ptr %72, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -3577,19 +3577,19 @@ switch.lookup156:                                 ; preds = %82, %_ZN5alloc3fmt6
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4133.0..sroa_idx, align 8
   %.sroa.5134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %.sroa.5134.0..sroa_idx, align 8
-  br label %switch.lookup156
+  br label %switch.lookup154
 
 .body:                                            ; preds = %112, %128, %83
   %.pn = phi { ptr, i32 } [ %129, %128 ], [ %84, %83 ], [ %113, %112 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #49
           to label %.loopexit.split-lp unwind label %130
 
-83:                                               ; preds = %switch.lookup156
+83:                                               ; preds = %switch.lookup154
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5alloc3fmt6format17h35125637d547cb53E.exit113: ; preds = %switch.lookup156
+_ZN5alloc3fmt6format17h35125637d547cb53E.exit113: ; preds = %switch.lookup154
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !592
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)

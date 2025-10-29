@@ -8108,6 +8108,7 @@ _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt6vectorI7MonsterSaIS3
   %96 = load ptr, ptr %buffer_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %96, i64 %78
   %97 = lshr i8 %retval.i43.sroa.10.0, 3
+  %add.ptr.i.i.i146 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   switch i8 %97, label %default.unreachable731 [
     i8 0, label %sw.bb.i101
     i8 1, label %sw.bb1.i100
@@ -8117,7 +8118,6 @@ _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt6vectorI7MonsterSaIS3
 
 sw.bb.i101:                                       ; preds = %.noexc
   store i32 -570632116, ptr %add.ptr.i, align 1
-  %add.ptr.i.i.i146 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %98 = load ptr, ptr %_M_finish.i.i, align 8
   %99 = load ptr, ptr %sample, align 8
   %sub.ptr.lhs.cast.i.i173 = ptrtoint ptr %98 to i64
@@ -8258,8 +8258,7 @@ for.body.i.i:                                     ; preds = %for.body.i180, %for
 
 sw.bb1.i100:                                      ; preds = %.noexc
   store i32 -570632115, ptr %add.ptr.i, align 1
-  %add.ptr.i.i9.i260 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
-  store i8 %retval.i43.sroa.10.0, ptr %add.ptr.i.i9.i260, align 1
+  store i8 %retval.i43.sroa.10.0, ptr %add.ptr.i.i.i146, align 1
   %add.ptr.i.i.i264 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 5
   %127 = load ptr, ptr %_M_finish.i.i, align 8
   %128 = load ptr, ptr %sample, align 8
@@ -8401,8 +8400,7 @@ for.body.i.i271:                                  ; preds = %for.body.i195, %for
 
 sw.bb2.i99:                                       ; preds = %.noexc
   store i32 -570632115, ptr %add.ptr.i, align 1
-  %add.ptr.i.i9.i220 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
-  store i8 %retval.i43.sroa.10.0, ptr %add.ptr.i.i9.i220, align 1
+  store i8 %retval.i43.sroa.10.0, ptr %add.ptr.i.i.i146, align 1
   %add.ptr.i.i.i224 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 5
   %156 = load ptr, ptr %_M_finish.i.i, align 8
   %157 = load ptr, ptr %sample, align 8
@@ -8544,8 +8542,7 @@ for.body.i.i329:                                  ; preds = %for.body.i210, %for
 
 sw.bb3.i98:                                       ; preds = %.noexc
   store i32 -570632115, ptr %add.ptr.i, align 1
-  %add.ptr.i.i9.i180 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
-  store i8 %retval.i43.sroa.10.0, ptr %add.ptr.i.i9.i180, align 1
+  store i8 %retval.i43.sroa.10.0, ptr %add.ptr.i.i.i146, align 1
   %add.ptr.i.i.i184 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 5
   %185 = load ptr, ptr %_M_finish.i.i, align 8
   %186 = load ptr, ptr %sample, align 8

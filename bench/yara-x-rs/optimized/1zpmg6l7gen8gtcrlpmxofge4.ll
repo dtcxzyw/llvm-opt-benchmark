@@ -2114,25 +2114,25 @@ define { i32, i32 } @"_ZN77_$LT$yara_x_parser..ast..FuncCall$u20$as$u20$yara_x_p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
 define { i32, i32 } @"_ZN76_$LT$yara_x_parser..ast..Pattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h736adcb7513f1085E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !8, !noundef !4
   switch i64 %2, label %default.unreachable15 [
-    i64 0, label %3
+    i64 0, label %5
     i64 1, label %16
-    i64 2, label %65
+    i64 2, label %63
   ]
 
-default.unreachable15:                            ; preds = %45, %27, %1
+default.unreachable15:                            ; preds = %43, %25, %1
   unreachable
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !8, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !212, !noundef !4
   %8 = icmp ult i64 %7, 144115188075855872
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i64 %7, 0
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !212, !nonnull !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.not8.i.i = icmp eq i64 %7, 1
@@ -2141,140 +2141,136 @@ default.unreachable15:                            ; preds = %45, %27, %1
   %.sroa.0.0.val1.i5.pn.in.i.i = select i1 %.not8.i.i, ptr %13, ptr %15
   %.pn8.in.i = select i1 %9, ptr %10, ptr %.sroa.0.0.val1.i5.pn.in.i.i
   %.pn8.i = load i32, ptr %.pn8.in.i, align 4, !noalias !4, !noundef !4
-  %.val.i.pn.in.i = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.val.i.pn.in.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.val.i.pn.i = load i32, ptr %.val.i.pn.in.i, align 8, !alias.scope !212, !noundef !4
   br label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit"
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !nonnull !4, !align !8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load i64, ptr %19, align 8, !alias.scope !215, !noundef !4
-  %21 = icmp ult i64 %20, 144115188075855872
-  tail call void @llvm.assume(i1 %21)
-  %22 = icmp eq i64 %20, 0
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %.val.i.i = load i32, ptr %23, align 8, !alias.scope !215, !noundef !4
-  br i1 %22, label %24, label %"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i"
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %18 = load i64, ptr %17, align 8, !alias.scope !215, !noundef !4
+  %19 = icmp ult i64 %18, 144115188075855872
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %18, 0
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %.val.i.i = load i32, ptr %21, align 8, !alias.scope !215, !noundef !4
+  br i1 %20, label %22, label %"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i"
 
-24:                                               ; preds = %16
+22:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %26 = load i64, ptr %25, align 8, !alias.scope !221, !noundef !4
-  %.not.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i, label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit", label %27
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %24 = load i64, ptr %23, align 8, !alias.scope !221, !noundef !4
+  %.not.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i, label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit", label %25
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = load ptr, ptr %28, align 8, !alias.scope !221, !nonnull !4, !noundef !4
-  %30 = load i32, ptr %29, align 8, !range !173, !alias.scope !222, !noalias !221, !noundef !4
-  %31 = add nsw i32 %30, -2
-  %narrow.i.i.i = tail call i32 @llvm.umin.i32(i32 %31, i32 3)
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = load ptr, ptr %26, align 8, !alias.scope !221, !nonnull !4, !noundef !4
+  %28 = load i32, ptr %27, align 8, !range !173, !alias.scope !222, !noalias !221, !noundef !4
+  %29 = add nsw i32 %28, -2
+  %narrow.i.i.i = tail call i32 @llvm.umin.i32(i32 %29, i32 3)
   switch i32 %narrow.i.i.i, label %default.unreachable15 [
-    i32 0, label %32
-    i32 1, label %34
-    i32 2, label %36
-    i32 3, label %40
+    i32 0, label %30
+    i32 1, label %32
+    i32 2, label %34
+    i32 3, label %38
   ]
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  br label %42
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  br label %40
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  br label %42
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  br label %40
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !222, !noalias !221, !nonnull !4, !align !8, !noundef !4
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
-  br label %42
+34:                                               ; preds = %25
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %36 = load ptr, ptr %35, align 8, !alias.scope !222, !noalias !221, !nonnull !4, !align !8, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  br label %40
 
-40:                                               ; preds = %27
-  %41 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  br label %42
+38:                                               ; preds = %25
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 20
+  br label %40
 
-42:                                               ; preds = %40, %36, %34, %32
-  %.val1.i.pn.in.i.i.i = phi ptr [ %33, %32 ], [ %35, %34 ], [ %39, %36 ], [ %41, %40 ]
+40:                                               ; preds = %38, %34, %32, %30
+  %.val1.i.pn.in.i.i.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ %37, %34 ], [ %39, %38 ]
   %.val1.i.pn.i.i.i = load i32, ptr %.val1.i.pn.in.i.i.i, align 4, !noalias !221, !noundef !4
-  %43 = icmp ult i64 %26, 384307168202282326
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp eq i64 %26, 1
-  br i1 %44, label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit", label %45
+  %41 = icmp ult i64 %24, 384307168202282326
+  tail call void @llvm.assume(i1 %41)
+  %42 = icmp eq i64 %24, 1
+  br i1 %42, label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit", label %43
 
-45:                                               ; preds = %42
-  %46 = getelementptr { i32, [5 x i32] }, ptr %29, i64 %26
-  %47 = getelementptr i8, ptr %46, i64 -24
-  %48 = load i32, ptr %47, align 8, !range !173, !alias.scope !225, !noalias !221, !noundef !4
-  %49 = add nsw i32 %48, -2
-  %narrow.i9.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 3)
+43:                                               ; preds = %40
+  %44 = getelementptr { i32, [5 x i32] }, ptr %27, i64 %24
+  %45 = getelementptr i8, ptr %44, i64 -24
+  %46 = load i32, ptr %45, align 8, !range !173, !alias.scope !225, !noalias !221, !noundef !4
+  %47 = add nsw i32 %46, -2
+  %narrow.i9.i.i = tail call i32 @llvm.umin.i32(i32 %47, i32 3)
   switch i32 %narrow.i9.i.i, label %default.unreachable15 [
-    i32 0, label %50
-    i32 1, label %52
-    i32 2, label %54
-    i32 3, label %58
+    i32 0, label %48
+    i32 1, label %50
+    i32 2, label %52
+    i32 3, label %56
   ]
 
-50:                                               ; preds = %45
-  %51 = getelementptr i8, ptr %46, i64 -16
+48:                                               ; preds = %43
+  %49 = getelementptr i8, ptr %44, i64 -16
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i"
 
-52:                                               ; preds = %45
-  %53 = getelementptr i8, ptr %46, i64 -16
+50:                                               ; preds = %43
+  %51 = getelementptr i8, ptr %44, i64 -16
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i"
 
-54:                                               ; preds = %45
-  %55 = getelementptr i8, ptr %46, i64 -16
-  %56 = load ptr, ptr %55, align 8, !alias.scope !225, !noalias !221, !nonnull !4, !align !8, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
+52:                                               ; preds = %43
+  %53 = getelementptr i8, ptr %44, i64 -16
+  %54 = load ptr, ptr %53, align 8, !alias.scope !225, !noalias !221, !nonnull !4, !align !8, !noundef !4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 28
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i"
 
-58:                                               ; preds = %45
-  %59 = getelementptr i8, ptr %46, i64 -4
+56:                                               ; preds = %43
+  %57 = getelementptr i8, ptr %44, i64 -4
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i"
 
 "_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i": ; preds = %16
-  %60 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %61 = load ptr, ptr %60, align 8, !alias.scope !228, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %.not8.i.i2 = icmp eq i64 %20, 1
-  %63 = getelementptr { i8, [63 x i8] }, ptr %61, i64 %20
-  %64 = getelementptr i8, ptr %63, i64 -56
-  %.sroa.0.0.val1.i5.pn.in.i.i3 = select i1 %.not8.i.i2, ptr %62, ptr %64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %59 = load ptr, ptr %58, align 8, !alias.scope !228, !nonnull !4, !noundef !4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %.not8.i.i2 = icmp eq i64 %18, 1
+  %61 = getelementptr { i8, [63 x i8] }, ptr %59, i64 %18
+  %62 = getelementptr i8, ptr %61, i64 -56
+  %.sroa.0.0.val1.i5.pn.in.i.i3 = select i1 %.not8.i.i2, ptr %60, ptr %62
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i"
 
-"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i": ; preds = %"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i", %58, %54, %52, %50
-  %.val1.i.pn.in.i11.i.sink.i = phi ptr [ %.sroa.0.0.val1.i5.pn.in.i.i3, %"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i" ], [ %51, %50 ], [ %53, %52 ], [ %57, %54 ], [ %59, %58 ]
+"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i": ; preds = %"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i", %56, %52, %50, %48
+  %.val1.i.pn.in.i11.i.sink.i = phi ptr [ %.sroa.0.0.val1.i5.pn.in.i.i3, %"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h4433a9a070178dfeE.exit.i" ], [ %49, %48 ], [ %51, %50 ], [ %55, %52 ], [ %57, %56 ]
   %.val1.i.pn.i12.i.i = load i32, ptr %.val1.i.pn.in.i11.i.sink.i, align 4, !noalias !215, !noundef !4
   br label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit"
 
-65:                                               ; preds = %1
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !4, !align !8, !noundef !4
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load i64, ptr %68, align 8, !alias.scope !231, !noundef !4
-  %70 = icmp ult i64 %69, 144115188075855872
-  tail call void @llvm.assume(i1 %70)
-  %71 = icmp eq i64 %69, 0
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 60
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %74 = load ptr, ptr %73, align 8, !alias.scope !231, !nonnull !4
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %.not8.i.i5 = icmp eq i64 %69, 1
-  %76 = getelementptr { i8, [63 x i8] }, ptr %74, i64 %69
-  %77 = getelementptr i8, ptr %76, i64 -56
-  %.sroa.0.0.val1.i5.pn.in.i.i6 = select i1 %.not8.i.i5, ptr %75, ptr %77
-  %.pn8.in.i7 = select i1 %71, ptr %72, ptr %.sroa.0.0.val1.i5.pn.in.i.i6
+63:                                               ; preds = %1
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %65 = load i64, ptr %64, align 8, !alias.scope !231, !noundef !4
+  %66 = icmp ult i64 %65, 144115188075855872
+  tail call void @llvm.assume(i1 %66)
+  %67 = icmp eq i64 %65, 0
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %70 = load ptr, ptr %69, align 8, !alias.scope !231, !nonnull !4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %.not8.i.i5 = icmp eq i64 %65, 1
+  %72 = getelementptr { i8, [63 x i8] }, ptr %70, i64 %65
+  %73 = getelementptr i8, ptr %72, i64 -56
+  %.sroa.0.0.val1.i5.pn.in.i.i6 = select i1 %.not8.i.i5, ptr %71, ptr %73
+  %.pn8.in.i7 = select i1 %67, ptr %68, ptr %.sroa.0.0.val1.i5.pn.in.i.i6
   %.pn8.i8 = load i32, ptr %.pn8.in.i7, align 4, !noalias !4, !noundef !4
-  %.val.i.pn.in.i9 = getelementptr inbounds nuw i8, ptr %67, i64 88
+  %.val.i.pn.in.i9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.val.i.pn.i10 = load i32, ptr %.val.i.pn.in.i9, align 8, !alias.scope !231, !noundef !4
   br label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit"
 
-"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit": ; preds = %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i", %42, %24, %65, %3
-  %.val.i.pn.i.pn = phi i32 [ %.val.i.pn.i, %3 ], [ %.val.i.pn.i10, %65 ], [ %.val.i.i, %24 ], [ %.val.i.i, %42 ], [ %.val.i.i, %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i" ]
-  %.pn8.i.pn = phi i32 [ %.pn8.i, %3 ], [ %.pn8.i8, %65 ], [ 0, %24 ], [ %.val1.i.pn.i.i.i, %42 ], [ %.val1.i.pn.i12.i.i, %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i" ]
+"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit": ; preds = %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i", %40, %22, %63, %5
+  %.val.i.pn.i.pn = phi i32 [ %.val.i.pn.i, %5 ], [ %.val.i.pn.i10, %63 ], [ %.val.i.i, %22 ], [ %.val.i.i, %40 ], [ %.val.i.i, %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i" ]
+  %.pn8.i.pn = phi i32 [ %.pn8.i, %5 ], [ %.pn8.i8, %63 ], [ 0, %22 ], [ %.val1.i.pn.i.i.i, %40 ], [ %.val1.i.pn.i12.i.i, %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i" ]
   %.pn7.i.pn = insertvalue { i32, i32 } poison, i32 %.val.i.pn.i.pn, 0
   %.pn = insertvalue { i32, i32 } %.pn7.i.pn, i32 %.pn8.i.pn, 1
   ret { i32, i32 } %.pn
