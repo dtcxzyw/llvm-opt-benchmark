@@ -9707,9 +9707,6 @@ if.then.i.i1735:
   store i32 %add62, ptr %nErrorCount, align 4
   %call.i.i.i.i1739 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 0, ptr %call.i.i.i.i1739, align 4
-  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i1739, i64 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i19 = ptrtoint ptr %incdec.ptr25.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i20 = ptrtoint ptr %call.i.i.i.i1739 to i64
   br label %while.body.i.i.i.i26
 
 common.resume:                                    ; preds = %_ZN5eastl4pairINS_12basic_stringIcNS_9allocatorEEEiED2Ev.exit1648, %_ZN5eastl4pairINS_12basic_stringIcNS_9allocatorEEEiED2Ev.exit1678, %_ZN5eastl4pairINS_12basic_stringIcNS_9allocatorEEEiED2Ev.exit1708, %_ZN5eastl4pairINS_12basic_stringIcNS_9allocatorEEEiED2Ev.exit1720, %lpad73, %ehcleanup149, %ehcleanup207, %ehcleanup300, %ehcleanup402, %lpad461, %lpad527, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i136, %lpad92, %delete.notnull.i.i.i.i.i.i
@@ -9732,6 +9729,9 @@ while.body.i.i.i.i26:                             ; preds = %if.then.i.i1735, %w
   br i1 %cmp.i.i.i.i37, label %while.body.i.i.i.i26, label %if.then.i.i1765, !llvm.loop !37
 
 if.then.i.i1765:                                  ; preds = %while.body.i.i.i.i26
+  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i1739, i64 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i19 = ptrtoint ptr %incdec.ptr25.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i20 = ptrtoint ptr %call.i.i.i.i1739 to i64
   %cmp3.not.i.i.i.i = icmp eq ptr %first.addr.1.i.i.i.i36, %incdec.ptr25.i
   %sub.ptr.lhs.cast.i1756 = ptrtoint ptr %first.addr.1.i.i.i.i36 to i64
   %sub.ptr.sub.i1758 = sub i64 %sub.ptr.lhs.cast.i1756, %sub.ptr.rhs.cast.i.i.i.i.i.i20
@@ -160763,20 +160763,17 @@ for.cond:                                         ; preds = %if.end9, %if.end3
   %incdec.ptr5.ptr = getelementptr inbounds i8, ptr %__last, i64 %__i.0.add
   %1 = load i32, ptr %incdec.ptr5.ptr, align 8
   %cmp.i.i = icmp slt i32 %1, %0
-  br i1 %cmp.i.i, label %while.cond.preheader, label %if.end9
+  br i1 %cmp.i.i, label %while.cond, label %if.end9
 
-while.cond.preheader:                             ; preds = %for.cond
-  %__i.0.ptr.le = getelementptr inbounds i8, ptr %__last, i64 %__i.0.idx
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.cond.preheader, %while.cond
-  %__j.0 = phi ptr [ %incdec.ptr7, %while.cond ], [ %__last, %while.cond.preheader ]
+while.cond:                                       ; preds = %for.cond, %while.cond
+  %__j.0 = phi ptr [ %incdec.ptr7, %while.cond ], [ %__last, %for.cond ]
   %incdec.ptr7 = getelementptr inbounds i8, ptr %__j.0, i64 -24
   %2 = load i32, ptr %incdec.ptr7, align 8
   %cmp.i.i16 = icmp slt i32 %1, %2
   br i1 %cmp.i.i16, label %while.end, label %while.cond, !llvm.loop !6478
 
 while.end:                                        ; preds = %while.cond
+  %__i.0.ptr.le = getelementptr inbounds i8, ptr %__last, i64 %__i.0.idx
   %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %__i.0.ptr.le, i64 -20
   %3 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %3, 1

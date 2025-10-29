@@ -1161,7 +1161,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx
   tail call void asm sideeffect "3060: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3060) #13, !srcloc !75
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1076, i32 2305, i64 12) #13, !srcloc !76
   tail call void asm sideeffect "3061: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3061b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3061) #13, !srcloc !77
-  br label %85
+  br label %83
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1200,13 +1200,13 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx
 29:                                               ; preds = %23
   %30 = sub i32 0, %16
   %31 = icmp eq i32 %24, %30
-  br i1 %31, label %32, label %85
+  br i1 %31, label %32, label %83
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 2
-  br i1 %35, label %36, label %62
+  br i1 %35, label %36, label %.preheader7
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1218,7 +1218,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx
   tail call void asm sideeffect "3062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3062) #13, !srcloc !78
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1084, i32 2305, i64 12) #13, !srcloc !79
   tail call void asm sideeffect "3063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3063) #13, !srcloc !80
-  br label %85
+  br label %83
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 64
@@ -1244,11 +1244,11 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx
   tail call void asm sideeffect "3066: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3066b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3066) #13, !srcloc !84
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1089, i32 2305, i64 12) #13, !srcloc !85
   tail call void asm sideeffect "3067: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3067b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3067) #13, !srcloc !86
-  %.pre10 = load ptr, ptr %37, align 8
+  %.pre11 = load ptr, ptr %37, align 8
   br label %52
 
 52:                                               ; preds = %51, %46
-  %53 = phi ptr [ %.pre10, %51 ], [ %47, %46 ]
+  %53 = phi ptr [ %.pre11, %51 ], [ %47, %46 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   store ptr null, ptr %54, align 8
   %55 = load ptr, ptr %37, align 8
@@ -1263,55 +1263,52 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %57, align 8
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @kvfree_call_rcu(ptr noundef nonnull %61, ptr noundef nonnull %4) #13
-  br label %85
+  br label %83
 
-62:                                               ; preds = %32
-  %63 = load ptr, ptr %5, align 8
-  br label %64
+.preheader7:                                      ; preds = %32, %.preheader7
+  %62 = phi i32 [ %66, %.preheader7 ], [ 0, %32 ]
+  %63 = phi ptr [ %64, %.preheader7 ], [ %14, %32 ]
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, %14
+  %66 = add i32 %62, 1
+  br i1 %65, label %.preheader, label %.preheader7, !llvm.loop !6
 
-64:                                               ; preds = %64, %62
-  %65 = phi i32 [ 0, %62 ], [ %69, %64 ]
-  %66 = phi ptr [ %14, %62 ], [ %67, %64 ]
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %14
-  %69 = add i32 %65, 1
-  br i1 %68, label %.preheader, label %64, !llvm.loop !6
+.preheader:                                       ; preds = %.preheader7, %.preheader
+  %67 = phi i32 [ %71, %.preheader ], [ 0, %.preheader7 ]
+  %68 = phi ptr [ %69, %.preheader ], [ %22, %.preheader7 ]
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, %22
+  %71 = add i32 %67, 1
+  br i1 %70, label %72, label %.preheader, !llvm.loop !9
 
-.preheader:                                       ; preds = %64, %.preheader
-  %70 = phi i32 [ %74, %.preheader ], [ 0, %64 ]
-  %71 = phi ptr [ %72, %.preheader ], [ %22, %64 ]
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, %22
-  %74 = add i32 %70, 1
-  br i1 %73, label %75, label %.preheader, !llvm.loop !9
+72:                                               ; preds = %.preheader
+  %73 = load ptr, ptr %5, align 8
+  %74 = sub i32 0, %62
+  %75 = icmp eq i32 %67, %74
+  br i1 %75, label %77, label %76, !prof !32
 
-75:                                               ; preds = %.preheader
-  %76 = sub i32 0, %65
-  %77 = icmp eq i32 %70, %76
-  br i1 %77, label %79, label %78, !prof !32
-
-78:                                               ; preds = %75
+76:                                               ; preds = %72
   tail call void asm sideeffect "3009: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3009b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3009) #13, !srcloc !87
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 765, i32 2307, i64 12) #13, !srcloc !88
   tail call void asm sideeffect "3010: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3010b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3010) #13, !srcloc !89
-  br label %79
+  br label %77
 
-79:                                               ; preds = %78, %75
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %81, ptr %83, align 8
-  store volatile ptr %82, ptr %81, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %80, align 8
-  tail call fastcc void @ieee80211_del_chanctx(ptr noundef %63, ptr noundef nonnull %4)
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %84, ptr noundef nonnull %4) #13
-  br label %85
+77:                                               ; preds = %76, %72
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store ptr %79, ptr %81, align 8
+  store volatile ptr %80, ptr %79, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %78, align 8
+  tail call fastcc void @ieee80211_del_chanctx(ptr noundef %73, ptr noundef nonnull %4)
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %82, ptr noundef nonnull %4) #13
+  br label %83
 
-85:                                               ; preds = %79, %52, %40, %29, %7
-  %86 = phi i32 [ -22, %7 ], [ -22, %40 ], [ 0, %52 ], [ 0, %79 ], [ 0, %29 ]
-  ret i32 %86
+83:                                               ; preds = %77, %52, %40, %29, %7
+  %84 = phi i32 [ -22, %7 ], [ -22, %40 ], [ 0, %52 ], [ 0, %77 ], [ 0, %29 ]
+  ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid

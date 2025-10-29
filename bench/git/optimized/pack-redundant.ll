@@ -2077,72 +2077,64 @@ pack_set_bytecount.exit:                          ; preds = %._crit_edge376.thre
 
 ._crit_edge381:                                   ; preds = %686
   %.b40 = load i1, ptr @verbose, align 4
-  br i1 %.b40, label %699, label %714
+  br i1 %.b40, label %pack_set_bytecount.exit216, label %711
 
 ._crit_edge381.thread:                            ; preds = %.lr.ph380
   %.b40562 = load i1, ptr @verbose, align 4
-  br i1 %.b40562, label %.lr.ph.i210.preheader, label %.lr.ph.i218.preheader
+  br i1 %.b40562, label %.lr.ph.i210, label %.lr.ph.i218.preheader
 
-699:                                              ; preds = %._crit_edge381
-  %700 = load ptr, ptr @stderr, align 8, !tbaa !11
-  br label %pack_set_bytecount.exit216
-
-.lr.ph.i210.preheader:                            ; preds = %._crit_edge381.thread
-  %701 = load ptr, ptr @stderr, align 8, !tbaa !11
-  br label %.lr.ph.i210
-
-.lr.ph.i210:                                      ; preds = %.lr.ph.i210.preheader, %.lr.ph.i210
-  %.09.i211 = phi i64 [ %709, %.lr.ph.i210 ], [ 0, %.lr.ph.i210.preheader ]
-  %.068.i212 = phi ptr [ %710, %.lr.ph.i210 ], [ %688, %.lr.ph.i210.preheader ]
-  %702 = getelementptr inbounds nuw i8, ptr %.068.i212, i64 8
-  %703 = load ptr, ptr %702, align 8, !tbaa !74
-  %704 = getelementptr inbounds nuw i8, ptr %703, i64 48
+.lr.ph.i210:                                      ; preds = %._crit_edge381.thread, %.lr.ph.i210
+  %.09.i211 = phi i64 [ %706, %.lr.ph.i210 ], [ 0, %._crit_edge381.thread ]
+  %.068.i212 = phi ptr [ %707, %.lr.ph.i210 ], [ %688, %._crit_edge381.thread ]
+  %699 = getelementptr inbounds nuw i8, ptr %.068.i212, i64 8
+  %700 = load ptr, ptr %699, align 8, !tbaa !74
+  %701 = getelementptr inbounds nuw i8, ptr %700, i64 48
+  %702 = load i64, ptr %701, align 8, !tbaa !91
+  %703 = add nsw i64 %702, %.09.i211
+  %704 = getelementptr inbounds nuw i8, ptr %700, i64 64
   %705 = load i64, ptr %704, align 8, !tbaa !91
-  %706 = add nsw i64 %705, %.09.i211
-  %707 = getelementptr inbounds nuw i8, ptr %703, i64 64
-  %708 = load i64, ptr %707, align 8, !tbaa !91
-  %709 = add i64 %706, %708
-  %710 = load ptr, ptr %.068.i212, align 8, !tbaa !30
-  %.not.i213 = icmp eq ptr %710, null
+  %706 = add i64 %703, %705
+  %707 = load ptr, ptr %.068.i212, align 8, !tbaa !30
+  %.not.i213 = icmp eq ptr %707, null
   br i1 %.not.i213, label %pack_set_bytecount.exit216.loopexit, label %.lr.ph.i210, !llvm.loop !92
 
 pack_set_bytecount.exit216.loopexit:              ; preds = %.lr.ph.i210
-  %711 = lshr i64 %709, 20
+  %708 = lshr i64 %706, 20
   br label %pack_set_bytecount.exit216
 
-pack_set_bytecount.exit216:                       ; preds = %699, %pack_set_bytecount.exit216.loopexit
-  %712 = phi ptr [ %700, %699 ], [ %701, %pack_set_bytecount.exit216.loopexit ]
-  %.0.lcssa.i215 = phi i64 [ 0, %699 ], [ %711, %pack_set_bytecount.exit216.loopexit ]
-  %713 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %712, ptr noundef nonnull @.str.17, i64 noundef %.0.lcssa.i215) #18
-  br label %714
+pack_set_bytecount.exit216:                       ; preds = %._crit_edge381, %pack_set_bytecount.exit216.loopexit
+  %.0.lcssa.i215 = phi i64 [ %708, %pack_set_bytecount.exit216.loopexit ], [ 0, %._crit_edge381 ]
+  %709 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %709, ptr noundef nonnull @.str.17, i64 noundef %.0.lcssa.i215) #18
+  br label %711
 
-714:                                              ; preds = %pack_set_bytecount.exit216, %._crit_edge381
+711:                                              ; preds = %pack_set_bytecount.exit216, %._crit_edge381
   br i1 %.not55377, label %pack_list_free.exit, label %.lr.ph.i218.preheader
 
-.lr.ph.i218.preheader:                            ; preds = %._crit_edge381.thread, %714
+.lr.ph.i218.preheader:                            ; preds = %._crit_edge381.thread, %711
   br label %.lr.ph.i218
 
 .lr.ph.i218:                                      ; preds = %.lr.ph.i218.preheader, %.lr.ph.i218
-  %.05.i = phi ptr [ %715, %.lr.ph.i218 ], [ %688, %.lr.ph.i218.preheader ]
-  %715 = load ptr, ptr %.05.i, align 8, !tbaa !30
+  %.05.i = phi ptr [ %712, %.lr.ph.i218 ], [ %688, %.lr.ph.i218.preheader ]
+  %712 = load ptr, ptr %.05.i, align 8, !tbaa !30
   call void @free(ptr noundef nonnull %.05.i) #14
-  %.not.i219 = icmp eq ptr %715, null
+  %.not.i219 = icmp eq ptr %712, null
   br i1 %.not.i219, label %pack_list_free.exit, label %.lr.ph.i218, !llvm.loop !82
 
-pack_list_free.exit:                              ; preds = %.lr.ph.i218, %714
+pack_list_free.exit:                              ; preds = %.lr.ph.i218, %711
   %.not4.i221 = icmp eq ptr %.2241, null
   br i1 %.not4.i221, label %pack_list_free.exit226, label %.lr.ph.i222
 
 .lr.ph.i222:                                      ; preds = %pack_list_free.exit, %.lr.ph.i222
-  %.05.i223 = phi ptr [ %716, %.lr.ph.i222 ], [ %.2241, %pack_list_free.exit ]
-  %716 = load ptr, ptr %.05.i223, align 8, !tbaa !30
+  %.05.i223 = phi ptr [ %713, %.lr.ph.i222 ], [ %.2241, %pack_list_free.exit ]
+  %713 = load ptr, ptr %.05.i223, align 8, !tbaa !30
   call void @free(ptr noundef nonnull %.05.i223) #14
-  %.not.i224 = icmp eq ptr %716, null
+  %.not.i224 = icmp eq ptr %713, null
   br i1 %.not.i224, label %pack_list_free.exit226, label %.lr.ph.i222, !llvm.loop !82
 
 pack_list_free.exit226:                           ; preds = %.lr.ph.i222, %pack_list_free.exit
-  %717 = load ptr, ptr %141, align 8, !tbaa !32
-  %.not6.i = icmp eq ptr %717, null
+  %714 = load ptr, ptr %141, align 8, !tbaa !32
+  %.not6.i = icmp eq ptr %714, null
   br i1 %.not6.i, label %llist_free.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %pack_list_free.exit226
@@ -2150,12 +2142,12 @@ pack_list_free.exit226:                           ; preds = %.lr.ph.i222, %pack_
   br label %.lr.ph.i228
 
 .lr.ph.i228:                                      ; preds = %.lr.ph.i228, %.lr.ph.preheader.i
-  %718 = phi ptr [ %.07.i, %.lr.ph.i228 ], [ %.pre.i227, %.lr.ph.preheader.i ]
-  %.07.i = phi ptr [ %719, %.lr.ph.i228 ], [ %717, %.lr.ph.preheader.i ]
-  %719 = load ptr, ptr %.07.i, align 8, !tbaa !56
-  store ptr %718, ptr %.07.i, align 8, !tbaa !56
+  %715 = phi ptr [ %.07.i, %.lr.ph.i228 ], [ %.pre.i227, %.lr.ph.preheader.i ]
+  %.07.i = phi ptr [ %716, %.lr.ph.i228 ], [ %714, %.lr.ph.preheader.i ]
+  %716 = load ptr, ptr %.07.i, align 8, !tbaa !56
+  store ptr %715, ptr %.07.i, align 8, !tbaa !56
   store ptr %.07.i, ptr @free_nodes, align 8, !tbaa !27
-  %.not.i229 = icmp eq ptr %719, null
+  %.not.i229 = icmp eq ptr %716, null
   br i1 %.not.i229, label %llist_free.exit, label %.lr.ph.i228, !llvm.loop !81
 
 llist_free.exit:                                  ; preds = %.lr.ph.i228, %pack_list_free.exit226

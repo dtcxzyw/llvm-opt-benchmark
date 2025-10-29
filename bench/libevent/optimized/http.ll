@@ -2098,8 +2098,8 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
   %10 = getelementptr i8, ptr %6, i64 8
   br label %11
 
-11:                                               ; preds = %.lr.ph, %54
-  %12 = phi ptr [ %7, %.lr.ph ], [ %55, %54 ]
+11:                                               ; preds = %.lr.ph, %52
+  %12 = phi ptr [ %7, %.lr.ph ], [ %53, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i64, ptr %3, align 8
   %14 = load i64, ptr %8, align 8
@@ -2117,7 +2117,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
 
 21:                                               ; preds = %17, %11
   %22 = load i8, ptr %12, align 1
-  switch i8 %22, label %44 [
+  switch i8 %22, label %42 [
     i8 0, label %.thread45
     i8 32, label %23
     i8 9, label %23
@@ -2126,7 +2126,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
 .thread45:                                        ; preds = %21
   call void @event_mm_free_(ptr noundef nonnull %12) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %67
+  br label %65
 
 23:                                               ; preds = %21, %21
   %.val = load ptr, ptr %10, align 8
@@ -2134,96 +2134,93 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
   %.val.val = load ptr, ptr %24, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %25 = icmp eq ptr %.val.val.val, null
-  br i1 %25, label %evhttp_append_to_last_header.exit.thread, label %26
+  br i1 %25, label %evhttp_append_to_last_header.exit.thread, label %.preheader.i
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.val.val.val, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #17
-  br label %30
-
-30:                                               ; preds = %.critedge.i, %26
-  %31 = phi i8 [ %22, %26 ], [ %.pre, %.critedge.i ]
-  %.020.i = phi ptr [ %12, %26 ], [ %32, %.critedge.i ]
-  switch i8 %31, label %33 [
+.preheader.i:                                     ; preds = %23, %.critedge.i
+  %26 = phi i8 [ %.pre, %.critedge.i ], [ %22, %23 ]
+  %.020.i = phi ptr [ %27, %.critedge.i ], [ %12, %23 ]
+  switch i8 %26, label %28 [
     i8 32, label %.critedge.i
     i8 9, label %.critedge.i
   ]
 
-.critedge.i:                                      ; preds = %30, %30
-  %32 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
-  %.pre = load i8, ptr %32, align 1
-  br label %30, !llvm.loop !13
+.critedge.i:                                      ; preds = %.preheader.i, %.preheader.i
+  %27 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
+  %.pre = load i8, ptr %27, align 1
+  br label %.preheader.i, !llvm.loop !13
 
-33:                                               ; preds = %30
+28:                                               ; preds = %.preheader.i
+  %29 = getelementptr inbounds nuw i8, ptr %.val.val.val, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #17
   call void @evutil_rtrim_lws_(ptr noundef nonnull %.020.i) #18
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020.i) #17
-  %35 = load ptr, ptr %27, align 8
-  %36 = add i64 %29, 2
-  %37 = add i64 %36, %34
-  %38 = call ptr @event_mm_realloc_(ptr noundef %35, i64 noundef %37) #18
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %evhttp_append_to_last_header.exit.thread, label %40
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020.i) #17
+  %33 = load ptr, ptr %29, align 8
+  %34 = add i64 %31, 2
+  %35 = add i64 %34, %32
+  %36 = call ptr @event_mm_realloc_(ptr noundef %33, i64 noundef %35) #18
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %evhttp_append_to_last_header.exit.thread, label %38
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %29
-  store i8 32, ptr %41, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  %43 = add i64 %34, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %.020.i, i64 %43, i1 false)
-  store ptr %38, ptr %27, align 8
-  br label %54, !llvm.loop !14
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %31
+  store i8 32, ptr %39, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %41 = add i64 %32, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %.020.i, i64 %41, i1 false)
+  store ptr %36, ptr %29, align 8
+  br label %52, !llvm.loop !14
 
-44:                                               ; preds = %21
+42:                                               ; preds = %21
   store ptr %12, ptr %4, align 8
-  %45 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.6) #18
-  %46 = load ptr, ptr %4, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %evhttp_append_to_last_header.exit.thread, label %48
+  %43 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.6) #18
+  %44 = load ptr, ptr %4, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %evhttp_append_to_last_header.exit.thread, label %46
 
-48:                                               ; preds = %44
-  %49 = call i64 @strspn(ptr noundef nonnull %46, ptr noundef nonnull @.str.7) #17
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
-  store ptr %50, ptr %4, align 8
-  call void @evutil_rtrim_lws_(ptr noundef nonnull %50) #18
-  %51 = load ptr, ptr %4, align 8
-  %52 = call i32 @evhttp_add_header(ptr noundef %6, ptr noundef %45, ptr noundef %51)
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %evhttp_append_to_last_header.exit.thread, label %54
+46:                                               ; preds = %42
+  %47 = call i64 @strspn(ptr noundef nonnull %44, ptr noundef nonnull @.str.7) #17
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  store ptr %48, ptr %4, align 8
+  call void @evutil_rtrim_lws_(ptr noundef nonnull %48) #18
+  %49 = load ptr, ptr %4, align 8
+  %50 = call i32 @evhttp_add_header(ptr noundef %6, ptr noundef %43, ptr noundef %49)
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %evhttp_append_to_last_header.exit.thread, label %52
 
-54:                                               ; preds = %48, %40
+52:                                               ; preds = %46, %38
   call void @event_mm_free_(ptr noundef nonnull %12) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %55 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1) #18
-  %.not = icmp eq ptr %55, null
+  %53 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1) #18
+  %.not = icmp eq ptr %53, null
   br i1 %.not, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %54, %2
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %.not35 = icmp eq ptr %57, null
-  br i1 %.not35, label %67, label %58
+._crit_edge:                                      ; preds = %52, %2
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %.not35 = icmp eq ptr %55, null
+  br i1 %.not35, label %65, label %56
 
-58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %60 = load i64, ptr %59, align 8
-  %61 = call i64 @evbuffer_get_length(ptr noundef %1) #18
-  %62 = add i64 %61, %60
-  %63 = load ptr, ptr %56, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 184
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp ugt i64 %62, %65
-  %spec.select = select i1 %66, i32 -3, i32 0
-  br label %67
+56:                                               ; preds = %._crit_edge
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %58 = load i64, ptr %57, align 8
+  %59 = call i64 @evbuffer_get_length(ptr noundef %1) #18
+  %60 = add i64 %59, %58
+  %61 = load ptr, ptr %54, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp ugt i64 %60, %63
+  %spec.select = select i1 %64, i32 -3, i32 0
+  br label %65
 
-evhttp_append_to_last_header.exit.thread:         ; preds = %33, %23, %17, %44, %48
-  %.1.ph = phi i32 [ -1, %48 ], [ -1, %44 ], [ -3, %17 ], [ -1, %23 ], [ -1, %33 ]
+evhttp_append_to_last_header.exit.thread:         ; preds = %28, %23, %17, %42, %46
+  %.1.ph = phi i32 [ -1, %46 ], [ -1, %42 ], [ -3, %17 ], [ -1, %23 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @event_mm_free_(ptr noundef nonnull %12) #18
-  br label %67
+  br label %65
 
-67:                                               ; preds = %58, %._crit_edge, %.thread45, %evhttp_append_to_last_header.exit.thread
-  %.026 = phi i32 [ %.1.ph, %evhttp_append_to_last_header.exit.thread ], [ 1, %.thread45 ], [ 0, %._crit_edge ], [ %spec.select, %58 ]
+65:                                               ; preds = %56, %._crit_edge, %.thread45, %evhttp_append_to_last_header.exit.thread
+  %.026 = phi i32 [ %.1.ph, %evhttp_append_to_last_header.exit.thread ], [ 1, %.thread45 ], [ 0, %._crit_edge ], [ %spec.select, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.026
 }

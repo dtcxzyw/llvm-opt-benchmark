@@ -20888,18 +20888,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3262:             ; preds = %9633, %9635
   %.val617 = load ptr, ptr %627, align 8, !tbaa !146
   %.val618 = load ptr, ptr %628, align 8, !tbaa !146
   %9638 = icmp eq ptr %.val617, %.val618
-  br i1 %9638, label %_ZL24emitCustomOperandParsingRN4llvm11raw_ostreamERNS_13CodeGenTargetERKN12_GLOBAL__N_114AsmMatcherInfoENS_9StringRefERKNS_19StringToOffsetTableEjjbRKNS_6RecordE.exit, label %.lr.ph.i3263.preheader
+  br i1 %9638, label %_ZL24emitCustomOperandParsingRN4llvm11raw_ostreamERNS_13CodeGenTargetERKN12_GLOBAL__N_114AsmMatcherInfoENS_9StringRefERKNS_19StringToOffsetTableEjjbRKNS_6RecordE.exit, label %.lr.ph.i3263
 
-.lr.ph.i3263.preheader:                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit3262
+._crit_edge.i3265:                                ; preds = %.lr.ph.i3263
   %9639 = load ptr, ptr %4470, align 8, !tbaa !381
   %9640 = load ptr, ptr %57, align 8, !tbaa !383
   %9641 = ptrtoint ptr %9639 to i64
   %9642 = ptrtoint ptr %9640 to i64
   %9643 = sub i64 %9641, %9642
   %9644 = sdiv exact i64 %9643, 24
-  br label %.lr.ph.i3263
-
-._crit_edge.i3265:                                ; preds = %.lr.ph.i3263
   %9645 = zext i32 %10086 to i64
   %9646 = load ptr, ptr %256, align 8, !tbaa !141
   %9647 = load ptr, ptr %258, align 8, !tbaa !145
@@ -21747,9 +21744,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit304.i:            ; preds = %10078, %10076
   %10084 = getelementptr inbounds nuw i8, ptr %54, i64 8
   br label %10193
 
-.lr.ph.i3263:                                     ; preds = %.lr.ph.i3263.preheader, %.lr.ph.i3263
-  %.0632.i = phi i32 [ %10086, %.lr.ph.i3263 ], [ 0, %.lr.ph.i3263.preheader ]
-  %.sroa.0612.0631.i = phi ptr [ %10087, %.lr.ph.i3263 ], [ %.val617, %.lr.ph.i3263.preheader ]
+.lr.ph.i3263:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit3262, %.lr.ph.i3263
+  %.0632.i = phi i32 [ %10086, %.lr.ph.i3263 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit3262 ]
+  %.sroa.0612.0631.i = phi ptr [ %10087, %.lr.ph.i3263 ], [ %.val617, %_ZN4llvm11raw_ostreamlsEPKc.exit3262 ]
   %10085 = load i32, ptr %.sroa.0612.0631.i, align 8, !tbaa !471
   %10086 = or i32 %10085, %.0632.i
   %10087 = getelementptr inbounds nuw i8, ptr %.sroa.0612.0631.i, i64 24

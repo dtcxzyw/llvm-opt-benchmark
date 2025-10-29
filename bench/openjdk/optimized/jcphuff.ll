@@ -331,8 +331,6 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   %46 = load i32, ptr %45, align 4
   %47 = sub nsw i32 %44, %46
   store i32 %44, ptr %45, align 4
-  %.lobit = ashr i32 %47, 31
-  %.055 = add nsw i32 %.lobit, %47
   %.not6264 = icmp eq i32 %44, %46
   br i1 %.not6264, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -349,6 +347,8 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %.lobit = ashr i32 %47, 31
+  %.055 = add nsw i32 %.lobit, %47
   %50 = icmp samesign ugt i32 %.05665, 10
   br i1 %50, label %51, label %._crit_edge.thread
 
@@ -362,13 +362,14 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %34, %51, %._crit_edge
-  %.056.lcssa75 = phi i32 [ %48, %51 ], [ %48, %._crit_edge ], [ 0, %34 ]
+  %.05578 = phi i32 [ %.055, %51 ], [ %.055, %._crit_edge ], [ 0, %34 ]
+  %.056.lcssa77 = phi i32 [ %48, %51 ], [ %48, %._crit_edge ], [ 0, %34 ]
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %31, align 8
   %.not.i = icmp eq i32 %58, 0
   %59 = sext i32 %57 to i64
-  %60 = zext nneg i32 %.056.lcssa75 to i64
+  %60 = zext nneg i32 %.056.lcssa77 to i64
   br i1 %.not.i, label %67, label %61
 
 61:                                               ; preds = %._crit_edge.thread
@@ -393,11 +394,11 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %emit_symbol.exit
 
 emit_symbol.exit:                                 ; preds = %61, %67
-  %.not63 = icmp eq i32 %.056.lcssa75, 0
+  %.not63 = icmp eq i32 %.056.lcssa77, 0
   br i1 %.not63, label %77, label %76
 
 76:                                               ; preds = %emit_symbol.exit
-  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %.055, i32 noundef %.056.lcssa75)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %.05578, i32 noundef %.056.lcssa77)
   br label %77
 
 77:                                               ; preds = %emit_symbol.exit, %76

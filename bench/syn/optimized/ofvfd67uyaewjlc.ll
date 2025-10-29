@@ -3787,41 +3787,38 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 4
   %17 = load i32, ptr %16, align 4, !range !640, !noundef !9
   %18 = icmp eq i32 %17, 39
-  br i1 %18, label %19, label %20
+  br i1 %18, label %19, label %.preheader
 
 19:                                               ; preds = %15, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit
   store i32 1114112, ptr %0, align 8
-  br label %29
+  br label %27
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 12
-  %22 = load i8, ptr %21, align 4, !range !444, !noundef !9
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 8
-  %24 = load i32, ptr %23, align 4, !noundef !9
-  br label %25
-
-25:                                               ; preds = %25, %20
-  %.pn.i = phi ptr [ %.sroa.0.1, %20 ], [ %.0.i.i, %25 ]
+.preheader:                                       ; preds = %15, %.preheader
+  %.pn.i = phi ptr [ %.0.i.i, %.preheader ], [ %.sroa.0.1, %15 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 40
-  %26 = load i32, ptr %.0.i.i, align 8, !range !233, !noundef !9
-  %27 = icmp ne i32 %26, 4
-  %28 = icmp eq ptr %.0.i.i, %2
-  %or.cond.i.i = or i1 %28, %27
-  br i1 %or.cond.i.i, label %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, label %25
+  %20 = load i32, ptr %.0.i.i, align 8, !range !233, !noundef !9
+  %21 = icmp ne i32 %20, 4
+  %22 = icmp eq ptr %.0.i.i, %2
+  %or.cond.i.i = or i1 %22, %21
+  br i1 %or.cond.i.i, label %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, label %.preheader
 
-_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit: ; preds = %25
+_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit: ; preds = %.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 12
+  %24 = load i8, ptr %23, align 4, !range !444, !noundef !9
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 8
+  %26 = load i32, ptr %25, align 4, !noundef !9
   store i32 %17, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %24, ptr %.sroa.0.sroa.4.0..sroa_idx, align 4
+  store i32 %26, ptr %.sroa.0.sroa.4.0..sroa_idx, align 4
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %22, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store i8 %24, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %29
+  br label %27
 
-29:                                               ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, %19
+27:                                               ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit, %19
   ret void
 }
 
@@ -4474,8 +4471,6 @@ default.unreachable62:                            ; preds = %3
   %.sroa.8.0 = phi i32 [ %.sroa.4.0, %"_ZN62_$LT$proc_macro2..imp..Group$u20$as$u20$core..clone..Clone$GT$5clone17ha9e1492a000ae487E.llvm.1271834235494842624.exit" ], [ %55, %49 ], [ %.sroa.026.sroa.5.0, %"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.1271834235494842624.exit" ], [ %45, %39 ], [ %.sroa.7.0.copyload, %46 ]
   %.sroa.9.0 = phi i8 [ %.sroa.6.0.extract.trunc, %"_ZN62_$LT$proc_macro2..imp..Group$u20$as$u20$core..clone..Clone$GT$5clone17ha9e1492a000ae487E.llvm.1271834235494842624.exit" ], [ %53, %49 ], [ %.sroa.627.sroa.0.0, %"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.1271834235494842624.exit" ], [ %43, %39 ], [ %.sroa.934.0.copyload, %46 ]
   %.0 = phi i64 [ %34, %"_ZN62_$LT$proc_macro2..imp..Group$u20$as$u20$core..clone..Clone$GT$5clone17ha9e1492a000ae487E.llvm.1271834235494842624.exit" ], [ 1, %49 ], [ 1, %"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.1271834235494842624.exit" ], [ 1, %39 ], [ 1, %46 ]
-  %.sroa.11.sroa.4.sroa.0.0.insert.ext = zext i8 %.sroa.11.sroa.4.sroa.0.0 to i32
-  %.sroa.11.sroa.4.sroa.0.0.insert.insert = or i32 %.sroa.11.sroa.4.sroa.4.sroa.0.0, %.sroa.11.sroa.4.sroa.0.0.insert.ext
   %73 = getelementptr inbounds { i32, [9 x i32] }, ptr %1, i64 %.0
   br label %74
 
@@ -4489,6 +4484,8 @@ default.unreachable62:                            ; preds = %3
   br i1 %or.cond.i, label %79, label %74
 
 79:                                               ; preds = %74
+  %.sroa.11.sroa.4.sroa.0.0.insert.ext = zext i8 %.sroa.11.sroa.4.sroa.0.0 to i32
+  %.sroa.11.sroa.4.sroa.0.0.insert.insert = or i32 %.sroa.11.sroa.4.sroa.4.sroa.0.0, %.sroa.11.sroa.4.sroa.0.0.insert.ext
   store i64 %.sroa.07.0, ptr %0, align 8
   %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.59.0, ptr %.sroa.04.sroa.4.0..sroa_idx, align 8

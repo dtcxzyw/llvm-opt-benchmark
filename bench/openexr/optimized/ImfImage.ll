@@ -1022,7 +1022,7 @@ define void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9Level
   %61 = add nuw nsw i32 %.06.i.i.i, 1
   %62 = lshr i32 %.045.i.i.i, 1
   %63 = icmp samesign ugt i32 %.045.i.i.i, 3
-  br i1 %63, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i62.preheader, !llvm.loop !54
+  br i1 %63, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i62, !llvm.loop !54
 
 64:                                               ; preds = %58
   br i1 %.not7.i.i, label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60, label %.lr.ph.i6.i.i
@@ -1037,7 +1037,7 @@ define void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9Level
   %66 = add nuw nsw i32 %.069.i.i.i, 1
   %67 = lshr i32 %.078.i.i.i, 1
   %68 = icmp samesign ugt i32 %.078.i.i.i, 3
-  br i1 %68, label %.lr.ph.i6.i.i, label %.lr.ph.i6.i.i53.preheader, !llvm.loop !55
+  br i1 %68, label %.lr.ph.i6.i.i, label %.lr.ph.i6.i.i53, !llvm.loop !55
 
 69:                                               ; preds = %45
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1098,42 +1098,39 @@ _ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS
 _ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit: ; preds = %45
   br label %_ZN7Imf_3_412_GLOBAL__N_117computeNumYLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit
 
-.lr.ph.i.i.i62.preheader:                         ; preds = %.lr.ph.i.i.i
-  %96 = add nuw nsw i32 %.06.i.i.i, 2
-  br label %.lr.ph.i.i.i62
+.lr.ph.i.i.i62:                                   ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i62
+  %.06.i.i.i63 = phi i32 [ %96, %.lr.ph.i.i.i62 ], [ 0, %.lr.ph.i.i.i ]
+  %.045.i.i.i64 = phi i32 [ %97, %.lr.ph.i.i.i62 ], [ %.sroa.speculated.i, %.lr.ph.i.i.i ]
+  %96 = add nuw nsw i32 %.06.i.i.i63, 1
+  %97 = lshr i32 %.045.i.i.i64, 1
+  %98 = icmp samesign ugt i32 %.045.i.i.i64, 3
+  br i1 %98, label %.lr.ph.i.i.i62, label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60.loopexit, !llvm.loop !54
 
-.lr.ph.i.i.i62:                                   ; preds = %.lr.ph.i.i.i62.preheader, %.lr.ph.i.i.i62
-  %.06.i.i.i63 = phi i32 [ %97, %.lr.ph.i.i.i62 ], [ 0, %.lr.ph.i.i.i62.preheader ]
-  %.045.i.i.i64 = phi i32 [ %98, %.lr.ph.i.i.i62 ], [ %.sroa.speculated.i, %.lr.ph.i.i.i62.preheader ]
-  %97 = add nuw nsw i32 %.06.i.i.i63, 1
-  %98 = lshr i32 %.045.i.i.i64, 1
-  %99 = icmp samesign ugt i32 %.045.i.i.i64, 3
-  br i1 %99, label %.lr.ph.i.i.i62, label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60, !llvm.loop !54
-
-.lr.ph.i6.i.i53.preheader:                        ; preds = %.lr.ph.i6.i.i
-  %100 = add nuw nsw i32 %spec.select.i.i.i, %66
-  %101 = add nuw nsw i32 %100, 1
-  br label %.lr.ph.i6.i.i53
-
-.lr.ph.i6.i.i53:                                  ; preds = %.lr.ph.i6.i.i53.preheader, %.lr.ph.i6.i.i53
-  %.010.i.i.i54 = phi i32 [ %spec.select.i.i.i58, %.lr.ph.i6.i.i53 ], [ 0, %.lr.ph.i6.i.i53.preheader ]
-  %.069.i.i.i55 = phi i32 [ %103, %.lr.ph.i6.i.i53 ], [ 0, %.lr.ph.i6.i.i53.preheader ]
-  %.078.i.i.i56 = phi i32 [ %104, %.lr.ph.i6.i.i53 ], [ %.sroa.speculated.i, %.lr.ph.i6.i.i53.preheader ]
-  %102 = and i32 %.078.i.i.i56, 1
-  %.not.i.i.i57 = icmp eq i32 %102, 0
+.lr.ph.i6.i.i53:                                  ; preds = %.lr.ph.i6.i.i, %.lr.ph.i6.i.i53
+  %.010.i.i.i54 = phi i32 [ %spec.select.i.i.i58, %.lr.ph.i6.i.i53 ], [ 0, %.lr.ph.i6.i.i ]
+  %.069.i.i.i55 = phi i32 [ %100, %.lr.ph.i6.i.i53 ], [ 0, %.lr.ph.i6.i.i ]
+  %.078.i.i.i56 = phi i32 [ %101, %.lr.ph.i6.i.i53 ], [ %.sroa.speculated.i, %.lr.ph.i6.i.i ]
+  %99 = and i32 %.078.i.i.i56, 1
+  %.not.i.i.i57 = icmp eq i32 %99, 0
   %spec.select.i.i.i58 = select i1 %.not.i.i.i57, i32 %.010.i.i.i54, i32 1
-  %103 = add nuw nsw i32 %.069.i.i.i55, 1
-  %104 = lshr i32 %.078.i.i.i56, 1
-  %105 = icmp samesign ugt i32 %.078.i.i.i56, 3
-  br i1 %105, label %.lr.ph.i6.i.i53, label %._crit_edge.loopexit.i.i.i59, !llvm.loop !55
+  %100 = add nuw nsw i32 %.069.i.i.i55, 1
+  %101 = lshr i32 %.078.i.i.i56, 1
+  %102 = icmp samesign ugt i32 %.078.i.i.i56, 3
+  br i1 %102, label %.lr.ph.i6.i.i53, label %._crit_edge.loopexit.i.i.i59, !llvm.loop !55
 
 ._crit_edge.loopexit.i.i.i59:                     ; preds = %.lr.ph.i6.i.i53
-  %106 = add nuw nsw i32 %spec.select.i.i.i58, %103
+  %103 = add nuw nsw i32 %spec.select.i.i.i, %66
+  %104 = add nuw nsw i32 %103, 1
+  %105 = add nuw nsw i32 %spec.select.i.i.i58, %100
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60
 
-_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60: ; preds = %.lr.ph.i.i.i62, %46, %64, %60, %._crit_edge.loopexit.i.i.i59
-  %107 = phi i32 [ %101, %._crit_edge.loopexit.i.i.i59 ], [ 1, %60 ], [ 1, %64 ], [ 2, %46 ], [ %96, %.lr.ph.i.i.i62 ]
-  %.0.i.i61 = phi i32 [ %106, %._crit_edge.loopexit.i.i.i59 ], [ 0, %60 ], [ 0, %64 ], [ 1, %46 ], [ %97, %.lr.ph.i.i.i62 ]
+_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60.loopexit: ; preds = %.lr.ph.i.i.i62
+  %106 = add nuw nsw i32 %.06.i.i.i, 2
+  br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60
+
+_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60: ; preds = %46, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60.loopexit, %64, %60, %._crit_edge.loopexit.i.i.i59
+  %107 = phi i32 [ %104, %._crit_edge.loopexit.i.i.i59 ], [ 1, %60 ], [ 1, %64 ], [ %106, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60.loopexit ], [ 2, %46 ]
+  %.0.i.i61 = phi i32 [ %105, %._crit_edge.loopexit.i.i.i59 ], [ 0, %60 ], [ 0, %64 ], [ %96, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60.loopexit ], [ 1, %46 ]
   %108 = add nsw i32 %.0.i.i61, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_117computeNumYLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit
 
