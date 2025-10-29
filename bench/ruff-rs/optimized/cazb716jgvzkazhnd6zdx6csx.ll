@@ -44478,7 +44478,7 @@ define hidden void @_ZN11ruff_linter5rules18flake8_annotations7helpers14AutoPyth
   %33 = alloca [40 x i8], align 8
   %34 = alloca [48 x i8], align 8
   %35 = alloca [24 x i8], align 8
-  %.sroa.38242 = alloca [9 x i8], align 8
+  %.sroa.38254 = alloca [9 x i8], align 8
   %36 = alloca [64 x i8], align 8
   %37 = alloca [64 x i8], align 8
   %38 = alloca [24 x i8], align 8
@@ -44497,7 +44497,7 @@ define hidden void @_ZN11ruff_linter5rules18flake8_annotations7helpers14AutoPyth
           to label %51 unwind label %.body
 
 .body:                                            ; preds = %4, %55, %69, %79, %"_ZN4core3ptr59drop_in_place$LT$ruff_linter..importer..ResolutionError$GT$17hd0204af18eeededcE.exit.sink.split.i"
-  %lpad.thr_comm.split-lp404 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp416 = landingpad { ptr, i32 }
           cleanup
   %.pre = load i8, ptr %1, align 8, !range !2998
   %50 = icmp eq i8 %.pre, 2
@@ -44513,7 +44513,7 @@ define hidden void @_ZN11ruff_linter5rules18flake8_annotations7helpers14AutoPyth
     i8 2, label %64
   ]
 
-default.unreachable401:                           ; preds = %51
+default.unreachable413:                           ; preds = %51
   unreachable
 
 55:                                               ; preds = %51
@@ -44556,7 +44556,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
 63:                                               ; preds = %57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.38, i8 0, i64 9, i1 false)
   switch i8 %59, label %62 [
-    i8 0, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i
+    i8 0, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i
     i8 1, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i
     i8 2, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i
     i8 3, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i
@@ -44567,13 +44567,13 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i
 
 _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i: ; preds = %63
-  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i
+  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i
 
 _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i: ; preds = %63
-  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i
+  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i
 
 _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i: ; preds = %63
-  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i
+  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i
 
 64:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -44656,9 +44656,9 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   br i1 %92, label %93, label %94, !prof !1909
 
 93:                                               ; preds = %91, %.thread.i
-  %.sroa.0255.0 = phi ptr [ %.0..0..0..sroa.0255.0.copyload256, %.thread.i ], [ null, %91 ]
-  %.sroa.6258.0 = phi i64 [ %.8..8..8..sroa.6258.0.copyload260, %.thread.i ], [ 0, %91 ]
-  %.sroa.7262.0 = phi i64 [ %.16..16..16..sroa.7262.0.copyload264, %.thread.i ], [ -4611686018427387904, %91 ]
+  %.sroa.0267.0 = phi ptr [ %.0..0..0..sroa.0267.0.copyload268, %.thread.i ], [ null, %91 ]
+  %.sroa.6270.0 = phi i64 [ %.8..8..8..sroa.6270.0.copyload272, %.thread.i ], [ 0, %91 ]
+  %.sroa.7274.0 = phi i64 [ %.16..16..16..sroa.7274.0.copyload276, %.thread.i ], [ -4611686018427387904, %91 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
           to label %106 unwind label %104
 
@@ -44679,11 +44679,11 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   %.23..23..23..23..23..23..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 23
   store i8 %102, ptr %.23..23..23..23..23..23..sroa_idx, align 1, !noalias !7908
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %100, i64 %97, i1 false), !noalias !7908
-  %.0..0..0..sroa.0255.0.copyload256 = load ptr, ptr %11, align 8, !noalias !7903
+  %.0..0..0..sroa.0267.0.copyload268 = load ptr, ptr %11, align 8, !noalias !7903
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.8..8..8..sroa.6258.0.copyload260 = load i64, ptr %.8..8..8..sroa_idx, align 8, !noalias !7903
+  %.8..8..8..sroa.6270.0.copyload272 = load i64, ptr %.8..8..8..sroa_idx, align 8, !noalias !7903
   %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.16..16..16..sroa.7262.0.copyload264 = load i64, ptr %.16..16..16..sroa_idx, align 8, !noalias !7903
+  %.16..16..16..sroa.7274.0.copyload276 = load i64, ptr %.16..16..16..sroa_idx, align 8, !noalias !7903
   br label %93
 
 103:                                              ; preds = %109, %104
@@ -44697,12 +44697,12 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   br label %103
 
 106:                                              ; preds = %93, %94
-  %.sroa.0255.1 = phi ptr [ %.sroa.0255.0, %93 ], [ %100, %94 ]
-  %.sroa.6258.1 = phi i64 [ %.sroa.6258.0, %93 ], [ %97, %94 ]
-  %.sroa.7262.1 = phi i64 [ %.sroa.7262.0, %93 ], [ %95, %94 ]
+  %.sroa.0267.1 = phi ptr [ %.sroa.0267.0, %93 ], [ %100, %94 ]
+  %.sroa.6270.1 = phi i64 [ %.sroa.6270.0, %93 ], [ %97, %94 ]
+  %.sroa.7274.1 = phi i64 [ %.sroa.7274.0, %93 ], [ %95, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.sroa.7262.23.extract.shift.mask = and i64 %.sroa.7262.1, -72057594037927936
-  %107 = icmp eq i64 %.sroa.7262.23.extract.shift.mask, -2738188573441261568
+  %.sroa.7274.23.extract.shift.mask = and i64 %.sroa.7274.1, -72057594037927936
+  %107 = icmp eq i64 %.sroa.7274.23.extract.shift.mask, -2738188573441261568
   br i1 %107, label %108, label %111, !prof !1909
 
 108:                                              ; preds = %106
@@ -44719,11 +44719,11 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 27, ptr %44, align 8
   %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %.sroa.0255.1, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0267.1, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.0.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 %.sroa.6258.1, ptr %.sroa.4.sroa.0.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.6270.1, ptr %.sroa.4.sroa.0.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.0.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store i64 %.sroa.7262.1, ptr %.sroa.4.sroa.0.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7274.1, ptr %.sroa.4.sroa.0.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 9, i1 false)
   %112 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -44751,7 +44751,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
 117:                                              ; preds = %245, %237, %193, %185, %115, %108
   unreachable
 
-118:                                              ; preds = %284, %.thread313, %275, %.thread319, %239, %230, %208, %197, %195, %194, %187, %109, %103
+118:                                              ; preds = %284, %.thread325, %275, %.thread331, %239, %230, %208, %197, %195, %194, %187, %109, %103
   %119 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #41
@@ -44766,7 +44766,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   store i64 -9223372036854775808, ptr %122, align 8
   br label %280
 
-_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i: ; preds = %63, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i
+_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i: ; preds = %63, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i
   %.sroa.31.0.ph = phi i64 [ -4323455642275676160, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i ], [ -4323455642275676160, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i ], [ -4107282860161892352, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i ], [ -4251398048237748224, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i ], [ -4251398048237748224, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i ], [ -4395513236313604096, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i ], [ -4395513236313604096, %63 ]
   %.sroa.17.0.ph = phi ptr [ inttoptr (i64 1701736270 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i ], [ inttoptr (i64 1819242338 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i ], [ inttoptr (i64 33888513622372195 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i ], [ inttoptr (i64 499850898534 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i ], [ inttoptr (i64 495623371106 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i ], [ inttoptr (i64 7500915 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i ], [ inttoptr (i64 7630441 to ptr), %63 ]
   store i32 27, ptr %0, align 8
@@ -44813,7 +44813,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
 129:                                              ; preds = %128, %277, %251, %265
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread313
+  br label %.thread325
 
 130:                                              ; preds = %.noexc189
   %131 = icmp ult i64 %126, 21
@@ -44850,12 +44850,12 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7913
   store ptr %124, ptr %9, align 8, !alias.scope !7920, !noalias !7924
-  %.sroa.4234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %124, ptr %.sroa.4234.0..sroa_idx, align 8, !alias.scope !7920, !noalias !7924
-  %.sroa.5235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %.sroa.0.0.copyload.i, ptr %.sroa.5235.0..sroa_idx, align 8, !alias.scope !7920, !noalias !7924
-  %.sroa.6236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %140, ptr %.sroa.6236.0..sroa_idx, align 8, !alias.scope !7920, !noalias !7924
+  %.sroa.4246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %124, ptr %.sroa.4246.0..sroa_idx, align 8, !alias.scope !7920, !noalias !7924
+  %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %.sroa.0.0.copyload.i, ptr %.sroa.5247.0..sroa_idx, align 8, !alias.scope !7920, !noalias !7924
+  %.sroa.6248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %140, ptr %.sroa.6248.0..sroa_idx, align 8, !alias.scope !7920, !noalias !7924
   call void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$9from_iter17hb319de61cd978c7cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.814f0bdf02fb37ec5ace91213a028c11.126)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !7913
   %142 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -44884,7 +44884,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   %157 = icmp ult i8 %156, 10
   %narrow.i195 = select i1 %157, i8 %156, i8 2
   switch i8 %narrow.i195, label %158 [
-    i8 0, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214
+    i8 0, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i221
     i8 1, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209
     i8 2, label %159
     i8 3, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196
@@ -44899,7 +44899,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
 158:                                              ; preds = %159, %154
   unreachable
 
-_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214: ; preds = %154
+_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i221: ; preds = %154
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.38242, i8 0, i64 9, i1 false)
   br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
 
@@ -44910,54 +44910,54 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
 159:                                              ; preds = %154
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.38242, i8 0, i64 9, i1 false)
   switch i8 %155, label %158 [
-    i8 0, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
-    i8 1, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207
+    i8 0, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226
+    i8 1, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i211
     i8 2, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206
-    i8 3, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205
+    i8 3, label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i201
   ]
 
 _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196: ; preds = %154
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.38242, i8 0, i64 9, i1 false)
   br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
 
-_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207: ; preds = %159
-  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
+_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i211: ; preds = %159
+  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226
 
 _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206: ; preds = %159
-  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
+  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226
 
-_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205: ; preds = %159
-  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
+_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i201: ; preds = %159
+  br label %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226
 
 160:                                              ; preds = %196
-  %lpad.thr_comm.split-lp330 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp342 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread319
+  br label %.thread331
 
 161:                                              ; preds = %154, %154, %154, %154, %154, %154
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 -9223372036854775808, ptr %162, align 8
   br label %.critedge187
 
-_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208: ; preds = %159, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196
-  %.sroa.17239.0.ph = phi ptr [ inttoptr (i64 1701736270 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196 ], [ inttoptr (i64 1819242338 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205 ], [ inttoptr (i64 33888513622372195 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206 ], [ inttoptr (i64 499850898534 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207 ], [ inttoptr (i64 495623371106 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209 ], [ inttoptr (i64 7500915 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214 ], [ inttoptr (i64 7630441 to ptr), %159 ]
-  %.sroa.31241.0.ph = phi i64 [ -4323455642275676160, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196 ], [ -4323455642275676160, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205 ], [ -4107282860161892352, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206 ], [ -4251398048237748224, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207 ], [ -4251398048237748224, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209 ], [ -4395513236313604096, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214 ], [ -4395513236313604096, %159 ]
+_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226: ; preds = %159, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i221, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196
+  %.sroa.17251.0.ph = phi ptr [ inttoptr (i64 1701736270 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196 ], [ inttoptr (i64 1819242338 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205 ], [ inttoptr (i64 33888513622372195 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206 ], [ inttoptr (i64 499850898534 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207 ], [ inttoptr (i64 495623371106 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209 ], [ inttoptr (i64 7500915 to ptr), %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214 ], [ inttoptr (i64 7630441 to ptr), %159 ]
+  %.sroa.31253.0.ph = phi i64 [ -4323455642275676160, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit25.i196 ], [ -4323455642275676160, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit73.i205 ], [ -4107282860161892352, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit61.i206 ], [ -4251398048237748224, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit49.i207 ], [ -4251398048237748224, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit13.i209 ], [ -4395513236313604096, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i214 ], [ -4395513236313604096, %159 ]
   store i32 27, ptr %36, align 8
   %.sroa.457.sroa.4.0..sroa.457.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %.sroa.17239.0.ph, ptr %.sroa.457.sroa.4.0..sroa.457.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.17251.0.ph, ptr %.sroa.457.sroa.4.0..sroa.457.0..sroa_idx.sroa_idx, align 8
   %.sroa.457.sroa.5.0..sroa.457.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 0, ptr %.sroa.457.sroa.5.0..sroa.457.0..sroa_idx.sroa_idx, align 8
   %.sroa.457.sroa.6.0..sroa.457.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i64 %.sroa.31241.0.ph, ptr %.sroa.457.sroa.6.0..sroa.457.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.31253.0.ph, ptr %.sroa.457.sroa.6.0..sroa.457.0..sroa_idx.sroa_idx, align 8
   %.sroa.457.sroa.7.0..sroa.457.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.457.sroa.7.0..sroa.457.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.38242, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.457.sroa.7.0..sroa.457.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.38254, i64 9, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %163 = invoke { i8, i8 } @_ZN15ruff_python_ast14python_version13PythonVersion6lowest17hf9903afb992c3846E()
           to label %164 unwind label %197
 
-164:                                              ; preds = %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
+164:                                              ; preds = %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226
   %165 = extractvalue { i8, i8 } %163, 0
   %166 = extractvalue { i8, i8 } %163, 1
   invoke void @_ZN11ruff_linter8checkers3ast7Checker15typing_importer17hf56da0842fe66eceE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %32, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 1 @anon.814f0bdf02fb37ec5ace91213a028c11.268, i64 noundef 8, i8 noundef %165, i8 noundef %166)
@@ -45018,7 +45018,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
           to label %181 unwind label %195
 
 180:                                              ; preds = %186
-  %lpad.thr_comm.split-lp366 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp378 = landingpad { ptr, i32 }
           cleanup
   br label %194
 
@@ -45075,12 +45075,12 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   br label %247
 
 194:                                              ; preds = %180, %195, %187
-  %.pn171 = phi { ptr, i32 } [ %lpad.thr_comm365, %195 ], [ %lpad.thr_comm.split-lp366, %180 ], [ %188, %187 ]
+  %.pn171 = phi { ptr, i32 } [ %lpad.thr_comm377, %195 ], [ %lpad.thr_comm.split-lp378, %180 ], [ %188, %187 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$ruff_diagnostics..edit..Edit$GT$17h2f8b3049ecb50050E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #40
           to label %.thread319 unwind label %118
 
 195:                                              ; preds = %179, %185
-  %lpad.thr_comm365 = landingpad { ptr, i32 }
+  %lpad.thr_comm377 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h582d6c78ef82eb95E"(ptr noalias noundef align 8 dereferenceable(64) %30) #40
           to label %194 unwind label %118
@@ -45095,7 +45095,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_semantic..analyze..type_inference..PythonType$GT$$GT$17h5c54a57e1a3c0476E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
   br label %250
 
-197:                                              ; preds = %176, %171, %164, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i208
+197:                                              ; preds = %176, %171, %164, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i226
   %198 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h582d6c78ef82eb95E"(ptr noalias noundef align 8 dereferenceable(64) %36) #40
@@ -45104,20 +45104,20 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
 199:                                              ; preds = %138, %151
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %.sroa.0252.0.copyload = load i64, ptr %38, align 8
+  %.sroa.0264.0.copyload = load i64, ptr %38, align 8
   %200 = icmp sgt i64 %145, -1
   call void @llvm.assume(i1 %200)
   %201 = getelementptr inbounds nuw i8, ptr %143, i64 %145
-  %202 = icmp sgt i64 %.sroa.0252.0.copyload, -1
+  %202 = icmp sgt i64 %.sroa.0264.0.copyload, -1
   call void @llvm.assume(i1 %202)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !7926
   store ptr %143, ptr %8, align 8, !alias.scope !7933, !noalias !7937
-  %.sroa.4249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %143, ptr %.sroa.4249.0..sroa_idx, align 8, !alias.scope !7933, !noalias !7937
-  %.sroa.5250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %.sroa.0252.0.copyload, ptr %.sroa.5250.0..sroa_idx, align 8, !alias.scope !7933, !noalias !7937
-  %.sroa.6251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %201, ptr %.sroa.6251.0..sroa_idx, align 8, !alias.scope !7933, !noalias !7937
+  %.sroa.4261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %143, ptr %.sroa.4261.0..sroa_idx, align 8, !alias.scope !7933, !noalias !7937
+  %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %.sroa.0264.0.copyload, ptr %.sroa.5262.0..sroa_idx, align 8, !alias.scope !7933, !noalias !7937
+  %.sroa.6263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %201, ptr %.sroa.6263.0..sroa_idx, align 8, !alias.scope !7933, !noalias !7937
   call void @_ZN4core4iter8adapters11try_process17h5c55ba2fed8f9e4dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !7926
   %203 = load i64, ptr %26, align 8, !range !915, !noundef !3
@@ -45291,8 +45291,8 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %281
 
-.thread319:                                       ; preds = %194, %197, %160
-  %.pn174323 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp330, %160 ], [ %198, %197 ], [ %.pn171, %194 ]
+.thread331:                                       ; preds = %194, %197, %160
+  %.pn174335 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp342, %160 ], [ %198, %197 ], [ %.pn171, %194 ]
   invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_semantic..analyze..type_inference..PythonType$GT$$GT$17h5c54a57e1a3c0476E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38) #40
           to label %.thread unwind label %118
 
@@ -45303,7 +45303,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hee17684b7cfaeae9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.814f0bdf02fb37ec5ace91213a028c11.235)
           to label %.noexc222 unwind label %129
 
-.noexc222:                                        ; preds = %251
+.noexc234:                                        ; preds = %251
   %252 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %253 = load ptr, ptr %252, align 8, !noalias !7938, !nonnull !3, !noundef !3
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -45311,7 +45311,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   %256 = icmp ult i64 %255, 2
   br i1 %256, label %265, label %257, !prof !9
 
-257:                                              ; preds = %.noexc222
+257:                                              ; preds = %.noexc234
   %258 = icmp ult i64 %255, 21
   br i1 %258, label %260, label %259, !prof !9
 
@@ -45335,23 +45335,23 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #41, !noalias !7938
   unreachable
 
-265:                                              ; preds = %260, %259, %.noexc222
-  %.sroa.0.0.copyload.i221 = load i64, ptr %7, align 8, !noalias !7938
+265:                                              ; preds = %260, %259, %.noexc234
+  %.sroa.0.0.copyload.i233 = load i64, ptr %7, align 8, !noalias !7938
   %266 = icmp ult i64 %255, 1152921504606846976
   call void @llvm.assume(i1 %266)
   %267 = getelementptr inbounds nuw ptr, ptr %253, i64 %255
-  %268 = icmp sgt i64 %.sroa.0.0.copyload.i221, -1
+  %268 = icmp sgt i64 %.sroa.0.0.copyload.i233, -1
   call void @llvm.assume(i1 %268)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !7938
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !7942
   store ptr %253, ptr %6, align 8, !alias.scope !7949, !noalias !7953
-  %.sroa.4230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %253, ptr %.sroa.4230.0..sroa_idx, align 8, !alias.scope !7949, !noalias !7953
-  %.sroa.5231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.0.0.copyload.i221, ptr %.sroa.5231.0..sroa_idx, align 8, !alias.scope !7949, !noalias !7953
-  %.sroa.6232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %267, ptr %.sroa.6232.0..sroa_idx, align 8, !alias.scope !7949, !noalias !7953
+  %.sroa.4242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %253, ptr %.sroa.4242.0..sroa_idx, align 8, !alias.scope !7949, !noalias !7953
+  %.sroa.5243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %.sroa.0.0.copyload.i233, ptr %.sroa.5243.0..sroa_idx, align 8, !alias.scope !7949, !noalias !7953
+  %.sroa.6244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %267, ptr %.sroa.6244.0..sroa_idx, align 8, !alias.scope !7949, !noalias !7953
   invoke void @_ZN4core4iter8adapters11try_process17h5bc335f939a7a2a7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
           to label %269 unwind label %129
 
@@ -45399,7 +45399,7 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h99701f946817c4b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43)
   br label %278
 
-280:                                              ; preds = %120, %121, %281, %116, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit37.i, %278
+280:                                              ; preds = %120, %121, %281, %116, %_ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6fb7e5E.exit.i, %278
   ret void
 
 281:                                              ; preds = %282, %250
@@ -45414,14 +45414,14 @@ _ZN11ruff_linter5rules18flake8_annotations7helpers9type_expr4name17h9fa490176b6f
   call void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h99701f946817c4b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43)
   br label %281
 
-.thread313:                                       ; preds = %275, %261, %129
-  %.pn177310 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %129 ], [ %262, %261 ], [ %276, %275 ]
+.thread325:                                       ; preds = %275, %261, %129
+  %.pn177322 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %129 ], [ %262, %261 ], [ %276, %275 ]
   invoke void @"_ZN4core3ptr150drop_in_place$LT$std..collections..hash..set..HashSet$LT$ruff_python_semantic..analyze..type_inference..PythonType$C$rustc_hash..FxBuildHasher$GT$$GT$17h99701f946817c4b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43) #40
           to label %.thread unwind label %118
 
-.thread:                                          ; preds = %103, %208, %.thread319, %134, %.thread313, %284, %.body
-  %.pn182.pn278 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp404, %284 ], [ %lpad.thr_comm.split-lp404, %.body ], [ %.pn177310, %.thread313 ], [ %135, %134 ], [ %.pn174323, %.thread319 ], [ %.pn.pn, %208 ], [ %.pn182, %103 ]
-  resume { ptr, i32 } %.pn182.pn278
+.thread:                                          ; preds = %103, %208, %.thread331, %134, %.thread325, %284, %.body
+  %.pn182.pn290 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp416, %284 ], [ %lpad.thr_comm.split-lp416, %.body ], [ %.pn177322, %.thread313 ], [ %135, %134 ], [ %.pn174335, %.thread319 ], [ %.pn.pn, %208 ], [ %.pn182, %103 ]
+  resume { ptr, i32 } %.pn182.pn290
 
 284:                                              ; preds = %.body
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 8

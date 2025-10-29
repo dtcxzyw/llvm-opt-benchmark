@@ -633,18 +633,18 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
 28:                                               ; preds = %27
   %29 = tail call fastcc ptr @get_parallel_object_list(ptr noundef %12, i32 noundef 0, ptr noundef %2, i1 noundef zeroext %4)
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %105, label %40
+  br i1 %30, label %113, label %40
 
 31:                                               ; preds = %27
   %32 = tail call fastcc ptr @get_parallel_object_list(ptr noundef %12, i32 noundef 2, ptr noundef %2, i1 noundef zeroext %4)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %105, label %40
+  br i1 %33, label %113, label %40
 
 34:                                               ; preds = %27
   %35 = tail call fastcc ptr @get_parallel_object_list(ptr noundef %12, i32 noundef 1, ptr noundef %2, i1 noundef zeroext %4)
   %36 = load ptr, ptr %2, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %105, label %38
+  br i1 %37, label %113, label %38
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %35, align 8
@@ -682,9 +682,9 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.reindex_one_database, i64 %49
   br label %50
 
-50:                                               ; preds = %96, %44
+50:                                               ; preds = %104, %44
   %.1101 = phi ptr [ %.0100, %44 ], [ %.3124, %96 ]
-  %.195 = phi ptr [ %47, %44 ], [ %97, %96 ]
+  %.195 = phi ptr [ %47, %44 ], [ %105, %96 ]
   %.086 = phi ptr [ null, %44 ], [ %.288126, %96 ]
   %.084 = phi ptr [ null, %44 ], [ %.2, %96 ]
   %51 = getelementptr inbounds nuw i8, ptr %.195, i64 9
@@ -805,20 +805,20 @@ switch.lookup:                                    ; preds = %71, %72
   %85 = load ptr, ptr %10, align 8
   %86 = call i32 @PQsendQuery(ptr noundef %65, ptr noundef %85) #11
   %87 = icmp eq i32 %86, 1
-  br i1 %87, label %96, label %88
+  br i1 %87, label %104, label %88
 
 88:                                               ; preds = %84
   %89 = call ptr @PQdb(ptr noundef %65) #11
   %90 = call ptr @PQerrorMessage(ptr noundef %65) #11
   switch i32 %.097, label %default.unreachable [
-    i32 0, label %91
+    i32 0, label %89
     i32 1, label %92
-    i32 2, label %93
-    i32 3, label %94
-    i32 4, label %95
+    i32 2, label %95
+    i32 3, label %98
+    i32 4, label %101
   ]
 
-91:                                               ; preds = %88
+89:                                               ; preds = %88
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.50, ptr noundef %89, ptr noundef %90) #11
   br label %96
 
@@ -826,59 +826,59 @@ switch.lookup:                                    ; preds = %71, %72
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.51, ptr noundef nonnull %51, ptr noundef %89, ptr noundef %90) #11
   br label %96
 
-93:                                               ; preds = %88
+95:                                               ; preds = %88
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.52, ptr noundef nonnull %51, ptr noundef %89, ptr noundef %90) #11
   br label %96
 
-94:                                               ; preds = %88
+98:                                               ; preds = %88
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.53, ptr noundef %89, ptr noundef %90) #11
   br label %96
 
-95:                                               ; preds = %88
+101:                                              ; preds = %88
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.54, ptr noundef nonnull %51, ptr noundef %89, ptr noundef %90) #11
   br label %96
 
-96:                                               ; preds = %84, %91, %92, %93, %94, %95
+104:                                              ; preds = %84, %89, %92, %95, %98, %101
   call void @termPQExpBuffer(ptr noundef nonnull %10) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %97 = load ptr, ptr %.195, align 8
-  %.not117 = icmp eq ptr %97, null
-  br i1 %.not117, label %98, label %50, !llvm.loop !8
+  %105 = load ptr, ptr %.195, align 8
+  %.not117 = icmp eq ptr %105, null
+  br i1 %.not117, label %106, label %50, !llvm.loop !8
 
-98:                                               ; preds = %96
-  %99 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %46) #11
-  %not. = xor i1 %99, true
+106:                                              ; preds = %104
+  %107 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %46) #11
+  %not. = xor i1 %107, true
   br label %.thread130
 
-.thread130:                                       ; preds = %.thread, %50, %98
+.thread130:                                       ; preds = %.thread, %50, %106
   %.293 = phi i1 [ %not., %98 ], [ true, %50 ], [ true, %.thread ]
   %.not118 = icmp eq ptr %.099, %2
-  br i1 %.not118, label %101, label %100
+  br i1 %.not118, label %109, label %108
 
-100:                                              ; preds = %.thread130
+108:                                              ; preds = %.thread130
   call void @simple_string_list_destroy(ptr noundef nonnull %.099) #11
   call void @pg_free(ptr noundef nonnull %.099) #11
-  br label %101
+  br label %109
 
-101:                                              ; preds = %100, %.thread130
+109:                                              ; preds = %108, %.thread130
   %.not119 = icmp eq ptr %.098, null
-  br i1 %.not119, label %103, label %102
+  br i1 %.not119, label %111, label %110
 
-102:                                              ; preds = %101
+110:                                              ; preds = %109
   call void @simple_string_list_destroy(ptr noundef nonnull %.098) #11
   call void @pg_free(ptr noundef nonnull %.098) #11
-  br label %103
+  br label %111
 
-103:                                              ; preds = %102, %101
+111:                                              ; preds = %110, %109
   call void @ParallelSlotsTerminate(ptr noundef %46) #11
   call void @pfree(ptr noundef %46) #11
-  br i1 %.293, label %104, label %105
+  br i1 %.293, label %112, label %113
 
-104:                                              ; preds = %103
+112:                                              ; preds = %111
   call void @exit(i32 noundef 1) #12
   unreachable
 
-105:                                              ; preds = %103, %34, %31, %28
+113:                                              ; preds = %111, %34, %31, %28
   ret void
 }
 

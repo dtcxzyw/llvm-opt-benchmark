@@ -11633,7 +11633,7 @@ default.unreachable117:                           ; preds = %"_ZN103_$LT$craneli
   store i32 %132, ptr %.sroa.720.0..sroa_idx, align 8
   br label %"_ZN80_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..clone..Clone$GT$5clone17h5cae540f2201a9e6E.exit"
 
-"_ZN80_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..clone..Clone$GT$5clone17h5cae540f2201a9e6E.exit": ; preds = %166, %162, %158, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.i", %184, %200, %216, %130
+"_ZN80_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..clone..Clone$GT$5clone17h5cae540f2201a9e6E.exit": ; preds = %166, %162, %158, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.i", %187, %206, %225, %130
   ret void
 
 select.unfold:                                    ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h0fda7fe431f0142aE.exit._crit_edge.i.i.i", %35
@@ -11647,24 +11647,24 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %137 = load i32, ptr %136, align 4, !noundef !5
   %138 = zext i32 %137 to i64
   switch i32 %135, label %default.unreachable117 [
-    i32 0, label %139
+    i32 0, label %136
     i32 1, label %170
-    i32 2, label %186
-    i32 3, label %202
+    i32 2, label %189
+    i32 3, label %208
   ]
 
-139:                                              ; preds = %133
+136:                                              ; preds = %133
   call void @llvm.experimental.noalias.scope.decl(metadata !2812)
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %141 = load i64, ptr %140, align 8, !alias.scope !2812, !noalias !2815, !noundef !5
   %142 = icmp ugt i64 %141, %138
   br i1 %142, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h1efae80e046f4385E.exit", label %143, !prof !1068
 
-143:                                              ; preds = %139
+143:                                              ; preds = %136
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %138, i64 noundef %141, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264b50f002f745f85744d41a777447ea.130) #33, !noalias !2812
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h1efae80e046f4385E.exit": ; preds = %139
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h1efae80e046f4385E.exit": ; preds = %136
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %145 = load ptr, ptr %144, align 8, !alias.scope !2812, !noalias !2815, !nonnull !5, !noundef !5
   %146 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %145, i64 %138
@@ -11759,26 +11759,26 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   unreachable
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h88bc416475b6cc85E.exit": ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %176 = load ptr, ptr %175, align 8, !alias.scope !2830, !noalias !2833, !nonnull !5, !noundef !5
-  %177 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %176, i64 %138
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %179 = load i32, ptr %178, align 8, !noundef !5
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %179 = load ptr, ptr %178, align 8, !alias.scope !2830, !noalias !2833, !nonnull !5, !noundef !5
+  %180 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %179, i64 %138
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  %182 = load i32, ptr %181, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2835)
-  %180 = load i64, ptr %177, align 8, !range !30, !alias.scope !2835, !noalias !2838, !noundef !5
-  %181 = icmp eq i64 %180, -9223372036854775808
-  br i1 %181, label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread", label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit"
+  %183 = load i64, ptr %180, align 8, !range !30, !alias.scope !2835, !noalias !2838, !noundef !5
+  %184 = icmp eq i64 %183, -9223372036854775808
+  br i1 %184, label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread", label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit"
 
 "_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h88bc416475b6cc85E.exit"
-  %182 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %.val.i14 = load i32, ptr %182, align 4, !range !593, !alias.scope !2835, !noalias !2838, !noundef !5
-  %183 = getelementptr inbounds nuw i8, ptr %177, i64 12
-  %.val1.i = load i32, ptr %183, align 4, !alias.scope !2835, !noalias !2838, !noundef !5
-  br label %184
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %.val.i14 = load i32, ptr %185, align 4, !range !593, !alias.scope !2835, !noalias !2838, !noundef !5
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 12
+  %.val1.i = load i32, ptr %186, align 4, !alias.scope !2835, !noalias !2838, !noundef !5
+  br label %187
 
 "_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h88bc416475b6cc85E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2840
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %177), !noalias !2838
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %180), !noalias !2838
   %.sroa.022.0.copyload = load i64, ptr %8, align 8, !noalias !2835
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.523.0.copyload = load i32, ptr %.sroa.523.0..sroa_idx, align 8, !noalias !2835
@@ -11787,25 +11787,25 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %.sroa.925.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.925.0.copyload = load i64, ptr %.sroa.925.0..sroa_idx, align 8, !noalias !2835
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2840
-  br label %184
+  br label %187
 
-184:                                              ; preds = %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit", %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread"
+187:                                              ; preds = %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit", %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread"
   %.sroa.724.063 = phi i32 [ %.val1.i, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread" ], [ %.sroa.724.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit" ]
   %.sroa.523.061 = phi i32 [ %.val.i14, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread" ], [ %.sroa.523.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit" ]
   %.sroa.022.059 = phi i64 [ -9223372036854775808, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread" ], [ %.sroa.022.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit" ]
-  %185 = phi i64 [ undef, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread" ], [ %.sroa.925.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit" ]
+  %188 = phi i64 [ undef, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread" ], [ %.sroa.925.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit" ]
   store i64 %.sroa.022.059, ptr %0, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.523.061, ptr %.sroa.427.0..sroa_idx, align 8
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.724.063, ptr %.sroa.528.0..sroa_idx, align 4
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %185, ptr %.sroa.629.0..sroa_idx, align 8
+  store i64 %188, ptr %.sroa.629.0..sroa_idx, align 8
   %.sroa.730.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %179, ptr %.sroa.730.0..sroa_idx, align 8
+  store i32 %182, ptr %.sroa.730.0..sroa_idx, align 8
   br label %"_ZN80_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..clone..Clone$GT$5clone17h5cae540f2201a9e6E.exit"
 
-186:                                              ; preds = %133
+189:                                              ; preds = %133
   call void @llvm.experimental.noalias.scope.decl(metadata !2841)
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %188 = load i64, ptr %187, align 8, !alias.scope !2841, !noalias !2844, !noundef !5
@@ -11816,27 +11816,27 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %138, i64 noundef %188, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264b50f002f745f85744d41a777447ea.132) #33, !noalias !2841
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he11d6f95d382b1d8E.exit": ; preds = %186
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %192 = load ptr, ptr %191, align 8, !alias.scope !2841, !noalias !2844, !nonnull !5, !noundef !5
-  %193 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %192, i64 %138
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %195 = load i32, ptr %194, align 8, !noundef !5
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he11d6f95d382b1d8E.exit": ; preds = %189
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %198 = load ptr, ptr %197, align 8, !alias.scope !2841, !noalias !2844, !nonnull !5, !noundef !5
+  %199 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %198, i64 %138
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %201 = load i32, ptr %200, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2846)
-  %196 = load i64, ptr %193, align 8, !range !30, !alias.scope !2846, !noalias !2849, !noundef !5
-  %197 = icmp eq i64 %196, -9223372036854775808
-  br i1 %197, label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread", label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27"
+  %202 = load i64, ptr %199, align 8, !range !30, !alias.scope !2846, !noalias !2849, !noundef !5
+  %203 = icmp eq i64 %202, -9223372036854775808
+  br i1 %203, label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread", label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27"
 
 "_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he11d6f95d382b1d8E.exit"
-  %198 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %.val.i25 = load i32, ptr %198, align 4, !range !593, !alias.scope !2846, !noalias !2849, !noundef !5
-  %199 = getelementptr inbounds nuw i8, ptr %193, i64 12
-  %.val1.i26 = load i32, ptr %199, align 4, !alias.scope !2846, !noalias !2849, !noundef !5
-  br label %200
+  %204 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %.val.i25 = load i32, ptr %204, align 4, !range !593, !alias.scope !2846, !noalias !2849, !noundef !5
+  %205 = getelementptr inbounds nuw i8, ptr %199, i64 12
+  %.val1.i26 = load i32, ptr %205, align 4, !alias.scope !2846, !noalias !2849, !noundef !5
+  br label %206
 
 "_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he11d6f95d382b1d8E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2851
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %193), !noalias !2849
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %199), !noalias !2849
   %.sroa.042.0.copyload = load i64, ptr %7, align 8, !noalias !2846
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.543.0.copyload = load i32, ptr %.sroa.543.0..sroa_idx, align 8, !noalias !2846
@@ -11845,25 +11845,25 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %.sroa.945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.945.0.copyload = load i64, ptr %.sroa.945.0..sroa_idx, align 8, !noalias !2846
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2851
-  br label %200
+  br label %206
 
-200:                                              ; preds = %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27", %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread"
+206:                                              ; preds = %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27", %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread"
   %.sroa.744.075 = phi i32 [ %.val1.i26, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread" ], [ %.sroa.744.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27" ]
   %.sroa.543.073 = phi i32 [ %.val.i25, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread" ], [ %.sroa.543.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27" ]
   %.sroa.042.071 = phi i64 [ -9223372036854775808, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread" ], [ %.sroa.042.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27" ]
-  %201 = phi i64 [ undef, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread" ], [ %.sroa.945.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27" ]
+  %207 = phi i64 [ undef, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27.thread" ], [ %.sroa.945.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit27" ]
   store i64 %.sroa.042.071, ptr %0, align 8
   %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.543.073, ptr %.sroa.447.0..sroa_idx, align 8
   %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.744.075, ptr %.sroa.548.0..sroa_idx, align 4
   %.sroa.649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %201, ptr %.sroa.649.0..sroa_idx, align 8
+  store i64 %207, ptr %.sroa.649.0..sroa_idx, align 8
   %.sroa.750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %195, ptr %.sroa.750.0..sroa_idx, align 8
+  store i32 %201, ptr %.sroa.750.0..sroa_idx, align 8
   br label %"_ZN80_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..clone..Clone$GT$5clone17h5cae540f2201a9e6E.exit"
 
-202:                                              ; preds = %133
+208:                                              ; preds = %133
   call void @llvm.experimental.noalias.scope.decl(metadata !2852)
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %204 = load i64, ptr %203, align 8, !alias.scope !2852, !noalias !2855, !noundef !5
@@ -11874,27 +11874,27 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %138, i64 noundef %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264b50f002f745f85744d41a777447ea.133) #33, !noalias !2852
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h115eeb04466c3e1cE.exit": ; preds = %202
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %208 = load ptr, ptr %207, align 8, !alias.scope !2852, !noalias !2855, !nonnull !5, !noundef !5
-  %209 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %208, i64 %138
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
-  %211 = load i32, ptr %210, align 8, !noundef !5
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h115eeb04466c3e1cE.exit": ; preds = %208
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %217 = load ptr, ptr %216, align 8, !alias.scope !2852, !noalias !2855, !nonnull !5, !noundef !5
+  %218 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %217, i64 %138
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
+  %220 = load i32, ptr %219, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2857)
-  %212 = load i64, ptr %209, align 8, !range !30, !alias.scope !2857, !noalias !2860, !noundef !5
-  %213 = icmp eq i64 %212, -9223372036854775808
-  br i1 %213, label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread", label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40"
+  %221 = load i64, ptr %218, align 8, !range !30, !alias.scope !2857, !noalias !2860, !noundef !5
+  %222 = icmp eq i64 %221, -9223372036854775808
+  br i1 %222, label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread", label %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40"
 
 "_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h115eeb04466c3e1cE.exit"
-  %214 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %.val.i38 = load i32, ptr %214, align 4, !range !593, !alias.scope !2857, !noalias !2860, !noundef !5
-  %215 = getelementptr inbounds nuw i8, ptr %209, i64 12
-  %.val1.i39 = load i32, ptr %215, align 4, !alias.scope !2857, !noalias !2860, !noundef !5
-  br label %216
+  %223 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %.val.i38 = load i32, ptr %223, align 4, !range !593, !alias.scope !2857, !noalias !2860, !noundef !5
+  %224 = getelementptr inbounds nuw i8, ptr %218, i64 12
+  %.val1.i39 = load i32, ptr %224, align 4, !alias.scope !2857, !noalias !2860, !noundef !5
+  br label %225
 
 "_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h115eeb04466c3e1cE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2862
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %209), !noalias !2860
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %218), !noalias !2860
   %.sroa.032.0.copyload = load i64, ptr %6, align 8, !noalias !2857
   %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.533.0.copyload = load i32, ptr %.sroa.533.0..sroa_idx, align 8, !noalias !2857
@@ -11903,22 +11903,22 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %.sroa.935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.935.0.copyload = load i64, ptr %.sroa.935.0..sroa_idx, align 8, !noalias !2857
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2862
-  br label %216
+  br label %225
 
-216:                                              ; preds = %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40", %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread"
+225:                                              ; preds = %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40", %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread"
   %.sroa.734.087 = phi i32 [ %.val1.i39, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread" ], [ %.sroa.734.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40" ]
   %.sroa.533.085 = phi i32 [ %.val.i38, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread" ], [ %.sroa.533.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40" ]
   %.sroa.032.083 = phi i64 [ -9223372036854775808, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread" ], [ %.sroa.032.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40" ]
-  %217 = phi i64 [ undef, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread" ], [ %.sroa.935.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40" ]
+  %226 = phi i64 [ undef, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40.thread" ], [ %.sroa.935.0.copyload, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit40" ]
   store i64 %.sroa.032.083, ptr %0, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.533.085, ptr %.sroa.437.0..sroa_idx, align 8
   %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.734.087, ptr %.sroa.538.0..sroa_idx, align 4
   %.sroa.639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %217, ptr %.sroa.639.0..sroa_idx, align 8
+  store i64 %226, ptr %.sroa.639.0..sroa_idx, align 8
   %.sroa.740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %211, ptr %.sroa.740.0..sroa_idx, align 8
+  store i32 %220, ptr %.sroa.740.0..sroa_idx, align 8
   br label %"_ZN80_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..clone..Clone$GT$5clone17h5cae540f2201a9e6E.exit"
 }
 

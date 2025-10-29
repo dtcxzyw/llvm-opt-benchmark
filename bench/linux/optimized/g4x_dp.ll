@@ -1433,67 +1433,67 @@ define internal void @chv_set_signal_levels(ptr noundef %0, ptr noundef %1) #3 a
   %15 = and i32 %14, 3
   %16 = and i32 %13, 3
   switch i32 %15, label %default.unreachable1 [
-    i32 0, label %17
+    i32 0, label %16
     i32 1, label %21
-    i32 2, label %24
-    i32 3, label %26
+    i32 2, label %25
+    i32 3, label %28
   ]
 
-17:                                               ; preds = %9
+16:                                               ; preds = %9
   switch i32 %16, label %default.unreachable1 [
-    i32 0, label %28
+    i32 0, label %31
     i32 1, label %18
     i32 2, label %19
     i32 3, label %20
   ]
 
-18:                                               ; preds = %17
-  br label %28
+18:                                               ; preds = %16
+  br label %31
 
-19:                                               ; preds = %17
-  br label %28
+19:                                               ; preds = %16
+  br label %31
 
-20:                                               ; preds = %17
-  br label %28
+20:                                               ; preds = %16
+  br label %31
 
 21:                                               ; preds = %9
   switch i32 %16, label %default.unreachable1 [
-    i32 0, label %28
-    i32 1, label %22
+    i32 0, label %31
+    i32 1, label %23
     i32 2, label %23
     i32 3, label %32
   ]
 
-22:                                               ; preds = %21
-  br label %28
-
 23:                                               ; preds = %21
-  br label %28
+  br label %31
 
-24:                                               ; preds = %9
+24:                                               ; preds = %21
+  br label %31
+
+25:                                               ; preds = %9
   switch i32 %16, label %32 [
-    i32 0, label %28
+    i32 0, label %31
     i32 1, label %25
   ]
 
-25:                                               ; preds = %24
-  br label %28
+27:                                               ; preds = %25
+  br label %31
 
-26:                                               ; preds = %9
+28:                                               ; preds = %9
   %27 = icmp eq i32 %16, 0
   br i1 %27, label %28, label %32
 
-default.unreachable1:                             ; preds = %21, %17, %9
+default.unreachable1:                             ; preds = %21, %16, %9
   unreachable
 
-28:                                               ; preds = %21, %26, %25, %24, %23, %22, %20, %19, %18, %17
-  %29 = phi i32 [ 64, %25 ], [ 85, %23 ], [ 85, %22 ], [ 128, %20 ], [ 128, %19 ], [ 128, %18 ], [ 128, %17 ], [ 85, %21 ], [ 64, %24 ], [ 43, %26 ]
-  %30 = phi i32 [ 154, %25 ], [ 154, %23 ], [ 116, %22 ], [ 154, %20 ], [ 102, %19 ], [ 77, %18 ], [ 52, %17 ], [ 78, %21 ], [ 104, %24 ], [ 154, %26 ]
-  %31 = phi i1 [ false, %25 ], [ false, %23 ], [ false, %22 ], [ true, %20 ], [ false, %19 ], [ false, %18 ], [ false, %17 ], [ false, %21 ], [ false, %24 ], [ false, %26 ]
-  tail call void @chv_set_phy_signal_level(ptr noundef %0, ptr noundef %1, i32 noundef %29, i32 noundef %30, i1 noundef zeroext %31) #10
-  br label %32
+31:                                               ; preds = %21, %28, %27, %25, %24, %23, %20, %19, %18, %16
+  %32 = phi i32 [ 64, %25 ], [ 85, %23 ], [ 85, %22 ], [ 128, %20 ], [ 128, %19 ], [ 128, %18 ], [ 128, %17 ], [ 85, %21 ], [ 64, %24 ], [ 43, %26 ]
+  %33 = phi i32 [ 154, %25 ], [ 154, %23 ], [ 116, %22 ], [ 154, %20 ], [ 102, %19 ], [ 77, %18 ], [ 52, %17 ], [ 78, %21 ], [ 104, %24 ], [ 154, %26 ]
+  %34 = phi i1 [ false, %25 ], [ false, %23 ], [ false, %22 ], [ true, %20 ], [ false, %19 ], [ false, %18 ], [ false, %17 ], [ false, %21 ], [ false, %24 ], [ false, %26 ]
+  tail call void @chv_set_phy_signal_level(ptr noundef %0, ptr noundef %1, i32 noundef %32, i32 noundef %33, i1 noundef zeroext %34) #10
+  br label %35
 
-32:                                               ; preds = %21, %28, %26, %24
+35:                                               ; preds = %21, %31, %28, %25
   ret void
 }
 
@@ -1526,67 +1526,67 @@ define internal void @vlv_set_signal_levels(ptr noundef %0, ptr noundef %1) #3 a
   %15 = and i32 %14, 3
   %16 = and i32 %13, 3
   switch i32 %15, label %default.unreachable1 [
-    i32 0, label %17
+    i32 0, label %16
     i32 1, label %21
-    i32 2, label %24
-    i32 3, label %26
+    i32 2, label %25
+    i32 3, label %28
   ]
 
-17:                                               ; preds = %9
+16:                                               ; preds = %9
   switch i32 %16, label %default.unreachable1 [
-    i32 0, label %28
+    i32 0, label %31
     i32 1, label %18
     i32 2, label %19
     i32 3, label %20
   ]
 
-18:                                               ; preds = %17
-  br label %28
+18:                                               ; preds = %16
+  br label %31
 
-19:                                               ; preds = %17
-  br label %28
+19:                                               ; preds = %16
+  br label %31
 
-20:                                               ; preds = %17
-  br label %28
+20:                                               ; preds = %16
+  br label %31
 
 21:                                               ; preds = %9
   switch i32 %16, label %default.unreachable1 [
-    i32 0, label %28
-    i32 1, label %22
+    i32 0, label %31
+    i32 1, label %23
     i32 2, label %23
     i32 3, label %32
   ]
 
-22:                                               ; preds = %21
-  br label %28
-
 23:                                               ; preds = %21
-  br label %28
+  br label %31
 
-24:                                               ; preds = %9
+24:                                               ; preds = %21
+  br label %31
+
+25:                                               ; preds = %9
   switch i32 %16, label %32 [
-    i32 0, label %28
+    i32 0, label %31
     i32 1, label %25
   ]
 
-25:                                               ; preds = %24
-  br label %28
+27:                                               ; preds = %25
+  br label %31
 
-26:                                               ; preds = %9
+28:                                               ; preds = %9
   %27 = icmp eq i32 %16, 0
   br i1 %27, label %28, label %32
 
-default.unreachable1:                             ; preds = %21, %17, %9
+default.unreachable1:                             ; preds = %21, %16, %9
   unreachable
 
-28:                                               ; preds = %21, %26, %25, %24, %23, %22, %20, %19, %18, %17
-  %29 = phi i32 [ 724254784, %25 ], [ 725631040, %23 ], [ 725633096, %22 ], [ 725636437, %20 ], [ 723801429, %19 ], [ 725631040, %18 ], [ 725636437, %17 ], [ 725631040, %21 ], [ 724587861, %24 ], [ 457200981, %26 ]
-  %30 = phi i32 [ 0, %25 ], [ 8192, %23 ], [ 8192, %22 ], [ 16384, %20 ], [ 16384, %19 ], [ 16384, %18 ], [ 16384, %17 ], [ 8192, %21 ], [ %16, %24 ], [ 24576, %26 ]
-  %31 = phi i32 [ 1437456954, %25 ], [ 1437456954, %23 ], [ 1434499130, %22 ], [ 1436080698, %20 ], [ 1432401978, %19 ], [ 1430829114, %18 ], [ 1428863034, %17 ], [ 1431484474, %21 ], [ 1433450554, %24 ], [ 1437456954, %26 ]
-  tail call void @vlv_set_phy_signal_level(ptr noundef %0, ptr noundef %1, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef 0) #10
-  br label %32
+31:                                               ; preds = %21, %28, %27, %25, %24, %23, %20, %19, %18, %16
+  %32 = phi i32 [ 724254784, %25 ], [ 725631040, %23 ], [ 725633096, %22 ], [ 725636437, %20 ], [ 723801429, %19 ], [ 725631040, %18 ], [ 725636437, %17 ], [ 725631040, %21 ], [ 724587861, %24 ], [ 457200981, %26 ]
+  %33 = phi i32 [ 0, %25 ], [ 8192, %23 ], [ 8192, %22 ], [ 16384, %20 ], [ 16384, %19 ], [ 16384, %18 ], [ 16384, %17 ], [ 8192, %21 ], [ %16, %24 ], [ 24576, %26 ]
+  %34 = phi i32 [ 1437456954, %25 ], [ 1437456954, %23 ], [ 1434499130, %22 ], [ 1436080698, %20 ], [ 1432401978, %19 ], [ 1430829114, %18 ], [ 1428863034, %17 ], [ 1431484474, %21 ], [ 1433450554, %24 ], [ 1437456954, %26 ]
+  tail call void @vlv_set_phy_signal_level(ptr noundef %0, ptr noundef %1, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef 0) #10
+  br label %35
 
-32:                                               ; preds = %21, %28, %26, %24
+35:                                               ; preds = %21, %31, %28, %25
   ret void
 }
 

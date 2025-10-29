@@ -984,7 +984,7 @@ define void @_ZN12grep_printer5color10ColorSpecs3new17he671acb7e0a3e7d2E(ptr noa
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
-default.unreachable262:                           ; preds = %91, %83, %75, %68, %60, %53, %45, %38, %.lr.ph
+default.unreachable262:                           ; preds = %97, %87, %79, %70, %62, %53, %45, %36, %.lr.ph
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
@@ -1146,13 +1146,13 @@ default.unreachable262:                           ; preds = %91, %83, %75, %68, 
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 1
   %37 = load i8, ptr %36, align 1, !range !177, !noalias !5, !noundef !5
   switch i8 %35, label %default.unreachable262 [
-    i8 0, label %38
+    i8 0, label %36
     i8 1, label %53
-    i8 2, label %68
-    i8 3, label %83
+    i8 2, label %70
+    i8 3, label %87
   ]
 
-38:                                               ; preds = %.lr.ph
+36:                                               ; preds = %.lr.ph
   switch i8 %37, label %default.unreachable262 [
     i8 0, label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
     i8 1, label %39
@@ -1160,7 +1160,7 @@ default.unreachable262:                           ; preds = %91, %83, %75, %68, 
     i8 3, label %45
   ]
 
-39:                                               ; preds = %38
+39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
   %41 = load i32, ptr %40, align 1, !alias.scope !184, !noalias !189
   %.sroa.18.sroa.0.0.extract.trunc = trunc i32 %41 to i8
@@ -1168,7 +1168,7 @@ default.unreachable262:                           ; preds = %91, %83, %75, %68, 
   %.sroa.18.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.18.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-42:                                               ; preds = %38
+42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
   %44 = load i32, ptr %43, align 1, !alias.scope !184, !noalias !189
   %.sroa.21.sroa.0.0.extract.trunc = trunc i32 %44 to i8
@@ -1176,7 +1176,7 @@ default.unreachable262:                           ; preds = %91, %83, %75, %68, 
   %.sroa.21.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.21.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-45:                                               ; preds = %38
+45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
   %47 = load i8, ptr %46, align 1, !range !183, !alias.scope !184, !noalias !189, !noundef !5
   switch i8 %47, label %default.unreachable262 [
@@ -1206,159 +1206,159 @@ default.unreachable262:                           ; preds = %91, %83, %75, %68, 
 53:                                               ; preds = %.lr.ph
   switch i8 %37, label %default.unreachable262 [
     i8 0, label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
-    i8 1, label %54
-    i8 2, label %57
-    i8 3, label %60
+    i8 1, label %56
+    i8 2, label %59
+    i8 3, label %62
   ]
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %56 = load i32, ptr %55, align 1, !alias.scope !192, !noalias !197
-  %.sroa.39.sroa.0.0.extract.trunc = trunc i32 %56 to i8
-  %.sroa.39.sroa.6.0.extract.shift = lshr i32 %56, 8
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %58 = load i32, ptr %57, align 1, !alias.scope !192, !noalias !197
+  %.sroa.39.sroa.0.0.extract.trunc = trunc i32 %58 to i8
+  %.sroa.39.sroa.6.0.extract.shift = lshr i32 %58, 8
   %.sroa.39.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.39.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %59 = load i32, ptr %58, align 1, !alias.scope !192, !noalias !197
-  %.sroa.42.sroa.0.0.extract.trunc = trunc i32 %59 to i8
-  %.sroa.42.sroa.6.0.extract.shift = lshr i32 %59, 8
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %61 = load i32, ptr %60, align 1, !alias.scope !192, !noalias !197
+  %.sroa.42.sroa.0.0.extract.trunc = trunc i32 %61 to i8
+  %.sroa.42.sroa.6.0.extract.shift = lshr i32 %61, 8
   %.sroa.42.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.42.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %62 = load i8, ptr %61, align 1, !range !183, !alias.scope !192, !noalias !197, !noundef !5
-  switch i8 %62, label %default.unreachable262 [
+62:                                               ; preds = %53
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %64 = load i8, ptr %63, align 1, !range !183, !alias.scope !192, !noalias !197, !noundef !5
+  switch i8 %64, label %default.unreachable262 [
     i8 0, label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
-    i8 1, label %63
-    i8 2, label %64
-    i8 3, label %65
-    i8 4, label %66
-    i8 5, label %67
+    i8 1, label %65
+    i8 2, label %66
+    i8 3, label %67
+    i8 4, label %68
+    i8 5, label %69
   ]
 
-63:                                               ; preds = %60
+65:                                               ; preds = %62
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-64:                                               ; preds = %60
+66:                                               ; preds = %62
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-65:                                               ; preds = %60
+67:                                               ; preds = %62
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-66:                                               ; preds = %60
+68:                                               ; preds = %62
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-67:                                               ; preds = %60
+69:                                               ; preds = %62
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-68:                                               ; preds = %.lr.ph
+70:                                               ; preds = %.lr.ph
   switch i8 %37, label %default.unreachable262 [
     i8 0, label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
-    i8 1, label %69
-    i8 2, label %72
-    i8 3, label %75
+    i8 1, label %73
+    i8 2, label %76
+    i8 3, label %79
   ]
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %71 = load i32, ptr %70, align 1, !alias.scope !200, !noalias !205
-  %.sroa.60.sroa.0.0.extract.trunc = trunc i32 %71 to i8
-  %.sroa.60.sroa.6.0.extract.shift = lshr i32 %71, 8
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %75 = load i32, ptr %74, align 1, !alias.scope !200, !noalias !205
+  %.sroa.60.sroa.0.0.extract.trunc = trunc i32 %75 to i8
+  %.sroa.60.sroa.6.0.extract.shift = lshr i32 %75, 8
   %.sroa.60.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.60.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %74 = load i32, ptr %73, align 1, !alias.scope !200, !noalias !205
-  %.sroa.63.sroa.0.0.extract.trunc = trunc i32 %74 to i8
-  %.sroa.63.sroa.6.0.extract.shift = lshr i32 %74, 8
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %78 = load i32, ptr %77, align 1, !alias.scope !200, !noalias !205
+  %.sroa.63.sroa.0.0.extract.trunc = trunc i32 %78 to i8
+  %.sroa.63.sroa.6.0.extract.shift = lshr i32 %78, 8
   %.sroa.63.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.63.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %77 = load i8, ptr %76, align 1, !range !183, !alias.scope !200, !noalias !205, !noundef !5
-  switch i8 %77, label %default.unreachable262 [
+79:                                               ; preds = %70
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %81 = load i8, ptr %80, align 1, !range !183, !alias.scope !200, !noalias !205, !noundef !5
+  switch i8 %81, label %default.unreachable262 [
     i8 0, label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
-    i8 1, label %78
-    i8 2, label %79
-    i8 3, label %80
-    i8 4, label %81
-    i8 5, label %82
+    i8 1, label %82
+    i8 2, label %83
+    i8 3, label %84
+    i8 4, label %85
+    i8 5, label %86
   ]
 
-78:                                               ; preds = %75
+82:                                               ; preds = %79
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-79:                                               ; preds = %75
+83:                                               ; preds = %79
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-80:                                               ; preds = %75
+84:                                               ; preds = %79
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-81:                                               ; preds = %75
+85:                                               ; preds = %79
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-82:                                               ; preds = %75
+86:                                               ; preds = %79
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-83:                                               ; preds = %.lr.ph
+87:                                               ; preds = %.lr.ph
   switch i8 %37, label %default.unreachable262 [
     i8 0, label %84
     i8 1, label %85
-    i8 2, label %88
+    i8 2, label %94
     i8 3, label %91
   ]
 
-84:                                               ; preds = %83
+90:                                               ; preds = %87
   %.sroa.84.56.insert.mask = and i32 %.sroa.84.0231, -256
   %.sroa.84.56.insert.insert = or disjoint i32 %.sroa.84.56.insert.mask, 11
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %87 = load i32, ptr %86, align 1, !alias.scope !208, !noalias !213
-  %.sroa.81.sroa.0.0.extract.trunc = trunc i32 %87 to i8
-  %.sroa.81.sroa.6.0.extract.shift = lshr i32 %87, 8
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %93 = load i32, ptr %92, align 1, !alias.scope !208, !noalias !213
+  %.sroa.81.sroa.0.0.extract.trunc = trunc i32 %93 to i8
+  %.sroa.81.sroa.6.0.extract.shift = lshr i32 %93, 8
   %.sroa.81.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.81.sroa.6.0.extract.shift to i24
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %90 = load i32, ptr %89, align 1, !alias.scope !208, !noalias !213
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %96 = load i32, ptr %95, align 1, !alias.scope !208, !noalias !213
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-91:                                               ; preds = %83
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
-  %93 = load i8, ptr %92, align 1, !range !183, !alias.scope !208, !noalias !213, !noundef !5
-  switch i8 %93, label %default.unreachable262 [
+97:                                               ; preds = %87
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.070.0235, i64 2
+  %99 = load i8, ptr %98, align 1, !range !183, !alias.scope !208, !noalias !213, !noundef !5
+  switch i8 %99, label %default.unreachable262 [
     i8 0, label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
-    i8 1, label %94
-    i8 2, label %95
-    i8 3, label %96
-    i8 4, label %97
-    i8 5, label %98
+    i8 1, label %100
+    i8 2, label %101
+    i8 3, label %102
+    i8 4, label %103
+    i8 5, label %104
   ]
 
-94:                                               ; preds = %91
+100:                                              ; preds = %97
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-95:                                               ; preds = %91
+101:                                              ; preds = %97
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-96:                                               ; preds = %91
+102:                                              ; preds = %97
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-97:                                               ; preds = %91
+103:                                              ; preds = %97
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-98:                                               ; preds = %91
+104:                                              ; preds = %97
   br label %_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit
 
-_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit: ; preds = %98, %97, %96, %95, %94, %88, %85, %84, %91, %82, %81, %80, %79, %78, %72, %69, %68, %75, %67, %66, %65, %64, %63, %57, %54, %53, %60, %52, %51, %50, %49, %48, %42, %39, %38, %45
+_ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit: ; preds = %104, %103, %102, %101, %100, %94, %91, %90, %97, %86, %85, %84, %83, %82, %76, %73, %70, %79, %69, %68, %67, %66, %65, %59, %56, %53, %62, %52, %51, %50, %49, %48, %42, %39, %36, %45
   %.sroa.18.sroa.6.sroa.0.1 = phi i24 [ %.sroa.18.sroa.6.0.extract.trunc, %39 ], [ %.sroa.18.sroa.6.sroa.0.0208, %42 ], [ %.sroa.18.sroa.6.sroa.0.0208, %48 ], [ %.sroa.18.sroa.6.sroa.0.0208, %49 ], [ %.sroa.18.sroa.6.sroa.0.0208, %50 ], [ %.sroa.18.sroa.6.sroa.0.0208, %51 ], [ %.sroa.18.sroa.6.sroa.0.0208, %52 ], [ %.sroa.18.sroa.6.sroa.0.0208, %38 ], [ %.sroa.18.sroa.6.sroa.0.0208, %45 ], [ %.sroa.18.sroa.6.sroa.0.0208, %60 ], [ %.sroa.18.sroa.6.sroa.0.0208, %53 ], [ %.sroa.18.sroa.6.sroa.0.0208, %54 ], [ %.sroa.18.sroa.6.sroa.0.0208, %57 ], [ %.sroa.18.sroa.6.sroa.0.0208, %63 ], [ %.sroa.18.sroa.6.sroa.0.0208, %64 ], [ %.sroa.18.sroa.6.sroa.0.0208, %65 ], [ %.sroa.18.sroa.6.sroa.0.0208, %66 ], [ %.sroa.18.sroa.6.sroa.0.0208, %67 ], [ %.sroa.18.sroa.6.sroa.0.0208, %75 ], [ %.sroa.18.sroa.6.sroa.0.0208, %68 ], [ %.sroa.18.sroa.6.sroa.0.0208, %69 ], [ %.sroa.18.sroa.6.sroa.0.0208, %72 ], [ %.sroa.18.sroa.6.sroa.0.0208, %78 ], [ %.sroa.18.sroa.6.sroa.0.0208, %79 ], [ %.sroa.18.sroa.6.sroa.0.0208, %80 ], [ %.sroa.18.sroa.6.sroa.0.0208, %81 ], [ %.sroa.18.sroa.6.sroa.0.0208, %82 ], [ %.sroa.18.sroa.6.sroa.0.0208, %91 ], [ %.sroa.18.sroa.6.sroa.0.0208, %84 ], [ %.sroa.18.sroa.6.sroa.0.0208, %85 ], [ %.sroa.18.sroa.6.sroa.0.0208, %88 ], [ %.sroa.18.sroa.6.sroa.0.0208, %94 ], [ %.sroa.18.sroa.6.sroa.0.0208, %95 ], [ %.sroa.18.sroa.6.sroa.0.0208, %96 ], [ %.sroa.18.sroa.6.sroa.0.0208, %97 ], [ %.sroa.18.sroa.6.sroa.0.0208, %98 ]
   %.sroa.18.sroa.0.1 = phi i8 [ %.sroa.18.sroa.0.0.extract.trunc, %39 ], [ %.sroa.18.sroa.0.0209, %42 ], [ %.sroa.18.sroa.0.0209, %48 ], [ %.sroa.18.sroa.0.0209, %49 ], [ %.sroa.18.sroa.0.0209, %50 ], [ %.sroa.18.sroa.0.0209, %51 ], [ %.sroa.18.sroa.0.0209, %52 ], [ 11, %38 ], [ %.sroa.18.sroa.0.0209, %45 ], [ %.sroa.18.sroa.0.0209, %60 ], [ %.sroa.18.sroa.0.0209, %53 ], [ %.sroa.18.sroa.0.0209, %54 ], [ %.sroa.18.sroa.0.0209, %57 ], [ %.sroa.18.sroa.0.0209, %63 ], [ %.sroa.18.sroa.0.0209, %64 ], [ %.sroa.18.sroa.0.0209, %65 ], [ %.sroa.18.sroa.0.0209, %66 ], [ %.sroa.18.sroa.0.0209, %67 ], [ %.sroa.18.sroa.0.0209, %75 ], [ %.sroa.18.sroa.0.0209, %68 ], [ %.sroa.18.sroa.0.0209, %69 ], [ %.sroa.18.sroa.0.0209, %72 ], [ %.sroa.18.sroa.0.0209, %78 ], [ %.sroa.18.sroa.0.0209, %79 ], [ %.sroa.18.sroa.0.0209, %80 ], [ %.sroa.18.sroa.0.0209, %81 ], [ %.sroa.18.sroa.0.0209, %82 ], [ %.sroa.18.sroa.0.0209, %91 ], [ %.sroa.18.sroa.0.0209, %84 ], [ %.sroa.18.sroa.0.0209, %85 ], [ %.sroa.18.sroa.0.0209, %88 ], [ %.sroa.18.sroa.0.0209, %94 ], [ %.sroa.18.sroa.0.0209, %95 ], [ %.sroa.18.sroa.0.0209, %96 ], [ %.sroa.18.sroa.0.0209, %97 ], [ %.sroa.18.sroa.0.0209, %98 ]
   %.sroa.21.sroa.6.sroa.0.1 = phi i24 [ %.sroa.21.sroa.6.sroa.0.0210, %39 ], [ %.sroa.21.sroa.6.0.extract.trunc, %42 ], [ %.sroa.21.sroa.6.sroa.0.0210, %48 ], [ %.sroa.21.sroa.6.sroa.0.0210, %49 ], [ %.sroa.21.sroa.6.sroa.0.0210, %50 ], [ %.sroa.21.sroa.6.sroa.0.0210, %51 ], [ %.sroa.21.sroa.6.sroa.0.0210, %52 ], [ %.sroa.21.sroa.6.sroa.0.0210, %38 ], [ %.sroa.21.sroa.6.sroa.0.0210, %45 ], [ %.sroa.21.sroa.6.sroa.0.0210, %60 ], [ %.sroa.21.sroa.6.sroa.0.0210, %53 ], [ %.sroa.21.sroa.6.sroa.0.0210, %54 ], [ %.sroa.21.sroa.6.sroa.0.0210, %57 ], [ %.sroa.21.sroa.6.sroa.0.0210, %63 ], [ %.sroa.21.sroa.6.sroa.0.0210, %64 ], [ %.sroa.21.sroa.6.sroa.0.0210, %65 ], [ %.sroa.21.sroa.6.sroa.0.0210, %66 ], [ %.sroa.21.sroa.6.sroa.0.0210, %67 ], [ %.sroa.21.sroa.6.sroa.0.0210, %75 ], [ %.sroa.21.sroa.6.sroa.0.0210, %68 ], [ %.sroa.21.sroa.6.sroa.0.0210, %69 ], [ %.sroa.21.sroa.6.sroa.0.0210, %72 ], [ %.sroa.21.sroa.6.sroa.0.0210, %78 ], [ %.sroa.21.sroa.6.sroa.0.0210, %79 ], [ %.sroa.21.sroa.6.sroa.0.0210, %80 ], [ %.sroa.21.sroa.6.sroa.0.0210, %81 ], [ %.sroa.21.sroa.6.sroa.0.0210, %82 ], [ %.sroa.21.sroa.6.sroa.0.0210, %91 ], [ %.sroa.21.sroa.6.sroa.0.0210, %84 ], [ %.sroa.21.sroa.6.sroa.0.0210, %85 ], [ %.sroa.21.sroa.6.sroa.0.0210, %88 ], [ %.sroa.21.sroa.6.sroa.0.0210, %94 ], [ %.sroa.21.sroa.6.sroa.0.0210, %95 ], [ %.sroa.21.sroa.6.sroa.0.0210, %96 ], [ %.sroa.21.sroa.6.sroa.0.0210, %97 ], [ %.sroa.21.sroa.6.sroa.0.0210, %98 ]
@@ -1386,8 +1386,8 @@ _ZN12grep_printer5color13UserColorSpec10merge_into17hccb3a2307c21177fE.exit: ; p
   %.sroa.10.1 = phi i8 [ %.sroa.10.0232, %39 ], [ %.sroa.10.0232, %42 ], [ %.sroa.10.0232, %48 ], [ %.sroa.10.0232, %49 ], [ %.sroa.10.0232, %50 ], [ 1, %51 ], [ 0, %52 ], [ %37, %38 ], [ %.sroa.10.0232, %45 ], [ %.sroa.10.0232, %60 ], [ %.sroa.10.0232, %53 ], [ %.sroa.10.0232, %54 ], [ %.sroa.10.0232, %57 ], [ %.sroa.10.0232, %63 ], [ %.sroa.10.0232, %64 ], [ %.sroa.10.0232, %65 ], [ %.sroa.10.0232, %66 ], [ %.sroa.10.0232, %67 ], [ %.sroa.10.0232, %75 ], [ %.sroa.10.0232, %68 ], [ %.sroa.10.0232, %69 ], [ %.sroa.10.0232, %72 ], [ %.sroa.10.0232, %78 ], [ %.sroa.10.0232, %79 ], [ %.sroa.10.0232, %80 ], [ %.sroa.10.0232, %81 ], [ %.sroa.10.0232, %82 ], [ %.sroa.10.0232, %91 ], [ %.sroa.10.0232, %84 ], [ %.sroa.10.0232, %85 ], [ %.sroa.10.0232, %88 ], [ %.sroa.10.0232, %94 ], [ %.sroa.10.0232, %95 ], [ %.sroa.10.0232, %96 ], [ %.sroa.10.0232, %97 ], [ %.sroa.10.0232, %98 ]
   %.sroa.7.1 = phi i8 [ %.sroa.7.0233, %39 ], [ %.sroa.7.0233, %42 ], [ %.sroa.7.0233, %48 ], [ 1, %49 ], [ 0, %50 ], [ %.sroa.7.0233, %51 ], [ %.sroa.7.0233, %52 ], [ %37, %38 ], [ %.sroa.7.0233, %45 ], [ %.sroa.7.0233, %60 ], [ %.sroa.7.0233, %53 ], [ %.sroa.7.0233, %54 ], [ %.sroa.7.0233, %57 ], [ %.sroa.7.0233, %63 ], [ %.sroa.7.0233, %64 ], [ %.sroa.7.0233, %65 ], [ %.sroa.7.0233, %66 ], [ %.sroa.7.0233, %67 ], [ %.sroa.7.0233, %75 ], [ %.sroa.7.0233, %68 ], [ %.sroa.7.0233, %69 ], [ %.sroa.7.0233, %72 ], [ %.sroa.7.0233, %78 ], [ %.sroa.7.0233, %79 ], [ %.sroa.7.0233, %80 ], [ %.sroa.7.0233, %81 ], [ %.sroa.7.0233, %82 ], [ %.sroa.7.0233, %91 ], [ %.sroa.7.0233, %84 ], [ %.sroa.7.0233, %85 ], [ %.sroa.7.0233, %88 ], [ %.sroa.7.0233, %94 ], [ %.sroa.7.0233, %95 ], [ %.sroa.7.0233, %96 ], [ %.sroa.7.0233, %97 ], [ %.sroa.7.0233, %98 ]
   %.sroa.0.1 = phi i8 [ %.sroa.0.0234, %39 ], [ %.sroa.0.0234, %42 ], [ 0, %48 ], [ %.sroa.0.0234, %49 ], [ %.sroa.0.0234, %50 ], [ %.sroa.0.0234, %51 ], [ %.sroa.0.0234, %52 ], [ %37, %38 ], [ 1, %45 ], [ %.sroa.0.0234, %60 ], [ %.sroa.0.0234, %53 ], [ %.sroa.0.0234, %54 ], [ %.sroa.0.0234, %57 ], [ %.sroa.0.0234, %63 ], [ %.sroa.0.0234, %64 ], [ %.sroa.0.0234, %65 ], [ %.sroa.0.0234, %66 ], [ %.sroa.0.0234, %67 ], [ %.sroa.0.0234, %75 ], [ %.sroa.0.0234, %68 ], [ %.sroa.0.0234, %69 ], [ %.sroa.0.0234, %72 ], [ %.sroa.0.0234, %78 ], [ %.sroa.0.0234, %79 ], [ %.sroa.0.0234, %80 ], [ %.sroa.0.0234, %81 ], [ %.sroa.0.0234, %82 ], [ %.sroa.0.0234, %91 ], [ %.sroa.0.0234, %84 ], [ %.sroa.0.0234, %85 ], [ %.sroa.0.0234, %88 ], [ %.sroa.0.0234, %94 ], [ %.sroa.0.0234, %95 ], [ %.sroa.0.0234, %96 ], [ %.sroa.0.0234, %97 ], [ %.sroa.0.0234, %98 ]
-  %99 = icmp eq ptr %34, %4
-  br i1 %99, label %._crit_edge.loopexit, label %.lr.ph
+  %105 = icmp eq ptr %34, %4
+  br i1 %105, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

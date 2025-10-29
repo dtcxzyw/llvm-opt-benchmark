@@ -723,7 +723,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %26, align 8
   store i8 1, ptr %0, align 8
-  br label %117
+  br label %120
 
 27:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -733,7 +733,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   store i8 1, ptr %0, align 8
-  br label %117
+  br label %120
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 2
@@ -751,7 +751,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8
   store i8 1, ptr %0, align 8
-  br label %117
+  br label %120
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 82
@@ -805,7 +805,7 @@ default.unreachable:                              ; preds = %47
 "_ZN172_$LT$task..task_template.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$task..task_template..HideStrategy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h89fea8d2a4dfec73E.exit": ; preds = %49, %51, %52, %53
   %.sink.i = phi i8 [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 1, %49 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !7, !noalias !20
-  br label %117
+  br label %120
 
 54:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -815,7 +815,7 @@ default.unreachable:                              ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %55, ptr %56, align 8
   store i8 1, ptr %0, align 8
-  br label %117
+  br label %120
 
 57:                                               ; preds = %36
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -898,21 +898,21 @@ default.unreachable:                              ; preds = %47
   store i8 %91, ptr %37, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$16parse_whitespace17hd90200bba0215890E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(88) %1)
-  %92 = load i8, ptr %16, align 8, !range !4, !noundef !5
-  %trunc7 = trunc nuw i8 %92 to i1
+  %95 = load i8, ptr %16, align 8, !range !4, !noundef !5
+  %trunc7 = trunc nuw i8 %95 to i1
   br i1 %trunc7, label %98, label %95
 
-93:                                               ; preds = %84, %83, %80
+98:                                               ; preds = %84, %83, %80
   %.sroa.916.0.ph = phi ptr [ %82, %80 ], [ %.sroa.0.0.i.ph.i.i, %83 ], [ %87, %84 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.916.0.ph, ptr %94, align 8
   store i8 1, ptr %0, align 8
   br label %117
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  %97 = load i8, ptr %96, align 1, !range !4, !noundef !5
-  %trunc8 = trunc nuw i8 %97 to i1
+101:                                              ; preds = %89
+  %102 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %103 = load i8, ptr %102, align 1, !range !4, !noundef !5
+  %trunc8 = trunc nuw i8 %103 to i1
   br i1 %trunc8, label %105, label %102
 
 98:                                               ; preds = %89
@@ -922,47 +922,47 @@ default.unreachable:                              ; preds = %47
   store ptr %100, ptr %101, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %117
-
-102:                                              ; preds = %95
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 4, ptr %14, align 8
-  %103 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h4661ffdd3b554022E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %103, ptr %104, align 8
-  br label %116
+  br label %120
 
 105:                                              ; preds = %95
-  %106 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %107 = load i8, ptr %106, align 2
-  %108 = icmp eq i8 %107, 125
-  br i1 %108, label %109, label %113
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  store i64 4, ptr %14, align 8
+  %106 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h4661ffdd3b554022E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %106, ptr %107, align 8
+  br label %119
 
-109:                                              ; preds = %105
-  %110 = load i64, ptr %58, align 8, !alias.scope !42, !noundef !5
-  %111 = add i64 %110, 1
-  store i64 %111, ptr %58, align 8, !alias.scope !42
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %64, ptr %112, align 1
-  br label %116
+108:                                              ; preds = %95
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %110 = load i8, ptr %109, align 2
+  %111 = icmp eq i8 %110, 125
+  br i1 %111, label %112, label %116
 
-113:                                              ; preds = %105
+112:                                              ; preds = %108
+  %113 = load i64, ptr %58, align 8, !alias.scope !42, !noundef !5
+  %114 = add i64 %113, 1
+  store i64 %114, ptr %58, align 8, !alias.scope !42
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %64, ptr %115, align 1
+  br label %119
+
+116:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 12, ptr %15, align 8
-  %114 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h4661ffdd3b554022E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %117 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h4661ffdd3b554022E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %114, ptr %115, align 8
-  br label %116
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %117, ptr %118, align 8
+  br label %119
 
-116:                                              ; preds = %102, %113, %109
+119:                                              ; preds = %105, %116, %112
   %.sink = phi i8 [ 1, %102 ], [ 1, %113 ], [ 0, %109 ]
   store i8 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %117
+  br label %120
 
-117:                                              ; preds = %116, %33, %54, %98, %23, %27, %"_ZN172_$LT$task..task_template.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$task..task_template..HideStrategy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h89fea8d2a4dfec73E.exit", %93
+120:                                              ; preds = %119, %33, %54, %98, %23, %27, %"_ZN172_$LT$task..task_template.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$task..task_template..HideStrategy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h89fea8d2a4dfec73E.exit", %93
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }

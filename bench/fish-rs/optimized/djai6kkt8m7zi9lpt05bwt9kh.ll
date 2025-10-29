@@ -26199,7 +26199,7 @@ default.unreachable:                              ; preds = %3
   %77 = load i64, ptr %5, align 8, !noalias !1802, !noundef !3
   %78 = load i64, ptr %4, align 8, !noalias !1802, !noundef !3
   switch i8 %11, label %20 [
-    i8 0, label %79
+    i8 0, label %77
     i8 1, label %81
     i8 2, label %86
     i8 3, label %89
@@ -26207,7 +26207,7 @@ default.unreachable:                              ; preds = %3
     i8 5, label %94
   ]
 
-79:                                               ; preds = %76
+77:                                               ; preds = %76
   %80 = icmp eq i64 %77, %78
   br i1 %80, label %96, label %100
 
@@ -26219,105 +26219,105 @@ default.unreachable:                              ; preds = %3
   %.sroa.012.0.i = select i1 %82, i1 true, i1 %85
   br label %100
 
-86:                                               ; preds = %76
+86:; preds = %76
   %87 = tail call i8 @llvm.scmp.i8.i64(i64 %77, i64 %78)
   %88 = icmp eq i64 %77, %78
   br i1 %88, label %101, label %106
 
-89:                                               ; preds = %76
+89:; preds = %76
   %90 = tail call i8 @llvm.scmp.i8.i64(i64 %77, i64 %78)
   %91 = icmp eq i64 %77, %78
   br i1 %91, label %110, label %115
 
-92:                                               ; preds = %76
+92:; preds = %76
   %93 = icmp eq i64 %77, %78
   br i1 %93, label %119, label %123
 
-94:                                               ; preds = %76
+94:; preds = %76
   %95 = icmp eq i64 %77, %78
   br i1 %95, label %127, label %131
 
-96:                                               ; preds = %79
+96:; preds = %79
   %97 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
   %98 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
   %99 = fcmp oeq double %97, %98
   br label %100
 
-100:                                              ; preds = %133, %131, %127, %125, %123, %119, %115, %106, %96, %81, %79
+100:; preds = %143, %141, %127, %125, %123, %119, %115, %106, %96, %81, %79
   %.sroa.03.2.i = phi i1 [ %99, %96 ], [ %.sroa.012.0.i, %81 ], [ %.sroa.03.3.i, %106 ], [ %.sroa.03.4.i, %115 ], [ false, %79 ], [ %124, %123 ], [ %126, %125 ], [ %132, %131 ], [ true, %127 ], [ false, %133 ], [ false, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1802
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1802
   br label %_ZN4fish8builtins4test16test_expressions23binary_primary_evaluate17h12abf15be756717fE.exit
 
-101:                                              ; preds = %86
-  %102 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
-  %103 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
-  %104 = fcmp ugt double %102, %103
-  %105 = fcmp ult double %102, %103
-  br i1 %104, label %108, label %109
+111:                                              ; preds = %86
+  %112 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
+  %113 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
+  %114 = fcmp ugt double %112, %113
+  %115 = fcmp ult double %112, %113
+  br i1 %114, label %118, label %119
 
-106:                                              ; preds = %109, %108, %86
+116:                                              ; preds = %119, %118, %86
   %.sroa.010.0.i = phi i8 [ %87, %86 ], [ %..i, %108 ], [ %.17.i, %109 ]
   %.not16.i = icmp ne i8 %.sroa.010.0.i, 2
-  %107 = icmp sgt i8 %.sroa.010.0.i, 0
-  %.sroa.03.3.i = and i1 %.not16.i, %107
+  %117 = icmp sgt i8 %.sroa.010.0.i, 0
+  %.sroa.03.3.i = and i1 %.not16.i, %117
   br label %100
 
-108:                                              ; preds = %101
-  %..i = select i1 %105, i8 2, i8 1
-  br label %106
+118:                                              ; preds = %111
+  %..i = select i1 %115, i8 2, i8 1
+  br label %116
 
-109:                                              ; preds = %101
-  %.17.i = sext i1 %105 to i8
-  br label %106
+119:                                              ; preds = %111
+  %.17.i = sext i1 %115 to i8
+  br label %116
 
-110:                                              ; preds = %89
-  %111 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
-  %112 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
-  %113 = fcmp ugt double %111, %112
-  %114 = fcmp ult double %111, %112
-  br i1 %113, label %117, label %118
+120:                                              ; preds = %89
+  %121 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
+  %122 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
+  %123 = fcmp ugt double %121, %122
+  %124 = fcmp ult double %121, %122
+  br i1 %123, label %127, label %128
 
-115:                                              ; preds = %118, %117, %89
+125:                                              ; preds = %128, %127, %89
   %.sroa.08.0.i = phi i8 [ %90, %89 ], [ %.18.i, %117 ], [ %.19.i, %118 ]
   %.not.i = icmp ne i8 %.sroa.08.0.i, 2
-  %116 = icmp sgt i8 %.sroa.08.0.i, -1
-  %.sroa.03.4.i = and i1 %.not.i, %116
+  %126 = icmp sgt i8 %.sroa.08.0.i, -1
+  %.sroa.03.4.i = and i1 %.not.i, %126
   br label %100
 
-117:                                              ; preds = %110
-  %.18.i = select i1 %114, i8 2, i8 1
-  br label %115
+127:                                              ; preds = %120
+  %.18.i = select i1 %124, i8 2, i8 1
+  br label %125
 
-118:                                              ; preds = %110
-  %.19.i = sext i1 %114 to i8
-  br label %115
+128:                                              ; preds = %120
+  %.19.i = sext i1 %124 to i8
+  br label %125
 
-119:                                              ; preds = %92
-  %120 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
-  %121 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
-  %122 = fcmp ugt double %120, %121
-  br i1 %122, label %100, label %125
+129:                                              ; preds = %92
+  %130 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
+  %131 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
+  %132 = fcmp ugt double %130, %131
+  br i1 %132, label %100, label %135
 
-123:                                              ; preds = %92
-  %124 = icmp slt i64 %77, %78
+133:                                              ; preds = %92
+  %134 = icmp slt i64 %77, %78
   br label %100
 
-125:                                              ; preds = %119
-  %126 = fcmp ult double %120, %121
+135:                                              ; preds = %129
+  %136 = fcmp ult double %130, %131
   br label %100
 
-127:                                              ; preds = %94
-  %128 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
-  %129 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
-  %130 = fcmp ugt double %128, %129
-  br i1 %130, label %133, label %100
+137:                                              ; preds = %94
+  %138 = load double, ptr %26, align 8, !noalias !1802, !noundef !3
+  %139 = load double, ptr %27, align 8, !noalias !1802, !noundef !3
+  %140 = fcmp ugt double %138, %139
+  br i1 %140, label %143, label %100
 
-131:                                              ; preds = %94
-  %132 = icmp sle i64 %77, %78
+141:                                              ; preds = %94
+  %142 = icmp sle i64 %77, %78
   br label %100
 
-133:                                              ; preds = %127
+143:                                              ; preds = %137
   br label %100
 
 _ZN4fish8builtins4test16test_expressions23binary_primary_evaluate17h12abf15be756717fE.exit: ; preds = %22, %"_ZN68_$LT$fish..wutil..fileid..FileId$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha81c0cab160c09d9E.exit.i", %73, %100

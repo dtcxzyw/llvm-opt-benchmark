@@ -2040,11 +2040,11 @@ define internal fastcc void @ddReportRefMess(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %4 = load ptr, ptr %3, align 8, !tbaa !92
   switch i32 %1, label %7 [
-    i32 2147483647, label %5
+    i32 2147483647, label %3
     i32 -1, label %9
   ]
 
-5:                                                ; preds = %2
+3:                                                ; preds = %2
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1) #14
   br label %9
 
@@ -2052,7 +2052,7 @@ define internal fastcc void @ddReportRefMess(ptr noundef readonly captures(none)
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef %1) #14
   br label %9
 
-9:                                                ; preds = %2, %7, %5
+9:; preds = %2, %7, %5
   %10 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 24, i64 1, ptr %4)
   %11 = load ptr, ptr %3, align 8, !tbaa !92
   %12 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 161, i64 1, ptr %11)
