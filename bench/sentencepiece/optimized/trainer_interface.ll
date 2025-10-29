@@ -1355,17 +1355,17 @@ define void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14No
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false)
   invoke void @_ZN13sentencepiece11TrainerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %29, ptr noundef nonnull align 8 dereferenceable(336) %1)
-          to label %30 unwind label %501
+          to label %30 unwind label %503
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 448
   invoke void @_ZN13sentencepiece14NormalizerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull align 8 dereferenceable(80) %2)
-          to label %32 unwind label %503
+          to label %32 unwind label %505
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 528
   invoke void @_ZN13sentencepiece14NormalizerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %33, ptr noundef nonnull align 8 dereferenceable(80) %3)
-          to label %34 unwind label %505
+          to label %34 unwind label %507
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -1381,7 +1381,7 @@ define void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14No
   store i64 0, ptr %40, align 8, !tbaa !103
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 656
   invoke void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41)
-          to label %42 unwind label %507
+          to label %42 unwind label %509
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -1398,7 +1398,7 @@ define void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14No
   store i32 13, ptr %5, align 8, !tbaa !44, !noalias !120
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %49)
-          to label %.noexc unwind label %509
+          to label %.noexc unwind label %511
 
 .noexc:                                           ; preds = %48
   %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull @.str, i64 noundef 24)
@@ -1479,1333 +1479,1333 @@ _ZN13sentencepiece4util13StatusBuilderD2Ev.exit.i: ; preds = %56, %_ZNKSt7__cxx1
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %78 = load i32, ptr %77, align 8, !tbaa !123, !noalias !120
   %79 = icmp eq i32 %78, 1
-  %.off202.i = add i32 %78, -1
-  %switch203.i = icmp ult i32 %.off202.i, 2
-  br i1 %switch203.i, label %80, label %.thread.i
+  %80 = add i32 %78, -1
+  %81 = icmp ult i32 %80, 2
+  br i1 %81, label %82, label %.thread.i
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 369
-  %82 = load i8, ptr %81, align 1, !tbaa !124, !range !42, !noalias !120, !noundef !43
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %113
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 369
+  %84 = load i8, ptr %83, align 1, !tbaa !124, !range !42, !noalias !120, !noundef !43
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %115
 
-84:                                               ; preds = %80
+86:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !120
   store i32 13, ptr %6, align 8, !tbaa !44, !noalias !120
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %85)
-          to label %.noexc20 unwind label %509
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %87)
+          to label %.noexc20 unwind label %511
 
-.noexc20:                                         ; preds = %84
-  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit79.i unwind label %108, !noalias !120
+.noexc20:                                         ; preds = %86
+  %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit79.i unwind label %110, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit79.i: ; preds = %.noexc20
-  %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit80.i unwind label %108, !noalias !120
+  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit80.i unwind label %110, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit80.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit79.i
-  %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %85, i32 noundef 57)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit81.i unwind label %110, !noalias !120
+  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef 57)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit81.i unwind label %112, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit81.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit80.i
-  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit82.i unwind label %110, !noalias !120
+  %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit82.i unwind label %112, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit82.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit81.i
-  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.104, i64 noundef 29)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA30_cEERS1_RKT_.exit.i unwind label %110, !noalias !120
+  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.104, i64 noundef 29)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA30_cEERS1_RKT_.exit.i unwind label %112, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA30_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit82.i
-  %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit83.i unwind label %110, !noalias !120
+  %93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit83.i unwind label %112, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit83.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA30_cEERS1_RKT_.exit.i
-  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.105, i64 noundef 50)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i unwind label %110, !noalias !120
+  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.105, i64 noundef 50)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i unwind label %112, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit83.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %6)
-          to label %93 unwind label %110
+          to label %95 unwind label %112
 
-93:                                               ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i
-  %94 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
-  store ptr %94, ptr %85, align 8, !tbaa !3, !noalias !120
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
-  %96 = getelementptr i8, ptr %94, i64 -24
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %85, i64 %97
-  store ptr %95, ptr %98, align 8, !tbaa !3, !noalias !120
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %99, align 8, !tbaa !3, !noalias !120
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %101 = load ptr, ptr %100, align 8, !tbaa !39, !noalias !120
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %103 = icmp eq ptr %101, %102
-  br i1 %103, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84.i
+95:                                               ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i
+  %96 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
+  store ptr %96, ptr %87, align 8, !tbaa !3, !noalias !120
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
+  %98 = getelementptr i8, ptr %96, i64 -24
+  %99 = load i64, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %87, i64 %99
+  store ptr %97, ptr %100, align 8, !tbaa !3, !noalias !120
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %101, align 8, !tbaa !3, !noalias !120
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %103 = load ptr, ptr %102, align 8, !tbaa !39, !noalias !120
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %105 = icmp eq ptr %103, %104
+  br i1 %105, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84.i: ; preds = %93
-  %104 = load i64, ptr %102, align 8, !tbaa !36, !noalias !120
-  %105 = add i64 %104, 1
-  call void @_ZdlPvm(ptr noundef %101, i64 noundef %105) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84.i: ; preds = %95
+  %106 = load i64, ptr %104, align 8, !tbaa !36, !noalias !120
+  %107 = add i64 %106, 1
+  call void @_ZdlPvm(ptr noundef %103, i64 noundef %107) #29
   br label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i
 
-_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i: ; preds = %93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %99, align 8, !tbaa !3, !noalias !120
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %106) #30
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %107) #30
+_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %101, align 8, !tbaa !3, !noalias !120
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #30
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %109) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-108:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit79.i, %.noexc20
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  br label %112
-
-110:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit83.i, %_ZN13sentencepiece4util13StatusBuilderlsIA30_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit82.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit81.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit80.i
+110:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit79.i, %.noexc20
   %111 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %114
 
-112:                                              ; preds = %110, %108
-  %.pn76.i = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
+112:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA51_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit83.i, %_ZN13sentencepiece4util13StatusBuilderlsIA30_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit82.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit81.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit80.i
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  br label %114
+
+114:                                              ; preds = %112, %110
+  %.pn76.i = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !120
   br label %.body
 
-113:                                              ; preds = %80
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %115 = load ptr, ptr %114, align 8, !tbaa !125, !noalias !120
-  %116 = ptrtoint ptr %115 to i64
-  %117 = and i64 %116, -2
-  %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i64, ptr %119, align 8, !tbaa !35, !noalias !120
-  %121 = icmp eq i64 %120, 0
-  %brmerge.i = or i1 %79, %121
-  br i1 %brmerge.i, label %158, label %.thread192.i
+115:                                              ; preds = %82
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %117 = load ptr, ptr %116, align 8, !tbaa !125, !noalias !120
+  %118 = ptrtoint ptr %117 to i64
+  %119 = and i64 %118, -2
+  %120 = inttoptr i64 %119 to ptr
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load i64, ptr %121, align 8, !tbaa !35, !noalias !120
+  %123 = icmp eq i64 %122, 0
+  %brmerge.i = or i1 %79, %123
+  br i1 %brmerge.i, label %160, label %.thread192.i
 
 .thread.i:                                        ; preds = %76
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %123 = load ptr, ptr %122, align 8, !tbaa !125, !noalias !120
-  %124 = ptrtoint ptr %123 to i64
-  %125 = and i64 %124, -2
-  %126 = inttoptr i64 %125 to ptr
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load i64, ptr %127, align 8, !tbaa !35, !noalias !120
-  %129 = icmp eq i64 %128, 0
-  br i1 %129, label %158, label %.thread192.i
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %125 = load ptr, ptr %124, align 8, !tbaa !125, !noalias !120
+  %126 = ptrtoint ptr %125 to i64
+  %127 = and i64 %126, -2
+  %128 = inttoptr i64 %127 to ptr
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = load i64, ptr %129, align 8, !tbaa !35, !noalias !120
+  %131 = icmp eq i64 %130, 0
+  br i1 %131, label %160, label %.thread192.i
 
-.thread192.i:                                     ; preds = %.thread.i, %113
+.thread192.i:                                     ; preds = %.thread.i, %115
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !120
   store i32 13, ptr %7, align 8, !tbaa !44, !noalias !120
-  %130 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %130)
-          to label %.noexc21 unwind label %509
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %132)
+          to label %.noexc21 unwind label %511
 
 .noexc21:                                         ; preds = %.thread192.i
-  %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit87.i unwind label %153, !noalias !120
+  %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit87.i unwind label %155, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit87.i: ; preds = %.noexc21
-  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit88.i unwind label %153, !noalias !120
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit88.i unwind label %155, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit88.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit87.i
-  %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %130, i32 noundef 62)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit89.i unwind label %155, !noalias !120
+  %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %132, i32 noundef 62)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit89.i unwind label %157, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit89.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit88.i
-  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit90.i unwind label %155, !noalias !120
+  %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit90.i unwind label %157, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit90.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit89.i
-  %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.106, i64 noundef 49)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA50_cEERS1_RKT_.exit.i unwind label %155, !noalias !120
+  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.106, i64 noundef 49)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA50_cEERS1_RKT_.exit.i unwind label %157, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA50_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit90.i
-  %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit91.i unwind label %155, !noalias !120
+  %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit91.i unwind label %157, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit91.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA50_cEERS1_RKT_.exit.i
-  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.107, i64 noundef 61)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i unwind label %155, !noalias !120
+  %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.107, i64 noundef 61)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i unwind label %157, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit91.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %7)
-          to label %138 unwind label %155
+          to label %140 unwind label %157
 
-138:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i
-  %139 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
-  store ptr %139, ptr %130, align 8, !tbaa !3, !noalias !120
-  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
-  %141 = getelementptr i8, ptr %139, i64 -24
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %130, i64 %142
-  store ptr %140, ptr %143, align 8, !tbaa !3, !noalias !120
-  %144 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %144, align 8, !tbaa !3, !noalias !120
-  %145 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %146 = load ptr, ptr %145, align 8, !tbaa !39, !noalias !120
-  %147 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %148 = icmp eq ptr %146, %147
-  br i1 %148, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i92.i
+140:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i
+  %141 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
+  store ptr %141, ptr %132, align 8, !tbaa !3, !noalias !120
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
+  %143 = getelementptr i8, ptr %141, i64 -24
+  %144 = load i64, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %132, i64 %144
+  store ptr %142, ptr %145, align 8, !tbaa !3, !noalias !120
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %146, align 8, !tbaa !3, !noalias !120
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %148 = load ptr, ptr %147, align 8, !tbaa !39, !noalias !120
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %150 = icmp eq ptr %148, %149
+  br i1 %150, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i92.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i92.i: ; preds = %138
-  %149 = load i64, ptr %147, align 8, !tbaa !36, !noalias !120
-  %150 = add i64 %149, 1
-  call void @_ZdlPvm(ptr noundef %146, i64 noundef %150) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i92.i: ; preds = %140
+  %151 = load i64, ptr %149, align 8, !tbaa !36, !noalias !120
+  %152 = add i64 %151, 1
+  call void @_ZdlPvm(ptr noundef %148, i64 noundef %152) #29
   br label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i
 
-_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i: ; preds = %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i92.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %144, align 8, !tbaa !3, !noalias !120
-  %151 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %151) #30
-  %152 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %152) #30
+_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i: ; preds = %140, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i92.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %146, align 8, !tbaa !3, !noalias !120
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %153) #30
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %154) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-153:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit87.i, %.noexc21
-  %154 = landingpad { ptr, i32 }
-          cleanup
-  br label %157
-
-155:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit91.i, %_ZN13sentencepiece4util13StatusBuilderlsIA50_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit90.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit89.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit88.i
+155:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit87.i, %.noexc21
   %156 = landingpad { ptr, i32 }
           cleanup
-  br label %157
+  br label %159
 
-157:                                              ; preds = %155, %153
-  %.pn48.i = phi { ptr, i32 } [ %156, %155 ], [ %154, %153 ]
+157:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit91.i, %_ZN13sentencepiece4util13StatusBuilderlsIA50_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit90.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit89.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit88.i
+  %158 = landingpad { ptr, i32 }
+          cleanup
+  br label %159
+
+159:                                              ; preds = %157, %155
+  %.pn48.i = phi { ptr, i32 } [ %158, %157 ], [ %156, %155 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !120
   br label %.body
 
-158:                                              ; preds = %.thread.i, %113
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %160 = load float, ptr %159, align 8, !tbaa !126, !noalias !120
-  %161 = fpext float %160 to double
-  %162 = fcmp ult double %161, 0x3FEF5C28F5C28F5C
-  %163 = fcmp ugt float %160, 1.000000e+00
-  %or.cond193.i = or i1 %163, %162
-  br i1 %or.cond193.i, label %164, label %192
+160:                                              ; preds = %.thread.i, %115
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %162 = load float, ptr %161, align 8, !tbaa !126, !noalias !120
+  %163 = fpext float %162 to double
+  %164 = fcmp ult double %163, 0x3FEF5C28F5C28F5C
+  %165 = fcmp ugt float %162, 1.000000e+00
+  %or.cond193.i = or i1 %165, %164
+  br i1 %or.cond193.i, label %166, label %194
 
-164:                                              ; preds = %158
+166:                                              ; preds = %160
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !120
   store i32 13, ptr %8, align 8, !tbaa !44, !noalias !120
-  %165 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %165)
-          to label %.noexc22 unwind label %509
+  %167 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %167)
+          to label %.noexc22 unwind label %511
 
-.noexc22:                                         ; preds = %164
-  %166 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit95.i unwind label %187, !noalias !120
+.noexc22:                                         ; preds = %166
+  %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit95.i unwind label %189, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit95.i: ; preds = %.noexc22
-  %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit96.i unwind label %187, !noalias !120
+  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit96.i unwind label %189, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit96.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit95.i
-  %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %165, i32 noundef 69)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit97.i unwind label %189, !noalias !120
+  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %167, i32 noundef 69)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit97.i unwind label %191, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit97.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit96.i
-  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit98.i unwind label %189, !noalias !120
+  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit98.i unwind label %191, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit98.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit97.i
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.108, i64 noundef 85)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA86_cEERS1_RKT_.exit.i unwind label %189, !noalias !120
+  %172 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str.108, i64 noundef 85)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA86_cEERS1_RKT_.exit.i unwind label %191, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA86_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit98.i
-  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i unwind label %189, !noalias !120
+  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i unwind label %191, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA86_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %8)
-          to label %172 unwind label %189
+          to label %174 unwind label %191
 
-172:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i
-  %173 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
-  store ptr %173, ptr %165, align 8, !tbaa !3, !noalias !120
-  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
-  %175 = getelementptr i8, ptr %173, i64 -24
-  %176 = load i64, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %165, i64 %176
-  store ptr %174, ptr %177, align 8, !tbaa !3, !noalias !120
-  %178 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %178, align 8, !tbaa !3, !noalias !120
-  %179 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %180 = load ptr, ptr %179, align 8, !tbaa !39, !noalias !120
-  %181 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %182 = icmp eq ptr %180, %181
-  br i1 %182, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i100.i
+174:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i
+  %175 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
+  store ptr %175, ptr %167, align 8, !tbaa !3, !noalias !120
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
+  %177 = getelementptr i8, ptr %175, i64 -24
+  %178 = load i64, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %167, i64 %178
+  store ptr %176, ptr %179, align 8, !tbaa !3, !noalias !120
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %180, align 8, !tbaa !3, !noalias !120
+  %181 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %182 = load ptr, ptr %181, align 8, !tbaa !39, !noalias !120
+  %183 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %184 = icmp eq ptr %182, %183
+  br i1 %184, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i100.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i100.i: ; preds = %172
-  %183 = load i64, ptr %181, align 8, !tbaa !36, !noalias !120
-  %184 = add i64 %183, 1
-  call void @_ZdlPvm(ptr noundef %180, i64 noundef %184) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i100.i: ; preds = %174
+  %185 = load i64, ptr %183, align 8, !tbaa !36, !noalias !120
+  %186 = add i64 %185, 1
+  call void @_ZdlPvm(ptr noundef %182, i64 noundef %186) #29
   br label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i
 
-_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i: ; preds = %172, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i100.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %178, align 8, !tbaa !3, !noalias !120
-  %185 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %185) #30
-  %186 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %186) #30
+_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i: ; preds = %174, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i100.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %180, align 8, !tbaa !3, !noalias !120
+  %187 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %187) #30
+  %188 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %188) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-187:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit95.i, %.noexc22
-  %188 = landingpad { ptr, i32 }
-          cleanup
-  br label %191
-
-189:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i, %_ZN13sentencepiece4util13StatusBuilderlsIA86_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit98.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit97.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit96.i
+189:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit95.i, %.noexc22
   %190 = landingpad { ptr, i32 }
           cleanup
-  br label %191
+  br label %193
 
-191:                                              ; preds = %189, %187
-  %.pn50.i = phi { ptr, i32 } [ %190, %189 ], [ %188, %187 ]
+191:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit99.i, %_ZN13sentencepiece4util13StatusBuilderlsIA86_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit98.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit97.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit96.i
+  %192 = landingpad { ptr, i32 }
+          cleanup
+  br label %193
+
+193:                                              ; preds = %191, %189
+  %.pn50.i = phi { ptr, i32 } [ %192, %191 ], [ %190, %189 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !120
   br label %.body
 
-192:                                              ; preds = %158
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %194 = load i32, ptr %193, align 8, !tbaa !127, !noalias !120
-  %195 = add i32 %194, -1
-  %or.cond194.i = icmp ult i32 %195, 512
-  br i1 %or.cond194.i, label %224, label %196
+194:                                              ; preds = %160
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %196 = load i32, ptr %195, align 8, !tbaa !127, !noalias !120
+  %197 = add i32 %196, -1
+  %or.cond194.i = icmp ult i32 %197, 512
+  br i1 %or.cond194.i, label %226, label %198
 
-196:                                              ; preds = %192
+198:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !120
   store i32 13, ptr %9, align 8, !tbaa !44, !noalias !120
-  %197 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %197)
-          to label %.noexc23 unwind label %509
+  %199 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %199)
+          to label %.noexc23 unwind label %511
 
-.noexc23:                                         ; preds = %196
-  %198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit103.i unwind label %219, !noalias !120
+.noexc23:                                         ; preds = %198
+  %200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit103.i unwind label %221, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit103.i: ; preds = %.noexc23
-  %199 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit104.i unwind label %219, !noalias !120
+  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit104.i unwind label %221, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit104.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit103.i
-  %200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %197, i32 noundef 70)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit105.i unwind label %221, !noalias !120
+  %202 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %199, i32 noundef 70)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit105.i unwind label %223, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit105.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit104.i
-  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit106.i unwind label %221, !noalias !120
+  %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit106.i unwind label %223, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit106.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit105.i
-  %202 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull @.str.109, i64 noundef 94)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA95_cEERS1_RKT_.exit.i unwind label %221, !noalias !120
+  %204 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.109, i64 noundef 94)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA95_cEERS1_RKT_.exit.i unwind label %223, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA95_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit106.i
-  %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i unwind label %221, !noalias !120
+  %205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i unwind label %223, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA95_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %9)
-          to label %204 unwind label %221
+          to label %206 unwind label %223
 
-204:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i
-  %205 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
-  store ptr %205, ptr %197, align 8, !tbaa !3, !noalias !120
-  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
-  %207 = getelementptr i8, ptr %205, i64 -24
-  %208 = load i64, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %197, i64 %208
-  store ptr %206, ptr %209, align 8, !tbaa !3, !noalias !120
-  %210 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %210, align 8, !tbaa !3, !noalias !120
-  %211 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %212 = load ptr, ptr %211, align 8, !tbaa !39, !noalias !120
-  %213 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %214 = icmp eq ptr %212, %213
-  br i1 %214, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i108.i
+206:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i
+  %207 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8, !noalias !120
+  store ptr %207, ptr %199, align 8, !tbaa !3, !noalias !120
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8, !noalias !120
+  %209 = getelementptr i8, ptr %207, i64 -24
+  %210 = load i64, ptr %209, align 8
+  %211 = getelementptr inbounds i8, ptr %199, i64 %210
+  store ptr %208, ptr %211, align 8, !tbaa !3, !noalias !120
+  %212 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %212, align 8, !tbaa !3, !noalias !120
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %214 = load ptr, ptr %213, align 8, !tbaa !39, !noalias !120
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %216 = icmp eq ptr %214, %215
+  br i1 %216, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i108.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i108.i: ; preds = %204
-  %215 = load i64, ptr %213, align 8, !tbaa !36, !noalias !120
-  %216 = add i64 %215, 1
-  call void @_ZdlPvm(ptr noundef %212, i64 noundef %216) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i108.i: ; preds = %206
+  %217 = load i64, ptr %215, align 8, !tbaa !36, !noalias !120
+  %218 = add i64 %217, 1
+  call void @_ZdlPvm(ptr noundef %214, i64 noundef %218) #29
   br label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i
 
-_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i: ; preds = %204, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i108.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %210, align 8, !tbaa !3, !noalias !120
-  %217 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %217) #30
-  %218 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %218) #30
+_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i: ; preds = %206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i108.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %212, align 8, !tbaa !3, !noalias !120
+  %219 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %219) #30
+  %220 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %220) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-219:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit103.i, %.noexc23
-  %220 = landingpad { ptr, i32 }
-          cleanup
-  br label %223
-
-221:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i, %_ZN13sentencepiece4util13StatusBuilderlsIA95_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit106.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit105.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit104.i
+221:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit103.i, %.noexc23
   %222 = landingpad { ptr, i32 }
           cleanup
-  br label %223
+  br label %225
 
-223:                                              ; preds = %221, %219
-  %.pn52.i = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
+223:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit107.i, %_ZN13sentencepiece4util13StatusBuilderlsIA95_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit106.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit105.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit104.i
+  %224 = landingpad { ptr, i32 }
+          cleanup
+  br label %225
+
+225:                                              ; preds = %223, %221
+  %.pn52.i = phi { ptr, i32 } [ %224, %223 ], [ %222, %221 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !120
   br label %.body
 
-224:                                              ; preds = %192
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %226 = load i32, ptr %225, align 8, !tbaa !128, !noalias !120
-  %227 = add i32 %226, -1
-  %or.cond195.i = icmp ult i32 %227, 10
-  br i1 %or.cond195.i, label %256, label %228
+226:                                              ; preds = %194
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %228 = load i32, ptr %227, align 8, !tbaa !128, !noalias !120
+  %229 = add i32 %228, -1
+  %or.cond195.i = icmp ult i32 %229, 10
+  br i1 %or.cond195.i, label %258, label %230
 
-228:                                              ; preds = %224
+230:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !120
   store i32 13, ptr %10, align 8, !tbaa !44, !noalias !120
-  %229 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %229)
-          to label %.noexc24 unwind label %509
+  %231 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %231)
+          to label %.noexc24 unwind label %511
 
-.noexc24:                                         ; preds = %228
-  %230 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit111.i unwind label %251, !noalias !120
+.noexc24:                                         ; preds = %230
+  %232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit111.i unwind label %253, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit111.i: ; preds = %.noexc24
-  %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit112.i unwind label %251, !noalias !120
+  %233 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit112.i unwind label %253, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit112.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit111.i
-  %232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %229, i32 noundef 71)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit113.i unwind label %253, !noalias !120
+  %234 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %231, i32 noundef 71)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit113.i unwind label %255, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit113.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit112.i
-  %233 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit114.i unwind label %253, !noalias !120
+  %235 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit114.i unwind label %255, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit114.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit113.i
-  %234 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull @.str.110, i64 noundef 81)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit.i unwind label %253, !noalias !120
+  %236 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull @.str.110, i64 noundef 81)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit.i unwind label %255, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit114.i
-  %235 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i unwind label %253, !noalias !120
+  %237 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i unwind label %255, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %10)
-          to label %236 unwind label %253
+          to label %238 unwind label %255
 
-236:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i
-  %237 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  store ptr %237, ptr %229, align 8, !tbaa !3
-  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
-  %239 = getelementptr i8, ptr %237, i64 -24
-  %240 = load i64, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %229, i64 %240
-  store ptr %238, ptr %241, align 8, !tbaa !3
-  %242 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %242, align 8, !tbaa !3
-  %243 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %244 = load ptr, ptr %243, align 8, !tbaa !39
-  %245 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %246 = icmp eq ptr %244, %245
-  br i1 %246, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+238:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i
+  %239 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
+  store ptr %239, ptr %231, align 8, !tbaa !3
+  %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %241 = getelementptr i8, ptr %239, i64 -24
+  %242 = load i64, ptr %241, align 8
+  %243 = getelementptr inbounds i8, ptr %231, i64 %242
+  store ptr %240, ptr %243, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %244, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %246 = load ptr, ptr %245, align 8, !tbaa !39
+  %247 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %248 = icmp eq ptr %246, %247
+  br i1 %248, label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %236
-  %247 = load i64, ptr %245, align 8, !tbaa !36
-  %248 = add i64 %247, 1
-  call void @_ZdlPvm(ptr noundef %244, i64 noundef %248) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %238
+  %249 = load i64, ptr %247, align 8, !tbaa !36
+  %250 = add i64 %249, 1
+  call void @_ZdlPvm(ptr noundef %246, i64 noundef %250) #29
   br label %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit
 
-_ZN13sentencepiece4util13StatusBuilderD2Ev.exit:  ; preds = %236, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %242, align 8, !tbaa !3
-  %249 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %249) #30
-  %250 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %250) #30
+_ZN13sentencepiece4util13StatusBuilderD2Ev.exit:  ; preds = %238, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %244, align 8, !tbaa !3
+  %251 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %251) #30
+  %252 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %252) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-251:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit111.i, %.noexc24
-  %252 = landingpad { ptr, i32 }
-          cleanup
-  br label %255
-
-253:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i, %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit114.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit113.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit112.i
+253:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit111.i, %.noexc24
   %254 = landingpad { ptr, i32 }
           cleanup
-  br label %255
+  br label %257
 
-255:                                              ; preds = %253, %251
-  %.pn54.i = phi { ptr, i32 } [ %254, %253 ], [ %252, %251 ]
+255:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit115.i, %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit114.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit113.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit112.i
+  %256 = landingpad { ptr, i32 }
+          cleanup
+  br label %257
+
+257:                                              ; preds = %255, %253
+  %.pn54.i = phi { ptr, i32 } [ %256, %255 ], [ %254, %253 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %10) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !120
   br label %.body
 
-256:                                              ; preds = %224
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  %258 = load i32, ptr %257, align 4, !tbaa !129, !noalias !120
-  %259 = add i32 %258, -1
-  %or.cond196.i = icmp ult i32 %259, 1024
-  br i1 %or.cond196.i, label %274, label %260
+258:                                              ; preds = %226
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  %260 = load i32, ptr %259, align 4, !tbaa !129, !noalias !120
+  %261 = add i32 %260, -1
+  %or.cond196.i = icmp ult i32 %261, 1024
+  br i1 %or.cond196.i, label %276, label %262
 
-260:                                              ; preds = %256
+262:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !120
   store i32 13, ptr %11, align 8, !tbaa !44, !noalias !120
-  %261 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %261)
-          to label %.noexc25 unwind label %509
+  %263 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %263)
+          to label %.noexc25 unwind label %511
 
-.noexc25:                                         ; preds = %260
-  %262 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit116.i unwind label %269, !noalias !120
+.noexc25:                                         ; preds = %262
+  %264 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit116.i unwind label %271, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit116.i: ; preds = %.noexc25
-  %263 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit117.i unwind label %269, !noalias !120
+  %265 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit117.i unwind label %271, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit117.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit116.i
-  %264 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %261, i32 noundef 72)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit118.i unwind label %271, !noalias !120
+  %266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %263, i32 noundef 72)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit118.i unwind label %273, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit118.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit117.i
-  %265 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit119.i unwind label %271, !noalias !120
+  %267 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit119.i unwind label %273, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit119.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit118.i
-  %266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str.111, i64 noundef 69)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA70_cEERS1_RKT_.exit.i unwind label %271, !noalias !120
+  %268 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull @.str.111, i64 noundef 69)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA70_cEERS1_RKT_.exit.i unwind label %273, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA70_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit119.i
-  %267 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i unwind label %271, !noalias !120
+  %269 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i unwind label %273, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA70_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %11)
-          to label %268 unwind label %271
+          to label %270 unwind label %273
 
-268:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i
+270:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-269:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit116.i, %.noexc25
-  %270 = landingpad { ptr, i32 }
-          cleanup
-  br label %273
-
-271:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i, %_ZN13sentencepiece4util13StatusBuilderlsIA70_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit119.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit118.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit117.i
+271:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit116.i, %.noexc25
   %272 = landingpad { ptr, i32 }
           cleanup
-  br label %273
+  br label %275
 
-273:                                              ; preds = %271, %269
-  %.pn56.i = phi { ptr, i32 } [ %272, %271 ], [ %270, %269 ]
+273:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit120.i, %_ZN13sentencepiece4util13StatusBuilderlsIA70_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit119.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit118.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit117.i
+  %274 = landingpad { ptr, i32 }
+          cleanup
+  br label %275
+
+275:                                              ; preds = %273, %271
+  %.pn56.i = phi { ptr, i32 } [ %274, %273 ], [ %272, %271 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !120
   br label %.body
 
-274:                                              ; preds = %256
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %276 = load i32, ptr %275, align 8, !tbaa !130, !noalias !120
-  %or.cond197.i = icmp ult i32 %276, 1001
-  br i1 %or.cond197.i, label %291, label %277
+276:                                              ; preds = %258
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %278 = load i32, ptr %277, align 8, !tbaa !130, !noalias !120
+  %or.cond197.i = icmp ult i32 %278, 1001
+  br i1 %or.cond197.i, label %293, label %279
 
-277:                                              ; preds = %274
+279:                                              ; preds = %276
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !120
   store i32 13, ptr %12, align 8, !tbaa !44, !noalias !120
-  %278 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %278)
-          to label %.noexc26 unwind label %509
+  %280 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %280)
+          to label %.noexc26 unwind label %511
 
-.noexc26:                                         ; preds = %277
-  %279 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit121.i unwind label %286, !noalias !120
+.noexc26:                                         ; preds = %279
+  %281 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit121.i unwind label %288, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit121.i: ; preds = %.noexc26
-  %280 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit122.i unwind label %286, !noalias !120
+  %282 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit122.i unwind label %288, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit122.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit121.i
-  %281 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %278, i32 noundef 73)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit123.i unwind label %288, !noalias !120
+  %283 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %280, i32 noundef 73)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit123.i unwind label %290, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit123.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit122.i
-  %282 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit124.i unwind label %288, !noalias !120
+  %284 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit124.i unwind label %290, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit124.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit123.i
-  %283 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull @.str.112, i64 noundef 89)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA90_cEERS1_RKT_.exit.i unwind label %288, !noalias !120
+  %285 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef nonnull @.str.112, i64 noundef 89)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA90_cEERS1_RKT_.exit.i unwind label %290, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA90_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit124.i
-  %284 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i unwind label %288, !noalias !120
+  %286 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i unwind label %290, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA90_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %12)
-          to label %285 unwind label %288
+          to label %287 unwind label %290
 
-285:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i
+287:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-286:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit121.i, %.noexc26
-  %287 = landingpad { ptr, i32 }
-          cleanup
-  br label %290
-
-288:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i, %_ZN13sentencepiece4util13StatusBuilderlsIA90_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit124.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit123.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit122.i
+288:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit121.i, %.noexc26
   %289 = landingpad { ptr, i32 }
           cleanup
-  br label %290
+  br label %292
 
-290:                                              ; preds = %288, %286
-  %.pn58.i = phi { ptr, i32 } [ %289, %288 ], [ %287, %286 ]
+290:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit125.i, %_ZN13sentencepiece4util13StatusBuilderlsIA90_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit124.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit123.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit122.i
+  %291 = landingpad { ptr, i32 }
+          cleanup
+  br label %292
+
+292:                                              ; preds = %290, %288
+  %.pn58.i = phi { ptr, i32 } [ %291, %290 ], [ %289, %288 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !120
   br label %.body
 
-291:                                              ; preds = %274
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %293 = load float, ptr %292, align 8, !tbaa !131, !noalias !120
-  %294 = fcmp ult float %293, 5.000000e-01
-  %295 = fpext float %293 to double
-  %296 = fcmp ugt double %295, 0x3FEE666666666666
-  %or.cond199.i = or i1 %294, %296
-  br i1 %or.cond199.i, label %297, label %311
+293:                                              ; preds = %276
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %295 = load float, ptr %294, align 8, !tbaa !131, !noalias !120
+  %296 = fcmp ult float %295, 5.000000e-01
+  %297 = fpext float %295 to double
+  %298 = fcmp ugt double %297, 0x3FEE666666666666
+  %or.cond199.i = or i1 %296, %298
+  br i1 %or.cond199.i, label %299, label %313
 
-297:                                              ; preds = %291
+299:                                              ; preds = %293
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !120
   store i32 13, ptr %13, align 8, !tbaa !44, !noalias !120
-  %298 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %298)
-          to label %.noexc27 unwind label %509
+  %300 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %300)
+          to label %.noexc27 unwind label %511
 
-.noexc27:                                         ; preds = %297
-  %299 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit126.i unwind label %306, !noalias !120
+.noexc27:                                         ; preds = %299
+  %301 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit126.i unwind label %308, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit126.i: ; preds = %.noexc27
-  %300 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit127.i unwind label %306, !noalias !120
+  %302 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit127.i unwind label %308, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit127.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit126.i
-  %301 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %298, i32 noundef 74)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit128.i unwind label %308, !noalias !120
+  %303 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %300, i32 noundef 74)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit128.i unwind label %310, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit128.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit127.i
-  %302 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit129.i unwind label %308, !noalias !120
+  %304 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit129.i unwind label %310, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit129.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit128.i
-  %303 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str.113, i64 noundef 81)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit130.i unwind label %308, !noalias !120
+  %305 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef nonnull @.str.113, i64 noundef 81)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit130.i unwind label %310, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit130.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit129.i
-  %304 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i unwind label %308, !noalias !120
+  %306 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i unwind label %310, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit130.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %13)
-          to label %305 unwind label %308
+          to label %307 unwind label %310
 
-305:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i
+307:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-306:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit126.i, %.noexc27
-  %307 = landingpad { ptr, i32 }
-          cleanup
-  br label %310
-
-308:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i, %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit130.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit129.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit128.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit127.i
+308:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit126.i, %.noexc27
   %309 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %312
 
-310:                                              ; preds = %308, %306
-  %.pn60.i = phi { ptr, i32 } [ %309, %308 ], [ %307, %306 ]
+310:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit131.i, %_ZN13sentencepiece4util13StatusBuilderlsIA82_cEERS1_RKT_.exit130.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit129.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit128.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit127.i
+  %311 = landingpad { ptr, i32 }
+          cleanup
+  br label %312
+
+312:                                              ; preds = %310, %308
+  %.pn60.i = phi { ptr, i32 } [ %311, %310 ], [ %309, %308 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !120
   br label %.body
 
-311:                                              ; preds = %291
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %313 = load i32, ptr %312, align 4, !tbaa !132, !noalias !120
-  %314 = add i32 %313, -10
-  %or.cond200.i = icmp ult i32 %314, 1073741815
-  br i1 %or.cond200.i, label %329, label %315
+313:                                              ; preds = %293
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %315 = load i32, ptr %314, align 4, !tbaa !132, !noalias !120
+  %316 = add i32 %315, -10
+  %or.cond200.i = icmp ult i32 %316, 1073741815
+  br i1 %or.cond200.i, label %331, label %317
 
-315:                                              ; preds = %311
+317:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !120
   store i32 13, ptr %14, align 8, !tbaa !44, !noalias !120
-  %316 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %316)
-          to label %.noexc28 unwind label %509
+  %318 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %318)
+          to label %.noexc28 unwind label %511
 
-.noexc28:                                         ; preds = %315
-  %317 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit132.i unwind label %324, !noalias !120
+.noexc28:                                         ; preds = %317
+  %319 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit132.i unwind label %326, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit132.i: ; preds = %.noexc28
-  %318 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit133.i unwind label %324, !noalias !120
+  %320 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit133.i unwind label %326, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit133.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit132.i
-  %319 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %316, i32 noundef 75)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit134.i unwind label %326, !noalias !120
+  %321 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %318, i32 noundef 75)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit134.i unwind label %328, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit134.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit133.i
-  %320 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit135.i unwind label %326, !noalias !120
+  %322 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit135.i unwind label %328, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit135.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit134.i
-  %321 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull @.str.114, i64 noundef 92)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA93_cEERS1_RKT_.exit.i unwind label %326, !noalias !120
+  %323 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull @.str.114, i64 noundef 92)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA93_cEERS1_RKT_.exit.i unwind label %328, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA93_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit135.i
-  %322 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i unwind label %326, !noalias !120
+  %324 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i unwind label %328, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA93_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %14)
-          to label %323 unwind label %326
+          to label %325 unwind label %328
 
-323:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i
+325:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-324:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit132.i, %.noexc28
-  %325 = landingpad { ptr, i32 }
-          cleanup
-  br label %328
-
-326:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i, %_ZN13sentencepiece4util13StatusBuilderlsIA93_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit135.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit134.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit133.i
+326:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit132.i, %.noexc28
   %327 = landingpad { ptr, i32 }
           cleanup
-  br label %328
+  br label %330
 
-328:                                              ; preds = %326, %324
-  %.pn62.i = phi { ptr, i32 } [ %327, %326 ], [ %325, %324 ]
+328:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit136.i, %_ZN13sentencepiece4util13StatusBuilderlsIA93_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit135.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit134.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit133.i
+  %329 = landingpad { ptr, i32 }
+          cleanup
+  br label %330
+
+330:                                              ; preds = %328, %326
+  %.pn62.i = phi { ptr, i32 } [ %329, %328 ], [ %327, %326 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !120
   br label %.body
 
-329:                                              ; preds = %311
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %331 = load i64, ptr %330, align 8, !tbaa !133, !noalias !120
-  %332 = add i64 %331, -101
-  %or.cond201.i = icmp ult i64 %332, -100
-  br i1 %or.cond201.i, label %347, label %333
+331:                                              ; preds = %313
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %333 = load i64, ptr %332, align 8, !tbaa !133, !noalias !120
+  %334 = add i64 %333, -101
+  %or.cond201.i = icmp ult i64 %334, -100
+  br i1 %or.cond201.i, label %349, label %335
 
-333:                                              ; preds = %329
+335:                                              ; preds = %331
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !120
   store i32 13, ptr %15, align 8, !tbaa !44, !noalias !120
-  %334 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %334)
-          to label %.noexc29 unwind label %509
+  %336 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %336)
+          to label %.noexc29 unwind label %511
 
-.noexc29:                                         ; preds = %333
-  %335 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit137.i unwind label %342, !noalias !120
+.noexc29:                                         ; preds = %335
+  %337 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %336, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit137.i unwind label %344, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit137.i: ; preds = %.noexc29
-  %336 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit138.i unwind label %342, !noalias !120
+  %338 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %336, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit138.i unwind label %344, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit138.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit137.i
-  %337 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %334, i32 noundef 79)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit139.i unwind label %344, !noalias !120
+  %339 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %336, i32 noundef 79)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit139.i unwind label %346, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit139.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit138.i
-  %338 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit140.i unwind label %344, !noalias !120
+  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %336, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit140.i unwind label %346, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit140.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit139.i
-  %339 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull @.str.115, i64 noundef 83)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA84_cEERS1_RKT_.exit.i unwind label %344, !noalias !120
+  %341 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %336, ptr noundef nonnull @.str.115, i64 noundef 83)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA84_cEERS1_RKT_.exit.i unwind label %346, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA84_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit140.i
-  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i unwind label %344, !noalias !120
+  %342 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %336, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i unwind label %346, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA84_cEERS1_RKT_.exit.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %15)
-          to label %341 unwind label %344
+          to label %343 unwind label %346
 
-341:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i
+343:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %15) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-342:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit137.i, %.noexc29
-  %343 = landingpad { ptr, i32 }
-          cleanup
-  br label %346
-
-344:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i, %_ZN13sentencepiece4util13StatusBuilderlsIA84_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit140.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit139.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit138.i
+344:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit137.i, %.noexc29
   %345 = landingpad { ptr, i32 }
           cleanup
-  br label %346
+  br label %348
 
-346:                                              ; preds = %344, %342
-  %.pn64.i = phi { ptr, i32 } [ %345, %344 ], [ %343, %342 ]
+346:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit141.i, %_ZN13sentencepiece4util13StatusBuilderlsIA84_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit140.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit139.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit138.i
+  %347 = landingpad { ptr, i32 }
+          cleanup
+  br label %348
+
+348:                                              ; preds = %346, %344
+  %.pn64.i = phi { ptr, i32 } [ %347, %346 ], [ %345, %344 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %15) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !120
   br label %.body
 
-347:                                              ; preds = %329
-  %348 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %349 = load ptr, ptr %348, align 8, !tbaa !125, !noalias !120
-  %350 = icmp eq ptr %349, null
-  br i1 %350, label %351, label %356
+349:                                              ; preds = %331
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %351 = load ptr, ptr %350, align 8, !tbaa !125, !noalias !120
+  %352 = icmp eq ptr %351, null
+  br i1 %352, label %353, label %358
 
-351:                                              ; preds = %347
-  %352 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_unk_piece_E, i64 32) acquire, align 8, !noalias !120
-  %.0.i.i.i.i.i = inttoptr i64 %352 to ptr
-  %353 = icmp eq i64 %352, 0
-  br i1 %353, label %354, label %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i, !prof !31
+353:                                              ; preds = %349
+  %354 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_unk_piece_E, i64 32) acquire, align 8, !noalias !120
+  %.0.i.i.i.i.i = inttoptr i64 %354 to ptr
+  %355 = icmp eq i64 %354, 0
+  br i1 %355, label %356, label %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i, !prof !31
 
-354:                                              ; preds = %351
-  %355 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_unk_piece_E)
-          to label %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i unwind label %509
+356:                                              ; preds = %353
+  %357 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_unk_piece_E)
+          to label %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i unwind label %511
 
-356:                                              ; preds = %347
-  %357 = ptrtoint ptr %349 to i64
-  %358 = and i64 %357, -2
-  %359 = inttoptr i64 %358 to ptr
+358:                                              ; preds = %349
+  %359 = ptrtoint ptr %351 to i64
+  %360 = and i64 %359, -2
+  %361 = inttoptr i64 %360 to ptr
   br label %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i
 
-_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i: ; preds = %354, %356, %351
-  %.0.i.i = phi ptr [ %359, %356 ], [ %.0.i.i.i.i.i, %351 ], [ %355, %354 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %361 = load i64, ptr %360, align 8, !tbaa !35, !noalias !120
-  %362 = icmp eq i64 %361, 0
-  br i1 %362, label %363, label %377
+_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i: ; preds = %356, %358, %353
+  %.0.i.i = phi ptr [ %361, %358 ], [ %.0.i.i.i.i.i, %353 ], [ %357, %356 ]
+  %362 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %363 = load i64, ptr %362, align 8, !tbaa !35, !noalias !120
+  %364 = icmp eq i64 %363, 0
+  br i1 %364, label %365, label %379
 
-363:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i
+365:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !120
   store i32 13, ptr %16, align 8, !tbaa !44, !noalias !120
-  %364 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %364)
-          to label %.noexc31 unwind label %509
+  %366 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %366)
+          to label %.noexc31 unwind label %511
 
-.noexc31:                                         ; preds = %363
-  %365 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit142.i unwind label %372, !noalias !120
+.noexc31:                                         ; preds = %365
+  %367 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit142.i unwind label %374, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit142.i: ; preds = %.noexc31
-  %366 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit143.i unwind label %372, !noalias !120
+  %368 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit143.i unwind label %374, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit143.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit142.i
-  %367 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %364, i32 noundef 81)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit144.i unwind label %374, !noalias !120
+  %369 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %366, i32 noundef 81)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit144.i unwind label %376, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit144.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit143.i
-  %368 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit145.i unwind label %374, !noalias !120
+  %370 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit145.i unwind label %376, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit145.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit144.i
-  %369 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull @.str.116, i64 noundef 33)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit146.i unwind label %374, !noalias !120
+  %371 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull @.str.116, i64 noundef 33)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit146.i unwind label %376, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit146.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit145.i
-  %370 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i unwind label %374, !noalias !120
+  %372 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i unwind label %376, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit146.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %16)
-          to label %371 unwind label %374
+          to label %373 unwind label %376
 
-371:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i
+373:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %16) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-372:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit142.i, %.noexc31
-  %373 = landingpad { ptr, i32 }
-          cleanup
-  br label %376
-
-374:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit146.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit145.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit144.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit143.i
+374:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit142.i, %.noexc31
   %375 = landingpad { ptr, i32 }
           cleanup
-  br label %376
+  br label %378
 
-376:                                              ; preds = %374, %372
-  %.pn74.i = phi { ptr, i32 } [ %375, %374 ], [ %373, %372 ]
+376:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit147.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit146.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit145.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit144.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit143.i
+  %377 = landingpad { ptr, i32 }
+          cleanup
+  br label %378
+
+378:                                              ; preds = %376, %374
+  %.pn74.i = phi { ptr, i32 } [ %377, %376 ], [ %375, %374 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %16) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !120
   br label %.body
 
-377:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %379 = load ptr, ptr %378, align 8, !tbaa !125, !noalias !120
-  %380 = icmp eq ptr %379, null
-  br i1 %380, label %381, label %386
+379:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit.i
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %381 = load ptr, ptr %380, align 8, !tbaa !125, !noalias !120
+  %382 = icmp eq ptr %381, null
+  br i1 %382, label %383, label %388
 
-381:                                              ; preds = %377
-  %382 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_bos_piece_E, i64 32) acquire, align 8, !noalias !120
-  %.0.i.i.i.i149.i = inttoptr i64 %382 to ptr
-  %383 = icmp eq i64 %382, 0
-  br i1 %383, label %384, label %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i, !prof !31
+383:                                              ; preds = %379
+  %384 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_bos_piece_E, i64 32) acquire, align 8, !noalias !120
+  %.0.i.i.i.i149.i = inttoptr i64 %384 to ptr
+  %385 = icmp eq i64 %384, 0
+  br i1 %385, label %386, label %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i, !prof !31
 
-384:                                              ; preds = %381
-  %385 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_bos_piece_E)
-          to label %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i unwind label %509
+386:                                              ; preds = %383
+  %387 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_bos_piece_E)
+          to label %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i unwind label %511
 
-386:                                              ; preds = %377
-  %387 = ptrtoint ptr %379 to i64
-  %388 = and i64 %387, -2
-  %389 = inttoptr i64 %388 to ptr
+388:                                              ; preds = %379
+  %389 = ptrtoint ptr %381 to i64
+  %390 = and i64 %389, -2
+  %391 = inttoptr i64 %390 to ptr
   br label %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i
 
-_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i: ; preds = %384, %386, %381
-  %.0.i148.i = phi ptr [ %389, %386 ], [ %.0.i.i.i.i149.i, %381 ], [ %385, %384 ]
-  %390 = getelementptr inbounds nuw i8, ptr %.0.i148.i, i64 8
-  %391 = load i64, ptr %390, align 8, !tbaa !35, !noalias !120
-  %392 = icmp eq i64 %391, 0
-  br i1 %392, label %393, label %407
+_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i: ; preds = %386, %388, %383
+  %.0.i148.i = phi ptr [ %391, %388 ], [ %.0.i.i.i.i149.i, %383 ], [ %387, %386 ]
+  %392 = getelementptr inbounds nuw i8, ptr %.0.i148.i, i64 8
+  %393 = load i64, ptr %392, align 8, !tbaa !35, !noalias !120
+  %394 = icmp eq i64 %393, 0
+  br i1 %394, label %395, label %409
 
-393:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i
+395:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !120
   store i32 13, ptr %17, align 8, !tbaa !44, !noalias !120
-  %394 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %394)
-          to label %.noexc33 unwind label %509
+  %396 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %396)
+          to label %.noexc33 unwind label %511
 
-.noexc33:                                         ; preds = %393
-  %395 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit150.i unwind label %402, !noalias !120
+.noexc33:                                         ; preds = %395
+  %397 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit150.i unwind label %404, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit150.i: ; preds = %.noexc33
-  %396 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit151.i unwind label %402, !noalias !120
+  %398 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit151.i unwind label %404, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit151.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit150.i
-  %397 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %394, i32 noundef 82)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit152.i unwind label %404, !noalias !120
+  %399 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %396, i32 noundef 82)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit152.i unwind label %406, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit152.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit151.i
-  %398 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit153.i unwind label %404, !noalias !120
+  %400 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit153.i unwind label %406, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit153.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit152.i
-  %399 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull @.str.117, i64 noundef 33)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit154.i unwind label %404, !noalias !120
+  %401 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull @.str.117, i64 noundef 33)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit154.i unwind label %406, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit154.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit153.i
-  %400 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i unwind label %404, !noalias !120
+  %402 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i unwind label %406, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit154.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %17)
-          to label %401 unwind label %404
+          to label %403 unwind label %406
 
-401:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i
+403:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %17) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-402:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit150.i, %.noexc33
-  %403 = landingpad { ptr, i32 }
-          cleanup
-  br label %406
-
-404:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit154.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit153.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit152.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit151.i
+404:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit150.i, %.noexc33
   %405 = landingpad { ptr, i32 }
           cleanup
-  br label %406
+  br label %408
 
-406:                                              ; preds = %404, %402
-  %.pn72.i = phi { ptr, i32 } [ %405, %404 ], [ %403, %402 ]
+406:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit155.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit154.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit153.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit152.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit151.i
+  %407 = landingpad { ptr, i32 }
+          cleanup
+  br label %408
+
+408:                                              ; preds = %406, %404
+  %.pn72.i = phi { ptr, i32 } [ %407, %406 ], [ %405, %404 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %17) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !120
   br label %.body
 
-407:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %409 = load ptr, ptr %408, align 8, !tbaa !125, !noalias !120
-  %410 = icmp eq ptr %409, null
-  br i1 %410, label %411, label %416
+409:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit.i
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %411 = load ptr, ptr %410, align 8, !tbaa !125, !noalias !120
+  %412 = icmp eq ptr %411, null
+  br i1 %412, label %413, label %418
 
-411:                                              ; preds = %407
-  %412 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_eos_piece_E, i64 32) acquire, align 8, !noalias !120
-  %.0.i.i.i.i157.i = inttoptr i64 %412 to ptr
-  %413 = icmp eq i64 %412, 0
-  br i1 %413, label %414, label %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i, !prof !31
+413:                                              ; preds = %409
+  %414 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_eos_piece_E, i64 32) acquire, align 8, !noalias !120
+  %.0.i.i.i.i157.i = inttoptr i64 %414 to ptr
+  %415 = icmp eq i64 %414, 0
+  br i1 %415, label %416, label %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i, !prof !31
 
-414:                                              ; preds = %411
-  %415 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_eos_piece_E)
-          to label %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i unwind label %509
+416:                                              ; preds = %413
+  %417 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_eos_piece_E)
+          to label %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i unwind label %511
 
-416:                                              ; preds = %407
-  %417 = ptrtoint ptr %409 to i64
-  %418 = and i64 %417, -2
-  %419 = inttoptr i64 %418 to ptr
+418:                                              ; preds = %409
+  %419 = ptrtoint ptr %411 to i64
+  %420 = and i64 %419, -2
+  %421 = inttoptr i64 %420 to ptr
   br label %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i
 
-_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i: ; preds = %414, %416, %411
-  %.0.i156.i = phi ptr [ %419, %416 ], [ %.0.i.i.i.i157.i, %411 ], [ %415, %414 ]
-  %420 = getelementptr inbounds nuw i8, ptr %.0.i156.i, i64 8
-  %421 = load i64, ptr %420, align 8, !tbaa !35, !noalias !120
-  %422 = icmp eq i64 %421, 0
-  br i1 %422, label %423, label %437
+_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i: ; preds = %416, %418, %413
+  %.0.i156.i = phi ptr [ %421, %418 ], [ %.0.i.i.i.i157.i, %413 ], [ %417, %416 ]
+  %422 = getelementptr inbounds nuw i8, ptr %.0.i156.i, i64 8
+  %423 = load i64, ptr %422, align 8, !tbaa !35, !noalias !120
+  %424 = icmp eq i64 %423, 0
+  br i1 %424, label %425, label %439
 
-423:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i
+425:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !120
   store i32 13, ptr %18, align 8, !tbaa !44, !noalias !120
-  %424 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %424)
-          to label %.noexc35 unwind label %509
+  %426 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %426)
+          to label %.noexc35 unwind label %511
 
-.noexc35:                                         ; preds = %423
-  %425 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit158.i unwind label %432, !noalias !120
+.noexc35:                                         ; preds = %425
+  %427 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %426, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit158.i unwind label %434, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit158.i: ; preds = %.noexc35
-  %426 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit159.i unwind label %432, !noalias !120
+  %428 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %426, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit159.i unwind label %434, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit159.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit158.i
-  %427 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %424, i32 noundef 83)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit160.i unwind label %434, !noalias !120
+  %429 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %426, i32 noundef 83)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit160.i unwind label %436, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit160.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit159.i
-  %428 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit161.i unwind label %434, !noalias !120
+  %430 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %426, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit161.i unwind label %436, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit161.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit160.i
-  %429 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef nonnull @.str.118, i64 noundef 33)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit162.i unwind label %434, !noalias !120
+  %431 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %426, ptr noundef nonnull @.str.118, i64 noundef 33)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit162.i unwind label %436, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit162.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit161.i
-  %430 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i unwind label %434, !noalias !120
+  %432 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %426, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i unwind label %436, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit162.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %18)
-          to label %431 unwind label %434
+          to label %433 unwind label %436
 
-431:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i
+433:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %18) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-432:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit158.i, %.noexc35
-  %433 = landingpad { ptr, i32 }
-          cleanup
-  br label %436
-
-434:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit162.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit161.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit160.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit159.i
+434:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit158.i, %.noexc35
   %435 = landingpad { ptr, i32 }
           cleanup
-  br label %436
+  br label %438
 
-436:                                              ; preds = %434, %432
-  %.pn70.i = phi { ptr, i32 } [ %435, %434 ], [ %433, %432 ]
+436:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit163.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit162.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit161.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit160.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit159.i
+  %437 = landingpad { ptr, i32 }
+          cleanup
+  br label %438
+
+438:                                              ; preds = %436, %434
+  %.pn70.i = phi { ptr, i32 } [ %437, %436 ], [ %435, %434 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %18) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !120
   br label %.body
 
-437:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i
-  %438 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %439 = load ptr, ptr %438, align 8, !tbaa !125, !noalias !120
-  %440 = icmp eq ptr %439, null
-  br i1 %440, label %441, label %446
+439:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit.i
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %441 = load ptr, ptr %440, align 8, !tbaa !125, !noalias !120
+  %442 = icmp eq ptr %441, null
+  br i1 %442, label %443, label %448
 
-441:                                              ; preds = %437
-  %442 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_pad_piece_E, i64 32) acquire, align 8, !noalias !120
-  %.0.i.i.i.i165.i = inttoptr i64 %442 to ptr
-  %443 = icmp eq i64 %442, 0
-  br i1 %443, label %444, label %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i, !prof !31
+443:                                              ; preds = %439
+  %444 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_pad_piece_E, i64 32) acquire, align 8, !noalias !120
+  %.0.i.i.i.i165.i = inttoptr i64 %444 to ptr
+  %445 = icmp eq i64 %444, 0
+  br i1 %445, label %446, label %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i, !prof !31
 
-444:                                              ; preds = %441
-  %445 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_pad_piece_E)
-          to label %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i unwind label %509
+446:                                              ; preds = %443
+  %447 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_pad_piece_E)
+          to label %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i unwind label %511
 
-446:                                              ; preds = %437
-  %447 = ptrtoint ptr %439 to i64
-  %448 = and i64 %447, -2
-  %449 = inttoptr i64 %448 to ptr
+448:                                              ; preds = %439
+  %449 = ptrtoint ptr %441 to i64
+  %450 = and i64 %449, -2
+  %451 = inttoptr i64 %450 to ptr
   br label %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i
 
-_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i: ; preds = %444, %446, %441
-  %.0.i164.i = phi ptr [ %449, %446 ], [ %.0.i.i.i.i165.i, %441 ], [ %445, %444 ]
-  %450 = getelementptr inbounds nuw i8, ptr %.0.i164.i, i64 8
-  %451 = load i64, ptr %450, align 8, !tbaa !35, !noalias !120
-  %452 = icmp eq i64 %451, 0
-  br i1 %452, label %453, label %467
+_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i: ; preds = %446, %448, %443
+  %.0.i164.i = phi ptr [ %451, %448 ], [ %.0.i.i.i.i165.i, %443 ], [ %447, %446 ]
+  %452 = getelementptr inbounds nuw i8, ptr %.0.i164.i, i64 8
+  %453 = load i64, ptr %452, align 8, !tbaa !35, !noalias !120
+  %454 = icmp eq i64 %453, 0
+  br i1 %454, label %455, label %469
 
-453:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i
+455:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !120
   store i32 13, ptr %19, align 8, !tbaa !44, !noalias !120
-  %454 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %454)
-          to label %.noexc37 unwind label %509
+  %456 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %456)
+          to label %.noexc37 unwind label %511
 
-.noexc37:                                         ; preds = %453
-  %455 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %454, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit166.i unwind label %462, !noalias !120
+.noexc37:                                         ; preds = %455
+  %457 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit166.i unwind label %464, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit166.i: ; preds = %.noexc37
-  %456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %454, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit167.i unwind label %462, !noalias !120
+  %458 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit167.i unwind label %464, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit167.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit166.i
-  %457 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %454, i32 noundef 84)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit168.i unwind label %464, !noalias !120
+  %459 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %456, i32 noundef 84)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit168.i unwind label %466, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit168.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit167.i
-  %458 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %454, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit169.i unwind label %464, !noalias !120
+  %460 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit169.i unwind label %466, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit169.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit168.i
-  %459 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %454, ptr noundef nonnull @.str.119, i64 noundef 33)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit170.i unwind label %464, !noalias !120
+  %461 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull @.str.119, i64 noundef 33)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit170.i unwind label %466, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit170.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit169.i
-  %460 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %454, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i unwind label %464, !noalias !120
+  %462 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i unwind label %466, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit170.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %19)
-          to label %461 unwind label %464
+          to label %463 unwind label %466
 
-461:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i
+463:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %19) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-462:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit166.i, %.noexc37
-  %463 = landingpad { ptr, i32 }
-          cleanup
-  br label %466
-
-464:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit170.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit169.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit168.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit167.i
+464:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit166.i, %.noexc37
   %465 = landingpad { ptr, i32 }
           cleanup
-  br label %466
+  br label %468
 
-466:                                              ; preds = %464, %462
-  %.pn68.i = phi { ptr, i32 } [ %465, %464 ], [ %463, %462 ]
+466:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit171.i, %_ZN13sentencepiece4util13StatusBuilderlsIA34_cEERS1_RKT_.exit170.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit169.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit168.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit167.i
+  %467 = landingpad { ptr, i32 }
+          cleanup
+  br label %468
+
+468:                                              ; preds = %466, %464
+  %.pn68.i = phi { ptr, i32 } [ %467, %466 ], [ %465, %464 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %19) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !120
   br label %.body
 
-467:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i
-  %468 = invoke noundef ptr @_ZN13sentencepiece20SentencePieceTrainer26GetPretokenizerForTrainingEv()
-          to label %.noexc38 unwind label %509
+469:                                              ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit.i
+  %470 = invoke noundef ptr @_ZN13sentencepiece20SentencePieceTrainer26GetPretokenizerForTrainingEv()
+          to label %.noexc38 unwind label %511
 
-.noexc38:                                         ; preds = %467
-  %.not.i = icmp eq ptr %468, null
-  br i1 %.not.i, label %469, label %478
+.noexc38:                                         ; preds = %469
+  %.not.i = icmp eq ptr %470, null
+  br i1 %.not.i, label %471, label %480
 
-469:                                              ; preds = %.noexc38
-  %470 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %471 = load ptr, ptr %470, align 8, !tbaa !125, !noalias !120
-  %472 = ptrtoint ptr %471 to i64
-  %473 = and i64 %472, -2
-  %474 = inttoptr i64 %473 to ptr
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  %476 = load i64, ptr %475, align 8, !tbaa !35, !noalias !120
-  %477 = icmp eq i64 %476, 0
-  br i1 %477, label %495, label %478
+471:                                              ; preds = %.noexc38
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %473 = load ptr, ptr %472, align 8, !tbaa !125, !noalias !120
+  %474 = ptrtoint ptr %473 to i64
+  %475 = and i64 %474, -2
+  %476 = inttoptr i64 %475 to ptr
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 8
+  %478 = load i64, ptr %477, align 8, !tbaa !35, !noalias !120
+  %479 = icmp eq i64 %478, 0
+  br i1 %479, label %497, label %480
 
-478:                                              ; preds = %469, %.noexc38
-  %479 = load i32, ptr %77, align 8, !tbaa !123, !noalias !120
-  %.off.i = add i32 %479, -1
+480:                                              ; preds = %471, %.noexc38
+  %481 = load i32, ptr %77, align 8, !tbaa !123, !noalias !120
+  %.off.i = add i32 %481, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %495, label %480
+  br i1 %switch.i, label %497, label %482
 
-480:                                              ; preds = %478
+482:                                              ; preds = %480
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !120
   store i32 13, ptr %20, align 8, !tbaa !44, !noalias !120
-  %481 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %481)
-          to label %.noexc39 unwind label %509
+  %483 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %483)
+          to label %.noexc39 unwind label %511
 
-.noexc39:                                         ; preds = %480
-  %482 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %481, ptr noundef nonnull @.str, i64 noundef 24)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit172.i unwind label %490, !noalias !120
+.noexc39:                                         ; preds = %482
+  %484 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef nonnull @.str, i64 noundef 24)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit172.i unwind label %492, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit172.i: ; preds = %.noexc39
-  %483 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %481, ptr noundef nonnull @.str.1, i64 noundef 1)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit173.i unwind label %490, !noalias !120
+  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef nonnull @.str.1, i64 noundef 1)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit173.i unwind label %492, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit173.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit172.i
-  %484 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %481, i32 noundef 89)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit174.i unwind label %492, !noalias !120
+  %486 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %483, i32 noundef 89)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit174.i unwind label %494, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit174.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit173.i
-  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %481, ptr noundef nonnull @.str.2, i64 noundef 3)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit175.i unwind label %492, !noalias !120
+  %487 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef nonnull @.str.2, i64 noundef 3)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit175.i unwind label %494, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit175.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit174.i
-  %486 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %481, ptr noundef nonnull @.str.120, i64 noundef 98)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA99_cEERS1_RKT_.exit.i unwind label %492, !noalias !120
+  %488 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef nonnull @.str.120, i64 noundef 98)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA99_cEERS1_RKT_.exit.i unwind label %494, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA99_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit175.i
-  %487 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %481, ptr noundef nonnull @.str.4, i64 noundef 2)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit176.i unwind label %492, !noalias !120
+  %489 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef nonnull @.str.4, i64 noundef 2)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit176.i unwind label %494, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit176.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA99_cEERS1_RKT_.exit.i
-  %488 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %481, ptr noundef nonnull @.str.121, i64 noundef 65)
-          to label %_ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i unwind label %492, !noalias !120
+  %490 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef nonnull @.str.121, i64 noundef 65)
+          to label %_ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i unwind label %494, !noalias !120
 
 _ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i: ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit176.i
   invoke void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %21, ptr noundef nonnull align 8 dereferenceable(384) %20)
-          to label %489 unwind label %492
+          to label %491 unwind label %494
 
-489:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i
+491:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %20) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !120
   br label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
 
-490:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit172.i, %.noexc39
-  %491 = landingpad { ptr, i32 }
-          cleanup
-  br label %494
-
-492:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit176.i, %_ZN13sentencepiece4util13StatusBuilderlsIA99_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit175.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit174.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit173.i
+492:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA25_cEERS1_RKT_.exit172.i, %.noexc39
   %493 = landingpad { ptr, i32 }
           cleanup
-  br label %494
+  br label %496
 
-494:                                              ; preds = %492, %490
-  %.pn66.i = phi { ptr, i32 } [ %493, %492 ], [ %491, %490 ]
+494:                                              ; preds = %_ZN13sentencepiece4util13StatusBuilderlsIA66_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit176.i, %_ZN13sentencepiece4util13StatusBuilderlsIA99_cEERS1_RKT_.exit.i, %_ZN13sentencepiece4util13StatusBuilderlsIA4_cEERS1_RKT_.exit175.i, %_ZN13sentencepiece4util13StatusBuilderlsIiEERS1_RKT_.exit174.i, %_ZN13sentencepiece4util13StatusBuilderlsIA2_cEERS1_RKT_.exit173.i
+  %495 = landingpad { ptr, i32 }
+          cleanup
+  br label %496
+
+496:                                              ; preds = %494, %492
+  %.pn66.i = phi { ptr, i32 } [ %495, %494 ], [ %493, %492 ]
   call void @_ZN13sentencepiece4util13StatusBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %20) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !120
   br label %.body
 
-495:                                              ; preds = %478, %469
+497:                                              ; preds = %480, %471
   invoke void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit unwind label %509
+          to label %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit unwind label %511
 
-_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit: ; preds = %489, %461, %431, %401, %371, %341, %323, %305, %285, %268, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit.i, %495
+_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit: ; preds = %491, %463, %433, %403, %373, %343, %325, %307, %287, %270, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit110.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit102.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit94.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit86.i, %_ZN13sentencepiece4util13StatusBuilderD2Ev.exit.i, %497
   invoke void @_ZN13sentencepiece4util6StatusaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %496 unwind label %511
+          to label %498 unwind label %513
 
-496:                                              ; preds = %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
+498:                                              ; preds = %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
   call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %497 = load ptr, ptr %41, align 8, !tbaa !134
-  %.not.i.i = icmp eq ptr %497, null
-  br i1 %.not.i.i, label %498, label %518
+  %499 = load ptr, ptr %41, align 8, !tbaa !134
+  %.not.i.i = icmp eq ptr %499, null
+  br i1 %.not.i.i, label %500, label %520
 
-498:                                              ; preds = %496
+500:                                              ; preds = %498
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZN13sentencepiece16TrainerInterface14InitMetaPiecesEv(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %22, ptr noundef nonnull align 8 dereferenceable(704) %0)
-          to label %499 unwind label %513
+          to label %501 unwind label %515
 
-499:                                              ; preds = %498
+501:                                              ; preds = %500
   invoke void @_ZN13sentencepiece4util6StatusaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %500 unwind label %515
+          to label %502 unwind label %517
 
-500:                                              ; preds = %499
+502:                                              ; preds = %501
   call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %518
+  br label %520
 
-501:                                              ; preds = %4
-  %502 = landingpad { ptr, i32 }
+503:                                              ; preds = %4
+  %504 = landingpad { ptr, i32 }
+          cleanup
+  br label %525
+
+505:                                              ; preds = %30
+  %506 = landingpad { ptr, i32 }
+          cleanup
+  br label %524
+
+507:                                              ; preds = %32
+  %508 = landingpad { ptr, i32 }
           cleanup
   br label %523
 
-503:                                              ; preds = %30
-  %504 = landingpad { ptr, i32 }
+509:                                              ; preds = %34
+  %510 = landingpad { ptr, i32 }
           cleanup
   br label %522
 
-505:                                              ; preds = %32
-  %506 = landingpad { ptr, i32 }
-          cleanup
-  br label %521
-
-507:                                              ; preds = %34
-  %508 = landingpad { ptr, i32 }
-          cleanup
-  br label %520
-
-509:                                              ; preds = %495, %480, %467, %453, %444, %423, %414, %393, %384, %363, %354, %333, %315, %297, %277, %260, %228, %196, %164, %.thread192.i, %84, %48
-  %510 = landingpad { ptr, i32 }
+511:                                              ; preds = %497, %482, %469, %455, %446, %425, %416, %395, %386, %365, %356, %335, %317, %299, %279, %262, %230, %198, %166, %.thread192.i, %86, %48
+  %512 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-511:                                              ; preds = %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
-  %512 = landingpad { ptr, i32 }
+513:                                              ; preds = %_ZN13sentencepiece12_GLOBAL__N_110VerifySpecERKNS_11TrainerSpecE.exit
+  %514 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #30
   br label %.body
 
-.body:                                            ; preds = %509, %494, %466, %436, %406, %376, %346, %328, %310, %290, %273, %255, %223, %191, %157, %112, %75, %511
-  %.pn = phi { ptr, i32 } [ %512, %511 ], [ %510, %509 ], [ %.pn76.i, %112 ], [ %.pn74.i, %376 ], [ %.pn72.i, %406 ], [ %.pn70.i, %436 ], [ %.pn68.i, %466 ], [ %.pn66.i, %494 ], [ %.pn64.i, %346 ], [ %.pn62.i, %328 ], [ %.pn60.i, %310 ], [ %.pn58.i, %290 ], [ %.pn56.i, %273 ], [ %.pn54.i, %255 ], [ %.pn52.i, %223 ], [ %.pn50.i, %191 ], [ %.pn48.i, %157 ], [ %.pn.i, %75 ]
+.body:                                            ; preds = %511, %496, %468, %438, %408, %378, %348, %330, %312, %292, %275, %257, %225, %193, %159, %114, %75, %513
+  %.pn = phi { ptr, i32 } [ %514, %513 ], [ %512, %511 ], [ %.pn76.i, %114 ], [ %.pn74.i, %378 ], [ %.pn72.i, %408 ], [ %.pn70.i, %438 ], [ %.pn68.i, %468 ], [ %.pn66.i, %496 ], [ %.pn64.i, %348 ], [ %.pn62.i, %330 ], [ %.pn60.i, %312 ], [ %.pn58.i, %292 ], [ %.pn56.i, %275 ], [ %.pn54.i, %257 ], [ %.pn52.i, %225 ], [ %.pn50.i, %193 ], [ %.pn48.i, %159 ], [ %.pn.i, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %519
-
-513:                                              ; preds = %498
-  %514 = landingpad { ptr, i32 }
-          cleanup
-  br label %517
-
-515:                                              ; preds = %499
-  %516 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #30
-  br label %517
-
-517:                                              ; preds = %515, %513
-  %.pn13 = phi { ptr, i32 } [ %516, %515 ], [ %514, %513 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %519
-
-518:                                              ; preds = %500, %496
-  ret void
-
-519:                                              ; preds = %517, %.body
-  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %517 ], [ %.pn, %.body ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #30
-  call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #30
-  br label %520
-
-520:                                              ; preds = %519, %507
-  %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13.pn, %519 ], [ %508, %507 ]
-  call void @_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN13sentencepiece29ModelProto_SentencePiece_TypeEESt4lessIiESaIS0_IKiS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #30
-  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %33) #30
   br label %521
 
-521:                                              ; preds = %520, %505
-  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %520 ], [ %506, %505 ]
-  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %31) #30
+515:                                              ; preds = %500
+  %516 = landingpad { ptr, i32 }
+          cleanup
+  br label %519
+
+517:                                              ; preds = %501
+  %518 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #30
+  br label %519
+
+519:                                              ; preds = %517, %515
+  %.pn13 = phi { ptr, i32 } [ %518, %517 ], [ %516, %515 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  br label %521
+
+520:                                              ; preds = %502, %498
+  ret void
+
+521:                                              ; preds = %519, %.body
+  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %519 ], [ %.pn, %.body ]
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #30
+  call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #30
   br label %522
 
-522:                                              ; preds = %521, %503
-  %.pn13.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn.pn, %521 ], [ %504, %503 ]
-  call void @_ZN13sentencepiece11TrainerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %29) #30
+522:                                              ; preds = %521, %509
+  %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13.pn, %521 ], [ %510, %509 ]
+  call void @_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN13sentencepiece29ModelProto_SentencePiece_TypeEESt4lessIiESaIS0_IKiS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #30
+  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %33) #30
   br label %523
 
-523:                                              ; preds = %522, %501
-  %.pn13.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn.pn.pn, %522 ], [ %502, %501 ]
-  %524 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %525 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %524) #30
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %525) #30
+523:                                              ; preds = %522, %507
+  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %522 ], [ %508, %507 ]
+  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %31) #30
+  br label %524
+
+524:                                              ; preds = %523, %505
+  %.pn13.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn.pn, %523 ], [ %506, %505 ]
+  call void @_ZN13sentencepiece11TrainerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %29) #30
+  br label %525
+
+525:                                              ; preds = %524, %503
+  %.pn13.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn.pn.pn, %524 ], [ %504, %503 ]
+  %526 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %527 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %526) #30
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %527) #30
   call void @_ZNSt13unordered_mapIjlSt4hashIjESt8equal_toIjESaISt4pairIKjlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %23) #30
   resume { ptr, i32 } %.pn13.pn.pn.pn.pn.pn
 }

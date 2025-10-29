@@ -149573,7 +149573,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
   store i32 %14, ptr %3, align 8, !tbaa !263
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %15, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !174
-  br label %61
+  br label %62
 
 16:                                               ; preds = %4
   %17 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef 17) #59
@@ -149587,7 +149587,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
   store i32 %20, ptr %3, align 8, !tbaa !263
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %21, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !174
-  br label %61
+  br label %62
 
 22:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -149620,93 +149620,93 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
   store i64 %32, ptr %8, align 8
   store i64 %33, ptr %25, align 8
   %34 = invoke i32 @sigtimedwait(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %8)
-          to label %35 unwind label %64
+          to label %35 unwind label %65
 
 35:                                               ; preds = %.backedge
   %36 = tail call ptr @__errno_location() #66
   store i32 0, ptr %36, align 4, !tbaa !263
   %37 = load i32, ptr %0, align 4, !tbaa !1480
   %38 = invoke i32 @waitpid(i32 noundef %37, ptr noundef nonnull %6, i32 noundef 1)
-          to label %39 unwind label %64
+          to label %39 unwind label %65
 
 39:                                               ; preds = %35
   %.fr = freeze i32 %34
   %40 = icmp ne i32 %.fr, 17
   %41 = load ptr, ptr %7, align 8
-  %switch = icmp ult ptr %41, inttoptr (i64 2 to ptr)
-  %or.cond = select i1 %40, i1 true, i1 %switch
-  br i1 %or.cond, label %43, label %42
+  %42 = icmp ult ptr %41, inttoptr (i64 2 to ptr)
+  %or.cond = select i1 %40, i1 true, i1 %42
+  br i1 %or.cond, label %44, label %43
 
-42:                                               ; preds = %39
+43:                                               ; preds = %39
   invoke void %41(i32 noundef %38)
-          to label %43 unwind label %64
+          to label %44 unwind label %65
 
-43:                                               ; preds = %39, %42
-  %44 = icmp eq i32 %38, 0
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %39, %43
+  %45 = icmp eq i32 %38, 0
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %43
-  %46 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #59
+46:                                               ; preds = %44
+  %47 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #59
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %2, align 8, !tbaa !93
-  %.not56 = icmp slt i64 %46, %.sroa.0.0.copyload.i2.i.i
+  %.not56 = icmp slt i64 %47, %.sroa.0.0.copyload.i2.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not56, label %.backedge.backedge, label %.loopexit
 
-47:                                               ; preds = %43
+48:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %48 = icmp eq i32 %38, -1
-  br i1 %48, label %49, label %52
+  %49 = icmp eq i32 %38, -1
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %36, align 4, !tbaa !263
-  %51 = icmp eq i32 %50, 4
-  br i1 %51, label %.backedge.backedge, label %.critedge7
+50:                                               ; preds = %48
+  %51 = load i32, ptr %36, align 4, !tbaa !263
+  %52 = icmp eq i32 %51, 4
+  br i1 %52, label %.backedge.backedge, label %.critedge7
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr %6, align 4, !tbaa !263
-  %54 = and i32 %53, 127
-  %cond = icmp eq i32 %54, 127
-  br i1 %cond, label %.backedge.backedge, label %58
+53:                                               ; preds = %48
+  %54 = load i32, ptr %6, align 4, !tbaa !263
+  %55 = and i32 %54, 127
+  %cond = icmp eq i32 %55, 127
+  br i1 %cond, label %.backedge.backedge, label %59
 
-.backedge.backedge:                               ; preds = %52, %45, %49
+.backedge.backedge:                               ; preds = %53, %46, %50
   br label %.backedge, !llvm.loop !2967
 
-.critedge7:                                       ; preds = %49
-  %55 = call { i32, ptr } @_ZN5boost7process2v16detail14get_last_errorEv() #59
-  %56 = extractvalue { i32, ptr } %55, 0
-  %57 = extractvalue { i32, ptr } %55, 1
-  store i32 %56, ptr %3, align 8, !tbaa !263
+.critedge7:                                       ; preds = %50
+  %56 = call { i32, ptr } @_ZN5boost7process2v16detail14get_last_errorEv() #59
+  %57 = extractvalue { i32, ptr } %56, 0
+  %58 = extractvalue { i32, ptr } %56, 1
+  store i32 %57, ptr %3, align 8, !tbaa !263
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %57, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !174
+  store ptr %58, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !174
   br label %.loopexit
 
-58:                                               ; preds = %52
-  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #66
+59:                                               ; preds = %53
+  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #66
   store i32 0, ptr %3, align 8, !tbaa !1473
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %59, ptr %60, align 8, !tbaa !1475
-  store i32 %53, ptr %1, align 4, !tbaa !263
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %60, ptr %61, align 8, !tbaa !1475
+  store i32 %54, ptr %1, align 4, !tbaa !263
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %58, %.critedge7, %26
-  %.1 = phi i1 [ false, %26 ], [ true, %.critedge7 ], [ true, %58 ], [ false, %45 ]
+.loopexit:                                        ; preds = %46, %59, %.critedge7, %26
+  %.1 = phi i1 [ false, %26 ], [ true, %.critedge7 ], [ true, %59 ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %.loopexit, %18, %12
+62:                                               ; preds = %.loopexit, %18, %12
   %.0 = phi i1 [ false, %12 ], [ false, %18 ], [ %.1, %.loopexit ]
-  %62 = load ptr, ptr %10, align 8, !tbaa !174
-  %63 = call ptr @signal(i32 noundef 17, ptr noundef %62) #59
+  %63 = load ptr, ptr %10, align 8, !tbaa !174
+  %64 = call ptr @signal(i32 noundef 17, ptr noundef %63) #59
   store ptr null, ptr %10, align 8, !tbaa !174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 
-64:                                               ; preds = %42, %35, %.backedge
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %43, %35, %.backedge
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #60
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #60
   unreachable
 }
 
@@ -149719,14 +149719,14 @@ declare i32 @sigtimedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 define linkonce_odr hidden void @_ZZN5boost7process2v16detail5posix10wait_untilINSt6chrono3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS3_12child_handleERiRKNS5_10time_pointIT_T0_EERSt10error_codeEN20signal_interceptor_t12handler_funcEi(i32 noundef %0) #3 comdat align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost7process2v16detail5posix10wait_untilINSt6chrono3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS3_12child_handleERiRKNS5_10time_pointIT_T0_EERSt10error_codeE15sigchld_handler)
   %3 = load ptr, ptr %2, align 8, !tbaa !174
-  %switch = icmp ult ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %5, label %4
+  %4 = icmp ult ptr %3, inttoptr (i64 2 to ptr)
+  br i1 %4, label %6, label %5
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void %3(i32 noundef %0)
-  br label %5
+  br label %6
 
-5:                                                ; preds = %1, %4
+6:                                                ; preds = %1, %5
   ret void
 }
 
@@ -149777,7 +149777,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
   store i32 %14, ptr %3, align 8, !tbaa !263
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %15, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !174
-  br label %61
+  br label %62
 
 16:                                               ; preds = %4
   %17 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef 17) #59
@@ -149791,7 +149791,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
   store i32 %20, ptr %3, align 8, !tbaa !263
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %21, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !174
-  br label %61
+  br label %62
 
 22:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -149824,93 +149824,93 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
   store i64 %32, ptr %8, align 8
   store i64 %33, ptr %25, align 8
   %34 = invoke i32 @sigtimedwait(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %8)
-          to label %35 unwind label %64
+          to label %35 unwind label %65
 
 35:                                               ; preds = %.backedge
   %36 = tail call ptr @__errno_location() #66
   store i32 0, ptr %36, align 4, !tbaa !263
   %37 = load i32, ptr %0, align 4, !tbaa !1480
   %38 = invoke i32 @waitpid(i32 noundef %37, ptr noundef nonnull %6, i32 noundef 1)
-          to label %39 unwind label %64
+          to label %39 unwind label %65
 
 39:                                               ; preds = %35
   %.fr = freeze i32 %34
   %40 = icmp ne i32 %.fr, 17
   %41 = load ptr, ptr %7, align 8
-  %switch = icmp ult ptr %41, inttoptr (i64 2 to ptr)
-  %or.cond = select i1 %40, i1 true, i1 %switch
-  br i1 %or.cond, label %43, label %42
+  %42 = icmp ult ptr %41, inttoptr (i64 2 to ptr)
+  %or.cond = select i1 %40, i1 true, i1 %42
+  br i1 %or.cond, label %44, label %43
 
-42:                                               ; preds = %39
+43:                                               ; preds = %39
   invoke void %41(i32 noundef %38)
-          to label %43 unwind label %64
+          to label %44 unwind label %65
 
-43:                                               ; preds = %39, %42
-  %44 = icmp eq i32 %38, 0
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %39, %43
+  %45 = icmp eq i32 %38, 0
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %43
-  %46 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #59
+46:                                               ; preds = %44
+  %47 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #59
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %2, align 8, !tbaa !93
-  %.not56 = icmp slt i64 %46, %.sroa.0.0.copyload.i2.i.i
+  %.not56 = icmp slt i64 %47, %.sroa.0.0.copyload.i2.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not56, label %.backedge.backedge, label %.loopexit
 
-47:                                               ; preds = %43
+48:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %48 = icmp eq i32 %38, -1
-  br i1 %48, label %49, label %52
+  %49 = icmp eq i32 %38, -1
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %36, align 4, !tbaa !263
-  %51 = icmp eq i32 %50, 4
-  br i1 %51, label %.backedge.backedge, label %.critedge7
+50:                                               ; preds = %48
+  %51 = load i32, ptr %36, align 4, !tbaa !263
+  %52 = icmp eq i32 %51, 4
+  br i1 %52, label %.backedge.backedge, label %.critedge7
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr %6, align 4, !tbaa !263
-  %54 = and i32 %53, 127
-  %cond = icmp eq i32 %54, 127
-  br i1 %cond, label %.backedge.backedge, label %58
+53:                                               ; preds = %48
+  %54 = load i32, ptr %6, align 4, !tbaa !263
+  %55 = and i32 %54, 127
+  %cond = icmp eq i32 %55, 127
+  br i1 %cond, label %.backedge.backedge, label %59
 
-.backedge.backedge:                               ; preds = %52, %45, %49
+.backedge.backedge:                               ; preds = %53, %46, %50
   br label %.backedge, !llvm.loop !2971
 
-.critedge7:                                       ; preds = %49
-  %55 = call { i32, ptr } @_ZN5boost7process2v16detail14get_last_errorEv() #59
-  %56 = extractvalue { i32, ptr } %55, 0
-  %57 = extractvalue { i32, ptr } %55, 1
-  store i32 %56, ptr %3, align 8, !tbaa !263
+.critedge7:                                       ; preds = %50
+  %56 = call { i32, ptr } @_ZN5boost7process2v16detail14get_last_errorEv() #59
+  %57 = extractvalue { i32, ptr } %56, 0
+  %58 = extractvalue { i32, ptr } %56, 1
+  store i32 %57, ptr %3, align 8, !tbaa !263
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %57, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !174
+  store ptr %58, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !174
   br label %.loopexit
 
-58:                                               ; preds = %52
-  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #66
+59:                                               ; preds = %53
+  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #66
   store i32 0, ptr %3, align 8, !tbaa !1473
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %59, ptr %60, align 8, !tbaa !1475
-  store i32 %53, ptr %1, align 4, !tbaa !263
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %60, ptr %61, align 8, !tbaa !1475
+  store i32 %54, ptr %1, align 4, !tbaa !263
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %58, %.critedge7, %26
-  %.1 = phi i1 [ false, %26 ], [ true, %.critedge7 ], [ true, %58 ], [ false, %45 ]
+.loopexit:                                        ; preds = %46, %59, %.critedge7, %26
+  %.1 = phi i1 [ false, %26 ], [ true, %.critedge7 ], [ true, %59 ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %.loopexit, %18, %12
+62:                                               ; preds = %.loopexit, %18, %12
   %.0 = phi i1 [ false, %12 ], [ false, %18 ], [ %.1, %.loopexit ]
-  %62 = load ptr, ptr %10, align 8, !tbaa !174
-  %63 = call ptr @signal(i32 noundef 17, ptr noundef %62) #59
+  %63 = load ptr, ptr %10, align 8, !tbaa !174
+  %64 = call ptr @signal(i32 noundef 17, ptr noundef %63) #59
   store ptr null, ptr %10, align 8, !tbaa !174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 
-64:                                               ; preds = %42, %35, %.backedge
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %43, %35, %.backedge
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #60
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #60
   unreachable
 }
 
@@ -149918,14 +149918,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost7process2v16detail5posix
 define linkonce_odr hidden void @_ZZN5boost7process2v16detail5posix10wait_untilINSt6chrono3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS3_12child_handleERiRKNS5_10time_pointIT_T0_EERSt10error_codeEN20signal_interceptor_t12handler_funcEi(i32 noundef %0) #3 comdat align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost7process2v16detail5posix10wait_untilINSt6chrono3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS3_12child_handleERiRKNS5_10time_pointIT_T0_EERSt10error_codeE15sigchld_handler)
   %3 = load ptr, ptr %2, align 8, !tbaa !174
-  %switch = icmp ult ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %5, label %4
+  %4 = icmp ult ptr %3, inttoptr (i64 2 to ptr)
+  br i1 %4, label %6, label %5
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void %3(i32 noundef %0)
-  br label %5
+  br label %6
 
-5:                                                ; preds = %1, %4
+6:                                                ; preds = %1, %5
   ret void
 }
 

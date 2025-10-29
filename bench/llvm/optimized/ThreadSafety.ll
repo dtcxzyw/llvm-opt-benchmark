@@ -21344,543 +21344,543 @@ _ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLO
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   %47 = load i32, ptr %46, align 8, !tbaa !659
   %48 = icmp eq i32 %47, 1
-  %.off.i.i.i = add i32 %47, -1
-  %switch.i.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %49
+  %49 = add i32 %47, -1
+  %50 = icmp ult i32 %49, 2
+  br i1 %50, label %"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %51
 
-49:                                               ; preds = %_ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLOBAL__N_120ThreadSafetyAnalyzerE.exit.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !11
-  %.not.i.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %52
+51:                                               ; preds = %_ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLOBAL__N_120ThreadSafetyAnalyzerE.exit.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  %53 = load i32, ptr %52, align 8, !tbaa !11
+  %.not.i.i.i.i = icmp eq i32 %53, 0
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %54
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !949
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !11
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %58 = load i32, ptr %57, align 4, !tbaa !12
-  %.not.i.i.not.i.i.i.i = icmp ult i32 %56, %58
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i, label %59, !prof !287
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !949
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load i32, ptr %57, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !12
+  %.not.i.i.not.i.i.i.i = icmp ult i32 %58, %60
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i, label %61, !prof !287
 
-59:                                               ; preds = %52
-  %60 = zext i32 %56 to i64
-  %61 = add nuw nsw i64 %60, 1
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %62, i64 noundef %61, i64 noundef 8) #23
-  %.pre.i.i.i.i = load i32, ptr %55, align 8, !tbaa !11
+61:                                               ; preds = %54
+  %62 = zext i32 %58 to i64
+  %63 = add nuw nsw i64 %62, 1
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull %64, i64 noundef %63, i64 noundef 8) #23
+  %.pre.i.i.i.i = load i32, ptr %57, align 8, !tbaa !11
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i: ; preds = %59, %52
-  %63 = phi i32 [ %56, %52 ], [ %.pre.i.i.i.i, %59 ]
-  %64 = load ptr, ptr %54, align 8, !tbaa !8
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
-  %67 = ptrtoint ptr %.0.i.i.i.i to i64
-  store i64 %67, ptr %66, align 1
-  %68 = load i32, ptr %55, align 8, !tbaa !11
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %55, align 8, !tbaa !11
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i: ; preds = %61, %54
+  %65 = phi i32 [ %58, %54 ], [ %.pre.i.i.i.i, %61 ]
+  %66 = load ptr, ptr %56, align 8, !tbaa !8
+  %67 = zext i32 %65 to i64
+  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %69 = ptrtoint ptr %.0.i.i.i.i to i64
+  store i64 %69, ptr %68, align 1
+  %70 = load i32, ptr %57, align 8, !tbaa !11
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %57, align 8, !tbaa !11
   store i32 1, ptr %46, align 8, !tbaa !659
-  %70 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !8
-  %71 = load i32, ptr %50, align 8, !tbaa !11
-  %72 = zext i32 %71 to i64
-  %.idx.i.i.i = shl nuw nsw i64 %72, 3
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i.i.i
-  %.not3261.i.i.i = icmp eq i32 %71, 0
+  %72 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !8
+  %73 = load i32, ptr %52, align 8, !tbaa !11
+  %74 = zext i32 %73 to i64
+  %.idx.i.i.i = shl nuw nsw i64 %74, 3
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i
+  %.not3261.i.i.i = icmp eq i32 %73, 0
   br i1 %.not3261.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %75 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %76 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %78 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br label %81
+  %79 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %.val, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  br label %83
 
-._crit_edge.i.i.i:                                ; preds = %273, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i
+._crit_edge.i.i.i:                                ; preds = %275, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12threadSafety9BeforeSet10BeforeInfoELb1EE9push_backES5_.exit.i.i.i
   store i32 2, ptr %46, align 8, !tbaa !659
   br label %"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-81:                                               ; preds = %273, %.lr.ph.i.i.i
-  %.02962.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i ], [ %274, %273 ]
-  %82 = load ptr, ptr %.02962.i.i.i, align 8, !tbaa !591
-  %83 = load ptr, ptr %74, align 8, !tbaa !950
-  %84 = load ptr, ptr %10, align 8, !tbaa !947
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 544
-  %.val.i.i.i = load ptr, ptr %83, align 8, !tbaa !123
-  %86 = getelementptr i8, ptr %83, i64 8
-  %.val33.i.i.i = load i64, ptr %86, align 8, !tbaa !222
-  %.val34.i.i.i = load ptr, ptr %85, align 8
+83:                                               ; preds = %275, %.lr.ph.i.i.i
+  %.02962.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i ], [ %276, %275 ]
+  %84 = load ptr, ptr %.02962.i.i.i, align 8, !tbaa !591
+  %85 = load ptr, ptr %76, align 8, !tbaa !950
+  %86 = load ptr, ptr %10, align 8, !tbaa !947
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 544
+  %.val.i.i.i = load ptr, ptr %85, align 8, !tbaa !123
+  %88 = getelementptr i8, ptr %85, i64 8
+  %.val33.i.i.i = load i64, ptr %88, align 8, !tbaa !222
+  %.val34.i.i.i = load ptr, ptr %87, align 8
   %.idx6.i.i.i.i = shl nuw nsw i64 %.val33.i.i.i, 1
-  %87 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx6.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx6.i.i.i.i
   %.not.i35.i.i.i = icmp ult i64 %.val33.i.i.i, 4
   br i1 %.not.i35.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %81
-  %88 = lshr i64 %.val33.i.i.i, 2
-  %89 = and i64 %.idx6.i.i.i.i, 9223372036854775800
-  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %.val.i.i.i, i64 %89
-  br label %90
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %83
+  %90 = lshr i64 %.val33.i.i.i, 2
+  %91 = and i64 %.idx6.i.i.i.i, 9223372036854775800
+  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %.val.i.i.i, i64 %91
+  br label %92
 
-90:                                               ; preds = %153, %.lr.ph.i.i.i.i.i.i.i
-  %.0100.i.i.i.i.i.i.i = phi i64 [ %88, %.lr.ph.i.i.i.i.i.i.i ], [ %155, %153 ]
-  %.02999.i.i.i.i.i.i.i = phi ptr [ %.val.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %154, %153 ]
+92:                                               ; preds = %155, %.lr.ph.i.i.i.i.i.i.i
+  %.0100.i.i.i.i.i.i.i = phi i64 [ %90, %.lr.ph.i.i.i.i.i.i.i ], [ %157, %155 ]
+  %.02999.i.i.i.i.i.i.i = phi ptr [ %.val.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %156, %155 ]
   %.029.val.i.i.i.i.i.i.i = load i16, ptr %.02999.i.i.i.i.i.i.i, align 2, !tbaa !672
-  %91 = zext i16 %.029.val.i.i.i.i.i.i.i to i64
-  %92 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %91
-  %.val1.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %92, align 8, !tbaa !129
-  %93 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %93, align 8
-  %94 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %95, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i
+  %93 = zext i16 %.029.val.i.i.i.i.i.i.i to i64
+  %94 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %93
+  %.val1.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %94, align 8, !tbaa !129
+  %95 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %95, align 8
+  %96 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %96, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %97, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i
 
-95:                                               ; preds = %90
-  %96 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
-  %97 = inttoptr i64 %96 to ptr
-  %98 = icmp eq i64 %96, 0
-  br i1 %98, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i, label %99
+97:                                               ; preds = %92
+  %98 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
+  %99 = inttoptr i64 %98 to ptr
+  %100 = icmp eq i64 %98, 0
+  br i1 %100, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i, label %101
 
-99:                                               ; preds = %95
-  %100 = load i8, ptr %97, align 8, !tbaa !31
-  switch i8 %100, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i [
+101:                                              ; preds = %97
+  %102 = load i8, ptr %99, align 8, !tbaa !31
+  switch i8 %102, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i.i.i.i.i.i.i.i
-    i8 4, label %101
+    i8 4, label %103
   ]
 
-101:                                              ; preds = %99
+103:                                              ; preds = %101
   br label %.sink.split.i.i.i.i.i.i.i.i.i.i
 
-.sink.split.i.i.i.i.i.i.i.i.i.i:                  ; preds = %101, %99
-  %.sink20.i.i.i.i.i.i.i.i.i.i = phi i64 [ 16, %101 ], [ 64, %99 ]
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 %.sink20.i.i.i.i.i.i.i.i.i.i
-  %103 = load ptr, ptr %102, align 8, !tbaa !591
+.sink.split.i.i.i.i.i.i.i.i.i.i:                  ; preds = %103, %101
+  %.sink20.i.i.i.i.i.i.i.i.i.i = phi i64 [ 16, %103 ], [ 64, %101 ]
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink20.i.i.i.i.i.i.i.i.i.i
+  %105 = load ptr, ptr %104, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i, %99, %95, %90
-  %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %95 ], [ null, %90 ], [ null, %99 ], [ %103, %.sink.split.i.i.i.i.i.i.i.i.i.i ]
-  %104 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i, %82
-  br i1 %104, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %105
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i, %101, %97, %92
+  %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %97 ], [ null, %92 ], [ null, %101 ], [ %105, %.sink.split.i.i.i.i.i.i.i.i.i.i ]
+  %106 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i, %84
+  br i1 %106, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %107
 
-105:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i
-  %106 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 2
-  %.val33.i.i.i.i.i.i.i = load i16, ptr %106, align 2, !tbaa !672
-  %107 = zext i16 %.val33.i.i.i.i.i.i.i to i64
-  %108 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %107
-  %.val1.i.i.i47.i.i.i.i.i.i.i = load ptr, ptr %108, align 8, !tbaa !129
-  %109 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i47.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i.i.i.i = load i64, ptr %109, align 8
-  %110 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i.i.i.i, 4
-  %.not.i.i.i49.i.i.i.i.i.i.i = icmp eq i64 %110, 0
-  br i1 %.not.i.i.i49.i.i.i.i.i.i.i, label %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i
+107:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 2
+  %.val33.i.i.i.i.i.i.i = load i16, ptr %108, align 2, !tbaa !672
+  %109 = zext i16 %.val33.i.i.i.i.i.i.i to i64
+  %110 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %109
+  %.val1.i.i.i47.i.i.i.i.i.i.i = load ptr, ptr %110, align 8, !tbaa !129
+  %111 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i47.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i.i.i.i = load i64, ptr %111, align 8
+  %112 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i.i.i.i, 4
+  %.not.i.i.i49.i.i.i.i.i.i.i = icmp eq i64 %112, 0
+  br i1 %.not.i.i.i49.i.i.i.i.i.i.i, label %113, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i
 
-111:                                              ; preds = %105
-  %112 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i.i.i.i, -8
-  %113 = inttoptr i64 %112 to ptr
-  %114 = icmp eq i64 %112, 0
-  br i1 %114, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i, label %115
+113:                                              ; preds = %107
+  %114 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i.i.i.i, -8
+  %115 = inttoptr i64 %114 to ptr
+  %116 = icmp eq i64 %114, 0
+  br i1 %116, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i, label %117
 
-115:                                              ; preds = %111
-  %116 = load i8, ptr %113, align 8, !tbaa !31
-  switch i8 %116, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i [
+117:                                              ; preds = %113
+  %118 = load i8, ptr %115, align 8, !tbaa !31
+  switch i8 %118, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i51.i.i.i.i.i.i.i
-    i8 4, label %117
+    i8 4, label %119
   ]
 
-117:                                              ; preds = %115
+119:                                              ; preds = %117
   br label %.sink.split.i.i.i51.i.i.i.i.i.i.i
 
-.sink.split.i.i.i51.i.i.i.i.i.i.i:                ; preds = %117, %115
-  %.sink20.i.i.i52.i.i.i.i.i.i.i = phi i64 [ 16, %117 ], [ 64, %115 ]
-  %118 = getelementptr inbounds nuw i8, ptr %113, i64 %.sink20.i.i.i52.i.i.i.i.i.i.i
-  %119 = load ptr, ptr %118, align 8, !tbaa !591
+.sink.split.i.i.i51.i.i.i.i.i.i.i:                ; preds = %119, %117
+  %.sink20.i.i.i52.i.i.i.i.i.i.i = phi i64 [ 16, %119 ], [ 64, %117 ]
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 %.sink20.i.i.i52.i.i.i.i.i.i.i
+  %121 = load ptr, ptr %120, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i51.i.i.i.i.i.i.i, %115, %111, %105
-  %.0.i.i.i50.i.i.i.i.i.i.i = phi ptr [ null, %111 ], [ null, %105 ], [ null, %115 ], [ %119, %.sink.split.i.i.i51.i.i.i.i.i.i.i ]
-  %120 = icmp eq ptr %.0.i.i.i50.i.i.i.i.i.i.i, %82
-  br i1 %120, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit, label %121
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i51.i.i.i.i.i.i.i, %117, %113, %107
+  %.0.i.i.i50.i.i.i.i.i.i.i = phi ptr [ null, %113 ], [ null, %107 ], [ null, %117 ], [ %121, %.sink.split.i.i.i51.i.i.i.i.i.i.i ]
+  %122 = icmp eq ptr %.0.i.i.i50.i.i.i.i.i.i.i, %84
+  br i1 %122, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit, label %123
 
-121:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i
-  %122 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 4
-  %.val36.i.i.i.i.i.i.i = load i16, ptr %122, align 2, !tbaa !672
-  %123 = zext i16 %.val36.i.i.i.i.i.i.i to i64
-  %124 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %123
-  %.val1.i.i.i54.i.i.i.i.i.i.i = load ptr, ptr %124, align 8, !tbaa !129
-  %125 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i54.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i.i.i.i = load i64, ptr %125, align 8
-  %126 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i.i.i.i, 4
-  %.not.i.i.i56.i.i.i.i.i.i.i = icmp eq i64 %126, 0
-  br i1 %.not.i.i.i56.i.i.i.i.i.i.i, label %127, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i
+123:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i
+  %124 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 4
+  %.val36.i.i.i.i.i.i.i = load i16, ptr %124, align 2, !tbaa !672
+  %125 = zext i16 %.val36.i.i.i.i.i.i.i to i64
+  %126 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %125
+  %.val1.i.i.i54.i.i.i.i.i.i.i = load ptr, ptr %126, align 8, !tbaa !129
+  %127 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i54.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i.i.i.i = load i64, ptr %127, align 8
+  %128 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i.i.i.i, 4
+  %.not.i.i.i56.i.i.i.i.i.i.i = icmp eq i64 %128, 0
+  br i1 %.not.i.i.i56.i.i.i.i.i.i.i, label %129, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i
 
-127:                                              ; preds = %121
-  %128 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i.i.i.i, -8
-  %129 = inttoptr i64 %128 to ptr
-  %130 = icmp eq i64 %128, 0
-  br i1 %130, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i, label %131
+129:                                              ; preds = %123
+  %130 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i.i.i.i, -8
+  %131 = inttoptr i64 %130 to ptr
+  %132 = icmp eq i64 %130, 0
+  br i1 %132, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i, label %133
 
-131:                                              ; preds = %127
-  %132 = load i8, ptr %129, align 8, !tbaa !31
-  switch i8 %132, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i [
+133:                                              ; preds = %129
+  %134 = load i8, ptr %131, align 8, !tbaa !31
+  switch i8 %134, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i58.i.i.i.i.i.i.i
-    i8 4, label %133
+    i8 4, label %135
   ]
 
-133:                                              ; preds = %131
+135:                                              ; preds = %133
   br label %.sink.split.i.i.i58.i.i.i.i.i.i.i
 
-.sink.split.i.i.i58.i.i.i.i.i.i.i:                ; preds = %133, %131
-  %.sink20.i.i.i59.i.i.i.i.i.i.i = phi i64 [ 16, %133 ], [ 64, %131 ]
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 %.sink20.i.i.i59.i.i.i.i.i.i.i
-  %135 = load ptr, ptr %134, align 8, !tbaa !591
+.sink.split.i.i.i58.i.i.i.i.i.i.i:                ; preds = %135, %133
+  %.sink20.i.i.i59.i.i.i.i.i.i.i = phi i64 [ 16, %135 ], [ 64, %133 ]
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 %.sink20.i.i.i59.i.i.i.i.i.i.i
+  %137 = load ptr, ptr %136, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i58.i.i.i.i.i.i.i, %131, %127, %121
-  %.0.i.i.i57.i.i.i.i.i.i.i = phi ptr [ null, %127 ], [ null, %121 ], [ null, %131 ], [ %135, %.sink.split.i.i.i58.i.i.i.i.i.i.i ]
-  %136 = icmp eq ptr %.0.i.i.i57.i.i.i.i.i.i.i, %82
-  br i1 %136, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit23, label %137
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i58.i.i.i.i.i.i.i, %133, %129, %123
+  %.0.i.i.i57.i.i.i.i.i.i.i = phi ptr [ null, %129 ], [ null, %123 ], [ null, %133 ], [ %137, %.sink.split.i.i.i58.i.i.i.i.i.i.i ]
+  %138 = icmp eq ptr %.0.i.i.i57.i.i.i.i.i.i.i, %84
+  br i1 %138, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit23, label %139
 
-137:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i
-  %138 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 6
-  %.val39.i.i.i.i.i.i.i = load i16, ptr %138, align 2, !tbaa !672
-  %139 = zext i16 %.val39.i.i.i.i.i.i.i to i64
-  %140 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %139
-  %.val1.i.i.i61.i.i.i.i.i.i.i = load ptr, ptr %140, align 8, !tbaa !129
-  %141 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i61.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i.i.i.i = load i64, ptr %141, align 8
-  %142 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i.i.i.i, 4
-  %.not.i.i.i63.i.i.i.i.i.i.i = icmp eq i64 %142, 0
-  br i1 %.not.i.i.i63.i.i.i.i.i.i.i, label %143, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i
+139:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i
+  %140 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 6
+  %.val39.i.i.i.i.i.i.i = load i16, ptr %140, align 2, !tbaa !672
+  %141 = zext i16 %.val39.i.i.i.i.i.i.i to i64
+  %142 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %141
+  %.val1.i.i.i61.i.i.i.i.i.i.i = load ptr, ptr %142, align 8, !tbaa !129
+  %143 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i61.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i.i.i.i = load i64, ptr %143, align 8
+  %144 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i.i.i.i, 4
+  %.not.i.i.i63.i.i.i.i.i.i.i = icmp eq i64 %144, 0
+  br i1 %.not.i.i.i63.i.i.i.i.i.i.i, label %145, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i
 
-143:                                              ; preds = %137
-  %144 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i.i.i.i, -8
-  %145 = inttoptr i64 %144 to ptr
-  %146 = icmp eq i64 %144, 0
-  br i1 %146, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i, label %147
+145:                                              ; preds = %139
+  %146 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i.i.i.i, -8
+  %147 = inttoptr i64 %146 to ptr
+  %148 = icmp eq i64 %146, 0
+  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i, label %149
 
-147:                                              ; preds = %143
-  %148 = load i8, ptr %145, align 8, !tbaa !31
-  switch i8 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i [
+149:                                              ; preds = %145
+  %150 = load i8, ptr %147, align 8, !tbaa !31
+  switch i8 %150, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i65.i.i.i.i.i.i.i
-    i8 4, label %149
+    i8 4, label %151
   ]
 
-149:                                              ; preds = %147
+151:                                              ; preds = %149
   br label %.sink.split.i.i.i65.i.i.i.i.i.i.i
 
-.sink.split.i.i.i65.i.i.i.i.i.i.i:                ; preds = %149, %147
-  %.sink20.i.i.i66.i.i.i.i.i.i.i = phi i64 [ 16, %149 ], [ 64, %147 ]
-  %150 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink20.i.i.i66.i.i.i.i.i.i.i
-  %151 = load ptr, ptr %150, align 8, !tbaa !591
+.sink.split.i.i.i65.i.i.i.i.i.i.i:                ; preds = %151, %149
+  %.sink20.i.i.i66.i.i.i.i.i.i.i = phi i64 [ 16, %151 ], [ 64, %149 ]
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 %.sink20.i.i.i66.i.i.i.i.i.i.i
+  %153 = load ptr, ptr %152, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i65.i.i.i.i.i.i.i, %147, %143, %137
-  %.0.i.i.i64.i.i.i.i.i.i.i = phi ptr [ null, %143 ], [ null, %137 ], [ null, %147 ], [ %151, %.sink.split.i.i.i65.i.i.i.i.i.i.i ]
-  %152 = icmp eq ptr %.0.i.i.i64.i.i.i.i.i.i.i, %82
-  br i1 %152, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit25, label %153
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i65.i.i.i.i.i.i.i, %149, %145, %139
+  %.0.i.i.i64.i.i.i.i.i.i.i = phi ptr [ null, %145 ], [ null, %139 ], [ null, %149 ], [ %153, %.sink.split.i.i.i65.i.i.i.i.i.i.i ]
+  %154 = icmp eq ptr %.0.i.i.i64.i.i.i.i.i.i.i, %84
+  br i1 %154, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit25, label %155
 
-153:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 8
-  %155 = add nsw i64 %.0100.i.i.i.i.i.i.i, -1
-  %156 = icmp sgt i64 %.0100.i.i.i.i.i.i.i, 1
-  br i1 %156, label %90, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !951
+155:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i
+  %156 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 8
+  %157 = add nsw i64 %.0100.i.i.i.i.i.i.i, -1
+  %158 = icmp sgt i64 %.0100.i.i.i.i.i.i.i, 1
+  br i1 %158, label %92, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !951
 
-._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %153
-  %157 = and i64 %.val33.i.i.i, 3
+._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %155
+  %159 = and i64 %.val33.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %81
-  %.pre-phi109.i.i.i.i.i.i.i = phi i64 [ %157, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val33.i.i.i, %81 ]
-  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val.i.i.i, %81 ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %83
+  %.pre-phi109.i.i.i.i.i.i.i = phi i64 [ %159, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val33.i.i.i, %83 ]
+  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val.i.i.i, %83 ]
   switch i64 %.pre-phi109.i.i.i.i.i.i.i, label %default.unreachable [
-    i64 3, label %158
+    i64 3, label %160
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge106.i.i.i.i.i.i.i
     i64 0, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
   ]
 
-158:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
+160:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   %.029.val42.i.i.i.i.i.i.i = load i16, ptr %.029.lcssa.i.i.i.i.i.i.i, align 2, !tbaa !672
-  %159 = zext i16 %.029.val42.i.i.i.i.i.i.i to i64
-  %160 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %159
-  %.val1.i.i.i68.i.i.i.i.i.i.i = load ptr, ptr %160, align 8, !tbaa !129
-  %161 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i68.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i.i.i.i = load i64, ptr %161, align 8
-  %162 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i.i.i.i, 4
-  %.not.i.i.i70.i.i.i.i.i.i.i = icmp eq i64 %162, 0
-  br i1 %.not.i.i.i70.i.i.i.i.i.i.i, label %163, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i
+  %161 = zext i16 %.029.val42.i.i.i.i.i.i.i to i64
+  %162 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %161
+  %.val1.i.i.i68.i.i.i.i.i.i.i = load ptr, ptr %162, align 8, !tbaa !129
+  %163 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i68.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i.i.i.i = load i64, ptr %163, align 8
+  %164 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i.i.i.i, 4
+  %.not.i.i.i70.i.i.i.i.i.i.i = icmp eq i64 %164, 0
+  br i1 %.not.i.i.i70.i.i.i.i.i.i.i, label %165, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i
 
-163:                                              ; preds = %158
-  %164 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i.i.i.i, -8
-  %165 = inttoptr i64 %164 to ptr
-  %166 = icmp eq i64 %164, 0
-  br i1 %166, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i, label %167
+165:                                              ; preds = %160
+  %166 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i.i.i.i, -8
+  %167 = inttoptr i64 %166 to ptr
+  %168 = icmp eq i64 %166, 0
+  br i1 %168, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i, label %169
 
-167:                                              ; preds = %163
-  %168 = load i8, ptr %165, align 8, !tbaa !31
-  switch i8 %168, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i [
+169:                                              ; preds = %165
+  %170 = load i8, ptr %167, align 8, !tbaa !31
+  switch i8 %170, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i72.i.i.i.i.i.i.i
-    i8 4, label %169
+    i8 4, label %171
   ]
 
-169:                                              ; preds = %167
+171:                                              ; preds = %169
   br label %.sink.split.i.i.i72.i.i.i.i.i.i.i
 
-.sink.split.i.i.i72.i.i.i.i.i.i.i:                ; preds = %169, %167
-  %.sink20.i.i.i73.i.i.i.i.i.i.i = phi i64 [ 16, %169 ], [ 64, %167 ]
-  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink20.i.i.i73.i.i.i.i.i.i.i
-  %171 = load ptr, ptr %170, align 8, !tbaa !591
+.sink.split.i.i.i72.i.i.i.i.i.i.i:                ; preds = %171, %169
+  %.sink20.i.i.i73.i.i.i.i.i.i.i = phi i64 [ 16, %171 ], [ 64, %169 ]
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 %.sink20.i.i.i73.i.i.i.i.i.i.i
+  %173 = load ptr, ptr %172, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i72.i.i.i.i.i.i.i, %167, %163, %158
-  %.0.i.i.i71.i.i.i.i.i.i.i = phi ptr [ null, %163 ], [ null, %158 ], [ null, %167 ], [ %171, %.sink.split.i.i.i72.i.i.i.i.i.i.i ]
-  %172 = icmp eq ptr %.0.i.i.i71.i.i.i.i.i.i.i, %82
-  br i1 %172, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %173
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i72.i.i.i.i.i.i.i, %169, %165, %160
+  %.0.i.i.i71.i.i.i.i.i.i.i = phi ptr [ null, %165 ], [ null, %160 ], [ null, %169 ], [ %173, %.sink.split.i.i.i72.i.i.i.i.i.i.i ]
+  %174 = icmp eq ptr %.0.i.i.i71.i.i.i.i.i.i.i, %84
+  br i1 %174, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %175
 
-173:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i
-  %174 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 2
+175:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i
+  %176 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %173, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %174, %173 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %175, %._crit_edge.i.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i.i = phi ptr [ %176, %175 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i16, ptr %.1.i.i.i.i.i.i.i, align 2, !tbaa !672
-  %175 = zext i16 %.1.val.i.i.i.i.i.i.i to i64
-  %176 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %175
-  %.val1.i.i.i75.i.i.i.i.i.i.i = load ptr, ptr %176, align 8, !tbaa !129
-  %177 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i75.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i.i.i.i = load i64, ptr %177, align 8
-  %178 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i.i.i.i, 4
-  %.not.i.i.i77.i.i.i.i.i.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i77.i.i.i.i.i.i.i, label %179, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i
+  %177 = zext i16 %.1.val.i.i.i.i.i.i.i to i64
+  %178 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %177
+  %.val1.i.i.i75.i.i.i.i.i.i.i = load ptr, ptr %178, align 8, !tbaa !129
+  %179 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i75.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i.i.i.i = load i64, ptr %179, align 8
+  %180 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i.i.i.i, 4
+  %.not.i.i.i77.i.i.i.i.i.i.i = icmp eq i64 %180, 0
+  br i1 %.not.i.i.i77.i.i.i.i.i.i.i, label %181, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i
 
-179:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %180 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i.i.i.i, -8
-  %181 = inttoptr i64 %180 to ptr
-  %182 = icmp eq i64 %180, 0
-  br i1 %182, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i, label %183
+181:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
+  %182 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i.i.i.i, -8
+  %183 = inttoptr i64 %182 to ptr
+  %184 = icmp eq i64 %182, 0
+  br i1 %184, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i, label %185
 
-183:                                              ; preds = %179
-  %184 = load i8, ptr %181, align 8, !tbaa !31
-  switch i8 %184, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i [
+185:                                              ; preds = %181
+  %186 = load i8, ptr %183, align 8, !tbaa !31
+  switch i8 %186, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i79.i.i.i.i.i.i.i
-    i8 4, label %185
+    i8 4, label %187
   ]
 
-185:                                              ; preds = %183
+187:                                              ; preds = %185
   br label %.sink.split.i.i.i79.i.i.i.i.i.i.i
 
-.sink.split.i.i.i79.i.i.i.i.i.i.i:                ; preds = %185, %183
-  %.sink20.i.i.i80.i.i.i.i.i.i.i = phi i64 [ 16, %185 ], [ 64, %183 ]
-  %186 = getelementptr inbounds nuw i8, ptr %181, i64 %.sink20.i.i.i80.i.i.i.i.i.i.i
-  %187 = load ptr, ptr %186, align 8, !tbaa !591
+.sink.split.i.i.i79.i.i.i.i.i.i.i:                ; preds = %187, %185
+  %.sink20.i.i.i80.i.i.i.i.i.i.i = phi i64 [ 16, %187 ], [ 64, %185 ]
+  %188 = getelementptr inbounds nuw i8, ptr %183, i64 %.sink20.i.i.i80.i.i.i.i.i.i.i
+  %189 = load ptr, ptr %188, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i79.i.i.i.i.i.i.i, %183, %179, %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %.0.i.i.i78.i.i.i.i.i.i.i = phi ptr [ null, %179 ], [ null, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ null, %183 ], [ %187, %.sink.split.i.i.i79.i.i.i.i.i.i.i ]
-  %188 = icmp eq ptr %.0.i.i.i78.i.i.i.i.i.i.i, %82
-  br i1 %188, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %189
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i79.i.i.i.i.i.i.i, %185, %181, %._crit_edge._crit_edge.i.i.i.i.i.i.i
+  %.0.i.i.i78.i.i.i.i.i.i.i = phi ptr [ null, %181 ], [ null, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ null, %185 ], [ %189, %.sink.split.i.i.i79.i.i.i.i.i.i.i ]
+  %190 = icmp eq ptr %.0.i.i.i78.i.i.i.i.i.i.i, %84
+  br i1 %190, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %191
 
-189:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i
-  %190 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 2
+191:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i
+  %192 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge106.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge106.i.i.i.i.i.i.i:          ; preds = %189, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %190, %189 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+._crit_edge._crit_edge106.i.i.i.i.i.i.i:          ; preds = %191, %._crit_edge.i.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i.i = phi ptr [ %192, %191 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i16, ptr %.2.i.i.i.i.i.i.i, align 2, !tbaa !672
-  %191 = zext i16 %.2.val.i.i.i.i.i.i.i to i64
-  %192 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %191
-  %.val1.i.i.i82.i.i.i.i.i.i.i = load ptr, ptr %192, align 8, !tbaa !129
-  %193 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i82.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i.i.i.i = load i64, ptr %193, align 8
-  %194 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i.i.i.i, 4
-  %.not.i.i.i84.i.i.i.i.i.i.i = icmp eq i64 %194, 0
-  br i1 %.not.i.i.i84.i.i.i.i.i.i.i, label %195, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i
+  %193 = zext i16 %.2.val.i.i.i.i.i.i.i to i64
+  %194 = getelementptr inbounds nuw %"class.std::unique_ptr.976", ptr %.val34.i.i.i, i64 %193
+  %.val1.i.i.i82.i.i.i.i.i.i.i = load ptr, ptr %194, align 8, !tbaa !129
+  %195 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i82.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i.i.i.i = load i64, ptr %195, align 8
+  %196 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i.i.i.i, 4
+  %.not.i.i.i84.i.i.i.i.i.i.i = icmp eq i64 %196, 0
+  br i1 %.not.i.i.i84.i.i.i.i.i.i.i, label %197, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i
 
-195:                                              ; preds = %._crit_edge._crit_edge106.i.i.i.i.i.i.i
-  %196 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i.i.i.i, -8
-  %197 = inttoptr i64 %196 to ptr
-  %198 = icmp eq i64 %196, 0
-  br i1 %198, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i, label %199
+197:                                              ; preds = %._crit_edge._crit_edge106.i.i.i.i.i.i.i
+  %198 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i.i.i.i, -8
+  %199 = inttoptr i64 %198 to ptr
+  %200 = icmp eq i64 %198, 0
+  br i1 %200, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i, label %201
 
-199:                                              ; preds = %195
-  %200 = load i8, ptr %197, align 8, !tbaa !31
-  switch i8 %200, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i [
+201:                                              ; preds = %197
+  %202 = load i8, ptr %199, align 8, !tbaa !31
+  switch i8 %202, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i [
     i8 12, label %.sink.split.i.i.i86.i.i.i.i.i.i.i
-    i8 4, label %201
+    i8 4, label %203
   ]
 
-201:                                              ; preds = %199
+203:                                              ; preds = %201
   br label %.sink.split.i.i.i86.i.i.i.i.i.i.i
 
-.sink.split.i.i.i86.i.i.i.i.i.i.i:                ; preds = %201, %199
-  %.sink20.i.i.i87.i.i.i.i.i.i.i = phi i64 [ 16, %201 ], [ 64, %199 ]
-  %202 = getelementptr inbounds nuw i8, ptr %197, i64 %.sink20.i.i.i87.i.i.i.i.i.i.i
-  %203 = load ptr, ptr %202, align 8, !tbaa !591
+.sink.split.i.i.i86.i.i.i.i.i.i.i:                ; preds = %203, %201
+  %.sink20.i.i.i87.i.i.i.i.i.i.i = phi i64 [ 16, %203 ], [ 64, %201 ]
+  %204 = getelementptr inbounds nuw i8, ptr %199, i64 %.sink20.i.i.i87.i.i.i.i.i.i.i
+  %205 = load ptr, ptr %204, align 8, !tbaa !591
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i86.i.i.i.i.i.i.i, %199, %195, %._crit_edge._crit_edge106.i.i.i.i.i.i.i
-  %.0.i.i.i85.i.i.i.i.i.i.i = phi ptr [ null, %195 ], [ null, %._crit_edge._crit_edge106.i.i.i.i.i.i.i ], [ null, %199 ], [ %203, %.sink.split.i.i.i86.i.i.i.i.i.i.i ]
-  %204 = icmp eq ptr %.0.i.i.i85.i.i.i.i.i.i.i, %82
-  br i1 %204, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i86.i.i.i.i.i.i.i, %201, %197, %._crit_edge._crit_edge106.i.i.i.i.i.i.i
+  %.0.i.i.i85.i.i.i.i.i.i.i = phi ptr [ null, %197 ], [ null, %._crit_edge._crit_edge106.i.i.i.i.i.i.i ], [ null, %201 ], [ %205, %.sink.split.i.i.i86.i.i.i.i.i.i.i ]
+  %206 = icmp eq ptr %.0.i.i.i85.i.i.i.i.i.i.i, %84
+  br i1 %206, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
 
 default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   unreachable
 
 _ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit53.i.i.i.i.i.i.i
-  %205 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 2
+  %207 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 2
   br label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i
 
 _ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit23: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit60.i.i.i.i.i.i.i
-  %206 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 4
   br label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i
 
 _ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit25: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit67.i.i.i.i.i.i.i
-  %207 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 6
+  %209 = getelementptr inbounds nuw i8, ptr %.02999.i.i.i.i.i.i.i, i64 6
   br label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i
 
 _ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit23, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit25, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i ], [ %205, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit ], [ %206, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit23 ], [ %207, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit25 ], [ %.02999.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i ]
-  %.not52.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i, %87
-  br i1 %.not52.i.i.i, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i, label %208
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit74.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit81.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i ], [ %207, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit ], [ %208, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit23 ], [ %209, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i.loopexit.split.loop.exit25 ], [ %.02999.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit.i.i.i.i.i.i.i ]
+  %.not52.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i, %89
+  br i1 %.not52.i.i.i, label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i, label %210
 
-208:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i
-  %209 = load ptr, ptr %75, align 8, !tbaa !952
-  %210 = load ptr, ptr %209, align 8, !tbaa !591
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 40
-  %212 = load i64, ptr %211, align 8, !tbaa !953
-  %213 = and i64 %212, 7
-  %214 = icmp ne i64 %213, 0
-  %215 = and i64 %212, -8
-  %.not2.i.i.i.i = icmp eq i64 %215, 0
-  %.not.i36.i.i.i = or i1 %214, %.not2.i.i.i.i
-  br i1 %.not.i36.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i, label %216
+210:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i
+  %211 = load ptr, ptr %77, align 8, !tbaa !952
+  %212 = load ptr, ptr %211, align 8, !tbaa !591
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %214 = load i64, ptr %213, align 8, !tbaa !953
+  %215 = and i64 %214, 7
+  %216 = icmp ne i64 %215, 0
+  %217 = and i64 %214, -8
+  %.not2.i.i.i.i = icmp eq i64 %217, 0
+  %.not.i36.i.i.i = or i1 %216, %.not2.i.i.i.i
+  br i1 %.not.i36.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i, label %218
 
-216:                                              ; preds = %208
-  %217 = inttoptr i64 %215 to ptr
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %219 = load ptr, ptr %218, align 8, !tbaa !910
+218:                                              ; preds = %210
+  %219 = inttoptr i64 %217 to ptr
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %221 = load i64, ptr %219, align 8, !tbaa !913
-  %222 = and i64 %221, 4294967295
+  %221 = load ptr, ptr %220, align 8, !tbaa !910
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %223 = load i64, ptr %221, align 8, !tbaa !913
+  %224 = and i64 %223, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i
 
-_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i:        ; preds = %216, %208
-  %.sroa.3.0.i.i.i.i = phi i64 [ %222, %216 ], [ 0, %208 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %220, %216 ], [ @.str.1, %208 ]
-  %223 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %224 = load i64, ptr %223, align 8, !tbaa !953
-  %225 = and i64 %224, 7
-  %226 = icmp ne i64 %225, 0
-  %227 = and i64 %224, -8
-  %.not2.i37.i.i.i = icmp eq i64 %227, 0
-  %.not.i38.i.i.i = or i1 %226, %.not2.i37.i.i.i
-  br i1 %.not.i38.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit43.i.i.i, label %228
+_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i:        ; preds = %218, %210
+  %.sroa.3.0.i.i.i.i = phi i64 [ %224, %218 ], [ 0, %210 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %222, %218 ], [ @.str.1, %210 ]
+  %225 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %226 = load i64, ptr %225, align 8, !tbaa !953
+  %227 = and i64 %226, 7
+  %228 = icmp ne i64 %227, 0
+  %229 = and i64 %226, -8
+  %.not2.i37.i.i.i = icmp eq i64 %229, 0
+  %.not.i38.i.i.i = or i1 %228, %.not2.i37.i.i.i
+  br i1 %.not.i38.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit43.i.i.i, label %230
 
-228:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i
-  %229 = inttoptr i64 %227 to ptr
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  %231 = load ptr, ptr %230, align 8, !tbaa !910
+230:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i
+  %231 = inttoptr i64 %229 to ptr
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  %233 = load i64, ptr %231, align 8, !tbaa !913
-  %234 = and i64 %233, 4294967295
+  %233 = load ptr, ptr %232, align 8, !tbaa !910
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %235 = load i64, ptr %233, align 8, !tbaa !913
+  %236 = and i64 %235, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit43.i.i.i
 
-_ZNK5clang9NamedDecl7getNameEv.exit43.i.i.i:      ; preds = %228, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i
-  %.sroa.3.0.i39.i.i.i = phi i64 [ %234, %228 ], [ 0, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i ]
-  %.sroa.0.0.i40.i.i.i = phi ptr [ %232, %228 ], [ @.str.1, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i ]
-  %235 = getelementptr inbounds nuw i8, ptr %84, i64 320
-  %236 = load ptr, ptr %235, align 8, !tbaa !204
-  %237 = load ptr, ptr %76, align 8, !tbaa !954
-  %.sroa.06.0.copyload.i.i.i = load ptr, ptr %237, align 8, !tbaa !472
-  %.sroa.27.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %237, i64 8
+_ZNK5clang9NamedDecl7getNameEv.exit43.i.i.i:      ; preds = %230, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i
+  %.sroa.3.0.i39.i.i.i = phi i64 [ %236, %230 ], [ 0, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i ]
+  %.sroa.0.0.i40.i.i.i = phi ptr [ %234, %230 ], [ @.str.1, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i ]
+  %237 = getelementptr inbounds nuw i8, ptr %86, i64 320
+  %238 = load ptr, ptr %237, align 8, !tbaa !204
+  %239 = load ptr, ptr %78, align 8, !tbaa !954
+  %.sroa.06.0.copyload.i.i.i = load ptr, ptr %239, align 8, !tbaa !472
+  %.sroa.27.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %239, i64 8
   %.sroa.27.0.copyload.i.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i, align 8, !tbaa !239
   store ptr %.sroa.0.0.i40.i.i.i, ptr %5, align 8, !tbaa !472
   store i64 %.sroa.3.0.i39.i.i.i, ptr %.sroa.49.0..sroa_idx.i.i.i, align 8, !tbaa !239
-  %238 = load ptr, ptr %77, align 8, !tbaa !955
-  %.sroa.03.0.copyload.i.i.i = load i32, ptr %238, align 4, !tbaa !306
-  %239 = load ptr, ptr %236, align 8, !tbaa !131
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 128
-  %241 = load ptr, ptr %240, align 8
-  call void %241(ptr noundef nonnull align 8 dereferenceable(9) %236, ptr %.sroa.06.0.copyload.i.i.i, i64 %.sroa.27.0.copyload.i.i.i, ptr nonnull %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, i32 %.sroa.03.0.copyload.i.i.i) #23
+  %240 = load ptr, ptr %79, align 8, !tbaa !955
+  %.sroa.03.0.copyload.i.i.i = load i32, ptr %240, align 4, !tbaa !306
+  %241 = load ptr, ptr %238, align 8, !tbaa !131
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 128
+  %243 = load ptr, ptr %242, align 8
+  call void %243(ptr noundef nonnull align 8 dereferenceable(9) %238, ptr %.sroa.06.0.copyload.i.i.i, i64 %.sroa.27.0.copyload.i.i.i, ptr nonnull %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, i32 %.sroa.03.0.copyload.i.i.i) #23
   br label %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
 
 _ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i: ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit43.i.i.i, %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS2_11FactManagerEPKN5clang9ValueDeclEEUltE_EclIPKtEEbT_.exit88.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %242 = load ptr, ptr %78, align 8, !tbaa !956
+  %244 = load ptr, ptr %80, align 8, !tbaa !956
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %82, ptr %3, align 8, !tbaa !591
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %244 = load ptr, ptr %243, align 8, !tbaa !658
-  %.not.i.i.i.i.i = icmp eq ptr %244, null
-  br i1 %.not.i.i.i.i.i, label %245, label %_ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i
+  store ptr %84, ptr %3, align 8, !tbaa !591
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  %246 = load ptr, ptr %245, align 8, !tbaa !658
+  %.not.i.i.i.i.i = icmp eq ptr %246, null
+  br i1 %.not.i.i.i.i.i, label %247, label %_ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i
 
-245:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
+247:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
   call void @_ZSt25__throw_bad_function_callv() #26
   unreachable
 
 _ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i: ; preds = %_ZNK12_GLOBAL__N_17FactSet17containsMutexDeclERNS_11FactManagerEPKN5clang9ValueDeclE.exit.thread.i.i.i
-  %246 = getelementptr inbounds nuw i8, ptr %242, i64 24
-  %247 = load ptr, ptr %246, align 8, !tbaa !655
-  %248 = call noundef zeroext i1 %247(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(8) %3) #23
+  %248 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %249 = load ptr, ptr %248, align 8, !tbaa !655
+  %250 = call noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %248, label %249, label %273
+  br i1 %250, label %251, label %275
 
-249:                                              ; preds = %_ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i
+251:                                              ; preds = %_ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 1, !tbaa !502
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEEEES5_bS7_SA_E11try_emplaceIJbEEESt4pairINS_16DenseMapIteratorIS5_bS7_SA_Lb0EEEbERKS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1016") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  %250 = load i8, ptr %80, align 8, !tbaa !957, !range !304, !noundef !305
-  %251 = trunc nuw i8 %250 to i1
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEEEES5_bS7_SA_E11try_emplaceIJbEEESt4pairINS_16DenseMapIteratorIS5_bS7_SA_Lb0EEEbERKS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1016") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %252 = load i8, ptr %82, align 8, !tbaa !957, !range !304, !noundef !305
+  %253 = trunc nuw i8 %252 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %251, label %252, label %273
+  br i1 %253, label %254, label %275
 
-252:                                              ; preds = %249
-  %253 = load ptr, ptr %4, align 8, !tbaa !591
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 40
-  %255 = load i64, ptr %254, align 8, !tbaa !953
-  %256 = and i64 %255, 7
-  %257 = icmp ne i64 %256, 0
-  %258 = and i64 %255, -8
-  %.not2.i44.i.i.i = icmp eq i64 %258, 0
-  %.not.i45.i.i.i = or i1 %257, %.not2.i44.i.i.i
-  br i1 %.not.i45.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i, label %259
+254:                                              ; preds = %251
+  %255 = load ptr, ptr %4, align 8, !tbaa !591
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 40
+  %257 = load i64, ptr %256, align 8, !tbaa !953
+  %258 = and i64 %257, 7
+  %259 = icmp ne i64 %258, 0
+  %260 = and i64 %257, -8
+  %.not2.i44.i.i.i = icmp eq i64 %260, 0
+  %.not.i45.i.i.i = or i1 %259, %.not2.i44.i.i.i
+  br i1 %.not.i45.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i, label %261
 
-259:                                              ; preds = %252
-  %260 = inttoptr i64 %258 to ptr
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
-  %262 = load ptr, ptr %261, align 8, !tbaa !910
+261:                                              ; preds = %254
+  %262 = inttoptr i64 %260 to ptr
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  %264 = load i64, ptr %262, align 8, !tbaa !913
-  %265 = and i64 %264, 4294967295
+  %264 = load ptr, ptr %263, align 8, !tbaa !910
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
+  %266 = load i64, ptr %264, align 8, !tbaa !913
+  %267 = and i64 %266, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i
 
-_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i:      ; preds = %259, %252
-  %.sroa.3.0.i46.i.i.i = phi i64 [ %265, %259 ], [ 0, %252 ]
-  %.sroa.0.0.i47.i.i.i = phi ptr [ %263, %259 ], [ @.str.1, %252 ]
-  %266 = load ptr, ptr %10, align 8, !tbaa !947
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 320
-  %268 = load ptr, ptr %267, align 8, !tbaa !204
-  %269 = getelementptr inbounds nuw i8, ptr %253, i64 24
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %269, align 8, !tbaa !306
-  %270 = load ptr, ptr %268, align 8, !tbaa !131
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 136
-  %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(9) %268, ptr nonnull %.sroa.0.0.i47.i.i.i, i64 %.sroa.3.0.i46.i.i.i, i32 %.sroa.0.0.copyload.i.i.i.i) #23
-  br label %273
+_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i:      ; preds = %261, %254
+  %.sroa.3.0.i46.i.i.i = phi i64 [ %267, %261 ], [ 0, %254 ]
+  %.sroa.0.0.i47.i.i.i = phi ptr [ %265, %261 ], [ @.str.1, %254 ]
+  %268 = load ptr, ptr %10, align 8, !tbaa !947
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 320
+  %270 = load ptr, ptr %269, align 8, !tbaa !204
+  %271 = getelementptr inbounds nuw i8, ptr %255, i64 24
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %271, align 8, !tbaa !306
+  %272 = load ptr, ptr %270, align 8, !tbaa !131
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 136
+  %274 = load ptr, ptr %273, align 8
+  call void %274(ptr noundef nonnull align 8 dereferenceable(9) %270, ptr nonnull %.sroa.0.0.i47.i.i.i, i64 %.sroa.3.0.i46.i.i.i, i32 %.sroa.0.0.copyload.i.i.i.i) #23
+  br label %275
 
-273:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i, %249, %_ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i
-  %274 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i, i64 8
-  %.not32.i.i.i = icmp eq ptr %274, %73
-  br i1 %.not32.i.i.i, label %._crit_edge.i.i.i, label %81
+275:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit50.i.i.i, %251, %_ZNKSt8functionIFbPKN5clang9ValueDeclEEEclES3_.exit.i.i.i
+  %276 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i, i64 8
+  %.not32.i.i.i = icmp eq ptr %276, %75
+  br i1 %.not32.i.i.i, label %._crit_edge.i.i.i, label %83
 
-"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %_ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLOBAL__N_120ThreadSafetyAnalyzerE.exit.i.i.i, %49, %._crit_edge.i.i.i
-  %.0.i.i.i = phi i1 [ false, %2 ], [ %48, %49 ], [ %48, %._crit_edge.i.i.i ], [ %48, %_ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLOBAL__N_120ThreadSafetyAnalyzerE.exit.i.i.i ]
+"_ZSt10__invoke_rIbRZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS0_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS6_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %_ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLOBAL__N_120ThreadSafetyAnalyzerE.exit.i.i.i, %51, %._crit_edge.i.i.i
+  %.0.i.i.i = phi i1 [ false, %2 ], [ %48, %51 ], [ %48, %_ZN5clang12threadSafety9BeforeSet20getBeforeInfoForDeclEPKNS_9ValueDeclERN12_GLOBAL__N_120ThreadSafetyAnalyzerE.exit.i.i.i ], [ %48, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i.i.i

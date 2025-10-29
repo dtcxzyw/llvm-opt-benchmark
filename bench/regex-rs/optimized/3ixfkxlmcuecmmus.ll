@@ -2453,12 +2453,12 @@ common.resume:                                    ; preds = %.body, %213, %.body
   %338 = load ptr, ptr %47, align 8, !alias.scope !465, !noalias !334, !nonnull !4, !noundef !4
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 125
   %340 = load i8, ptr %339, align 1, !range !91, !alias.scope !468, !noalias !364, !noundef !4
-  %.not261.i = icmp eq i8 %340, 0
-  br i1 %.not261.i, label %341, label %343
+  %.not259.i = icmp eq i8 %340, 0
+  br i1 %.not259.i, label %341, label %343
 
 341:                                              ; preds = %352, %337
   %.sroa.5227.i.sroa.0.0 = phi i64 [ undef, %337 ], [ %.sroa.5227.i.sroa.0.0.copyload, %352 ]
-  %.pre256.i = phi ptr [ %338, %337 ], [ %.pre256.pre.i, %352 ]
+  %.pre254.i = phi ptr [ %338, %337 ], [ %.pre254.pre.i, %352 ]
   %342 = phi ptr [ %328, %337 ], [ %.pre.i, %352 ]
   %.sroa.0224.1.i = phi i64 [ 2, %337 ], [ %.sroa.0224.0.copyload226.i, %352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !334
@@ -2506,7 +2506,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !471
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !334
   %.pre.i = load ptr, ptr %37, align 8, !noalias !334
-  %.pre256.pre.i = load ptr, ptr %47, align 8, !noalias !334
+  %.pre254.pre.i = load ptr, ptr %47, align 8, !noalias !334
   br label %341
 
 353:                                              ; preds = %329
@@ -2773,7 +2773,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
 
 433:                                              ; preds = %312, %341
   %.sroa.23.sroa.15.sroa.0.0.copyload573 = phi i64 [ undef, %312 ], [ %.sroa.5227.i.sroa.0.0, %341 ]
-  %.sroa.24.sroa.14.0.copyload255 = phi ptr [ %313, %312 ], [ %.pre256.i, %341 ]
+  %.sroa.24.sroa.14.0.copyload255 = phi ptr [ %313, %312 ], [ %.pre254.i, %341 ]
   %.sroa.23.sroa.14.0.copyload273 = phi i64 [ 2, %312 ], [ %.sroa.0224.1.i, %341 ]
   %.sroa.24.sroa.15.sroa.14.0.copyload429 = phi ptr [ null, %312 ], [ %342, %341 ]
   %434 = load ptr, ptr %46, align 8, !noalias !334, !nonnull !4, !noundef !4
@@ -3446,8 +3446,8 @@ common.resume:                                    ; preds = %.body, %213, %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !742)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %604 = load i8, ptr %463, align 4, !range !91, !alias.scope !744, !noalias !747, !noundef !4
-  %.not103.i = icmp eq i8 %604, 0
-  br i1 %.not103.i, label %609, label %610
+  %.not99.i = icmp eq i8 %604, 0
+  br i1 %.not99.i, label %609, label %610
 
 605:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit.i117", %607
   %.1.i = phi i8 [ %.05.i, %607 ], [ %.3.i, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit.i117" ]
@@ -3471,8 +3471,8 @@ common.resume:                                    ; preds = %.body, %213, %.body
 610:                                              ; preds = %603
   %611 = getelementptr inbounds nuw i8, ptr %.sroa.24.sroa.14.0.copyload255, i64 122
   %612 = load i8, ptr %611, align 2, !range !91, !alias.scope !751, !noalias !749, !noundef !4
-  %.not104.i = icmp eq i8 %612, 0
-  br i1 %.not104.i, label %613, label %614
+  %.not100.i = icmp eq i8 %612, 0
+  br i1 %.not100.i, label %613, label %614
 
 613:                                              ; preds = %610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.21297.sroa.0.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.sroa.0.sroa.12, i64 24, i1 false)
@@ -3676,8 +3676,8 @@ common.resume:                                    ; preds = %.body, %213, %.body
   store ptr %674, ptr %11, align 8, !noalias !747
   %675 = getelementptr inbounds nuw i8, ptr %.sroa.24.sroa.14.0.copyload255, i64 125
   %676 = load i8, ptr %675, align 1, !range !91, !alias.scope !796, !noalias !749, !noundef !4
-  %.not105.i = icmp eq i8 %676, 0
-  br i1 %.not105.i, label %677, label %678
+  %.not101.i = icmp eq i8 %676, 0
+  br i1 %.not101.i, label %677, label %678
 
 677:                                              ; preds = %_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395026bfdd64e2E.exit.i, %672
   %.sroa.22.sroa.14.sroa.0.0.copyload = phi ptr [ %.sroa.22.sroa.14.sroa.0.0.copyload.pre, %_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395026bfdd64e2E.exit.i ], [ %.sroa.24.sroa.15.sroa.14.0.copyload429, %672 ]

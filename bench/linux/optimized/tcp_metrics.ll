@@ -343,7 +343,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i16, ptr %6, align 8
-  switch i16 %7, label %203 [
+  switch i16 %7, label %204 [
     i16 2, label %8
     i16 10, label %15
   ]
@@ -421,19 +421,19 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %56 = getelementptr %struct.tcpm_hash_bucket, ptr %54, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit23, label %.preheader69
+  br i1 %58, label %.loopexit23, label %.preheader68
 
-.preheader69:                                     ; preds = %40, %94
+.preheader68:                                     ; preds = %40, %94
   %59 = phi ptr [ %96, %94 ], [ %57, %40 ]
   %60 = phi i32 [ %95, %94 ], [ 0, %40 ]
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %63 = load i16, ptr %62, align 4
   %64 = icmp eq i16 %63, %42
-  br i1 %64, label %.preheader68, label %94
+  br i1 %64, label %.preheader67, label %94
 
-.preheader68:                                     ; preds = %.preheader69, %.preheader68
-  %65 = phi i64 [ %71, %.preheader68 ], [ 0, %.preheader69 ]
+.preheader67:                                     ; preds = %.preheader68, %.preheader67
+  %65 = phi i64 [ %71, %.preheader67 ], [ 0, %.preheader68 ]
   %66 = getelementptr i32, ptr %61, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr i32, ptr %4, i64 %65
@@ -442,9 +442,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %71 = add nuw nsw i64 %65, 1
   %72 = icmp ne i64 %71, %41
   %73 = select i1 %70, i1 %72, i1 false
-  br i1 %73, label %.preheader68, label %74, !llvm.loop !6
+  br i1 %73, label %.preheader67, label %74, !llvm.loop !6
 
-74:                                               ; preds = %.preheader68
+74:                                               ; preds = %.preheader67
   br i1 %70, label %75, label %94
 
 75:                                               ; preds = %74
@@ -452,10 +452,10 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %77 = getelementptr inbounds nuw i8, ptr %59, i64 52
   %78 = load i16, ptr %77, align 4
   %79 = icmp eq i16 %78, %42
-  br i1 %79, label %.preheader67, label %94
+  br i1 %79, label %.preheader66, label %94
 
-.preheader67:                                     ; preds = %75, %.preheader67
-  %80 = phi i64 [ %86, %.preheader67 ], [ 0, %75 ]
+.preheader66:                                     ; preds = %75, %.preheader66
+  %80 = phi i64 [ %86, %.preheader66 ], [ 0, %75 ]
   %81 = getelementptr i32, ptr %76, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr i32, ptr %5, i64 %80
@@ -464,9 +464,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %86 = add nuw nsw i64 %80, 1
   %87 = icmp ne i64 %86, %41
   %88 = select i1 %85, i1 %87, i1 false
-  br i1 %88, label %.preheader67, label %89, !llvm.loop !6
+  br i1 %88, label %.preheader66, label %89, !llvm.loop !6
 
-89:                                               ; preds = %.preheader67
+89:                                               ; preds = %.preheader66
   br i1 %85, label %90, label %94
 
 90:                                               ; preds = %89
@@ -475,11 +475,11 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %93 = icmp eq ptr %92, %46
   br i1 %93, label %.loopexit23, label %94
 
-94:                                               ; preds = %90, %89, %75, %74, %.preheader69
+94:                                               ; preds = %90, %89, %75, %74, %.preheader68
   %95 = add i32 %60, 1
   %96 = load volatile ptr, ptr %59, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %.preheader69, !llvm.loop !9
+  br i1 %97, label %98, label %.preheader68, !llvm.loop !9
 
 98:                                               ; preds = %94
   %99 = icmp sgt i32 %95, 5
@@ -492,7 +492,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %103 = select i1 %102, ptr null, ptr %101
   %104 = icmp eq ptr %103, null
   %105 = and i1 %2, %104
-  br i1 %105, label %106, label %194
+  br i1 %105, label %106, label %195
 
 106:                                              ; preds = %.loopexit23
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @tcp_metrics_lock) #11
@@ -503,19 +503,19 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %111 = getelementptr %struct.tcpm_hash_bucket, ptr %110, i64 %55
   %112 = load volatile ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.loopexit22.thread.thread, label %.preheader66
+  br i1 %113, label %.loopexit22.thread.thread, label %.preheader65
 
-.preheader66:                                     ; preds = %106, %149
+.preheader65:                                     ; preds = %106, %149
   %114 = phi ptr [ %151, %149 ], [ %112, %106 ]
   %115 = phi i32 [ %150, %149 ], [ 0, %106 ]
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %118 = load i16, ptr %117, align 4
   %119 = icmp eq i16 %118, %42
-  br i1 %119, label %.preheader65, label %149
+  br i1 %119, label %.preheader64, label %149
 
-.preheader65:                                     ; preds = %.preheader66, %.preheader65
-  %120 = phi i64 [ %126, %.preheader65 ], [ 0, %.preheader66 ]
+.preheader64:                                     ; preds = %.preheader65, %.preheader64
+  %120 = phi i64 [ %126, %.preheader64 ], [ 0, %.preheader65 ]
   %121 = getelementptr i32, ptr %116, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = getelementptr i32, ptr %4, i64 %120
@@ -524,9 +524,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %126 = add nuw nsw i64 %120, 1
   %127 = icmp ne i64 %126, %41
   %128 = select i1 %125, i1 %127, i1 false
-  br i1 %128, label %.preheader65, label %129, !llvm.loop !6
+  br i1 %128, label %.preheader64, label %129, !llvm.loop !6
 
-129:                                              ; preds = %.preheader65
+129:                                              ; preds = %.preheader64
   br i1 %125, label %130, label %149
 
 130:                                              ; preds = %129
@@ -534,10 +534,10 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %132 = getelementptr inbounds nuw i8, ptr %114, i64 52
   %133 = load i16, ptr %132, align 4
   %134 = icmp eq i16 %133, %42
-  br i1 %134, label %.preheader64, label %149
+  br i1 %134, label %.preheader63, label %149
 
-.preheader64:                                     ; preds = %130, %.preheader64
-  %135 = phi i64 [ %141, %.preheader64 ], [ 0, %130 ]
+.preheader63:                                     ; preds = %130, %.preheader63
+  %135 = phi i64 [ %141, %.preheader63 ], [ 0, %130 ]
   %136 = getelementptr i32, ptr %131, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr i32, ptr %5, i64 %135
@@ -546,9 +546,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %141 = add nuw nsw i64 %135, 1
   %142 = icmp ne i64 %141, %41
   %143 = select i1 %140, i1 %142, i1 false
-  br i1 %143, label %.preheader64, label %144, !llvm.loop !6
+  br i1 %143, label %.preheader63, label %144, !llvm.loop !6
 
-144:                                              ; preds = %.preheader64
+144:                                              ; preds = %.preheader63
   br i1 %140, label %145, label %149
 
 145:                                              ; preds = %144
@@ -557,111 +557,111 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %148 = icmp eq ptr %147, %109
   br i1 %148, label %.loopexit22, label %149
 
-149:                                              ; preds = %145, %144, %130, %129, %.preheader66
+149:                                              ; preds = %145, %144, %130, %129, %.preheader65
   %150 = add i32 %115, 1
   %151 = load volatile ptr, ptr %114, align 8
   %152 = icmp eq ptr %151, null
-  br i1 %152, label %153, label %.preheader66, !llvm.loop !9
+  br i1 %152, label %153, label %.preheader65, !llvm.loop !9
 
 153:                                              ; preds = %149
   %154 = icmp sgt i32 %150, 5
   br i1 %154, label %.loopexit22.thread, label %.loopexit22.thread.thread
 
 .loopexit22:                                      ; preds = %145
-  %switch = icmp ult ptr %114, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %163, label %155
+  %155 = icmp ult ptr %114, inttoptr (i64 2 to ptr)
+  br i1 %155, label %164, label %156
 
-155:                                              ; preds = %.loopexit22
-  %156 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %157 = load volatile i64, ptr %156, align 8
-  %158 = add i64 %157, 3600000
-  %159 = load volatile i64, ptr @jiffies, align 64
-  %160 = sub i64 %158, %159
-  %161 = icmp slt i64 %160, 0
-  br i1 %161, label %162, label %192, !prof !10
+156:                                              ; preds = %.loopexit22
+  %157 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %158 = load volatile i64, ptr %157, align 8
+  %159 = add i64 %158, 3600000
+  %160 = load volatile i64, ptr @jiffies, align 64
+  %161 = sub i64 %159, %160
+  %162 = icmp slt i64 %161, 0
+  br i1 %162, label %163, label %193, !prof !10
 
-162:                                              ; preds = %155
+163:                                              ; preds = %156
   tail call fastcc void @tcpm_suck_dst(ptr noundef nonnull %114, ptr noundef %1, i1 noundef zeroext false)
-  br label %192
+  br label %193
 
-163:                                              ; preds = %.loopexit22
-  %164 = icmp eq ptr %114, inttoptr (i64 1 to ptr)
-  br i1 %164, label %.loopexit22.thread, label %.loopexit22.thread.thread, !prof !10
+164:                                              ; preds = %.loopexit22
+  %165 = icmp eq ptr %114, inttoptr (i64 1 to ptr)
+  br i1 %165, label %.loopexit22.thread, label %.loopexit22.thread.thread, !prof !10
 
-.loopexit22.thread:                               ; preds = %153, %163
-  %165 = load ptr, ptr %112, align 8
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %.loopexit, label %.preheader
+.loopexit22.thread:                               ; preds = %153, %164
+  %166 = load ptr, ptr %112, align 8
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit22.thread, %.preheader
-  %167 = phi ptr [ %176, %.preheader ], [ %165, %.loopexit22.thread ]
-  %168 = phi ptr [ %175, %.preheader ], [ %112, %.loopexit22.thread ]
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 56
-  %170 = load volatile i64, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 56
-  %172 = load volatile i64, ptr %171, align 8
-  %173 = sub i64 %170, %172
-  %174 = icmp slt i64 %173, 0
-  %175 = select i1 %174, ptr %167, ptr %168
-  %176 = load ptr, ptr %167, align 8
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %.loopexit, label %.preheader, !llvm.loop !11
+  %168 = phi ptr [ %177, %.preheader ], [ %166, %.loopexit22.thread ]
+  %169 = phi ptr [ %176, %.preheader ], [ %112, %.loopexit22.thread ]
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 56
+  %171 = load volatile i64, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 56
+  %173 = load volatile i64, ptr %172, align 8
+  %174 = sub i64 %171, %173
+  %175 = icmp slt i64 %174, 0
+  %176 = select i1 %175, ptr %168, ptr %169
+  %177 = load ptr, ptr %168, align 8
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %.loopexit, label %.preheader, !llvm.loop !11
 
-.loopexit22.thread.thread:                        ; preds = %106, %153, %163
-  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
-  %179 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %178, i32 noundef 2336, i64 noundef 144) #12
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %192, label %.loopexit
+.loopexit22.thread.thread:                        ; preds = %106, %153, %164
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
+  %180 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %179, i32 noundef 2336, i64 noundef 144) #12
+  %181 = icmp eq ptr %180, null
+  br i1 %181, label %193, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit22.thread.thread, %.loopexit22.thread
-  %181 = phi i1 [ false, %.loopexit22.thread.thread ], [ true, %.loopexit22.thread ], [ true, %.preheader ]
-  %182 = phi ptr [ %179, %.loopexit22.thread.thread ], [ %112, %.loopexit22.thread ], [ %175, %.preheader ]
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store volatile ptr %109, ptr %183, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %184, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %185, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  tail call fastcc void @tcpm_suck_dst(ptr noundef %182, ptr noundef %1, i1 noundef zeroext %181)
-  br i1 %181, label %192, label %186, !prof !10
+  %182 = phi i1 [ false, %.loopexit22.thread.thread ], [ true, %.loopexit22.thread ], [ true, %.preheader ]
+  %183 = phi ptr [ %180, %.loopexit22.thread.thread ], [ %112, %.loopexit22.thread ], [ %176, %.preheader ]
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  store volatile ptr %109, ptr %184, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %185, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %186, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
+  tail call fastcc void @tcpm_suck_dst(ptr noundef %183, ptr noundef %1, i1 noundef zeroext %182)
+  br i1 %182, label %193, label %187, !prof !10
 
-186:                                              ; preds = %.loopexit
-  %187 = load ptr, ptr @tcp_metrics_hash, align 8
-  %188 = getelementptr %struct.tcpm_hash_bucket, ptr %187, i64 %55
-  %189 = load ptr, ptr %188, align 8
-  store ptr %189, ptr %182, align 8
+187:                                              ; preds = %.loopexit
+  %188 = load ptr, ptr @tcp_metrics_hash, align 8
+  %189 = getelementptr %struct.tcpm_hash_bucket, ptr %188, i64 %55
+  %190 = load ptr, ptr %189, align 8
+  store ptr %190, ptr %183, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
-  %190 = load ptr, ptr @tcp_metrics_hash, align 8
-  %191 = getelementptr %struct.tcpm_hash_bucket, ptr %190, i64 %55
-  store volatile ptr %182, ptr %191, align 8
-  br label %192
+  %191 = load ptr, ptr @tcp_metrics_hash, align 8
+  %192 = getelementptr %struct.tcpm_hash_bucket, ptr %191, i64 %55
+  store volatile ptr %183, ptr %192, align 8
+  br label %193
 
-192:                                              ; preds = %186, %.loopexit, %.loopexit22.thread.thread, %162, %155
-  %193 = phi ptr [ %182, %186 ], [ %182, %.loopexit ], [ null, %.loopexit22.thread.thread ], [ %114, %155 ], [ %114, %162 ]
+193:                                              ; preds = %187, %.loopexit, %.loopexit22.thread.thread, %163, %156
+  %194 = phi ptr [ %183, %187 ], [ %183, %.loopexit ], [ null, %.loopexit22.thread.thread ], [ %114, %156 ], [ %114, %163 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @tcp_metrics_lock) #11
-  br label %203
+  br label %204
 
-194:                                              ; preds = %.loopexit23
-  br i1 %104, label %203, label %195
+195:                                              ; preds = %.loopexit23
+  br i1 %104, label %204, label %196
 
-195:                                              ; preds = %194
-  %196 = getelementptr inbounds nuw i8, ptr %103, i64 56
-  %197 = load volatile i64, ptr %196, align 8
-  %198 = add i64 %197, 3600000
-  %199 = load volatile i64, ptr @jiffies, align 64
-  %200 = sub i64 %198, %199
-  %201 = icmp slt i64 %200, 0
-  br i1 %201, label %202, label %203, !prof !10
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw i8, ptr %103, i64 56
+  %198 = load volatile i64, ptr %197, align 8
+  %199 = add i64 %198, 3600000
+  %200 = load volatile i64, ptr @jiffies, align 64
+  %201 = sub i64 %199, %200
+  %202 = icmp slt i64 %201, 0
+  br i1 %202, label %203, label %204, !prof !10
 
-202:                                              ; preds = %195
+203:                                              ; preds = %196
   tail call fastcc void @tcpm_suck_dst(ptr noundef nonnull %101, ptr noundef %1, i1 noundef zeroext false)
-  br label %203
+  br label %204
 
-203:                                              ; preds = %202, %195, %194, %192, %3
-  %204 = phi ptr [ null, %3 ], [ %193, %192 ], [ null, %194 ], [ %101, %195 ], [ %101, %202 ]
+204:                                              ; preds = %203, %196, %195, %193, %3
+  %205 = phi ptr [ null, %3 ], [ %194, %193 ], [ null, %195 ], [ %101, %196 ], [ %101, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %204
+  ret ptr %205
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

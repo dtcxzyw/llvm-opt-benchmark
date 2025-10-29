@@ -45,99 +45,99 @@ define dso_local noundef ptr @_ZNK4llvm19ValueLatticeElement10getCompareENS_7Cmp
   %10 = load i16, ptr %3, align 8
   %11 = and i16 %10, 255
   %12 = icmp eq i16 %7, 1
-  %switch36 = icmp samesign ult i16 %11, 2
-  %or.cond = select i1 %12, i1 true, i1 %switch36
-  br i1 %or.cond, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit, label %13
+  %13 = icmp samesign ult i16 %11, 2
+  %or.cond = select i1 %12, i1 true, i1 %13
+  br i1 %or.cond, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit, label %14
 
-13:                                               ; preds = %9
-  %14 = icmp eq i16 %7, 2
-  br i1 %14, label %15, label %23
+14:                                               ; preds = %9
+  %15 = icmp eq i16 %7, 2
+  br i1 %15, label %16, label %24
 
-15:                                               ; preds = %13
-  %16 = icmp eq i16 %11, 2
-  br i1 %16, label %17, label %.thread
+16:                                               ; preds = %14
+  %17 = icmp eq i16 %11, 2
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !3
-  %22 = tail call noundef ptr @_ZN4llvm31ConstantFoldCompareInstOperandsEjPNS_8ConstantES1_RKNS_10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_11InstructionE(i32 noundef %1, ptr noundef %19, ptr noundef %21, ptr noundef nonnull align 1 %4, ptr noundef null, ptr noundef null) #9
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !3
+  %23 = tail call noundef ptr @_ZN4llvm31ConstantFoldCompareInstOperandsEjPNS_8ConstantES1_RKNS_10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_11InstructionE(i32 noundef %1, ptr noundef %20, ptr noundef %22, ptr noundef nonnull align 1 %4, ptr noundef null, ptr noundef null) #9
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-23:                                               ; preds = %13
-  %24 = and i32 %1, -2
-  %25 = icmp eq i32 %24, 32
-  %26 = icmp eq i16 %7, 3
-  %or.cond31 = and i1 %25, %26
-  %27 = icmp eq i16 %11, 2
-  %or.cond32 = and i1 %or.cond31, %27
-  br i1 %or.cond32, label %31, label %.thread29
+24:                                               ; preds = %14
+  %25 = and i32 %1, -2
+  %26 = icmp eq i32 %25, 32
+  %27 = icmp eq i16 %7, 3
+  %or.cond31 = and i1 %26, %27
+  %28 = icmp eq i16 %11, 2
+  %or.cond32 = and i1 %or.cond31, %28
+  br i1 %or.cond32, label %32, label %.thread29
 
-.thread:                                          ; preds = %15
-  %28 = and i32 %1, -2
-  %29 = icmp eq i32 %28, 32
-  %30 = icmp eq i16 %11, 3
-  %or.cond33 = and i1 %29, %30
-  br i1 %or.cond33, label %37, label %.thread29
+.thread:                                          ; preds = %16
+  %29 = and i32 %1, -2
+  %30 = icmp eq i32 %29, 32
+  %31 = icmp eq i16 %11, 3
+  %or.cond33 = and i1 %30, %31
+  br i1 %or.cond33, label %38, label %.thread29
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !3
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %43, label %.thread29
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !3
+  %37 = icmp eq ptr %34, %36
+  br i1 %37, label %44, label %.thread29
 
-37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !3
-  %42 = icmp eq ptr %39, %41
-  br i1 %42, label %43, label %.thread29
+38:                                               ; preds = %.thread
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  %43 = icmp eq ptr %40, %42
+  br i1 %43, label %44, label %.thread29
 
-43:                                               ; preds = %37, %31
-  %44 = icmp eq i32 %1, 33
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %38, %32
+  %45 = icmp eq i32 %1, 33
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %43
-  %46 = tail call noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef %2) #9
+46:                                               ; preds = %44
+  %47 = tail call noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef %2) #9
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-47:                                               ; preds = %43
-  %48 = tail call noundef ptr @_ZN4llvm11ConstantInt8getFalseEPNS_4TypeE(ptr noundef %2) #9
+48:                                               ; preds = %44
+  %49 = tail call noundef ptr @_ZN4llvm11ConstantInt8getFalseEPNS_4TypeE(ptr noundef %2) #9
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-.thread29:                                        ; preds = %31, %.thread, %37, %23
-  %49 = and i16 %.fr, 254
-  %switch = icmp eq i16 %49, 4
-  %50 = and i16 %10, 254
-  %switch34 = icmp eq i16 %50, 4
+.thread29:                                        ; preds = %32, %.thread, %38, %24
+  %50 = and i16 %.fr, 254
+  %switch = icmp eq i16 %50, 4
+  %51 = and i16 %10, 254
+  %switch34 = icmp eq i16 %51, 4
   %or.cond35 = and i1 %switch, %switch34
-  br i1 %or.cond35, label %51, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
+  br i1 %or.cond35, label %52, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-51:                                               ; preds = %.thread29
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %54 = tail call noundef zeroext i1 @_ZNK4llvm13ConstantRange4icmpENS_7CmpInst9PredicateERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %53) #9
-  br i1 %54, label %55, label %57
+52:                                               ; preds = %.thread29
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %55 = tail call noundef zeroext i1 @_ZNK4llvm13ConstantRange4icmpENS_7CmpInst9PredicateERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %54) #9
+  br i1 %55, label %56, label %58
 
-55:                                               ; preds = %51
-  %56 = tail call noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef %2) #9
+56:                                               ; preds = %52
+  %57 = tail call noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef %2) #9
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-57:                                               ; preds = %51
-  %58 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %1) #9
-  %59 = tail call noundef zeroext i1 @_ZNK4llvm13ConstantRange4icmpENS_7CmpInst9PredicateERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(32) %53) #9
-  br i1 %59, label %60, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
+58:                                               ; preds = %52
+  %59 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %1) #9
+  %60 = tail call noundef zeroext i1 @_ZNK4llvm13ConstantRange4icmpENS_7CmpInst9PredicateERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(32) %54) #9
+  br i1 %60, label %61, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-60:                                               ; preds = %57
-  %61 = tail call noundef ptr @_ZN4llvm11ConstantInt8getFalseEPNS_4TypeE(ptr noundef %2) #9
+61:                                               ; preds = %58
+  %62 = tail call noundef ptr @_ZN4llvm11ConstantInt8getFalseEPNS_4TypeE(ptr noundef %2) #9
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
-_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit: ; preds = %9, %.thread29, %55, %60, %57, %45, %47, %5, %17
-  %.0 = phi ptr [ %22, %17 ], [ null, %5 ], [ %46, %45 ], [ %48, %47 ], [ %56, %55 ], [ %61, %60 ], [ null, %57 ], [ null, %.thread29 ], [ null, %9 ]
+_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit: ; preds = %9, %.thread29, %56, %61, %58, %46, %48, %5, %18
+  %.0 = phi ptr [ %23, %18 ], [ null, %5 ], [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %62, %61 ], [ null, %58 ], [ null, %.thread29 ], [ null, %9 ]
   ret ptr %.0
 }
 

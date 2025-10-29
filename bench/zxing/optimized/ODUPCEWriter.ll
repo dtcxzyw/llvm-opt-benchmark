@@ -324,160 +324,160 @@ define linkonce_odr void @_ZN5ZXing4OneD12UPCEANCommon20DigitString2IntArrayILm8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
   %.not = icmp eq i64 %5, 8
-  %.off = add i64 %5, -7
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %.lr.ph, label %6
+  %6 = add i64 %5, -7
+  %7 = icmp ult i64 %6, 2
+  br i1 %7, label %.lr.ph, label %8
 
-6:                                                ; preds = %3
-  %7 = tail call ptr @__cxa_allocate_exception(i64 16) #15
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.9)
-          to label %8 unwind label %9
+8:                                                ; preds = %3
+  %9 = tail call ptr @__cxa_allocate_exception(i64 16) #15
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.9)
+          to label %10 unwind label %11
 
-8:                                                ; preds = %6
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #16
+10:                                               ; preds = %8
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #16
   unreachable
 
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %70
 
 .lr.ph:                                           ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %11 = load ptr, ptr %1, align 8, !tbaa !11
-  br label %15
+  %13 = load ptr, ptr %1, align 8, !tbaa !11
+  br label %17
 
-12:                                               ; preds = %15
-  %13 = add nuw i64 %.027, 1
-  %exitcond.not = icmp eq i64 %13, %5
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !29
+14:                                               ; preds = %17
+  %15 = add nuw i64 %.027, 1
+  %exitcond.not = icmp eq i64 %15, %5
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %12
-  %14 = icmp eq i32 %2, -1
-  br i1 %14, label %26, label %51
+._crit_edge:                                      ; preds = %14
+  %16 = icmp eq i32 %2, -1
+  br i1 %16, label %28, label %53
 
-15:                                               ; preds = %.lr.ph, %12
-  %.027 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %.027
-  %17 = load i32, ptr %16, align 4, !tbaa !12
-  %18 = add nsw i32 %17, -48
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %.027
-  store i32 %18, ptr %19, align 4, !tbaa !18
-  %20 = add i32 %17, -58
-  %or.cond25 = icmp ult i32 %20, -10
-  br i1 %or.cond25, label %21, label %12
+17:                                               ; preds = %.lr.ph, %14
+  %.027 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
+  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %.027
+  %19 = load i32, ptr %18, align 4, !tbaa !12
+  %20 = add nsw i32 %19, -48
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %.027
+  store i32 %20, ptr %21, align 4, !tbaa !18
+  %22 = add i32 %19, -58
+  %or.cond25 = icmp ult i32 %22, -10
+  br i1 %or.cond25, label %23, label %14
 
-21:                                               ; preds = %15
-  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #15
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.10)
-          to label %23 unwind label %24
+23:                                               ; preds = %17
+  %24 = tail call ptr @__cxa_allocate_exception(i64 16) #15
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @.str.10)
+          to label %25 unwind label %26
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #16
+25:                                               ; preds = %23
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #16
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %70
 
-26:                                               ; preds = %._crit_edge
-  %27 = trunc nuw i64 %5 to i32
+28:                                               ; preds = %._crit_edge
+  %29 = trunc nuw i64 %5 to i32
   %.neg.i = sext i1 %.not to i32
-  %28 = add nsw i32 %.neg.i, %27
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit
+  %30 = add nsw i32 %.neg.i, %29
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit
 
-.lr.ph.i:                                         ; preds = %26
-  %30 = add nsw i32 %28, -1
-  %31 = load ptr, ptr %1, align 8, !tbaa !11
-  %32 = zext nneg i32 %30 to i64
-  br label %35
+.lr.ph.i:                                         ; preds = %28
+  %32 = add nsw i32 %30, -1
+  %33 = load ptr, ptr %1, align 8, !tbaa !11
+  %34 = zext nneg i32 %32 to i64
+  br label %37
 
-._crit_edge.i:                                    ; preds = %35
-  %33 = mul i32 %39, 3
-  %.not.i = icmp eq i32 %28, 1
+._crit_edge.i:                                    ; preds = %37
+  %35 = mul i32 %41, 3
+  %.not.i = icmp eq i32 %30, 1
   br i1 %.not.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %._crit_edge.i
-  %34 = zext nneg i32 %28 to i64
-  br label %41
+  %36 = zext nneg i32 %30 to i64
+  br label %43
 
-35:                                               ; preds = %35, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %.01617.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %35 ]
-  %36 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
-  %37 = load i32, ptr %36, align 4, !tbaa !12
-  %38 = add i32 %.01617.i, -48
-  %.fr31.i = freeze i32 %37
-  %39 = add i32 %38, %.fr31.i
+37:                                               ; preds = %37, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
+  %.01617.i = phi i32 [ 0, %.lr.ph.i ], [ %41, %37 ]
+  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
+  %39 = load i32, ptr %38, align 4, !tbaa !12
+  %40 = add i32 %.01617.i, -48
+  %.fr31.i = freeze i32 %39
+  %41 = add i32 %40, %.fr31.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
-  %40 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %40, label %35, label %._crit_edge.i, !llvm.loop !14
+  %42 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %42, label %37, label %._crit_edge.i, !llvm.loop !14
 
-41:                                               ; preds = %41, %.lr.ph23.i
-  %indvars.iv28.i = phi i64 [ %34, %.lr.ph23.i ], [ %indvars.iv.next29.i, %41 ]
-  %.1.fr21.i = phi i32 [ %33, %.lr.ph23.i ], [ %45, %41 ]
+43:                                               ; preds = %43, %.lr.ph23.i
+  %indvars.iv28.i = phi i64 [ %36, %.lr.ph23.i ], [ %indvars.iv.next29.i, %43 ]
+  %.1.fr21.i = phi i32 [ %35, %.lr.ph23.i ], [ %47, %43 ]
   %indvars.iv.next29.i = add nsw i64 %indvars.iv28.i, -2
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.next29.i
-  %43 = load i32, ptr %42, align 4, !tbaa !12
-  %44 = add i32 %.1.fr21.i, -48
-  %.fr.i = freeze i32 %43
-  %45 = add i32 %44, %.fr.i
-  %46 = icmp samesign ugt i64 %indvars.iv28.i, 3
-  br i1 %46, label %41, label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !16
+  %44 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next29.i
+  %45 = load i32, ptr %44, align 4, !tbaa !12
+  %46 = add i32 %.1.fr21.i, -48
+  %.fr.i = freeze i32 %45
+  %47 = add i32 %46, %.fr.i
+  %48 = icmp samesign ugt i64 %indvars.iv28.i, 3
+  br i1 %48, label %43, label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !16
 
-_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit: ; preds = %41, %26, %._crit_edge.i
-  %.1.fr.lcssa.i = phi i32 [ %33, %._crit_edge.i ], [ 0, %26 ], [ %45, %41 ]
-  %47 = srem i32 %.1.fr.lcssa.i, 10
-  %48 = sub nsw i32 10, %47
-  %.urem.i = sub nsw i32 0, %47
-  %.cmp.i = icmp samesign ult i32 %48, 10
-  %49 = select i1 %.cmp.i, i32 %48, i32 %.urem.i
-  %50 = tail call noundef signext i32 @_ZN5ZXing7ToDigitIwEET_i(i32 noundef %49)
+_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit: ; preds = %43, %28, %._crit_edge.i
+  %.1.fr.lcssa.i = phi i32 [ %35, %._crit_edge.i ], [ 0, %28 ], [ %47, %43 ]
+  %49 = srem i32 %.1.fr.lcssa.i, 10
+  %50 = sub nsw i32 10, %49
+  %.urem.i = sub nsw i32 0, %49
+  %.cmp.i = icmp samesign ult i32 %50, 10
+  %51 = select i1 %.cmp.i, i32 %50, i32 %.urem.i
+  %52 = tail call noundef signext i32 @_ZN5ZXing7ToDigitIwEET_i(i32 noundef %51)
   %.pre = load i64, ptr %4, align 8, !tbaa !3
-  br label %51
+  br label %53
 
-51:                                               ; preds = %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, %._crit_edge
-  %52 = phi i64 [ %.pre, %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit ], [ %5, %._crit_edge ]
-  %.020 = phi i32 [ %50, %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit ], [ %2, %._crit_edge ]
-  %53 = icmp eq i64 %52, 7
-  br i1 %53, label %54, label %57
+53:                                               ; preds = %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, %._crit_edge
+  %54 = phi i64 [ %.pre, %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit ], [ %5, %._crit_edge ]
+  %.020 = phi i32 [ %52, %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit ], [ %2, %._crit_edge ]
+  %55 = icmp eq i64 %54, 7
+  br i1 %55, label %56, label %59
 
-54:                                               ; preds = %51
-  %55 = add nsw i32 %.020, -48
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %55, ptr %56, align 4, !tbaa !18
-  br label %67
+56:                                               ; preds = %53
+  %57 = add nsw i32 %.020, -48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %57, ptr %58, align 4, !tbaa !18
+  br label %69
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %1, align 8, !tbaa !11
-  %59 = getelementptr i32, ptr %58, i64 %52
-  %60 = getelementptr i8, ptr %59, i64 -4
-  %61 = load i32, ptr %60, align 4, !tbaa !12
-  %.not23 = icmp eq i32 %61, %.020
-  br i1 %.not23, label %67, label %62
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %1, align 8, !tbaa !11
+  %61 = getelementptr i32, ptr %60, i64 %54
+  %62 = getelementptr i8, ptr %61, i64 -4
+  %63 = load i32, ptr %62, align 4, !tbaa !12
+  %.not23 = icmp eq i32 %63, %.020
+  br i1 %.not23, label %69, label %64
 
-62:                                               ; preds = %57
-  %63 = tail call ptr @__cxa_allocate_exception(i64 16) #15
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull @.str.11)
-          to label %64 unwind label %65
+64:                                               ; preds = %59
+  %65 = tail call ptr @__cxa_allocate_exception(i64 16) #15
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull @.str.11)
+          to label %66 unwind label %67
 
-64:                                               ; preds = %62
-  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #16
+66:                                               ; preds = %64
+  tail call void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #16
   unreachable
 
-65:                                               ; preds = %62
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %64
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %70
 
-67:                                               ; preds = %57, %54
+69:                                               ; preds = %59, %56
   ret void
 
-68:                                               ; preds = %65, %24, %9
-  %.sink = phi ptr [ %63, %65 ], [ %22, %24 ], [ %7, %9 ]
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %25, %24 ], [ %10, %9 ]
+70:                                               ; preds = %67, %26, %11
+  %.sink = phi ptr [ %65, %67 ], [ %24, %26 ], [ %9, %11 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %27, %26 ], [ %12, %11 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #15
   resume { ptr, i32 } %.pn
 }

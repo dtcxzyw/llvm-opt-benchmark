@@ -969,54 +969,54 @@ Ivy_ObjChild0Equiv.exit126:                       ; preds = %137, %142
   %174 = icmp sgt i32 %.val28.i, 0
   br i1 %174, label %.lr.ph.i, label %Ivy_ManCleanup.exit
 
-.lr.ph.i:                                         ; preds = %.loopexit, %187
-  %175 = phi ptr [ %188, %187 ], [ %172, %.loopexit ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %187 ], [ 0, %.loopexit ]
+.lr.ph.i:                                         ; preds = %.loopexit, %188
+  %175 = phi ptr [ %189, %188 ], [ %172, %.loopexit ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %188 ], [ 0, %.loopexit ]
   %176 = getelementptr i8, ptr %175, i64 8
   %.val17.i = load ptr, ptr %176, align 8, !tbaa !21
   %177 = getelementptr inbounds nuw ptr, ptr %.val17.i, i64 %indvars.iv.i
   %178 = load ptr, ptr %177, align 8, !tbaa !29
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %187, label %180
+  br i1 %179, label %188, label %180
 
 180:                                              ; preds = %.lr.ph.i
   %181 = getelementptr i8, ptr %178, i64 8
   %.val19.i = load i32, ptr %181, align 8
   %182 = and i32 %.val19.i, 12
-  %switch.i = icmp eq i32 %182, 4
-  br i1 %switch.i, label %183, label %187
+  %183 = icmp eq i32 %182, 4
+  br i1 %183, label %184, label %188
 
-183:                                              ; preds = %180
-  %184 = getelementptr i8, ptr %178, i64 12
-  %.val25.i = load i32, ptr %184, align 4, !tbaa !57
-  %185 = icmp eq i32 %.val25.i, 0
-  br i1 %185, label %186, label %187
+184:                                              ; preds = %180
+  %185 = getelementptr i8, ptr %178, i64 12
+  %.val25.i = load i32, ptr %185, align 4, !tbaa !57
+  %186 = icmp eq i32 %.val25.i, 0
+  br i1 %186, label %187, label %188
 
-186:                                              ; preds = %183
+187:                                              ; preds = %184
   tail call void @Ivy_ObjDelete_rec(ptr noundef nonnull %13, ptr noundef nonnull %178, i32 noundef 1) #17
   %.pre.i = load ptr, ptr %171, align 8, !tbaa !25
-  br label %187
+  br label %188
 
-187:                                              ; preds = %186, %183, %180, %.lr.ph.i
-  %188 = phi ptr [ %175, %180 ], [ %175, %.lr.ph.i ], [ %175, %183 ], [ %.pre.i, %186 ]
+188:                                              ; preds = %187, %184, %180, %.lr.ph.i
+  %189 = phi ptr [ %175, %180 ], [ %175, %.lr.ph.i ], [ %175, %184 ], [ %.pre.i, %187 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %189 = getelementptr i8, ptr %188, i64 4
-  %.val.i = load i32, ptr %189, align 4, !tbaa !18
-  %190 = sext i32 %.val.i to i64
-  %191 = icmp slt i64 %indvars.iv.next.i, %190
-  br i1 %191, label %.lr.ph.i, label %Ivy_ManCleanup.exit, !llvm.loop !58
+  %190 = getelementptr i8, ptr %189, i64 4
+  %.val.i = load i32, ptr %190, align 4, !tbaa !18
+  %191 = sext i32 %.val.i to i64
+  %192 = icmp slt i64 %indvars.iv.next.i, %191
+  br i1 %192, label %.lr.ph.i, label %Ivy_ManCleanup.exit, !llvm.loop !58
 
-Ivy_ManCleanup.exit:                              ; preds = %187, %.loopexit
+Ivy_ManCleanup.exit:                              ; preds = %188, %.loopexit
   store ptr %34, ptr %4, align 8, !tbaa !59
-  %192 = tail call i32 @Ivy_ManCheck(ptr noundef nonnull %13) #17
-  %.not95 = icmp eq i32 %192, 0
-  br i1 %.not95, label %193, label %194
+  %193 = tail call i32 @Ivy_ManCheck(ptr noundef nonnull %13) #17
+  %.not95 = icmp eq i32 %193, 0
+  br i1 %.not95, label %194, label %195
 
-193:                                              ; preds = %Ivy_ManCleanup.exit
+194:                                              ; preds = %Ivy_ManCleanup.exit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %194
+  br label %195
 
-194:                                              ; preds = %193, %Ivy_ManCleanup.exit
+195:                                              ; preds = %194, %Ivy_ManCleanup.exit
   ret ptr %13
 }
 
@@ -1033,44 +1033,44 @@ define i32 @Ivy_ManCleanup(ptr noundef %0) local_unnamed_addr #0 {
   %7 = icmp sgt i32 %.val28, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %20
-  %8 = phi ptr [ %21, %20 ], [ %5, %1 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %21
+  %8 = phi ptr [ %22, %21 ], [ %5, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %1 ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val17 = load ptr, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw ptr, ptr %.val17, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %20, label %13
+  br i1 %12, label %21, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i8, ptr %11, i64 8
   %.val19 = load i32, ptr %14, align 8
   %15 = and i32 %.val19, 12
-  %switch = icmp eq i32 %15, 4
-  br i1 %switch, label %16, label %20
+  %16 = icmp eq i32 %15, 4
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %13
-  %17 = getelementptr i8, ptr %11, i64 12
-  %.val25 = load i32, ptr %17, align 4, !tbaa !57
-  %18 = icmp eq i32 %.val25, 0
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %13
+  %18 = getelementptr i8, ptr %11, i64 12
+  %.val25 = load i32, ptr %18, align 4, !tbaa !57
+  %19 = icmp eq i32 %.val25, 0
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   tail call void @Ivy_ObjDelete_rec(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 1) #17
   %.pre = load ptr, ptr %4, align 8, !tbaa !25
-  br label %20
+  br label %21
 
-20:                                               ; preds = %13, %.lr.ph, %16, %19
-  %21 = phi ptr [ %8, %13 ], [ %8, %.lr.ph ], [ %8, %16 ], [ %.pre, %19 ]
+21:                                               ; preds = %13, %.lr.ph, %17, %20
+  %22 = phi ptr [ %8, %13 ], [ %8, %.lr.ph ], [ %8, %17 ], [ %.pre, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr i8, ptr %21, i64 4
-  %.val = load i32, ptr %22, align 4, !tbaa !18
-  %23 = sext i32 %.val to i64
-  %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !58
+  %23 = getelementptr i8, ptr %22, i64 4
+  %.val = load i32, ptr %23, align 4, !tbaa !18
+  %24 = sext i32 %.val to i64
+  %25 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %25, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !58
 
-.critedge.loopexit:                               ; preds = %20
+.critedge.loopexit:                               ; preds = %21
   %.val22.pre = load i32, ptr %2, align 4, !tbaa !41
   %.val23.pre = load i32, ptr %3, align 8, !tbaa !41
   br label %.critedge
@@ -1079,9 +1079,9 @@ define i32 @Ivy_ManCleanup(ptr noundef %0) local_unnamed_addr #0 {
   %.val23 = phi i32 [ %.val23.pre, %.critedge.loopexit ], [ %.val21, %1 ]
   %.val22 = phi i32 [ %.val22.pre, %.critedge.loopexit ], [ %.val20, %1 ]
   %.neg = add i32 %.val21, %.val20
-  %25 = add i32 %.val22, %.val23
-  %26 = sub i32 %.neg, %25
-  ret i32 %26
+  %26 = add i32 %.val22, %.val23
+  %27 = sub i32 %.neg, %26
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1852,7 +1852,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ManMakeSeq(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %131, label %5
+  br i1 %4, label %132, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2039,65 +2039,65 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %106 = icmp sgt i32 %.val28.i, 0
   br i1 %106, label %.lr.ph.i, label %Ivy_ManCleanup.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %119
-  %107 = phi ptr [ %120, %119 ], [ %104, %._crit_edge ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %119 ], [ 0, %._crit_edge ]
+.lr.ph.i:                                         ; preds = %._crit_edge, %120
+  %107 = phi ptr [ %121, %120 ], [ %104, %._crit_edge ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %120 ], [ 0, %._crit_edge ]
   %108 = getelementptr i8, ptr %107, i64 8
   %.val17.i = load ptr, ptr %108, align 8, !tbaa !21
   %109 = getelementptr inbounds nuw ptr, ptr %.val17.i, i64 %indvars.iv.i
   %110 = load ptr, ptr %109, align 8, !tbaa !29
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %119, label %112
+  br i1 %111, label %120, label %112
 
 112:                                              ; preds = %.lr.ph.i
   %113 = getelementptr i8, ptr %110, i64 8
   %.val19.i = load i32, ptr %113, align 8
   %114 = and i32 %.val19.i, 12
-  %switch.i = icmp eq i32 %114, 4
-  br i1 %switch.i, label %115, label %119
+  %115 = icmp eq i32 %114, 4
+  br i1 %115, label %116, label %120
 
-115:                                              ; preds = %112
-  %116 = getelementptr i8, ptr %110, i64 12
-  %.val25.i = load i32, ptr %116, align 4, !tbaa !57
-  %117 = icmp eq i32 %.val25.i, 0
-  br i1 %117, label %118, label %119
+116:                                              ; preds = %112
+  %117 = getelementptr i8, ptr %110, i64 12
+  %.val25.i = load i32, ptr %117, align 4, !tbaa !57
+  %118 = icmp eq i32 %.val25.i, 0
+  br i1 %118, label %119, label %120
 
-118:                                              ; preds = %115
+119:                                              ; preds = %116
   tail call void @Ivy_ObjDelete_rec(ptr noundef nonnull %0, ptr noundef nonnull %110, i32 noundef 1) #17
   %.pre.i65 = load ptr, ptr %103, align 8, !tbaa !25
-  br label %119
+  br label %120
 
-119:                                              ; preds = %118, %115, %112, %.lr.ph.i
-  %120 = phi ptr [ %107, %112 ], [ %107, %.lr.ph.i ], [ %107, %115 ], [ %.pre.i65, %118 ]
+120:                                              ; preds = %119, %116, %112, %.lr.ph.i
+  %121 = phi ptr [ %107, %112 ], [ %107, %.lr.ph.i ], [ %107, %116 ], [ %.pre.i65, %119 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %121 = getelementptr i8, ptr %120, i64 4
-  %.val.i = load i32, ptr %121, align 4, !tbaa !18
-  %122 = sext i32 %.val.i to i64
-  %123 = icmp slt i64 %indvars.iv.next.i, %122
-  br i1 %123, label %.lr.ph.i, label %Ivy_ManCleanup.exit, !llvm.loop !58
+  %122 = getelementptr i8, ptr %121, i64 4
+  %.val.i = load i32, ptr %122, align 4, !tbaa !18
+  %123 = sext i32 %.val.i to i64
+  %124 = icmp slt i64 %indvars.iv.next.i, %123
+  br i1 %124, label %.lr.ph.i, label %Ivy_ManCleanup.exit, !llvm.loop !58
 
-Ivy_ManCleanup.exit:                              ; preds = %119, %._crit_edge
-  %124 = tail call i32 @Ivy_ManCleanupSeq(ptr noundef nonnull %0)
-  %125 = tail call i32 @Ivy_ManPropagateBuffers(ptr noundef nonnull %0, i32 noundef 0)
+Ivy_ManCleanup.exit:                              ; preds = %120, %._crit_edge
+  %125 = tail call i32 @Ivy_ManCleanupSeq(ptr noundef nonnull %0)
+  %126 = tail call i32 @Ivy_ManPropagateBuffers(ptr noundef nonnull %0, i32 noundef 0)
   %.val63 = load i32, ptr %96, align 4, !tbaa !41
   %.not = icmp eq i32 %.val63, 0
-  br i1 %.not, label %128, label %126
+  br i1 %.not, label %129, label %127
 
-126:                                              ; preds = %Ivy_ManCleanup.exit
-  %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.val63)
-  br label %128
+127:                                              ; preds = %Ivy_ManCleanup.exit
+  %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.val63)
+  br label %129
 
-128:                                              ; preds = %126, %Ivy_ManCleanup.exit
+129:                                              ; preds = %127, %Ivy_ManCleanup.exit
   tail call void @Ivy_ManResetLevels(ptr noundef nonnull %0) #17
-  %129 = tail call i32 @Ivy_ManCheck(ptr noundef nonnull %0) #17
-  %.not54 = icmp eq i32 %129, 0
-  br i1 %.not54, label %130, label %131
+  %130 = tail call i32 @Ivy_ManCheck(ptr noundef nonnull %0) #17
+  %.not54 = icmp eq i32 %130, 0
+  br i1 %.not54, label %131, label %132
 
-130:                                              ; preds = %128
+131:                                              ; preds = %129
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %131
+  br label %132
 
-131:                                              ; preds = %128, %130, %3
+132:                                              ; preds = %129, %131, %3
   ret void
 }
 

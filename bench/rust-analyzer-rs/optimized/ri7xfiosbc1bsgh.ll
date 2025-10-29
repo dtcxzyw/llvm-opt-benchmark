@@ -30762,18 +30762,18 @@ define hidden { i64, ptr } @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$
   %29 = tail call { i64, ptr } @"_ZN72_$LT$chalk_ir..GenericArgData$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he8aaa9a66a486ff0E.llvm.17197147422070727095"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %23), !noalias !3888
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %.off = add i64 %30, -3
-  %switch = icmp ult i64 %.off, 2
-  %spec.select = select i1 %switch, i64 4, i64 %30
-  %spec.select11 = select i1 %switch, ptr undef, ptr %31
+  %32 = add i64 %30, -3
+  %33 = icmp ult i64 %32, 2
+  %spec.select = select i1 %33, i64 4, i64 %30
+  %spec.select11 = select i1 %33, ptr undef, ptr %31
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cabbbca10576afeE.llvm.15603951218622194610.exit.thread"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cabbbca10576afeE.llvm.15603951218622194610.exit.thread": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3ce46337300ef99E.llvm.15603951218622194610.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cabbbca10576afeE.llvm.15603951218622194610.exit.thread5", %21
   %.sroa.0.0 = phi i64 [ 4, %21 ], [ %18, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cabbbca10576afeE.llvm.15603951218622194610.exit.thread5" ], [ %spec.select, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3ce46337300ef99E.llvm.15603951218622194610.exit.i" ]
   %.sroa.3.0 = phi ptr [ undef, %21 ], [ %20, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cabbbca10576afeE.llvm.15603951218622194610.exit.thread5" ], [ %spec.select11, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3ce46337300ef99E.llvm.15603951218622194610.exit.i" ]
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %33
+  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

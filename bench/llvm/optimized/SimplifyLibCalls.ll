@@ -10304,88 +10304,88 @@ define internal fastcc noundef ptr @_ZL13getIntToFPValPN4llvm5ValueERNS_13IRBuil
   %6 = load i8, ptr %0, align 8, !tbaa !63
   %7 = icmp ne i8 %6, 73
   %8 = and i8 %6, -2
-  %switch = icmp eq i8 %8, 72
-  br i1 %switch, label %9, label %.thread
+  %9 = icmp eq i8 %8, 72
+  br i1 %9, label %10, label %.thread
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1073741824
-  %.not.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i, label %16, label %13
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = and i32 %12, 1073741824
+  %.not.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i, label %17, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 -8
-  %15 = load ptr, ptr %14, align 8, !tbaa !344
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 -8
+  %16 = load ptr, ptr %15, align 8, !tbaa !344
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-16:                                               ; preds = %9
-  %17 = and i32 %11, 134217727
-  %18 = zext nneg i32 %17 to i64
-  %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %19
+17:                                               ; preds = %10
+  %18 = and i32 %12, 134217727
+  %19 = zext nneg i32 %18 to i64
+  %20 = sub nsw i64 0, %19
+  %21 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %20
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %13, %16
-  %21 = phi ptr [ %15, %13 ], [ %20, %16 ]
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !69
-  %25 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #27
-  %26 = icmp uge i32 %25, %2
-  %27 = icmp ne i32 %25, %2
-  %brmerge = or i1 %7, %27
-  %or.cond = and i1 %26, %brmerge
-  br i1 %or.cond, label %.thread, label %28
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %14, %17
+  %22 = phi ptr [ %16, %14 ], [ %21, %17 ]
+  %23 = load ptr, ptr %22, align 8, !tbaa !56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !69
+  %26 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #27
+  %27 = icmp uge i32 %26, %2
+  %28 = icmp ne i32 %26, %2
+  %brmerge = or i1 %7, %28
+  %or.cond = and i1 %27, %brmerge
+  br i1 %or.cond, label %.thread, label %29
 
-28:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
-  %29 = load ptr, ptr %24, align 8, !tbaa !299
-  %30 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef %2) #26
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 255
-  %34 = add nsw i32 %33, -19
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %34, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18getWithNewBitWidthEj.exit, label %35
+29:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
+  %30 = load ptr, ptr %25, align 8, !tbaa !299
+  %31 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %2) #26
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, 255
+  %35 = add nsw i32 %34, -19
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %35, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18getWithNewBitWidthEj.exit, label %36
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !300
-  %38 = icmp eq i32 %33, 18
-  %.sroa.2.0.insert.shift.i.i.i.i = select i1 %38, i64 4294967296, i64 0
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %37 to i64
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !300
+  %39 = icmp eq i32 %34, 18
+  %.sroa.2.0.insert.shift.i.i.i.i = select i1 %39, i64 4294967296, i64 0
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %38 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
-  %39 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %30, i64 %.sroa.0.0.insert.insert.i.i.i.i) #26
+  %40 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %31, i64 %.sroa.0.0.insert.insert.i.i.i.i) #26
   br label %_ZNK4llvm4Type18getWithNewBitWidthEj.exit
 
-_ZNK4llvm4Type18getWithNewBitWidthEj.exit:        ; preds = %28, %35
-  %spec.select.i.i = phi ptr [ %39, %35 ], [ %30, %28 ]
-  %40 = load i8, ptr %0, align 8, !tbaa !63
-  %41 = icmp eq i8 %40, 73
+_ZNK4llvm4Type18getWithNewBitWidthEj.exit:        ; preds = %29, %36
+  %spec.select.i.i = phi ptr [ %40, %36 ], [ %31, %29 ]
+  %41 = load i8, ptr %0, align 8, !tbaa !63
+  %42 = icmp eq i8 %41, 73
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %41, label %42, label %45
+  br i1 %42, label %43, label %46
 
-42:                                               ; preds = %_ZNK4llvm4Type18getWithNewBitWidthEj.exit
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i16 257, ptr %43, align 8
-  %44 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 40, ptr noundef nonnull %22, ptr noundef %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef null, i64 0)
-  br label %48
+43:                                               ; preds = %_ZNK4llvm4Type18getWithNewBitWidthEj.exit
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i16 257, ptr %44, align 8
+  %45 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 40, ptr noundef nonnull %23, ptr noundef %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef null, i64 0)
+  br label %49
 
-45:                                               ; preds = %_ZNK4llvm4Type18getWithNewBitWidthEj.exit
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i16 257, ptr %46, align 8
-  %47 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %22, ptr noundef %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext false)
-  br label %48
+46:                                               ; preds = %_ZNK4llvm4Type18getWithNewBitWidthEj.exit
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i16 257, ptr %47, align 8
+  %48 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %23, ptr noundef %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext false)
+  br label %49
 
-48:                                               ; preds = %42, %45
-  %49 = phi ptr [ %44, %42 ], [ %47, %45 ]
+49:                                               ; preds = %43, %46
+  %50 = phi ptr [ %45, %43 ], [ %48, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm4User10getOperandEj.exit, %3, %48
-  %.1 = phi ptr [ %49, %48 ], [ null, %3 ], [ null, %_ZNK4llvm4User10getOperandEj.exit ]
+.thread:                                          ; preds = %_ZNK4llvm4User10getOperandEj.exit, %3, %49
+  %.1 = phi ptr [ %50, %49 ], [ null, %3 ], [ null, %_ZNK4llvm4User10getOperandEj.exit ]
   ret ptr %.1
 }
 

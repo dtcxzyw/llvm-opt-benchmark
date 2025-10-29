@@ -721,25 +721,25 @@ Saig_ManBmcTerSimCount01.exit:                    ; preds = %38, %9, %.preheader
   %41 = zext nneg i32 %.val9 to i64
   br label %42
 
-42:                                               ; preds = %46, %._crit_edge
-  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %46 ]
+42:                                               ; preds = %47, %._crit_edge
+  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %47 ]
   %43 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !25
-  %switch.i.i = icmp ult ptr %44, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %46, label %45
+  %45 = icmp ult ptr %44, inttoptr (i64 3 to ptr)
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %42
+46:                                               ; preds = %42
   tail call void @free(ptr noundef %44) #24
-  br label %46
+  br label %47
 
-46:                                               ; preds = %45, %42
+47:                                               ; preds = %46, %42
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond12.not = icmp eq i64 %indvars.iv.next.i.i, %41
   br i1 %exitcond12.not, label %Vec_PtrFreeData.exit.i.thread, label %42, !llvm.loop !45
 
-Vec_PtrFreeData.exit.i.thread:                    ; preds = %46, %._crit_edge.thread
-  %47 = phi ptr [ %.pre, %._crit_edge.thread ], [ %.val.i.i, %46 ]
-  tail call void @free(ptr noundef nonnull %47) #24
+Vec_PtrFreeData.exit.i.thread:                    ; preds = %47, %._crit_edge.thread
+  %48 = phi ptr [ %.pre, %._crit_edge.thread ], [ %.val.i.i, %47 ]
+  tail call void @free(ptr noundef nonnull %48) #24
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %._crit_edge.thread, %Vec_PtrFreeData.exit.i.thread
@@ -1176,18 +1176,18 @@ define void @Saig_ManBmcTerSimTestPo(ptr noundef readonly captures(none) %0) loc
   %8 = zext nneg i32 %.val1415.i.i to i64
   br label %9
 
-9:                                                ; preds = %13, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
+9:                                                ; preds = %14, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
   %10 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !25
-  %switch.i.i = icmp ult ptr %11, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %13, label %12
+  %12 = icmp ult ptr %11, inttoptr (i64 3 to ptr)
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %9
+13:                                               ; preds = %9
   tail call void @free(ptr noundef %11) #24
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %9
+14:                                               ; preds = %13, %9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %8
   br i1 %exitcond.not, label %Vec_PtrFreeData.exit.i.thread, label %9, !llvm.loop !45
@@ -1196,7 +1196,7 @@ Vec_PtrFreeData.exit.i:                           ; preds = %4
   %.not.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %Vec_PtrFreeData.exit.i.thread
 
-Vec_PtrFreeData.exit.i.thread:                    ; preds = %13, %Vec_PtrFreeData.exit.i
+Vec_PtrFreeData.exit.i.thread:                    ; preds = %14, %Vec_PtrFreeData.exit.i
   tail call void @free(ptr noundef nonnull %.val.i.i) #24
   br label %Vec_PtrFree.exit.i
 
@@ -3258,166 +3258,166 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %136
   %143 = getelementptr i8, ptr %138, i64 8
   br label %144
 
-144:                                              ; preds = %148, %.lr.ph.i.i105
-  %.val1418.i.i = phi i32 [ %.val1415.i.i, %.lr.ph.i.i105 ], [ %.val14.i.i, %148 ]
-  %indvars.iv.i.i106 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %indvars.iv.next.i.i107, %148 ]
+144:                                              ; preds = %149, %.lr.ph.i.i105
+  %.val1418.i.i = phi i32 [ %.val1415.i.i, %.lr.ph.i.i105 ], [ %.val14.i.i, %149 ]
+  %indvars.iv.i.i106 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %indvars.iv.next.i.i107, %149 ]
   %.val.i.i = load ptr, ptr %143, align 8, !tbaa !23
   %145 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i106
   %146 = load ptr, ptr %145, align 8, !tbaa !25
-  %switch.i.i = icmp ult ptr %146, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %148, label %147
+  %147 = icmp ult ptr %146, inttoptr (i64 3 to ptr)
+  br i1 %147, label %149, label %148
 
-147:                                              ; preds = %144
+148:                                              ; preds = %144
   tail call void @free(ptr noundef %146) #24
   %.val14.pre.i.i = load i32, ptr %141, align 4, !tbaa !32
-  br label %148
+  br label %149
 
-148:                                              ; preds = %147, %144
-  %.val14.i.i = phi i32 [ %.val1418.i.i, %144 ], [ %.val14.pre.i.i, %147 ]
+149:                                              ; preds = %148, %144
+  %.val14.i.i = phi i32 [ %.val1418.i.i, %144 ], [ %.val14.pre.i.i, %148 ]
   %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i106, 1
-  %149 = sext i32 %.val14.i.i to i64
-  %150 = icmp slt i64 %indvars.iv.next.i.i107, %149
-  br i1 %150, label %144, label %Vec_PtrFreeData.exit.i, !llvm.loop !45
+  %150 = sext i32 %.val14.i.i to i64
+  %151 = icmp slt i64 %indvars.iv.next.i.i107, %150
+  br i1 %151, label %144, label %Vec_PtrFreeData.exit.i, !llvm.loop !45
 
-Vec_PtrFreeData.exit.i:                           ; preds = %148, %140
-  %151 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %152 = load ptr, ptr %151, align 8, !tbaa !23
-  %.not.i.i103 = icmp eq ptr %152, null
-  br i1 %.not.i.i103, label %Vec_PtrFree.exit.i104, label %153
+Vec_PtrFreeData.exit.i:                           ; preds = %149, %140
+  %152 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !23
+  %.not.i.i103 = icmp eq ptr %153, null
+  br i1 %.not.i.i103, label %Vec_PtrFree.exit.i104, label %154
 
-153:                                              ; preds = %Vec_PtrFreeData.exit.i
-  tail call void @free(ptr noundef nonnull %152) #24
+154:                                              ; preds = %Vec_PtrFreeData.exit.i
+  tail call void @free(ptr noundef nonnull %153) #24
   br label %Vec_PtrFree.exit.i104
 
-Vec_PtrFree.exit.i104:                            ; preds = %153, %Vec_PtrFreeData.exit.i
+Vec_PtrFree.exit.i104:                            ; preds = %154, %Vec_PtrFreeData.exit.i
   tail call void @free(ptr noundef nonnull %138) #24
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_VecFree.exit, %Vec_PtrFree.exit.i104
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %155 = load ptr, ptr %154, align 8, !tbaa !117
-  %.not86 = icmp eq ptr %155, null
-  br i1 %.not86, label %157, label %156
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %156 = load ptr, ptr %155, align 8, !tbaa !117
+  %.not86 = icmp eq ptr %156, null
+  br i1 %.not86, label %158, label %157
 
-156:                                              ; preds = %Vec_PtrFreeFree.exit
-  tail call void @sat_solver_delete(ptr noundef nonnull %155) #24
-  br label %157
+157:                                              ; preds = %Vec_PtrFreeFree.exit
+  tail call void @sat_solver_delete(ptr noundef nonnull %156) #24
+  br label %158
 
-157:                                              ; preds = %156, %Vec_PtrFreeFree.exit
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %159 = load ptr, ptr %158, align 8, !tbaa !114
-  %.not87 = icmp eq ptr %159, null
-  br i1 %.not87, label %161, label %160
+158:                                              ; preds = %157, %Vec_PtrFreeFree.exit
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %160 = load ptr, ptr %159, align 8, !tbaa !114
+  %.not87 = icmp eq ptr %160, null
+  br i1 %.not87, label %162, label %161
 
-160:                                              ; preds = %157
-  tail call void @satoko_destroy(ptr noundef nonnull %159) #24
-  br label %161
+161:                                              ; preds = %158
+  tail call void @satoko_destroy(ptr noundef nonnull %160) #24
+  br label %162
 
-161:                                              ; preds = %160, %157
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %163 = load ptr, ptr %162, align 8, !tbaa !115
-  %.not88 = icmp eq ptr %163, null
-  br i1 %.not88, label %165, label %164
+162:                                              ; preds = %161, %158
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %164 = load ptr, ptr %163, align 8, !tbaa !115
+  %.not88 = icmp eq ptr %164, null
+  br i1 %.not88, label %166, label %165
 
-164:                                              ; preds = %161
-  tail call void @bmcg_sat_solver_stop(ptr noundef nonnull %163) #24
-  br label %165
+165:                                              ; preds = %162
+  tail call void @bmcg_sat_solver_stop(ptr noundef nonnull %164) #24
+  br label %166
 
-165:                                              ; preds = %164, %161
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %167 = load ptr, ptr %166, align 8, !tbaa !134
-  %.not89 = icmp eq ptr %167, null
-  br i1 %.not89, label %169, label %168
+166:                                              ; preds = %165, %162
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %168 = load ptr, ptr %167, align 8, !tbaa !134
+  %.not89 = icmp eq ptr %168, null
+  br i1 %.not89, label %170, label %169
 
-168:                                              ; preds = %165
-  tail call void @free(ptr noundef nonnull %167) #24
-  store ptr null, ptr %166, align 8, !tbaa !134
-  br label %169
+169:                                              ; preds = %166
+  tail call void @free(ptr noundef nonnull %168) #24
+  store ptr null, ptr %167, align 8, !tbaa !134
+  br label %170
 
-169:                                              ; preds = %165, %168
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %171 = load ptr, ptr %170, align 8, !tbaa !119
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %173 = load ptr, ptr %172, align 8, !tbaa !71
-  %.not.i108 = icmp eq ptr %173, null
-  br i1 %.not.i108, label %Vec_IntFree.exit109, label %174
+170:                                              ; preds = %166, %169
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %172 = load ptr, ptr %171, align 8, !tbaa !119
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8, !tbaa !71
+  %.not.i108 = icmp eq ptr %174, null
+  br i1 %.not.i108, label %Vec_IntFree.exit109, label %175
 
-174:                                              ; preds = %169
-  tail call void @free(ptr noundef nonnull %173) #24
+175:                                              ; preds = %170
+  tail call void @free(ptr noundef nonnull %174) #24
   br label %Vec_IntFree.exit109
 
-Vec_IntFree.exit109:                              ; preds = %169, %174
-  tail call void @free(ptr noundef nonnull %171) #24
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %176 = load ptr, ptr %175, align 8, !tbaa !132
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = load ptr, ptr %177, align 8, !tbaa !126
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = load ptr, ptr %179, align 8, !tbaa !71
-  %.not.i.i110 = icmp eq ptr %180, null
-  br i1 %.not.i.i110, label %Vec_IntFree.exit.i, label %181
+Vec_IntFree.exit109:                              ; preds = %170, %175
+  tail call void @free(ptr noundef nonnull %172) #24
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %177 = load ptr, ptr %176, align 8, !tbaa !132
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %179 = load ptr, ptr %178, align 8, !tbaa !126
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %181 = load ptr, ptr %180, align 8, !tbaa !71
+  %.not.i.i110 = icmp eq ptr %181, null
+  br i1 %.not.i.i110, label %Vec_IntFree.exit.i, label %182
 
-181:                                              ; preds = %Vec_IntFree.exit109
-  tail call void @free(ptr noundef nonnull %180) #24
+182:                                              ; preds = %Vec_IntFree.exit109
+  tail call void @free(ptr noundef nonnull %181) #24
   br label %Vec_IntFree.exit.i
 
-Vec_IntFree.exit.i:                               ; preds = %181, %Vec_IntFree.exit109
-  tail call void @free(ptr noundef nonnull %178) #24
-  %182 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %183 = load ptr, ptr %182, align 8, !tbaa !131
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8, !tbaa !130
-  %.not.i4.i = icmp eq ptr %185, null
-  br i1 %.not.i4.i, label %Hsh_IntManStop.exit, label %186
+Vec_IntFree.exit.i:                               ; preds = %182, %Vec_IntFree.exit109
+  tail call void @free(ptr noundef nonnull %179) #24
+  %183 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %184 = load ptr, ptr %183, align 8, !tbaa !131
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %186 = load ptr, ptr %185, align 8, !tbaa !130
+  %.not.i4.i = icmp eq ptr %186, null
+  br i1 %.not.i4.i, label %Hsh_IntManStop.exit, label %187
 
-186:                                              ; preds = %Vec_IntFree.exit.i
-  tail call void @free(ptr noundef nonnull %185) #24
+187:                                              ; preds = %Vec_IntFree.exit.i
+  tail call void @free(ptr noundef nonnull %186) #24
   br label %Hsh_IntManStop.exit
 
-Hsh_IntManStop.exit:                              ; preds = %Vec_IntFree.exit.i, %186
-  tail call void @free(ptr noundef nonnull %183) #24
-  tail call void @free(ptr noundef nonnull %176) #24
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %188 = load ptr, ptr %187, align 8, !tbaa !133
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %190 = load ptr, ptr %189, align 8, !tbaa !71
-  %.not.i111 = icmp eq ptr %190, null
-  br i1 %.not.i111, label %Vec_IntFree.exit112, label %191
+Hsh_IntManStop.exit:                              ; preds = %Vec_IntFree.exit.i, %187
+  tail call void @free(ptr noundef nonnull %184) #24
+  tail call void @free(ptr noundef nonnull %177) #24
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %189 = load ptr, ptr %188, align 8, !tbaa !133
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %191 = load ptr, ptr %190, align 8, !tbaa !71
+  %.not.i111 = icmp eq ptr %191, null
+  br i1 %.not.i111, label %Vec_IntFree.exit112, label %192
 
-191:                                              ; preds = %Hsh_IntManStop.exit
-  tail call void @free(ptr noundef nonnull %190) #24
+192:                                              ; preds = %Hsh_IntManStop.exit
+  tail call void @free(ptr noundef nonnull %191) #24
   br label %Vec_IntFree.exit112
 
-Vec_IntFree.exit112:                              ; preds = %Hsh_IntManStop.exit, %191
-  tail call void @free(ptr noundef nonnull %188) #24
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %193 = load ptr, ptr %192, align 8, !tbaa !163
-  %.not90 = icmp eq ptr %193, null
-  br i1 %.not90, label %195, label %194
+Vec_IntFree.exit112:                              ; preds = %Hsh_IntManStop.exit, %192
+  tail call void @free(ptr noundef nonnull %189) #24
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %194 = load ptr, ptr %193, align 8, !tbaa !163
+  %.not90 = icmp eq ptr %194, null
+  br i1 %.not90, label %196, label %195
 
-194:                                              ; preds = %Vec_IntFree.exit112
-  tail call void @free(ptr noundef nonnull %193) #24
-  store ptr null, ptr %192, align 8, !tbaa !163
-  br label %195
+195:                                              ; preds = %Vec_IntFree.exit112
+  tail call void @free(ptr noundef nonnull %194) #24
+  store ptr null, ptr %193, align 8, !tbaa !163
+  br label %196
 
-195:                                              ; preds = %Vec_IntFree.exit112, %194
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %197 = load ptr, ptr %196, align 8, !tbaa !164
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %199 = load ptr, ptr %198, align 8, !tbaa !74
-  %.not91 = icmp eq ptr %199, null
-  br i1 %.not91, label %202, label %.thread132
+196:                                              ; preds = %Vec_IntFree.exit112, %195
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %198 = load ptr, ptr %197, align 8, !tbaa !164
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %200 = load ptr, ptr %199, align 8, !tbaa !74
+  %.not91 = icmp eq ptr %200, null
+  br i1 %.not91, label %203, label %.thread132
 
-.thread132:                                       ; preds = %195
-  tail call void @free(ptr noundef nonnull %199) #24
-  %200 = load ptr, ptr %196, align 8, !tbaa !164
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store ptr null, ptr %201, align 8, !tbaa !74
-  br label %202
+.thread132:                                       ; preds = %196
+  tail call void @free(ptr noundef nonnull %200) #24
+  %201 = load ptr, ptr %197, align 8, !tbaa !164
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  store ptr null, ptr %202, align 8, !tbaa !74
+  br label %203
 
-202:                                              ; preds = %.thread132, %195
-  %203 = phi ptr [ %200, %.thread132 ], [ %197, %195 ]
-  tail call void @free(ptr noundef nonnull %203) #24
+203:                                              ; preds = %.thread132, %196
+  %204 = phi ptr [ %201, %.thread132 ], [ %198, %196 ]
+  tail call void @free(ptr noundef nonnull %204) #24
   tail call void @free(ptr noundef nonnull %0) #24
   ret void
 }

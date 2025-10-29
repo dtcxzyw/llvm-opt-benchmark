@@ -77565,18 +77565,18 @@ define hidden { i64, ptr } @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$
   %29 = tail call { i64, ptr } @"_ZN72_$LT$chalk_ir..GenericArgData$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha39a69f32d84648dE.llvm.10169251571672223956"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %23), !noalias !20451
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %.off = add i64 %30, -3
-  %switch = icmp ult i64 %.off, 2
-  %spec.select = select i1 %switch, i64 4, i64 %30
-  %spec.select11 = select i1 %switch, ptr undef, ptr %31
+  %32 = add i64 %30, -3
+  %33 = icmp ult i64 %32, 2
+  %spec.select = select i1 %33, i64 4, i64 %30
+  %spec.select11 = select i1 %33, ptr undef, ptr %31
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h542540d7abeadec2E.llvm.14675025554980555382.exit.thread"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h542540d7abeadec2E.llvm.14675025554980555382.exit.thread": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28d8b541d1ae3401E.llvm.14675025554980555382.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h542540d7abeadec2E.llvm.14675025554980555382.exit.thread5", %21
   %.sroa.0.0 = phi i64 [ 4, %21 ], [ %18, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h542540d7abeadec2E.llvm.14675025554980555382.exit.thread5" ], [ %spec.select, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28d8b541d1ae3401E.llvm.14675025554980555382.exit.i" ]
   %.sroa.3.0 = phi ptr [ undef, %21 ], [ %20, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h542540d7abeadec2E.llvm.14675025554980555382.exit.thread5" ], [ %spec.select11, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28d8b541d1ae3401E.llvm.14675025554980555382.exit.i" ]
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %33
+  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %35
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -78521,18 +78521,18 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.1467502
   %13 = tail call { i64, ptr } @"_ZN72_$LT$chalk_ir..GenericArgData$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha39a69f32d84648dE.llvm.10169251571672223956"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %7), !noalias !20840
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
-  %.off = add i64 %14, -3
-  %switch = icmp ult i64 %.off, 2
-  %spec.select = select i1 %switch, i64 4, i64 %14
-  %spec.select11 = select i1 %switch, ptr undef, ptr %15
+  %16 = add i64 %14, -3
+  %17 = icmp ult i64 %16, 2
+  %spec.select = select i1 %17, i64 4, i64 %14
+  %spec.select11 = select i1 %17, ptr undef, ptr %15
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fe6aad337697ce2E.llvm.14675025554980555382.exit.thread"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fe6aad337697ce2E.llvm.14675025554980555382.exit.thread": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc65f8f3abfc73a54E.llvm.14675025554980555382.exit.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.14675025554980555382.exit.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.14675025554980555382.exit.thread.i.i
   %.sroa.0.0 = phi i64 [ 4, %_ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.14675025554980555382.exit.thread.i.i ], [ %2, %_ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.14675025554980555382.exit.i.i ], [ %spec.select, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc65f8f3abfc73a54E.llvm.14675025554980555382.exit.i" ]
   %.sroa.3.0 = phi ptr [ undef, %_ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.14675025554980555382.exit.thread.i.i ], [ %5, %_ZN4core4iter8adapters5chain17and_then_or_clear17h918dff032242b3a0E.llvm.14675025554980555382.exit.i.i ], [ %spec.select11, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc65f8f3abfc73a54E.llvm.14675025554980555382.exit.i" ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %17
+  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, ptr } %18, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -91691,25 +91691,25 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h183a55bea9b9ac49E.exit": ; preds = %"_ZN100_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h868589fcde3c3d0fE.exit.i", %44, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !26085
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26084
-  %.off = add i8 %39, -3
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %53, label %55
-
-53:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h183a55bea9b9ac49E.exit"
-  %54 = icmp ne i8 %39, 4
-  ret i1 %54
+  %53 = add i8 %39, -3
+  %54 = icmp ult i8 %53, 2
+  br i1 %54, label %55, label %57
 
 55:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h183a55bea9b9ac49E.exit"
+  %56 = icmp ne i8 %39, 4
+  ret i1 %56
+
+57:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h183a55bea9b9ac49E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.5b47fb01172ce3642f26b4239355f179.342.llvm.14675025554980555382, ptr %5, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.5b47fb01172ce3642f26b4239355f179.124.llvm.14675025554980555382, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %59, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.5b47fb01172ce3642f26b4239355f179.124.llvm.14675025554980555382, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %61, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.344.llvm.14675025554980555382) #43
   unreachable
 }

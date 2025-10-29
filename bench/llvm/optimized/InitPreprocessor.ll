@@ -8674,11 +8674,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit715: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !503)
   %1115 = load i8, ptr %1113, align 8, !tbaa !13, !noalias !506
   switch i8 %1115, label %_ZN4llvmplERKNS_5TwineES2_.exit [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.thread1509
+    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507
     i8 1, label %1123
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit.thread1509:       ; preds = %975
+_ZN4llvmplERKNS_5TwineES2_.exit.thread1507:       ; preds = %975
   %1116 = getelementptr inbounds nuw i8, ptr %411, i64 32
   store i8 0, ptr %1116, align 8, !tbaa !13, !alias.scope !506
   %1117 = getelementptr inbounds nuw i8, ptr %411, i64 33
@@ -8709,18 +8709,18 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %975
 
 1123:                                             ; preds = %975
   store ptr %413, ptr %411, align 8
-  %.sroa.51459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 32
-  store i8 4, ptr %.sroa.51459.0..sroa_idx, align 8, !tbaa !365
-  %.sroa.61460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 33
-  store i8 1, ptr %.sroa.61460.0..sroa_idx, align 1, !tbaa !365
-  %.sroa.56.0..sroa_idx.i.i7171512 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  %.sroa.56.0.copyload.i.i7181513 = load i64, ptr %.sroa.56.0..sroa_idx.i.i7171512, align 8, !noalias !513
+  %.sroa.51457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 32
+  store i8 4, ptr %.sroa.51457.0..sroa_idx, align 8, !tbaa !365
+  %.sroa.61458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 33
+  store i8 1, ptr %.sroa.61458.0..sroa_idx, align 1, !tbaa !365
+  %.sroa.56.0..sroa_idx.i.i7171510 = getelementptr inbounds nuw i8, ptr %411, i64 8
+  %.sroa.56.0.copyload.i.i7181511 = load i64, ptr %.sroa.56.0..sroa_idx.i.i7171510, align 8, !noalias !513
   br label %1124
 
 1124:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %1123
   %1125 = phi ptr [ %413, %1123 ], [ %411, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %1126 = phi i8 [ 4, %1123 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %1127 = phi i64 [ %.sroa.56.0.copyload.i.i7181513, %1123 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %1127 = phi i64 [ %.sroa.56.0.copyload.i.i7181511, %1123 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   store ptr %1125, ptr %410, align 8, !alias.scope !513
   %.sroa.23.0..sroa_idx.i.i.i728 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i64 %1127, ptr %.sroa.23.0..sroa_idx.i.i.i728, align 8, !tbaa !17, !alias.scope !513
@@ -8728,11 +8728,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %975
   store ptr @.str.63, ptr %1128, align 8, !alias.scope !513
   br label %_ZN4llvmplERKNS_5TwineES2_.exit730
 
-_ZN4llvmplERKNS_5TwineES2_.exit730:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread1509, %1124
-  %.sink1529 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1509 ], [ %1126, %1124 ]
-  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1509 ], [ 3, %1124 ]
+_ZN4llvmplERKNS_5TwineES2_.exit730:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507, %1124
+  %.sink1527 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507 ], [ %1126, %1124 ]
+  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507 ], [ 3, %1124 ]
   %1129 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  store i8 %.sink1529, ptr %1129, align 8, !tbaa !13, !alias.scope !513
+  store i8 %.sink1527, ptr %1129, align 8, !tbaa !13, !alias.scope !513
   %1130 = getelementptr inbounds nuw i8, ptr %410, i64 33
   store i8 %.sink, ptr %1130, align 1, !tbaa !16, !alias.scope !513
   %1131 = getelementptr inbounds nuw i8, ptr %414, i64 32
@@ -9014,8 +9014,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit749:               ; preds = %._crit_edge.i.i
   %1229 = icmp slt i64 %.sroa.01404.0.copyload, 0
   %1230 = call i32 @llvm.umin.i32(i32 %1228, i32 8)
   %1231 = zext nneg i32 %1230 to i64
-  %.sroa.01440.0.insert.ext = select i1 %1229, i64 %1231, i64 0
-  %1232 = inttoptr i64 %.sroa.01440.0.insert.ext to ptr
+  %.sroa.01438.0.insert.ext = select i1 %1229, i64 %1231, i64 0
+  %1232 = inttoptr i64 %.sroa.01438.0.insert.ext to ptr
   store ptr @.str.39, ptr %441, align 8, !alias.scope !515
   %1233 = getelementptr inbounds nuw i8, ptr %441, i64 16
   store ptr %1232, ptr %1233, align 8, !alias.scope !515
@@ -9063,8 +9063,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752: ; preds = %12
   %1251 = trunc i64 %.sroa.5.0.copyload to i32
   %.sroa.01383.0.extract.trunc = and i32 %1251, 2147483647
   %1252 = and i64 %.sroa.5.0.copyload, 2147483648
-  %.not1430 = icmp eq i64 %1252, 0
-  %.0.i765 = select i1 %.not1430, i32 0, i32 %.sroa.01383.0.extract.trunc
+  %.not1428 = icmp eq i64 %1252, 0
+  %.0.i765 = select i1 %.not1428, i32 0, i32 %.sroa.01383.0.extract.trunc
   call void @llvm.lifetime.start.p0(ptr nonnull %443)
   %1253 = getelementptr inbounds nuw i8, ptr %443, i64 32
   %1254 = getelementptr inbounds nuw i8, ptr %443, i64 33
@@ -9183,8 +9183,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752: ; preds = %12
   %1291 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1292 = load i8, ptr %1291, align 8
   %1293 = and i8 %1292, 1
-  %.not1431 = icmp eq i8 %1293, 0
-  %.str.59..str.39 = select i1 %.not1431, ptr @.str.39, ptr @.str.59
+  %.not1429 = icmp eq i8 %1293, 0
+  %.str.59..str.39 = select i1 %.not1429, ptr @.str.39, ptr @.str.59
   %1294 = getelementptr inbounds nuw i8, ptr %462, i64 32
   %1295 = getelementptr inbounds nuw i8, ptr %462, i64 33
   store i8 1, ptr %1295, align 1, !tbaa !16
@@ -10937,11 +10937,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   %1796 = load i64, ptr %1, align 8
   %1797 = and i64 %1796, 32
   %.not662 = icmp ne i64 %1797, 0
-  %.pre1463 = load i64, ptr %934, align 8
-  %1798 = and i64 %.pre1463, 8796093022208
+  %.pre1461 = load i64, ptr %934, align 8
+  %1798 = and i64 %.pre1461, 8796093022208
   %.not663 = icmp eq i64 %1798, 0
-  %or.cond1531 = select i1 %.not662, i1 true, i1 %.not663
-  br i1 %or.cond1531, label %1805, label %1799
+  %or.cond1529 = select i1 %.not662, i1 true, i1 %.not663
+  br i1 %or.cond1529, label %1805, label %1799
 
 1799:                                             ; preds = %1795
   call void @llvm.lifetime.start.p0(ptr nonnull %479)
@@ -10961,11 +10961,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %479, ptr noundef nonnull align 8 dereferenceable(34) %480, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %481)
   call void @llvm.lifetime.end.p0(ptr nonnull %480)
   call void @llvm.lifetime.end.p0(ptr nonnull %479)
-  %.pre1462 = load i64, ptr %934, align 8
+  %.pre1460 = load i64, ptr %934, align 8
   br label %1805
 
 1805:                                             ; preds = %1799, %1795
-  %1806 = phi i64 [ %.pre1462, %1799 ], [ %.pre1463, %1795 ]
+  %1806 = phi i64 [ %.pre1460, %1799 ], [ %.pre1461, %1795 ]
   %1807 = and i64 %1806, 4294967295
   %.not664 = icmp eq i64 %1807, 0
   %1808 = and i64 %1806, 2251799813685248
@@ -11154,11 +11154,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %500, ptr noundef nonnull align 8 dereferenceable(34) %501, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %502)
   call void @llvm.lifetime.end.p0(ptr nonnull %501)
   call void @llvm.lifetime.end.p0(ptr nonnull %500)
-  %.pre1464 = load i64, ptr %1, align 8
+  %.pre1462 = load i64, ptr %1, align 8
   br label %1870
 
 1870:                                             ; preds = %1864, %1861
-  %1871 = phi i64 [ %.pre1464, %1864 ], [ %1862, %1861 ]
+  %1871 = phi i64 [ %.pre1462, %1864 ], [ %1862, %1861 ]
   %1872 = and i64 %1871, 268435584
   %or.cond703.not = icmp eq i64 %1872, 268435584
   br i1 %or.cond703.not, label %1873, label %1884
@@ -11288,11 +11288,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %518, ptr noundef nonnull align 8 dereferenceable(34) %519, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %520)
   call void @llvm.lifetime.end.p0(ptr nonnull %519)
   call void @llvm.lifetime.end.p0(ptr nonnull %518)
-  %.pre1465 = load i64, ptr %1781, align 8
+  %.pre1463 = load i64, ptr %1781, align 8
   br label %1915
 
 1915:                                             ; preds = %1909, %1906
-  %1916 = phi i64 [ %.pre1465, %1909 ], [ %1907, %1906 ]
+  %1916 = phi i64 [ %.pre1463, %1909 ], [ %1907, %1906 ]
   %1917 = and i64 %1916, 274877906944
   %.not672 = icmp eq i64 %1917, 0
   br i1 %.not672, label %1924, label %1918
@@ -11523,15 +11523,15 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %551, ptr noundef nonnull align 8 dereferenceable(34) %552, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %553)
   call void @llvm.lifetime.end.p0(ptr nonnull %552)
   call void @llvm.lifetime.end.p0(ptr nonnull %551)
-  %.pre1466 = load i8, ptr %1975, align 8, !tbaa !522
-  %.pre1467 = load i8, ptr %1978, align 2
-  %.pre1468 = load i8, ptr %1981, align 2
+  %.pre1464 = load i8, ptr %1975, align 8, !tbaa !522
+  %.pre1465 = load i8, ptr %1978, align 2
+  %.pre1466 = load i8, ptr %1981, align 2
   br label %1995
 
 1995:                                             ; preds = %1984, %1974
-  %1996 = phi i8 [ %.pre1468, %1984 ], [ %1982, %1974 ]
-  %1997 = phi i8 [ %.pre1467, %1984 ], [ %1979, %1974 ]
-  %1998 = phi i8 [ %.pre1466, %1984 ], [ %1976, %1974 ]
+  %1996 = phi i8 [ %.pre1466, %1984 ], [ %1982, %1974 ]
+  %1997 = phi i8 [ %.pre1465, %1984 ], [ %1979, %1974 ]
+  %1998 = phi i8 [ %.pre1464, %1984 ], [ %1976, %1974 ]
   %1999 = icmp eq i8 %1998, 32
   %2000 = icmp eq i8 %1997, 32
   %or.cond1422 = select i1 %1999, i1 %2000, i1 false
@@ -11833,9 +11833,9 @@ switch.lookup:                                    ; preds = %2002, %1995
   %2102 = load i32, ptr %2098, align 4, !tbaa !530
   %2103 = sext i32 %2102 to i64
   %2104 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2103
-  %switch.gep1552 = getelementptr i8, ptr %2104, i64 -4
-  %switch.load1553 = load i32, ptr %switch.gep1552, align 4
-  call fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERKNS3_10TargetInfoERNS3_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(34) %594, i32 noundef %switch.load1553, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %switch.gep1550 = getelementptr i8, ptr %2104, i64 -4
+  %switch.load1551 = load i32, ptr %switch.gep1550, align 4
+  call fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERKNS3_10TargetInfoERNS3_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(34) %594, i32 noundef %switch.load1551, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %594)
   %2105 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %2106 = load i8, ptr %2105, align 2, !tbaa !531
@@ -12248,7 +12248,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit922:               ; preds = %_ZN4llvm9StringRefC
   store i8 3, ptr %2254, align 8, !tbaa !13, !alias.scope !534
   %2255 = getelementptr inbounds nuw i8, ptr %601, i64 33
   store i8 5, ptr %2255, align 1, !tbaa !16, !alias.scope !534
-  br label %switch.lookup1535
+  br label %switch.lookup1533
 
 2256:                                             ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %2257 = getelementptr inbounds nuw i8, ptr %601, i64 32
@@ -12256,9 +12256,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit922:               ; preds = %_ZN4llvm9StringRefC
   store i8 1, ptr %2258, align 1, !tbaa !16
   store ptr @.str.207, ptr %601, align 8, !tbaa !17
   store i8 3, ptr %2257, align 8, !tbaa !13
-  br label %switch.lookup1535
+  br label %switch.lookup1533
 
-switch.lookup1535:                                ; preds = %2256, %_ZN4llvmplERKNS_5TwineES2_.exit922
+switch.lookup1533:                                ; preds = %2256, %_ZN4llvmplERKNS_5TwineES2_.exit922
   %2259 = getelementptr inbounds nuw i8, ptr %602, i64 32
   store i16 257, ptr %2259, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %600, ptr noundef nonnull align 8 dereferenceable(34) %601, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %602)
@@ -12273,23 +12273,23 @@ switch.lookup1535:                                ; preds = %2256, %_ZN4llvmplER
   %2262 = load i32, ptr %2081, align 4, !tbaa !528
   %2263 = sext i32 %2262 to i64
   %2264 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2263
-  %switch.gep1536 = getelementptr i8, ptr %2264, i64 -4
-  %switch.load1537 = load i32, ptr %switch.gep1536, align 4
+  %switch.gep1534 = getelementptr i8, ptr %2264, i64 -4
+  %switch.load1535 = load i32, ptr %switch.gep1534, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %2265 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1537) #16
+  %2265 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1535) #16
   %2266 = getelementptr inbounds nuw i8, ptr %24, i64 33
   store i8 1, ptr %2266, align 1, !tbaa !16
   %2267 = load i8, ptr %2265, align 1, !tbaa !17
   %.not.i.i928 = icmp eq i8 %2267, 0
   br i1 %.not.i.i928, label %_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931, label %2268
 
-2268:                                             ; preds = %switch.lookup1535
+2268:                                             ; preds = %switch.lookup1533
   store ptr %2265, ptr %24, align 8, !tbaa !17
   br label %_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931
 
-_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931: ; preds = %switch.lookup1535, %2268
-  %storemerge.i.i930 = phi i8 [ 3, %2268 ], [ 1, %switch.lookup1535 ]
+_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931: ; preds = %switch.lookup1533, %2268
+  %storemerge.i.i930 = phi i8 [ 3, %2268 ], [ 1, %switch.lookup1533 ]
   %2269 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 %storemerge.i.i930, ptr %2269, align 8, !tbaa !13
   %2270 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -12307,16 +12307,16 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %2273 = load i32, ptr %2081, align 4, !tbaa !528
   %2274 = sext i32 %2273 to i64
   %2275 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2274
-  %switch.gep1540 = getelementptr i8, ptr %2275, i64 -4
-  %switch.load1541 = load i32, ptr %switch.gep1540, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %604, i32 noundef %switch.load1541, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %switch.gep1538 = getelementptr i8, ptr %2275, i64 -4
+  %switch.load1539 = load i32, ptr %switch.gep1538, align 4
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %604, i32 noundef %switch.load1539, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %604)
   %2276 = load i32, ptr %2081, align 4, !tbaa !528
   %2277 = sext i32 %2276 to i64
   %2278 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2277
-  %switch.gep1556 = getelementptr i8, ptr %2278, i64 -4
-  %switch.load1557 = load i32, ptr %switch.gep1556, align 4
-  %2279 = call noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %switch.load1557) #16
+  %switch.gep1554 = getelementptr i8, ptr %2278, i64 -4
+  %switch.load1555 = load i32, ptr %switch.gep1554, align 4
+  %2279 = call noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %switch.load1555) #16
   %.not.i937 = icmp eq ptr %2279, null
   br i1 %.not.i937, label %_ZN4llvm9StringRefC2EPKc.exit938, label %2280
 
@@ -12677,11 +12677,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %2391 = load i32, ptr %2098, align 4, !tbaa !530
   %2392 = sext i32 %2391 to i64
   %2393 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2392
-  %switch.gep1544 = getelementptr i8, ptr %2393, i64 -4
-  %switch.load1545 = load i32, ptr %switch.gep1544, align 4
+  %switch.gep1542 = getelementptr i8, ptr %2393, i64 -4
+  %switch.load1543 = load i32, ptr %switch.gep1542, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %2394 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1545) #16
+  %2394 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1543) #16
   %2395 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %2395, align 1, !tbaa !16
   %2396 = load i8, ptr %2394, align 1, !tbaa !17
@@ -12711,9 +12711,9 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %2402 = load i32, ptr %2098, align 4, !tbaa !530
   %2403 = sext i32 %2402 to i64
   %2404 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2403
-  %switch.gep1548 = getelementptr i8, ptr %2404, i64 -4
-  %switch.load1549 = load i32, ptr %switch.gep1548, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %624, i32 noundef %switch.load1549, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %switch.gep1546 = getelementptr i8, ptr %2404, i64 -4
+  %switch.load1547 = load i32, ptr %switch.gep1546, align 4
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %624, i32 noundef %switch.load1547, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %624)
   %2405 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %2406 = load i64, ptr %2405, align 8
@@ -13090,33 +13090,33 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
 
 2604:                                             ; preds = %2601
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1469 = load i8, ptr %2025, align 4, !tbaa !523
+  %.pre1467 = load i8, ptr %2025, align 4, !tbaa !523
   br label %2605
 
 2605:                                             ; preds = %2604, %2601
-  %2606 = phi i8 [ %.pre1469, %2604 ], [ %2602, %2601 ]
+  %2606 = phi i8 [ %.pre1467, %2604 ], [ %2602, %2601 ]
   %2607 = load i8, ptr %1981, align 2, !tbaa !524
   %2608 = icmp ugt i8 %2607, %2606
   br i1 %2608, label %2609, label %2610
 
 2609:                                             ; preds = %2605
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1470 = load i8, ptr %1981, align 2, !tbaa !524
+  %.pre1468 = load i8, ptr %1981, align 2, !tbaa !524
   br label %2610
 
 2610:                                             ; preds = %2609, %2605
-  %2611 = phi i8 [ %.pre1470, %2609 ], [ %2607, %2605 ]
+  %2611 = phi i8 [ %.pre1468, %2609 ], [ %2607, %2605 ]
   %2612 = load i8, ptr %1978, align 2, !tbaa !525
   %2613 = icmp ugt i8 %2612, %2611
   br i1 %2613, label %2614, label %2615
 
 2614:                                             ; preds = %2610
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1471 = load i8, ptr %1978, align 2, !tbaa !525
+  %.pre1469 = load i8, ptr %1978, align 2, !tbaa !525
   br label %2615
 
 2615:                                             ; preds = %2614, %2610
-  %2616 = phi i8 [ %.pre1471, %2614 ], [ %2612, %2610 ]
+  %2616 = phi i8 [ %.pre1469, %2614 ], [ %2612, %2610 ]
   %2617 = load i8, ptr %2047, align 8, !tbaa !526
   %2618 = icmp ugt i8 %2617, %2616
   br i1 %2618, label %2619, label %2620
@@ -13137,11 +13137,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1472 = load i8, ptr %2025, align 4, !tbaa !523
+  %.pre1470 = load i8, ptr %2025, align 4, !tbaa !523
   br label %2624
 
 2624:                                             ; preds = %2623, %2620
-  %2625 = phi i8 [ %.pre1472, %2623 ], [ %2621, %2620 ]
+  %2625 = phi i8 [ %.pre1470, %2623 ], [ %2621, %2620 ]
   %2626 = load i8, ptr %1981, align 2, !tbaa !524
   %2627 = icmp ugt i8 %2626, %2625
   br i1 %2627, label %2628, label %2629
@@ -13150,11 +13150,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1473 = load i8, ptr %1981, align 2, !tbaa !524
+  %.pre1471 = load i8, ptr %1981, align 2, !tbaa !524
   br label %2629
 
 2629:                                             ; preds = %2628, %2624
-  %2630 = phi i8 [ %.pre1473, %2628 ], [ %2626, %2624 ]
+  %2630 = phi i8 [ %.pre1471, %2628 ], [ %2626, %2624 ]
   %2631 = load i8, ptr %1978, align 2, !tbaa !525
   %2632 = icmp ugt i8 %2631, %2630
   br i1 %2632, label %2633, label %2634
@@ -13163,11 +13163,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1474 = load i8, ptr %1978, align 2, !tbaa !525
+  %.pre1472 = load i8, ptr %1978, align 2, !tbaa !525
   br label %2634
 
 2634:                                             ; preds = %2633, %2629
-  %2635 = phi i8 [ %.pre1474, %2633 ], [ %2631, %2629 ]
+  %2635 = phi i8 [ %.pre1472, %2633 ], [ %2631, %2629 ]
   %2636 = load i8, ptr %2047, align 8, !tbaa !526
   %2637 = icmp ugt i8 %2636, %2635
   br i1 %2637, label %2638, label %2639
@@ -13255,8 +13255,8 @@ _ZN4llvm5TwineC2EPKc.exit1042:                    ; preds = %2639, %2647
   %.not680 = icmp ne i64 %2659, 0
   %2660 = and i64 %2658, 422212465065984
   %or.cond704.not = icmp eq i64 %2660, 422212465065984
-  %or.cond1432 = or i1 %.not680, %or.cond704.not
-  br i1 %or.cond1432, label %2661, label %2667
+  %or.cond1430 = or i1 %.not680, %or.cond704.not
+  br i1 %or.cond1430, label %2661, label %2667
 
 2661:                                             ; preds = %2657
   call void @llvm.lifetime.start.p0(ptr nonnull %664)
@@ -13526,11 +13526,11 @@ _ZN5clang12MacroBuilder6appendERKN4llvm5TwineE.exit1070: ; preds = %2733, %2735
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %690, ptr noundef nonnull align 8 dereferenceable(34) %691, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %692)
   call void @llvm.lifetime.end.p0(ptr nonnull %691)
   call void @llvm.lifetime.end.p0(ptr nonnull %690)
-  %.pre1475 = load i64, ptr %1852, align 8
+  %.pre1473 = load i64, ptr %1852, align 8
   br label %2755
 
 2755:                                             ; preds = %2749, %2746
-  %2756 = phi i64 [ %.pre1475, %2749 ], [ %2747, %2746 ]
+  %2756 = phi i64 [ %.pre1473, %2749 ], [ %2747, %2746 ]
   %2757 = lshr i64 %2756, 35
   %2758 = trunc nuw nsw i64 %2757 to i32
   %2759 = and i32 %2758, 3
@@ -13997,8 +13997,8 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %2886, %2889, %2889,
   call void @llvm.lifetime.end.p0(ptr nonnull %757)
   call void @llvm.lifetime.end.p0(ptr nonnull %756)
   %.pr1408 = load i32, ptr %1158, align 4, !tbaa !355
-  %.pre1477 = and i32 %.pr1408, -9
-  %2905 = icmp eq i32 %.pre1477, 1
+  %.pre1475 = and i32 %.pr1408, -9
+  %2905 = icmp eq i32 %.pre1475, 1
   br i1 %2905, label %2907, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %2889, %_ZNK4llvm6Triple10isOSDarwinEv.exit
@@ -14248,11 +14248,11 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit1139:          ; preds = %_ZNK4llvm6Triple10i
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %786, ptr noundef nonnull align 8 dereferenceable(34) %787, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %788)
   call void @llvm.lifetime.end.p0(ptr nonnull %787)
   call void @llvm.lifetime.end.p0(ptr nonnull %786)
-  %.pre1476 = load i64, ptr %2970, align 8
+  %.pre1474 = load i64, ptr %2970, align 8
   br label %2983
 
 2983:                                             ; preds = %2977, %2973, %2969
-  %2984 = phi i64 [ %.pre1476, %2977 ], [ %2971, %2973 ], [ %2971, %2969 ]
+  %2984 = phi i64 [ %.pre1474, %2977 ], [ %2971, %2973 ], [ %2971, %2969 ]
   %2985 = and i64 %2984, 8192
   %.not696 = icmp eq i64 %2985, 0
   br i1 %.not696, label %2992, label %2986
@@ -14308,694 +14308,694 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit1139:          ; preds = %_ZNK4llvm6Triple10i
   %3003 = load i64, ptr %1852, align 8
   %3004 = and i64 %3003, 2305843009213693952
   %.not698 = icmp eq i64 %3004, 0
-  br i1 %.not698, label %3014, label %3005
+  br i1 %.not698, label %3016, label %3005
 
 3005:                                             ; preds = %3002
   call void @_Z33InitializeOpenCLFeatureTestMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %3006 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3007 = load i32, ptr %3006, align 8, !tbaa !520
-  %.off1428 = add i32 %3007, -47
-  %switch1429 = icmp ult i32 %.off1428, 5
-  br i1 %switch1429, label %3008, label %3014
+  %3008 = add i32 %3007, -47
+  %3009 = icmp ult i32 %3008, 5
+  br i1 %3009, label %3010, label %3016
 
-3008:                                             ; preds = %3005
+3010:                                             ; preds = %3005
   call void @llvm.lifetime.start.p0(ptr nonnull %795)
-  %3009 = getelementptr inbounds nuw i8, ptr %795, i64 32
-  %3010 = getelementptr inbounds nuw i8, ptr %795, i64 33
-  store i8 1, ptr %3010, align 1, !tbaa !16
-  store ptr @.str.316, ptr %795, align 8, !tbaa !17
-  store i8 3, ptr %3009, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(ptr nonnull %796)
-  %3011 = getelementptr inbounds nuw i8, ptr %796, i64 32
-  %3012 = getelementptr inbounds nuw i8, ptr %796, i64 33
+  %3011 = getelementptr inbounds nuw i8, ptr %795, i64 32
+  %3012 = getelementptr inbounds nuw i8, ptr %795, i64 33
   store i8 1, ptr %3012, align 1, !tbaa !16
-  store ptr @.str.39, ptr %796, align 8, !tbaa !17
+  store ptr @.str.316, ptr %795, align 8, !tbaa !17
   store i8 3, ptr %3011, align 8, !tbaa !13
-  %3013 = getelementptr inbounds nuw i8, ptr %797, i64 32
-  store i16 257, ptr %3013, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %796)
+  %3013 = getelementptr inbounds nuw i8, ptr %796, i64 32
+  %3014 = getelementptr inbounds nuw i8, ptr %796, i64 33
+  store i8 1, ptr %3014, align 1, !tbaa !16
+  store ptr @.str.39, ptr %796, align 8, !tbaa !17
+  store i8 3, ptr %3013, align 8, !tbaa !13
+  %3015 = getelementptr inbounds nuw i8, ptr %797, i64 32
+  store i16 257, ptr %3015, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %795, ptr noundef nonnull align 8 dereferenceable(34) %796, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %797)
   call void @llvm.lifetime.end.p0(ptr nonnull %796)
   call void @llvm.lifetime.end.p0(ptr nonnull %795)
-  br label %3014
+  br label %3016
 
-3014:                                             ; preds = %3005, %3008, %3002
-  %3015 = load ptr, ptr %0, align 8, !tbaa !11
-  %3016 = getelementptr inbounds nuw i8, ptr %3015, i64 56
-  %3017 = load ptr, ptr %3016, align 8
-  %3018 = call noundef zeroext i1 %3017(ptr noundef nonnull align 8 dereferenceable(489) %0) #16
-  br i1 %3018, label %3019, label %3033
+3016:                                             ; preds = %3005, %3010, %3002
+  %3017 = load ptr, ptr %0, align 8, !tbaa !11
+  %3018 = getelementptr inbounds nuw i8, ptr %3017, i64 56
+  %3019 = load ptr, ptr %3018, align 8
+  %3020 = call noundef zeroext i1 %3019(ptr noundef nonnull align 8 dereferenceable(489) %0) #16
+  br i1 %3020, label %3021, label %3035
 
-3019:                                             ; preds = %3014
-  %3020 = load i64, ptr %1, align 8
-  %3021 = and i64 %3020, 17179871232
-  %or.cond705.not = icmp eq i64 %3021, 17179871232
-  br i1 %or.cond705.not, label %3022, label %3033
+3021:                                             ; preds = %3016
+  %3022 = load i64, ptr %1, align 8
+  %3023 = and i64 %3022, 17179871232
+  %or.cond705.not = icmp eq i64 %3023, 17179871232
+  br i1 %or.cond705.not, label %3024, label %3035
 
-3022:                                             ; preds = %3019
+3024:                                             ; preds = %3021
   call void @llvm.lifetime.start.p0(ptr nonnull %798)
-  %3023 = getelementptr inbounds nuw i8, ptr %798, i64 32
-  %3024 = getelementptr inbounds nuw i8, ptr %798, i64 33
-  store i8 1, ptr %3024, align 1, !tbaa !16
-  store ptr @.str.317, ptr %798, align 8, !tbaa !17
-  store i8 3, ptr %3023, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(ptr nonnull %799)
-  %3025 = getelementptr inbounds nuw i8, ptr %799, i64 32
-  %3026 = getelementptr inbounds nuw i8, ptr %799, i64 33
+  %3025 = getelementptr inbounds nuw i8, ptr %798, i64 32
+  %3026 = getelementptr inbounds nuw i8, ptr %798, i64 33
   store i8 1, ptr %3026, align 1, !tbaa !16
-  store ptr @.str.318, ptr %799, align 8, !tbaa !17
+  store ptr @.str.317, ptr %798, align 8, !tbaa !17
   store i8 3, ptr %3025, align 8, !tbaa !13
-  %3027 = getelementptr inbounds nuw i8, ptr %800, i64 32
-  store i16 257, ptr %3027, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %799)
+  %3027 = getelementptr inbounds nuw i8, ptr %799, i64 32
+  %3028 = getelementptr inbounds nuw i8, ptr %799, i64 33
+  store i8 1, ptr %3028, align 1, !tbaa !16
+  store ptr @.str.318, ptr %799, align 8, !tbaa !17
+  store i8 3, ptr %3027, align 8, !tbaa !13
+  %3029 = getelementptr inbounds nuw i8, ptr %800, i64 32
+  store i16 257, ptr %3029, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %798, ptr noundef nonnull align 8 dereferenceable(34) %799, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %800)
   call void @llvm.lifetime.end.p0(ptr nonnull %799)
   call void @llvm.lifetime.end.p0(ptr nonnull %798)
   call void @llvm.lifetime.start.p0(ptr nonnull %801)
-  %3028 = getelementptr inbounds nuw i8, ptr %801, i64 32
-  %3029 = getelementptr inbounds nuw i8, ptr %801, i64 33
-  store i8 1, ptr %3029, align 1, !tbaa !16
-  store ptr @.str.319, ptr %801, align 8, !tbaa !17
-  store i8 3, ptr %3028, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(ptr nonnull %802)
-  %3030 = getelementptr inbounds nuw i8, ptr %802, i64 32
-  %3031 = getelementptr inbounds nuw i8, ptr %802, i64 33
+  %3030 = getelementptr inbounds nuw i8, ptr %801, i64 32
+  %3031 = getelementptr inbounds nuw i8, ptr %801, i64 33
   store i8 1, ptr %3031, align 1, !tbaa !16
-  store ptr @.str.320, ptr %802, align 8, !tbaa !17
+  store ptr @.str.319, ptr %801, align 8, !tbaa !17
   store i8 3, ptr %3030, align 8, !tbaa !13
-  %3032 = getelementptr inbounds nuw i8, ptr %803, i64 32
-  store i16 257, ptr %3032, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %802)
+  %3032 = getelementptr inbounds nuw i8, ptr %802, i64 32
+  %3033 = getelementptr inbounds nuw i8, ptr %802, i64 33
+  store i8 1, ptr %3033, align 1, !tbaa !16
+  store ptr @.str.320, ptr %802, align 8, !tbaa !17
+  store i8 3, ptr %3032, align 8, !tbaa !13
+  %3034 = getelementptr inbounds nuw i8, ptr %803, i64 32
+  store i16 257, ptr %3034, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %801, ptr noundef nonnull align 8 dereferenceable(34) %802, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %803)
   call void @llvm.lifetime.end.p0(ptr nonnull %802)
   call void @llvm.lifetime.end.p0(ptr nonnull %801)
-  br label %3033
+  br label %3035
 
-3033:                                             ; preds = %3022, %3019, %3014
-  %3034 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %3035 = load i32, ptr %3034, align 4, !tbaa !597
-  %3036 = icmp eq i32 %3035, 3
-  br i1 %3036, label %3037, label %3043
+3035:                                             ; preds = %3024, %3021, %3016
+  %3036 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %3037 = load i32, ptr %3036, align 4, !tbaa !597
+  %3038 = icmp eq i32 %3037, 3
+  br i1 %3038, label %3039, label %3045
 
-3037:                                             ; preds = %3033
+3039:                                             ; preds = %3035
   call void @llvm.lifetime.start.p0(ptr nonnull %804)
-  %3038 = getelementptr inbounds nuw i8, ptr %804, i64 32
-  %3039 = getelementptr inbounds nuw i8, ptr %804, i64 33
-  store i8 1, ptr %3039, align 1, !tbaa !16
-  store ptr @.str.321, ptr %804, align 8, !tbaa !17
-  store i8 3, ptr %3038, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(ptr nonnull %805)
-  %3040 = getelementptr inbounds nuw i8, ptr %805, i64 32
-  %3041 = getelementptr inbounds nuw i8, ptr %805, i64 33
+  %3040 = getelementptr inbounds nuw i8, ptr %804, i64 32
+  %3041 = getelementptr inbounds nuw i8, ptr %804, i64 33
   store i8 1, ptr %3041, align 1, !tbaa !16
-  store ptr @.str.39, ptr %805, align 8, !tbaa !17
+  store ptr @.str.321, ptr %804, align 8, !tbaa !17
   store i8 3, ptr %3040, align 8, !tbaa !13
-  %3042 = getelementptr inbounds nuw i8, ptr %806, i64 32
-  store i16 257, ptr %3042, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %805)
+  %3042 = getelementptr inbounds nuw i8, ptr %805, i64 32
+  %3043 = getelementptr inbounds nuw i8, ptr %805, i64 33
+  store i8 1, ptr %3043, align 1, !tbaa !16
+  store ptr @.str.39, ptr %805, align 8, !tbaa !17
+  store i8 3, ptr %3042, align 8, !tbaa !13
+  %3044 = getelementptr inbounds nuw i8, ptr %806, i64 32
+  store i16 257, ptr %3044, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %804, ptr noundef nonnull align 8 dereferenceable(34) %805, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %806)
   call void @llvm.lifetime.end.p0(ptr nonnull %805)
   call void @llvm.lifetime.end.p0(ptr nonnull %804)
-  br label %3043
+  br label %3045
 
-3043:                                             ; preds = %3037, %3033
-  %3044 = getelementptr inbounds nuw i8, ptr %3, i64 74
-  %3045 = load i8, ptr %3044, align 2, !tbaa !598, !range !60, !noundef !61
-  %3046 = trunc nuw i8 %3045 to i1
-  br i1 %3046, label %3047, label %3229
+3045:                                             ; preds = %3039, %3035
+  %3046 = getelementptr inbounds nuw i8, ptr %3, i64 74
+  %3047 = load i8, ptr %3046, align 2, !tbaa !598, !range !60, !noundef !61
+  %3048 = trunc nuw i8 %3047 to i1
+  br i1 %3048, label %3049, label %3231
 
-3047:                                             ; preds = %3043
+3049:                                             ; preds = %3045
   call void @llvm.lifetime.start.p0(ptr nonnull %807)
-  %3048 = getelementptr inbounds nuw i8, ptr %807, i64 32
-  %3049 = getelementptr inbounds nuw i8, ptr %807, i64 33
-  store i8 1, ptr %3049, align 1, !tbaa !16
+  %3050 = getelementptr inbounds nuw i8, ptr %807, i64 32
+  %3051 = getelementptr inbounds nuw i8, ptr %807, i64 33
+  store i8 1, ptr %3051, align 1, !tbaa !16
   store ptr @.str.322, ptr %807, align 8, !tbaa !17
-  store i8 3, ptr %3048, align 8, !tbaa !13
+  store i8 3, ptr %3050, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %808)
-  %3050 = load i32, ptr %1158, align 4, !tbaa !355
-  %3051 = icmp eq i32 %3050, 14
-  %.str.39..str.59 = select i1 %3051, ptr @.str.39, ptr @.str.59
-  %3052 = getelementptr inbounds nuw i8, ptr %808, i64 32
-  %3053 = getelementptr inbounds nuw i8, ptr %808, i64 33
-  store i8 1, ptr %3053, align 1, !tbaa !16
-  %3054 = load i8, ptr %.str.39..str.59, align 1, !tbaa !17
-  %.not.i1190 = icmp eq i8 %3054, 0
-  br i1 %.not.i1190, label %_ZN4llvm5TwineC2EPKc.exit1192, label %3055
+  %3052 = load i32, ptr %1158, align 4, !tbaa !355
+  %3053 = icmp eq i32 %3052, 14
+  %.str.39..str.59 = select i1 %3053, ptr @.str.39, ptr @.str.59
+  %3054 = getelementptr inbounds nuw i8, ptr %808, i64 32
+  %3055 = getelementptr inbounds nuw i8, ptr %808, i64 33
+  store i8 1, ptr %3055, align 1, !tbaa !16
+  %3056 = load i8, ptr %.str.39..str.59, align 1, !tbaa !17
+  %.not.i1190 = icmp eq i8 %3056, 0
+  br i1 %.not.i1190, label %_ZN4llvm5TwineC2EPKc.exit1192, label %3057
 
-3055:                                             ; preds = %3047
+3057:                                             ; preds = %3049
   store ptr %.str.39..str.59, ptr %808, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1192
 
-_ZN4llvm5TwineC2EPKc.exit1192:                    ; preds = %3047, %3055
-  %storemerge.i1191 = phi i8 [ 3, %3055 ], [ 1, %3047 ]
-  store i8 %storemerge.i1191, ptr %3052, align 8, !tbaa !13
-  %3056 = getelementptr inbounds nuw i8, ptr %809, i64 32
-  store i16 257, ptr %3056, align 8
+_ZN4llvm5TwineC2EPKc.exit1192:                    ; preds = %3049, %3057
+  %storemerge.i1191 = phi i8 [ 3, %3057 ], [ 1, %3049 ]
+  store i8 %storemerge.i1191, ptr %3054, align 8, !tbaa !13
+  %3058 = getelementptr inbounds nuw i8, ptr %809, i64 32
+  store i16 257, ptr %3058, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %807, ptr noundef nonnull align 8 dereferenceable(34) %808, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %809)
   call void @llvm.lifetime.end.p0(ptr nonnull %808)
   call void @llvm.lifetime.end.p0(ptr nonnull %807)
   call void @llvm.lifetime.start.p0(ptr nonnull %810)
-  %3057 = getelementptr inbounds nuw i8, ptr %810, i64 32
-  %3058 = getelementptr inbounds nuw i8, ptr %810, i64 33
-  store i8 1, ptr %3058, align 1, !tbaa !16
+  %3059 = getelementptr inbounds nuw i8, ptr %810, i64 32
+  %3060 = getelementptr inbounds nuw i8, ptr %810, i64 33
+  store i8 1, ptr %3060, align 1, !tbaa !16
   store ptr @.str.323, ptr %810, align 8, !tbaa !17
-  store i8 3, ptr %3057, align 8, !tbaa !13
+  store i8 3, ptr %3059, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %811)
-  %3059 = load i32, ptr %1158, align 4, !tbaa !355
-  %3060 = icmp eq i32 %3059, 14
-  %3061 = select i1 %3060, ptr @.str.39, ptr @.str.59
-  %3062 = getelementptr inbounds nuw i8, ptr %811, i64 32
-  %3063 = getelementptr inbounds nuw i8, ptr %811, i64 33
-  store i8 1, ptr %3063, align 1, !tbaa !16
-  %3064 = load i8, ptr %3061, align 1, !tbaa !17
-  %.not.i1195 = icmp eq i8 %3064, 0
-  br i1 %.not.i1195, label %_ZN4llvm5TwineC2EPKc.exit1197, label %3065
+  %3061 = load i32, ptr %1158, align 4, !tbaa !355
+  %3062 = icmp eq i32 %3061, 14
+  %3063 = select i1 %3062, ptr @.str.39, ptr @.str.59
+  %3064 = getelementptr inbounds nuw i8, ptr %811, i64 32
+  %3065 = getelementptr inbounds nuw i8, ptr %811, i64 33
+  store i8 1, ptr %3065, align 1, !tbaa !16
+  %3066 = load i8, ptr %3063, align 1, !tbaa !17
+  %.not.i1195 = icmp eq i8 %3066, 0
+  br i1 %.not.i1195, label %_ZN4llvm5TwineC2EPKc.exit1197, label %3067
 
-3065:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1192
-  store ptr %3061, ptr %811, align 8, !tbaa !17
+3067:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1192
+  store ptr %3063, ptr %811, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1197
 
-_ZN4llvm5TwineC2EPKc.exit1197:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1192, %3065
-  %storemerge.i1196 = phi i8 [ 3, %3065 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1192 ]
-  store i8 %storemerge.i1196, ptr %3062, align 8, !tbaa !13
-  %3066 = getelementptr inbounds nuw i8, ptr %812, i64 32
-  store i16 257, ptr %3066, align 8
+_ZN4llvm5TwineC2EPKc.exit1197:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1192, %3067
+  %storemerge.i1196 = phi i8 [ 3, %3067 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1192 ]
+  store i8 %storemerge.i1196, ptr %3064, align 8, !tbaa !13
+  %3068 = getelementptr inbounds nuw i8, ptr %812, i64 32
+  store i16 257, ptr %3068, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %810, ptr noundef nonnull align 8 dereferenceable(34) %811, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %812)
   call void @llvm.lifetime.end.p0(ptr nonnull %811)
   call void @llvm.lifetime.end.p0(ptr nonnull %810)
   call void @llvm.lifetime.start.p0(ptr nonnull %813)
-  %3067 = getelementptr inbounds nuw i8, ptr %813, i64 32
-  %3068 = getelementptr inbounds nuw i8, ptr %813, i64 33
-  store i8 1, ptr %3068, align 1, !tbaa !16
+  %3069 = getelementptr inbounds nuw i8, ptr %813, i64 32
+  %3070 = getelementptr inbounds nuw i8, ptr %813, i64 33
+  store i8 1, ptr %3070, align 1, !tbaa !16
   store ptr @.str.324, ptr %813, align 8, !tbaa !17
-  store i8 3, ptr %3067, align 8, !tbaa !13
+  store i8 3, ptr %3069, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %814)
-  %3069 = load i32, ptr %1158, align 4, !tbaa !355
-  %3070 = icmp eq i32 %3069, 7
-  %3071 = select i1 %3070, ptr @.str.39, ptr @.str.59
-  %3072 = getelementptr inbounds nuw i8, ptr %814, i64 32
-  %3073 = getelementptr inbounds nuw i8, ptr %814, i64 33
-  store i8 1, ptr %3073, align 1, !tbaa !16
-  %3074 = load i8, ptr %3071, align 1, !tbaa !17
-  %.not.i1200 = icmp eq i8 %3074, 0
-  br i1 %.not.i1200, label %_ZN4llvm5TwineC2EPKc.exit1202, label %3075
+  %3071 = load i32, ptr %1158, align 4, !tbaa !355
+  %3072 = icmp eq i32 %3071, 7
+  %3073 = select i1 %3072, ptr @.str.39, ptr @.str.59
+  %3074 = getelementptr inbounds nuw i8, ptr %814, i64 32
+  %3075 = getelementptr inbounds nuw i8, ptr %814, i64 33
+  store i8 1, ptr %3075, align 1, !tbaa !16
+  %3076 = load i8, ptr %3073, align 1, !tbaa !17
+  %.not.i1200 = icmp eq i8 %3076, 0
+  br i1 %.not.i1200, label %_ZN4llvm5TwineC2EPKc.exit1202, label %3077
 
-3075:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1197
-  store ptr %3071, ptr %814, align 8, !tbaa !17
+3077:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1197
+  store ptr %3073, ptr %814, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1202
 
-_ZN4llvm5TwineC2EPKc.exit1202:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1197, %3075
-  %storemerge.i1201 = phi i8 [ 3, %3075 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1197 ]
-  store i8 %storemerge.i1201, ptr %3072, align 8, !tbaa !13
-  %3076 = getelementptr inbounds nuw i8, ptr %815, i64 32
-  store i16 257, ptr %3076, align 8
+_ZN4llvm5TwineC2EPKc.exit1202:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1197, %3077
+  %storemerge.i1201 = phi i8 [ 3, %3077 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1197 ]
+  store i8 %storemerge.i1201, ptr %3074, align 8, !tbaa !13
+  %3078 = getelementptr inbounds nuw i8, ptr %815, i64 32
+  store i16 257, ptr %3078, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %813, ptr noundef nonnull align 8 dereferenceable(34) %814, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %815)
   call void @llvm.lifetime.end.p0(ptr nonnull %814)
   call void @llvm.lifetime.end.p0(ptr nonnull %813)
   call void @llvm.lifetime.start.p0(ptr nonnull %816)
-  %3077 = getelementptr inbounds nuw i8, ptr %816, i64 32
-  %3078 = getelementptr inbounds nuw i8, ptr %816, i64 33
-  store i8 1, ptr %3078, align 1, !tbaa !16
+  %3079 = getelementptr inbounds nuw i8, ptr %816, i64 32
+  %3080 = getelementptr inbounds nuw i8, ptr %816, i64 33
+  store i8 1, ptr %3080, align 1, !tbaa !16
   store ptr @.str.325, ptr %816, align 8, !tbaa !17
-  store i8 3, ptr %3077, align 8, !tbaa !13
+  store i8 3, ptr %3079, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %817)
-  %3079 = load i32, ptr %1158, align 4, !tbaa !355
-  switch i32 %3079, label %3080 [
-    i32 10, label %3082
-    i32 3, label %3082
-    i32 11, label %3082
+  %3081 = load i32, ptr %1158, align 4, !tbaa !355
+  switch i32 %3081, label %3082 [
+    i32 10, label %3084
+    i32 3, label %3084
+    i32 11, label %3084
   ]
 
-3080:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1202
-  %3081 = icmp eq i32 %3079, 12
-  %spec.select = select i1 %3081, ptr @.str.39, ptr @.str.59
-  br label %3082
+3082:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1202
+  %3083 = icmp eq i32 %3081, 12
+  %spec.select = select i1 %3083, ptr @.str.39, ptr @.str.59
+  br label %3084
 
-3082:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1202, %_ZN4llvm5TwineC2EPKc.exit1202, %_ZN4llvm5TwineC2EPKc.exit1202, %3080
-  %3083 = phi ptr [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1202 ], [ %spec.select, %3080 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1202 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1202 ]
-  %3084 = getelementptr inbounds nuw i8, ptr %817, i64 32
-  %3085 = getelementptr inbounds nuw i8, ptr %817, i64 33
-  store i8 1, ptr %3085, align 1, !tbaa !16
-  %3086 = load i8, ptr %3083, align 1, !tbaa !17
-  %.not.i1205 = icmp eq i8 %3086, 0
-  br i1 %.not.i1205, label %_ZN4llvm5TwineC2EPKc.exit1207, label %3087
+3084:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1202, %_ZN4llvm5TwineC2EPKc.exit1202, %_ZN4llvm5TwineC2EPKc.exit1202, %3082
+  %3085 = phi ptr [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1202 ], [ %spec.select, %3082 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1202 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1202 ]
+  %3086 = getelementptr inbounds nuw i8, ptr %817, i64 32
+  %3087 = getelementptr inbounds nuw i8, ptr %817, i64 33
+  store i8 1, ptr %3087, align 1, !tbaa !16
+  %3088 = load i8, ptr %3085, align 1, !tbaa !17
+  %.not.i1205 = icmp eq i8 %3088, 0
+  br i1 %.not.i1205, label %_ZN4llvm5TwineC2EPKc.exit1207, label %3089
 
-3087:                                             ; preds = %3082
-  store ptr %3083, ptr %817, align 8, !tbaa !17
+3089:                                             ; preds = %3084
+  store ptr %3085, ptr %817, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1207
 
-_ZN4llvm5TwineC2EPKc.exit1207:                    ; preds = %3082, %3087
-  %storemerge.i1206 = phi i8 [ 3, %3087 ], [ 1, %3082 ]
-  store i8 %storemerge.i1206, ptr %3084, align 8, !tbaa !13
-  %3088 = getelementptr inbounds nuw i8, ptr %818, i64 32
-  store i16 257, ptr %3088, align 8
+_ZN4llvm5TwineC2EPKc.exit1207:                    ; preds = %3084, %3089
+  %storemerge.i1206 = phi i8 [ 3, %3089 ], [ 1, %3084 ]
+  store i8 %storemerge.i1206, ptr %3086, align 8, !tbaa !13
+  %3090 = getelementptr inbounds nuw i8, ptr %818, i64 32
+  store i16 257, ptr %3090, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %816, ptr noundef nonnull align 8 dereferenceable(34) %817, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %818)
   call void @llvm.lifetime.end.p0(ptr nonnull %817)
   call void @llvm.lifetime.end.p0(ptr nonnull %816)
   call void @llvm.lifetime.start.p0(ptr nonnull %819)
-  %3089 = getelementptr inbounds nuw i8, ptr %819, i64 32
-  %3090 = getelementptr inbounds nuw i8, ptr %819, i64 33
-  store i8 1, ptr %3090, align 1, !tbaa !16
+  %3091 = getelementptr inbounds nuw i8, ptr %819, i64 32
+  %3092 = getelementptr inbounds nuw i8, ptr %819, i64 33
+  store i8 1, ptr %3092, align 1, !tbaa !16
   store ptr @.str.326, ptr %819, align 8, !tbaa !17
-  store i8 3, ptr %3089, align 8, !tbaa !13
+  store i8 3, ptr %3091, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %820)
-  %3091 = load i32, ptr %1158, align 4, !tbaa !355
-  %3092 = and i32 %3091, -9
-  %spec.select.i.i1210 = icmp eq i32 %3092, 1
-  br i1 %spec.select.i.i1210, label %3094, label %3093
+  %3093 = load i32, ptr %1158, align 4, !tbaa !355
+  %3094 = and i32 %3093, -9
+  %spec.select.i.i1210 = icmp eq i32 %3094, 1
+  br i1 %spec.select.i.i1210, label %3096, label %3095
 
-3093:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1207
-  switch i32 %3091, label %_ZNK4llvm6Triple10isOSDarwinEv.exit1211 [
-    i32 26, label %3094
-    i32 5, label %3094
-    i32 27, label %3094
-    i32 29, label %3094
-    i32 30, label %3094
+3095:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1207
+  switch i32 %3093, label %_ZNK4llvm6Triple10isOSDarwinEv.exit1211 [
+    i32 26, label %3096
+    i32 5, label %3096
+    i32 27, label %3096
+    i32 29, label %3096
+    i32 30, label %3096
   ]
 
-3094:                                             ; preds = %3093, %3093, %3093, %3093, %3093, %_ZN4llvm5TwineC2EPKc.exit1207
+3096:                                             ; preds = %3095, %3095, %3095, %3095, %3095, %_ZN4llvm5TwineC2EPKc.exit1207
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit1211
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit1211:          ; preds = %3093, %3094
-  %3095 = phi ptr [ @.str.39, %3094 ], [ @.str.59, %3093 ]
-  %3096 = getelementptr inbounds nuw i8, ptr %820, i64 32
-  %3097 = getelementptr inbounds nuw i8, ptr %820, i64 33
-  store i8 1, ptr %3097, align 1, !tbaa !16
-  %3098 = load i8, ptr %3095, align 1, !tbaa !17
-  %.not.i1212 = icmp eq i8 %3098, 0
-  br i1 %.not.i1212, label %_ZN4llvm5TwineC2EPKc.exit1214, label %3099
+_ZNK4llvm6Triple10isOSDarwinEv.exit1211:          ; preds = %3095, %3096
+  %3097 = phi ptr [ @.str.39, %3096 ], [ @.str.59, %3095 ]
+  %3098 = getelementptr inbounds nuw i8, ptr %820, i64 32
+  %3099 = getelementptr inbounds nuw i8, ptr %820, i64 33
+  store i8 1, ptr %3099, align 1, !tbaa !16
+  %3100 = load i8, ptr %3097, align 1, !tbaa !17
+  %.not.i1212 = icmp eq i8 %3100, 0
+  br i1 %.not.i1212, label %_ZN4llvm5TwineC2EPKc.exit1214, label %3101
 
-3099:                                             ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit1211
-  store ptr %3095, ptr %820, align 8, !tbaa !17
+3101:                                             ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit1211
+  store ptr %3097, ptr %820, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1214
 
-_ZN4llvm5TwineC2EPKc.exit1214:                    ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit1211, %3099
-  %storemerge.i1213 = phi i8 [ 3, %3099 ], [ 1, %_ZNK4llvm6Triple10isOSDarwinEv.exit1211 ]
-  store i8 %storemerge.i1213, ptr %3096, align 8, !tbaa !13
-  %3100 = getelementptr inbounds nuw i8, ptr %821, i64 32
-  store i16 257, ptr %3100, align 8
+_ZN4llvm5TwineC2EPKc.exit1214:                    ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit1211, %3101
+  %storemerge.i1213 = phi i8 [ 3, %3101 ], [ 1, %_ZNK4llvm6Triple10isOSDarwinEv.exit1211 ]
+  store i8 %storemerge.i1213, ptr %3098, align 8, !tbaa !13
+  %3102 = getelementptr inbounds nuw i8, ptr %821, i64 32
+  store i16 257, ptr %3102, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %819, ptr noundef nonnull align 8 dereferenceable(34) %820, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %821)
   call void @llvm.lifetime.end.p0(ptr nonnull %820)
   call void @llvm.lifetime.end.p0(ptr nonnull %819)
   call void @llvm.lifetime.start.p0(ptr nonnull %822)
-  %3101 = getelementptr inbounds nuw i8, ptr %822, i64 32
-  %3102 = getelementptr inbounds nuw i8, ptr %822, i64 33
-  store i8 1, ptr %3102, align 1, !tbaa !16
+  %3103 = getelementptr inbounds nuw i8, ptr %822, i64 32
+  %3104 = getelementptr inbounds nuw i8, ptr %822, i64 33
+  store i8 1, ptr %3104, align 1, !tbaa !16
   store ptr @.str.327, ptr %822, align 8, !tbaa !17
-  store i8 3, ptr %3101, align 8, !tbaa !13
+  store i8 3, ptr %3103, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %823)
-  %3103 = load i32, ptr %1158, align 4, !tbaa !355
-  %3104 = and i32 %3103, -9
-  %spec.select.i1217 = icmp eq i32 %3104, 1
-  %3105 = select i1 %spec.select.i1217, ptr @.str.39, ptr @.str.59
-  %3106 = getelementptr inbounds nuw i8, ptr %823, i64 32
-  %3107 = getelementptr inbounds nuw i8, ptr %823, i64 33
-  store i8 1, ptr %3107, align 1, !tbaa !16
-  %3108 = load i8, ptr %3105, align 1, !tbaa !17
-  %.not.i1218 = icmp eq i8 %3108, 0
-  br i1 %.not.i1218, label %_ZN4llvm5TwineC2EPKc.exit1220, label %3109
+  %3105 = load i32, ptr %1158, align 4, !tbaa !355
+  %3106 = and i32 %3105, -9
+  %spec.select.i1217 = icmp eq i32 %3106, 1
+  %3107 = select i1 %spec.select.i1217, ptr @.str.39, ptr @.str.59
+  %3108 = getelementptr inbounds nuw i8, ptr %823, i64 32
+  %3109 = getelementptr inbounds nuw i8, ptr %823, i64 33
+  store i8 1, ptr %3109, align 1, !tbaa !16
+  %3110 = load i8, ptr %3107, align 1, !tbaa !17
+  %.not.i1218 = icmp eq i8 %3110, 0
+  br i1 %.not.i1218, label %_ZN4llvm5TwineC2EPKc.exit1220, label %3111
 
-3109:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1214
-  store ptr %3105, ptr %823, align 8, !tbaa !17
+3111:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1214
+  store ptr %3107, ptr %823, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1220
 
-_ZN4llvm5TwineC2EPKc.exit1220:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1214, %3109
-  %storemerge.i1219 = phi i8 [ 3, %3109 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1214 ]
-  store i8 %storemerge.i1219, ptr %3106, align 8, !tbaa !13
-  %3110 = getelementptr inbounds nuw i8, ptr %824, i64 32
-  store i16 257, ptr %3110, align 8
+_ZN4llvm5TwineC2EPKc.exit1220:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1214, %3111
+  %storemerge.i1219 = phi i8 [ 3, %3111 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1214 ]
+  store i8 %storemerge.i1219, ptr %3108, align 8, !tbaa !13
+  %3112 = getelementptr inbounds nuw i8, ptr %824, i64 32
+  store i16 257, ptr %3112, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %822, ptr noundef nonnull align 8 dereferenceable(34) %823, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %824)
   call void @llvm.lifetime.end.p0(ptr nonnull %823)
   call void @llvm.lifetime.end.p0(ptr nonnull %822)
   call void @llvm.lifetime.start.p0(ptr nonnull %825)
-  %3111 = getelementptr inbounds nuw i8, ptr %825, i64 32
-  %3112 = getelementptr inbounds nuw i8, ptr %825, i64 33
-  store i8 1, ptr %3112, align 1, !tbaa !16
+  %3113 = getelementptr inbounds nuw i8, ptr %825, i64 32
+  %3114 = getelementptr inbounds nuw i8, ptr %825, i64 33
+  store i8 1, ptr %3114, align 1, !tbaa !16
   store ptr @.str.328, ptr %825, align 8, !tbaa !17
-  store i8 3, ptr %3111, align 8, !tbaa !13
+  store i8 3, ptr %3113, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %826)
-  %3113 = load i32, ptr %1158, align 4, !tbaa !355
-  switch i32 %3113, label %3114 [
-    i32 26, label %3116
-    i32 5, label %3116
-    i32 27, label %3116
+  %3115 = load i32, ptr %1158, align 4, !tbaa !355
+  switch i32 %3115, label %3116 [
+    i32 26, label %3118
+    i32 5, label %3118
+    i32 27, label %3118
   ]
 
-3114:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1220
-  %3115 = icmp eq i32 %3113, 30
-  %spec.select4 = select i1 %3115, ptr @.str.39, ptr @.str.59
-  br label %3116
+3116:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1220
+  %3117 = icmp eq i32 %3115, 30
+  %spec.select4 = select i1 %3117, ptr @.str.39, ptr @.str.59
+  br label %3118
 
-3116:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1220, %_ZN4llvm5TwineC2EPKc.exit1220, %_ZN4llvm5TwineC2EPKc.exit1220, %3114
-  %3117 = phi ptr [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1220 ], [ %spec.select4, %3114 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1220 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1220 ]
-  %3118 = getelementptr inbounds nuw i8, ptr %826, i64 32
-  %3119 = getelementptr inbounds nuw i8, ptr %826, i64 33
-  store i8 1, ptr %3119, align 1, !tbaa !16
-  %3120 = load i8, ptr %3117, align 1, !tbaa !17
-  %.not.i1224 = icmp eq i8 %3120, 0
-  br i1 %.not.i1224, label %_ZN4llvm5TwineC2EPKc.exit1226, label %3121
+3118:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1220, %_ZN4llvm5TwineC2EPKc.exit1220, %_ZN4llvm5TwineC2EPKc.exit1220, %3116
+  %3119 = phi ptr [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1220 ], [ %spec.select4, %3116 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1220 ], [ @.str.39, %_ZN4llvm5TwineC2EPKc.exit1220 ]
+  %3120 = getelementptr inbounds nuw i8, ptr %826, i64 32
+  %3121 = getelementptr inbounds nuw i8, ptr %826, i64 33
+  store i8 1, ptr %3121, align 1, !tbaa !16
+  %3122 = load i8, ptr %3119, align 1, !tbaa !17
+  %.not.i1224 = icmp eq i8 %3122, 0
+  br i1 %.not.i1224, label %_ZN4llvm5TwineC2EPKc.exit1226, label %3123
 
-3121:                                             ; preds = %3116
-  store ptr %3117, ptr %826, align 8, !tbaa !17
+3123:                                             ; preds = %3118
+  store ptr %3119, ptr %826, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1226
 
-_ZN4llvm5TwineC2EPKc.exit1226:                    ; preds = %3116, %3121
-  %storemerge.i1225 = phi i8 [ 3, %3121 ], [ 1, %3116 ]
-  store i8 %storemerge.i1225, ptr %3118, align 8, !tbaa !13
-  %3122 = getelementptr inbounds nuw i8, ptr %827, i64 32
-  store i16 257, ptr %3122, align 8
+_ZN4llvm5TwineC2EPKc.exit1226:                    ; preds = %3118, %3123
+  %storemerge.i1225 = phi i8 [ 3, %3123 ], [ 1, %3118 ]
+  store i8 %storemerge.i1225, ptr %3120, align 8, !tbaa !13
+  %3124 = getelementptr inbounds nuw i8, ptr %827, i64 32
+  store i16 257, ptr %3124, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %825, ptr noundef nonnull align 8 dereferenceable(34) %826, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %827)
   call void @llvm.lifetime.end.p0(ptr nonnull %826)
   call void @llvm.lifetime.end.p0(ptr nonnull %825)
   call void @llvm.lifetime.start.p0(ptr nonnull %828)
-  %3123 = getelementptr inbounds nuw i8, ptr %828, i64 32
-  %3124 = getelementptr inbounds nuw i8, ptr %828, i64 33
-  store i8 1, ptr %3124, align 1, !tbaa !16
+  %3125 = getelementptr inbounds nuw i8, ptr %828, i64 32
+  %3126 = getelementptr inbounds nuw i8, ptr %828, i64 33
+  store i8 1, ptr %3126, align 1, !tbaa !16
   store ptr @.str.329, ptr %828, align 8, !tbaa !17
-  store i8 3, ptr %3123, align 8, !tbaa !13
+  store i8 3, ptr %3125, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %829)
-  %3125 = load i32, ptr %1158, align 4, !tbaa !355
-  %3126 = icmp eq i32 %3125, 5
-  %.str.39..str.592 = select i1 %3126, ptr @.str.39, ptr @.str.59
-  %3127 = getelementptr inbounds nuw i8, ptr %829, i64 32
-  %3128 = getelementptr inbounds nuw i8, ptr %829, i64 33
-  store i8 1, ptr %3128, align 1, !tbaa !16
-  %3129 = load i8, ptr %.str.39..str.592, align 1, !tbaa !17
-  %.not.i1229 = icmp eq i8 %3129, 0
-  br i1 %.not.i1229, label %_ZN4llvm5TwineC2EPKc.exit1231, label %3130
+  %3127 = load i32, ptr %1158, align 4, !tbaa !355
+  %3128 = icmp eq i32 %3127, 5
+  %.str.39..str.592 = select i1 %3128, ptr @.str.39, ptr @.str.59
+  %3129 = getelementptr inbounds nuw i8, ptr %829, i64 32
+  %3130 = getelementptr inbounds nuw i8, ptr %829, i64 33
+  store i8 1, ptr %3130, align 1, !tbaa !16
+  %3131 = load i8, ptr %.str.39..str.592, align 1, !tbaa !17
+  %.not.i1229 = icmp eq i8 %3131, 0
+  br i1 %.not.i1229, label %_ZN4llvm5TwineC2EPKc.exit1231, label %3132
 
-3130:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1226
+3132:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1226
   store ptr %.str.39..str.592, ptr %829, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1231
 
-_ZN4llvm5TwineC2EPKc.exit1231:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1226, %3130
-  %storemerge.i1230 = phi i8 [ 3, %3130 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1226 ]
-  store i8 %storemerge.i1230, ptr %3127, align 8, !tbaa !13
-  %3131 = getelementptr inbounds nuw i8, ptr %830, i64 32
-  store i16 257, ptr %3131, align 8
+_ZN4llvm5TwineC2EPKc.exit1231:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1226, %3132
+  %storemerge.i1230 = phi i8 [ 3, %3132 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1226 ]
+  store i8 %storemerge.i1230, ptr %3129, align 8, !tbaa !13
+  %3133 = getelementptr inbounds nuw i8, ptr %830, i64 32
+  store i16 257, ptr %3133, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %828, ptr noundef nonnull align 8 dereferenceable(34) %829, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %830)
   call void @llvm.lifetime.end.p0(ptr nonnull %829)
   call void @llvm.lifetime.end.p0(ptr nonnull %828)
   call void @llvm.lifetime.start.p0(ptr nonnull %831)
-  %3132 = getelementptr inbounds nuw i8, ptr %831, i64 32
-  %3133 = getelementptr inbounds nuw i8, ptr %831, i64 33
-  store i8 1, ptr %3133, align 1, !tbaa !16
+  %3134 = getelementptr inbounds nuw i8, ptr %831, i64 32
+  %3135 = getelementptr inbounds nuw i8, ptr %831, i64 33
+  store i8 1, ptr %3135, align 1, !tbaa !16
   store ptr @.str.330, ptr %831, align 8, !tbaa !17
-  store i8 3, ptr %3132, align 8, !tbaa !13
+  store i8 3, ptr %3134, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %832)
-  %3134 = load i32, ptr %1158, align 4, !tbaa !355
-  %3135 = icmp eq i32 %3134, 26
-  %3136 = select i1 %3135, ptr @.str.39, ptr @.str.59
-  %3137 = getelementptr inbounds nuw i8, ptr %832, i64 32
-  %3138 = getelementptr inbounds nuw i8, ptr %832, i64 33
-  store i8 1, ptr %3138, align 1, !tbaa !16
-  %3139 = load i8, ptr %3136, align 1, !tbaa !17
-  %.not.i1234 = icmp eq i8 %3139, 0
-  br i1 %.not.i1234, label %_ZN4llvm5TwineC2EPKc.exit1236, label %3140
+  %3136 = load i32, ptr %1158, align 4, !tbaa !355
+  %3137 = icmp eq i32 %3136, 26
+  %3138 = select i1 %3137, ptr @.str.39, ptr @.str.59
+  %3139 = getelementptr inbounds nuw i8, ptr %832, i64 32
+  %3140 = getelementptr inbounds nuw i8, ptr %832, i64 33
+  store i8 1, ptr %3140, align 1, !tbaa !16
+  %3141 = load i8, ptr %3138, align 1, !tbaa !17
+  %.not.i1234 = icmp eq i8 %3141, 0
+  br i1 %.not.i1234, label %_ZN4llvm5TwineC2EPKc.exit1236, label %3142
 
-3140:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1231
-  store ptr %3136, ptr %832, align 8, !tbaa !17
+3142:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1231
+  store ptr %3138, ptr %832, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1236
 
-_ZN4llvm5TwineC2EPKc.exit1236:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1231, %3140
-  %storemerge.i1235 = phi i8 [ 3, %3140 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1231 ]
-  store i8 %storemerge.i1235, ptr %3137, align 8, !tbaa !13
-  %3141 = getelementptr inbounds nuw i8, ptr %833, i64 32
-  store i16 257, ptr %3141, align 8
+_ZN4llvm5TwineC2EPKc.exit1236:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1231, %3142
+  %storemerge.i1235 = phi i8 [ 3, %3142 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1231 ]
+  store i8 %storemerge.i1235, ptr %3139, align 8, !tbaa !13
+  %3143 = getelementptr inbounds nuw i8, ptr %833, i64 32
+  store i16 257, ptr %3143, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %831, ptr noundef nonnull align 8 dereferenceable(34) %832, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %833)
   call void @llvm.lifetime.end.p0(ptr nonnull %832)
   call void @llvm.lifetime.end.p0(ptr nonnull %831)
   call void @llvm.lifetime.start.p0(ptr nonnull %834)
-  %3142 = getelementptr inbounds nuw i8, ptr %834, i64 32
-  %3143 = getelementptr inbounds nuw i8, ptr %834, i64 33
-  store i8 1, ptr %3143, align 1, !tbaa !16
+  %3144 = getelementptr inbounds nuw i8, ptr %834, i64 32
+  %3145 = getelementptr inbounds nuw i8, ptr %834, i64 33
+  store i8 1, ptr %3145, align 1, !tbaa !16
   store ptr @.str.331, ptr %834, align 8, !tbaa !17
-  store i8 3, ptr %3142, align 8, !tbaa !13
+  store i8 3, ptr %3144, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %835)
-  %3144 = load i32, ptr %1158, align 4, !tbaa !355
-  %3145 = icmp eq i32 %3144, 27
-  %3146 = select i1 %3145, ptr @.str.39, ptr @.str.59
-  %3147 = getelementptr inbounds nuw i8, ptr %835, i64 32
-  %3148 = getelementptr inbounds nuw i8, ptr %835, i64 33
-  store i8 1, ptr %3148, align 1, !tbaa !16
-  %3149 = load i8, ptr %3146, align 1, !tbaa !17
-  %.not.i1239 = icmp eq i8 %3149, 0
-  br i1 %.not.i1239, label %_ZN4llvm5TwineC2EPKc.exit1241, label %3150
+  %3146 = load i32, ptr %1158, align 4, !tbaa !355
+  %3147 = icmp eq i32 %3146, 27
+  %3148 = select i1 %3147, ptr @.str.39, ptr @.str.59
+  %3149 = getelementptr inbounds nuw i8, ptr %835, i64 32
+  %3150 = getelementptr inbounds nuw i8, ptr %835, i64 33
+  store i8 1, ptr %3150, align 1, !tbaa !16
+  %3151 = load i8, ptr %3148, align 1, !tbaa !17
+  %.not.i1239 = icmp eq i8 %3151, 0
+  br i1 %.not.i1239, label %_ZN4llvm5TwineC2EPKc.exit1241, label %3152
 
-3150:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1236
-  store ptr %3146, ptr %835, align 8, !tbaa !17
+3152:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1236
+  store ptr %3148, ptr %835, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1241
 
-_ZN4llvm5TwineC2EPKc.exit1241:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1236, %3150
-  %storemerge.i1240 = phi i8 [ 3, %3150 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1236 ]
-  store i8 %storemerge.i1240, ptr %3147, align 8, !tbaa !13
-  %3151 = getelementptr inbounds nuw i8, ptr %836, i64 32
-  store i16 257, ptr %3151, align 8
+_ZN4llvm5TwineC2EPKc.exit1241:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1236, %3152
+  %storemerge.i1240 = phi i8 [ 3, %3152 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1236 ]
+  store i8 %storemerge.i1240, ptr %3149, align 8, !tbaa !13
+  %3153 = getelementptr inbounds nuw i8, ptr %836, i64 32
+  store i16 257, ptr %3153, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %834, ptr noundef nonnull align 8 dereferenceable(34) %835, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %836)
   call void @llvm.lifetime.end.p0(ptr nonnull %835)
   call void @llvm.lifetime.end.p0(ptr nonnull %834)
   call void @llvm.lifetime.start.p0(ptr nonnull %837)
-  %3152 = getelementptr inbounds nuw i8, ptr %837, i64 32
-  %3153 = getelementptr inbounds nuw i8, ptr %837, i64 33
-  store i8 1, ptr %3153, align 1, !tbaa !16
+  %3154 = getelementptr inbounds nuw i8, ptr %837, i64 32
+  %3155 = getelementptr inbounds nuw i8, ptr %837, i64 33
+  store i8 1, ptr %3155, align 1, !tbaa !16
   store ptr @.str.332, ptr %837, align 8, !tbaa !17
-  store i8 3, ptr %3152, align 8, !tbaa !13
+  store i8 3, ptr %3154, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %838)
-  %3154 = load i32, ptr %1158, align 4, !tbaa !355
-  %3155 = icmp eq i32 %3154, 30
-  %3156 = select i1 %3155, ptr @.str.39, ptr @.str.59
-  %3157 = getelementptr inbounds nuw i8, ptr %838, i64 32
-  %3158 = getelementptr inbounds nuw i8, ptr %838, i64 33
-  store i8 1, ptr %3158, align 1, !tbaa !16
-  %3159 = load i8, ptr %3156, align 1, !tbaa !17
-  %.not.i1244 = icmp eq i8 %3159, 0
-  br i1 %.not.i1244, label %_ZN4llvm5TwineC2EPKc.exit1246, label %3160
+  %3156 = load i32, ptr %1158, align 4, !tbaa !355
+  %3157 = icmp eq i32 %3156, 30
+  %3158 = select i1 %3157, ptr @.str.39, ptr @.str.59
+  %3159 = getelementptr inbounds nuw i8, ptr %838, i64 32
+  %3160 = getelementptr inbounds nuw i8, ptr %838, i64 33
+  store i8 1, ptr %3160, align 1, !tbaa !16
+  %3161 = load i8, ptr %3158, align 1, !tbaa !17
+  %.not.i1244 = icmp eq i8 %3161, 0
+  br i1 %.not.i1244, label %_ZN4llvm5TwineC2EPKc.exit1246, label %3162
 
-3160:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1241
-  store ptr %3156, ptr %838, align 8, !tbaa !17
+3162:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1241
+  store ptr %3158, ptr %838, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1246
 
-_ZN4llvm5TwineC2EPKc.exit1246:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1241, %3160
-  %storemerge.i1245 = phi i8 [ 3, %3160 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1241 ]
-  store i8 %storemerge.i1245, ptr %3157, align 8, !tbaa !13
-  %3161 = getelementptr inbounds nuw i8, ptr %839, i64 32
-  store i16 257, ptr %3161, align 8
+_ZN4llvm5TwineC2EPKc.exit1246:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1241, %3162
+  %storemerge.i1245 = phi i8 [ 3, %3162 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1241 ]
+  store i8 %storemerge.i1245, ptr %3159, align 8, !tbaa !13
+  %3163 = getelementptr inbounds nuw i8, ptr %839, i64 32
+  store i16 257, ptr %3163, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %837, ptr noundef nonnull align 8 dereferenceable(34) %838, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %839)
   call void @llvm.lifetime.end.p0(ptr nonnull %838)
   call void @llvm.lifetime.end.p0(ptr nonnull %837)
   call void @llvm.lifetime.start.p0(ptr nonnull %840)
-  %3162 = getelementptr inbounds nuw i8, ptr %840, i64 32
-  %3163 = getelementptr inbounds nuw i8, ptr %840, i64 33
-  store i8 1, ptr %3163, align 1, !tbaa !16
+  %3164 = getelementptr inbounds nuw i8, ptr %840, i64 32
+  %3165 = getelementptr inbounds nuw i8, ptr %840, i64 33
+  store i8 1, ptr %3165, align 1, !tbaa !16
   store ptr @.str.333, ptr %840, align 8, !tbaa !17
-  store i8 3, ptr %3162, align 8, !tbaa !13
+  store i8 3, ptr %3164, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %841)
-  %3164 = load i32, ptr %1158, align 4, !tbaa !355
-  %3165 = icmp eq i32 %3164, 29
-  %3166 = select i1 %3165, ptr @.str.39, ptr @.str.59
-  %3167 = getelementptr inbounds nuw i8, ptr %841, i64 32
-  %3168 = getelementptr inbounds nuw i8, ptr %841, i64 33
-  store i8 1, ptr %3168, align 1, !tbaa !16
-  %3169 = load i8, ptr %3166, align 1, !tbaa !17
-  %.not.i1249 = icmp eq i8 %3169, 0
-  br i1 %.not.i1249, label %_ZN4llvm5TwineC2EPKc.exit1251, label %3170
+  %3166 = load i32, ptr %1158, align 4, !tbaa !355
+  %3167 = icmp eq i32 %3166, 29
+  %3168 = select i1 %3167, ptr @.str.39, ptr @.str.59
+  %3169 = getelementptr inbounds nuw i8, ptr %841, i64 32
+  %3170 = getelementptr inbounds nuw i8, ptr %841, i64 33
+  store i8 1, ptr %3170, align 1, !tbaa !16
+  %3171 = load i8, ptr %3168, align 1, !tbaa !17
+  %.not.i1249 = icmp eq i8 %3171, 0
+  br i1 %.not.i1249, label %_ZN4llvm5TwineC2EPKc.exit1251, label %3172
 
-3170:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1246
-  store ptr %3166, ptr %841, align 8, !tbaa !17
+3172:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1246
+  store ptr %3168, ptr %841, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1251
 
-_ZN4llvm5TwineC2EPKc.exit1251:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1246, %3170
-  %storemerge.i1250 = phi i8 [ 3, %3170 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1246 ]
-  store i8 %storemerge.i1250, ptr %3167, align 8, !tbaa !13
-  %3171 = getelementptr inbounds nuw i8, ptr %842, i64 32
-  store i16 257, ptr %3171, align 8
+_ZN4llvm5TwineC2EPKc.exit1251:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1246, %3172
+  %storemerge.i1250 = phi i8 [ 3, %3172 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1246 ]
+  store i8 %storemerge.i1250, ptr %3169, align 8, !tbaa !13
+  %3173 = getelementptr inbounds nuw i8, ptr %842, i64 32
+  store i16 257, ptr %3173, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %840, ptr noundef nonnull align 8 dereferenceable(34) %841, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %842)
   call void @llvm.lifetime.end.p0(ptr nonnull %841)
   call void @llvm.lifetime.end.p0(ptr nonnull %840)
   call void @llvm.lifetime.start.p0(ptr nonnull %843)
-  %3172 = getelementptr inbounds nuw i8, ptr %843, i64 32
-  %3173 = getelementptr inbounds nuw i8, ptr %843, i64 33
-  store i8 1, ptr %3173, align 1, !tbaa !16
+  %3174 = getelementptr inbounds nuw i8, ptr %843, i64 32
+  %3175 = getelementptr inbounds nuw i8, ptr %843, i64 33
+  store i8 1, ptr %3175, align 1, !tbaa !16
   store ptr @.str.334, ptr %843, align 8, !tbaa !17
-  store i8 3, ptr %3172, align 8, !tbaa !13
+  store i8 3, ptr %3174, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %844)
-  %3174 = load i32, ptr %1161, align 8, !tbaa !347
-  %3175 = icmp eq i32 %3174, 32
-  %3176 = select i1 %3175, ptr @.str.39, ptr @.str.59
-  %3177 = getelementptr inbounds nuw i8, ptr %844, i64 32
-  %3178 = getelementptr inbounds nuw i8, ptr %844, i64 33
-  store i8 1, ptr %3178, align 1, !tbaa !16
-  %3179 = load i8, ptr %3176, align 1, !tbaa !17
-  %.not.i1254 = icmp eq i8 %3179, 0
-  br i1 %.not.i1254, label %_ZN4llvm5TwineC2EPKc.exit1256, label %3180
+  %3176 = load i32, ptr %1161, align 8, !tbaa !347
+  %3177 = icmp eq i32 %3176, 32
+  %3178 = select i1 %3177, ptr @.str.39, ptr @.str.59
+  %3179 = getelementptr inbounds nuw i8, ptr %844, i64 32
+  %3180 = getelementptr inbounds nuw i8, ptr %844, i64 33
+  store i8 1, ptr %3180, align 1, !tbaa !16
+  %3181 = load i8, ptr %3178, align 1, !tbaa !17
+  %.not.i1254 = icmp eq i8 %3181, 0
+  br i1 %.not.i1254, label %_ZN4llvm5TwineC2EPKc.exit1256, label %3182
 
-3180:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1251
-  store ptr %3176, ptr %844, align 8, !tbaa !17
+3182:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1251
+  store ptr %3178, ptr %844, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1256
 
-_ZN4llvm5TwineC2EPKc.exit1256:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1251, %3180
-  %storemerge.i1255 = phi i8 [ 3, %3180 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1251 ]
-  store i8 %storemerge.i1255, ptr %3177, align 8, !tbaa !13
-  %3181 = getelementptr inbounds nuw i8, ptr %845, i64 32
-  store i16 257, ptr %3181, align 8
+_ZN4llvm5TwineC2EPKc.exit1256:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1251, %3182
+  %storemerge.i1255 = phi i8 [ 3, %3182 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1251 ]
+  store i8 %storemerge.i1255, ptr %3179, align 8, !tbaa !13
+  %3183 = getelementptr inbounds nuw i8, ptr %845, i64 32
+  store i16 257, ptr %3183, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %843, ptr noundef nonnull align 8 dereferenceable(34) %844, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %845)
   call void @llvm.lifetime.end.p0(ptr nonnull %844)
   call void @llvm.lifetime.end.p0(ptr nonnull %843)
   call void @llvm.lifetime.start.p0(ptr nonnull %846)
-  %3182 = getelementptr inbounds nuw i8, ptr %846, i64 32
-  %3183 = getelementptr inbounds nuw i8, ptr %846, i64 33
-  store i8 1, ptr %3183, align 1, !tbaa !16
+  %3184 = getelementptr inbounds nuw i8, ptr %846, i64 32
+  %3185 = getelementptr inbounds nuw i8, ptr %846, i64 33
+  store i8 1, ptr %3185, align 1, !tbaa !16
   store ptr @.str.335, ptr %846, align 8, !tbaa !17
-  store i8 3, ptr %3182, align 8, !tbaa !13
+  store i8 3, ptr %3184, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %847)
-  %3184 = load i32, ptr %1161, align 8, !tbaa !347
-  %3185 = icmp eq i32 %3184, 31
-  %3186 = select i1 %3185, ptr @.str.39, ptr @.str.59
-  %3187 = getelementptr inbounds nuw i8, ptr %847, i64 32
-  %3188 = getelementptr inbounds nuw i8, ptr %847, i64 33
-  store i8 1, ptr %3188, align 1, !tbaa !16
-  %3189 = load i8, ptr %3186, align 1, !tbaa !17
-  %.not.i1259 = icmp eq i8 %3189, 0
-  br i1 %.not.i1259, label %_ZN4llvm5TwineC2EPKc.exit1261, label %3190
+  %3186 = load i32, ptr %1161, align 8, !tbaa !347
+  %3187 = icmp eq i32 %3186, 31
+  %3188 = select i1 %3187, ptr @.str.39, ptr @.str.59
+  %3189 = getelementptr inbounds nuw i8, ptr %847, i64 32
+  %3190 = getelementptr inbounds nuw i8, ptr %847, i64 33
+  store i8 1, ptr %3190, align 1, !tbaa !16
+  %3191 = load i8, ptr %3188, align 1, !tbaa !17
+  %.not.i1259 = icmp eq i8 %3191, 0
+  br i1 %.not.i1259, label %_ZN4llvm5TwineC2EPKc.exit1261, label %3192
 
-3190:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1256
-  store ptr %3186, ptr %847, align 8, !tbaa !17
+3192:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1256
+  store ptr %3188, ptr %847, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1261
 
-_ZN4llvm5TwineC2EPKc.exit1261:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1256, %3190
-  %storemerge.i1260 = phi i8 [ 3, %3190 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1256 ]
-  store i8 %storemerge.i1260, ptr %3187, align 8, !tbaa !13
-  %3191 = getelementptr inbounds nuw i8, ptr %848, i64 32
-  store i16 257, ptr %3191, align 8
+_ZN4llvm5TwineC2EPKc.exit1261:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1256, %3192
+  %storemerge.i1260 = phi i8 [ 3, %3192 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1256 ]
+  store i8 %storemerge.i1260, ptr %3189, align 8, !tbaa !13
+  %3193 = getelementptr inbounds nuw i8, ptr %848, i64 32
+  store i16 257, ptr %3193, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %846, ptr noundef nonnull align 8 dereferenceable(34) %847, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %848)
   call void @llvm.lifetime.end.p0(ptr nonnull %847)
   call void @llvm.lifetime.end.p0(ptr nonnull %846)
   call void @llvm.lifetime.start.p0(ptr nonnull %849)
-  %3192 = getelementptr inbounds nuw i8, ptr %849, i64 32
-  %3193 = getelementptr inbounds nuw i8, ptr %849, i64 33
-  store i8 1, ptr %3193, align 1, !tbaa !16
+  %3194 = getelementptr inbounds nuw i8, ptr %849, i64 32
+  %3195 = getelementptr inbounds nuw i8, ptr %849, i64 33
+  store i8 1, ptr %3195, align 1, !tbaa !16
   store ptr @.str.336, ptr %849, align 8, !tbaa !17
-  store i8 3, ptr %3192, align 8, !tbaa !13
+  store i8 3, ptr %3194, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %850)
-  %3194 = load i32, ptr %1158, align 4, !tbaa !355
-  switch i32 %3194, label %.split647 [
-    i32 26, label %3195
-    i32 5, label %3195
-    i32 27, label %3195
-    i32 30, label %3195
+  %3196 = load i32, ptr %1158, align 4, !tbaa !355
+  switch i32 %3196, label %.split647 [
+    i32 26, label %3197
+    i32 5, label %3197
+    i32 27, label %3197
+    i32 30, label %3197
   ]
 
-3195:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1261, %_ZN4llvm5TwineC2EPKc.exit1261, %_ZN4llvm5TwineC2EPKc.exit1261, %_ZN4llvm5TwineC2EPKc.exit1261
-  %3196 = load i32, ptr %1161, align 8, !tbaa !347
-  %.off = add i32 %3196, -31
+3197:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1261, %_ZN4llvm5TwineC2EPKc.exit1261, %_ZN4llvm5TwineC2EPKc.exit1261, %_ZN4llvm5TwineC2EPKc.exit1261
+  %3198 = load i32, ptr %1161, align 8, !tbaa !347
+  %.off = add i32 %3198, -31
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %.split647, label %.split
 
-.split647:                                        ; preds = %3195, %_ZN4llvm5TwineC2EPKc.exit1261
+.split647:                                        ; preds = %3197, %_ZN4llvm5TwineC2EPKc.exit1261
   br label %.split
 
-.split:                                           ; preds = %3195, %.split647
-  %.str.39.sink = phi ptr [ @.str.59, %.split647 ], [ @.str.39, %3195 ]
-  %3197 = getelementptr inbounds nuw i8, ptr %850, i64 32
-  %3198 = getelementptr inbounds nuw i8, ptr %850, i64 33
-  store i8 1, ptr %3198, align 1, !tbaa !16
+.split:                                           ; preds = %3197, %.split647
+  %.str.39.sink = phi ptr [ @.str.59, %.split647 ], [ @.str.39, %3197 ]
+  %3199 = getelementptr inbounds nuw i8, ptr %850, i64 32
+  %3200 = getelementptr inbounds nuw i8, ptr %850, i64 33
+  store i8 1, ptr %3200, align 1, !tbaa !16
   store ptr %.str.39.sink, ptr %850, align 8, !tbaa !17
-  store i8 3, ptr %3197, align 8, !tbaa !13
-  %3199 = getelementptr inbounds nuw i8, ptr %851, i64 32
-  store i16 257, ptr %3199, align 8
+  store i8 3, ptr %3199, align 8, !tbaa !13
+  %3201 = getelementptr inbounds nuw i8, ptr %851, i64 32
+  store i16 257, ptr %3201, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %849, ptr noundef nonnull align 8 dereferenceable(34) %850, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %851)
   call void @llvm.lifetime.end.p0(ptr nonnull %850)
   call void @llvm.lifetime.end.p0(ptr nonnull %849)
   call void @llvm.lifetime.start.p0(ptr nonnull %852)
-  %3200 = getelementptr inbounds nuw i8, ptr %852, i64 32
-  %3201 = getelementptr inbounds nuw i8, ptr %852, i64 33
-  store i8 1, ptr %3201, align 1, !tbaa !16
+  %3202 = getelementptr inbounds nuw i8, ptr %852, i64 32
+  %3203 = getelementptr inbounds nuw i8, ptr %852, i64 33
+  store i8 1, ptr %3203, align 1, !tbaa !16
   store ptr @.str.337, ptr %852, align 8, !tbaa !17
-  store i8 3, ptr %3200, align 8, !tbaa !13
+  store i8 3, ptr %3202, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %853)
-  %3202 = load i32, ptr %1158, align 4, !tbaa !355
-  %3203 = icmp eq i32 %3202, 27
-  %.str.39..str.593 = select i1 %3203, ptr @.str.39, ptr @.str.59
-  %3204 = getelementptr inbounds nuw i8, ptr %853, i64 32
-  %3205 = getelementptr inbounds nuw i8, ptr %853, i64 33
-  store i8 1, ptr %3205, align 1, !tbaa !16
-  %3206 = load i8, ptr %.str.39..str.593, align 1, !tbaa !17
-  %.not.i1269 = icmp eq i8 %3206, 0
-  br i1 %.not.i1269, label %_ZN4llvm5TwineC2EPKc.exit1271, label %3207
+  %3204 = load i32, ptr %1158, align 4, !tbaa !355
+  %3205 = icmp eq i32 %3204, 27
+  %.str.39..str.593 = select i1 %3205, ptr @.str.39, ptr @.str.59
+  %3206 = getelementptr inbounds nuw i8, ptr %853, i64 32
+  %3207 = getelementptr inbounds nuw i8, ptr %853, i64 33
+  store i8 1, ptr %3207, align 1, !tbaa !16
+  %3208 = load i8, ptr %.str.39..str.593, align 1, !tbaa !17
+  %.not.i1269 = icmp eq i8 %3208, 0
+  br i1 %.not.i1269, label %_ZN4llvm5TwineC2EPKc.exit1271, label %3209
 
-3207:                                             ; preds = %.split
+3209:                                             ; preds = %.split
   store ptr %.str.39..str.593, ptr %853, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1271
 
-_ZN4llvm5TwineC2EPKc.exit1271:                    ; preds = %.split, %3207
-  %storemerge.i1270 = phi i8 [ 3, %3207 ], [ 1, %.split ]
-  store i8 %storemerge.i1270, ptr %3204, align 8, !tbaa !13
-  %3208 = getelementptr inbounds nuw i8, ptr %854, i64 32
-  store i16 257, ptr %3208, align 8
+_ZN4llvm5TwineC2EPKc.exit1271:                    ; preds = %.split, %3209
+  %storemerge.i1270 = phi i8 [ 3, %3209 ], [ 1, %.split ]
+  store i8 %storemerge.i1270, ptr %3206, align 8, !tbaa !13
+  %3210 = getelementptr inbounds nuw i8, ptr %854, i64 32
+  store i16 257, ptr %3210, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %852, ptr noundef nonnull align 8 dereferenceable(34) %853, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %854)
   call void @llvm.lifetime.end.p0(ptr nonnull %853)
   call void @llvm.lifetime.end.p0(ptr nonnull %852)
   call void @llvm.lifetime.start.p0(ptr nonnull %855)
-  %3209 = getelementptr inbounds nuw i8, ptr %855, i64 32
-  %3210 = getelementptr inbounds nuw i8, ptr %855, i64 33
-  store i8 1, ptr %3210, align 1, !tbaa !16
+  %3211 = getelementptr inbounds nuw i8, ptr %855, i64 32
+  %3212 = getelementptr inbounds nuw i8, ptr %855, i64 33
+  store i8 1, ptr %3212, align 1, !tbaa !16
   store ptr @.str.338, ptr %855, align 8, !tbaa !17
-  store i8 3, ptr %3209, align 8, !tbaa !13
+  store i8 3, ptr %3211, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %856)
-  %3211 = load i32, ptr %1161, align 8, !tbaa !347
-  %3212 = icmp eq i32 %3211, 31
-  %3213 = select i1 %3212, ptr @.str.39, ptr @.str.59
-  %3214 = getelementptr inbounds nuw i8, ptr %856, i64 32
-  %3215 = getelementptr inbounds nuw i8, ptr %856, i64 33
-  store i8 1, ptr %3215, align 1, !tbaa !16
-  %3216 = load i8, ptr %3213, align 1, !tbaa !17
-  %.not.i1274 = icmp eq i8 %3216, 0
-  br i1 %.not.i1274, label %_ZN4llvm5TwineC2EPKc.exit1276, label %3217
+  %3213 = load i32, ptr %1161, align 8, !tbaa !347
+  %3214 = icmp eq i32 %3213, 31
+  %3215 = select i1 %3214, ptr @.str.39, ptr @.str.59
+  %3216 = getelementptr inbounds nuw i8, ptr %856, i64 32
+  %3217 = getelementptr inbounds nuw i8, ptr %856, i64 33
+  store i8 1, ptr %3217, align 1, !tbaa !16
+  %3218 = load i8, ptr %3215, align 1, !tbaa !17
+  %.not.i1274 = icmp eq i8 %3218, 0
+  br i1 %.not.i1274, label %_ZN4llvm5TwineC2EPKc.exit1276, label %3219
 
-3217:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1271
-  store ptr %3213, ptr %856, align 8, !tbaa !17
+3219:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1271
+  store ptr %3215, ptr %856, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1276
 
-_ZN4llvm5TwineC2EPKc.exit1276:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1271, %3217
-  %storemerge.i1275 = phi i8 [ 3, %3217 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1271 ]
-  store i8 %storemerge.i1275, ptr %3214, align 8, !tbaa !13
-  %3218 = getelementptr inbounds nuw i8, ptr %857, i64 32
-  store i16 257, ptr %3218, align 8
+_ZN4llvm5TwineC2EPKc.exit1276:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1271, %3219
+  %storemerge.i1275 = phi i8 [ 3, %3219 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1271 ]
+  store i8 %storemerge.i1275, ptr %3216, align 8, !tbaa !13
+  %3220 = getelementptr inbounds nuw i8, ptr %857, i64 32
+  store i16 257, ptr %3220, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %855, ptr noundef nonnull align 8 dereferenceable(34) %856, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %857)
   call void @llvm.lifetime.end.p0(ptr nonnull %856)
   call void @llvm.lifetime.end.p0(ptr nonnull %855)
   call void @llvm.lifetime.start.p0(ptr nonnull %858)
-  %3219 = getelementptr inbounds nuw i8, ptr %858, i64 32
-  %3220 = getelementptr inbounds nuw i8, ptr %858, i64 33
-  store i8 1, ptr %3220, align 1, !tbaa !16
+  %3221 = getelementptr inbounds nuw i8, ptr %858, i64 32
+  %3222 = getelementptr inbounds nuw i8, ptr %858, i64 33
+  store i8 1, ptr %3222, align 1, !tbaa !16
   store ptr @.str.339, ptr %858, align 8, !tbaa !17
-  store i8 3, ptr %3219, align 8, !tbaa !13
+  store i8 3, ptr %3221, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %859)
-  %3221 = load i32, ptr %1161, align 8, !tbaa !347
-  %3222 = icmp eq i32 %3221, 32
-  %3223 = select i1 %3222, ptr @.str.39, ptr @.str.59
-  %3224 = getelementptr inbounds nuw i8, ptr %859, i64 32
-  %3225 = getelementptr inbounds nuw i8, ptr %859, i64 33
-  store i8 1, ptr %3225, align 1, !tbaa !16
-  %3226 = load i8, ptr %3223, align 1, !tbaa !17
-  %.not.i1279 = icmp eq i8 %3226, 0
-  br i1 %.not.i1279, label %_ZN4llvm5TwineC2EPKc.exit1281, label %3227
+  %3223 = load i32, ptr %1161, align 8, !tbaa !347
+  %3224 = icmp eq i32 %3223, 32
+  %3225 = select i1 %3224, ptr @.str.39, ptr @.str.59
+  %3226 = getelementptr inbounds nuw i8, ptr %859, i64 32
+  %3227 = getelementptr inbounds nuw i8, ptr %859, i64 33
+  store i8 1, ptr %3227, align 1, !tbaa !16
+  %3228 = load i8, ptr %3225, align 1, !tbaa !17
+  %.not.i1279 = icmp eq i8 %3228, 0
+  br i1 %.not.i1279, label %_ZN4llvm5TwineC2EPKc.exit1281, label %3229
 
-3227:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1276
-  store ptr %3223, ptr %859, align 8, !tbaa !17
+3229:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1276
+  store ptr %3225, ptr %859, align 8, !tbaa !17
   br label %_ZN4llvm5TwineC2EPKc.exit1281
 
-_ZN4llvm5TwineC2EPKc.exit1281:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1276, %3227
-  %storemerge.i1280 = phi i8 [ 3, %3227 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1276 ]
-  store i8 %storemerge.i1280, ptr %3224, align 8, !tbaa !13
-  %3228 = getelementptr inbounds nuw i8, ptr %860, i64 32
-  store i16 257, ptr %3228, align 8
+_ZN4llvm5TwineC2EPKc.exit1281:                    ; preds = %_ZN4llvm5TwineC2EPKc.exit1276, %3229
+  %storemerge.i1280 = phi i8 [ 3, %3229 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit1276 ]
+  store i8 %storemerge.i1280, ptr %3226, align 8, !tbaa !13
+  %3230 = getelementptr inbounds nuw i8, ptr %860, i64 32
+  store i16 257, ptr %3230, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %858, ptr noundef nonnull align 8 dereferenceable(34) %859, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %860)
   call void @llvm.lifetime.end.p0(ptr nonnull %859)
   call void @llvm.lifetime.end.p0(ptr nonnull %858)
-  br label %3229
+  br label %3231
 
-3229:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1281, %3043
-  %3230 = load ptr, ptr %0, align 8, !tbaa !11
-  %3231 = getelementptr inbounds nuw i8, ptr %3230, i64 264
-  %3232 = load ptr, ptr %3231, align 8
-  call void %3232(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+3231:                                             ; preds = %_ZN4llvm5TwineC2EPKc.exit1281, %3045
+  %3232 = load ptr, ptr %0, align 8, !tbaa !11
+  %3233 = getelementptr inbounds nuw i8, ptr %3232, i64 264
+  %3234 = load ptr, ptr %3233, align 8
+  call void %3234(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %687)
   call void @llvm.lifetime.end.p0(ptr nonnull %578)
   ret void

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  switch i32 %1, label %92 [
+  switch i32 %1, label %93 [
     i32 -3, label %3
     i32 -2, label %6
     i32 0, label %16
@@ -28,7 +28,7 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
     i32 2560, label %49
     i32 2304, label %49
     i32 1536, label %49
-    i32 2048, label %86
+    i32 2048, label %87
   ]
 
 3:                                                ; preds = %2
@@ -36,7 +36,7 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 4, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 17, ptr %5, align 2, !tbaa !71
-  br label %92
+  br label %93
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
@@ -48,12 +48,12 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   %12 = load i8, ptr %11, align 2
   %13 = icmp eq i8 %12, 82
   %or.cond39 = select i1 %10, i1 true, i1 %13
-  br i1 %or.cond39, label %14, label %92
+  br i1 %or.cond39, label %14, label %93
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 18, ptr %15, align 2, !tbaa !71
-  br label %92
+  br label %93
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1338
@@ -62,7 +62,7 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 43, ptr %18, align 2, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i16 2, ptr %19, align 4, !tbaa !74
-  br label %92
+  br label %93
 
 20:                                               ; preds = %2, %2, %2, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -75,7 +75,7 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 43, ptr %24, align 2, !tbaa !71
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i16 1, ptr %25, align 4, !tbaa !74
-  br label %92
+  br label %93
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -88,7 +88,7 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 43, ptr %30, align 2, !tbaa !71
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i16 2, ptr %31, align 4, !tbaa !74
-  br label %92
+  br label %93
 
 32:                                               ; preds = %2, %2, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -107,20 +107,20 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 2, ptr %41, align 8, !tbaa !6
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 17, ptr %42, align 2, !tbaa !71
-  br label %92
+  br label %93
 
 43:                                               ; preds = %36
   %44 = icmp eq i8 %34, 83
   %45 = icmp eq i8 %38, 83
   %or.cond = or i1 %44, %45
-  br i1 %or.cond, label %46, label %92
+  br i1 %or.cond, label %46, label %93
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store i16 10, ptr %47, align 8, !tbaa !6
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 19, ptr %48, align 2, !tbaa !71
-  br label %92
+  br label %93
 
 49:                                               ; preds = %2, %2, %2, %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -139,7 +139,7 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 2, ptr %58, align 8, !tbaa !6
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 22, ptr %59, align 2, !tbaa !71
-  br label %92
+  br label %93
 
 60:                                               ; preds = %53
   %61 = icmp eq i8 %51, 84
@@ -156,57 +156,57 @@ define void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 capt
   store i16 1, ptr %66, align 8, !tbaa !6
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 22, ptr %67, align 2, !tbaa !71
-  br label %92
+  br label %93
 
 68:                                               ; preds = %60
   %69 = icmp eq i8 %51, 81
   %70 = icmp eq i8 %55, 81
   %or.cond43 = or i1 %69, %70
-  br i1 %or.cond43, label %71, label %92
+  br i1 %or.cond43, label %71, label %93
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 269
   %73 = load i8, ptr %72, align 1, !tbaa !72
   %.fr = freeze i8 %73
   %74 = icmp eq i8 %.fr, 50
-  br i1 %74, label %80, label %75
+  br i1 %74, label %81, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 275
   %77 = load i8, ptr %76, align 1, !tbaa !72
   %78 = icmp eq i8 %.fr, 51
   %79 = and i8 %77, -2
-  %switch = icmp eq i8 %79, 50
-  %or.cond46 = select i1 %78, i1 true, i1 %switch
-  br i1 %or.cond46, label %80, label %92
+  %80 = icmp eq i8 %79, 50
+  %or.cond47 = select i1 %78, i1 true, i1 %80
+  br i1 %or.cond47, label %81, label %93
 
-80:                                               ; preds = %75, %71
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 2, ptr %81, align 8, !tbaa !75
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 2, ptr %82, align 8, !tbaa !6
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1338
-  store i16 43, ptr %83, align 2, !tbaa !73
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 43, ptr %84, align 2, !tbaa !71
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  store i16 1, ptr %85, align 4, !tbaa !74
-  br label %92
+81:                                               ; preds = %75, %71
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  store i16 2, ptr %82, align 8, !tbaa !75
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  store i16 2, ptr %83, align 8, !tbaa !6
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1338
+  store i16 43, ptr %84, align 2, !tbaa !73
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 43, ptr %85, align 2, !tbaa !71
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  store i16 1, ptr %86, align 4, !tbaa !74
+  br label %93
 
-86:                                               ; preds = %2
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 2, ptr %87, align 8, !tbaa !75
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 2, ptr %88, align 8, !tbaa !6
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1338
-  store i16 43, ptr %89, align 2, !tbaa !73
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 43, ptr %90, align 2, !tbaa !71
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  store i16 1, ptr %91, align 4, !tbaa !74
-  br label %92
+87:                                               ; preds = %2
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  store i16 2, ptr %88, align 8, !tbaa !75
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  store i16 2, ptr %89, align 8, !tbaa !6
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1338
+  store i16 43, ptr %90, align 2, !tbaa !73
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 43, ptr %91, align 2, !tbaa !71
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  store i16 1, ptr %92, align 4, !tbaa !74
+  br label %93
 
-92:                                               ; preds = %75, %2, %68, %43, %6, %14, %20, %46, %40, %86, %57, %80, %65, %26, %16, %3
+93:                                               ; preds = %75, %2, %68, %43, %6, %14, %20, %46, %40, %87, %57, %81, %65, %26, %16, %3
   ret void
 }
 

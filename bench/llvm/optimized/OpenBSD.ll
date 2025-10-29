@@ -2848,16 +2848,16 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit9:
   %2 = load i32, ptr %1, align 8, !tbaa !87
   %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #17
   %4 = extractvalue { i64, i64 } %3, 0
-  %.off = add i32 %2, -37
-  %switch = icmp ult i32 %.off, 2
-  %5 = icmp eq i32 %2, 38
-  %6 = or i64 %4, 17592186056704
-  %7 = or i64 %4, 17592186056712
-  %spec.select = select i1 %5, i64 %7, i64 %6
-  %.sroa.0.0 = select i1 %switch, i64 %spec.select, i64 %4
-  %8 = extractvalue { i64, i64 } %3, 1
+  %5 = add i32 %2, -37
+  %6 = icmp ult i32 %5, 2
+  %7 = icmp eq i32 %2, 38
+  %8 = or i64 %4, 17592186056704
+  %9 = or i64 %4, 17592186056712
+  %spec.select = select i1 %7, i64 %9, i64 %8
+  %.sroa.0.0 = select i1 %6, i64 %spec.select, i64 %4
+  %10 = extractvalue { i64, i64 } %3, 1
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %8, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %10, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

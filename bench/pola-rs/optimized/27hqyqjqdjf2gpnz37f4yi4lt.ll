@@ -49995,8 +49995,8 @@ define hidden void @"_ZN4core3ptr238drop_in_place$LT$tokio..sync..mpsc..chan..Ch
 
 .noexc5:                                          ; preds = %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i"
   %13 = load i64, ptr %2, align 8, !range !47, !noalias !9232, !noundef !3
-  %.not6.i.i = icmp eq i64 %13, 0
-  br i1 %.not6.i.i, label %6, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i"
+  %.not4.i.i = icmp eq i64 %13, 0
+  br i1 %.not4.i.i, label %6, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i"
 
 "_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i": ; preds = %.noexc5, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !9232

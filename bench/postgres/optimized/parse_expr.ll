@@ -6246,17 +6246,17 @@ thread-pre-split:                                 ; preds = %56, %switch.early.t
   unreachable
 
 70:                                               ; preds = %59
-  %switch.i = icmp ult i32 %61, 2
-  br i1 %switch.i, label %checkJsonOutputFormat.exit, label %71
+  %71 = icmp ult i32 %61, 2
+  br i1 %71, label %checkJsonOutputFormat.exit, label %72
 
-71:                                               ; preds = %70
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  %73 = call i32 @errcode(i32 noundef 1088) #8
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.146) #8
-  %75 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.147) #8
-  %76 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %77 = load i32, ptr %76, align 4
-  %78 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %77) #8
+72:                                               ; preds = %70
+  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %74 = call i32 @errcode(i32 noundef 1088) #8
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.146) #8
+  %76 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.147) #8
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %78 = load i32, ptr %77, align 4
+  %79 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %78) #8
   call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 3488, ptr noundef nonnull @__func__.checkJsonOutputFormat) #8
   unreachable
 

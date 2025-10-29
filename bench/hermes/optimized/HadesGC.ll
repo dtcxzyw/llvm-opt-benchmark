@@ -9707,19 +9707,19 @@ for.inc.i.i:                                      ; preds = %if.then.i52.i, %lor
   %cmp.not15.i3.i.i.i.i.i = icmp eq ptr %incdec.ptr3.i.i.i.i.i, %234
   br i1 %cmp.not15.i3.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i, label %land.rhs.i4.i.i.i.i.i
 
-land.rhs.i4.i.i.i.i.i:                            ; preds = %for.inc.i.i, %while.body.i6.i.i.i.i.i
-  %iter.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %while.body.i6.i.i.i.i.i ], [ %incdec.ptr3.i.i.i.i.i, %for.inc.i.i ]
+land.rhs.i4.i.i.i.i.i:                            ; preds = %for.inc.i.i, %while.body.i5.i.i.i.i.i
+  %iter.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %while.body.i5.i.i.i.i.i ], [ %incdec.ptr3.i.i.i.i.i, %for.inc.i.i ]
   %239 = load ptr, ptr %iter.sroa.0.1.i.i, align 8
-  %switch.i5.i.i.i.i.i = icmp ult ptr %239, inttoptr (i64 2 to ptr)
-  br i1 %switch.i5.i.i.i.i.i, label %while.body.i6.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i
+  %240 = icmp ult ptr %239, inttoptr (i64 2 to ptr)
+  br i1 %240, label %while.body.i5.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i
 
-while.body.i6.i.i.i.i.i:                          ; preds = %land.rhs.i4.i.i.i.i.i
+while.body.i5.i.i.i.i.i:                          ; preds = %land.rhs.i4.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %iter.sroa.0.1.i.i, i64 24
-  %cmp.not.i7.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %234
-  br i1 %cmp.not.i7.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i, label %land.rhs.i4.i.i.i.i.i, !llvm.loop !134
+  %cmp.not.i6.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %234
+  br i1 %cmp.not.i6.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i, label %land.rhs.i4.i.i.i.i.i, !llvm.loop !134
 
-_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i: ; preds = %while.body.i6.i.i.i.i.i, %land.rhs.i4.i.i.i.i.i, %for.inc.i.i
-  %iter.sroa.0.2.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %for.inc.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %while.body.i6.i.i.i.i.i ], [ %iter.sroa.0.1.i.i, %land.rhs.i4.i.i.i.i.i ]
+_ZN6hermes2vm17JSWeakMapImplBase11KeyIteratorppEi.exit.i.i: ; preds = %while.body.i5.i.i.i.i.i, %land.rhs.i4.i.i.i.i.i, %for.inc.i.i
+  %iter.sroa.0.2.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %for.inc.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %while.body.i5.i.i.i.i.i ], [ %iter.sroa.0.1.i.i, %land.rhs.i4.i.i.i.i.i ]
   %cmp.i.i.i.not.i.i = icmp eq ptr %iter.sroa.0.2.i.i, %235
   br i1 %cmp.i.i.i.not.i.i, label %_ZN6hermes2vm6GCBase31clearEntriesWithUnreachableKeysIPFbPKNS0_6GCCellEEEEvRNS0_7HadesGCEPNS0_13JSWeakMapImplILNS0_8CellKindE51EEET_.exit.i, label %for.body.i.i, !llvm.loop !135
 
@@ -9731,23 +9731,23 @@ _ZN6hermes2vm6GCBase31clearEntriesWithUnreachableKeysIPFbPKNS0_6GCCellEEEEvRNS0_
   br i1 %cmp.i.not.i, label %for.end29.i, label %for.body24.i
 
 for.end29.i:                                      ; preds = %do.body.i, %_ZN6hermes2vm6GCBase31clearEntriesWithUnreachableKeysIPFbPKNS0_6GCCellEEEEvRNS0_7HadesGCEPNS0_13JSWeakMapImplILNS0_8CellKindE51EEET_.exit.i, %for.cond22.preheader.i
-  %240 = load ptr, ptr %scannedWeakMaps.i, align 8
-  call void @_ZdlPv(ptr noundef %240) #34
-  %241 = load i32, ptr %NumBuckets.i.i.i.i.i.i21.i, align 8
-  %cmp.i.i54.i = icmp eq i32 %241, 0
+  %241 = load ptr, ptr %scannedWeakMaps.i, align 8
+  call void @_ZdlPv(ptr noundef %241) #34
+  %242 = load i32, ptr %NumBuckets.i.i.i.i.i.i21.i, align 8
+  %cmp.i.i54.i = icmp eq i32 %242, 0
   %.pre1.i.i = load ptr, ptr %unreachableKeys.i, align 8
   br i1 %cmp.i.i54.i, label %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit", label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.end29.i
-  %idx.ext.i.i.i55.i = zext i32 %241 to i64
+  %idx.ext.i.i.i55.i = zext i32 %242 to i64
   %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i55.i, 5
   %add.ptr.i.i.i56.i = getelementptr inbounds nuw i8, ptr %.pre1.i.i, i64 %add.ptr.i.idx.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end13.i.i.i, %for.body.preheader.i.i.i
   %P.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end13.i.i.i ], [ %.pre1.i.i, %for.body.preheader.i.i.i ]
-  %242 = load ptr, ptr %P.08.i.i.i, align 8
-  %magicptr.i.i.i = ptrtoint ptr %242 to i64
+  %243 = load ptr, ptr %P.08.i.i.i, align 8
+  %magicptr.i.i.i = ptrtoint ptr %243 to i64
   switch i64 %magicptr.i.i.i, label %if.then11.i.i.i [
     i64 -8, label %if.end13.i.i.i
     i64 -16, label %if.end13.i.i.i
@@ -9755,12 +9755,12 @@ for.body.i.i.i:                                   ; preds = %if.end13.i.i.i, %fo
 
 if.then11.i.i.i:                                  ; preds = %for.body.i.i.i
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i, i64 8
-  %243 = load ptr, ptr %second.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i57.i = icmp eq ptr %243, null
+  %244 = load ptr, ptr %second.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i57.i = icmp eq ptr %244, null
   br i1 %tobool.not.i.i.i.i.i57.i, label %if.end13.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then11.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %243) #38
+  call void @_ZdlPv(ptr noundef nonnull %244) #38
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i, %if.then11.i.i.i, %for.body.i.i.i, %for.body.i.i.i
@@ -9773,18 +9773,18 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE5
   br label %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit"
 
 "_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit": ; preds = %for.end29.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i
-  %244 = phi ptr [ %.pre.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre1.i.i, %for.end29.i ]
-  call void @_ZdlPv(ptr noundef %244) #34
+  %245 = phi ptr [ %.pre.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre1.i.i, %for.end29.i ]
+  call void @_ZdlPv(ptr noundef %245) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %unreachableKeys.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %skipWeakAcceptor.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %scannedWeakMaps.i)
-  %245 = load ptr, ptr %reachableWeakMaps_.i, align 8
-  %246 = load ptr, ptr %_M_finish.i.i, align 8
-  %tobool.not.i.i6 = icmp eq ptr %246, %245
+  %246 = load ptr, ptr %reachableWeakMaps_.i, align 8
+  %247 = load ptr, ptr %_M_finish.i.i, align 8
+  %tobool.not.i.i6 = icmp eq ptr %247, %246
   br i1 %tobool.not.i.i6, label %_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit"
-  store ptr %245, ptr %_M_finish.i.i, align 8
+  store ptr %246, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit
 
 _ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit: ; preds = %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit", %if.then.i.i7

@@ -2480,13 +2480,13 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %12, i64 %11
   %17 = load atomic i64, ptr %16 monotonic, align 128, !noalias !315
-  %switch.i.i = icmp ugt i64 %17, -9
-  br i1 %switch.i.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.i, !prof !318
+  %18 = icmp ugt i64 %17, -9
+  br i1 %18, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.i, !prof !318
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.i: ; preds = %3
-  %18 = add nuw i64 %17, 4
-  %19 = cmpxchg weak ptr %16, i64 %17, i64 %18 acquire monotonic, align 8, !noalias !315
-  %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %19, 1
+  %19 = add nuw i64 %17, 4
+  %20 = cmpxchg weak ptr %16, i64 %17, i64 %19 acquire monotonic, align 8, !noalias !315
+  %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %20, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit", label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread.i, !prof !319
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread.i: ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.i, %3
@@ -2494,77 +2494,77 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread
   br label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit"
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit": ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.exit.thread.i
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  %21 = lshr i64 %6, 57
-  %22 = trunc nuw nsw i64 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 16, !alias.scope !326, !noalias !327, !noundef !3
-  %25 = load ptr, ptr %20, align 8, !alias.scope !326, !noalias !327, !nonnull !3, !noundef !3
-  %.sroa.0.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %22, i64 0
+  %22 = lshr i64 %6, 57
+  %23 = trunc nuw nsw i64 %22 to i8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %25 = load i64, ptr %24, align 16, !alias.scope !326, !noalias !327, !noundef !3
+  %26 = load ptr, ptr %21, align 8, !alias.scope !326, !noalias !327, !nonnull !3, !noundef !3
+  %.sroa.0.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %23, i64 0
   %.sroa.0.15.vec.insert.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %26
+  br label %27
 
-26:                                               ; preds = %47, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit"
-  %.pn.i = phi i64 [ %6, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit" ], [ %49, %47 ]
-  %.sroa.08.0.i.i = phi i64 [ 0, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit" ], [ %48, %47 ]
-  %.sroa.04.0.i.i = and i64 %.pn.i, %24
-  %27 = getelementptr inbounds i8, ptr %25, i64 %.sroa.04.0.i.i
-  %.sroa.0.0.copyload.i22.i = load <16 x i8>, ptr %27, align 1, !noalias !329
-  %28 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i, %.sroa.0.15.vec.insert.i.i
-  %29 = bitcast <16 x i1> %28 to i16
-  br label %30
+27:                                               ; preds = %48, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit"
+  %.pn.i = phi i64 [ %6, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit" ], [ %50, %48 ]
+  %.sroa.08.0.i.i = phi i64 [ 0, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E.exit" ], [ %49, %48 ]
+  %.sroa.04.0.i.i = and i64 %.pn.i, %25
+  %28 = getelementptr inbounds i8, ptr %26, i64 %.sroa.04.0.i.i
+  %.sroa.0.0.copyload.i22.i = load <16 x i8>, ptr %28, align 1, !noalias !329
+  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i, %.sroa.0.15.vec.insert.i.i
+  %30 = bitcast <16 x i1> %29 to i16
+  br label %31
 
-30:                                               ; preds = %32, %26
-  %.sroa.010.0.i.i = phi i16 [ %29, %26 ], [ %36, %32 ]
-  %31 = icmp eq i16 %.sroa.010.0.i.i, 0
-  br i1 %31, label %43, label %32
+31:                                               ; preds = %33, %27
+  %.sroa.010.0.i.i = phi i16 [ %30, %27 ], [ %37, %33 ]
+  %32 = icmp eq i16 %.sroa.010.0.i.i, 0
+  br i1 %32, label %44, label %33
 
-32:                                               ; preds = %30
-  %33 = add i16 %.sroa.010.0.i.i, -1
-  %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.010.0.i.i, i1 true)
-  %35 = zext nneg i16 %34 to i64
-  %36 = and i16 %33, %.sroa.010.0.i.i
-  %37 = add i64 %.sroa.04.0.i.i, %35
-  %38 = and i64 %37, %24
-  %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %25, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 -128
-  %42 = tail call fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h3185e0da3699874fE"(ptr noalias noundef readonly align 8 dereferenceable(112) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %41), !noalias !332
-  br i1 %42, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit", label %30
+33:                                               ; preds = %31
+  %34 = add i16 %.sroa.010.0.i.i, -1
+  %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.010.0.i.i, i1 true)
+  %36 = zext nneg i16 %35 to i64
+  %37 = and i16 %34, %.sroa.010.0.i.i
+  %38 = add i64 %.sroa.04.0.i.i, %36
+  %39 = and i64 %38, %25
+  %40 = sub nsw i64 0, %39
+  %41 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %26, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 -128
+  %43 = tail call fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h3185e0da3699874fE"(ptr noalias noundef readonly align 8 dereferenceable(112) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %42), !noalias !332
+  br i1 %43, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit", label %31
 
-43:                                               ; preds = %30
-  %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i, splat (i8 -1)
-  %45 = bitcast <16 x i1> %44 to i16
-  %46 = icmp eq i16 %45, 0
-  br i1 %46, label %47, label %51
+44:                                               ; preds = %31
+  %45 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i, splat (i8 -1)
+  %46 = bitcast <16 x i1> %45 to i16
+  %47 = icmp eq i16 %46, 0
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %43
-  %48 = add i64 %.sroa.08.0.i.i, 16
-  %49 = add i64 %48, %.sroa.04.0.i.i
-  br label %26
+48:                                               ; preds = %44
+  %49 = add i64 %.sroa.08.0.i.i, 16
+  %50 = add i64 %49, %.sroa.04.0.i.i
+  br label %27
 
-"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit": ; preds = %32
-  %50 = getelementptr inbounds i8, ptr %40, i64 -16
+"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit": ; preds = %33
+  %51 = getelementptr inbounds i8, ptr %41, i64 -16
   store ptr %16, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %41, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %42, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %50, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %51, ptr %.sroa.5.0..sroa_idx, align 8
   br label %"_ZN4core3ptr349drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$$GT$$GT$17h76c98224b975a4c6E.exit8"
 
-51:                                               ; preds = %43
+52:                                               ; preds = %44
   store ptr null, ptr %0, align 8
-  %52 = atomicrmw sub ptr %16, i64 4 release, align 8
-  %53 = icmp eq i64 %52, 6
-  br i1 %53, label %54, label %"_ZN4core3ptr349drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$$GT$$GT$17h76c98224b975a4c6E.exit8", !prof !19
+  %53 = atomicrmw sub ptr %16, i64 4 release, align 8
+  %54 = icmp eq i64 %53, 6
+  br i1 %54, label %55, label %"_ZN4core3ptr349drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$$GT$$GT$17h76c98224b975a4c6E.exit8", !prof !19
 
-54:                                               ; preds = %51
+55:                                               ; preds = %52
   tail call void @_ZN7dashmap4lock9RawRwLock18unlock_shared_slow17h09660c22e18d5013E(ptr noundef nonnull align 8 %16)
   br label %"_ZN4core3ptr349drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$$GT$$GT$17h76c98224b975a4c6E.exit8"
 
-"_ZN4core3ptr349drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$$GT$$GT$17h76c98224b975a4c6E.exit8": ; preds = %54, %51, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit"
+"_ZN4core3ptr349drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$$LP$uv_auth..cache..FetchUrl$C$uv_auth..credentials..Username$RP$$C$dashmap..util..SharedValue$LT$uv_once_map..Value$LT$core..option..Option$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$$GT$$GT$$RP$$GT$$GT$$GT$17h76c98224b975a4c6E.exit8": ; preds = %55, %52, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E.exit"
   ret void
 }
 
@@ -4279,7 +4279,7 @@ attributes #28 = { noreturn }
 !315 = !{!316}
 !316 = distinct !{!316, !317, !"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E: argument 0"}
 !317 = distinct !{!317, !"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h9306aec0f66036a4E"}
-!318 = !{!"branch_weights", i32 2000, i32 2000}
+!318 = !{!"branch_weights", i32 2002, i32 2000}
 !319 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !320 = !{!321}
 !321 = distinct !{!321, !322, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd1cc3d5b30752139E: argument 0"}

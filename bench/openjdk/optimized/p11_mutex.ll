@@ -224,6 +224,136 @@ define hidden i64 @callJCreateMutex(ptr noundef writeonly captures(none) %0) #0 
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr @jvm_j2pkcs11, align 8
   %4 = icmp eq ptr %3, null
+  br i1 %4, label %95, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
+  %10 = icmp eq i32 %9, -2
+  %11 = add i32 %9, 3
+  %12 = icmp ult i32 %11, 2
+  br i1 %12, label %.sink.split, label %18
+
+.sink.split:                                      ; preds = %5
+  %13 = load ptr, ptr @jvm_j2pkcs11, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %16(ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef null) #7
+  br label %18
+
+18:                                               ; preds = %5, %.sink.split
+  %19 = load ptr, ptr %2, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.13) #7
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %95, label %25
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %2, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str) #7
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %95, label %32
+
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %2, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 752
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr %36(ptr noundef nonnull %33, ptr noundef nonnull %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %95, label %39
+
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %2, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 760
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @jInitArgsObject, align 8
+  %45 = call ptr %43(ptr noundef nonnull %40, ptr noundef %44, ptr noundef nonnull %37) #7
+  %46 = load ptr, ptr %2, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr %49(ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %95, label %52
+
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %2, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 272
+  %56 = load ptr, ptr %55, align 8
+  %57 = call ptr (ptr, ptr, ptr, ...) %56(ptr noundef nonnull %53, ptr noundef %45, ptr noundef nonnull %50) #7
+  %58 = load ptr, ptr %2, align 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr %61(ptr noundef nonnull %58, ptr noundef %57) #7
+  store ptr %62, ptr %0, align 8
+  %63 = load ptr, ptr %2, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 120
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr %66(ptr noundef nonnull %63) #7
+  %.not = icmp eq ptr %67, null
+  br i1 %.not, label %88, label %68
+
+68:                                               ; preds = %52
+  %69 = load ptr, ptr %2, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
+  %72 = load ptr, ptr %71, align 8
+  %73 = call ptr %72(ptr noundef nonnull %69, ptr noundef nonnull @.str.16) #7
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %95, label %75
+
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %2, align 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 264
+  %79 = load ptr, ptr %78, align 8
+  %80 = call ptr %79(ptr noundef nonnull %76, ptr noundef nonnull %73, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %95, label %82
+
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %2, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 416
+  %86 = load ptr, ptr %85, align 8
+  %87 = call i64 (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %83, ptr noundef nonnull %67, ptr noundef nonnull %80) #7
+  br label %88
+
+88:                                               ; preds = %82, %52
+  %.030 = phi i64 [ %87, %82 ], [ 0, %52 ]
+  br i1 %10, label %95, label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr @jvm_j2pkcs11, align 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
+  %93 = load ptr, ptr %92, align 8
+  %94 = call i32 %93(ptr noundef nonnull %90) #7
+  br label %95
+
+95:                                               ; preds = %88, %89, %75, %68, %39, %32, %25, %18, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %18 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %68 ], [ 0, %75 ], [ %.030, %89 ], [ %.030, %88 ]
+  ret i64 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = load ptr, ptr @jvm_j2pkcs11, align 8
+  %4 = icmp eq ptr %3, null
   br i1 %4, label %93, label %5
 
 5:                                                ; preds = %1
@@ -232,72 +362,71 @@ define hidden i64 @callJCreateMutex(ptr noundef writeonly captures(none) %0) #0 
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
-  %.off = add i32 %9, 3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.sink.split, label %16
+  %11 = add i32 %9, 3
+  %12 = icmp ult i32 %11, 2
+  br i1 %12, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %5
-  %11 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %13 = load ptr, ptr @jvm_j2pkcs11, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
-  br label %16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %16(ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef null) #7
+  br label %18
 
-16:                                               ; preds = %5, %.sink.split
-  %17 = load ptr, ptr %2, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+18:                                               ; preds = %5, %.sink.split
+  %19 = load ptr, ptr %2, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.13) #7
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %93, label %23
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.19) #7
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %93, label %25
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %2, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %93, label %30
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str) #7
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %93, label %32
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %2, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %93, label %37
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 752
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr %36(ptr noundef nonnull %33, ptr noundef nonnull %30, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #7
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %93, label %39
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %2, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %2, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr @jInitArgsObject, align 8
-  %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
-  %44 = load ptr, ptr %2, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 760
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @jInitArgsObject, align 8
+  %45 = call ptr %43(ptr noundef nonnull %40, ptr noundef %44, ptr noundef nonnull %37) #7
+  %46 = load ptr, ptr %2, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #7
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %93, label %50
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr %49(ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %93, label %52
 
-50:                                               ; preds = %37
-  %51 = load ptr, ptr %2, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 272
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %2, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = call ptr (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48) #7
-  %56 = load ptr, ptr %2, align 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 168
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr %59(ptr noundef nonnull %56, ptr noundef %55) #7
-  store ptr %60, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 488
+  %56 = load ptr, ptr %55, align 8
+  call void (ptr, ptr, ptr, ...) %56(ptr noundef nonnull %53, ptr noundef %45, ptr noundef nonnull %50, ptr noundef %0) #7
+  %57 = load ptr, ptr %2, align 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 176
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull %57, ptr noundef %0) #7
   %61 = load ptr, ptr %2, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 120
@@ -306,7 +435,7 @@ define hidden i64 @callJCreateMutex(ptr noundef writeonly captures(none) %0) #0 
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %86, label %66
 
-66:                                               ; preds = %50
+66:                                               ; preds = %52
   %67 = load ptr, ptr %2, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -332,8 +461,8 @@ define hidden i64 @callJCreateMutex(ptr noundef writeonly captures(none) %0) #0 
   %85 = call i64 (ptr, ptr, ptr, ...) %84(ptr noundef nonnull %81, ptr noundef nonnull %65, ptr noundef nonnull %78) #7
   br label %86
 
-86:                                               ; preds = %80, %50
-  %.030 = phi i64 [ %85, %80 ], [ 0, %50 ]
+86:                                               ; preds = %80, %52
+  %.030 = phi i64 [ %85, %80 ], [ 0, %52 ]
   br i1 %10, label %93, label %87
 
 87:                                               ; preds = %86
@@ -344,137 +473,8 @@ define hidden i64 @callJCreateMutex(ptr noundef writeonly captures(none) %0) #0 
   %92 = call i32 %91(ptr noundef nonnull %88) #7
   br label %93
 
-93:                                               ; preds = %86, %87, %73, %66, %37, %30, %23, %16, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %16 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %66 ], [ 0, %73 ], [ %.030, %87 ], [ %.030, %86 ]
-  ret i64 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %91, label %5
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = load ptr, ptr %7, align 8
-  %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
-  %10 = icmp eq i32 %9, -2
-  %.off = add i32 %9, 3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.sink.split, label %16
-
-.sink.split:                                      ; preds = %5
-  %11 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
-  br label %16
-
-16:                                               ; preds = %5, %.sink.split
-  %17 = load ptr, ptr %2, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.19) #7
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %91, label %23
-
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %91, label %30
-
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
-  %34 = load ptr, ptr %33, align 8
-  %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #7
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %91, label %37
-
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %2, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr @jInitArgsObject, align 8
-  %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
-  %44 = load ptr, ptr %2, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #7
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %91, label %50
-
-50:                                               ; preds = %37
-  %51 = load ptr, ptr %2, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 488
-  %54 = load ptr, ptr %53, align 8
-  call void (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48, ptr noundef %0) #7
-  %55 = load ptr, ptr %2, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 176
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull %55, ptr noundef %0) #7
-  %59 = load ptr, ptr %2, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr %62(ptr noundef nonnull %59) #7
-  %.not = icmp eq ptr %63, null
-  br i1 %.not, label %84, label %64
-
-64:                                               ; preds = %50
-  %65 = load ptr, ptr %2, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load ptr, ptr %67, align 8
-  %69 = call ptr %68(ptr noundef nonnull %65, ptr noundef nonnull @.str.16) #7
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %91, label %71
-
-71:                                               ; preds = %64
-  %72 = load ptr, ptr %2, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 264
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr %75(ptr noundef nonnull %72, ptr noundef nonnull %69, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %91, label %78
-
-78:                                               ; preds = %71
-  %79 = load ptr, ptr %2, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 416
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i64 (ptr, ptr, ptr, ...) %82(ptr noundef nonnull %79, ptr noundef nonnull %63, ptr noundef nonnull %76) #7
-  br label %84
-
-84:                                               ; preds = %78, %50
-  %.030 = phi i64 [ %83, %78 ], [ 0, %50 ]
-  br i1 %10, label %91, label %85
-
-85:                                               ; preds = %84
-  %86 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %90 = call i32 %89(ptr noundef nonnull %86) #7
-  br label %91
-
-91:                                               ; preds = %84, %85, %71, %64, %37, %30, %23, %16, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %16 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %64 ], [ 0, %71 ], [ %.030, %85 ], [ %.030, %84 ]
+93:                                               ; preds = %86, %87, %73, %66, %39, %32, %25, %18, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %18 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %66 ], [ 0, %73 ], [ %.030, %87 ], [ %.030, %86 ]
   ret i64 %.0
 }
 
@@ -483,7 +483,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr @jvm_j2pkcs11, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %87, label %5
+  br i1 %4, label %89, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
@@ -491,114 +491,114 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
-  %.off = add i32 %9, 3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.sink.split, label %16
+  %11 = add i32 %9, 3
+  %12 = icmp ult i32 %11, 2
+  br i1 %12, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %5
-  %11 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %13 = load ptr, ptr @jvm_j2pkcs11, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
-  br label %16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %16(ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef null) #7
+  br label %18
 
-16:                                               ; preds = %5, %.sink.split
-  %17 = load ptr, ptr %2, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+18:                                               ; preds = %5, %.sink.split
+  %19 = load ptr, ptr %2, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.22) #7
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %87, label %23
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.22) #7
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %89, label %25
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %2, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %87, label %30
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str) #7
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %89, label %32
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %2, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %87, label %37
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 752
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr %36(ptr noundef nonnull %33, ptr noundef nonnull %30, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %89, label %39
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %2, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %2, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr @jInitArgsObject, align 8
-  %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
-  %44 = load ptr, ptr %2, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 760
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @jInitArgsObject, align 8
+  %45 = call ptr %43(ptr noundef nonnull %40, ptr noundef %44, ptr noundef nonnull %37) #7
+  %46 = load ptr, ptr %2, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #7
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %87, label %50
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr %49(ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %89, label %52
 
-50:                                               ; preds = %37
-  %51 = load ptr, ptr %2, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 488
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %2, align 8
   %54 = load ptr, ptr %53, align 8
-  call void (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48, ptr noundef %0) #7
-  %55 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 488
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
+  call void (ptr, ptr, ptr, ...) %56(ptr noundef nonnull %53, ptr noundef %45, ptr noundef nonnull %50, ptr noundef %0) #7
+  %57 = load ptr, ptr %2, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr %58(ptr noundef nonnull %55) #7
-  %.not = icmp eq ptr %59, null
-  br i1 %.not, label %80, label %60
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 120
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr %60(ptr noundef nonnull %57) #7
+  %.not = icmp eq ptr %61, null
+  br i1 %.not, label %82, label %62
 
-60:                                               ; preds = %50
-  %61 = load ptr, ptr %2, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
+62:                                               ; preds = %52
+  %63 = load ptr, ptr %2, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr %64(ptr noundef nonnull %61, ptr noundef nonnull @.str.16) #7
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %87, label %67
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr %66(ptr noundef nonnull %63, ptr noundef nonnull @.str.16) #7
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %89, label %69
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %2, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
+69:                                               ; preds = %62
+  %70 = load ptr, ptr %2, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = call ptr %71(ptr noundef nonnull %68, ptr noundef nonnull %65, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %87, label %74
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 264
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr %73(ptr noundef nonnull %70, ptr noundef nonnull %67, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %89, label %76
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %2, align 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 416
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %2, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = call i64 (ptr, ptr, ptr, ...) %78(ptr noundef nonnull %75, ptr noundef nonnull %59, ptr noundef nonnull %72) #7
-  br label %80
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 416
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i64 (ptr, ptr, ptr, ...) %80(ptr noundef nonnull %77, ptr noundef nonnull %61, ptr noundef nonnull %74) #7
+  br label %82
 
-80:                                               ; preds = %74, %50
-  %.029 = phi i64 [ %79, %74 ], [ 0, %50 ]
-  br i1 %10, label %87, label %81
+82:                                               ; preds = %76, %52
+  %.029 = phi i64 [ %81, %76 ], [ 0, %52 ]
+  br i1 %10, label %89, label %83
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
+83:                                               ; preds = %82
+  %84 = load ptr, ptr @jvm_j2pkcs11, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 %85(ptr noundef nonnull %82) #7
-  br label %87
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %87 = load ptr, ptr %86, align 8
+  %88 = call i32 %87(ptr noundef nonnull %84) #7
+  br label %89
 
-87:                                               ; preds = %80, %81, %67, %60, %37, %30, %23, %16, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %16 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %60 ], [ 0, %67 ], [ %.029, %81 ], [ %.029, %80 ]
+89:                                               ; preds = %82, %83, %69, %62, %39, %32, %25, %18, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %18 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %62 ], [ 0, %69 ], [ %.029, %83 ], [ %.029, %82 ]
   ret i64 %.0
 }
 
@@ -607,7 +607,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr @jvm_j2pkcs11, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %87, label %5
+  br i1 %4, label %89, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
@@ -615,114 +615,114 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
-  %.off = add i32 %9, 3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.sink.split, label %16
+  %11 = add i32 %9, 3
+  %12 = icmp ult i32 %11, 2
+  br i1 %12, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %5
-  %11 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %13 = load ptr, ptr @jvm_j2pkcs11, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
-  br label %16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %16(ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef null) #7
+  br label %18
 
-16:                                               ; preds = %5, %.sink.split
-  %17 = load ptr, ptr %2, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+18:                                               ; preds = %5, %.sink.split
+  %19 = load ptr, ptr %2, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.24) #7
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %87, label %23
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.24) #7
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %89, label %25
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %2, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %87, label %30
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str) #7
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %89, label %32
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %2, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #7
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %87, label %37
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 752
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr %36(ptr noundef nonnull %33, ptr noundef nonnull %30, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #7
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %89, label %39
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %2, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %2, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr @jInitArgsObject, align 8
-  %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
-  %44 = load ptr, ptr %2, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 760
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @jInitArgsObject, align 8
+  %45 = call ptr %43(ptr noundef nonnull %40, ptr noundef %44, ptr noundef nonnull %37) #7
+  %46 = load ptr, ptr %2, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.21) #7
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %87, label %50
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr %49(ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.21) #7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %89, label %52
 
-50:                                               ; preds = %37
-  %51 = load ptr, ptr %2, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 488
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %2, align 8
   %54 = load ptr, ptr %53, align 8
-  call void (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48, ptr noundef %0) #7
-  %55 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 488
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
+  call void (ptr, ptr, ptr, ...) %56(ptr noundef nonnull %53, ptr noundef %45, ptr noundef nonnull %50, ptr noundef %0) #7
+  %57 = load ptr, ptr %2, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr %58(ptr noundef nonnull %55) #7
-  %.not = icmp eq ptr %59, null
-  br i1 %.not, label %80, label %60
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 120
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr %60(ptr noundef nonnull %57) #7
+  %.not = icmp eq ptr %61, null
+  br i1 %.not, label %82, label %62
 
-60:                                               ; preds = %50
-  %61 = load ptr, ptr %2, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
+62:                                               ; preds = %52
+  %63 = load ptr, ptr %2, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr %64(ptr noundef nonnull %61, ptr noundef nonnull @.str.16) #7
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %87, label %67
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr %66(ptr noundef nonnull %63, ptr noundef nonnull @.str.16) #7
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %89, label %69
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %2, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
+69:                                               ; preds = %62
+  %70 = load ptr, ptr %2, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = call ptr %71(ptr noundef nonnull %68, ptr noundef nonnull %65, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %87, label %74
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 264
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr %73(ptr noundef nonnull %70, ptr noundef nonnull %67, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %89, label %76
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %2, align 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 416
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %2, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = call i64 (ptr, ptr, ptr, ...) %78(ptr noundef nonnull %75, ptr noundef nonnull %59, ptr noundef nonnull %72) #7
-  br label %80
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 416
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i64 (ptr, ptr, ptr, ...) %80(ptr noundef nonnull %77, ptr noundef nonnull %61, ptr noundef nonnull %74) #7
+  br label %82
 
-80:                                               ; preds = %74, %50
-  %.029 = phi i64 [ %79, %74 ], [ 0, %50 ]
-  br i1 %10, label %87, label %81
+82:                                               ; preds = %76, %52
+  %.029 = phi i64 [ %81, %76 ], [ 0, %52 ]
+  br i1 %10, label %89, label %83
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
+83:                                               ; preds = %82
+  %84 = load ptr, ptr @jvm_j2pkcs11, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 %85(ptr noundef nonnull %82) #7
-  br label %87
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %87 = load ptr, ptr %86, align 8
+  %88 = call i32 %87(ptr noundef nonnull %84) #7
+  br label %89
 
-87:                                               ; preds = %80, %81, %67, %60, %37, %30, %23, %16, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %16 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %60 ], [ 0, %67 ], [ %.029, %81 ], [ %.029, %80 ]
+89:                                               ; preds = %82, %83, %69, %62, %39, %32, %25, %18, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %18 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %62 ], [ 0, %69 ], [ %.029, %83 ], [ %.029, %82 ]
   ret i64 %.0
 }
 

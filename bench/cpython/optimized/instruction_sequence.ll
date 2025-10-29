@@ -1027,7 +1027,7 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %34, label %.preheader
+  br i1 %4, label %36, label %.preheader
 
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1041,15 +1041,15 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
 
-._crit_edge:                                      ; preds = %33, %.preheader
+._crit_edge:                                      ; preds = %35, %.preheader
   tail call void @PyMem_Free(ptr noundef nonnull %3) #6
   store ptr null, ptr %2, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %10, align 8, !tbaa !14
-  br label %34
+  br label %36
 
-11:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+11:                                               ; preds = %.lr.ph, %35
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %12 = getelementptr %struct._PyInstruction, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !21
   %14 = sext i32 %13 to i64
@@ -1059,39 +1059,39 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
   %.fr = freeze i16 %17
   %18 = and i16 %.fr, 8
   %.not = icmp ne i16 %18, 0
-  %.off = add i32 %13, -262
-  %switch = icmp ult i32 %.off, 3
-  %or.cond = or i1 %switch, %.not
-  br i1 %or.cond, label %19, label %25
+  %19 = add i32 %13, -262
+  %20 = icmp ult i32 %19, 3
+  %or.cond = or i1 %20, %.not
+  br i1 %or.cond, label %21, label %27
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !28
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr i32, ptr %3, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !17
-  store i32 %24, ptr %20, align 4, !tbaa !28
-  br label %25
+21:                                               ; preds = %11
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !28
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr i32, ptr %3, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !17
+  store i32 %26, ptr %22, align 4, !tbaa !28
+  br label %27
 
-25:                                               ; preds = %11, %19
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %27 = load i32, ptr %26, align 4, !tbaa !29
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %29, label %33
+27:                                               ; preds = %11, %21
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %29 = load i32, ptr %28, align 4, !tbaa !29
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %31, label %35
 
-29:                                               ; preds = %25
-  %30 = zext nneg i32 %27 to i64
-  %31 = getelementptr i32, ptr %3, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !17
-  store i32 %32, ptr %26, align 4, !tbaa !29
-  br label %33
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
+  %33 = getelementptr i32, ptr %3, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !17
+  store i32 %34, ptr %28, align 4, !tbaa !29
+  br label %35
 
-33:                                               ; preds = %29, %25
+35:                                               ; preds = %31, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !30
 
-34:                                               ; preds = %1, %._crit_edge
+36:                                               ; preds = %1, %._crit_edge
   ret i32 0
 }
 
@@ -1902,15 +1902,15 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
   %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %12
 
-._crit_edge.i.i:                                  ; preds = %34, %.preheader.i.i
+._crit_edge.i.i:                                  ; preds = %36, %.preheader.i.i
   tail call void @PyMem_Free(ptr noundef nonnull %4) #6
   store ptr null, ptr %3, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %11, align 8, !tbaa !14
   br label %_PyInstructionSequence_ApplyLabelMap.exit.i
 
-12:                                               ; preds = %34, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %34 ]
+12:                                               ; preds = %36, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
   %13 = getelementptr %struct._PyInstruction, ptr %10, i64 %indvars.iv.i.i
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = sext i32 %14 to i64
@@ -1920,133 +1920,133 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
   %.fr.i.i = freeze i16 %18
   %19 = and i16 %.fr.i.i, 8
   %.not.i32.i = icmp ne i16 %19, 0
-  %.off.i.i = add i32 %14, -262
-  %switch.i.i = icmp ult i32 %.off.i.i, 3
-  %or.cond.i.i = or i1 %switch.i.i, %.not.i32.i
-  br i1 %or.cond.i.i, label %20, label %26
+  %20 = add i32 %14, -262
+  %21 = icmp ult i32 %20, 3
+  %or.cond.i.i = or i1 %21, %.not.i32.i
+  br i1 %or.cond.i.i, label %22, label %28
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !28
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr i32, ptr %4, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !17
-  store i32 %25, ptr %21, align 4, !tbaa !28
-  br label %26
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr i32, ptr %4, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !17
+  store i32 %27, ptr %23, align 4, !tbaa !28
+  br label %28
 
-26:                                               ; preds = %20, %12
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %28 = load i32, ptr %27, align 4, !tbaa !29
-  %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %30, label %34
+28:                                               ; preds = %22, %12
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %30 = load i32, ptr %29, align 4, !tbaa !29
+  %31 = icmp sgt i32 %30, -1
+  br i1 %31, label %32, label %36
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = getelementptr i32, ptr %4, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !17
-  store i32 %33, ptr %27, align 4, !tbaa !29
-  br label %34
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = getelementptr i32, ptr %4, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !17
+  store i32 %35, ptr %29, align 4, !tbaa !29
+  br label %36
 
-34:                                               ; preds = %30, %26
+36:                                               ; preds = %32, %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %12, !llvm.loop !30
 
 _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
-  %35 = tail call ptr @PyList_New(i64 noundef 0) #6
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %InstructionSequenceType_get_instructions_impl.exit, label %.preheader.i
+  %37 = tail call ptr @PyList_New(i64 noundef 0) #6
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %InstructionSequenceType_get_instructions_impl.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_PyInstructionSequence_ApplyLabelMap.exit.i
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %38 = load i32, ptr %37, align 4, !tbaa !16
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph.i, label %InstructionSequenceType_get_instructions_impl.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %40 = load i32, ptr %39, align 4, !tbaa !16
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %.lr.ph.i, label %InstructionSequenceType_get_instructions_impl.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %45
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %47
 
-41:                                               ; preds = %Py_DECREF.exit.i
+43:                                               ; preds = %Py_DECREF.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = load i32, ptr %37, align 4, !tbaa !16
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %45, label %InstructionSequenceType_get_instructions_impl.exit, !llvm.loop !58
+  %44 = load i32, ptr %39, align 4, !tbaa !16
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next.i, %45
+  br i1 %46, label %47, label %InstructionSequenceType_get_instructions_impl.exit, !llvm.loop !58
 
-45:                                               ; preds = %41, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %46 = load ptr, ptr %40, align 8, !tbaa !20
-  %47 = getelementptr %struct._PyInstruction, ptr %46, i64 %indvars.iv.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %.sroa.0.0.copyload.i = load i32, ptr %48, align 4, !tbaa !17
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 12
+47:                                               ; preds = %43, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
+  %48 = load ptr, ptr %42, align 8, !tbaa !20
+  %49 = getelementptr %struct._PyInstruction, ptr %48, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %.sroa.0.0.copyload.i = load i32, ptr %50, align 4, !tbaa !17
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 12
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !17
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 16
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !17
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 20
   %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 4, !tbaa !17
-  %49 = load i32, ptr %47, align 4, !tbaa !21
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  %53 = load i16, ptr %52, align 2, !tbaa !25
-  %54 = and i16 %53, 1
-  %.not.i = icmp eq i16 %54, 0
-  br i1 %.not.i, label %59, label %55
+  %51 = load i32, ptr %49, align 4, !tbaa !21
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  %55 = load i16, ptr %54, align 2, !tbaa !25
+  %56 = and i16 %55, 1
+  %.not.i = icmp eq i16 %56, 0
+  br i1 %.not.i, label %61, label %57
 
-55:                                               ; preds = %45
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !28
-  %58 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, i32 noundef %49, i32 noundef %57, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.0.copyload.i, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %.sroa.9.0.copyload.i) #6
-  br label %61
+57:                                               ; preds = %47
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !28
+  %60 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, i32 noundef %51, i32 noundef %59, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.0.copyload.i, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %.sroa.9.0.copyload.i) #6
+  br label %63
 
-59:                                               ; preds = %45
-  %60 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.18, i32 noundef %49, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.0.copyload.i, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %.sroa.9.0.copyload.i) #6
-  br label %61
+61:                                               ; preds = %47
+  %62 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.18, i32 noundef %51, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.0.copyload.i, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %.sroa.9.0.copyload.i) #6
+  br label %63
 
-61:                                               ; preds = %59, %55
-  %.025.i = phi ptr [ %58, %55 ], [ %60, %59 ]
-  %62 = icmp eq ptr %.025.i, null
-  br i1 %62, label %70, label %63
+63:                                               ; preds = %61, %57
+  %.025.i = phi ptr [ %60, %57 ], [ %62, %61 ]
+  %64 = icmp eq ptr %.025.i, null
+  br i1 %64, label %72, label %65
 
-63:                                               ; preds = %61
-  %64 = tail call i32 @PyList_Append(ptr noundef nonnull %35, ptr noundef nonnull %.025.i) #6
-  %65 = load i32, ptr %.025.i, align 8, !tbaa !35
-  %.not.i.i = icmp sgt i32 %65, -1
-  br i1 %.not.i.i, label %66, label %Py_DECREF.exit.i
+65:                                               ; preds = %63
+  %66 = tail call i32 @PyList_Append(ptr noundef nonnull %37, ptr noundef nonnull %.025.i) #6
+  %67 = load i32, ptr %.025.i, align 8, !tbaa !35
+  %.not.i.i = icmp sgt i32 %67, -1
+  br i1 %.not.i.i, label %68, label %Py_DECREF.exit.i
 
-66:                                               ; preds = %63
-  %67 = add nsw i32 %65, -1
-  store i32 %67, ptr %.025.i, align 8, !tbaa !35
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %Py_DECREF.exit.i
+68:                                               ; preds = %65
+  %69 = add nsw i32 %67, -1
+  store i32 %69, ptr %.025.i, align 8, !tbaa !35
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %Py_DECREF.exit.i
 
-69:                                               ; preds = %66
+71:                                               ; preds = %68
   tail call void @_Py_Dealloc(ptr noundef nonnull %.025.i) #6
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %69, %66, %63
-  %.not30.i = icmp eq i32 %64, 0
-  br i1 %.not30.i, label %41, label %70
+Py_DECREF.exit.i:                                 ; preds = %71, %68, %65
+  %.not30.i = icmp eq i32 %66, 0
+  br i1 %.not30.i, label %43, label %72
 
-70:                                               ; preds = %Py_DECREF.exit.i, %61
-  %71 = load i32, ptr %35, align 8, !tbaa !35
-  %.not.i.i.i = icmp sgt i32 %71, -1
-  br i1 %.not.i.i.i, label %72, label %InstructionSequenceType_get_instructions_impl.exit
+72:                                               ; preds = %Py_DECREF.exit.i, %63
+  %73 = load i32, ptr %37, align 8, !tbaa !35
+  %.not.i.i.i = icmp sgt i32 %73, -1
+  br i1 %.not.i.i.i, label %74, label %InstructionSequenceType_get_instructions_impl.exit
 
-72:                                               ; preds = %70
-  %73 = add nsw i32 %71, -1
-  store i32 %73, ptr %35, align 8, !tbaa !35
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %InstructionSequenceType_get_instructions_impl.exit
+74:                                               ; preds = %72
+  %75 = add nsw i32 %73, -1
+  store i32 %75, ptr %37, align 8, !tbaa !35
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %InstructionSequenceType_get_instructions_impl.exit
 
-75:                                               ; preds = %72
-  tail call void @_Py_Dealloc(ptr noundef nonnull %35) #6
+77:                                               ; preds = %74
+  tail call void @_Py_Dealloc(ptr noundef nonnull %37) #6
   br label %InstructionSequenceType_get_instructions_impl.exit
 
-InstructionSequenceType_get_instructions_impl.exit: ; preds = %41, %_PyInstructionSequence_ApplyLabelMap.exit.i, %.preheader.i, %70, %72, %75
-  %.1.i = phi ptr [ null, %_PyInstructionSequence_ApplyLabelMap.exit.i ], [ null, %70 ], [ null, %72 ], [ null, %75 ], [ %35, %.preheader.i ], [ %35, %41 ]
+InstructionSequenceType_get_instructions_impl.exit: ; preds = %43, %_PyInstructionSequence_ApplyLabelMap.exit.i, %.preheader.i, %72, %74, %77
+  %.1.i = phi ptr [ null, %_PyInstructionSequence_ApplyLabelMap.exit.i ], [ null, %72 ], [ null, %74 ], [ null, %77 ], [ %37, %.preheader.i ], [ %37, %43 ]
   ret ptr %.1.i
 }
 

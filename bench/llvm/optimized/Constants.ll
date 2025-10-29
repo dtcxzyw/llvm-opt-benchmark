@@ -1749,10 +1749,10 @@ define dso_local noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noun
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !61
-  switch i8 %3, label %63 [
+  switch i8 %3, label %65 [
     i8 14, label %20
-    i8 17, label %47
-    i8 18, label %55
+    i8 17, label %49
+    i8 18, label %57
   ]
 
 20:                                               ; preds = %17
@@ -1797,162 +1797,162 @@ _ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit: ; preds = %25, %30, %3
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit
-  %.off.i = add nsw i32 %23, -16
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %.critedge.i, label %41
+  %40 = add nsw i32 %23, -16
+  %41 = icmp ult i32 %40, 3
+  br i1 %41, label %.critedge.i, label %43
 
 .critedge.i:                                      ; preds = %39
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !62
-  %44 = zext i32 %1 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !62
+  %46 = zext i32 %1 to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
   br label %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit
 
-_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit: ; preds = %.critedge.i, %41
-  %.sink.in.i = phi ptr [ %45, %41 ], [ %40, %.critedge.i ]
+_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit: ; preds = %.critedge.i, %43
+  %.sink.in.i = phi ptr [ %47, %43 ], [ %42, %.critedge.i ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !67
-  %46 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %.sink.i)
+  %48 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %.sink.i)
   br label %.thread
 
-47:                                               ; preds = %17
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %49 = load i32, ptr %48, align 8, !tbaa !87
-  %50 = icmp ult i32 %1, %49
-  br i1 %50, label %51, label %.thread
+49:                                               ; preds = %17
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %51 = load i32, ptr %50, align 8, !tbaa !87
+  %52 = icmp ult i32 %1, %51
+  br i1 %52, label %53, label %.thread
 
-51:                                               ; preds = %47
-  %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %54 = tail call noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(12) %53)
+53:                                               ; preds = %49
+  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = tail call noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(12) %55)
   br label %.thread
 
-55:                                               ; preds = %17
-  %56 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %57 = load i32, ptr %56, align 8, !tbaa !87
-  %58 = icmp ult i32 %1, %57
-  br i1 %58, label %59, label %.thread
+57:                                               ; preds = %17
+  %58 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %59 = load i32, ptr %58, align 8, !tbaa !87
+  %60 = icmp ult i32 %1, %59
+  br i1 %60, label %61, label %.thread
 
-59:                                               ; preds = %55
-  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = tail call noundef ptr @_ZN4llvm10ConstantFP3getERNS_11LLVMContextERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(24) %61)
+61:                                               ; preds = %57
+  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %64 = tail call noundef ptr @_ZN4llvm10ConstantFP3getERNS_11LLVMContextERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(24) %63)
   br label %.thread
 
-63:                                               ; preds = %17
-  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = and i32 %65, 255
-  %67 = icmp eq i32 %66, 18
-  br i1 %67, label %.thread, label %68
+65:                                               ; preds = %17
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 255
+  %69 = icmp eq i32 %68, 18
+  br i1 %69, label %.thread, label %70
 
-68:                                               ; preds = %63
-  switch i8 %3, label %101 [
-    i8 13, label %69
-    i8 12, label %85
+70:                                               ; preds = %65
+  switch i8 %3, label %103 [
+    i8 13, label %71
+    i8 12, label %87
   ]
 
-69:                                               ; preds = %68
-  %.not120 = icmp eq i32 %66, 16
-  br i1 %.not120, label %70, label %74
+71:                                               ; preds = %70
+  %.not120 = icmp eq i32 %68, 16
+  br i1 %.not120, label %72, label %76
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %72 = load i64, ptr %71, align 8, !tbaa !90
-  %73 = trunc i64 %72 to i32
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %74 = load i64, ptr %73, align 8, !tbaa !90
+  %75 = trunc i64 %74 to i32
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit
 
-74:                                               ; preds = %69
-  %75 = add nsw i32 %66, -19
-  %spec.select.i.i.i.i.i.i.i.i.i78 = icmp ult i32 %75, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i78, label %79, label %76
+76:                                               ; preds = %71
+  %77 = add nsw i32 %68, -19
+  %spec.select.i.i.i.i.i.i.i.i.i78 = icmp ult i32 %77, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i78, label %81, label %78
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %78 = load i32, ptr %77, align 8, !tbaa !87
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %80 = load i32, ptr %79, align 8, !tbaa !87
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit
 
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !92
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %83 = load i32, ptr %82, align 4, !tbaa !92
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit
 
-_ZNK4llvm10UndefValue14getNumElementsEv.exit:     ; preds = %70, %76, %79
-  %.1.i = phi i32 [ %81, %79 ], [ %78, %76 ], [ %73, %70 ]
-  %82 = icmp ult i32 %1, %.1.i
-  br i1 %82, label %83, label %.thread
+_ZNK4llvm10UndefValue14getNumElementsEv.exit:     ; preds = %72, %78, %81
+  %.1.i = phi i32 [ %83, %81 ], [ %80, %78 ], [ %75, %72 ]
+  %84 = icmp ult i32 %1, %.1.i
+  br i1 %84, label %85, label %.thread
 
-83:                                               ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit
-  %84 = tail call noundef ptr @_ZNK4llvm11PoisonValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+85:                                               ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit
+  %86 = tail call noundef ptr @_ZNK4llvm11PoisonValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %.thread
 
-85:                                               ; preds = %68
-  %.not = icmp eq i32 %66, 16
-  br i1 %.not, label %86, label %90
+87:                                               ; preds = %70
+  %.not = icmp eq i32 %68, 16
+  br i1 %.not, label %88, label %92
 
-86:                                               ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %88 = load i64, ptr %87, align 8, !tbaa !90
-  %89 = trunc i64 %88 to i32
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %90 = load i64, ptr %89, align 8, !tbaa !90
+  %91 = trunc i64 %90 to i32
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit86
 
-90:                                               ; preds = %85
-  %91 = add nsw i32 %66, -19
-  %spec.select.i.i.i.i.i.i.i.i.i84 = icmp ult i32 %91, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i84, label %95, label %92
+92:                                               ; preds = %87
+  %93 = add nsw i32 %68, -19
+  %spec.select.i.i.i.i.i.i.i.i.i84 = icmp ult i32 %93, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i84, label %97, label %94
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %94 = load i32, ptr %93, align 8, !tbaa !87
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %96 = load i32, ptr %95, align 8, !tbaa !87
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit86
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !92
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %99 = load i32, ptr %98, align 4, !tbaa !92
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit86
 
-_ZNK4llvm10UndefValue14getNumElementsEv.exit86:   ; preds = %86, %92, %95
-  %.1.i83 = phi i32 [ %97, %95 ], [ %94, %92 ], [ %89, %86 ]
-  %98 = icmp ult i32 %1, %.1.i83
-  br i1 %98, label %99, label %.thread
+_ZNK4llvm10UndefValue14getNumElementsEv.exit86:   ; preds = %88, %94, %97
+  %.1.i83 = phi i32 [ %99, %97 ], [ %96, %94 ], [ %91, %88 ]
+  %100 = icmp ult i32 %1, %.1.i83
+  br i1 %100, label %101, label %.thread
 
-99:                                               ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit86
-  %100 = tail call noundef ptr @_ZNK4llvm10UndefValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+101:                                              ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit86
+  %102 = tail call noundef ptr @_ZNK4llvm10UndefValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %.thread
 
-101:                                              ; preds = %68
-  %102 = add i8 %3, -17
-  %spec.select.i.i.i.i.i.i.i.i87 = icmp ult i8 %102, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i87, label %.thread, label %103
-
-103:                                              ; preds = %101
-  %.not121 = icmp eq i32 %66, 16
-  %104 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  br i1 %.not121, label %105, label %108
+103:                                              ; preds = %70
+  %104 = add i8 %3, -17
+  %spec.select.i.i.i.i.i.i.i.i87 = icmp ult i8 %104, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i87, label %.thread, label %105
 
 105:                                              ; preds = %103
-  %106 = load i64, ptr %104, align 8, !tbaa !90
-  %107 = trunc i64 %106 to i32
+  %.not121 = icmp eq i32 %68, 16
+  %106 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  br i1 %.not121, label %107, label %110
+
+107:                                              ; preds = %105
+  %108 = load i64, ptr %106, align 8, !tbaa !90
+  %109 = trunc i64 %108 to i32
   br label %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
 
-108:                                              ; preds = %103
-  %109 = load i32, ptr %104, align 8, !tbaa !87
+110:                                              ; preds = %105
+  %111 = load i32, ptr %106, align 8, !tbaa !87
   br label %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
 
-_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit: ; preds = %105, %108
-  %.1.i89 = phi i32 [ %109, %108 ], [ %107, %105 ]
-  %110 = icmp ult i32 %1, %.1.i89
-  br i1 %110, label %111, label %.thread
+_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit: ; preds = %107, %110
+  %.1.i89 = phi i32 [ %111, %110 ], [ %109, %107 ]
+  %112 = icmp ult i32 %1, %.1.i89
+  br i1 %112, label %113, label %.thread
 
-111:                                              ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
-  %112 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential20getElementAsConstantEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
+113:                                              ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
+  %114 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential20getElementAsConstantEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit, %111, %101, %_ZNK4llvm10UndefValue14getNumElementsEv.exit86, %99, %_ZNK4llvm10UndefValue14getNumElementsEv.exit, %83, %55, %59, %47, %51, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit, %5, %10, %63
-  %.1 = phi ptr [ null, %63 ], [ null, %5 ], [ %16, %10 ], [ null, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit ], [ %46, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit ], [ null, %47 ], [ %54, %51 ], [ null, %55 ], [ %62, %59 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit ], [ %84, %83 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit86 ], [ %100, %99 ], [ %112, %111 ], [ null, %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit ], [ null, %101 ]
+.thread:                                          ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit, %113, %103, %_ZNK4llvm10UndefValue14getNumElementsEv.exit86, %101, %_ZNK4llvm10UndefValue14getNumElementsEv.exit, %85, %57, %61, %49, %53, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit, %5, %10, %65
+  %.1 = phi ptr [ null, %65 ], [ null, %5 ], [ %16, %10 ], [ null, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit ], [ %48, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit ], [ null, %49 ], [ %56, %53 ], [ null, %57 ], [ %64, %61 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit ], [ %86, %85 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit86 ], [ %102, %101 ], [ %114, %113 ], [ null, %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit ], [ null, %103 ]
   ret ptr %.1
 }
 
@@ -4267,26 +4267,26 @@ define dso_local noundef ptr @_ZNK4llvm21ConstantAggregateZero15getElementValueE
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
-  %.off = add nsw i32 %7, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.critedge, label %9
+  %8 = add nsw i32 %7, -16
+  %9 = icmp ult i32 %8, 3
+  br i1 %9, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %14
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %16
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !62
-  %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
-  br label %14
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !62
+  %14 = zext i32 %1 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  br label %16
 
-14:                                               ; preds = %9, %.critedge
-  %.sink.in = phi ptr [ %13, %9 ], [ %8, %.critedge ]
+16:                                               ; preds = %11, %.critedge
+  %.sink.in = phi ptr [ %15, %11 ], [ %10, %.critedge ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !67
-  %15 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %.sink)
-  ret ptr %15
+  %17 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %.sink)
+  ret ptr %17
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
@@ -4337,20 +4337,20 @@ define dso_local noundef ptr @_ZNK4llvm11PoisonValue15getElementValueEj(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
-  %.off = add nsw i32 %7, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.critedge, label %9
+  %8 = add nsw i32 %7, -16
+  %9 = icmp ult i32 %8, 3
+  br i1 %9, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2
-  %8 = tail call noundef ptr @_ZNK4llvm11PoisonValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %11
+  %10 = tail call noundef ptr @_ZNK4llvm11PoisonValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  br label %13
 
-9:                                                ; preds = %2
-  %10 = tail call noundef ptr @_ZNK4llvm11PoisonValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  br label %11
+11:                                               ; preds = %2
+  %12 = tail call noundef ptr @_ZNK4llvm11PoisonValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  br label %13
 
-11:                                               ; preds = %9, %.critedge
-  %.0 = phi ptr [ %8, %.critedge ], [ %10, %9 ]
+13:                                               ; preds = %11, %.critedge
+  %.0 = phi ptr [ %10, %.critedge ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -4361,20 +4361,20 @@ define dso_local noundef ptr @_ZNK4llvm10UndefValue15getElementValueEj(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
-  %.off = add nsw i32 %7, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.critedge, label %9
+  %8 = add nsw i32 %7, -16
+  %9 = icmp ult i32 %8, 3
+  br i1 %9, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2
-  %8 = tail call noundef ptr @_ZNK4llvm10UndefValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %11
+  %10 = tail call noundef ptr @_ZNK4llvm10UndefValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  br label %13
 
-9:                                                ; preds = %2
-  %10 = tail call noundef ptr @_ZNK4llvm10UndefValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  br label %11
+11:                                               ; preds = %2
+  %12 = tail call noundef ptr @_ZNK4llvm10UndefValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  br label %13
 
-11:                                               ; preds = %9, %.critedge
-  %.0 = phi ptr [ %8, %.critedge ], [ %10, %9 ]
+13:                                               ; preds = %11, %.critedge
+  %.0 = phi ptr [ %10, %.critedge ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -9463,33 +9463,33 @@ define dso_local noundef ptr @_ZNK4llvm21ConstantAggregateZero15getElementValueE
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
-  %.off = add nsw i32 %7, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.critedge, label %9
+  %8 = add nsw i32 %7, -16
+  %9 = icmp ult i32 %8, 3
+  br i1 %9, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %19
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %21
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !68
-  %13 = icmp ult i32 %12, 65
-  %14 = load ptr, ptr %10, align 8
-  %.0.in.i.i = select i1 %13, ptr %10, ptr %14
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = load i32, ptr %13, align 8, !tbaa !68
+  %15 = icmp ult i32 %14, 65
+  %16 = load ptr, ptr %12, align 8
+  %.0.in.i.i = select i1 %15, ptr %12, ptr %16
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !60
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !62
-  %17 = and i64 %.0.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
-  br label %19
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !62
+  %19 = and i64 %.0.i.i, 4294967295
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  br label %21
 
-19:                                               ; preds = %9, %.critedge
-  %.sink.in = phi ptr [ %18, %9 ], [ %8, %.critedge ]
+21:                                               ; preds = %11, %.critedge
+  %.sink.in = phi ptr [ %20, %11 ], [ %10, %.critedge ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !67
-  %20 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %.sink)
-  ret ptr %20
+  %22 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %.sink)
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9635,28 +9635,28 @@ define dso_local noundef ptr @_ZNK4llvm10UndefValue15getElementValueEPNS_8Consta
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
-  %.off = add nsw i32 %7, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.critedge, label %9
+  %8 = add nsw i32 %7, -16
+  %9 = icmp ult i32 %8, 3
+  br i1 %9, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2
-  %8 = tail call noundef ptr @_ZNK4llvm10UndefValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %17
+  %10 = tail call noundef ptr @_ZNK4llvm10UndefValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  br label %19
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !68
-  %13 = icmp ult i32 %12, 65
-  %14 = load ptr, ptr %10, align 8
-  %.0.in.i.i = select i1 %13, ptr %10, ptr %14
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = load i32, ptr %13, align 8, !tbaa !68
+  %15 = icmp ult i32 %14, 65
+  %16 = load ptr, ptr %12, align 8
+  %.0.in.i.i = select i1 %15, ptr %12, ptr %16
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !60
-  %15 = trunc i64 %.0.i.i to i32
-  %16 = tail call noundef ptr @_ZNK4llvm10UndefValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %15)
-  br label %17
+  %17 = trunc i64 %.0.i.i to i32
+  %18 = tail call noundef ptr @_ZNK4llvm10UndefValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %17)
+  br label %19
 
-17:                                               ; preds = %9, %.critedge
-  %.0 = phi ptr [ %8, %.critedge ], [ %16, %9 ]
+19:                                               ; preds = %11, %.critedge
+  %.0 = phi ptr [ %10, %.critedge ], [ %18, %11 ]
   ret ptr %.0
 }
 
@@ -9839,28 +9839,28 @@ define dso_local noundef ptr @_ZNK4llvm11PoisonValue15getElementValueEPNS_8Const
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
-  %.off = add nsw i32 %7, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.critedge, label %9
+  %8 = add nsw i32 %7, -16
+  %9 = icmp ult i32 %8, 3
+  br i1 %9, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2
-  %8 = tail call noundef ptr @_ZNK4llvm11PoisonValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %17
+  %10 = tail call noundef ptr @_ZNK4llvm11PoisonValue20getSequentialElementEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  br label %19
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !68
-  %13 = icmp ult i32 %12, 65
-  %14 = load ptr, ptr %10, align 8
-  %.0.in.i.i = select i1 %13, ptr %10, ptr %14
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = load i32, ptr %13, align 8, !tbaa !68
+  %15 = icmp ult i32 %14, 65
+  %16 = load ptr, ptr %12, align 8
+  %.0.in.i.i = select i1 %15, ptr %12, ptr %16
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !60
-  %15 = trunc i64 %.0.i.i to i32
-  %16 = tail call noundef ptr @_ZNK4llvm11PoisonValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %15)
-  br label %17
+  %17 = trunc i64 %.0.i.i to i32
+  %18 = tail call noundef ptr @_ZNK4llvm11PoisonValue16getStructElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %17)
+  br label %19
 
-17:                                               ; preds = %9, %.critedge
-  %.0 = phi ptr [ %8, %.critedge ], [ %16, %9 ]
+19:                                               ; preds = %11, %.critedge
+  %.0 = phi ptr [ %10, %.critedge ], [ %18, %11 ]
   ret ptr %.0
 }
 

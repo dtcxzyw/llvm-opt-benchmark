@@ -2952,10 +2952,10 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 48:                                               ; preds = %45, %_ZNK14ShenandoahHeap10get_regionEm.exit
   %49 = phi i32 [ %.pr, %45 ], [ %43, %_ZNK14ShenandoahHeap10get_regionEm.exit ]
   switch i32 %49, label %104 [
+    i32 7, label %52
     i32 2, label %52
     i32 1, label %52
     i32 0, label %52
-    i32 7, label %52
     i32 9, label %50
   ]
 

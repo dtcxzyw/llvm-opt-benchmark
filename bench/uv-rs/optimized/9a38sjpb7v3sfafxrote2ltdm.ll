@@ -2537,17 +2537,17 @@ define hidden noundef i64 @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$8hash_u6417hf6a
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #28 {
   %2 = load atomic i64, ptr %0 monotonic, align 8
-  %switch = icmp ugt i64 %2, -9
-  br i1 %switch, label %6, label %3, !prof !465
+  %3 = icmp ugt i64 %2, -9
+  br i1 %3, label %7, label %4, !prof !465
 
-3:                                                ; preds = %1
-  %4 = add nuw i64 %2, 4
-  %5 = cmpxchg weak ptr %0, i64 %2, i64 %4 acquire monotonic, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %5, 1
-  br label %6
+4:                                                ; preds = %1
+  %5 = add nuw i64 %2, 4
+  %6 = cmpxchg weak ptr %0, i64 %2, i64 %5 acquire monotonic, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %6, 1
+  br label %7
 
-6:                                                ; preds = %1, %3
-  %.sroa.0.0 = phi i1 [ %.sroa.18.0.in.i, %3 ], [ false, %1 ]
+7:                                                ; preds = %1, %4
+  %.sroa.0.0 = phi i1 [ %.sroa.18.0.in.i, %4 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2816,20 +2816,20 @@ define hidden noundef nonnull align 8 ptr @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %3, i64 %1
   %8 = load atomic i64, ptr %7 monotonic, align 128
-  %switch.i = icmp ugt i64 %8, -9
-  br i1 %switch.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit, !prof !465
+  %9 = icmp ugt i64 %8, -9
+  br i1 %9, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit, !prof !465
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit: ; preds = %2
-  %9 = add nuw i64 %8, 4
-  %10 = cmpxchg weak ptr %7, i64 %8, i64 %9 acquire monotonic, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %10, 1
-  br i1 %.sroa.18.0.in.i, label %11, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread, !prof !522
+  %10 = add nuw i64 %8, 4
+  %11 = cmpxchg weak ptr %7, i64 %8, i64 %10 acquire monotonic, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %11, 1
+  br i1 %.sroa.18.0.in.i, label %12, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread, !prof !522
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread: ; preds = %2, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit
   tail call void @_ZN7dashmap4lock9RawRwLock16lock_shared_slow17h8e13c2c5ca331ffdE(ptr noundef nonnull align 8 %7)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit
+12:                                               ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit
   ret ptr %7
 }
 
@@ -2851,13 +2851,13 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %11, i64 %10
   %16 = load atomic i64, ptr %15 monotonic, align 128, !noalias !523
-  %switch.i.i = icmp ugt i64 %16, -9
-  br i1 %switch.i.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.i, !prof !465
+  %17 = icmp ugt i64 %16, -9
+  br i1 %17, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.i, !prof !465
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.i: ; preds = %3
-  %17 = add nuw i64 %16, 4
-  %18 = cmpxchg weak ptr %15, i64 %16, i64 %17 acquire monotonic, align 8, !noalias !523
-  %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %18, 1
+  %18 = add nuw i64 %16, 4
+  %19 = cmpxchg weak ptr %15, i64 %16, i64 %18 acquire monotonic, align 8, !noalias !523
+  %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit", label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread.i, !prof !522
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread.i: ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.i, %3
@@ -2865,32 +2865,32 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.699222
   br label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit"
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit": ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17hd721552ec487a175E.llvm.6992225405270262619.exit.thread.i
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h03d504a7c541f2b5E.llvm.6992225405270262619"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %19, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %25, label %22
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %21 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h03d504a7c541f2b5E.llvm.6992225405270262619"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit"
-  %23 = getelementptr inbounds i8, ptr %20, i64 -168
-  %24 = getelementptr inbounds i8, ptr %20, i64 -48
+23:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit"
+  %24 = getelementptr inbounds i8, ptr %21, i64 -168
+  %25 = getelementptr inbounds i8, ptr %21, i64 -48
   store ptr %15, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %24, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %24, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %25, ptr %.sroa.5.0..sroa_idx, align 8
   br label %"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$uv_git..resolver..RepositoryReference$C$dashmap..util..SharedValue$LT$uv_git_types..oid..GitOid$GT$$RP$$GT$$GT$$GT$17h4de000301e038148E.llvm.6992225405270262619.exit6"
 
-25:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit"
+26:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hd7810c48cdce8529E.llvm.6992225405270262619.exit"
   store ptr null, ptr %0, align 8
-  %26 = atomicrmw sub ptr %15, i64 4 release, align 8, !noalias !526
-  %27 = icmp eq i64 %26, 6
-  br i1 %27, label %28, label %"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$uv_git..resolver..RepositoryReference$C$dashmap..util..SharedValue$LT$uv_git_types..oid..GitOid$GT$$RP$$GT$$GT$$GT$17h4de000301e038148E.llvm.6992225405270262619.exit6", !prof !3
+  %27 = atomicrmw sub ptr %15, i64 4 release, align 8, !noalias !526
+  %28 = icmp eq i64 %27, 6
+  br i1 %28, label %29, label %"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$uv_git..resolver..RepositoryReference$C$dashmap..util..SharedValue$LT$uv_git_types..oid..GitOid$GT$$RP$$GT$$GT$$GT$17h4de000301e038148E.llvm.6992225405270262619.exit6", !prof !3
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   tail call void @_ZN7dashmap4lock9RawRwLock18unlock_shared_slow17h09660c22e18d5013E(ptr noundef nonnull align 8 %15), !noalias !526
   br label %"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$uv_git..resolver..RepositoryReference$C$dashmap..util..SharedValue$LT$uv_git_types..oid..GitOid$GT$$RP$$GT$$GT$$GT$17h4de000301e038148E.llvm.6992225405270262619.exit6"
 
-"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$uv_git..resolver..RepositoryReference$C$dashmap..util..SharedValue$LT$uv_git_types..oid..GitOid$GT$$RP$$GT$$GT$$GT$17h4de000301e038148E.llvm.6992225405270262619.exit6": ; preds = %28, %25, %22
+"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$uv_git..resolver..RepositoryReference$C$dashmap..util..SharedValue$LT$uv_git_types..oid..GitOid$GT$$RP$$GT$$GT$$GT$17h4de000301e038148E.llvm.6992225405270262619.exit6": ; preds = %29, %26, %23
   ret void
 }
 
@@ -4333,7 +4333,7 @@ attributes #47 = { cold }
 !462 = distinct !{!462, !"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17hef2e69e2cba264fcE.llvm.6992225405270262619"}
 !463 = distinct !{!463, !464, !"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$6finish17h32a414e74ba8fc40E.llvm.6992225405270262619: argument 0"}
 !464 = distinct !{!464, !"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$6finish17h32a414e74ba8fc40E.llvm.6992225405270262619"}
-!465 = !{!"branch_weights", i32 2000, i32 2000}
+!465 = !{!"branch_weights", i32 2002, i32 2000}
 !466 = !{!467}
 !467 = distinct !{!467, !468, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17ha5a7ef442f9f494bE: argument 0"}
 !468 = distinct !{!468, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17ha5a7ef442f9f494bE"}

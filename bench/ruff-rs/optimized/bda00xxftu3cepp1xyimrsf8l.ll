@@ -33474,7 +33474,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
           cleanup
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$lsp_types..notebook..NotebookDocumentSyncOptions$C$lsp_types..notebook..NotebookDocumentSyncRegistrationOptions$GT$$GT$$GT$17he2d97837adc3030cE"(ptr noalias noundef align 8 dereferenceable(56) %7) #36
-          to label %.body unwind label %338
+          to label %.body unwind label %343
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..PositionEncodingKind$GT$$GT$17hf2eb964cfa7449b5E.exit": ; preds = %1, %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -33525,7 +33525,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
   %.pn = phi { ptr, i32 } [ %6, %5 ], [ %28, %27 ], [ %14, %18 ], [ %14, %13 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 792
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..selection_range..SelectionRangeProviderCapability$GT$$GT$17hb47a6d021a0da468E"(ptr noalias noundef align 8 dereferenceable(56) %26) #36
-          to label %.body43 unwind label %338
+          to label %.body43 unwind label %343
 
 27:                                               ; preds = %23, %10
   %28 = landingpad { ptr, i32 }
@@ -33574,7 +33574,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
   %.pn2 = phi { ptr, i32 } [ %.pn, %.body ], [ %48, %47 ], [ %34, %38 ], [ %34, %33 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionOptions$GT$$GT$17hfff2a18cb122249fE"(ptr noalias noundef align 8 dereferenceable(56) %46) #36
-          to label %.body46 unwind label %338
+          to label %.body46 unwind label %343
 
 47:                                               ; preds = %43
   %48 = landingpad { ptr, i32 }
@@ -33625,7 +33625,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
   %.pn4 = phi { ptr, i32 } [ %.pn2, %.body43 ], [ %66, %65 ], [ %53, %57 ], [ %53, %52 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 216
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpOptions$GT$$GT$17h5315fbd809fd7c80E"(ptr noalias noundef align 8 dereferenceable(56) %64) #36
-          to label %.body51 unwind label %338
+          to label %.body51 unwind label %343
 
 65:                                               ; preds = %61
   %66 = landingpad { ptr, i32 }
@@ -33676,7 +33676,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
   %.pn6 = phi { ptr, i32 } [ %.pn4, %.body46 ], [ %84, %83 ], [ %71, %75 ], [ %71, %70 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 376
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..TypeDefinitionProviderCapability$GT$$GT$17h7ac0daaf32667b82E"(ptr noalias noundef align 8 dereferenceable(48) %82) #36
-          to label %.body55 unwind label %338
+          to label %.body55 unwind label %343
 
 83:                                               ; preds = %79
   %84 = landingpad { ptr, i32 }
@@ -33725,7 +33725,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
   %.pn8 = phi { ptr, i32 } [ %.pn6, %.body51 ], [ %104, %103 ], [ %90, %94 ], [ %90, %89 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 424
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E"(ptr noalias noundef align 8 dereferenceable(48) %102) #36
-          to label %.body59 unwind label %338
+          to label %.body59 unwind label %343
 
 103:                                              ; preds = %99
   %104 = landingpad { ptr, i32 }
@@ -33762,7 +33762,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
 
 119:                                              ; preds = %115
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %116, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit" unwind label %125
+          to label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit" unwind label %126
 
 120:                                              ; preds = %114
   %121 = landingpad { ptr, i32 }
@@ -33770,586 +33770,586 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body59:                                          ; preds = %125, %114, %109, %.body55
-  %.pn10 = phi { ptr, i32 } [ %.pn8, %.body55 ], [ %126, %125 ], [ %110, %114 ], [ %110, %109 ]
+.body59:                                          ; preds = %126, %114, %109, %.body55
+  %.pn10 = phi { ptr, i32 } [ %.pn8, %.body55 ], [ %127, %126 ], [ %110, %114 ], [ %110, %109 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %123 = load i64, ptr %122, align 8, !range !2469, !alias.scope !4586, !noundef !3
-  %switch.i61 = icmp slt i64 %123, -9223372036854775805
-  br i1 %switch.i61, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit", label %124
+  %124 = icmp slt i64 %123, -9223372036854775805
+  br i1 %124, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit", label %125
 
-124:                                              ; preds = %.body59
+125:                                              ; preds = %.body59
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %122, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit" unwind label %338
+          to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit" unwind label %343
 
-125:                                              ; preds = %119
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %119
+  %127 = landingpad { ptr, i32 }
           cleanup
   br label %.body59
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit": ; preds = %115, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..TypeDefinitionProviderCapability$GT$$GT$17h7ac0daaf32667b82E.exit", %119
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %128 = load i64, ptr %127, align 8, !range !2469, !alias.scope !4589, !noundef !3
-  %switch.i63 = icmp slt i64 %128, -9223372036854775805
-  br i1 %switch.i63, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit65", label %129
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %129 = load i64, ptr %128, align 8, !range !2469, !alias.scope !4589, !noundef !3
+  %130 = icmp slt i64 %129, -9223372036854775805
+  br i1 %130, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit63", label %131
 
-129:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %127, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit65" unwind label %133
+131:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %128, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit63" unwind label %136
 
-"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit": ; preds = %.body59, %124, %133
-  %.pn12 = phi { ptr, i32 } [ %134, %133 ], [ %.pn10, %124 ], [ %.pn10, %.body59 ]
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %131 = load i64, ptr %130, align 8, !range !2469, !alias.scope !4592, !noundef !3
-  %switch.i66 = icmp slt i64 %131, -9223372036854775805
-  br i1 %switch.i66, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit", label %132
+"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit": ; preds = %.body59, %125, %136
+  %.pn12 = phi { ptr, i32 } [ %137, %136 ], [ %.pn10, %125 ], [ %.pn10, %.body59 ]
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %133 = load i64, ptr %132, align 8, !range !2469, !alias.scope !4592, !noundef !3
+  %134 = icmp slt i64 %133, -9223372036854775805
+  br i1 %134, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit", label %135
 
-132:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit"
-  invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17h6237e92eda014932E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %130)
-          to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit" unwind label %338
+135:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit"
+  invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17h6237e92eda014932E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %132)
+          to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit" unwind label %343
 
-133:                                              ; preds = %129
-  %134 = landingpad { ptr, i32 }
+136:                                              ; preds = %131
+  %137 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit"
 
-"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit65": ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit", %129
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %136 = load i64, ptr %135, align 8, !range !2469, !alias.scope !4595, !noundef !3
-  %switch.i68 = icmp slt i64 %136, -9223372036854775805
-  br i1 %switch.i68, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit70", label %137
+"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit63": ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$lsp_types..ImplementationProviderCapability$GT$$GT$17hcfd8fc91da047625E.exit", %131
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %139 = load i64, ptr %138, align 8, !range !2469, !alias.scope !4595, !noundef !3
+  %140 = icmp slt i64 %139, -9223372036854775805
+  br i1 %140, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit66", label %141
 
-137:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit65"
-  invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17h6237e92eda014932E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %135)
-          to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit70" unwind label %138
+141:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit63"
+  invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17h6237e92eda014932E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %138)
+          to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit66" unwind label %142
 
-"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit", %132, %138
-  %.pn14 = phi { ptr, i32 } [ %139, %138 ], [ %.pn12, %132 ], [ %.pn12, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit" ]
+"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit", %135, %142
+  %.pn14 = phi { ptr, i32 } [ %143, %142 ], [ %.pn12, %135 ], [ %.pn12, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit" ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE"(ptr noalias noundef align 8 dereferenceable(48) %0) #36
-          to label %.body73 unwind label %338
+          to label %.body69 unwind label %343
 
-138:                                              ; preds = %137
-  %139 = landingpad { ptr, i32 }
+142:                                              ; preds = %141
+  %143 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit"
 
-"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit70": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit65", %137
-  %140 = load i64, ptr %0, align 8, !range !40, !alias.scope !4598, !noundef !3
-  %141 = icmp eq i64 %140, -9223372036854775808
-  br i1 %141, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit", label %142
+"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit66": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..DocumentSymbolOptions$GT$$GT$$GT$17hb1dff489fa060f26E.exit63", %141
+  %144 = load i64, ptr %0, align 8, !range !40, !alias.scope !4598, !noundef !3
+  %145 = icmp eq i64 %144, -9223372036854775808
+  br i1 %145, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit", label %146
 
-142:                                              ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit70"
+146:                                              ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit66"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i" unwind label %143
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i" unwind label %147
 
-143:                                              ; preds = %142
-  %144 = landingpad { ptr, i32 }
+147:                                              ; preds = %146
+  %148 = landingpad { ptr, i32 }
           cleanup
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %146 = load i64, ptr %145, align 8, !range !40, !alias.scope !4601, !noundef !3
-  %147 = icmp eq i64 %146, -9223372036854775808
-  br i1 %147, label %.body73, label %148
-
-148:                                              ; preds = %143
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %145)
-          to label %.body73 unwind label %153
-
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i": ; preds = %142
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %150 = load i64, ptr %149, align 8, !range !40, !alias.scope !4606, !noundef !3
+  %150 = load i64, ptr %149, align 8, !range !40, !alias.scope !4601, !noundef !3
   %151 = icmp eq i64 %150, -9223372036854775808
-  br i1 %151, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit", label %152
+  br i1 %151, label %.body69, label %152
 
-152:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i"
+152:                                              ; preds = %147
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %149)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit" unwind label %156
+          to label %.body69 unwind label %157
 
-153:                                              ; preds = %148
-  %154 = landingpad { ptr, i32 }
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i": ; preds = %146
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %154 = load i64, ptr %153, align 8, !range !40, !alias.scope !4606, !noundef !3
+  %155 = icmp eq i64 %154, -9223372036854775808
+  br i1 %155, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit", label %156
+
+156:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153)
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit" unwind label %160
+
+157:                                              ; preds = %152
+  %158 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body73:                                          ; preds = %156, %148, %143, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit"
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit" ], [ %157, %156 ], [ %144, %148 ], [ %144, %143 ]
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE"(ptr noalias noundef align 8 dereferenceable(48) %155) #36
-          to label %.body77 unwind label %338
+.body69:                                          ; preds = %160, %152, %147, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit"
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit" ], [ %161, %160 ], [ %148, %152 ], [ %148, %147 ]
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE"(ptr noalias noundef align 8 dereferenceable(48) %159) #36
+          to label %.body73 unwind label %343
 
-156:                                              ; preds = %152
-  %157 = landingpad { ptr, i32 }
+160:                                              ; preds = %156
+  %161 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body69
+
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i", %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit66", %156
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %163 = load i64, ptr %162, align 8, !range !2419, !alias.scope !4609, !noundef !3
+  %164 = icmp ugt i64 %163, -9223372036854775808
+  br i1 %164, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit", label %165
+
+165:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit"
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %162)
+          to label %172 unwind label %166
+
+166:                                              ; preds = %165
+  %167 = landingpad { ptr, i32 }
+          cleanup
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %169 = load i64, ptr %168, align 8, !range !40, !alias.scope !4612, !noundef !3
+  %170 = icmp eq i64 %169, -9223372036854775808
+  br i1 %170, label %.body73, label %171
+
+171:                                              ; preds = %166
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %168, i64 noundef 1, i64 noundef 1)
+          to label %.body73 unwind label %177
+
+172:                                              ; preds = %165
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %174 = load i64, ptr %173, align 8, !range !40, !alias.scope !4619, !noundef !3
+  %175 = icmp eq i64 %174, -9223372036854775808
+  br i1 %175, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit", label %176
+
+176:                                              ; preds = %172
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %173, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit" unwind label %180
+
+177:                                              ; preds = %171
+  %178 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
+  unreachable
+
+.body73:                                          ; preds = %180, %171, %166, %.body69
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body69 ], [ %181, %180 ], [ %167, %171 ], [ %167, %166 ]
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E"(ptr noalias noundef align 8 dereferenceable(48) %179) #36
+          to label %.body77 unwind label %343
+
+180:                                              ; preds = %176
+  %181 = landingpad { ptr, i32 }
           cleanup
   br label %.body73
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE.exit.i.i", %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit70", %152
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %159 = load i64, ptr %158, align 8, !range !2419, !alias.scope !4609, !noundef !3
-  %160 = icmp ugt i64 %159, -9223372036854775808
-  br i1 %160, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit", label %161
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit": ; preds = %172, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit", %176
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %183 = load i64, ptr %182, align 8, !range !2419, !alias.scope !4622, !noundef !3
+  %184 = icmp ugt i64 %183, -9223372036854775808
+  br i1 %184, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit", label %185
 
-161:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit"
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %158)
-          to label %168 unwind label %162
+185:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit"
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %182)
+          to label %192 unwind label %186
 
-162:                                              ; preds = %161
-  %163 = landingpad { ptr, i32 }
+186:                                              ; preds = %185
+  %187 = landingpad { ptr, i32 }
           cleanup
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %165 = load i64, ptr %164, align 8, !range !40, !alias.scope !4612, !noundef !3
-  %166 = icmp eq i64 %165, -9223372036854775808
-  br i1 %166, label %.body77, label %167
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %189 = load i64, ptr %188, align 8, !range !40, !alias.scope !4625, !noundef !3
+  %190 = icmp eq i64 %189, -9223372036854775808
+  br i1 %190, label %.body77, label %191
 
-167:                                              ; preds = %162
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %164, i64 noundef 1, i64 noundef 1)
-          to label %.body77 unwind label %173
+191:                                              ; preds = %186
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %188, i64 noundef 1, i64 noundef 1)
+          to label %.body77 unwind label %197
 
-168:                                              ; preds = %161
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %170 = load i64, ptr %169, align 8, !range !40, !alias.scope !4619, !noundef !3
-  %171 = icmp eq i64 %170, -9223372036854775808
-  br i1 %171, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit", label %172
+192:                                              ; preds = %185
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %194 = load i64, ptr %193, align 8, !range !40, !alias.scope !4632, !noundef !3
+  %195 = icmp eq i64 %194, -9223372036854775808
+  br i1 %195, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit", label %196
 
-172:                                              ; preds = %168
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %169, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit" unwind label %176
+196:                                              ; preds = %192
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %193, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit" unwind label %200
 
-173:                                              ; preds = %167
-  %174 = landingpad { ptr, i32 }
+197:                                              ; preds = %191
+  %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body77:                                          ; preds = %176, %167, %162, %.body73
-  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body73 ], [ %177, %176 ], [ %163, %167 ], [ %163, %162 ]
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E"(ptr noalias noundef align 8 dereferenceable(48) %175) #36
-          to label %.body81 unwind label %338
+.body77:                                          ; preds = %200, %191, %186, %.body73
+  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body73 ], [ %201, %200 ], [ %187, %191 ], [ %187, %186 ]
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE"(ptr noalias noundef align 8 dereferenceable(56) %199) #36
+          to label %.body80 unwind label %343
 
-176:                                              ; preds = %172
-  %177 = landingpad { ptr, i32 }
+200:                                              ; preds = %196
+  %201 = landingpad { ptr, i32 }
           cleanup
   br label %.body77
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit": ; preds = %168, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$lsp_types..formatting..DocumentOnTypeFormattingOptions$GT$$GT$17h69a56f9e663aa9afE.exit", %172
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %179 = load i64, ptr %178, align 8, !range !2419, !alias.scope !4622, !noundef !3
-  %180 = icmp ugt i64 %179, -9223372036854775808
-  br i1 %180, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit", label %181
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit": ; preds = %192, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit", %196
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %203 = load i64, ptr %202, align 8, !range !965, !alias.scope !4635, !noundef !3
+  %204 = icmp eq i64 %203, -9223372036854775804
+  br i1 %204, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit", label %205
 
-181:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit"
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %178)
-          to label %188 unwind label %182
+205:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit"
+  %206 = add i64 %203, 9223372036854775807
+  %207 = icmp ugt i64 %206, 2
+  %208 = icmp eq i64 %206, 1
+  %209 = or i1 %207, %208
+  br i1 %209, label %210, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit"
 
-182:                                              ; preds = %181
-  %183 = landingpad { ptr, i32 }
+210:                                              ; preds = %205
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %202)
+          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i" unwind label %211
+
+211:                                              ; preds = %210
+  %212 = landingpad { ptr, i32 }
           cleanup
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %185 = load i64, ptr %184, align 8, !range !40, !alias.scope !4625, !noundef !3
-  %186 = icmp eq i64 %185, -9223372036854775808
-  br i1 %186, label %.body81, label %187
-
-187:                                              ; preds = %182
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %184, i64 noundef 1, i64 noundef 1)
-          to label %.body81 unwind label %193
-
-188:                                              ; preds = %181
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %190 = load i64, ptr %189, align 8, !range !40, !alias.scope !4632, !noundef !3
-  %191 = icmp eq i64 %190, -9223372036854775808
-  br i1 %191, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit", label %192
-
-192:                                              ; preds = %188
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %189, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit" unwind label %196
-
-193:                                              ; preds = %187
-  %194 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
-  unreachable
-
-.body81:                                          ; preds = %196, %187, %182, %.body77
-  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body77 ], [ %197, %196 ], [ %183, %187 ], [ %183, %182 ]
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE"(ptr noalias noundef align 8 dereferenceable(56) %195) #36
-          to label %.body84 unwind label %338
-
-196:                                              ; preds = %192
-  %197 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body81
-
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit": ; preds = %188, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..color..ColorProviderCapability$GT$$GT$17h11252103c73c35dcE.exit", %192
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %199 = load i64, ptr %198, align 8, !range !965, !alias.scope !4635, !noundef !3
-  %200 = icmp eq i64 %199, -9223372036854775804
-  br i1 %200, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit", label %201
-
-201:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit"
-  %202 = add i64 %199, 9223372036854775807
-  %203 = icmp ugt i64 %202, 2
-  %204 = icmp eq i64 %202, 1
-  %205 = or i1 %203, %204
-  br i1 %205, label %206, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit"
-
-206:                                              ; preds = %201
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %198)
-          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i" unwind label %207
-
-207:                                              ; preds = %206
-  %208 = landingpad { ptr, i32 }
-          cleanup
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %210 = load i64, ptr %209, align 8, !range !40, !alias.scope !4638, !noundef !3
-  %211 = icmp eq i64 %210, -9223372036854775808
-  br i1 %211, label %.body84, label %212
-
-212:                                              ; preds = %207
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %209, i64 noundef 1, i64 noundef 1)
-          to label %.body84 unwind label %217
-
-"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i": ; preds = %206
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %214 = load i64, ptr %213, align 8, !range !40, !alias.scope !4647, !noundef !3
+  %214 = load i64, ptr %213, align 8, !range !40, !alias.scope !4638, !noundef !3
   %215 = icmp eq i64 %214, -9223372036854775808
-  br i1 %215, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit", label %216
+  br i1 %215, label %.body80, label %216
 
-216:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i"
+216:                                              ; preds = %211
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %213, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit" unwind label %223
+          to label %.body80 unwind label %221
 
-217:                                              ; preds = %212
-  %218 = landingpad { ptr, i32 }
+"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i": ; preds = %210
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  %218 = load i64, ptr %217, align 8, !range !40, !alias.scope !4647, !noundef !3
+  %219 = icmp eq i64 %218, -9223372036854775808
+  br i1 %219, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit", label %220
+
+220:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %217, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit" unwind label %227
+
+221:                                              ; preds = %216
+  %222 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body84:                                          ; preds = %223, %212, %207, %.body81
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body81 ], [ %224, %223 ], [ %208, %212 ], [ %208, %207 ]
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %220 = load i64, ptr %219, align 8, !range !40, !alias.scope !4652, !noundef !3
-  %221 = icmp eq i64 %220, -9223372036854775808
-  br i1 %221, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit", label %222
+.body80:                                          ; preds = %227, %216, %211, %.body77
+  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body77 ], [ %228, %227 ], [ %212, %216 ], [ %212, %211 ]
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %224 = load i64, ptr %223, align 8, !range !40, !alias.scope !4652, !noundef !3
+  %225 = icmp eq i64 %224, -9223372036854775808
+  br i1 %225, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit", label %226
 
-222:                                              ; preds = %.body84
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %219)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit" unwind label %338
+226:                                              ; preds = %.body80
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %223)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit" unwind label %343
 
-223:                                              ; preds = %216
-  %224 = landingpad { ptr, i32 }
+227:                                              ; preds = %220
+  %228 = landingpad { ptr, i32 }
           cleanup
-  br label %.body84
+  br label %.body80
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i", %201, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit", %216
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %226 = load i64, ptr %225, align 8, !range !40, !alias.scope !4655, !noundef !3
-  %227 = icmp eq i64 %226, -9223372036854775808
-  br i1 %227, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit88", label %228
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i", %205, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeProviderCapability$GT$$GT$17h9ce7bd66042e9748E.exit", %220
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %230 = load i64, ptr %229, align 8, !range !40, !alias.scope !4655, !noundef !3
+  %231 = icmp eq i64 %230, -9223372036854775808
+  br i1 %231, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit84", label %232
 
-228:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit"
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %225)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit88" unwind label %230
+232:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %229)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit84" unwind label %234
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit": ; preds = %.body84, %222, %230
-  %.pn24 = phi { ptr, i32 } [ %231, %230 ], [ %.pn22, %222 ], [ %.pn22, %.body84 ]
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E"(ptr noalias noundef align 8 dereferenceable(176) %229) #36
-          to label %.body89 unwind label %338
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit": ; preds = %.body80, %226, %234
+  %.pn24 = phi { ptr, i32 } [ %235, %234 ], [ %.pn22, %226 ], [ %.pn22, %.body80 ]
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E"(ptr noalias noundef align 8 dereferenceable(176) %233) #36
+          to label %.body85 unwind label %343
 
-230:                                              ; preds = %228
-  %231 = landingpad { ptr, i32 }
+234:                                              ; preds = %232
+  %235 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit88": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit", %228
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %233 = load i64, ptr %232, align 8, !range !2469, !alias.scope !4658, !noundef !3
-  %234 = icmp eq i64 %233, -9223372036854775806
-  br i1 %234, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit", label %235
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit84": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..DeclarationCapability$GT$$GT$17h101e518246d3728fE.exit", %232
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %237 = load i64, ptr %236, align 8, !range !2469, !alias.scope !4658, !noundef !3
+  %238 = icmp eq i64 %237, -9223372036854775806
+  br i1 %238, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit", label %239
 
-235:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit88"
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %237 = load i64, ptr %236, align 8, !range !2469, !alias.scope !4661, !noundef !3
-  %switch.i.i.i = icmp slt i64 %237, -9223372036854775805
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i", label %238
+239:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit84"
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %241 = load i64, ptr %240, align 8, !range !2469, !alias.scope !4661, !noundef !3
+  %242 = icmp slt i64 %241, -9223372036854775805
+  br i1 %242, label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i", label %243
 
-238:                                              ; preds = %235
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %236, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i" unwind label %239
+243:                                              ; preds = %239
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %240, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i" unwind label %244
 
-239:                                              ; preds = %238
-  %240 = landingpad { ptr, i32 }
+244:                                              ; preds = %243
+  %245 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %232) #36
-          to label %.body89 unwind label %241
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %236) #36
+          to label %.body85 unwind label %246
 
-241:                                              ; preds = %239
-  %242 = landingpad { ptr, i32 }
+246:                                              ; preds = %244
+  %247 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i": ; preds = %238, %235
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %232)
-          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit" unwind label %244
+"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i": ; preds = %243, %239
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %236)
+          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit" unwind label %249
 
-.body89:                                          ; preds = %244, %239, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit"
-  %.pn26 = phi { ptr, i32 } [ %.pn24, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit" ], [ %245, %244 ], [ %240, %239 ]
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensServerCapabilities$GT$$GT$17h88c0fe8694bfb858E"(ptr noalias noundef align 8 dereferenceable(104) %243) #36
-          to label %247 unwind label %338
+.body85:                                          ; preds = %249, %244, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit"
+  %.pn26 = phi { ptr, i32 } [ %.pn24, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit" ], [ %250, %249 ], [ %245, %244 ]
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensServerCapabilities$GT$$GT$17h88c0fe8694bfb858E"(ptr noalias noundef align 8 dereferenceable(104) %248) #36
+          to label %252 unwind label %343
 
-244:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i"
-  %245 = landingpad { ptr, i32 }
+249:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i"
+  %250 = landingpad { ptr, i32 }
           cleanup
-  br label %.body89
+  br label %.body85
 
-"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit88", %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i"
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensServerCapabilities$GT$$GT$17h88c0fe8694bfb858E"(ptr noalias noundef align 8 dereferenceable(104) %246)
-          to label %254 unwind label %252
+"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit84", %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit.i"
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensServerCapabilities$GT$$GT$17h88c0fe8694bfb858E"(ptr noalias noundef align 8 dereferenceable(104) %251)
+          to label %259 unwind label %257
 
-247:                                              ; preds = %252, %.body89
-  %.pn28 = phi { ptr, i32 } [ %253, %252 ], [ %.pn26, %.body89 ]
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %249 = load i64, ptr %248, align 8, !range !2419, !alias.scope !4666, !noundef !3
-  %250 = icmp ugt i64 %249, -9223372036854775808
-  br i1 %250, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit", label %251
+252:                                              ; preds = %257, %.body85
+  %.pn28 = phi { ptr, i32 } [ %258, %257 ], [ %.pn26, %.body85 ]
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %254 = load i64, ptr %253, align 8, !range !2419, !alias.scope !4666, !noundef !3
+  %255 = icmp ugt i64 %254, -9223372036854775808
+  br i1 %255, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit", label %256
 
-251:                                              ; preds = %247
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %248)
-          to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit" unwind label %338
+256:                                              ; preds = %252
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %253)
+          to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit" unwind label %343
 
-252:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit"
-  %253 = landingpad { ptr, i32 }
+257:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit"
+  %258 = landingpad { ptr, i32 }
           cleanup
-  br label %247
+  br label %252
 
-254:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit"
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %256 = load i64, ptr %255, align 8, !range !2419, !alias.scope !4669, !noundef !3
-  %257 = icmp ugt i64 %256, -9223372036854775808
-  br i1 %257, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit94", label %258
+259:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceServerCapabilities$GT$$GT$17hedd9189847f69326E.exit"
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %261 = load i64, ptr %260, align 8, !range !2419, !alias.scope !4669, !noundef !3
+  %262 = icmp ugt i64 %261, -9223372036854775808
+  br i1 %262, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit90", label %263
 
-258:                                              ; preds = %254
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %255)
-          to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit94" unwind label %260
+263:                                              ; preds = %259
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %260)
+          to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit90" unwind label %265
 
-"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit": ; preds = %247, %251, %260
-  %.pn30 = phi { ptr, i32 } [ %261, %260 ], [ %.pn28, %251 ], [ %.pn28, %247 ]
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE"(ptr noalias noundef align 8 dereferenceable(56) %259) #36
-          to label %.body98 unwind label %338
+"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit": ; preds = %252, %256, %265
+  %.pn30 = phi { ptr, i32 } [ %266, %265 ], [ %.pn28, %256 ], [ %.pn28, %252 ]
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE"(ptr noalias noundef align 8 dereferenceable(56) %264) #36
+          to label %.body94 unwind label %343
 
-260:                                              ; preds = %258
-  %261 = landingpad { ptr, i32 }
+265:                                              ; preds = %263
+  %266 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit"
 
-"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit94": ; preds = %254, %258
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %263 = load i64, ptr %262, align 8, !range !2419, !alias.scope !4672, !noundef !3
-  %264 = icmp ugt i64 %263, -9223372036854775808
-  br i1 %264, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit", label %265
+"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit90": ; preds = %259, %263
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  %268 = load i64, ptr %267, align 8, !range !2419, !alias.scope !4672, !noundef !3
+  %269 = icmp ugt i64 %268, -9223372036854775808
+  br i1 %269, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit", label %270
 
-265:                                              ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit94"
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %262)
-          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i96" unwind label %266
+270:                                              ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit90"
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %267)
+          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i92" unwind label %271
 
-266:                                              ; preds = %265
-  %267 = landingpad { ptr, i32 }
+271:                                              ; preds = %270
+  %272 = landingpad { ptr, i32 }
           cleanup
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %269 = load i64, ptr %268, align 8, !range !40, !alias.scope !4675, !noundef !3
-  %270 = icmp eq i64 %269, -9223372036854775808
-  br i1 %270, label %.body98, label %271
-
-271:                                              ; preds = %266
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %268, i64 noundef 1, i64 noundef 1)
-          to label %.body98 unwind label %276
-
-"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i96": ; preds = %265
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %273 = load i64, ptr %272, align 8, !range !40, !alias.scope !4684, !noundef !3
-  %274 = icmp eq i64 %273, -9223372036854775808
-  br i1 %274, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit", label %275
-
-275:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i96"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %272, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit" unwind label %279
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %274 = load i64, ptr %273, align 8, !range !40, !alias.scope !4675, !noundef !3
+  %275 = icmp eq i64 %274, -9223372036854775808
+  br i1 %275, label %.body94, label %276
 
 276:                                              ; preds = %271
-  %277 = landingpad { ptr, i32 }
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %273, i64 noundef 1, i64 noundef 1)
+          to label %.body94 unwind label %281
+
+"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i92": ; preds = %270
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %278 = load i64, ptr %277, align 8, !range !40, !alias.scope !4684, !noundef !3
+  %279 = icmp eq i64 %278, -9223372036854775808
+  br i1 %279, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit", label %280
+
+280:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i92"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %277, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit" unwind label %284
+
+281:                                              ; preds = %276
+  %282 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body98:                                          ; preds = %279, %271, %266, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit"
-  %.pn32 = phi { ptr, i32 } [ %.pn30, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit" ], [ %280, %279 ], [ %267, %271 ], [ %267, %266 ]
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E"(ptr noalias noundef align 8 dereferenceable(56) %278) #36
-          to label %.body101 unwind label %338
+.body94:                                          ; preds = %284, %276, %271, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit"
+  %.pn32 = phi { ptr, i32 } [ %.pn30, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit" ], [ %285, %284 ], [ %272, %276 ], [ %272, %271 ]
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E"(ptr noalias noundef align 8 dereferenceable(56) %283) #36
+          to label %.body97 unwind label %343
 
-279:                                              ; preds = %275
-  %280 = landingpad { ptr, i32 }
+284:                                              ; preds = %280
+  %285 = landingpad { ptr, i32 }
           cleanup
-  br label %.body98
+  br label %.body94
 
-"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i96", %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit94", %275
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %282 = load i64, ptr %281, align 8, !range !2419, !alias.scope !4689, !noundef !3
-  %283 = icmp ugt i64 %282, -9223372036854775808
-  br i1 %283, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit", label %284
+"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i92", %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit90", %280
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %287 = load i64, ptr %286, align 8, !range !2419, !alias.scope !4689, !noundef !3
+  %288 = icmp ugt i64 %287, -9223372036854775808
+  br i1 %288, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit", label %289
 
-284:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit"
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %281)
-          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i" unwind label %285
+289:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit"
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %286)
+          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i" unwind label %290
 
-285:                                              ; preds = %284
-  %286 = landingpad { ptr, i32 }
+290:                                              ; preds = %289
+  %291 = landingpad { ptr, i32 }
           cleanup
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %288 = load i64, ptr %287, align 8, !range !40, !alias.scope !4692, !noundef !3
-  %289 = icmp eq i64 %288, -9223372036854775808
-  br i1 %289, label %.body101, label %290
-
-290:                                              ; preds = %285
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %287, i64 noundef 1, i64 noundef 1)
-          to label %.body101 unwind label %295
-
-"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i": ; preds = %284
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %292 = load i64, ptr %291, align 8, !range !40, !alias.scope !4703, !noundef !3
-  %293 = icmp eq i64 %292, -9223372036854775808
-  br i1 %293, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit", label %294
-
-294:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %291, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit" unwind label %298
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %293 = load i64, ptr %292, align 8, !range !40, !alias.scope !4692, !noundef !3
+  %294 = icmp eq i64 %293, -9223372036854775808
+  br i1 %294, label %.body97, label %295
 
 295:                                              ; preds = %290
-  %296 = landingpad { ptr, i32 }
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %292, i64 noundef 1, i64 noundef 1)
+          to label %.body97 unwind label %300
+
+"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i": ; preds = %289
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %297 = load i64, ptr %296, align 8, !range !40, !alias.scope !4703, !noundef !3
+  %298 = icmp eq i64 %297, -9223372036854775808
+  br i1 %298, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit", label %299
+
+299:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %296, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit" unwind label %303
+
+300:                                              ; preds = %295
+  %301 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body101:                                         ; preds = %298, %290, %285, %.body98
-  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body98 ], [ %299, %298 ], [ %286, %290 ], [ %286, %285 ]
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE"(ptr noalias noundef align 8 dereferenceable(56) %297) #36
-          to label %.body106 unwind label %338
+.body97:                                          ; preds = %303, %295, %290, %.body94
+  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body94 ], [ %304, %303 ], [ %291, %295 ], [ %291, %290 ]
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE"(ptr noalias noundef align 8 dereferenceable(56) %302) #36
+          to label %.body102 unwind label %343
 
-298:                                              ; preds = %294
-  %299 = landingpad { ptr, i32 }
+303:                                              ; preds = %299
+  %304 = landingpad { ptr, i32 }
           cleanup
-  br label %.body101
+  br label %.body97
 
-"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i", %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit", %294
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %301 = load i64, ptr %300, align 8, !range !2419, !alias.scope !4708, !noundef !3
-  %302 = icmp ugt i64 %301, -9223372036854775808
-  br i1 %302, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit", label %303
+"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i", %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..linked_editing..LinkedEditingRangeServerCapabilities$GT$$GT$17hccbc4b12ab6e8a0dE.exit", %299
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %306 = load i64, ptr %305, align 8, !range !2419, !alias.scope !4708, !noundef !3
+  %307 = icmp ugt i64 %306, -9223372036854775808
+  br i1 %307, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit", label %308
 
-303:                                              ; preds = %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit"
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %300)
-          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i104" unwind label %304
+308:                                              ; preds = %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit"
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..DocumentFilter$GT$$GT$$GT$17h28380cd47af2aa24E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %305)
+          to label %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i100" unwind label %309
 
-304:                                              ; preds = %303
-  %305 = landingpad { ptr, i32 }
+309:                                              ; preds = %308
+  %310 = landingpad { ptr, i32 }
           cleanup
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %307 = load i64, ptr %306, align 8, !range !40, !alias.scope !4711, !noundef !3
-  %308 = icmp eq i64 %307, -9223372036854775808
-  br i1 %308, label %.body106, label %309
-
-309:                                              ; preds = %304
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %306, i64 noundef 1, i64 noundef 1)
-          to label %.body106 unwind label %314
-
-"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i104": ; preds = %303
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %311 = load i64, ptr %310, align 8, !range !40, !alias.scope !4722, !noundef !3
-  %312 = icmp eq i64 %311, -9223372036854775808
-  br i1 %312, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit", label %313
-
-313:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i104"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %310, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit" unwind label %317
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %312 = load i64, ptr %311, align 8, !range !40, !alias.scope !4711, !noundef !3
+  %313 = icmp eq i64 %312, -9223372036854775808
+  br i1 %313, label %.body102, label %314
 
 314:                                              ; preds = %309
-  %315 = landingpad { ptr, i32 }
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %311, i64 noundef 1, i64 noundef 1)
+          to label %.body102 unwind label %319
+
+"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i100": ; preds = %308
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %316 = load i64, ptr %315, align 8, !range !40, !alias.scope !4722, !noundef !3
+  %317 = icmp eq i64 %316, -9223372036854775808
+  br i1 %317, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit", label %318
+
+318:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i100"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %315, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit" unwind label %322
+
+319:                                              ; preds = %314
+  %320 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body106:                                         ; preds = %317, %309, %304, %.body101
-  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body101 ], [ %318, %317 ], [ %305, %309 ], [ %305, %304 ]
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE"(ptr noalias noundef align 8 dereferenceable(80) %316) #36
-          to label %327 unwind label %338
+.body102:                                         ; preds = %322, %314, %309, %.body97
+  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body97 ], [ %323, %322 ], [ %310, %314 ], [ %310, %309 ]
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE"(ptr noalias noundef align 8 dereferenceable(80) %321) #36
+          to label %332 unwind label %343
 
-317:                                              ; preds = %313
-  %318 = landingpad { ptr, i32 }
+322:                                              ; preds = %318
+  %323 = landingpad { ptr, i32 }
           cleanup
-  br label %.body106
+  br label %.body102
 
-"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i104", %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit", %313
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %320 = load i64, ptr %319, align 8, !range !2469, !alias.scope !4727, !noundef !3
-  switch i64 %320, label %326 [
+"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$lsp_types..TextDocumentRegistrationOptions$GT$17hd4c6f566a107e7f7E.exit.i.i.i.i100", %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inline_value..InlineValueServerCapabilities$GT$$GT$$GT$17h4d0e4ec8f5492f85E.exit", %318
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %325 = load i64, ptr %324, align 8, !range !2469, !alias.scope !4727, !noundef !3
+  switch i64 %325, label %331 [
     i64 -9223372036854775806, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit"
-    i64 -9223372036854775807, label %321
+    i64 -9223372036854775807, label %326
   ]
 
-321:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit"
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %323 = load i64, ptr %322, align 8, !range !40, !alias.scope !4730, !noundef !3
-  %324 = icmp eq i64 %323, -9223372036854775808
-  br i1 %324, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit", label %325
-
-325:                                              ; preds = %321
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %322, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit" unwind label %332
-
 326:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit"
-  invoke void @"_ZN4core3ptr82drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticRegistrationOptions$GT$17hf7dea7faa2622c58E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %319)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit" unwind label %332
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %328 = load i64, ptr %327, align 8, !range !40, !alias.scope !4730, !noundef !3
+  %329 = icmp eq i64 %328, -9223372036854775808
+  br i1 %329, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit", label %330
 
-327:                                              ; preds = %332, %.body106
-  %.pn38 = phi { ptr, i32 } [ %333, %332 ], [ %.pn36, %.body106 ]
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %329 = load i8, ptr %328, align 8, !range !17, !alias.scope !4737, !noundef !3
-  %330 = icmp eq i8 %329, 6
-  br i1 %330, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit", label %331
+330:                                              ; preds = %326
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %327, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit" unwind label %337
 
-331:                                              ; preds = %327
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha2cfdcb0b54be074E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %328)
-          to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit" unwind label %338
+331:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit"
+  invoke void @"_ZN4core3ptr82drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticRegistrationOptions$GT$17hf7dea7faa2622c58E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %324)
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit" unwind label %337
 
-332:                                              ; preds = %326, %325
-  %333 = landingpad { ptr, i32 }
+332:                                              ; preds = %337, %.body102
+  %.pn38 = phi { ptr, i32 } [ %338, %337 ], [ %.pn36, %.body102 ]
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %334 = load i8, ptr %333, align 8, !range !17, !alias.scope !4737, !noundef !3
+  %335 = icmp eq i8 %334, 6
+  br i1 %335, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit", label %336
+
+336:                                              ; preds = %332
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha2cfdcb0b54be074E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %333)
+          to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit" unwind label %343
+
+337:                                              ; preds = %331, %330
+  %338 = landingpad { ptr, i32 }
           cleanup
-  br label %327
+  br label %332
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit": ; preds = %321, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit", %325, %326
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %335 = load i8, ptr %334, align 8, !range !17, !alias.scope !4740, !noundef !3
-  %336 = icmp eq i8 %335, 6
-  br i1 %336, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit111", label %337
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit": ; preds = %326, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h6d9b13f3adf37c1eE.exit", %330, %331
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %340 = load i8, ptr %339, align 8, !range !17, !alias.scope !4740, !noundef !3
+  %341 = icmp eq i8 %340, 6
+  br i1 %341, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit107", label %342
 
-337:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit"
-  tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha2cfdcb0b54be074E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %334)
-  br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit111"
+342:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit"
+  tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha2cfdcb0b54be074E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %339)
+  br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit107"
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit111": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit", %337
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit107": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17hbd40b2dca643040dE.exit", %342
   ret void
 
-338:                                              ; preds = %331, %251, %222, %132, %124, %.body106, %.body101, %.body98, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit", %.body89, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit", %.body81, %.body77, %.body73, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit", %.body55, %.body51, %.body46, %.body43, %.body, %5
-  %339 = landingpad { ptr, i32 }
+343:                                              ; preds = %336, %256, %226, %135, %125, %.body102, %.body97, %.body94, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..moniker..MonikerServerCapabilities$GT$$GT$$GT$17h27ebcc02ade4baa3E.exit", %.body85, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$lsp_types..ExecuteCommandOptions$GT$$GT$17hc67bf256229b7a5aE.exit", %.body77, %.body73, %.body69, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionProviderCapability$GT$$GT$17h63143dfaafba7354E.exit", %.body55, %.body51, %.body46, %.body43, %.body, %5
+  %344 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit": ; preds = %327, %331
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0f6aade0bf79ee37E.exit": ; preds = %332, %336
   resume { ptr, i32 } %.pn38
 }
 
@@ -44183,31 +44183,31 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceClientCa
 define hidden void @"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE"(ptr noalias noundef align 8 dereferenceable(176) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i64, ptr %2, align 8, !range !2469, !alias.scope !6266, !noundef !3
-  %switch.i = icmp slt i64 %3, -9223372036854775805
-  br i1 %switch.i, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_folders..WorkspaceFoldersServerCapabilities$GT$$GT$17h22f124b509d7e8f6E.exit", label %4
+  %4 = icmp slt i64 %3, -9223372036854775805
+  br i1 %4, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_folders..WorkspaceFoldersServerCapabilities$GT$$GT$17h22f124b509d7e8f6E.exit", label %5
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_folders..WorkspaceFoldersServerCapabilities$GT$$GT$17h22f124b509d7e8f6E.exit" unwind label %5
+          to label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_folders..WorkspaceFoldersServerCapabilities$GT$$GT$17h22f124b509d7e8f6E.exit" unwind label %6
 
-5:                                                ; preds = %4
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef align 8 dereferenceable(144) %0) #36
-          to label %9 unwind label %7
+          to label %10 unwind label %8
 
-"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_folders..WorkspaceFoldersServerCapabilities$GT$$GT$17h22f124b509d7e8f6E.exit": ; preds = %1, %4
+"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_folders..WorkspaceFoldersServerCapabilities$GT$$GT$17h22f124b509d7e8f6E.exit": ; preds = %1, %5
   tail call fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef align 8 dereferenceable(144) %0)
   ret void
 
-7:                                                ; preds = %5
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-9:                                                ; preds = %5
-  resume { ptr, i32 } %6
+10:                                               ; preds = %6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -47073,7 +47073,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentClien
 
 10:                                               ; preds = %6
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit" unwind label %101
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit" unwind label %105
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionClientCapabilities$GT$$GT$17h6b4b8bdac9728901E.exit": ; preds = %1, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -47083,283 +47083,283 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentClien
 
 13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionClientCapabilities$GT$$GT$17h6b4b8bdac9728901E.exit"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17" unwind label %17
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17" unwind label %18
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit": ; preds = %6, %10, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %7, %10 ], [ %7, %6 ]
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit": ; preds = %6, %10, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %7, %10 ], [ %7, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %15 = load i64, ptr %14, align 8, !range !2469, !alias.scope !6822, !noundef !3
-  %switch.i18 = icmp slt i64 %15, -9223372036854775805
-  br i1 %switch.i18, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit", label %16
+  %16 = icmp slt i64 %15, -9223372036854775805
+  br i1 %16, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit", label %17
 
-16:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit"
+17:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit" unwind label %101
+          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit" unwind label %105
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit"
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17": ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionClientCapabilities$GT$$GT$17h6b4b8bdac9728901E.exit", %13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %20 = load i64, ptr %19, align 8, !range !2469, !alias.scope !6825, !noundef !3
-  %switch.i20 = icmp slt i64 %20, -9223372036854775805
-  br i1 %switch.i20, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit22", label %21
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %21 = load i64, ptr %20, align 8, !range !2469, !alias.scope !6825, !noundef !3
+  %22 = icmp slt i64 %21, -9223372036854775805
+  br i1 %22, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit20", label %23
 
-21:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit22" unwind label %23
+23:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit20" unwind label %25
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit", %16, %23
-  %.pn2 = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %16 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit" ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE"(ptr noalias noundef align 8 dereferenceable(56) %22) #36
-          to label %.body unwind label %101
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit", %17, %25
+  %.pn2 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %17 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit" ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE"(ptr noalias noundef align 8 dereferenceable(56) %24) #36
+          to label %.body unwind label %105
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit"
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit22": ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17", %21
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %26 = load i64, ptr %25, align 8, !range !74, !alias.scope !6828, !noundef !3
-  %27 = icmp eq i64 %26, -9223372036854775807
-  br i1 %27, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit", label %28
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit20": ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdd9f99690a96e9ebE.exit17", %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %28 = load i64, ptr %27, align 8, !range !74, !alias.scope !6828, !noundef !3
+  %29 = icmp eq i64 %28, -9223372036854775807
+  br i1 %29, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit", label %30
 
-28:                                               ; preds = %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit22"
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %30 = load i64, ptr %29, align 8, !range !74, !alias.scope !6831, !noundef !3
-  %switch.i.i.i = icmp slt i64 %30, -9223372036854775806
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i", label %31
+30:                                               ; preds = %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit20"
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %32 = load i64, ptr %31, align 8, !range !74, !alias.scope !6831, !noundef !3
+  %switch.i.i.i = icmp slt i64 %32, -9223372036854775806
+  br i1 %switch.i.i.i, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i", label %33
 
-31:                                               ; preds = %28
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i64 noundef 4, i64 noundef 4)
-          to label %"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i" unwind label %32
+33:                                               ; preds = %30
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31, i64 noundef 4, i64 noundef 4)
+          to label %"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i" unwind label %34
 
-"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i": ; preds = %31
-  %.pre.i = load i64, ptr %25, align 8, !range !40, !alias.scope !6836
+"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i": ; preds = %33
+  %.pre.i = load i64, ptr %27, align 8, !range !40, !alias.scope !6836
   br label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i"
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %33
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %34 = load i64, ptr %25, align 8, !range !40, !alias.scope !6839, !noundef !3
-  %35 = icmp eq i64 %34, -9223372036854775808
-  br i1 %35, label %.body, label %36
+  %36 = load i64, ptr %27, align 8, !range !40, !alias.scope !6839, !noundef !3
+  %37 = icmp eq i64 %36, -9223372036854775808
+  br i1 %37, label %.body, label %38
 
-36:                                               ; preds = %32
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 4, i64 noundef 4)
-          to label %.body unwind label %40
+38:                                               ; preds = %34
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, i64 noundef 4, i64 noundef 4)
+          to label %.body unwind label %42
 
-"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i": ; preds = %"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i", %28
-  %37 = phi i64 [ %.pre.i, %"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i" ], [ %26, %28 ]
-  %38 = icmp eq i64 %37, -9223372036854775808
-  br i1 %38, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit", label %39
+"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i": ; preds = %"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i", %30
+  %39 = phi i64 [ %.pre.i, %"._ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i_crit_edge.i" ], [ %28, %30 ]
+  %40 = icmp eq i64 %39, -9223372036854775808
+  br i1 %40, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit", label %41
 
-39:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 4, i64 noundef 4)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit" unwind label %43
+41:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, i64 noundef 4, i64 noundef 4)
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit" unwind label %45
 
-40:                                               ; preds = %36
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %38
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body:                                            ; preds = %43, %36, %32, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit"
-  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit" ], [ %44, %43 ], [ %33, %36 ], [ %33, %32 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE"(ptr noalias noundef align 8 dereferenceable(56) %42) #36
-          to label %.body25 unwind label %101
+.body:                                            ; preds = %45, %38, %34, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit"
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit" ], [ %46, %45 ], [ %35, %38 ], [ %35, %34 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE"(ptr noalias noundef align 8 dereferenceable(56) %44) #36
+          to label %.body23 unwind label %105
 
-43:                                               ; preds = %39
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %41
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i", %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit22", %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %46 = load i64, ptr %45, align 8, !range !74, !alias.scope !6842, !noundef !3
-  switch i64 %46, label %47 [
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h2b2d695c2198b875E.exit.i.i", %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit20", %41
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %48 = load i64, ptr %47, align 8, !range !74, !alias.scope !6842, !noundef !3
+  switch i64 %48, label %49 [
     i64 -9223372036854775807, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit"
     i64 -9223372036854775808, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i"
   ]
 
-47:                                               ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit"
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %45)
-          to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i" unwind label %48
+49:                                               ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %47)
+          to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i" unwind label %50
 
-48:                                               ; preds = %47
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %49
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %51 = load i64, ptr %50, align 8, !range !40, !alias.scope !6845, !noundef !3
-  %52 = icmp eq i64 %51, -9223372036854775808
-  br i1 %52, label %.body25, label %53
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %53 = load i64, ptr %52, align 8, !range !40, !alias.scope !6845, !noundef !3
+  %54 = icmp eq i64 %53, -9223372036854775808
+  br i1 %54, label %.body23, label %55
 
-53:                                               ; preds = %48
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50)
-          to label %.body25 unwind label %58
+55:                                               ; preds = %50
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+          to label %.body23 unwind label %60
 
-"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i": ; preds = %47, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit"
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %55 = load i64, ptr %54, align 8, !range !40, !alias.scope !6850, !noundef !3
-  %56 = icmp eq i64 %55, -9223372036854775808
-  br i1 %56, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit", label %57
+"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i": ; preds = %49, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit"
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %57 = load i64, ptr %56, align 8, !range !40, !alias.scope !6850, !noundef !3
+  %58 = icmp eq i64 %57, -9223372036854775808
+  br i1 %58, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit", label %59
 
-57:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i"
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54)
-          to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit" unwind label %63
+59:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
+          to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit" unwind label %65
 
-58:                                               ; preds = %53
-  %59 = landingpad { ptr, i32 }
+60:                                               ; preds = %55
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-.body25:                                          ; preds = %63, %53, %48, %.body
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %.body ], [ %64, %63 ], [ %49, %53 ], [ %49, %48 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %61 = load i64, ptr %60, align 8, !range !74, !alias.scope !6853, !noundef !3
-  %switch.i27 = icmp slt i64 %61, -9223372036854775806
-  br i1 %switch.i27, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit", label %62
+.body23:                                          ; preds = %65, %55, %50, %.body
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %.body ], [ %66, %65 ], [ %51, %55 ], [ %51, %50 ]
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %63 = load i64, ptr %62, align 8, !range !74, !alias.scope !6853, !noundef !3
+  %switch.i25 = icmp slt i64 %63, -9223372036854775806
+  br i1 %switch.i25, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit", label %64
 
-62:                                               ; preds = %.body25
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60, i64 noundef 4, i64 noundef 4)
-          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit" unwind label %101
+64:                                               ; preds = %.body23
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %62, i64 noundef 4, i64 noundef 4)
+          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit" unwind label %105
 
-63:                                               ; preds = %57
-  %64 = landingpad { ptr, i32 }
+65:                                               ; preds = %59
+  %66 = landingpad { ptr, i32 }
           cleanup
-  br label %.body25
+  br label %.body23
 
-"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit", %57
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %66 = load i64, ptr %65, align 8, !range !74, !alias.scope !6856, !noundef !3
-  %switch.i29 = icmp slt i64 %66, -9223372036854775806
-  br i1 %switch.i29, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit31", label %67
+"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17h43571c5a596d101fE.exit.i.i", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17hc0b5eeda1efa5b4dE.exit", %59
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %68 = load i64, ptr %67, align 8, !range !74, !alias.scope !6856, !noundef !3
+  %switch.i27 = icmp slt i64 %68, -9223372036854775806
+  br i1 %switch.i27, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit29", label %69
 
-67:                                               ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %65, i64 noundef 4, i64 noundef 4)
-          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit31" unwind label %71
+69:                                               ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %67, i64 noundef 4, i64 noundef 4)
+          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit29" unwind label %74
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit": ; preds = %.body25, %62, %71
-  %.pn8 = phi { ptr, i32 } [ %72, %71 ], [ %.pn6, %62 ], [ %.pn6, %.body25 ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %69 = load i64, ptr %68, align 8, !range !2469, !alias.scope !6859, !noundef !3
-  %switch.i32 = icmp slt i64 %69, -9223372036854775805
-  br i1 %switch.i32, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit", label %70
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit": ; preds = %.body23, %64, %74
+  %.pn8 = phi { ptr, i32 } [ %75, %74 ], [ %.pn6, %64 ], [ %.pn6, %.body23 ]
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %71 = load i64, ptr %70, align 8, !range !2469, !alias.scope !6859, !noundef !3
+  %72 = icmp slt i64 %71, -9223372036854775805
+  br i1 %72, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit", label %73
 
-70:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %68, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit" unwind label %101
+73:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %70, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit" unwind label %105
 
-71:                                               ; preds = %67
-  %72 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit31": ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit", %67
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %74 = load i64, ptr %73, align 8, !range !2469, !alias.scope !6862, !noundef !3
-  %switch.i34 = icmp slt i64 %74, -9223372036854775805
-  br i1 %switch.i34, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit36", label %75
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit29": ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17hddae4e89e243512aE.exit", %69
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %77 = load i64, ptr %76, align 8, !range !2469, !alias.scope !6862, !noundef !3
+  %78 = icmp slt i64 %77, -9223372036854775805
+  br i1 %78, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit32", label %79
 
-75:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit31"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %73, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit36" unwind label %76
+79:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit29"
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %76, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit32" unwind label %80
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit", %70, %76
-  %.pn10 = phi { ptr, i32 } [ %77, %76 ], [ %.pn8, %70 ], [ %.pn8, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit" ]
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit", %73, %80
+  %.pn10 = phi { ptr, i32 } [ %81, %80 ], [ %.pn8, %73 ], [ %.pn8, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit" ]
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE"(ptr noalias noundef align 8 dereferenceable(80) %0) #36
-          to label %.body37 unwind label %101
+          to label %.body33 unwind label %105
 
-76:                                               ; preds = %75
-  %77 = landingpad { ptr, i32 }
+80:                                               ; preds = %79
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit"
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit36": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit31", %75
-  %78 = load i64, ptr %0, align 8, !range !40, !alias.scope !6865, !noundef !3
-  %79 = icmp eq i64 %78, -9223372036854775808
-  br i1 %79, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit", label %80
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit32": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17h4a14dfac3a8a124aE.exit29", %79
+  %82 = load i64, ptr %0, align 8, !range !40, !alias.scope !6865, !noundef !3
+  %83 = icmp eq i64 %82, -9223372036854775808
+  br i1 %83, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit", label %84
 
-80:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit36"
+84:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit32"
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..SemanticTokenType$GT$$GT$17h9f838103e038a039E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
-          to label %84 unwind label %81
+          to label %88 unwind label %85
 
-81:                                               ; preds = %80
-  %82 = landingpad { ptr, i32 }
+85:                                               ; preds = %84
+  %86 = landingpad { ptr, i32 }
           cleanup
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..SemanticTokenModifier$GT$$GT$17h7b4e04b832f88997E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %83) #36
-          to label %86 unwind label %90
-
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..SemanticTokenModifier$GT$$GT$17h7b4e04b832f88997E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85)
-          to label %"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i" unwind label %88
-
-86:                                               ; preds = %88, %81
-  %.pn.i.i = phi { ptr, i32 } [ %89, %88 ], [ %82, %81 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..TokenFormat$GT$$GT$17h0c87e7ed0d073404E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87) #36
-          to label %.body37 unwind label %90
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..SemanticTokenModifier$GT$$GT$17h7b4e04b832f88997E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87) #36
+          to label %90 unwind label %94
 
 88:                                               ; preds = %84
-  %89 = landingpad { ptr, i32 }
-          cleanup
-  br label %86
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..SemanticTokenModifier$GT$$GT$17h7b4e04b832f88997E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %89)
+          to label %"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i" unwind label %92
 
-90:                                               ; preds = %86, %81
-  %91 = landingpad { ptr, i32 }
+90:                                               ; preds = %92, %85
+  %.pn.i.i = phi { ptr, i32 } [ %93, %92 ], [ %86, %85 ]
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..TokenFormat$GT$$GT$17h0c87e7ed0d073404E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #36
+          to label %.body33 unwind label %94
+
+92:                                               ; preds = %88
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  br label %90
+
+94:                                               ; preds = %90, %85
+  %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i": ; preds = %84
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..TokenFormat$GT$$GT$17h0c87e7ed0d073404E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit" unwind label %96
+"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i": ; preds = %88
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..TokenFormat$GT$$GT$17h0c87e7ed0d073404E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %96)
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit" unwind label %100
 
-.body37:                                          ; preds = %96, %86, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit"
-  %.pn12 = phi { ptr, i32 } [ %.pn10, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit" ], [ %97, %96 ], [ %.pn.i.i, %86 ]
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %94 = load i64, ptr %93, align 8, !range !74, !alias.scope !6868, !noundef !3
-  %switch.i40 = icmp slt i64 %94, -9223372036854775806
-  br i1 %switch.i40, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit", label %95
+.body33:                                          ; preds = %100, %90, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit"
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit" ], [ %101, %100 ], [ %.pn.i.i, %90 ]
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %98 = load i64, ptr %97, align 8, !range !74, !alias.scope !6868, !noundef !3
+  %switch.i36 = icmp slt i64 %98, -9223372036854775806
+  br i1 %switch.i36, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit", label %99
 
-95:                                               ; preds = %.body37
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %93)
-          to label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit" unwind label %101
+99:                                               ; preds = %.body33
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %97)
+          to label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit" unwind label %105
 
-96:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i"
-  %97 = landingpad { ptr, i32 }
+100:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i"
+  %101 = landingpad { ptr, i32 }
           cleanup
-  br label %.body37
+  br label %.body33
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit36", %"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i"
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %99 = load i64, ptr %98, align 8, !range !74, !alias.scope !6871, !noundef !3
-  %switch.i42 = icmp slt i64 %99, -9223372036854775806
-  br i1 %switch.i42, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit43", label %100
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit32", %"_ZN4core3ptr81drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$17h092608473e9a65e6E.exit.i"
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %103 = load i64, ptr %102, align 8, !range !74, !alias.scope !6871, !noundef !3
+  %switch.i38 = icmp slt i64 %103, -9223372036854775806
+  br i1 %switch.i38, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit39", label %104
 
-100:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit"
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %98)
-  br label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit43"
+104:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit"
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hba8aa7194139e706E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %102)
+  br label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit39"
 
-"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit43": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit", %100
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit39": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h54d3d5ff529efafbE.exit", %104
   ret void
 
-101:                                              ; preds = %95, %70, %62, %16, %10, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit", %.body, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit"
-  %102 = landingpad { ptr, i32 }
+105:                                              ; preds = %99, %73, %64, %17, %10, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17hf8c307e57d04c5a0E.exit", %.body, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17h30a566ed99a51c97E.exit"
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit": ; preds = %.body37, %95
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17h6a2afa4b177afbd0E.exit": ; preds = %.body33, %99
   resume { ptr, i32 } %.pn12
 }
 
@@ -62687,29 +62687,29 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Optio
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i64, ptr %6, align 8, !range !2469, !alias.scope !8928, !noundef !3
-  %switch.i.i = icmp slt i64 %7, -9223372036854775805
-  br i1 %switch.i.i, label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit", label %8
+  %8 = icmp slt i64 %7, -9223372036854775805
+  br i1 %8, label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit", label %9
 
-8:                                                ; preds = %5
+9:                                                ; preds = %5
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h573ded498da8edc4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit" unwind label %9
+          to label %"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit" unwind label %10
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %9
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef align 8 dereferenceable(176) %0) #36
-          to label %13 unwind label %11
+          to label %14 unwind label %12
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #37
   unreachable
 
-13:                                               ; preds = %9
-  resume { ptr, i32 } %10
+14:                                               ; preds = %10
+  resume { ptr, i32 } %11
 
-"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit": ; preds = %5, %8
+"_ZN4core3ptr59drop_in_place$LT$lsp_types..WorkspaceServerCapabilities$GT$17h77cf948650d5ce6dE.exit": ; preds = %5, %9
   tail call fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..file_operations..WorkspaceFileOperationsServerCapabilities$GT$$GT$17h4b4d87c1a691a258E"(ptr noalias noundef align 8 dereferenceable(176) %0)
   br label %4
 }

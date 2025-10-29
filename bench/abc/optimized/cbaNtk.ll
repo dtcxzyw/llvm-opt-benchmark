@@ -3576,7 +3576,7 @@ define void @Cba_NtkObjOrder(ptr noundef captures(none) %0, ptr noundef captures
   %5 = getelementptr i8, ptr %1, i64 4
   %.val33 = load i32, ptr %5, align 4, !tbaa !46
   %6 = icmp slt i32 %.val33, 2
-  br i1 %6, label %116, label %.lr.ph
+  br i1 %6, label %117, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
@@ -3797,28 +3797,28 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %111 = zext nneg i32 %.val40 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %115
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %115 ], [ 0, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %116
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %116 ], [ 0, %.lr.ph.i.i.preheader ]
   %112 = getelementptr inbounds nuw ptr, ptr %.pre.pre.pre.pre, i64 %indvars.iv.i.i
   %113 = load ptr, ptr %112, align 8, !tbaa !9
-  %switch.i.i = icmp ult ptr %113, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %115, label %114
+  %114 = icmp ult ptr %113, inttoptr (i64 3 to ptr)
+  br i1 %114, label %116, label %115
 
-114:                                              ; preds = %.lr.ph.i.i
+115:                                              ; preds = %.lr.ph.i.i
   tail call void @free(ptr noundef %113) #25
-  br label %115
+  br label %116
 
-115:                                              ; preds = %114, %.lr.ph.i.i
+116:                                              ; preds = %115, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %111
   br i1 %exitcond.not, label %Vec_PtrFreeFree.exit, label %.lr.ph.i.i, !llvm.loop !77
 
-Vec_PtrFreeFree.exit:                             ; preds = %115, %.critedge2
+Vec_PtrFreeFree.exit:                             ; preds = %116, %.critedge2
   tail call void @free(ptr noundef nonnull %.pre.pre.pre.pre) #25
   tail call void @free(ptr noundef nonnull %7) #25
-  br label %116
+  br label %117
 
-116:                                              ; preds = %3, %Vec_PtrFreeFree.exit
+117:                                              ; preds = %3, %Vec_PtrFreeFree.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

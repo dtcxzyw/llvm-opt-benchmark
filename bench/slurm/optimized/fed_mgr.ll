@@ -13596,107 +13596,107 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef nonnull %0, i16 nound
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ugt i16 %1, 10239
-  br i1 %5, label %6, label %38
+  br i1 %5, label %6, label %39
 
 6:                                                ; preds = %2
   %7 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef nonnull %0) #16
   %.fr = freeze i32 %7
   %8 = icmp ne i32 %.fr, 0
   %9 = load i32, ptr %4, align 4
-  %switch = icmp ugt i32 %9, -3
-  %or.cond = select i1 %8, i1 true, i1 %switch
-  br i1 %or.cond, label %.thread, label %10
+  %10 = icmp ugt i32 %9, -3
+  %or.cond = select i1 %8, i1 true, i1 %10
+  br i1 %or.cond, label %.thread, label %11
 
-10:                                               ; preds = %6
-  %11 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #16
-  %12 = load i32, ptr %4, align 4
-  %.not = icmp eq i32 %12, 0
+11:                                               ; preds = %6
+  %12 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #16
+  %13 = load i32, ptr %4, align 4
+  %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %34
-  %.01227 = phi i32 [ %35, %34 ], [ 0, %10 ]
+.lr.ph:                                           ; preds = %11, %35
+  %.01227 = phi i32 [ %36, %35 ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 792, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3101, ptr noundef nonnull @__func__._unpack_fed_job_info) #16
-  store ptr %13, ptr %3, align 8
-  %14 = call i32 @unpack32(ptr noundef %13, ptr noundef nonnull %0) #16
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %.loopexit
+  %14 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 792, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3101, ptr noundef nonnull @__func__._unpack_fed_job_info) #16
+  store ptr %14, ptr %3, align 8
+  %15 = call i32 @unpack32(ptr noundef %14, ptr noundef nonnull %0) #16
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %16, label %.loopexit
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %17 = call i32 @unpack32(ptr noundef nonnull %16, ptr noundef nonnull %0) #16
-  %.not18.i = icmp eq i32 %17, 0
-  br i1 %.not18.i, label %18, label %.loopexit
+16:                                               ; preds = %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = call i32 @unpack32(ptr noundef nonnull %17, ptr noundef nonnull %0) #16
+  %.not18.i = icmp eq i32 %18, 0
+  br i1 %.not18.i, label %19, label %.loopexit
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %20 = call i32 @unpack64(ptr noundef nonnull %19, ptr noundef nonnull %0) #16
-  %.not19.i = icmp eq i32 %20, 0
-  br i1 %.not19.i, label %21, label %.loopexit
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %21 = call i32 @unpack64(ptr noundef nonnull %20, ptr noundef nonnull %0) #16
+  %.not19.i = icmp eq i32 %21, 0
+  br i1 %.not19.i, label %22, label %.loopexit
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %23 = call i32 @unpack64(ptr noundef nonnull %22, ptr noundef nonnull %0) #16
-  %.not20.i = icmp eq i32 %23, 0
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %24 = call i32 @unpack64(ptr noundef nonnull %23, ptr noundef nonnull %0) #16
+  %.not20.i = icmp eq i32 %24, 0
   br i1 %.not20.i, label %.preheader24.i, label %.loopexit
 
-.preheader24.i:                                   ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  br label %27
+.preheader24.i:                                   ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  br label %28
 
-25:                                               ; preds = %27
+26:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %27, !llvm.loop !59
+  br i1 %exitcond.not.i, label %.preheader.i, label %28, !llvm.loop !59
 
-.preheader.i:                                     ; preds = %25
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 280
-  br label %31
+.preheader.i:                                     ; preds = %26
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 280
+  br label %32
 
-27:                                               ; preds = %25, %.preheader24.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader24.i ], [ %indvars.iv.next.i, %25 ]
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
-  %29 = call i32 @unpack32(ptr noundef nonnull %28, ptr noundef nonnull %0) #16
-  %.not22.i = icmp eq i32 %29, 0
-  br i1 %.not22.i, label %25, label %.loopexit
+28:                                               ; preds = %26, %.preheader24.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader24.i ], [ %indvars.iv.next.i, %26 ]
+  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %30 = call i32 @unpack32(ptr noundef nonnull %29, ptr noundef nonnull %0) #16
+  %.not22.i = icmp eq i32 %30, 0
+  br i1 %.not22.i, label %26, label %.loopexit
 
-30:                                               ; preds = %31
+31:                                               ; preds = %32
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, 64
-  br i1 %exitcond33.not.i, label %34, label %31, !llvm.loop !60
+  br i1 %exitcond33.not.i, label %35, label %32, !llvm.loop !60
 
-31:                                               ; preds = %30, %.preheader.i
-  %indvars.iv30.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next31.i, %30 ]
-  %32 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv30.i
-  %33 = call i32 @unpack_time(ptr noundef nonnull %32, ptr noundef nonnull %0) #16
-  %.not21.i = icmp eq i32 %33, 0
-  br i1 %.not21.i, label %30, label %.loopexit
+32:                                               ; preds = %31, %.preheader.i
+  %indvars.iv30.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next31.i, %31 ]
+  %33 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv30.i
+  %34 = call i32 @unpack_time(ptr noundef nonnull %33, ptr noundef nonnull %0) #16
+  %.not21.i = icmp eq i32 %34, 0
+  br i1 %.not21.i, label %31, label %.loopexit
 
-34:                                               ; preds = %30
+35:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @list_append(ptr noundef %11, ptr noundef nonnull %13) #16
-  %35 = add nuw nsw i32 %.01227, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = icmp ult i32 %35, %36
-  br i1 %37, label %.lr.ph, label %.thread, !llvm.loop !61
+  call void @list_append(ptr noundef %12, ptr noundef nonnull %14) #16
+  %36 = add nuw nsw i32 %.01227, 1
+  %37 = load i32, ptr %4, align 4
+  %38 = icmp ult i32 %36, %37
+  br i1 %38, label %.lr.ph, label %.thread, !llvm.loop !61
 
-38:                                               ; preds = %2
-  %39 = zext nneg i16 %1 to i32
-  %40 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__._load_fed_job_list, i32 noundef %39) #16
+39:                                               ; preds = %2
+  %40 = zext nneg i16 %1 to i32
+  %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__._load_fed_job_list, i32 noundef %40) #16
   br label %.thread
 
-.loopexit:                                        ; preds = %21, %18, %15, %.lr.ph, %27, %31
+.loopexit:                                        ; preds = %22, %19, %16, %.lr.ph, %28, %32
   call void @slurm_xfree(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not17 = icmp eq ptr %11, null
-  br i1 %.not17, label %.thread, label %41
+  %.not17 = icmp eq ptr %12, null
+  br i1 %.not17, label %.thread, label %42
 
-41:                                               ; preds = %.loopexit
-  call void @list_destroy(ptr noundef nonnull %11) #16
+42:                                               ; preds = %.loopexit
+  call void @list_destroy(ptr noundef nonnull %12) #16
   br label %.thread
 
-.thread:                                          ; preds = %34, %10, %6, %.loopexit, %41, %38
-  %.013 = phi ptr [ null, %38 ], [ null, %41 ], [ null, %.loopexit ], [ null, %6 ], [ %11, %10 ], [ %11, %34 ]
+.thread:                                          ; preds = %35, %11, %6, %.loopexit, %42, %39
+  %.013 = phi ptr [ null, %39 ], [ null, %42 ], [ null, %.loopexit ], [ null, %6 ], [ %12, %11 ], [ %12, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -13709,119 +13709,119 @@ define internal fastcc ptr @_load_remote_dep_job_list(ptr noundef nonnull %0, i1
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp ugt i16 %1, 10239
-  br i1 %7, label %8, label %53
+  br i1 %7, label %8, label %54
 
 8:                                                ; preds = %2
   %9 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef nonnull %0) #16
   %.fr = freeze i32 %9
   %10 = icmp ne i32 %.fr, 0
   %11 = load i32, ptr %6, align 4
-  %switch = icmp ugt i32 %11, -3
-  %or.cond = select i1 %10, i1 true, i1 %switch
-  br i1 %or.cond, label %.thread, label %12
+  %12 = icmp ugt i32 %11, -3
+  %or.cond = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond, label %.thread, label %13
 
-12:                                               ; preds = %8
-  %13 = call ptr @list_create(ptr noundef nonnull @_destroy_dep_job) #16
-  %14 = load i32, ptr %6, align 4
-  %.not = icmp eq i32 %14, 0
+13:                                               ; preds = %8
+  %14 = call ptr @list_create(ptr noundef nonnull @_destroy_dep_job) #16
+  %15 = load i32, ptr %6, align 4
+  %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %49
-  %.01225 = phi i32 [ %50, %49 ], [ 0, %12 ]
+.lr.ph:                                           ; preds = %13, %50
+  %.01225 = phi i32 [ %51, %50 ], [ 0, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %15 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1152, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3229, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
-  store i32 -256427732, ptr %15, align 8
-  %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 528, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3231, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 216
-  store ptr %16, ptr %17, align 8
-  store i32 233473255, ptr %16, align 8
-  %18 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3233, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %21 = call i32 @unpack32(ptr noundef nonnull %20, ptr noundef nonnull %0) #16
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %56
+  %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1152, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3229, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
+  store i32 -256427732, ptr %16, align 8
+  %17 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 528, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3231, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 216
+  store ptr %17, ptr %18, align 8
+  store i32 233473255, ptr %17, align 8
+  %19 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3233, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 280
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %22 = call i32 @unpack32(ptr noundef nonnull %21, ptr noundef nonnull %0) #16
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %23, label %57
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 52
-  %24 = call i32 @unpack32(ptr noundef nonnull %23, ptr noundef nonnull %0) #16
-  %.not31.i = icmp eq i32 %24, 0
-  br i1 %.not31.i, label %25, label %56
+23:                                               ; preds = %.lr.ph
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  %25 = call i32 @unpack32(ptr noundef nonnull %24, ptr noundef nonnull %0) #16
+  %.not31.i = icmp eq i32 %25, 0
+  br i1 %.not31.i, label %26, label %57
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  %28 = call i32 @unpack_dep_list(ptr noundef nonnull %27, ptr noundef nonnull %0, i16 noundef zeroext %1) #16
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %18, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
+  %29 = call i32 @unpack_dep_list(ptr noundef nonnull %28, ptr noundef nonnull %0, i16 noundef zeroext %1) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = load ptr, ptr %17, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %31 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %0) #16
-  %.not32.i = icmp eq i32 %31, 0
+  %30 = load ptr, ptr %18, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %32 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %31, ptr noundef nonnull %4, ptr noundef nonnull %0) #16
+  %.not32.i = icmp eq i32 %32, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not32.i, label %32, label %56
+  br i1 %.not32.i, label %33, label %57
 
-32:                                               ; preds = %25
-  %33 = call i32 @unpackbool(ptr noundef nonnull %3, ptr noundef nonnull %0) #16
-  %.not33.i = icmp eq i32 %33, 0
-  br i1 %.not33.i, label %34, label %56
+33:                                               ; preds = %26
+  %34 = call i32 @unpackbool(ptr noundef nonnull %3, ptr noundef nonnull %0) #16
+  %.not33.i = icmp eq i32 %34, 0
+  br i1 %.not33.i, label %35, label %57
 
-34:                                               ; preds = %32
-  %35 = load i8, ptr %3, align 1, !range !12, !noundef !13
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %40
+35:                                               ; preds = %33
+  %36 = load i8, ptr %3, align 1, !range !12, !noundef !13
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %34
-  %38 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3245, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
-  %39 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr %38, ptr %39, align 8
-  br label %40
+38:                                               ; preds = %35
+  %39 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3245, ptr noundef nonnull @__func__._unpack_remote_dep_job) #16
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store ptr %39, ptr %40, align 8
+  br label %41
 
-40:                                               ; preds = %37, %34
-  %41 = getelementptr inbounds nuw i8, ptr %15, i64 392
-  %42 = call i32 @unpack32(ptr noundef nonnull %41, ptr noundef nonnull %0) #16
-  %.not34.i = icmp eq i32 %42, 0
-  br i1 %.not34.i, label %43, label %56
+41:                                               ; preds = %38, %35
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 392
+  %43 = call i32 @unpack32(ptr noundef nonnull %42, ptr noundef nonnull %0) #16
+  %.not34.i = icmp eq i32 %43, 0
+  br i1 %.not34.i, label %44, label %57
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 544
-  %45 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %44, ptr noundef nonnull %5, ptr noundef nonnull %0) #16
-  %.not35.i = icmp eq i32 %45, 0
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 544
+  %46 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %45, ptr noundef nonnull %5, ptr noundef nonnull %0) #16
+  %.not35.i = icmp eq i32 %46, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not35.i, label %46, label %56
+  br i1 %.not35.i, label %47, label %57
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %15, i64 1096
-  %48 = call i32 @unpack32(ptr noundef nonnull %47, ptr noundef nonnull %0) #16
-  %.not36.i = icmp eq i32 %48, 0
-  br i1 %.not36.i, label %49, label %56
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 1096
+  %49 = call i32 @unpack32(ptr noundef nonnull %48, ptr noundef nonnull %0) #16
+  %.not36.i = icmp eq i32 %49, 0
+  br i1 %.not36.i, label %50, label %57
 
-49:                                               ; preds = %46
+50:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @list_append(ptr noundef %13, ptr noundef nonnull %15) #16
-  %50 = add nuw i32 %.01225, 1
-  %51 = load i32, ptr %6, align 4
-  %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph, label %.thread, !llvm.loop !62
+  call void @list_append(ptr noundef %14, ptr noundef nonnull %16) #16
+  %51 = add nuw i32 %.01225, 1
+  %52 = load i32, ptr %6, align 4
+  %53 = icmp ult i32 %51, %52
+  br i1 %53, label %.lr.ph, label %.thread, !llvm.loop !62
 
-53:                                               ; preds = %2
-  %54 = zext nneg i16 %1 to i32
-  %55 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__._load_remote_dep_job_list, i32 noundef %54) #16
+54:                                               ; preds = %2
+  %55 = zext nneg i16 %1 to i32
+  %56 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__._load_remote_dep_job_list, i32 noundef %55) #16
   br label %.thread
 
-56:                                               ; preds = %46, %43, %40, %32, %25, %22, %.lr.ph
-  call void @_destroy_dep_job(ptr noundef nonnull %15)
+57:                                               ; preds = %47, %44, %41, %33, %26, %23, %.lr.ph
+  call void @_destroy_dep_job(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %.thread, label %57
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %.thread, label %58
 
-57:                                               ; preds = %56
-  call void @list_destroy(ptr noundef nonnull %13) #16
+58:                                               ; preds = %57
+  call void @list_destroy(ptr noundef nonnull %14) #16
   br label %.thread
 
-.thread:                                          ; preds = %49, %12, %8, %53, %56, %57
-  %.013 = phi ptr [ null, %57 ], [ null, %56 ], [ null, %53 ], [ null, %8 ], [ %13, %12 ], [ %13, %49 ]
+.thread:                                          ; preds = %50, %13, %8, %54, %57, %58
+  %.013 = phi ptr [ null, %58 ], [ null, %57 ], [ null, %54 ], [ null, %8 ], [ %14, %13 ], [ %14, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.013
 }

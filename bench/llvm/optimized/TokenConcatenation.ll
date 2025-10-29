@@ -466,94 +466,94 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %34, %32, %32, %32, 
   %46 = and i8 %42, 4
   %.not77 = icmp eq i8 %46, 0
   %.pre = load i16, ptr %8, align 8, !tbaa !261
-  br i1 %.not77, label %51, label %47
+  br i1 %.not77, label %52, label %47
 
 47:                                               ; preds = %45
   %48 = and i16 %.pre, -2
-  %switch = icmp eq i16 %48, 64
-  br i1 %switch, label %switch.edge, label %49
+  %49 = icmp eq i16 %48, 64
+  br i1 %49, label %switch.edge, label %50
 
-49:                                               ; preds = %47
-  %50 = and i32 %43, -5
-  br label %51
+50:                                               ; preds = %47
+  %51 = and i32 %43, -5
+  br label %52
 
-51:                                               ; preds = %49, %45
-  %.068 = phi i32 [ %50, %49 ], [ %43, %45 ]
-  %52 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %.pre) #7
-  br i1 %52, label %53, label %56
+52:                                               ; preds = %50, %45
+  %.068 = phi i32 [ %51, %50 ], [ %43, %45 ]
+  %53 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %.pre) #7
+  br i1 %53, label %54, label %57
 
-53:                                               ; preds = %51
-  %54 = load i16, ptr %8, align 8, !tbaa !261
-  %55 = icmp eq i16 %54, 457
+54:                                               ; preds = %52
+  %55 = load i16, ptr %8, align 8, !tbaa !261
+  %56 = icmp eq i16 %55, 457
   br label %switch.edge
 
-56:                                               ; preds = %51
-  %57 = icmp eq i32 %.068, 0
-  br i1 %57, label %switch.edge, label %58
+57:                                               ; preds = %52
+  %58 = icmp eq i32 %.068, 0
+  br i1 %58, label %switch.edge, label %59
 
-58:                                               ; preds = %56
-  %59 = and i32 %.068, 2
-  %.not78 = icmp eq i32 %59, 0
-  br i1 %.not78, label %60, label %65
+59:                                               ; preds = %57
+  %60 = and i32 %.068, 2
+  %.not78 = icmp eq i32 %60, 0
+  br i1 %.not78, label %61, label %66
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %0, align 8, !tbaa !3
-  %62 = getelementptr i8, ptr %61, i64 56
-  %.val = load ptr, ptr %62, align 8
-  %63 = getelementptr i8, ptr %61, i64 88
-  %.val84 = load ptr, ptr %63, align 8
-  %64 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.val, ptr %.val84, ptr noundef nonnull align 8 dereferenceable(20) %3)
-  br label %65
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %0, align 8, !tbaa !3
+  %63 = getelementptr i8, ptr %62, i64 56
+  %.val = load ptr, ptr %63, align 8
+  %64 = getelementptr i8, ptr %62, i64 88
+  %.val84 = load ptr, ptr %64, align 8
+  %65 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.val, ptr %.val84, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  br label %66
 
-65:                                               ; preds = %58, %60
-  %.0 = phi i8 [ 0, %58 ], [ %64, %60 ]
-  switch i16 %.069, label %66 [
-    i16 49, label %162
-    i16 14, label %67
-    i16 15, label %67
-    i16 17, label %67
-    i16 18, label %67
-    i16 19, label %67
-    i16 9, label %67
-    i16 10, label %67
-    i16 11, label %67
-    i16 12, label %67
-    i16 13, label %67
+66:                                               ; preds = %59, %61
+  %.0 = phi i8 [ 0, %59 ], [ %65, %61 ]
+  switch i16 %.069, label %67 [
+    i16 49, label %163
+    i16 14, label %68
+    i16 15, label %68
+    i16 17, label %68
+    i16 18, label %68
+    i16 19, label %68
+    i16 9, label %68
+    i16 10, label %68
+    i16 11, label %68
+    i16 12, label %68
+    i16 13, label %68
     i16 5, label %._crit_edge
-    i16 7, label %92
-    i16 26, label %100
-    i16 28, label %119
-    i16 33, label %121
-    i16 36, label %123
-    i16 43, label %127
-    i16 47, label %131
-    i16 52, label %133
-    i16 58, label %135
-    i16 45, label %137
-    i16 62, label %140
-    i16 67, label %151
-    i16 37, label %153
+    i16 7, label %93
+    i16 26, label %101
+    i16 28, label %120
+    i16 33, label %122
+    i16 36, label %124
+    i16 43, label %128
+    i16 47, label %132
+    i16 52, label %134
+    i16 58, label %136
+    i16 45, label %138
+    i16 62, label %141
+    i16 67, label %152
+    i16 37, label %154
   ]
 
-._crit_edge:                                      ; preds = %65
-  %.pre108 = load i16, ptr %8, align 8, !tbaa !261
-  br label %80
+._crit_edge:                                      ; preds = %66
+  %.pre112 = load i16, ptr %8, align 8, !tbaa !261
+  br label %81
 
-66:                                               ; preds = %65
+67:                                               ; preds = %66
   unreachable
 
-67:                                               ; preds = %65, %65, %65, %65, %65, %65, %65, %65, %65, %65
-  %68 = load ptr, ptr %0, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
-  %70 = load ptr, ptr %69, align 8, !tbaa !9
-  %71 = load i64, ptr %70, align 8
-  %72 = and i64 %71, 4096
-  %.not79 = icmp eq i64 %72, 0
-  br i1 %.not79, label %switch.edge, label %73
+68:                                               ; preds = %66, %66, %66, %66, %66, %66, %66, %66, %66, %66
+  %69 = load ptr, ptr %0, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !9
+  %72 = load i64, ptr %71, align 8
+  %73 = and i64 %72, 4096
+  %.not79 = icmp eq i64 %73, 0
+  br i1 %.not79, label %switch.edge, label %74
 
-73:                                               ; preds = %67
-  %74 = load i16, ptr %8, align 8, !tbaa !261
-  switch i16 %74, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90 [
+74:                                               ; preds = %68
+  %75 = load i16, ptr %8, align 8, !tbaa !261
+  switch i16 %75, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90 [
     i16 13, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread
     i16 12, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread
     i16 11, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread
@@ -570,205 +570,205 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %34, %32, %32, %32, 
     i16 1, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread
   ]
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit90:     ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !262
-  %.not80 = icmp eq ptr %76, null
+_ZNK5clang5Token17getIdentifierInfoEv.exit90:     ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !262
+  %.not80 = icmp eq ptr %77, null
   br i1 %.not80, label %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread, label %switch.edge
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread: ; preds = %73, %73, %73, %73, %73, %73, %73, %73, %73, %73, %73, %73, %73, %73, %_ZNK5clang5Token17getIdentifierInfoEv.exit90
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %78 = load i16, ptr %77, align 2, !tbaa !246
-  %79 = and i16 %78, 32
-  %.not107 = icmp eq i16 %79, 0
-  br i1 %.not107, label %switch.edge, label %80
+_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread: ; preds = %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %_ZNK5clang5Token17getIdentifierInfoEv.exit90
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %79 = load i16, ptr %78, align 2, !tbaa !246
+  %80 = and i16 %79, 32
+  %.not111 = icmp eq i16 %80, 0
+  br i1 %.not111, label %switch.edge, label %81
 
-80:                                               ; preds = %._crit_edge, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread
-  %81 = phi i16 [ %.pre108, %._crit_edge ], [ %74, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ]
-  switch i16 %81, label %_ZNK5clang5Token17getIdentifierInfoEv.exit92 [
-    i16 7, label %82
+81:                                               ; preds = %._crit_edge, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread
+  %82 = phi i16 [ %.pre112, %._crit_edge ], [ %75, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ]
+  switch i16 %82, label %_ZNK5clang5Token17getIdentifierInfoEv.exit92 [
+    i16 7, label %83
     i16 17, label %switch.edge
     i16 15, label %switch.edge
     i16 19, label %switch.edge
     i16 18, label %switch.edge
-    i16 11, label %switch.edge
-    i16 10, label %switch.edge
     i16 13, label %switch.edge
     i16 12, label %switch.edge
-    i16 9, label %90
-    i16 14, label %90
+    i16 11, label %switch.edge
+    i16 10, label %switch.edge
+    i16 9, label %91
+    i16 14, label %91
     i16 1, label %switch.edge.fold.split
     i16 8, label %switch.edge.fold.split
     i16 16, label %switch.edge.fold.split
   ]
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %0, align 8, !tbaa !3
-  %84 = getelementptr i8, ptr %83, i64 56
-  %.val85 = load ptr, ptr %84, align 8
-  %85 = getelementptr i8, ptr %83, i64 88
-  %.val86 = load ptr, ptr %85, align 8
-  %86 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.val85, ptr %.val86, ptr noundef nonnull align 8 dereferenceable(20) %3)
-  %87 = icmp ne i8 %86, 46
+83:                                               ; preds = %81
+  %84 = load ptr, ptr %0, align 8, !tbaa !3
+  %85 = getelementptr i8, ptr %84, i64 56
+  %.val85 = load ptr, ptr %85, align 8
+  %86 = getelementptr i8, ptr %84, i64 88
+  %.val86 = load ptr, ptr %86, align 8
+  %87 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.val85, ptr %.val86, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  %88 = icmp ne i8 %87, 46
   br label %switch.edge
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit92:     ; preds = %80
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !262
-  %.not81 = icmp eq ptr %89, null
+_ZNK5clang5Token17getIdentifierInfoEv.exit92:     ; preds = %81
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !262
+  %.not81 = icmp eq ptr %90, null
   br i1 %.not81, label %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, label %switch.edge
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit92.thread: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit92
-  switch i16 %81, label %switch.edge.fold.split [
+  switch i16 %82, label %switch.edge.fold.split [
     i16 17, label %switch.edge
     i16 15, label %switch.edge
-    i16 14, label %90
-    i16 9, label %90
-    i16 11, label %switch.edge
-    i16 10, label %switch.edge
+    i16 14, label %91
+    i16 9, label %91
     i16 13, label %switch.edge
     i16 12, label %switch.edge
+    i16 11, label %switch.edge
+    i16 10, label %switch.edge
   ]
 
-90:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %80, %80
-  %91 = tail call noundef zeroext i1 @_ZNK5clang18TokenConcatenation24IsIdentifierStringPrefixERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(466) %0, ptr noundef nonnull align 8 dereferenceable(20) %2)
+91:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %81, %81
+  %92 = tail call noundef zeroext i1 @_ZNK5clang18TokenConcatenation24IsIdentifierStringPrefixERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(466) %0, ptr noundef nonnull align 8 dereferenceable(20) %2)
   br label %switch.edge
 
-92:                                               ; preds = %65
-  %93 = zext i8 %.0 to i64
-  %94 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %93
-  %95 = load i16, ptr %94, align 2, !tbaa !263
-  %96 = and i16 %95, 488
-  %97 = icmp ne i16 %96, 0
-  %98 = icmp eq i8 %.0, 43
-  %or.cond = or i1 %98, %97
-  %99 = icmp eq i8 %.0, 45
-  %spec.select82 = or i1 %99, %or.cond
+93:                                               ; preds = %66
+  %94 = zext i8 %.0 to i64
+  %95 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %94
+  %96 = load i16, ptr %95, align 2, !tbaa !263
+  %97 = and i16 %96, 488
+  %98 = icmp ne i16 %97, 0
+  %99 = icmp eq i8 %.0, 43
+  %or.cond = or i1 %99, %98
+  %100 = icmp eq i8 %.0, 45
+  %spec.select82 = or i1 %100, %or.cond
   br label %switch.edge
 
-100:                                              ; preds = %65
-  %101 = icmp eq i8 %.0, 46
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %103 = load i16, ptr %102, align 8
-  %104 = icmp eq i16 %103, 26
-  %or.cond106 = select i1 %101, i1 %104, i1 false
-  br i1 %or.cond106, label %switch.edge, label %105
+101:                                              ; preds = %66
+  %102 = icmp eq i8 %.0, 46
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %104 = load i16, ptr %103, align 8
+  %105 = icmp eq i16 %104, 26
+  %or.cond106 = select i1 %102, i1 %105, i1 false
+  br i1 %or.cond106, label %switch.edge, label %106
 
-105:                                              ; preds = %100
-  %106 = zext i8 %.0 to i64
-  %107 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %106
-  %108 = load i16, ptr %107, align 2, !tbaa !263
-  %109 = and i16 %108, 8
-  %.not = icmp eq i16 %109, 0
-  br i1 %.not, label %110, label %switch.edge
+106:                                              ; preds = %101
+  %107 = zext i8 %.0 to i64
+  %108 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %107
+  %109 = load i16, ptr %108, align 2, !tbaa !263
+  %110 = and i16 %109, 8
+  %.not = icmp eq i16 %110, 0
+  br i1 %.not, label %111, label %switch.edge
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %0, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
-  %113 = load ptr, ptr %112, align 8, !tbaa !9
-  %114 = load i64, ptr %113, align 8
-  %115 = and i64 %114, 2048
-  %116 = icmp ne i64 %115, 0
-  %117 = icmp eq i8 %.0, 42
-  %118 = and i1 %117, %116
+111:                                              ; preds = %106
+  %112 = load ptr, ptr %0, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
+  %114 = load ptr, ptr %113, align 8, !tbaa !9
+  %115 = load i64, ptr %114, align 8
+  %116 = and i64 %115, 2048
+  %117 = icmp ne i64 %116, 0
+  %118 = icmp eq i8 %.0, 42
+  %119 = and i1 %118, %117
   br label %switch.edge
 
-119:                                              ; preds = %65
-  %120 = icmp eq i8 %.0, 38
+120:                                              ; preds = %66
+  %121 = icmp eq i8 %.0, 38
   br label %switch.edge
 
-121:                                              ; preds = %65
-  %122 = icmp eq i8 %.0, 43
+122:                                              ; preds = %66
+  %123 = icmp eq i8 %.0, 43
   br label %switch.edge
 
-123:                                              ; preds = %65
-  %124 = icmp eq i8 %.0, 45
-  %125 = icmp eq i8 %.0, 62
-  %126 = or i1 %124, %125
+124:                                              ; preds = %66
+  %125 = icmp eq i8 %.0, 45
+  %126 = icmp eq i8 %.0, 62
+  %127 = or i1 %125, %126
   br label %switch.edge
 
-127:                                              ; preds = %65
-  %128 = icmp eq i8 %.0, 42
-  %129 = icmp eq i8 %.0, 47
-  %130 = or i1 %128, %129
+128:                                              ; preds = %66
+  %129 = icmp eq i8 %.0, 42
+  %130 = icmp eq i8 %.0, 47
+  %131 = or i1 %129, %130
   br label %switch.edge
 
-131:                                              ; preds = %65
-  %132 = icmp ult i8 %.0, 61
-  br i1 %132, label %switch.lookup, label %switch.edge
+132:                                              ; preds = %66
+  %133 = icmp ult i8 %.0, 61
+  br i1 %133, label %switch.lookup, label %switch.edge
 
-133:                                              ; preds = %65
-  %134 = icmp eq i8 %.0, 62
+134:                                              ; preds = %66
+  %135 = icmp eq i8 %.0, 62
   br label %switch.edge
 
-135:                                              ; preds = %65
-  %136 = icmp eq i8 %.0, 124
+136:                                              ; preds = %66
+  %137 = icmp eq i8 %.0, 124
   br label %switch.edge
 
-137:                                              ; preds = %65
-  %138 = and i8 %.0, -5
-  %139 = icmp eq i8 %138, 58
+138:                                              ; preds = %66
+  %139 = and i8 %.0, -5
+  %140 = icmp eq i8 %139, 58
   br label %switch.edge
 
-140:                                              ; preds = %65
-  %141 = icmp eq i8 %.0, 62
-  br i1 %141, label %switch.edge, label %142
+141:                                              ; preds = %66
+  %142 = icmp eq i8 %.0, 62
+  br i1 %142, label %switch.edge, label %143
 
-142:                                              ; preds = %140
-  %143 = load ptr, ptr %0, align 8, !tbaa !3
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 56
-  %145 = load ptr, ptr %144, align 8, !tbaa !9
-  %146 = load i64, ptr %145, align 8
-  %147 = and i64 %146, 2048
-  %148 = icmp ne i64 %147, 0
-  %149 = icmp eq i8 %.0, 58
-  %150 = and i1 %149, %148
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %0, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 56
+  %146 = load ptr, ptr %145, align 8, !tbaa !9
+  %147 = load i64, ptr %146, align 8
+  %148 = and i64 %147, 2048
+  %149 = icmp ne i64 %148, 0
+  %150 = icmp eq i8 %.0, 58
+  %151 = and i1 %150, %149
   br label %switch.edge
 
-151:                                              ; preds = %65
+152:                                              ; preds = %66
   %switch.tableidx = add i8 %.0, -35
-  %152 = icmp ult i8 %switch.tableidx, 30
-  br i1 %152, label %switch.lookup113, label %switch.edge
+  %153 = icmp ult i8 %switch.tableidx, 30
+  br i1 %153, label %switch.lookup117, label %switch.edge
 
-153:                                              ; preds = %65
-  %154 = load ptr, ptr %0, align 8, !tbaa !3
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 56
-  %156 = load ptr, ptr %155, align 8, !tbaa !9
-  %157 = load i64, ptr %156, align 8
-  %158 = and i64 %157, 2048
-  %159 = icmp ne i64 %158, 0
-  %160 = icmp eq i8 %.0, 42
-  %161 = and i1 %160, %159
+154:                                              ; preds = %66
+  %155 = load ptr, ptr %0, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
+  %157 = load ptr, ptr %156, align 8, !tbaa !9
+  %158 = load i64, ptr %157, align 8
+  %159 = and i64 %158, 2048
+  %160 = icmp ne i64 %159, 0
+  %161 = icmp eq i8 %.0, 42
+  %162 = and i1 %161, %160
   br label %switch.edge
 
-162:                                              ; preds = %65
-  %163 = load ptr, ptr %0, align 8, !tbaa !3
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 56
-  %165 = load ptr, ptr %164, align 8, !tbaa !9
-  %166 = load i64, ptr %165, align 8
-  %167 = and i64 %166, 32768
-  %168 = icmp ne i64 %167, 0
-  %169 = icmp eq i8 %.0, 62
-  %170 = and i1 %169, %168
+163:                                              ; preds = %66
+  %164 = load ptr, ptr %0, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
+  %166 = load ptr, ptr %165, align 8, !tbaa !9
+  %167 = load i64, ptr %166, align 8
+  %168 = and i64 %167, 32768
+  %169 = icmp ne i64 %168, 0
+  %170 = icmp eq i8 %.0, 62
+  %171 = and i1 %170, %169
   br label %switch.edge
 
-switch.edge.fold.split:                           ; preds = %80, %80, %80, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread
+switch.edge.fold.split:                           ; preds = %81, %81, %81, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread
   br label %switch.edge
 
-switch.lookup:                                    ; preds = %131
+switch.lookup:                                    ; preds = %132
   %switch.cast = zext nneg i8 %.0 to i61
   %switch.downshift = lshr i61 -864690991016181760, %switch.cast
   %switch.masked = trunc i61 %switch.downshift to i1
   br label %switch.edge
 
-switch.lookup113:                                 ; preds = %151
-  %switch.cast114 = zext nneg i8 %switch.tableidx to i30
-  %switch.downshift116 = lshr i30 -536870907, %switch.cast114
-  %switch.masked117 = trunc i30 %switch.downshift116 to i1
+switch.lookup117:                                 ; preds = %152
+  %switch.cast118 = zext nneg i8 %switch.tableidx to i30
+  %switch.downshift120 = lshr i30 -536870907, %switch.cast118
+  %switch.masked121 = trunc i30 %switch.downshift120 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %151, %switch.lookup113, %131, %switch.lookup, %80, %80, %80, %80, %80, %80, %80, %80, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %53, %47, %100, %switch.edge.fold.split, %4, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88, %82, %90, %92, %119, %121, %123, %127, %133, %135, %137, %153, %162, %67, %_ZNK5clang5Token17getIdentifierInfoEv.exit90, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92, %110, %105, %142, %140, %56, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %11
-  %.070 = phi i1 [ true, %11 ], [ false, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %56 ], [ %170, %162 ], [ %87, %82 ], [ %91, %90 ], [ %spec.select82, %92 ], [ %120, %119 ], [ %122, %121 ], [ %126, %123 ], [ %130, %127 ], [ %134, %133 ], [ %136, %135 ], [ %139, %137 ], [ %161, %153 ], [ false, %67 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit90 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92 ], [ true, %105 ], [ %118, %110 ], [ true, %140 ], [ %150, %142 ], [ false, %4 ], [ true, %47 ], [ %55, %53 ], [ false, %switch.edge.fold.split ], [ true, %100 ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ %switch.masked, %switch.lookup ], [ false, %131 ], [ %switch.masked117, %switch.lookup113 ], [ false, %151 ]
+switch.edge:                                      ; preds = %152, %switch.lookup117, %132, %switch.lookup, %81, %81, %81, %81, %81, %81, %81, %81, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %switch.edge.fold.split, %54, %101, %47, %4, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88, %83, %91, %93, %120, %122, %124, %128, %134, %136, %138, %154, %163, %68, %_ZNK5clang5Token17getIdentifierInfoEv.exit90, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92, %111, %106, %143, %141, %57, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %11
+  %.070 = phi i1 [ true, %11 ], [ false, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ true, %47 ], [ false, %57 ], [ %171, %163 ], [ %88, %83 ], [ %92, %91 ], [ %spec.select82, %93 ], [ %121, %120 ], [ %123, %122 ], [ %127, %124 ], [ %131, %128 ], [ %135, %134 ], [ %137, %136 ], [ %140, %138 ], [ %162, %154 ], [ false, %68 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit90 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92 ], [ true, %106 ], [ %119, %111 ], [ true, %141 ], [ %151, %143 ], [ false, %4 ], [ %56, %54 ], [ true, %101 ], [ true, %81 ], [ true, %81 ], [ false, %switch.edge.fold.split ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ %switch.masked, %switch.lookup ], [ false, %132 ], [ %switch.masked121, %switch.lookup117 ], [ false, %152 ]
   ret i1 %.070
 }
 

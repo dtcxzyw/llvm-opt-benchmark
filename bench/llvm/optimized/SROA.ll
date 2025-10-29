@@ -33664,9 +33664,9 @@ define internal fastcc noundef ptr @_ZL16getTypePartitionRKN4llvm10DataLayoutEPN
   %10 = alloca %"class.llvm::TypeSize", align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %72, %4
-  %.tr242 = phi ptr [ %1, %4 ], [ %.0149, %72 ]
-  %.tr243 = phi i64 [ %2, %4 ], [ %.recomposed, %72 ]
+tailrecurse:                                      ; preds = %74, %4
+  %.tr242 = phi ptr [ %1, %4 ], [ %.0149, %74 ]
+  %.tr243 = phi i64 [ %2, %4 ], [ %.recomposed, %74 ]
   %11 = icmp eq i64 %.tr243, 0
   br i1 %11, label %12, label %.critedge
 
@@ -33724,227 +33724,227 @@ tailrecurse:                                      ; preds = %72, %4
   %48 = getelementptr inbounds nuw i8, ptr %.tr242, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 255
-  %.off = add nsw i32 %50, -16
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %51, label %84
+  %51 = add nsw i32 %50, -16
+  %52 = icmp ult i32 %51, 3
+  br i1 %52, label %53, label %86
 
-51:                                               ; preds = %47
+53:                                               ; preds = %47
   %.not278 = icmp eq i32 %50, 16
-  %52 = getelementptr inbounds nuw i8, ptr %.tr242, i64 32
-  br i1 %.not278, label %53, label %55
+  %54 = getelementptr inbounds nuw i8, ptr %.tr242, i64 32
+  br i1 %.not278, label %55, label %57
 
-53:                                               ; preds = %51
-  %54 = load i64, ptr %52, align 8, !tbaa !627
-  br label %58
+55:                                               ; preds = %53
+  %56 = load i64, ptr %54, align 8, !tbaa !627
+  br label %60
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %52, align 8, !tbaa !633
-  %57 = zext i32 %56 to i64
-  br label %58
+57:                                               ; preds = %53
+  %58 = load i32, ptr %54, align 8, !tbaa !633
+  %59 = zext i32 %58 to i64
+  br label %60
 
-58:                                               ; preds = %55, %53
-  %.0150 = phi i64 [ %54, %53 ], [ %57, %55 ]
+60:                                               ; preds = %57, %55
+  %.0150 = phi i64 [ %56, %55 ], [ %59, %57 ]
   %.0149.in = getelementptr inbounds nuw i8, ptr %.tr242, i64 24
   %.0149 = load ptr, ptr %.0149.in, align 8, !tbaa !766
-  %59 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.0149)
-  %.fca.0.extract.i13.i186 = extractvalue { i64, i8 } %59, 0
-  %60 = add i64 %.fca.0.extract.i13.i186, 7
-  %61 = lshr i64 %60, 3
-  %62 = tail call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.0149) #28
-  %63 = zext nneg i8 %62 to i64
-  %64 = shl nuw i64 1, %63
-  %65 = add nsw i64 %61, -1
-  %66 = add i64 %65, %64
-  %.not.i188 = sub i64 0, %64
-  %67 = and i64 %66, %.not.i188
-  %68 = udiv i64 %.tr243, %67
-  %.recomposed = urem i64 %.tr243, %67
-  %.not170 = icmp ult i64 %68, %.0150
-  br i1 %.not170, label %69, label %.critedge175
+  %61 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.0149)
+  %.fca.0.extract.i13.i186 = extractvalue { i64, i8 } %61, 0
+  %62 = add i64 %.fca.0.extract.i13.i186, 7
+  %63 = lshr i64 %62, 3
+  %64 = tail call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.0149) #28
+  %65 = zext nneg i8 %64 to i64
+  %66 = shl nuw i64 1, %65
+  %67 = add nsw i64 %63, -1
+  %68 = add i64 %67, %66
+  %.not.i188 = sub i64 0, %66
+  %69 = and i64 %68, %.not.i188
+  %70 = udiv i64 %.tr243, %69
+  %.recomposed = urem i64 %.tr243, %69
+  %.not170 = icmp ult i64 %70, %.0150
+  br i1 %.not170, label %71, label %.critedge175
 
-69:                                               ; preds = %58
-  %70 = mul i64 %67, %68
-  %.not171 = icmp ne i64 %.tr243, %70
-  %71 = icmp ult i64 %3, %67
-  %or.cond = or i1 %71, %.not171
-  br i1 %or.cond, label %72, label %75
+71:                                               ; preds = %60
+  %72 = mul i64 %69, %70
+  %.not171 = icmp ne i64 %.tr243, %72
+  %73 = icmp ult i64 %3, %69
+  %or.cond = or i1 %73, %.not171
+  br i1 %or.cond, label %74, label %77
 
-72:                                               ; preds = %69
-  %73 = add i64 %.recomposed, %3
-  %74 = icmp ugt i64 %73, %67
-  br i1 %74, label %.critedge175, label %tailrecurse
+74:                                               ; preds = %71
+  %75 = add i64 %.recomposed, %3
+  %76 = icmp ugt i64 %75, %69
+  br i1 %76, label %.critedge175, label %tailrecurse
 
-75:                                               ; preds = %69
-  %76 = icmp eq i64 %3, %67
-  br i1 %76, label %77, label %79
+77:                                               ; preds = %71
+  %78 = icmp eq i64 %3, %69
+  br i1 %78, label %79, label %81
 
-77:                                               ; preds = %75
-  %78 = tail call fastcc noundef ptr @_ZL26stripAggregateTypeWrappingRKN4llvm10DataLayoutEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.0149)
+79:                                               ; preds = %77
+  %80 = tail call fastcc noundef ptr @_ZL26stripAggregateTypeWrappingRKN4llvm10DataLayoutEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %.0149)
   br label %.critedge175
 
-79:                                               ; preds = %75
-  %80 = udiv i64 %3, %67
-  %81 = mul i64 %80, %67
-  %.not172 = icmp eq i64 %81, %3
-  br i1 %.not172, label %82, label %.critedge175
+81:                                               ; preds = %77
+  %82 = udiv i64 %3, %69
+  %83 = mul i64 %82, %69
+  %.not172 = icmp eq i64 %83, %3
+  br i1 %.not172, label %84, label %.critedge175
 
-82:                                               ; preds = %79
-  %83 = tail call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %.0149, i64 noundef %80) #28
+84:                                               ; preds = %81
+  %85 = tail call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %.0149, i64 noundef %82) #28
   br label %.critedge175
 
-84:                                               ; preds = %47
-  %85 = getelementptr inbounds nuw i8, ptr %.tr242, i64 8
+86:                                               ; preds = %47
+  %87 = getelementptr inbounds nuw i8, ptr %.tr242, i64 8
   %.not = icmp eq i32 %50, 15
-  br i1 %.not, label %86, label %.critedge175
+  br i1 %.not, label %88, label %.critedge175
 
-86:                                               ; preds = %84
-  %87 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.tr242) #28
-  %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
+88:                                               ; preds = %86
+  %89 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.tr242) #28
+  %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %89, i64 8
   %.sroa.6.0.copyload.i.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8
-  %88 = trunc nuw i8 %.sroa.6.0.copyload.i.i.i.i to i1
-  br i1 %88, label %.critedge175, label %89
+  %90 = trunc nuw i8 %.sroa.6.0.copyload.i.i.i.i to i1
+  br i1 %90, label %.critedge175, label %91
 
-89:                                               ; preds = %86
+91:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.sroa.0.0.copyload.i = load i64, ptr %87, align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %89, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %.sroa.247.0..sroa_idx, align 8
-  %90 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #28
-  %.not164 = icmp ult i64 %.tr243, %90
+  %92 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #28
+  %.not164 = icmp ult i64 %.tr243, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not164, label %91, label %.critedge175
+  br i1 %.not164, label %93, label %.critedge175
 
-91:                                               ; preds = %89
-  %92 = add i64 %.tr243, %3
+93:                                               ; preds = %91
+  %94 = add i64 %.tr243, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.sroa.0.0.copyload.i192 = load i64, ptr %87, align 8
+  %.sroa.0.0.copyload.i192 = load i64, ptr %89, align 8
   %.sroa.2.0.copyload.i194 = load i8, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8
   store i64 %.sroa.0.0.copyload.i192, ptr %6, align 8
   %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.sroa.2.0.copyload.i194, ptr %.sroa.239.0..sroa_idx, align 8
-  %93 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #28
-  %94 = icmp ugt i64 %92, %93
+  %95 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #28
+  %96 = icmp ugt i64 %94, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %94, label %.critedge175, label %95
+  br i1 %96, label %.critedge175, label %97
 
-95:                                               ; preds = %91
-  %96 = call noundef i32 @_ZNK4llvm12StructLayout26getElementContainingOffsetEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef %.tr243) #28
+97:                                               ; preds = %93
+  %98 = call noundef i32 @_ZNK4llvm12StructLayout26getElementContainingOffsetEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %.tr243) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %97 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %97, i64 %98
-  %.sroa.0.0.copyload.i197 = load i64, ptr %99, align 8
-  %.sroa.2.0..sroa_idx.i198 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %100 = zext i32 %98 to i64
+  %101 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %99, i64 %100
+  %.sroa.0.0.copyload.i197 = load i64, ptr %101, align 8
+  %.sroa.2.0..sroa_idx.i198 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %.sroa.2.0.copyload.i199 = load i8, ptr %.sroa.2.0..sroa_idx.i198, align 8
   store i64 %.sroa.0.0.copyload.i197, ptr %7, align 8
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.sroa.2.0.copyload.i199, ptr %.sroa.231.0..sroa_idx, align 8
-  %100 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #28
-  %101 = sub i64 %.tr243, %100
+  %102 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #28
+  %103 = sub i64 %.tr243, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %102 = getelementptr inbounds nuw i8, ptr %.tr242, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !765
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %98
-  %105 = load ptr, ptr %104, align 8, !tbaa !766
-  %106 = call { i64, i8 } @_ZNK4llvm10DataLayout16getTypeAllocSizeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %105)
-  %.fca.0.extract17 = extractvalue { i64, i8 } %106, 0
-  %.not165 = icmp ult i64 %101, %.fca.0.extract17
-  br i1 %.not165, label %107, label %.critedge175
+  %104 = getelementptr inbounds nuw i8, ptr %.tr242, i64 16
+  %105 = load ptr, ptr %104, align 8, !tbaa !765
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %100
+  %107 = load ptr, ptr %106, align 8, !tbaa !766
+  %108 = call { i64, i8 } @_ZNK4llvm10DataLayout16getTypeAllocSizeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %107)
+  %.fca.0.extract17 = extractvalue { i64, i8 } %108, 0
+  %.not165 = icmp ult i64 %103, %.fca.0.extract17
+  br i1 %.not165, label %109, label %.critedge175
 
-107:                                              ; preds = %95
-  %.not166 = icmp ne i64 %.tr243, %100
-  %108 = icmp ult i64 %3, %.fca.0.extract17
-  %or.cond173 = or i1 %.not166, %108
-  br i1 %or.cond173, label %109, label %114
+109:                                              ; preds = %97
+  %.not166 = icmp ne i64 %.tr243, %102
+  %110 = icmp ult i64 %3, %.fca.0.extract17
+  %or.cond173 = or i1 %.not166, %110
+  br i1 %or.cond173, label %111, label %116
 
-109:                                              ; preds = %107
-  %110 = add i64 %101, %3
-  %111 = icmp ugt i64 %110, %.fca.0.extract17
-  br i1 %111, label %.critedge175, label %112
+111:                                              ; preds = %109
+  %112 = add i64 %103, %3
+  %113 = icmp ugt i64 %112, %.fca.0.extract17
+  br i1 %113, label %.critedge175, label %114
 
-112:                                              ; preds = %109
-  %113 = call fastcc noundef ptr @_ZL16getTypePartitionRKN4llvm10DataLayoutEPNS_4TypeEmm(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %105, i64 noundef %101, i64 noundef %3)
+114:                                              ; preds = %111
+  %115 = call fastcc noundef ptr @_ZL16getTypePartitionRKN4llvm10DataLayoutEPNS_4TypeEmm(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %107, i64 noundef %103, i64 noundef %3)
   br label %.critedge175
 
-114:                                              ; preds = %107
-  %115 = icmp eq i64 %3, %.fca.0.extract17
-  br i1 %115, label %116, label %118
+116:                                              ; preds = %109
+  %117 = icmp eq i64 %3, %.fca.0.extract17
+  br i1 %117, label %118, label %120
 
-116:                                              ; preds = %114
-  %117 = call fastcc noundef ptr @_ZL26stripAggregateTypeWrappingRKN4llvm10DataLayoutEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %105)
+118:                                              ; preds = %116
+  %119 = call fastcc noundef ptr @_ZL26stripAggregateTypeWrappingRKN4llvm10DataLayoutEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %107)
   br label %.critedge175
 
-118:                                              ; preds = %114
-  %119 = load ptr, ptr %102, align 8, !tbaa !765
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %98
-  %121 = getelementptr inbounds nuw i8, ptr %.tr242, i64 12
-  %122 = load i32, ptr %121, align 4, !tbaa !924
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr %119, i64 %123
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %104, align 8, !tbaa !765
+  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %100
+  %123 = getelementptr inbounds nuw i8, ptr %.tr242, i64 12
+  %124 = load i32, ptr %123, align 4, !tbaa !924
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds nuw ptr, ptr %121, i64 %125
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.sroa.0.0.copyload.i202 = load i64, ptr %87, align 8
+  %.sroa.0.0.copyload.i202 = load i64, ptr %89, align 8
   %.sroa.2.0.copyload.i204 = load i8, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8
   store i64 %.sroa.0.0.copyload.i202, ptr %8, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.2.0.copyload.i204, ptr %.sroa.214.0..sroa_idx, align 8
-  %125 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #28
-  %126 = icmp ult i64 %92, %125
+  %127 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #28
+  %128 = icmp ult i64 %94, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %126, label %127, label %137
+  br i1 %128, label %129, label %139
 
-127:                                              ; preds = %118
-  %128 = call noundef i32 @_ZNK4llvm12StructLayout26getElementContainingOffsetEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef %92) #28
-  %129 = icmp eq i32 %96, %128
-  br i1 %129, label %.critedge175, label %130
+129:                                              ; preds = %120
+  %130 = call noundef i32 @_ZNK4llvm12StructLayout26getElementContainingOffsetEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %94) #28
+  %131 = icmp eq i32 %98, %130
+  br i1 %131, label %.critedge175, label %132
 
-130:                                              ; preds = %127
+132:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %131 = zext i32 %128 to i64
-  %132 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %97, i64 %131
-  %.sroa.0.0.copyload.i207 = load i64, ptr %132, align 8
-  %.sroa.2.0..sroa_idx.i208 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %133 = zext i32 %130 to i64
+  %134 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %99, i64 %133
+  %.sroa.0.0.copyload.i207 = load i64, ptr %134, align 8
+  %.sroa.2.0..sroa_idx.i208 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %.sroa.2.0.copyload.i209 = load i8, ptr %.sroa.2.0..sroa_idx.i208, align 8
   store i64 %.sroa.0.0.copyload.i207, ptr %9, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.sroa.2.0.copyload.i209, ptr %.sroa.28.0..sroa_idx, align 8
-  %133 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #28
-  %.not167 = icmp eq i64 %133, %92
+  %135 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #28
+  %.not167 = icmp eq i64 %135, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not167, label %134, label %.critedge175
+  br i1 %.not167, label %136, label %.critedge175
 
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %102, align 8, !tbaa !765
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %131
-  br label %137
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %104, align 8, !tbaa !765
+  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %133
+  br label %139
 
-137:                                              ; preds = %134, %118
-  %.0152 = phi ptr [ %136, %134 ], [ %124, %118 ]
-  %138 = load ptr, ptr %.tr242, align 8, !tbaa !772
-  %139 = ptrtoint ptr %.0152 to i64
-  %140 = ptrtoint ptr %120 to i64
-  %141 = sub i64 %139, %140
-  %142 = ashr exact i64 %141, 3
-  %143 = load i32, ptr %85, align 8
-  %144 = and i32 %143, 512
-  %145 = icmp ne i32 %144, 0
-  %146 = call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextENS_8ArrayRefIPNS_4TypeEEEb(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr %120, i64 %142, i1 noundef zeroext %145) #28
-  %147 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %146) #28
+139:                                              ; preds = %136, %120
+  %.0152 = phi ptr [ %138, %136 ], [ %126, %120 ]
+  %140 = load ptr, ptr %.tr242, align 8, !tbaa !772
+  %141 = ptrtoint ptr %.0152 to i64
+  %142 = ptrtoint ptr %122 to i64
+  %143 = sub i64 %141, %142
+  %144 = ashr exact i64 %143, 3
+  %145 = load i32, ptr %87, align 8
+  %146 = and i32 %145, 512
+  %147 = icmp ne i32 %146, 0
+  %148 = call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextENS_8ArrayRefIPNS_4TypeEEEb(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr %122, i64 %144, i1 noundef zeroext %147) #28
+  %149 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %148) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.sroa.0.0.copyload.i212 = load i64, ptr %147, align 8
-  %.sroa.2.0..sroa_idx.i213 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %.sroa.0.0.copyload.i212 = load i64, ptr %149, align 8
+  %.sroa.2.0..sroa_idx.i213 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.sroa.2.0.copyload.i214 = load i8, ptr %.sroa.2.0..sroa_idx.i213, align 8
   store i64 %.sroa.0.0.copyload.i212, ptr %10, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %.sroa.2.0.copyload.i214, ptr %.sroa.2.0..sroa_idx, align 8
-  %148 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #28
-  %.not168 = icmp eq i64 %3, %148
+  %150 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #28
+  %.not168 = icmp eq i64 %3, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %. = select i1 %.not168, ptr %146, ptr null
+  %. = select i1 %.not168, ptr %148, ptr null
   br label %.critedge175
 
-.critedge175:                                     ; preds = %.critedge, %58, %72, %35, %84, %91, %137, %130, %127, %109, %95, %116, %112, %89, %86, %77, %79, %82, %23
-  %.0 = phi ptr [ %24, %23 ], [ %78, %77 ], [ %83, %82 ], [ null, %79 ], [ null, %84 ], [ null, %86 ], [ null, %89 ], [ null, %91 ], [ %113, %112 ], [ %117, %116 ], [ null, %95 ], [ null, %109 ], [ %., %137 ], [ null, %130 ], [ null, %127 ], [ null, %35 ], [ null, %72 ], [ null, %58 ], [ null, %.critedge ]
+.critedge175:                                     ; preds = %.critedge, %60, %74, %35, %86, %93, %139, %132, %129, %111, %97, %118, %114, %91, %88, %79, %81, %84, %23
+  %.0 = phi ptr [ %24, %23 ], [ %80, %79 ], [ %85, %84 ], [ null, %81 ], [ null, %86 ], [ null, %88 ], [ null, %91 ], [ null, %93 ], [ %115, %114 ], [ %119, %118 ], [ null, %97 ], [ null, %111 ], [ %., %139 ], [ null, %132 ], [ null, %129 ], [ null, %35 ], [ null, %74 ], [ null, %60 ], [ null, %.critedge ]
   ret ptr %.0
 }
 

@@ -6638,7 +6638,7 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %8 = load i32, ptr %7, align 4
   %.not = icmp sgt i32 %8, %6
-  br i1 %.not, label %9, label %88
+  br i1 %.not, label %9, label %90
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6648,148 +6648,148 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %15 = load i8, ptr %14, align 2, !range !26, !noundef !27
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %29
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 7
   %19 = load i8, ptr %18, align 1, !range !26, !noundef !27
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %30, label %21
+  br i1 %20, label %32, label %21
 
 21:                                               ; preds = %17
   %22 = load i16, ptr %13, align 2
-  %.off = add i16 %22, -32767
-  %switch = icmp ult i16 %.off, 3
-  br i1 %switch, label %23, label %30
+  %23 = add i16 %22, -32767
+  %24 = icmp ult i16 %23, 3
+  br i1 %24, label %25, label %32
 
-23:                                               ; preds = %21
-  %24 = sext i16 %3 to i32
-  %25 = tail call i32 @SDL_abs_REAL(i32 noundef %24) #13
-  %26 = icmp slt i32 %25, 8191
-  br i1 %26, label %27, label %30
+25:                                               ; preds = %21
+  %26 = sext i16 %3 to i32
+  %27 = tail call i32 @SDL_abs_REAL(i32 noundef %26) #13
+  %28 = icmp slt i32 %27, 8191
+  br i1 %28, label %29, label %32
 
-27:                                               ; preds = %23, %9
+29:                                               ; preds = %25, %9
   store i16 %3, ptr %13, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i16 %3, ptr %28, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i16 %3, ptr %29, align 2
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  store i16 %3, ptr %30, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i16 %3, ptr %31, align 2
   store i8 1, ptr %14, align 2
-  br label %39
+  br label %41
 
-30:                                               ; preds = %21, %23, %17
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %32 = load i16, ptr %31, align 2
-  %33 = icmp eq i16 %3, %32
-  br i1 %33, label %34, label %38
+32:                                               ; preds = %21, %25, %17
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  %34 = load i16, ptr %33, align 2
+  %35 = icmp eq i16 %3, %34
+  br i1 %35, label %36, label %40
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %36 = load i8, ptr %35, align 1, !range !26, !noundef !27
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %88
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  %38 = load i8, ptr %37, align 1, !range !26, !noundef !27
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %90
 
-38:                                               ; preds = %34, %30
+40:                                               ; preds = %36, %32
   store i8 1, ptr %18, align 1
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38, %27
-  %40 = phi i16 [ %32, %38 ], [ %3, %27 ]
-  %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %42 = load i8, ptr %41, align 2, !range !26, !noundef !27
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %57, label %44
+41:                                               ; preds = %40, %29
+  %42 = phi i16 [ %34, %40 ], [ %3, %29 ]
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %44 = load i8, ptr %43, align 2, !range !26, !noundef !27
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %59, label %46
 
-44:                                               ; preds = %39
-  %45 = sext i16 %3 to i32
-  %46 = sext i16 %40 to i32
-  %47 = sub nsw i32 %45, %46
-  %48 = tail call i32 @SDL_abs_REAL(i32 noundef %47) #13
-  %49 = icmp slt i32 %48, 410
-  br i1 %49, label %50, label %.critedge
+46:                                               ; preds = %41
+  %47 = sext i16 %3 to i32
+  %48 = sext i16 %42 to i32
+  %49 = sub nsw i32 %47, %48
+  %50 = tail call i32 @SDL_abs_REAL(i32 noundef %49) #13
+  %51 = icmp slt i32 %50, 410
+  br i1 %51, label %52, label %.critedge
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %52 = load i64, ptr %51, align 8
-  %53 = and i64 %52, 71776119061217280
-  %54 = icmp eq i64 %53, 33214047251857408
-  br i1 %54, label %.critedge, label %88
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, 71776119061217280
+  %56 = icmp eq i64 %55, 33214047251857408
+  br i1 %56, label %.critedge, label %90
 
-.critedge:                                        ; preds = %50, %44
-  store i8 1, ptr %41, align 2
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  store i8 1, ptr %55, align 1
-  %56 = load i16, ptr %13, align 2
-  tail call void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %2, i16 noundef signext %56)
-  store i8 0, ptr %55, align 1
-  br label %57
+.critedge:                                        ; preds = %52, %46
+  store i8 1, ptr %43, align 2
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  store i8 1, ptr %57, align 1
+  %58 = load i16, ptr %13, align 2
+  tail call void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %2, i16 noundef signext %58)
+  store i8 0, ptr %57, align 1
+  br label %59
 
-57:                                               ; preds = %.critedge, %39
+59:                                               ; preds = %.critedge, %41
   %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %58
+  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %60
 
-58:                                               ; preds = %57
-  %59 = tail call zeroext i1 @SDL_HasWindows() #13
-  br i1 %59, label %60, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
+60:                                               ; preds = %59
+  %61 = tail call zeroext i1 @SDL_HasWindows() #13
+  br i1 %61, label %62, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
 
-60:                                               ; preds = %58
-  %61 = tail call ptr @SDL_GetKeyboardFocus_REAL() #13
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %SDL_PrivateJoystickShouldIgnoreEvent.exit, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
+62:                                               ; preds = %60
+  %63 = tail call ptr @SDL_GetKeyboardFocus_REAL() #13
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %SDL_PrivateJoystickShouldIgnoreEvent.exit, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
 
-SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %64 = load i8, ptr %63, align 1, !range !26, !noundef !27
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %88, label %66
+SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  %66 = load i8, ptr %65, align 1, !range !26, !noundef !27
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %90, label %68
 
-66:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %68 = load i16, ptr %67, align 2
-  %69 = icmp sgt i16 %3, %68
-  br i1 %69, label %70, label %73
+68:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %70 = load i16, ptr %69, align 2
+  %71 = icmp sgt i16 %3, %70
+  br i1 %71, label %72, label %75
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %72 = load i16, ptr %71, align 2
-  %.not50 = icmp slt i16 %3, %72
-  br i1 %.not50, label %73, label %88
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  %74 = load i16, ptr %73, align 2
+  %.not50 = icmp slt i16 %3, %74
+  br i1 %.not50, label %75, label %90
 
-73:                                               ; preds = %70, %66
-  %74 = icmp slt i16 %3, %68
-  br i1 %74, label %75, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
+75:                                               ; preds = %72, %68
+  %76 = icmp slt i16 %3, %70
+  br i1 %76, label %77, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %77 = load i16, ptr %76, align 2
-  %.not51 = icmp sgt i16 %3, %77
-  br i1 %.not51, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %88
-
-SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %58, %60, %57, %75, %73
+77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i16 %3, ptr %78, align 2
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  store i64 %0, ptr %79, align 8
-  %80 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 1536) #13
-  br i1 %80, label %81, label %88
+  %79 = load i16, ptr %78, align 2
+  %.not51 = icmp sgt i16 %3, %79
+  br i1 %.not51, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %90
 
-81:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
+SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %60, %62, %59, %77, %75
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  store i16 %3, ptr %80, align 2
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  store i64 %0, ptr %81, align 8
+  %82 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 1536) #13
+  br i1 %82, label %83, label %90
+
+83:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1536, ptr %5, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %0, ptr %82, align 8
-  %83 = load i32, ptr %1, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %83, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 %2, ptr %85, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i16 %3, ptr %86, align 8
-  %87 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #13
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %0, ptr %84, align 8
+  %85 = load i32, ptr %1, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %85, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 %2, ptr %87, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i16 %3, ptr %88, align 8
+  %89 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %88
+  br label %90
 
-88:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, %81, %SDL_PrivateJoystickShouldIgnoreEvent.exit, %70, %75, %50, %34, %4
+90:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, %83, %SDL_PrivateJoystickShouldIgnoreEvent.exit, %72, %77, %52, %36, %4
   ret void
 }
 

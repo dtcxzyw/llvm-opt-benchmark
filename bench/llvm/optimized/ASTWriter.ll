@@ -67538,321 +67538,321 @@ _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i:      ; preds = %17
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !42
-  %switch = icmp ult i32 %23, 5
-  br i1 %switch, label %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102, label %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread
+  %24 = icmp ult i32 %23, 5
+  br i1 %24, label %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102, label %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread
 
 _ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
-  %24 = load i32, ptr %2, align 4, !tbaa !9
-  br label %26
+  %25 = load i32, ptr %2, align 4, !tbaa !9
+  br label %27
 
 _ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread:  ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i
   tail call void @_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE8condenseEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.0.copyload.i.i.i.i.i.i16.pr.pre = load i64, ptr %1, align 8
-  %25 = load i32, ptr %2, align 4, !tbaa !9
+  %26 = load i32, ptr %2, align 4, !tbaa !9
   %.not.i.i.i17 = icmp ult i64 %.0.copyload.i.i.i.i.i.i16.pr.pre, 4
-  br i1 %.not.i.i.i17, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %26
+  br i1 %.not.i.i.i17, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %27
 
-26:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102
-  %27 = phi i32 [ %24, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102 ], [ %25, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ]
+27:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102
+  %28 = phi i32 [ %25, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102 ], [ %26, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ]
   %.0.copyload.i.i.i.i.i.i16.pr105 = phi i64 [ %.0.copyload.i.i.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread102 ], [ %.0.copyload.i.i.i.i.i.i16.pr.pre, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ]
   %.pre88 = and i64 %.0.copyload.i.i.i.i.i.i16.pr105, 2
-  %28 = icmp eq i64 %.pre88, 0
-  br i1 %28, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19
+  %29 = icmp eq i64 %.pre88, 0
+  br i1 %29, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19
 
-_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19:    ; preds = %26
-  %29 = and i64 %.0.copyload.i.i.i.i.i.i16.pr105, -4
-  %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !42
-  %.not.i6.i.i20 = icmp eq i32 %32, 0
+_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19:    ; preds = %27
+  %30 = and i64 %.0.copyload.i.i.i.i.i.i16.pr105, -4
+  %31 = inttoptr i64 %30 to ptr
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i32, ptr %32, align 8, !tbaa !42
+  %.not.i6.i.i20 = icmp eq i32 %33, 0
   br i1 %.not.i6.i.i20, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19
-  %33 = load ptr, ptr %30, align 8, !tbaa !45
-  %.pre.i = load ptr, ptr %33, align 8, !tbaa !8
-  %34 = ptrtoint ptr %.pre.i to i64
+  %34 = load ptr, ptr %31, align 8, !tbaa !45
+  %.pre.i = load ptr, ptr %34, align 8, !tbaa !8
+  %35 = ptrtoint ptr %.pre.i to i64
   br label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i
 
-_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i:      ; preds = %.thread, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i, %26
-  %.0.copyload.i.i.i.i.i.i1672108 = phi i64 [ %.0.copyload.i.i.i.i.i.i16.pr105, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i ], [ %.0.copyload.i.i.i.i.i.i16.pr105, %26 ], [ %.0.copyload.i.i.i.i.i.i, %.thread ]
-  %35 = phi i32 [ %27, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i ], [ %27, %26 ], [ %19, %.thread ]
-  %36 = phi i64 [ %34, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i ], [ %.0.copyload.i.i.i.i.i.i16.pr105, %26 ], [ %.0.copyload.i.i.i.i.i.i, %.thread ]
-  %37 = and i64 %36, 4
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  %38 = and i64 %36, -8
-  %.not = icmp eq i64 %38, 0
+_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i:      ; preds = %.thread, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i, %27
+  %.0.copyload.i.i.i.i.i.i1672108 = phi i64 [ %.0.copyload.i.i.i.i.i.i16.pr105, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i ], [ %.0.copyload.i.i.i.i.i.i16.pr105, %27 ], [ %.0.copyload.i.i.i.i.i.i, %.thread ]
+  %36 = phi i32 [ %28, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i ], [ %28, %27 ], [ %19, %.thread ]
+  %37 = phi i64 [ %35, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i ], [ %.0.copyload.i.i.i.i.i.i16.pr105, %27 ], [ %.0.copyload.i.i.i.i.i.i, %.thread ]
+  %38 = and i64 %37, 4
+  %.not.i.i.i.i.i = icmp eq i64 %38, 0
+  %39 = and i64 %37, -8
+  %.not = icmp eq i64 %39, 0
   %or.cond73 = or i1 %.not.i.i.i.i.i, %.not
-  br i1 %or.cond73, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %39
+  br i1 %or.cond73, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %40
 
-39:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i
-  %40 = inttoptr i64 %38 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !2620
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %44 = load i32, ptr %43, align 8, !tbaa !2621
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit.i, label %46
+40:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i
+  %41 = inttoptr i64 %39 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !2620
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %45 = load i32, ptr %44, align 8, !tbaa !2621
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %.loopexit.i, label %47
 
-46:                                               ; preds = %39
-  %47 = mul i32 %35, 37
-  %48 = add i32 %44, -1
-  %.01726.i.i = and i32 %48, %47
-  %49 = zext i32 %.01726.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %42, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !9
-  %52 = icmp eq i32 %35, %51
-  br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit, label %.lr.ph.i.i, !prof !891
+47:                                               ; preds = %40
+  %48 = mul i32 %36, 37
+  %49 = add i32 %45, -1
+  %.01726.i.i = and i32 %49, %48
+  %50 = zext i32 %.01726.i.i to i64
+  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %43, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !9
+  %53 = icmp eq i32 %36, %52
+  br i1 %53, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit, label %.lr.ph.i.i, !prof !891
 
-.lr.ph.i.i:                                       ; preds = %46, %55
-  %53 = phi i32 [ %60, %55 ], [ %51, %46 ]
-  %.01728.i.i = phi i32 [ %.017.i.i, %55 ], [ %.01726.i.i, %46 ]
-  %.01527.i.i = phi i32 [ %56, %55 ], [ 1, %46 ]
-  %54 = icmp eq i32 %53, -1
-  br i1 %54, label %.loopexit.i, label %55, !prof !44
+.lr.ph.i.i:                                       ; preds = %47, %56
+  %54 = phi i32 [ %61, %56 ], [ %52, %47 ]
+  %.01728.i.i = phi i32 [ %.017.i.i, %56 ], [ %.01726.i.i, %47 ]
+  %.01527.i.i = phi i32 [ %57, %56 ], [ 1, %47 ]
+  %55 = icmp eq i32 %54, -1
+  br i1 %55, label %.loopexit.i, label %56, !prof !44
 
-55:                                               ; preds = %.lr.ph.i.i
-  %56 = add i32 %.01527.i.i, 1
-  %57 = add i32 %.01527.i.i, %.01728.i.i
-  %.017.i.i = and i32 %57, %48
-  %58 = zext i32 %.017.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %42, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !9
-  %61 = icmp eq i32 %35, %60
-  br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit, label %.lr.ph.i.i, !prof !892, !llvm.loop !2658
+56:                                               ; preds = %.lr.ph.i.i
+  %57 = add i32 %.01527.i.i, 1
+  %58 = add i32 %.01527.i.i, %.01728.i.i
+  %.017.i.i = and i32 %58, %49
+  %59 = zext i32 %.017.i.i to i64
+  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %43, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !9
+  %62 = icmp eq i32 %36, %61
+  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit, label %.lr.ph.i.i, !prof !892, !llvm.loop !2658
 
-.loopexit.i:                                      ; preds = %.lr.ph.i.i, %39
-  %62 = zext i32 %44 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %42, i64 %62
+.loopexit.i:                                      ; preds = %.lr.ph.i.i, %40
+  %63 = zext i32 %45 to i64
+  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %43, i64 %63
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit: ; preds = %55, %46, %.loopexit.i
-  %.sroa.0.1.i = phi ptr [ %63, %.loopexit.i ], [ %50, %46 ], [ %59, %55 ]
-  %64 = zext i32 %44 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %42, i64 %64
-  %.not74 = icmp eq ptr %.sroa.0.1.i, %65
-  br i1 %.not74, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %66
+_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit: ; preds = %56, %47, %.loopexit.i
+  %.sroa.0.1.i = phi ptr [ %64, %.loopexit.i ], [ %51, %47 ], [ %60, %56 ]
+  %65 = zext i32 %45 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3891", ptr %43, i64 %65
+  %.not74 = icmp eq ptr %.sroa.0.1.i, %66
+  br i1 %.not74, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %67
 
-66:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
-  %68 = icmp eq ptr %0, %67
-  br i1 %68, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %69
+67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
+  %69 = icmp eq ptr %0, %68
+  br i1 %69, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit, label %70
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !42
-  %72 = zext i32 %71 to i64
-  %73 = load i32, ptr %7, align 8, !tbaa !42
-  %74 = zext i32 %73 to i64
-  %.not.i.i21 = icmp ult i32 %73, %71
-  br i1 %.not.i.i21, label %79, label %75
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16
+  %72 = load i32, ptr %71, align 8, !tbaa !42
+  %73 = zext i32 %72 to i64
+  %74 = load i32, ptr %7, align 8, !tbaa !42
+  %75 = zext i32 %74 to i64
+  %.not.i.i21 = icmp ult i32 %74, %72
+  br i1 %.not.i.i21, label %80, label %76
 
-75:                                               ; preds = %69
-  %.not29.i.i = icmp eq i32 %71, 0
-  br i1 %.not29.i.i, label %.sink.split.i.i, label %76
+76:                                               ; preds = %70
+  %.not29.i.i = icmp eq i32 %72, 0
+  br i1 %.not29.i.i, label %.sink.split.i.i, label %77
 
-76:                                               ; preds = %75
-  %77 = load ptr, ptr %67, align 8, !tbaa !45
-  %.idx.i.i = shl nuw nsw i64 %72, 3
-  %78 = load ptr, ptr %0, align 8, !tbaa !45
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %78, ptr align 8 %77, i64 %.idx.i.i, i1 false)
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %68, align 8, !tbaa !45
+  %.idx.i.i = shl nuw nsw i64 %73, 3
+  %79 = load ptr, ptr %0, align 8, !tbaa !45
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %79, ptr align 8 %78, i64 %.idx.i.i, i1 false)
   br label %.sink.split.i.i
 
-79:                                               ; preds = %69
-  %80 = load i32, ptr %8, align 4, !tbaa !43
-  %81 = icmp ult i32 %80, %71
-  br i1 %81, label %82, label %83
+80:                                               ; preds = %70
+  %81 = load i32, ptr %8, align 4, !tbaa !43
+  %82 = icmp ult i32 %81, %72
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %79
+83:                                               ; preds = %80
   store i32 0, ptr %7, align 8, !tbaa !42
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i64 noundef %72, i64 noundef 8) #35
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i64 noundef %73, i64 noundef 8) #35
   br label %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i
 
-83:                                               ; preds = %79
-  %.not28.i.i = icmp eq i32 %73, 0
-  br i1 %.not28.i.i, label %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i, label %84
+84:                                               ; preds = %80
+  %.not28.i.i = icmp eq i32 %74, 0
+  br i1 %.not28.i.i, label %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i, label %85
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %67, align 8, !tbaa !45
-  %.idx33.i.i = shl nuw nsw i64 %74, 3
-  %86 = load ptr, ptr %0, align 8, !tbaa !45
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %86, ptr align 8 %85, i64 %.idx33.i.i, i1 false)
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %68, align 8, !tbaa !45
+  %.idx33.i.i = shl nuw nsw i64 %75, 3
+  %87 = load ptr, ptr %0, align 8, !tbaa !45
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr align 8 %86, i64 %.idx33.i.i, i1 false)
   br label %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i
 
-_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i: ; preds = %84, %83, %82
-  %.022.i.i = phi i64 [ 0, %82 ], [ 0, %83 ], [ %74, %84 ]
-  %87 = load i32, ptr %70, align 8, !tbaa !42
-  %88 = zext i32 %87 to i64
-  %.not.i.i.i22 = icmp samesign eq i64 %.022.i.i, %88
-  br i1 %.not.i.i.i22, label %.sink.split.i.i, label %89
+_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i: ; preds = %85, %84, %83
+  %.022.i.i = phi i64 [ 0, %83 ], [ 0, %84 ], [ %75, %85 ]
+  %88 = load i32, ptr %71, align 8, !tbaa !42
+  %89 = zext i32 %88 to i64
+  %.not.i.i.i22 = icmp samesign eq i64 %.022.i.i, %89
+  br i1 %.not.i.i.i22, label %.sink.split.i.i, label %90
 
-89:                                               ; preds = %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i
-  %90 = load ptr, ptr %67, align 8, !tbaa !45
+90:                                               ; preds = %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i
+  %91 = load ptr, ptr %68, align 8, !tbaa !45
   %.idx36.i.i = shl nuw nsw i64 %.022.i.i, 3
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx36.i.i
-  %92 = load ptr, ptr %0, align 8, !tbaa !45
-  %93 = getelementptr inbounds nuw %"class.clang::GlobalDeclID", ptr %92, i64 %.022.i.i
-  %94 = sub nsw i64 %88, %.022.i.i
-  %gepdiff.i.i = shl nsw i64 %94, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %93, ptr align 8 %91, i64 %gepdiff.i.i, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx36.i.i
+  %93 = load ptr, ptr %0, align 8, !tbaa !45
+  %94 = getelementptr inbounds nuw %"class.clang::GlobalDeclID", ptr %93, i64 %.022.i.i
+  %95 = sub nsw i64 %89, %.022.i.i
+  %gepdiff.i.i = shl nsw i64 %95, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr align 8 %92, i64 %gepdiff.i.i, i1 false)
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %89, %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i, %76, %75
-  store i32 %71, ptr %7, align 8, !tbaa !42
+.sink.split.i.i:                                  ; preds = %90, %_ZSt4copyIPKN5clang12GlobalDeclIDEPS1_ET0_T_S6_S5_.exit31.i.i, %77, %76
+  store i32 %72, ptr %7, align 8, !tbaa !42
   %.0.copyload.i.i.i.i.i.i.i.i.i.pr.pre = load i64, ptr %1, align 8, !noalias !2659
   br label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit
 
-_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit, %66, %.sink.split.i.i, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread
-  %.0.copyload.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread ], [ %.0.copyload.i.i.i.i.i.i16.pr.pre, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.pr.pre, %.sink.split.i.i ], [ %.0.copyload.i.i.i.i.i.i1672108, %66 ], [ %.0.copyload.i.i.i.i.i.i1672108, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit ], [ %.0.copyload.i.i.i.i.i.i16.pr105, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19 ], [ %.0.copyload.i.i.i.i.i.i1672108, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i ]
-  %95 = phi i32 [ %16, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread ], [ %25, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ], [ %35, %.sink.split.i.i ], [ %35, %66 ], [ %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit ], [ %27, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19 ], [ %35, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i ]
+_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit: ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit, %67, %.sink.split.i.i, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread
+  %.0.copyload.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread ], [ %.0.copyload.i.i.i.i.i.i16.pr.pre, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.pr.pre, %.sink.split.i.i ], [ %.0.copyload.i.i.i.i.i.i1672108, %67 ], [ %.0.copyload.i.i.i.i.i.i1672108, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit ], [ %.0.copyload.i.i.i.i.i.i16.pr105, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19 ], [ %.0.copyload.i.i.i.i.i.i1672108, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i ]
+  %96 = phi i32 [ %16, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread.thread ], [ %26, %_ZNK4llvm13TinyPtrVectorIPvE4sizeEv.exit.thread ], [ %36, %.sink.split.i.i ], [ %36, %67 ], [ %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit ], [ %28, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.i19 ], [ %36, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !2662
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 0, i64 20, i1 false)
-  %97 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 2
-  %98 = icmp eq i64 %97, 0
-  br i1 %98, label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i, label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 20, i1 false)
+  %98 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 2
+  %99 = icmp eq i64 %98, 0
+  br i1 %99, label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i, label %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i
 
 _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i:         ; preds = %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit
   %.not.i.i.i23 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 3
-  %99 = zext i1 %.not.i.i.i23 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %1, i64 %99
+  %100 = zext i1 %.not.i.i.i23 to i64
+  %101 = getelementptr inbounds nuw ptr, ptr %1, i64 %100
   %.not.i.i.i.i = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   br i1 %.not.i.i.i.i, label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit, label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
 
 _ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i:  ; preds = %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exit
-  %101 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
-  %102 = inttoptr i64 %101 to ptr
-  %103 = load ptr, ptr %102, align 8, !tbaa !45, !noalias !2659
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %105 = load i32, ptr %104, align 8, !tbaa !42, !noalias !2659
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %106
+  %102 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
+  %103 = inttoptr i64 %102 to ptr
+  %104 = load ptr, ptr %103, align 8, !tbaa !45, !noalias !2659
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %106 = load i32, ptr %105, align 8, !tbaa !42, !noalias !2659
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr inbounds nuw ptr, ptr %104, i64 %107
   %.not.i.i.i26.i = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %.not.i6.i.i.i = icmp eq i32 %105, 0
+  %.not.i6.i.i.i = icmp eq i32 %106, 0
   %or.cond.i = select i1 %.not.i.i.i26.i, i1 true, i1 %.not.i6.i.i.i
   br i1 %or.cond.i, label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit, label %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i: ; preds = %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i
-  %.pre.i.i = load ptr, ptr %103, align 8, !tbaa !8, !noalias !2659
-  %108 = ptrtoint ptr %.pre.i.i to i64
+  %.pre.i.i = load ptr, ptr %104, align 8, !tbaa !8, !noalias !2659
+  %109 = ptrtoint ptr %.pre.i.i to i64
   br label %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
 
 _ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i:    ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i
-  %.0.i222736.i = phi ptr [ %103, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i ], [ %1, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
-  %.0.i182934.i = phi ptr [ %107, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i ], [ %100, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
-  %109 = phi i64 [ %108, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
-  %110 = and i64 %109, 4
-  %.not.i.i.i.i.i.i = icmp eq i64 %110, 0
-  %111 = icmp ult i64 %109, 8
-  %112 = or i1 %111, %.not.i.i.i.i.i.i
-  %113 = select i1 %112, i64 0, i64 8
+  %.0.i222736.i = phi ptr [ %104, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i ], [ %1, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
+  %.0.i182934.i = phi ptr [ %108, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i ], [ %101, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
+  %110 = phi i64 [ %109, %_ZNK4llvm13TinyPtrVectorIPvE5emptyEv.exit.thread2.i.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ]
+  %111 = and i64 %110, 4
+  %.not.i.i.i.i.i.i = icmp eq i64 %111, 0
+  %112 = icmp ult i64 %110, 8
+  %113 = or i1 %112, %.not.i.i.i.i.i.i
+  %114 = select i1 %113, i64 0, i64 8
   br label %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit
 
 _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit: ; preds = %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i
-  %.0.i1830.i = phi ptr [ %.0.i182934.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %100, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ %107, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
-  %.0.i2228.i = phi ptr [ %.0.i222736.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %1, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ %103, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
-  %.not.i = phi i64 [ %113, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
+  %.0.i1830.i = phi ptr [ %.0.i182934.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %101, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ %108, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
+  %.0.i2228.i = phi ptr [ %.0.i222736.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %1, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ %104, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
+  %.not.i = phi i64 [ %114, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.i2228.i, i64 %.not.i
   %.not7580 = icmp eq ptr %spec.select.i, %.0.i1830.i
   br i1 %.not7580, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread
-  %.pre = load ptr, ptr %96, align 8, !tbaa !2664
+  %.pre = load ptr, ptr %97, align 8, !tbaa !2664
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre87 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !2667
-  %114 = zext i32 %.pre87 to i64
-  %115 = shl nuw nsw i64 %114, 3
+  %115 = zext i32 %.pre87 to i64
+  %116 = shl nuw nsw i64 %115, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit
-  %116 = phi i64 [ %115, %._crit_edge.loopexit ], [ 0, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit ]
-  %117 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit ]
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %117, i64 noundef %116, i64 noundef 8) #35
+  %117 = phi i64 [ %116, %._crit_edge.loopexit ], [ 0, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit ]
+  %118 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit ]
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %118, i64 noundef %117, i64 noundef 8) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 .lr.ph:                                           ; preds = %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread
-  %.sroa.041.081 = phi ptr [ %155, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread ], [ %spec.select.i, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit ]
-  %118 = load ptr, ptr %.sroa.041.081, align 8, !tbaa !8
-  %119 = ptrtoint ptr %118 to i64
-  %120 = and i64 %119, -8
-  %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %124 = load i32, ptr %122, align 8, !tbaa !2668, !noalias !2671
-  %125 = add i32 %124, -1
-  %126 = and i32 %125, %95
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !2674, !noalias !2671
-  %129 = zext i32 %126 to i64
-  %130 = shl nuw nsw i64 %129, 2
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
-  call void @llvm.assume(i1 true) [ "align"(ptr %131, i64 4) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %131, align 4, !noalias !2671
-  %132 = icmp eq i32 %.0.copyload.i.i.i.i, 0
-  br i1 %132, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread, label %133
+  %.sroa.041.081 = phi ptr [ %156, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread ], [ %spec.select.i, %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationInfoLookupTraitEE6tablesEv.exit ]
+  %119 = load ptr, ptr %.sroa.041.081, align 8, !tbaa !8
+  %120 = ptrtoint ptr %119 to i64
+  %121 = and i64 %120, -8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %125 = load i32, ptr %123, align 8, !tbaa !2668, !noalias !2671
+  %126 = add i32 %125, -1
+  %127 = and i32 %126, %96
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !2674, !noalias !2671
+  %130 = zext i32 %127 to i64
+  %131 = shl nuw nsw i64 %130, 2
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 %131
+  call void @llvm.assume(i1 true) [ "align"(ptr %132, i64 4) ]
+  %.0.copyload.i.i.i.i = load i32, ptr %132, align 4, !noalias !2671
+  %133 = icmp eq i32 %.0.copyload.i.i.i.i, 0
+  br i1 %133, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread, label %134
 
-133:                                              ; preds = %.lr.ph
+134:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2671
-  %134 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %135 = load ptr, ptr %134, align 8, !tbaa !2675, !noalias !2671
-  %136 = zext i32 %.0.copyload.i.i.i.i to i64
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
-  %.0.copyload.i.i.i36.i = load i16, ptr %137, align 1, !noalias !2671
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 2
-  store ptr %138, ptr %4, align 8, !tbaa !1094, !noalias !2671
-  %139 = zext i16 %.0.copyload.i.i.i36.i to i32
+  %135 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %136 = load ptr, ptr %135, align 8, !tbaa !2675, !noalias !2671
+  %137 = zext i32 %.0.copyload.i.i.i.i to i64
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 %137
+  %.0.copyload.i.i.i36.i = load i16, ptr %138, align 1, !noalias !2671
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
+  store ptr %139, ptr %4, align 8, !tbaa !1094, !noalias !2671
+  %140 = zext i16 %.0.copyload.i.i.i36.i to i32
   %.not3340.not.i = icmp eq i16 %.0.copyload.i.i.i36.i, 0
   br i1 %.not3340.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread64, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %133, %.critedge.i
-  %140 = phi ptr [ %150, %.critedge.i ], [ %138, %133 ]
-  %.02641.i = phi i32 [ %151, %.critedge.i ], [ 0, %133 ]
-  %.0.copyload.i.i.i37.i = load i32, ptr %140, align 1, !noalias !2671
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  store ptr %141, ptr %4, align 8, !tbaa !1094, !noalias !2671
-  %142 = call i64 @_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait17ReadKeyDataLengthERPKh(ptr noundef nonnull align 8 dereferenceable(8) %4) #35, !noalias !2671
-  %.sroa.6.0.extract.shift.i = lshr i64 %142, 32
-  %143 = add i64 %.sroa.6.0.extract.shift.i, %142
-  %.not32.i = icmp eq i32 %.0.copyload.i.i.i37.i, %95
-  %144 = load ptr, ptr %4, align 8, !tbaa !1094, !noalias !2671
-  br i1 %.not32.i, label %145, label %.critedge.i
+.lr.ph.i:                                         ; preds = %134, %.critedge.i
+  %141 = phi ptr [ %151, %.critedge.i ], [ %139, %134 ]
+  %.02641.i = phi i32 [ %152, %.critedge.i ], [ 0, %134 ]
+  %.0.copyload.i.i.i37.i = load i32, ptr %141, align 1, !noalias !2671
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  store ptr %142, ptr %4, align 8, !tbaa !1094, !noalias !2671
+  %143 = call i64 @_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait17ReadKeyDataLengthERPKh(ptr noundef nonnull align 8 dereferenceable(8) %4) #35, !noalias !2671
+  %.sroa.6.0.extract.shift.i = lshr i64 %143, 32
+  %144 = add i64 %.sroa.6.0.extract.shift.i, %143
+  %.not32.i = icmp eq i32 %.0.copyload.i.i.i37.i, %96
+  %145 = load ptr, ptr %4, align 8, !tbaa !1094, !noalias !2671
+  br i1 %.not32.i, label %146, label %.critedge.i
 
-145:                                              ; preds = %.lr.ph.i
-  %.sroa.0.0.extract.trunc.i = trunc i64 %142 to i32
-  %146 = call noundef i32 @_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait7ReadKeyEPKhj(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef %144, i32 noundef %.sroa.0.0.extract.trunc.i) #35, !noalias !2671
-  %147 = icmp eq i32 %146, %95
-  %148 = load ptr, ptr %4, align 8, !tbaa !1094, !noalias !2671
-  br i1 %147, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit, label %.critedge.i
+146:                                              ; preds = %.lr.ph.i
+  %.sroa.0.0.extract.trunc.i = trunc i64 %143 to i32
+  %147 = call noundef i32 @_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait7ReadKeyEPKhj(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef %145, i32 noundef %.sroa.0.0.extract.trunc.i) #35, !noalias !2671
+  %148 = icmp eq i32 %147, %96
+  %149 = load ptr, ptr %4, align 8, !tbaa !1094, !noalias !2671
+  br i1 %148, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %145, %.lr.ph.i
-  %.sink.i = phi ptr [ %144, %.lr.ph.i ], [ %148, %145 ]
-  %149 = and i64 %143, 4294967295
-  %150 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %149
-  store ptr %150, ptr %4, align 8, !tbaa !1094, !noalias !2671
-  %151 = add nuw nsw i32 %.02641.i, 1
-  %exitcond.not.i = icmp eq i32 %151, %139
+.critedge.i:                                      ; preds = %146, %.lr.ph.i
+  %.sink.i = phi ptr [ %145, %.lr.ph.i ], [ %149, %146 ]
+  %150 = and i64 %144, 4294967295
+  %151 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %150
+  store ptr %151, ptr %4, align 8, !tbaa !1094, !noalias !2671
+  %152 = add nuw nsw i32 %.02641.i, 1
+  %exitcond.not.i = icmp eq i32 %152, %140
   br i1 %exitcond.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread64, label %.lr.ph.i, !llvm.loop !2676
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread64: ; preds = %.critedge.i, %133
+_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread64: ; preds = %.critedge.i, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2671
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit: ; preds = %145
+_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit: ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2671
-  %.not76 = icmp eq ptr %148, null
-  br i1 %.not76, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread, label %152
+  %.not76 = icmp eq ptr %149, null
+  br i1 %.not76, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread, label %153
 
-152:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit
-  %153 = and i64 %142, 4294967295
-  %154 = getelementptr inbounds nuw i8, ptr %148, i64 %153
+153:                                              ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit
+  %154 = and i64 %143, 4294967295
+  %155 = getelementptr inbounds nuw i8, ptr %149, i64 %154
   %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
-  call void @_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait12ReadDataIntoEjPKhjRNS2_17data_type_builderE(ptr noundef nonnull align 8 dereferenceable(16) %123, i32 noundef %95, ptr noundef nonnull %154, i32 noundef %.sroa.6.0.extract.trunc.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #35
+  call void @_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait12ReadDataIntoEjPKhjRNS2_17data_type_builderE(ptr noundef nonnull align 8 dereferenceable(16) %124, i32 noundef %96, ptr noundef nonnull %155, i32 noundef %.sroa.6.0.extract.trunc.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #35
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread
 
-_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread: ; preds = %.lr.ph, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread64, %152, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.041.081, i64 8
-  %.not75 = icmp eq ptr %155, %.0.i1830.i
+_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread: ; preds = %.lr.ph, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread64, %153, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.041.081, i64 8
+  %.not75 = icmp eq ptr %156, %.0.i1830.i
   br i1 %.not75, label %._crit_edge.loopexit, label %.lr.ph
 }
 

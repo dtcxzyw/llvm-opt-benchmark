@@ -1270,7 +1270,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 nounde
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 797, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786690, ptr noundef null) #6
-  br label %common.ret73
+  br label %common.ret72
 
 9:                                                ; preds = %4
   %10 = icmp eq i32 %1, 1
@@ -1280,11 +1280,11 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 nounde
   %12 = add i64 %3, 4
   %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 810) #6
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %common.ret73, label %15
+  br i1 %14, label %common.ret72, label %15
 
-common.ret73:                                     ; preds = %42, %11, %106, %41, %.loopexit, %8, %PACKET_buf_init.exit.i, %15
-  %common.ret73.op = phi i32 [ %20, %15 ], [ 0, %8 ], [ 0, %41 ], [ 0, %106 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %42 ], [ 1, %PACKET_buf_init.exit.i ]
-  ret i32 %common.ret73.op
+common.ret72:                                     ; preds = %43, %11, %107, %42, %.loopexit, %8, %PACKET_buf_init.exit.i, %15
+  %common.ret72.op = phi i32 [ %20, %15 ], [ 0, %8 ], [ 0, %42 ], [ 0, %107 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %43 ], [ 1, %PACKET_buf_init.exit.i ]
+  ret i32 %common.ret72.op
 
 15:                                               ; preds = %11
   store i8 0, ptr %13, align 1, !tbaa !104
@@ -1298,7 +1298,7 @@ common.ret73:                                     ; preds = %42, %11, %106, %41,
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %20 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %13, i64 noundef %12)
   tail call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 819) #6
-  br label %common.ret73
+  br label %common.ret72
 
 21:                                               ; preds = %9
   %.not.i = icmp ne i32 %1, 2
@@ -1307,149 +1307,149 @@ common.ret73:                                     ; preds = %42, %11, %106, %41,
   br i1 %or.cond.i, label %.loopexit, label %PACKET_buf_init.exit.preheader.split.us.i
 
 PACKET_buf_init.exit.preheader.split.us.i:        ; preds = %21, %PACKET_buf_init.exit.us.i
-  %.sroa.9.063.us.i = phi i64 [ %36, %PACKET_buf_init.exit.us.i ], [ %3, %21 ]
-  %.sroa.035.062.us.i = phi ptr [ %35, %PACKET_buf_init.exit.us.i ], [ %2, %21 ]
-  %switch.i = icmp ult i64 %.sroa.9.063.us.i, 8
-  br i1 %switch.i, label %.loopexit, label %23
+  %.sroa.9.063.us.i = phi i64 [ %37, %PACKET_buf_init.exit.us.i ], [ %3, %21 ]
+  %.sroa.035.062.us.i = phi ptr [ %36, %PACKET_buf_init.exit.us.i ], [ %2, %21 ]
+  %23 = icmp ult i64 %.sroa.9.063.us.i, 8
+  br i1 %23, label %.loopexit, label %24
 
-23:                                               ; preds = %PACKET_buf_init.exit.preheader.split.us.i
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 6
-  %25 = load i8, ptr %24, align 1, !tbaa !104
-  %26 = zext i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 8
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 7
-  %29 = load i8, ptr %28, align 1, !tbaa !104
-  %30 = zext i8 %29 to i64
-  %31 = or disjoint i64 %27, %30
-  %32 = add nsw i64 %.sroa.9.063.us.i, -8
-  %33 = icmp ult i64 %32, %31
-  br i1 %33, label %.loopexit, label %PACKET_buf_init.exit.us.i
+24:                                               ; preds = %PACKET_buf_init.exit.preheader.split.us.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 6
+  %26 = load i8, ptr %25, align 1, !tbaa !104
+  %27 = zext i8 %26 to i64
+  %28 = shl nuw nsw i64 %27, 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 7
+  %30 = load i8, ptr %29, align 1, !tbaa !104
+  %31 = zext i8 %30 to i64
+  %32 = or disjoint i64 %28, %31
+  %33 = add nsw i64 %.sroa.9.063.us.i, -8
+  %34 = icmp ult i64 %33, %32
+  br i1 %34, label %.loopexit, label %PACKET_buf_init.exit.us.i
 
-PACKET_buf_init.exit.us.i:                        ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
-  %36 = sub nuw nsw i64 %32, %31
-  %.not23.us.i = icmp eq i64 %36, 0
+PACKET_buf_init.exit.us.i:                        ; preds = %24
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
+  %37 = sub nuw nsw i64 %33, %32
+  %.not23.us.i = icmp eq i64 %37, 0
   br i1 %.not23.us.i, label %serverinfo_process_buffer.exit, label %PACKET_buf_init.exit.preheader.split.us.i
 
-.loopexit:                                        ; preds = %23, %PACKET_buf_init.exit.preheader.split.us.i, %21
+.loopexit:                                        ; preds = %24, %PACKET_buf_init.exit.preheader.split.us.i, %21
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 824, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
-  br label %common.ret73
+  br label %common.ret72
 
 serverinfo_process_buffer.exit:                   ; preds = %PACKET_buf_init.exit.us.i
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %38 = load ptr, ptr %37, align 8, !tbaa !100
-  %39 = load ptr, ptr %38, align 8, !tbaa !79
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %42
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %39 = load ptr, ptr %38, align 8, !tbaa !100
+  %40 = load ptr, ptr %39, align 8, !tbaa !79
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %serverinfo_process_buffer.exit
+42:                                               ; preds = %serverinfo_process_buffer.exit
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 828, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #6
-  br label %common.ret73
+  br label %common.ret72
 
-42:                                               ; preds = %serverinfo_process_buffer.exit
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !105
-  %45 = tail call ptr @CRYPTO_realloc(ptr noundef %44, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 832) #6
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %common.ret73, label %47
+43:                                               ; preds = %serverinfo_process_buffer.exit
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !105
+  %46 = tail call ptr @CRYPTO_realloc(ptr noundef %45, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 832) #6
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %common.ret72, label %48
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %37, align 8, !tbaa !100
-  %49 = load ptr, ptr %48, align 8, !tbaa !79
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %45, ptr %50, align 8, !tbaa !105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %2, i64 %3, i1 false)
-  %51 = load ptr, ptr %37, align 8, !tbaa !100
-  %52 = load ptr, ptr %51, align 8, !tbaa !79
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store i64 %3, ptr %53, align 8, !tbaa !106
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %38, align 8, !tbaa !100
+  %50 = load ptr, ptr %49, align 8, !tbaa !79
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  store ptr %46, ptr %51, align 8, !tbaa !105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %2, i64 %3, i1 false)
+  %52 = load ptr, ptr %38, align 8, !tbaa !100
+  %53 = load ptr, ptr %52, align 8, !tbaa !79
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  store i64 %3, ptr %54, align 8, !tbaa !106
   br label %PACKET_buf_init.exit.preheader.split.i, !llvm.loop !107
 
-PACKET_buf_init.exit.preheader.split.i:           ; preds = %47, %PACKET_buf_init.exit.i
-  %.sroa.9.063.i = phi i64 [ %99, %PACKET_buf_init.exit.i ], [ %3, %47 ]
-  %.sroa.035.062.i = phi ptr [ %98, %PACKET_buf_init.exit.i ], [ %2, %47 ]
-  %54 = icmp ult i64 %.sroa.9.063.i, 4
-  br i1 %54, label %106, label %55
+PACKET_buf_init.exit.preheader.split.i:           ; preds = %48, %PACKET_buf_init.exit.i
+  %.sroa.9.063.i = phi i64 [ %100, %PACKET_buf_init.exit.i ], [ %3, %48 ]
+  %.sroa.035.062.i = phi ptr [ %99, %PACKET_buf_init.exit.i ], [ %2, %48 ]
+  %55 = icmp ult i64 %.sroa.9.063.i, 4
+  br i1 %55, label %107, label %56
 
-55:                                               ; preds = %PACKET_buf_init.exit.preheader.split.i
-  %56 = load i8, ptr %.sroa.035.062.i, align 1, !tbaa !104
-  %57 = zext i8 %56 to i64
-  %58 = shl nuw nsw i64 %57, 24
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 1
-  %60 = load i8, ptr %59, align 1, !tbaa !104
-  %61 = zext i8 %60 to i64
-  %62 = shl nuw nsw i64 %61, 16
-  %63 = or disjoint i64 %62, %58
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 2
-  %65 = load i8, ptr %64, align 1, !tbaa !104
-  %66 = zext i8 %65 to i64
-  %67 = shl nuw nsw i64 %66, 8
-  %68 = or disjoint i64 %63, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 3
-  %70 = load i8, ptr %69, align 1, !tbaa !104
-  %71 = zext i8 %70 to i64
-  %72 = or disjoint i64 %68, %71
-  %73 = and i64 %.sroa.9.063.i, -2
-  %74 = icmp eq i64 %73, 4
-  br i1 %74, label %106, label %75
+56:                                               ; preds = %PACKET_buf_init.exit.preheader.split.i
+  %57 = load i8, ptr %.sroa.035.062.i, align 1, !tbaa !104
+  %58 = zext i8 %57 to i64
+  %59 = shl nuw nsw i64 %58, 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 1
+  %61 = load i8, ptr %60, align 1, !tbaa !104
+  %62 = zext i8 %61 to i64
+  %63 = shl nuw nsw i64 %62, 16
+  %64 = or disjoint i64 %63, %59
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 2
+  %66 = load i8, ptr %65, align 1, !tbaa !104
+  %67 = zext i8 %66 to i64
+  %68 = shl nuw nsw i64 %67, 8
+  %69 = or disjoint i64 %64, %68
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 3
+  %71 = load i8, ptr %70, align 1, !tbaa !104
+  %72 = zext i8 %71 to i64
+  %73 = or disjoint i64 %69, %72
+  %74 = and i64 %.sroa.9.063.i, -2
+  %75 = icmp eq i64 %74, 4
+  br i1 %75, label %107, label %76
 
-75:                                               ; preds = %55
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 4
-  %77 = load i8, ptr %76, align 1, !tbaa !104
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 8
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 5
-  %81 = load i8, ptr %80, align 1, !tbaa !104
-  %82 = zext i8 %81 to i32
-  %83 = or disjoint i32 %79, %82
-  %84 = icmp eq i64 %73, 6
-  br i1 %84, label %106, label %85
+76:                                               ; preds = %56
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 4
+  %78 = load i8, ptr %77, align 1, !tbaa !104
+  %79 = zext i8 %78 to i32
+  %80 = shl nuw nsw i32 %79, 8
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 5
+  %82 = load i8, ptr %81, align 1, !tbaa !104
+  %83 = zext i8 %82 to i32
+  %84 = or disjoint i32 %80, %83
+  %85 = icmp eq i64 %74, 6
+  br i1 %85, label %107, label %86
 
-85:                                               ; preds = %75
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 6
-  %87 = load i8, ptr %86, align 1, !tbaa !104
-  %88 = zext i8 %87 to i64
-  %89 = shl nuw nsw i64 %88, 8
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 7
-  %91 = load i8, ptr %90, align 1, !tbaa !104
-  %92 = zext i8 %91 to i64
-  %93 = or disjoint i64 %89, %92
-  %94 = add i64 %.sroa.9.063.i, -8
-  %95 = icmp ult i64 %94, %93
-  br i1 %95, label %106, label %96
+86:                                               ; preds = %76
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 6
+  %88 = load i8, ptr %87, align 1, !tbaa !104
+  %89 = zext i8 %88 to i64
+  %90 = shl nuw nsw i64 %89, 8
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 7
+  %92 = load i8, ptr %91, align 1, !tbaa !104
+  %93 = zext i8 %92 to i64
+  %94 = or disjoint i64 %90, %93
+  %95 = add i64 %.sroa.9.063.i, -8
+  %96 = icmp ult i64 %95, %94
+  br i1 %96, label %107, label %97
 
-96:                                               ; preds = %85
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %93
-  %99 = sub nuw i64 %94, %93
-  %100 = icmp eq i64 %72, 464
-  br i1 %100, label %101, label %103
+97:                                               ; preds = %86
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %94
+  %100 = sub nuw i64 %95, %94
+  %101 = icmp eq i64 %73, 464
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %96
-  %102 = tail call i32 @SSL_CTX_add_server_custom_ext(ptr noundef nonnull %0, i32 noundef %83, ptr noundef nonnull @serverinfo_srv_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_srv_parse_cb, ptr noundef null) #6
-  %.not28.i = icmp eq i32 %102, 0
-  br i1 %.not28.i, label %106, label %PACKET_buf_init.exit.i
+102:                                              ; preds = %97
+  %103 = tail call i32 @SSL_CTX_add_server_custom_ext(ptr noundef nonnull %0, i32 noundef %84, ptr noundef nonnull @serverinfo_srv_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_srv_parse_cb, ptr noundef null) #6
+  %.not28.i = icmp eq i32 %103, 0
+  br i1 %.not28.i, label %107, label %PACKET_buf_init.exit.i
 
-103:                                              ; preds = %96
-  %104 = trunc nuw i64 %72 to i32
-  %105 = tail call i32 @SSL_CTX_add_custom_ext(ptr noundef nonnull %0, i32 noundef %83, i32 noundef %104, ptr noundef nonnull @serverinfoex_srv_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfoex_srv_parse_cb, ptr noundef null) #6
-  %.not27.i = icmp eq i32 %105, 0
-  br i1 %.not27.i, label %106, label %PACKET_buf_init.exit.i
+104:                                              ; preds = %97
+  %105 = trunc nuw i64 %73 to i32
+  %106 = tail call i32 @SSL_CTX_add_custom_ext(ptr noundef nonnull %0, i32 noundef %84, i32 noundef %105, ptr noundef nonnull @serverinfoex_srv_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfoex_srv_parse_cb, ptr noundef null) #6
+  %.not27.i = icmp eq i32 %106, 0
+  br i1 %.not27.i, label %107, label %PACKET_buf_init.exit.i
 
-PACKET_buf_init.exit.i:                           ; preds = %103, %101
-  %.not23.i = icmp eq i64 %99, 0
-  br i1 %.not23.i, label %common.ret73, label %PACKET_buf_init.exit.preheader.split.i
+PACKET_buf_init.exit.i:                           ; preds = %104, %102
+  %.not23.i = icmp eq i64 %100, 0
+  br i1 %.not23.i, label %common.ret72, label %PACKET_buf_init.exit.preheader.split.i
 
-106:                                              ; preds = %85, %75, %55, %PACKET_buf_init.exit.preheader.split.i, %103, %101
+107:                                              ; preds = %86, %76, %56, %PACKET_buf_init.exit.preheader.split.i, %104, %102
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 845, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
-  br label %common.ret73
+  br label %common.ret72
 }
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1972,110 +1972,9 @@ declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @serverinfo_srv_add_cb(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #0 {
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr null, ptr %7, align 8, !tbaa !99
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 0, ptr %8, align 8, !tbaa !71
-  %9 = icmp eq ptr %0, null
-  br i1 %9, label %.thread.i, label %10
-
-10:                                               ; preds = %6
-  %11 = load i32, ptr %0, align 8, !tbaa !3
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread22.i, label %13
-
-13:                                               ; preds = %10
-  %14 = and i32 %11, 128
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %.thread.i, label %15
-
-15:                                               ; preds = %13
-  %16 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #6
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread.i, label %.thread22.i
-
-.thread.i:                                        ; preds = %15, %13, %6
-  store i32 80, ptr %4, align 4, !tbaa !112
-  br label %serverinfoex_srv_add_cb.exit
-
-.thread22.i:                                      ; preds = %15, %10
-  %18 = phi ptr [ %16, %15 ], [ %0, %10 ]
-  %19 = call i32 @ssl_get_server_cert_serverinfo(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
-  %.not21.i = icmp eq i32 %19, 0
-  br i1 %.not21.i, label %serverinfoex_srv_add_cb.exit, label %20
-
-20:                                               ; preds = %.thread22.i
-  %21 = load ptr, ptr %7, align 8, !tbaa !99
-  %22 = load i64, ptr %8, align 8, !tbaa !71
-  store ptr null, ptr %2, align 8, !tbaa !99
-  store i64 0, ptr %3, align 8, !tbaa !71
-  %23 = icmp eq ptr %21, null
-  %24 = icmp slt i64 %22, 1
-  %or.cond52.i.i = or i1 %23, %24
-  br i1 %or.cond52.i.i, label %serverinfo_find_extension.exit.thread.i, label %PACKET_buf_init.exit.i.i
-
-PACKET_buf_init.exit.i.i:                         ; preds = %20, %47
-  %.sroa.9.0.i.i = phi i64 [ %50, %47 ], [ %22, %20 ]
-  %.sroa.023.0.i.i = phi ptr [ %49, %47 ], [ %21, %20 ]
-  switch i64 %.sroa.9.0.i.i, label %25 [
-    i64 0, label %serverinfoex_srv_add_cb.exit
-    i64 5, label %serverinfo_find_extension.exit.thread.i
-    i64 4, label %serverinfo_find_extension.exit.thread.i
-    i64 3, label %serverinfo_find_extension.exit.thread.i
-    i64 2, label %serverinfo_find_extension.exit.thread.i
-    i64 1, label %serverinfo_find_extension.exit.thread.i
-  ]
-
-25:                                               ; preds = %PACKET_buf_init.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 4
-  %27 = load i8, ptr %26, align 1, !tbaa !104
-  %28 = zext i8 %27 to i32
-  %29 = shl nuw nsw i32 %28, 8
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 5
-  %31 = load i8, ptr %30, align 1, !tbaa !104
-  %32 = zext i8 %31 to i32
-  %33 = or disjoint i32 %29, %32
-  %34 = and i64 %.sroa.9.0.i.i, -2
-  %35 = icmp eq i64 %34, 6
-  br i1 %35, label %serverinfo_find_extension.exit.thread.i, label %36
-
-36:                                               ; preds = %25
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 6
-  %38 = load i8, ptr %37, align 1, !tbaa !104
-  %39 = zext i8 %38 to i64
-  %40 = shl nuw nsw i64 %39, 8
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 7
-  %42 = load i8, ptr %41, align 1, !tbaa !104
-  %43 = zext i8 %42 to i64
-  %44 = or disjoint i64 %40, %43
-  %45 = add i64 %.sroa.9.0.i.i, -8
-  %46 = icmp ult i64 %45, %44
-  br i1 %46, label %serverinfo_find_extension.exit.thread.i, label %47
-
-47:                                               ; preds = %36
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.i, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %44
-  %50 = sub nuw i64 %45, %44
-  %51 = icmp eq i32 %33, %1
-  br i1 %51, label %52, label %PACKET_buf_init.exit.i.i
-
-serverinfo_find_extension.exit.thread.i:          ; preds = %36, %25, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %PACKET_buf_init.exit.i.i, %20
-  store i32 80, ptr %4, align 4, !tbaa !112
-  br label %serverinfoex_srv_add_cb.exit
-
-52:                                               ; preds = %47
-  store ptr %48, ptr %2, align 8, !tbaa !99
-  store i64 %44, ptr %3, align 8, !tbaa !71
-  br label %serverinfoex_srv_add_cb.exit
-
-serverinfoex_srv_add_cb.exit:                     ; preds = %PACKET_buf_init.exit.i.i, %.thread.i, %.thread22.i, %serverinfo_find_extension.exit.thread.i, %52
-  %.0.i = phi i32 [ -1, %.thread.i ], [ -1, %serverinfo_find_extension.exit.thread.i ], [ 1, %52 ], [ 0, %.thread22.i ], [ 0, %PACKET_buf_init.exit.i.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0.i
+define internal range(i32 -1, 2) i32 @serverinfo_srv_add_cb(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readnone captures(none) %5) #0 {
+  %7 = tail call i32 @serverinfoex_srv_add_cb(ptr noundef %0, i32 noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr poison, i64 noundef 0, ptr noundef %4, ptr poison)
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -2145,64 +2044,62 @@ define internal range(i32 -1, 2) i32 @serverinfoex_srv_add_cb(ptr noundef %0, i3
   %30 = icmp eq ptr %28, null
   %31 = icmp slt i64 %29, 1
   %or.cond52.i = or i1 %30, %31
-  br i1 %or.cond52.i, label %serverinfo_find_extension.exit.thread, label %PACKET_buf_init.exit.i
+  br i1 %or.cond52.i, label %.loopexit, label %PACKET_buf_init.exit.i
 
-PACKET_buf_init.exit.i:                           ; preds = %27, %54
-  %.sroa.9.0.i = phi i64 [ %57, %54 ], [ %29, %27 ]
-  %.sroa.023.0.i = phi ptr [ %56, %54 ], [ %28, %27 ]
-  switch i64 %.sroa.9.0.i, label %32 [
-    i64 0, label %serverinfo_find_extension.exit
-    i64 5, label %serverinfo_find_extension.exit.thread
-    i64 4, label %serverinfo_find_extension.exit.thread
-    i64 3, label %serverinfo_find_extension.exit.thread
-    i64 2, label %serverinfo_find_extension.exit.thread
-    i64 1, label %serverinfo_find_extension.exit.thread
-  ]
+PACKET_buf_init.exit.i:                           ; preds = %27, %57
+  %.sroa.9.0.i = phi i64 [ %60, %57 ], [ %29, %27 ]
+  %.sroa.023.0.i = phi ptr [ %59, %57 ], [ %28, %27 ]
+  %32 = icmp eq i64 %.sroa.9.0.i, 0
+  br i1 %32, label %serverinfo_find_extension.exit, label %33
 
-32:                                               ; preds = %PACKET_buf_init.exit.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 4
-  %34 = load i8, ptr %33, align 1, !tbaa !104
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 5
-  %38 = load i8, ptr %37, align 1, !tbaa !104
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i32 %36, %39
-  %41 = and i64 %.sroa.9.0.i, -2
-  %42 = icmp eq i64 %41, 6
-  br i1 %42, label %serverinfo_find_extension.exit.thread, label %43
+33:                                               ; preds = %PACKET_buf_init.exit.i
+  %34 = icmp ult i64 %.sroa.9.0.i, 6
+  br i1 %34, label %.loopexit, label %35
 
-43:                                               ; preds = %32
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 6
-  %45 = load i8, ptr %44, align 1, !tbaa !104
-  %46 = zext i8 %45 to i64
-  %47 = shl nuw nsw i64 %46, 8
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 7
-  %49 = load i8, ptr %48, align 1, !tbaa !104
-  %50 = zext i8 %49 to i64
-  %51 = or disjoint i64 %47, %50
-  %52 = add i64 %.sroa.9.0.i, -8
-  %53 = icmp ult i64 %52, %51
-  br i1 %53, label %serverinfo_find_extension.exit.thread, label %54
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 4
+  %37 = load i8, ptr %36, align 1, !tbaa !104
+  %38 = zext i8 %37 to i32
+  %39 = shl nuw nsw i32 %38, 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 5
+  %41 = load i8, ptr %40, align 1, !tbaa !104
+  %42 = zext i8 %41 to i32
+  %43 = or disjoint i32 %39, %42
+  %44 = and i64 %.sroa.9.0.i, -2
+  %45 = icmp eq i64 %44, 6
+  br i1 %45, label %.loopexit, label %46
 
-54:                                               ; preds = %43
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %51
-  %57 = sub nuw i64 %52, %51
-  %58 = icmp eq i32 %40, %1
-  br i1 %58, label %59, label %PACKET_buf_init.exit.i
+46:                                               ; preds = %35
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 6
+  %48 = load i8, ptr %47, align 1, !tbaa !104
+  %49 = zext i8 %48 to i64
+  %50 = shl nuw nsw i64 %49, 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 7
+  %52 = load i8, ptr %51, align 1, !tbaa !104
+  %53 = zext i8 %52 to i64
+  %54 = or disjoint i64 %50, %53
+  %55 = add i64 %.sroa.9.0.i, -8
+  %56 = icmp ult i64 %55, %54
+  br i1 %56, label %.loopexit, label %57
 
-serverinfo_find_extension.exit.thread:            ; preds = %43, %32, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.i, %27
+57:                                               ; preds = %46
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %54
+  %60 = sub nuw i64 %55, %54
+  %61 = icmp eq i32 %43, %1
+  br i1 %61, label %62, label %PACKET_buf_init.exit.i
+
+.loopexit:                                        ; preds = %46, %35, %33, %27
   store i32 80, ptr %7, align 4, !tbaa !112
   br label %serverinfo_find_extension.exit
 
-59:                                               ; preds = %54
-  store ptr %55, ptr %3, align 8, !tbaa !99
-  store i64 %51, ptr %4, align 8, !tbaa !71
+62:                                               ; preds = %57
+  store ptr %58, ptr %3, align 8, !tbaa !99
+  store i64 %54, ptr %4, align 8, !tbaa !71
   br label %serverinfo_find_extension.exit
 
-serverinfo_find_extension.exit:                   ; preds = %PACKET_buf_init.exit.i, %25, %serverinfo_find_extension.exit.thread, %59, %.thread22, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %.thread22 ], [ -1, %serverinfo_find_extension.exit.thread ], [ 1, %59 ], [ 0, %25 ], [ 0, %PACKET_buf_init.exit.i ]
+serverinfo_find_extension.exit:                   ; preds = %PACKET_buf_init.exit.i, %25, %.loopexit, %62, %.thread22, %.thread
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %.thread22 ], [ -1, %.loopexit ], [ 1, %62 ], [ 0, %25 ], [ 0, %PACKET_buf_init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

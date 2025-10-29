@@ -1867,29 +1867,29 @@ define internal void @"_ZN4core3ptr124drop_in_place$LT$$RF$alloc..sync..Arc$LT$d
 define internal void @"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$GT$$GT$17h1c11a993fd50953bE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !268, !noundef !5
-  %switch = icmp slt i64 %3, -9223372036854775802
-  br i1 %switch, label %"_ZN4core3ptr98drop_in_place$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$GT$17h02a5f89d07462391E.exit", label %4
+  %4 = icmp slt i64 %3, -9223372036854775802
+  br i1 %4, label %"_ZN4core3ptr98drop_in_place$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$GT$17h02a5f89d07462391E.exit", label %5
 
 "_ZN4core3ptr98drop_in_place$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$GT$17h02a5f89d07462391E.exit": ; preds = %1, %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_glue..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17hc220507d1f53331cE.exit.i"
   ret void
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !269
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbdae4a6ea5ba54a4E.llvm.13640993958878838948"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !range !72, !noalias !269, !noundef !5
-  %.not.i.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_glue..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17hc220507d1f53331cE.exit.i", label %7
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load i64, ptr %6, align 8, !range !72, !noalias !269, !noundef !5
+  %.not.i.i.i.i.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_glue..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17hc220507d1f53331cE.exit.i", label %8
 
-7:                                                ; preds = %4
-  %8 = load ptr, ptr %2, align 8, !noalias !269, !nonnull !5, !noundef !5
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8, !noalias !269, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 1 %11, ptr noundef nonnull %8, i64 noundef %6, i64 noundef %10)
+8:                                                ; preds = %5
+  %9 = load ptr, ptr %2, align 8, !noalias !269, !nonnull !5, !noundef !5
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = load i64, ptr %10, align 8, !noalias !269, !noundef !5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 1 %12, ptr noundef nonnull %9, i64 noundef %7, i64 noundef %11)
   br label %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_glue..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17hc220507d1f53331cE.exit.i"
 
-"_ZN4core3ptr87drop_in_place$LT$aws_sdk_glue..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17hc220507d1f53331cE.exit.i": ; preds = %7, %4
+"_ZN4core3ptr87drop_in_place$LT$aws_sdk_glue..primitives..sealed_enum_unknown..UnknownVariantValue$GT$17hc220507d1f53331cE.exit.i": ; preds = %8, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !269
   br label %"_ZN4core3ptr98drop_in_place$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$GT$17h02a5f89d07462391E.exit"
 }

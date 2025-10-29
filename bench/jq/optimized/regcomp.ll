@@ -9033,12 +9033,12 @@ node_str_node_cat.exit:                           ; preds = %609
   %659 = load i32, ptr %656, align 8, !tbaa !20
   switch i32 %659, label %.loopexit [
     i32 8, label %.preheader.i.i189
-    i32 4, label %686
+    i32 4, label %688
     i32 7, label %.preheader.i8.i.i
   ]
 
 .preheader.i.i189:                                ; preds = %658, %.loopexit.i.i191
-  %.05.i.i = phi ptr [ %685, %.loopexit.i.i191 ], [ %656, %658 ]
+  %.05.i.i = phi ptr [ %687, %.loopexit.i.i191 ], [ %656, %658 ]
   %660 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
   %661 = load ptr, ptr %660, align 8, !tbaa !20
   %662 = load i32, ptr %661, align 8, !tbaa !20
@@ -9051,205 +9051,205 @@ node_str_node_cat.exit:                           ; preds = %609
   %664 = getelementptr inbounds nuw i8, ptr %661, i64 16
   %665 = load ptr, ptr %664, align 8, !tbaa !20
   %666 = load i32, ptr %665, align 8, !tbaa !20
-  %switch.i.i.i.i = icmp ult i32 %666, 4
-  br i1 %switch.i.i.i.i, label %667, label %.loopexit.i.i191
+  %667 = icmp ult i32 %666, 4
+  br i1 %667, label %668, label %.loopexit.i.i191
 
-667:                                              ; preds = %663
-  %668 = getelementptr inbounds nuw i8, ptr %661, i64 24
-  %669 = load i32, ptr %668, align 8, !tbaa !143
-  %670 = getelementptr inbounds nuw i8, ptr %661, i64 28
-  store i32 %669, ptr %670, align 4, !tbaa !138
+668:                                              ; preds = %663
+  %669 = getelementptr inbounds nuw i8, ptr %661, i64 24
+  %670 = load i32, ptr %669, align 8, !tbaa !143
+  %671 = getelementptr inbounds nuw i8, ptr %661, i64 28
+  store i32 %670, ptr %671, align 4, !tbaa !138
   br label %.loopexit.i.i191
 
-.preheader.i.i.i190:                              ; preds = %.preheader.i.i189, %node_reduce_in_look_behind.exit14.i.i.i
-  %.06.i.i.i = phi ptr [ %683, %node_reduce_in_look_behind.exit14.i.i.i ], [ %661, %.preheader.i.i189 ]
-  %671 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
-  %672 = load ptr, ptr %671, align 8, !tbaa !20
-  %673 = load i32, ptr %672, align 8, !tbaa !20
-  %.not.i10.i.i.i = icmp eq i32 %673, 4
-  br i1 %.not.i10.i.i.i, label %674, label %.loopexit.i.i191
+.preheader.i.i.i190:                              ; preds = %.preheader.i.i189, %node_reduce_in_look_behind.exit13.i.i.i
+  %.06.i.i.i = phi ptr [ %685, %node_reduce_in_look_behind.exit13.i.i.i ], [ %661, %.preheader.i.i189 ]
+  %672 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
+  %673 = load ptr, ptr %672, align 8, !tbaa !20
+  %674 = load i32, ptr %673, align 8, !tbaa !20
+  %.not.i10.i.i.i = icmp eq i32 %674, 4
+  br i1 %.not.i10.i.i.i, label %675, label %.loopexit.i.i191
 
-674:                                              ; preds = %.preheader.i.i.i190
-  %675 = getelementptr inbounds nuw i8, ptr %672, i64 16
-  %676 = load ptr, ptr %675, align 8, !tbaa !20
-  %677 = load i32, ptr %676, align 8, !tbaa !20
-  %switch.i12.i.i.i = icmp ult i32 %677, 4
-  br i1 %switch.i12.i.i.i, label %678, label %.loopexit.i.i191
+675:                                              ; preds = %.preheader.i.i.i190
+  %676 = getelementptr inbounds nuw i8, ptr %673, i64 16
+  %677 = load ptr, ptr %676, align 8, !tbaa !20
+  %678 = load i32, ptr %677, align 8, !tbaa !20
+  %679 = icmp ult i32 %678, 4
+  br i1 %679, label %680, label %.loopexit.i.i191
 
-678:                                              ; preds = %674
-  %679 = getelementptr inbounds nuw i8, ptr %672, i64 24
-  %680 = load i32, ptr %679, align 8, !tbaa !143
-  %681 = getelementptr inbounds nuw i8, ptr %672, i64 28
-  store i32 %680, ptr %681, align 4, !tbaa !138
-  %.not18.i13.i.i.i = icmp eq i32 %680, 0
-  br i1 %.not18.i13.i.i.i, label %node_reduce_in_look_behind.exit14.i.i.i, label %.loopexit.i.i191
+680:                                              ; preds = %675
+  %681 = getelementptr inbounds nuw i8, ptr %673, i64 24
+  %682 = load i32, ptr %681, align 8, !tbaa !143
+  %683 = getelementptr inbounds nuw i8, ptr %673, i64 28
+  store i32 %682, ptr %683, align 4, !tbaa !138
+  %.not18.i12.i.i.i = icmp eq i32 %682, 0
+  br i1 %.not18.i12.i.i.i, label %node_reduce_in_look_behind.exit13.i.i.i, label %.loopexit.i.i191
 
-node_reduce_in_look_behind.exit14.i.i.i:          ; preds = %678
-  %682 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 24
-  %683 = load ptr, ptr %682, align 8, !tbaa !20
-  %.not.i.i.i193 = icmp eq ptr %683, null
+node_reduce_in_look_behind.exit13.i.i.i:          ; preds = %680
+  %684 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 24
+  %685 = load ptr, ptr %684, align 8, !tbaa !20
+  %.not.i.i.i193 = icmp eq ptr %685, null
   br i1 %.not.i.i.i193, label %tune_look_behind.exit, label %.preheader.i.i.i190, !llvm.loop !239
 
-.loopexit.i.i191:                                 ; preds = %678, %674, %.preheader.i.i.i190, %667, %663, %.preheader.i.i189
-  %684 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 24
-  %685 = load ptr, ptr %684, align 8, !tbaa !20
-  %.not.i.i192 = icmp eq ptr %685, null
+.loopexit.i.i191:                                 ; preds = %680, %675, %.preheader.i.i.i190, %668, %663, %.preheader.i.i189
+  %686 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 24
+  %687 = load ptr, ptr %686, align 8, !tbaa !20
+  %.not.i.i192 = icmp eq ptr %687, null
   br i1 %.not.i.i192, label %.loopexit, label %.preheader.i.i189, !llvm.loop !240
 
-686:                                              ; preds = %658
-  %687 = getelementptr inbounds nuw i8, ptr %656, i64 16
-  %688 = load ptr, ptr %687, align 8, !tbaa !20
-  %689 = load i32, ptr %688, align 8, !tbaa !20
-  %switch.i.i16.i.i = icmp ult i32 %689, 4
-  br i1 %switch.i.i16.i.i, label %690, label %.loopexit
+688:                                              ; preds = %658
+  %689 = getelementptr inbounds nuw i8, ptr %656, i64 16
+  %690 = load ptr, ptr %689, align 8, !tbaa !20
+  %691 = load i32, ptr %690, align 8, !tbaa !20
+  %692 = icmp ult i32 %691, 4
+  br i1 %692, label %693, label %.loopexit
 
-690:                                              ; preds = %686
-  %691 = getelementptr inbounds nuw i8, ptr %656, i64 24
-  %692 = load i32, ptr %691, align 8, !tbaa !143
-  %693 = getelementptr inbounds nuw i8, ptr %656, i64 28
-  store i32 %692, ptr %693, align 4, !tbaa !138
+693:                                              ; preds = %688
+  %694 = getelementptr inbounds nuw i8, ptr %656, i64 24
+  %695 = load i32, ptr %694, align 8, !tbaa !143
+  %696 = getelementptr inbounds nuw i8, ptr %656, i64 28
+  store i32 %695, ptr %696, align 4, !tbaa !138
   br label %.loopexit
 
-.preheader.i8.i.i:                                ; preds = %658, %node_reduce_in_look_behind.exit14.i14.i.i
-  %.06.i9.i.i = phi ptr [ %706, %node_reduce_in_look_behind.exit14.i14.i.i ], [ %656, %658 ]
-  %694 = getelementptr inbounds nuw i8, ptr %.06.i9.i.i, i64 16
-  %695 = load ptr, ptr %694, align 8, !tbaa !20
-  %696 = load i32, ptr %695, align 8, !tbaa !20
-  %.not.i10.i10.i.i = icmp eq i32 %696, 4
-  br i1 %.not.i10.i10.i.i, label %697, label %.loopexit
+.preheader.i8.i.i:                                ; preds = %658, %node_reduce_in_look_behind.exit13.i13.i.i
+  %.06.i9.i.i = phi ptr [ %710, %node_reduce_in_look_behind.exit13.i13.i.i ], [ %656, %658 ]
+  %697 = getelementptr inbounds nuw i8, ptr %.06.i9.i.i, i64 16
+  %698 = load ptr, ptr %697, align 8, !tbaa !20
+  %699 = load i32, ptr %698, align 8, !tbaa !20
+  %.not.i10.i10.i.i = icmp eq i32 %699, 4
+  br i1 %.not.i10.i10.i.i, label %700, label %.loopexit
 
-697:                                              ; preds = %.preheader.i8.i.i
-  %698 = getelementptr inbounds nuw i8, ptr %695, i64 16
-  %699 = load ptr, ptr %698, align 8, !tbaa !20
-  %700 = load i32, ptr %699, align 8, !tbaa !20
-  %switch.i12.i12.i.i = icmp ult i32 %700, 4
-  br i1 %switch.i12.i12.i.i, label %701, label %.loopexit
+700:                                              ; preds = %.preheader.i8.i.i
+  %701 = getelementptr inbounds nuw i8, ptr %698, i64 16
+  %702 = load ptr, ptr %701, align 8, !tbaa !20
+  %703 = load i32, ptr %702, align 8, !tbaa !20
+  %704 = icmp ult i32 %703, 4
+  br i1 %704, label %705, label %.loopexit
 
-701:                                              ; preds = %697
-  %702 = getelementptr inbounds nuw i8, ptr %695, i64 24
-  %703 = load i32, ptr %702, align 8, !tbaa !143
-  %704 = getelementptr inbounds nuw i8, ptr %695, i64 28
-  store i32 %703, ptr %704, align 4, !tbaa !138
-  %.not18.i13.i13.i.i = icmp eq i32 %703, 0
-  br i1 %.not18.i13.i13.i.i, label %node_reduce_in_look_behind.exit14.i14.i.i, label %.loopexit
+705:                                              ; preds = %700
+  %706 = getelementptr inbounds nuw i8, ptr %698, i64 24
+  %707 = load i32, ptr %706, align 8, !tbaa !143
+  %708 = getelementptr inbounds nuw i8, ptr %698, i64 28
+  store i32 %707, ptr %708, align 4, !tbaa !138
+  %.not18.i12.i12.i.i = icmp eq i32 %707, 0
+  br i1 %.not18.i12.i12.i.i, label %node_reduce_in_look_behind.exit13.i13.i.i, label %.loopexit
 
-node_reduce_in_look_behind.exit14.i14.i.i:        ; preds = %701
-  %705 = getelementptr inbounds nuw i8, ptr %.06.i9.i.i, i64 24
-  %706 = load ptr, ptr %705, align 8, !tbaa !20
-  %.not.i15.i.i = icmp eq ptr %706, null
-  br i1 %.not.i15.i.i, label %tune_look_behind.exit, label %.preheader.i8.i.i, !llvm.loop !239
+node_reduce_in_look_behind.exit13.i13.i.i:        ; preds = %705
+  %709 = getelementptr inbounds nuw i8, ptr %.06.i9.i.i, i64 24
+  %710 = load ptr, ptr %709, align 8, !tbaa !20
+  %.not.i14.i.i = icmp eq ptr %710, null
+  br i1 %.not.i14.i.i, label %tune_look_behind.exit, label %.preheader.i8.i.i, !llvm.loop !239
 
-.loopexit:                                        ; preds = %.preheader.i8.i.i, %701, %697, %.loopexit.i.i191, %686, %690, %658
-  %707 = call fastcc i32 @node_char_len1(ptr noundef nonnull %656, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 0)
-  %708 = icmp sgt i32 %707, -1
-  br i1 %708, label %709, label %tune_look_behind.exit
+.loopexit:                                        ; preds = %.preheader.i8.i.i, %705, %700, %.loopexit.i.i191, %688, %693, %658
+  %711 = call fastcc i32 @node_char_len1(ptr noundef nonnull %656, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 0)
+  %712 = icmp sgt i32 %711, -1
+  br i1 %712, label %713, label %tune_look_behind.exit
 
-709:                                              ; preds = %.loopexit
-  %710 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %711 = load i32, ptr %710, align 4, !tbaa !241
-  %712 = add i32 %711, -65536
-  %or.cond.i180 = icmp ult i32 %712, -65537
-  %713 = load i32, ptr %6, align 4
-  %714 = icmp ugt i32 %713, 65535
-  %or.cond5.i = select i1 %or.cond.i180, i1 true, i1 %714
-  br i1 %or.cond5.i, label %tune_look_behind.exit, label %715
+713:                                              ; preds = %.loopexit
+  %714 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %715 = load i32, ptr %714, align 4, !tbaa !241
+  %716 = add i32 %715, -65536
+  %or.cond.i180 = icmp ult i32 %716, -65537
+  %717 = load i32, ptr %6, align 4
+  %718 = icmp ugt i32 %717, 65535
+  %or.cond5.i = select i1 %or.cond.i180, i1 true, i1 %718
+  br i1 %or.cond5.i, label %tune_look_behind.exit, label %719
 
-715:                                              ; preds = %709
-  %716 = icmp eq i32 %713, 0
-  %717 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %718 = load i32, ptr %717, align 4
-  %719 = icmp ne i32 %718, 0
-  %or.cond8.i = select i1 %716, i1 %719, i1 false
-  %720 = load i32, ptr %5, align 4
-  %721 = icmp eq i32 %720, 0
-  %or.cond10.i = select i1 %or.cond8.i, i1 %721, i1 false
-  br i1 %or.cond10.i, label %722, label %729
+719:                                              ; preds = %713
+  %720 = icmp eq i32 %717, 0
+  %721 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %722 = load i32, ptr %721, align 4
+  %723 = icmp ne i32 %722, 0
+  %or.cond8.i = select i1 %720, i1 %723, i1 false
+  %724 = load i32, ptr %5, align 4
+  %725 = icmp eq i32 %724, 0
+  %or.cond10.i = select i1 %or.cond8.i, i1 %725, i1 false
+  br i1 %or.cond10.i, label %726, label %733
 
-722:                                              ; preds = %715
-  %723 = load i32, ptr %647, align 8, !tbaa !155
-  %724 = icmp eq i32 %723, 8
-  br i1 %724, label %725, label %727
+726:                                              ; preds = %719
+  %727 = load i32, ptr %647, align 8, !tbaa !155
+  %728 = icmp eq i32 %727, 8
+  br i1 %728, label %729, label %731
 
-725:                                              ; preds = %722
-  %726 = call i32 @onig_node_reset_fail(ptr noundef nonnull %.tr) #22
+729:                                              ; preds = %726
+  %730 = call i32 @onig_node_reset_fail(ptr noundef nonnull %.tr) #22
   br label %tune_look_behind.exit
 
-727:                                              ; preds = %722
-  %728 = call i32 @onig_node_reset_empty(ptr noundef nonnull %.tr) #22
+731:                                              ; preds = %726
+  %732 = call i32 @onig_node_reset_empty(ptr noundef nonnull %.tr) #22
   br label %tune_look_behind.exit
 
-729:                                              ; preds = %715
-  %730 = icmp eq i32 %707, 1
-  br i1 %730, label %731, label %744
+733:                                              ; preds = %719
+  %734 = icmp eq i32 %711, 1
+  br i1 %734, label %735, label %748
 
-731:                                              ; preds = %729
-  %732 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %733 = load ptr, ptr %732, align 8, !tbaa !101
-  %734 = getelementptr inbounds nuw i8, ptr %733, i64 8
-  %735 = load i32, ptr %734, align 4, !tbaa !102
-  %736 = and i32 %735, 64
-  %.not76.i187 = icmp eq i32 %736, 0
-  br i1 %.not76.i187, label %742, label %737
+735:                                              ; preds = %733
+  %736 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %737 = load ptr, ptr %736, align 8, !tbaa !101
+  %738 = getelementptr inbounds nuw i8, ptr %737, i64 8
+  %739 = load i32, ptr %738, align 4, !tbaa !102
+  %740 = and i32 %739, 64
+  %.not76.i187 = icmp eq i32 %740, 0
+  br i1 %.not76.i187, label %746, label %741
 
-737:                                              ; preds = %731
-  %738 = call fastcc i32 @divide_look_behind_alternatives(ptr noundef nonnull %.tr)
-  %739 = icmp eq i32 %738, 0
-  br i1 %739, label %740, label %tune_look_behind.exit
+741:                                              ; preds = %735
+  %742 = call fastcc i32 @divide_look_behind_alternatives(ptr noundef nonnull %.tr)
+  %743 = icmp eq i32 %742, 0
+  br i1 %743, label %744, label %tune_look_behind.exit
 
-740:                                              ; preds = %737
-  %741 = call fastcc i32 @tune_tree(ptr noundef nonnull %.tr, ptr noundef %1, i32 noundef %.tr220, ptr noundef nonnull %3)
+744:                                              ; preds = %741
+  %745 = call fastcc i32 @tune_tree(ptr noundef nonnull %.tr, ptr noundef %1, i32 noundef %.tr220, ptr noundef nonnull %3)
   br label %tune_look_behind.exit
 
-742:                                              ; preds = %731
-  %743 = and i32 %735, 2048
-  %.not77.i188 = icmp eq i32 %743, 0
-  br i1 %.not77.i188, label %tune_look_behind.exit, label %744
+746:                                              ; preds = %735
+  %747 = and i32 %739, 2048
+  %.not77.i188 = icmp eq i32 %747, 0
+  br i1 %.not77.i188, label %tune_look_behind.exit, label %748
 
-744:                                              ; preds = %729, %742
-  %.not78.i181 = icmp eq i32 %713, %711
-  br i1 %.not78.i181, label %751, label %745
+748:                                              ; preds = %733, %746
+  %.not78.i181 = icmp eq i32 %717, %715
+  br i1 %.not78.i181, label %755, label %749
 
-745:                                              ; preds = %744
-  %746 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %747 = load ptr, ptr %746, align 8, !tbaa !101
-  %748 = getelementptr inbounds nuw i8, ptr %747, i64 8
-  %749 = load i32, ptr %748, align 4, !tbaa !102
-  %750 = and i32 %749, 2048
-  %.not79.i182 = icmp eq i32 %750, 0
-  br i1 %.not79.i182, label %tune_look_behind.exit, label %751
+749:                                              ; preds = %748
+  %750 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %751 = load ptr, ptr %750, align 8, !tbaa !101
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
+  %753 = load i32, ptr %752, align 4, !tbaa !102
+  %754 = and i32 %753, 2048
+  %.not79.i182 = icmp eq i32 %754, 0
+  br i1 %.not79.i182, label %tune_look_behind.exit, label %755
 
-751:                                              ; preds = %745, %744
+755:                                              ; preds = %749, %748
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %752 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %753 = load ptr, ptr %752, align 8, !tbaa !243
-  %754 = icmp eq ptr %753, null
-  br i1 %754, label %755, label %764
+  %756 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %757 = load ptr, ptr %756, align 8, !tbaa !243
+  %758 = icmp eq ptr %757, null
+  br i1 %758, label %759, label %768
 
-755:                                              ; preds = %751
-  %756 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  store i32 %713, ptr %756, align 4, !tbaa !244
-  %757 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  store i32 %711, ptr %757, align 8, !tbaa !245
-  %758 = call fastcc i32 @get_tree_tail_literal(ptr noundef nonnull %656, ptr noundef %7, i32 noundef 0)
-  %759 = icmp eq i32 %758, 1
-  br i1 %759, label %760, label %764
+759:                                              ; preds = %755
+  %760 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  store i32 %717, ptr %760, align 4, !tbaa !244
+  %761 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  store i32 %715, ptr %761, align 8, !tbaa !245
+  %762 = call fastcc i32 @get_tree_tail_literal(ptr noundef nonnull %656, ptr noundef %7, i32 noundef 0)
+  %763 = icmp eq i32 %762, 1
+  br i1 %763, label %764, label %768
 
-760:                                              ; preds = %755
-  %761 = load ptr, ptr %7, align 8, !tbaa !45
-  %762 = call i32 @onig_node_copy(ptr noundef nonnull %752, ptr noundef %761) #22
-  %.not80.i186 = icmp eq i32 %762, 0
-  br i1 %.not80.i186, label %764, label %763
+764:                                              ; preds = %759
+  %765 = load ptr, ptr %7, align 8, !tbaa !45
+  %766 = call i32 @onig_node_copy(ptr noundef nonnull %756, ptr noundef %765) #22
+  %.not80.i186 = icmp eq i32 %766, 0
+  br i1 %.not80.i186, label %768, label %767
 
-763:                                              ; preds = %760
+767:                                              ; preds = %764
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tune_look_behind.exit
 
-764:                                              ; preds = %751, %755, %760
+768:                                              ; preds = %755, %759, %764
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tune_look_behind.exit
 
-tune_look_behind.exit:                            ; preds = %node_reduce_in_look_behind.exit14.i14.i.i, %node_reduce_in_look_behind.exit14.i.i.i, %764, %763, %646, %653, %.loopexit, %709, %725, %727, %737, %740, %742, %745
-  %.060.i176 = phi i32 [ -122, %646 ], [ %657, %653 ], [ -122, %709 ], [ %726, %725 ], [ %728, %727 ], [ %741, %740 ], [ %738, %737 ], [ %707, %.loopexit ], [ -122, %742 ], [ -122, %745 ], [ 0, %764 ], [ %762, %763 ], [ 1, %node_reduce_in_look_behind.exit14.i.i.i ], [ 1, %node_reduce_in_look_behind.exit14.i14.i.i ]
+tune_look_behind.exit:                            ; preds = %node_reduce_in_look_behind.exit13.i13.i.i, %node_reduce_in_look_behind.exit13.i.i.i, %768, %767, %646, %653, %.loopexit, %713, %729, %731, %741, %744, %746, %749
+  %.060.i176 = phi i32 [ -122, %646 ], [ %657, %653 ], [ -122, %713 ], [ %730, %729 ], [ %732, %731 ], [ %745, %744 ], [ %742, %741 ], [ %711, %.loopexit ], [ -122, %746 ], [ -122, %749 ], [ 0, %768 ], [ %766, %767 ], [ 1, %node_reduce_in_look_behind.exit13.i.i.i ], [ 1, %node_reduce_in_look_behind.exit13.i13.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.ret801

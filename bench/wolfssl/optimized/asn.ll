@@ -4067,26 +4067,26 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   %.2.i.i.i.fr = freeze i32 %.2.i.i.i
   %49 = add i32 %.2.i.i.i.fr, %.240.i.i.i.fr
   %50 = icmp ugt i32 %49, %3
-  %switch = icmp ult i32 %.240.i.i.i.fr, 3
-  %or.cond = or i1 %switch, %50
-  br i1 %or.cond, label %GetASNHeader.exit, label %51
+  %51 = icmp ult i32 %.240.i.i.i.fr, 3
+  %or.cond = or i1 %51, %50
+  br i1 %or.cond, label %GetASNHeader.exit, label %52
 
-51:                                               ; preds = %48
-  %52 = sext i32 %49 to i64
-  %53 = getelementptr i8, ptr %0, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i8, ptr %54, align 1, !tbaa !3
-  %.not19.i.i = icmp sgt i8 %55, -1
+52:                                               ; preds = %48
+  %53 = sext i32 %49 to i64
+  %54 = getelementptr i8, ptr %0, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 -1
+  %56 = load i8, ptr %55, align 1, !tbaa !3
+  %.not19.i.i = icmp sgt i8 %56, -1
   br i1 %.not19.i.i, label %select.unfold.i.i, label %GetASNHeader.exit
 
-select.unfold.i.i:                                ; preds = %51
+select.unfold.i.i:                                ; preds = %52
   store i32 %.240.i.i.i.fr, ptr %2, align 4, !tbaa !22
   store i32 %.2.i.i.i.fr, ptr %1, align 4, !tbaa !22
-  %56 = tail call i32 @llvm.smin.i32(i32 %.240.i.i.i.fr, i32 0)
+  %57 = tail call i32 @llvm.smin.i32(i32 %.240.i.i.i.fr, i32 0)
   br label %GetASNHeader.exit
 
-GetASNHeader.exit:                                ; preds = %48, %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %51, %select.unfold.i.i
-  %.4.i.i = phi i32 [ %56, %select.unfold.i.i ], [ -140, %51 ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
+GetASNHeader.exit:                                ; preds = %48, %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %52, %select.unfold.i.i
+  %.4.i.i = phi i32 [ %57, %select.unfold.i.i ], [ -140, %52 ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
   ret i32 %.4.i.i
 }
 

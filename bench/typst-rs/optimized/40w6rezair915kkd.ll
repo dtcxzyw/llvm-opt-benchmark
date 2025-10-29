@@ -87386,11 +87386,11 @@ define { ptr, ptr } @"_ZN72_$LT$typst..foundations..styles..Block$u20$as$u20$cor
 define noundef zeroext i1 @_ZN5typst11foundations6styles6Recipe5is_of17h629ae1b939d99e89E(ptr noalias noundef readonly align 16 captures(none) dereferenceable(112) %0, ptr noundef nonnull readnone align 8 captures(address) %1) unnamed_addr #33 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 16, !range !12832, !noundef !4
-  %switch = icmp samesign ult i64 %4, 2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8, !nonnull !4, !align !206
-  %7 = icmp eq ptr %6, %1
-  %.0 = select i1 %switch, i1 %7, i1 false
+  %5 = icmp samesign ult i64 %4, 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !206
+  %8 = icmp eq ptr %7, %1
+  %.0 = select i1 %5, i1 %8, i1 false
   ret i1 %.0
 }
 

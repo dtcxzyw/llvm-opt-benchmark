@@ -27,89 +27,89 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   %3 = inttoptr i64 %0 to ptr
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1
-  %.off = add i8 %8, -1
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %22, label %9
+  %9 = add i8 %8, -1
+  %10 = icmp ult i8 %9, 3
+  br i1 %10, label %24, label %11
 
-9:                                                ; preds = %6
-  %10 = icmp eq i8 %8, 18
-  %11 = select i1 %10, i32 16, i32 0
-  br label %22
+11:                                               ; preds = %6
+  %12 = icmp eq i8 %8, 18
+  %13 = select i1 %12, i32 16, i32 0
+  br label %24
 
-12:                                               ; preds = %2
-  %13 = and i8 %4, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %18, label %14
+14:                                               ; preds = %2
+  %15 = and i8 %4, 1
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %20, label %16
 
-14:                                               ; preds = %12
-  %15 = lshr i8 %4, 1
-  %16 = zext nneg i8 %15 to i32
-  %17 = add nsw i32 %16, -1
-  br label %22
+16:                                               ; preds = %14
+  %17 = lshr i8 %4, 1
+  %18 = zext nneg i8 %17 to i32
+  %19 = add nsw i32 %18, -1
+  br label %24
 
-18:                                               ; preds = %12
-  %19 = load i32, ptr %3, align 4
-  %20 = lshr i32 %19, 2
-  %21 = add nsw i32 %20, -4
-  br label %22
+20:                                               ; preds = %14
+  %21 = load i32, ptr %3, align 4
+  %22 = lshr i32 %21, 2
+  %23 = add nsw i32 %22, -4
+  br label %24
 
-22:                                               ; preds = %6, %9, %14, %18
-  %23 = phi i32 [ %17, %14 ], [ %21, %18 ], [ %11, %9 ], [ 8, %6 ]
+24:                                               ; preds = %6, %11, %16, %20
+  %25 = phi i32 [ %19, %16 ], [ %23, %20 ], [ 8, %6 ], [ %13, %11 ]
   %.not23 = icmp eq i8 %1, 0
-  %24 = load i32, ptr @default_toast_compression, align 4
-  %25 = trunc i32 %24 to i8
-  %.022 = select i1 %.not23, i8 %25, i8 %1
-  switch i8 %.022, label %30 [
-    i8 112, label %26
-    i8 108, label %28
+  %26 = load i32, ptr @default_toast_compression, align 4
+  %27 = trunc i32 %26 to i8
+  %.022 = select i1 %.not23, i8 %27, i8 %1
+  switch i8 %.022, label %32 [
+    i8 112, label %28
+    i8 108, label %30
   ]
 
-26:                                               ; preds = %22
-  %27 = tail call ptr @pglz_compress_datum(ptr noundef nonnull %3) #6
-  br label %34
+28:                                               ; preds = %24
+  %29 = tail call ptr @pglz_compress_datum(ptr noundef nonnull %3) #6
+  br label %36
 
-28:                                               ; preds = %22
-  %29 = tail call ptr @lz4_compress_datum(ptr noundef nonnull %3) #6
-  br label %34
+30:                                               ; preds = %24
+  %31 = tail call ptr @lz4_compress_datum(ptr noundef nonnull %3) #6
+  br label %36
 
-30:                                               ; preds = %22
-  %31 = sext i8 %.022 to i32
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #6
+32:                                               ; preds = %24
+  %33 = sext i8 %.022 to i32
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %33) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @__func__.toast_compress_datum) #6
   unreachable
 
-34:                                               ; preds = %28, %26
-  %.021 = phi ptr [ %27, %26 ], [ %29, %28 ]
-  %.0 = phi i32 [ 0, %26 ], [ 1073741824, %28 ]
-  %35 = icmp eq ptr %.021, null
-  br i1 %35, label %46, label %36
+36:                                               ; preds = %30, %28
+  %.021 = phi ptr [ %29, %28 ], [ %31, %30 ]
+  %.0 = phi i32 [ 0, %28 ], [ 1073741824, %30 ]
+  %37 = icmp eq ptr %.021, null
+  br i1 %37, label %48, label %38
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr %.021, align 4
-  %38 = lshr i32 %37, 2
-  %39 = add nsw i32 %23, -2
-  %40 = icmp ult i32 %38, %39
-  br i1 %40, label %41, label %45
+38:                                               ; preds = %36
+  %39 = load i32, ptr %.021, align 4
+  %40 = lshr i32 %39, 2
+  %41 = add nsw i32 %25, -2
+  %42 = icmp ult i32 %40, %41
+  br i1 %42, label %43, label %47
 
-41:                                               ; preds = %36
-  %42 = or i32 %.0, %23
-  %43 = getelementptr inbounds nuw i8, ptr %.021, i64 4
-  store i32 %42, ptr %43, align 4
-  %44 = ptrtoint ptr %.021 to i64
-  br label %46
+43:                                               ; preds = %38
+  %44 = or i32 %.0, %25
+  %45 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  store i32 %44, ptr %45, align 4
+  %46 = ptrtoint ptr %.021 to i64
+  br label %48
 
-45:                                               ; preds = %36
+47:                                               ; preds = %38
   tail call void @pfree(ptr noundef nonnull %.021) #6
-  br label %46
+  br label %48
 
-46:                                               ; preds = %34, %45, %41
-  %.020 = phi i64 [ %44, %41 ], [ 0, %45 ], [ 0, %34 ]
+48:                                               ; preds = %36, %47, %43
+  %.020 = phi i64 [ %46, %43 ], [ 0, %47 ], [ 0, %36 ]
   ret i64 %.020
 }
 

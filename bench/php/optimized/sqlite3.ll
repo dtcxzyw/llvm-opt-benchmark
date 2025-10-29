@@ -469,7 +469,7 @@ define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef readonly
 
 14:                                               ; preds = %10
   %.not61 = icmp eq ptr %2, null
-  br i1 %.not61, label %113, label %15
+  br i1 %.not61, label %114, label %15
 
 15:                                               ; preds = %14
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %2, ptr noundef nonnull dereferenceable(9) @.str.2, i64 9)
@@ -484,18 +484,18 @@ define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef readonly
 18:                                               ; preds = %16
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.60, i64 noundef 5) #18
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %113, label %21
+  br i1 %20, label %114, label %21
 
 21:                                               ; preds = %18
   %22 = tail call i32 @php_check_open_basedir(ptr noundef nonnull %2) #17
   %.not64 = icmp eq i32 %22, 0
-  br i1 %.not64, label %23, label %113
+  br i1 %.not64, label %23, label %114
 
 23:                                               ; preds = %21, %16, %15, %10, %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !44
   %.not65 = icmp eq ptr %25, null
-  br i1 %.not65, label %113, label %26
+  br i1 %.not65, label %114, label %26
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -653,40 +653,40 @@ zend_call_known_fcc.exit:                         ; preds = %93, %85, %79
 
 102:                                              ; preds = %zend_call_known_fcc.exit
   call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.61)
-  br label %108
+  br label %109
 
 103:                                              ; preds = %zend_call_known_fcc.exit
   call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.62)
-  br label %108
+  br label %109
 
 104:                                              ; preds = %zend_call_known_fcc.exit
   %105 = load i64, ptr %7, align 8, !tbaa !8
   %106 = trunc i64 %105 to i32
-  %switch = icmp ult i32 %106, 3
-  br i1 %switch, label %108, label %107
+  %107 = icmp ult i32 %106, 3
+  br i1 %107, label %109, label %108
 
-107:                                              ; preds = %104
+108:                                              ; preds = %104
   call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.63, i32 noundef %106)
-  br label %108
+  br label %109
 
-108:                                              ; preds = %104, %103, %107, %102
-  %.0 = phi i32 [ 1, %102 ], [ 1, %103 ], [ 1, %107 ], [ %106, %104 ]
+109:                                              ; preds = %104, %103, %108, %102
+  %.0 = phi i32 [ 1, %102 ], [ 1, %103 ], [ 1, %108 ], [ %106, %104 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #17
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #17
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @zval_ptr_dtor(ptr noundef nonnull %109) #17
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @zval_ptr_dtor(ptr noundef nonnull %110) #17
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @zval_ptr_dtor(ptr noundef nonnull %111) #17
-  %112 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @zval_ptr_dtor(ptr noundef nonnull %112) #17
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  call void @zval_ptr_dtor(ptr noundef nonnull %113) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %113
+  br label %114
 
-113:                                              ; preds = %108, %23, %21, %18, %14
-  %.053 = phi i32 [ 1, %14 ], [ 1, %18 ], [ 1, %21 ], [ %.0, %108 ], [ 0, %23 ]
+114:                                              ; preds = %109, %23, %21, %18, %14
+  %.053 = phi i32 [ 1, %14 ], [ 1, %18 ], [ 1, %21 ], [ %.0, %109 ], [ 0, %23 ]
   ret i32 %.053
 }
 

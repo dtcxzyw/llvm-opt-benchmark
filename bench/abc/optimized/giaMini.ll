@@ -1076,7 +1076,7 @@ define void @Gia_ManReadMiniAigNames(ptr noundef %0, ptr noundef captures(none) 
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #25
   %8 = tail call noalias ptr @fopen(ptr noundef nonnull %6, ptr noundef nonnull @.str.4)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %249, label %9
+  br i1 %.not, label %250, label %9
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1578,18 +1578,18 @@ Vec_PtrPush.exit81:                               ; preds = %.Vec_PtrGrow.exit11
   %242 = zext nneg i32 %161 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.critedge, %246
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %246 ], [ 0, %.critedge ]
+.lr.ph.i.i:                                       ; preds = %.critedge, %247
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %247 ], [ 0, %.critedge ]
   %243 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i.i
   %244 = load ptr, ptr %243, align 8, !tbaa !67
-  %switch.i.i = icmp ult ptr %244, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %246, label %245
+  %245 = icmp ult ptr %244, inttoptr (i64 3 to ptr)
+  br i1 %245, label %247, label %246
 
-245:                                              ; preds = %.lr.ph.i.i
+246:                                              ; preds = %.lr.ph.i.i
   call void @free(ptr noundef %244) #25
-  br label %246
+  br label %247
 
-246:                                              ; preds = %245, %.lr.ph.i.i
+247:                                              ; preds = %246, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next.i.i, %242
   br i1 %exitcond87.not, label %Vec_PtrFreeData.exit.i.thread, label %.lr.ph.i.i, !llvm.loop !70
@@ -1599,19 +1599,19 @@ Vec_PtrFreeData.exit.i:                           ; preds = %Vec_PtrAlloc.exit49
   %.not.i.i = icmp eq ptr %.pre109, null
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %Vec_PtrFreeData.exit.i.thread
 
-Vec_PtrFreeData.exit.i.thread:                    ; preds = %246, %Vec_PtrFreeData.exit.i
-  %.pre110113 = phi ptr [ %.pre109, %Vec_PtrFreeData.exit.i ], [ %.pre, %246 ]
+Vec_PtrFreeData.exit.i.thread:                    ; preds = %247, %Vec_PtrFreeData.exit.i
+  %.pre110113 = phi ptr [ %.pre109, %Vec_PtrFreeData.exit.i ], [ %.pre, %247 ]
   call void @free(ptr noundef nonnull %.pre110113) #25
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %Vec_PtrFreeData.exit.i.thread
   call void @free(ptr noundef nonnull %11) #25
-  %247 = call i32 @fclose(ptr noundef nonnull %8)
-  %248 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %6)
+  %248 = call i32 @fclose(ptr noundef nonnull %8)
+  %249 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %249
+  br label %250
 
-249:                                              ; preds = %Vec_PtrFreeFree.exit, %2
+250:                                              ; preds = %Vec_PtrFreeFree.exit, %2
   call void @free(ptr noundef nonnull %6) #25
   ret void
 }

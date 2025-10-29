@@ -8660,22 +8660,22 @@ ssl_has_cert.exit.thread:                         ; preds = %has_usable_cert.exi
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_set_tlsext_max_fragment_length(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
-  %switch = icmp ult i8 %1, 5
-  br i1 %switch, label %4, label %3
+  %3 = icmp ult i8 %1, 5
+  br i1 %3, label %5, label %4
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 4606, ptr noundef nonnull @__func__.SSL_CTX_set_tlsext_max_fragment_length) #14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 232, ptr noundef null) #14
-  br label %6
+  br label %7
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  store i8 %1, ptr %5, align 4, !tbaa !305
-  br label %6
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  store i8 %1, ptr %6, align 4, !tbaa !305
+  br label %7
 
-6:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 1, %4 ], [ 0, %3 ]
+7:                                                ; preds = %5, %4
+  %.0 = phi i32 [ 1, %5 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -8709,22 +8709,22 @@ define range(i32 0, 2) i32 @SSL_set_tlsext_max_fragment_length(ptr noundef %0, i
 
 .thread26.thread:                                 ; preds = %4, %.thread26
   %15 = phi ptr [ %10, %.thread26 ], [ %0, %4 ]
-  %switch = icmp ult i8 %1, 5
-  br i1 %switch, label %17, label %16
+  %16 = icmp ult i8 %1, 5
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %.thread26.thread
+17:                                               ; preds = %.thread26.thread
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 4624, ptr noundef nonnull @__func__.SSL_set_tlsext_max_fragment_length) #14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 232, ptr noundef null) #14
   br label %.thread
 
-17:                                               ; preds = %.thread26.thread
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 2868
-  store i8 %1, ptr %18, align 4, !tbaa !306
+18:                                               ; preds = %.thread26.thread
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 2868
+  store i8 %1, ptr %19, align 4, !tbaa !306
   br label %.thread
 
-.thread:                                          ; preds = %7, %2, %9, %.thread26, %17, %16
-  %.0 = phi i32 [ 1, %17 ], [ 0, %16 ], [ 0, %.thread26 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
+.thread:                                          ; preds = %7, %2, %9, %.thread26, %18, %17
+  %.0 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 0, %.thread26 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 

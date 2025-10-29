@@ -406,60 +406,60 @@ _ZL25get_chained_signal_actioni.exit.thread9:     ; preds = %8, %_ZL25get_chaine
   %.1.i12 = phi ptr [ %16, %_ZL25get_chained_signal_actioni.exit ], [ %10, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = load ptr, ptr %.1.i12, align 8
-  %switch.i = icmp ult ptr %17, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit, label %18
+  %18 = icmp ult ptr %17, inttoptr (i64 2 to ptr)
+  br i1 %18, label %_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit, label %19
 
-18:                                               ; preds = %_ZL25get_chained_signal_actioni.exit.thread9
-  %19 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 136
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, 1073741824
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %26
+19:                                               ; preds = %_ZL25get_chained_signal_actioni.exit.thread9
+  %20 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 136
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 1073741824
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 8
-  %25 = tail call i32 @sigaddset(ptr noundef nonnull %24, i32 noundef %0) #20
-  %.pr.i = load i32, ptr %19, align 8
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 8
+  %26 = tail call i32 @sigaddset(ptr noundef nonnull %25, i32 noundef %0) #20
+  %.pr.i = load i32, ptr %20, align 8
   %.pre.i = load ptr, ptr %.1.i12, align 8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %23, %18
-  %27 = phi ptr [ %.pre.i, %23 ], [ %17, %18 ]
-  %28 = phi i32 [ %.pr.i, %23 ], [ %20, %18 ]
-  %29 = and i32 %28, 4
-  %.not22.i = icmp eq i32 %29, 0
-  %.not23.i = icmp sgt i32 %28, -1
-  br i1 %.not23.i, label %31, label %30
+27:                                               ; preds = %24, %19
+  %28 = phi ptr [ %.pre.i, %24 ], [ %17, %19 ]
+  %29 = phi i32 [ %.pr.i, %24 ], [ %21, %19 ]
+  %30 = and i32 %29, 4
+  %.not22.i = icmp eq i32 %30, 0
+  %.not23.i = icmp sgt i32 %29, -1
+  br i1 %.not23.i, label %32, label %31
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   store ptr null, ptr %.1.i12, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %26
-  %32 = call i32 @sigemptyset(ptr noundef nonnull %4) #20
-  %33 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 8
-  %34 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %33, ptr noundef nonnull %4) #20
-  br i1 %.not22.i, label %36, label %35
+32:                                               ; preds = %31, %27
+  %33 = call i32 @sigemptyset(ptr noundef nonnull %4) #20
+  %34 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 8
+  %35 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %34, ptr noundef nonnull %4) #20
+  br i1 %.not22.i, label %37, label %36
 
-35:                                               ; preds = %31
-  call void %27(i32 noundef %0, ptr noundef %1, ptr noundef %2) #20
-  br label %37
+36:                                               ; preds = %32
+  call void %28(i32 noundef %0, ptr noundef %1, ptr noundef %2) #20
+  br label %38
 
-36:                                               ; preds = %31
-  call void %27(i32 noundef %0) #20
-  br label %37
+37:                                               ; preds = %32
+  call void %28(i32 noundef %0) #20
+  br label %38
 
-37:                                               ; preds = %36, %35
-  %38 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #20
+38:                                               ; preds = %37, %36
+  %39 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #20
   br label %_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit
 
-_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit: ; preds = %_ZL25get_chained_signal_actioni.exit.thread9, %37
-  %39 = icmp ne ptr %17, null
+_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit: ; preds = %_ZL25get_chained_signal_actioni.exit.thread9, %38
+  %40 = icmp ne ptr %17, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL25get_chained_signal_actioni.exit.thread
 
 _ZL25get_chained_signal_actioni.exit.thread:      ; preds = %.thread.i, %_ZL25get_chained_signal_actioni.exit, %_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit, %3
-  %.0 = phi i1 [ %39, %_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit ], [ false, %_ZL25get_chained_signal_actioni.exit ], [ false, %3 ], [ false, %.thread.i ]
+  %.0 = phi i1 [ %40, %_ZL20call_chained_handlerP9sigactioniP9siginfo_tPv.exit ], [ false, %_ZL25get_chained_signal_actioni.exit ], [ false, %3 ], [ false, %.thread.i ]
   ret i1 %.0
 }
 
@@ -721,12 +721,12 @@ define hidden noundef ptr @_ZN12PosixSignals30install_generic_signal_handlerEiPv
   %10 = call i32 @sigdelset(ptr noundef nonnull %5, i32 noundef 11) #20
   %11 = call i32 @sigdelset(ptr noundef nonnull %5, i32 noundef 5) #20
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %switch = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  %spec.store.select = select i1 %switch, i32 268435456, i32 268435460
+  %13 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
+  %spec.store.select = select i1 %13, i32 268435456, i32 268435460
   store i32 %spec.store.select, ptr %12, align 8
   store ptr %1, ptr %3, align 8
-  %13 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
-  %.not = icmp eq i32 %13, 0
+  %14 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %.not = icmp eq i32 %14, 0
   %.val = load ptr, ptr %4, align 8
   %.0 = select i1 %.not, ptr %.val, ptr inttoptr (i64 -1 to ptr)
   ret ptr %.0
@@ -2627,65 +2627,65 @@ define internal fastcc void @_ZL18set_signal_handleri(i32 noundef range(i32 4, 2
   %4 = call i32 @sigaction(i32 noundef %0, ptr noundef null, ptr noundef nonnull %2) #20
   %.val = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %.val, @_ZL17javaSignalHandleriP9siginfo_tPv
-  %switch = icmp ult ptr %.val, inttoptr (i64 2 to ptr)
-  %or.cond = or i1 %5, %switch
-  br i1 %or.cond, label %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge, label %6
+  %6 = icmp ult ptr %.val, inttoptr (i64 2 to ptr)
+  %or.cond = or i1 %5, %6
+  br i1 %or.cond, label %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge, label %7
 
 ._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge: ; preds = %1
   %.pre = zext nneg i32 %0 to i64
   br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
 
-6:                                                ; preds = %1
-  %7 = load i8, ptr @AllowUserSignalHandlers, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %32, label %9
+7:                                                ; preds = %1
+  %8 = load i8, ptr @AllowUserSignalHandlers, align 1
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %33, label %10
 
-9:                                                ; preds = %6
-  %10 = load i8, ptr @UseSignalChaining, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit, label %15
+10:                                               ; preds = %7
+  %11 = load i8, ptr @UseSignalChaining, align 1
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit, label %16
 
-_ZN19SavedSignalHandlers3setEiPK9sigaction.exit:  ; preds = %9
-  %12 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
-  %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @_ZL16chained_handlers, i64 %13
-  store ptr %12, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 152, i1 false)
+_ZN19SavedSignalHandlers3setEiPK9sigaction.exit:  ; preds = %10
+  %13 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
+  %14 = zext nneg i32 %0 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZL16chained_handlers, i64 %14
+  store ptr %13, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 152, i1 false)
   br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
 
-15:                                               ; preds = %9
+16:                                               ; preds = %10
   %magicptr = ptrtoint ptr %.val to i64
-  %16 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %16, align 1
+  %17 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %17, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.31, i32 noundef 1260, ptr noundef nonnull @.str.193, i64 noundef %magicptr, i32 noundef %0) #22
   unreachable
 
 _ZN19SavedSignalHandlers3setEiPK9sigaction.exit18: ; preds = %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
-  %.pre-phi = phi i64 [ %.pre, %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge ], [ %13, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit ]
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = call i32 @sigfillset(ptr noundef nonnull %17) #20
-  %19 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 4) #20
-  %20 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 7) #20
-  %21 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 8) #20
-  %22 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 11) #20
-  %23 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 5) #20
+  %.pre-phi = phi i64 [ %.pre, %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge ], [ %14, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit ]
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = call i32 @sigfillset(ptr noundef nonnull %18) #20
+  %20 = call i32 @sigdelset(ptr noundef nonnull %18, i32 noundef 4) #20
+  %21 = call i32 @sigdelset(ptr noundef nonnull %18, i32 noundef 7) #20
+  %22 = call i32 @sigdelset(ptr noundef nonnull %18, i32 noundef 8) #20
+  %23 = call i32 @sigdelset(ptr noundef nonnull %18, i32 noundef 11) #20
+  %24 = call i32 @sigdelset(ptr noundef nonnull %18, i32 noundef 5) #20
   store ptr @_ZL17javaSignalHandleriP9siginfo_tPv, ptr %3, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 268435460, ptr %24, align 8
-  %25 = call noundef i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #20
-  %26 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
-  %27 = getelementptr inbounds nuw ptr, ptr @_ZL11vm_handlers, i64 %.pre-phi
-  store ptr %26, ptr %27, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %26, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
-  %28 = icmp ne i32 %0, 13
-  %29 = icmp ne i32 %0, 25
-  %or.cond5.not = and i1 %28, %29
-  %30 = getelementptr inbounds nuw i8, ptr @_ZL28do_check_signal_periodically, i64 %.pre-phi
-  %31 = zext i1 %or.cond5.not to i8
-  store i8 %31, ptr %30, align 1
-  br label %32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store i32 268435460, ptr %25, align 8
+  %26 = call noundef i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #20
+  %27 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
+  %28 = getelementptr inbounds nuw ptr, ptr @_ZL11vm_handlers, i64 %.pre-phi
+  store ptr %27, ptr %28, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
+  %29 = icmp ne i32 %0, 13
+  %30 = icmp ne i32 %0, 25
+  %or.cond5.not = and i1 %29, %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZL28do_check_signal_periodically, i64 %.pre-phi
+  %32 = zext i1 %or.cond5.not to i8
+  store i8 %32, ptr %31, align 1
+  br label %33
 
-32:                                               ; preds = %6, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
+33:                                               ; preds = %7, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
   ret void
 }
 

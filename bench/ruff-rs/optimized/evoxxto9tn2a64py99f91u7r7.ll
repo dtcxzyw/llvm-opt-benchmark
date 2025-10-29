@@ -6098,20 +6098,20 @@ define hidden noundef nonnull align 8 ptr @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %3, i64 %1
   %8 = load atomic i64, ptr %7 monotonic, align 128
-  %switch.i = icmp ugt i64 %8, -9
-  br i1 %switch.i, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit, !prof !301
+  %9 = icmp ugt i64 %8, -9
+  br i1 %9, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit, !prof !301
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit: ; preds = %2
-  %9 = add nuw i64 %8, 4
-  %10 = cmpxchg weak ptr %7, i64 %8, i64 %9 acquire monotonic, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %10, 1
-  br i1 %.sroa.18.0.in.i, label %11, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread, !prof !302
+  %10 = add nuw i64 %8, 4
+  %11 = cmpxchg weak ptr %7, i64 %8, i64 %10 acquire monotonic, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %11, 1
+  br i1 %.sroa.18.0.in.i, label %12, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread, !prof !302
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread: ; preds = %2, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit
   tail call void @_ZN7dashmap4lock9RawRwLock16lock_shared_slow17hea8083f4bab717d6E(ptr noundef nonnull align 8 %7)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit
+12:                                               ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit.thread, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17haacd53763ecf5cddE.exit
   ret ptr %7
 }
 
@@ -6854,5 +6854,5 @@ attributes #28 = { cold noreturn nounwind }
 !298 = !{!299, !296}
 !299 = distinct !{!299, !300, !"_ZN4core4iter6traits8iterator8Iterator7collect17hf2d7810871111052E: argument 0"}
 !300 = distinct !{!300, !"_ZN4core4iter6traits8iterator8Iterator7collect17hf2d7810871111052E"}
-!301 = !{!"branch_weights", i32 2000, i32 2000}
+!301 = !{!"branch_weights", i32 2002, i32 2000}
 !302 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}

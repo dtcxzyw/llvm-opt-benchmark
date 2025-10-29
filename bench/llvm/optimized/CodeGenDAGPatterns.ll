@@ -17892,7 +17892,7 @@ _ZN4llvm17ValueTypeByHwModeaSEOS0_.exit:          ; preds = %22, %28
 
 105:                                              ; preds = %98
   %106 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.138, i64 14)
-  br i1 %106, label %107, label %135
+  br i1 %106, label %107, label %137
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -17910,7 +17910,7 @@ _ZN4llvm17ValueTypeByHwModeaSEOS0_.exit:          ; preds = %22, %28
   br i1 %.not113, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %107, %_ZNK4llvm3MVT9isIntegerEv.exit.thread
-  %.sroa.065.0114 = phi ptr [ %134, %_ZNK4llvm3MVT9isIntegerEv.exit.thread ], [ %113, %107 ]
+  %.sroa.065.0114 = phi ptr [ %136, %_ZNK4llvm3MVT9isIntegerEv.exit.thread ], [ %113, %107 ]
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.065.0114, i64 36
   %115 = load i16, ptr %114, align 4, !tbaa !22
   %116 = add i16 %115, -17
@@ -17933,89 +17933,89 @@ _ZN4llvm17ValueTypeByHwModeaSEOS0_.exit:          ; preds = %22, %28
   unreachable
 
 125:                                              ; preds = %.lr.ph
-  %.off = add i16 %115, -2
-  %switch = icmp ult i16 %.off, 15
-  br i1 %switch, label %_ZNK4llvm3MVT9isIntegerEv.exit.thread, label %126
+  %126 = add i16 %115, -2
+  %127 = icmp ult i16 %126, 15
+  br i1 %127, label %_ZNK4llvm3MVT9isIntegerEv.exit.thread, label %128
 
-126:                                              ; preds = %125
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !69
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %130 = load i32, ptr %129, align 8, !tbaa !71
-  %131 = zext i32 %130 to i64
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !69
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %132 = load i32, ptr %131, align 8, !tbaa !71
+  %133 = zext i32 %132 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %132 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %133 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %133, align 1, !tbaa !123
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 1, ptr %135, align 1, !tbaa !123
   store ptr @.str.140, ptr %8, align 8, !tbaa !21
-  store i8 3, ptr %132, align 8, !tbaa !126
-  call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %128, i64 %131, ptr noundef nonnull align 8 dereferenceable(34) %8) #34
+  store i8 3, ptr %134, align 8, !tbaa !126
+  call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %130, i64 %133, ptr noundef nonnull align 8 dereferenceable(34) %8) #34
   unreachable
 
 _ZNK4llvm3MVT9isIntegerEv.exit.thread:            ; preds = %125
-  %134 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.065.0114) #33
-  %.not = icmp eq ptr %134, %13
+  %136 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.065.0114) #33
+  %.not = icmp eq ptr %136, %13
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-135:                                              ; preds = %105
-  %136 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.141, i64 19)
-  br i1 %136, label %137, label %142
+137:                                              ; preds = %105
+  %138 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.141, i64 19)
+  br i1 %138, label %139, label %144
 
-137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 11, ptr %138, align 4, !tbaa !396
-  %139 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.131, i64 15) #32
-  %140 = trunc i64 %139 to i32
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %140, ptr %141, align 8, !tbaa !397
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 11, ptr %140, align 4, !tbaa !396
+  %141 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.131, i64 15) #32
+  %142 = trunc i64 %141 to i32
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %142, ptr %143, align 8, !tbaa !397
   br label %.loopexit
 
-142:                                              ; preds = %135
-  %143 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.142, i64 16)
-  br i1 %143, label %144, label %149
+144:                                              ; preds = %137
+  %145 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.142, i64 16)
+  br i1 %145, label %146, label %151
 
-144:                                              ; preds = %142
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 12, ptr %145, align 4, !tbaa !396
-  %146 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.131, i64 15) #32
-  %147 = trunc i64 %146 to i32
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %147, ptr %148, align 8, !tbaa !397
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 12, ptr %147, align 4, !tbaa !396
+  %148 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.131, i64 15) #32
+  %149 = trunc i64 %148 to i32
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %149, ptr %150, align 8, !tbaa !397
   br label %.loopexit
 
-149:                                              ; preds = %142
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !69
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %153 = load i32, ptr %152, align 8, !tbaa !71
-  %154 = zext i32 %153 to i64
+151:                                              ; preds = %144
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !69
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %155 = load i32, ptr %154, align 8, !tbaa !71
+  %156 = zext i32 %155 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %155 = load ptr, ptr %1, align 8, !tbaa !128
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %156, align 8, !tbaa !164
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %155, i64 32
+  %157 = load ptr, ptr %1, align 8, !tbaa !128
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %158, align 8, !tbaa !164
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %157, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !3
-  %157 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 3, ptr %157, align 8, !tbaa !126, !alias.scope !398
-  %158 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 5, ptr %158, align 1, !tbaa !123, !alias.scope !398
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 3, ptr %159, align 8, !tbaa !126, !alias.scope !398
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 5, ptr %160, align 1, !tbaa !123, !alias.scope !398
   store ptr @.str.143, ptr %10, align 8, !tbaa !21, !alias.scope !398
-  %159 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %.sroa.0.0.copyload.i.i, ptr %159, align 8, !tbaa !21, !alias.scope !398
-  %160 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.sroa.2.0.copyload.i.i, ptr %160, align 8, !tbaa !21, !alias.scope !398
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %.sroa.0.0.copyload.i.i, ptr %161, align 8, !tbaa !21, !alias.scope !398
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 %.sroa.2.0.copyload.i.i, ptr %162, align 8, !tbaa !21, !alias.scope !398
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %161 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %162 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %162, align 1, !tbaa !123
+  %163 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %164, align 1, !tbaa !123
   store ptr @.str.144, ptr %11, align 8, !tbaa !21
-  store i8 3, ptr %161, align 8, !tbaa !126
+  store i8 3, ptr %163, align 8, !tbaa !126
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %9, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11)
-  call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %151, i64 %154, ptr noundef nonnull align 8 dereferenceable(34) %9) #34
+  call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %153, i64 %156, ptr noundef nonnull align 8 dereferenceable(34) %9) #34
   unreachable
 
-.loopexit:                                        ; preds = %_ZNK4llvm3MVT9isIntegerEv.exit.thread, %52, %107, %_ZN4llvm17ValueTypeByHwModeaSEOS0_.exit, %56, %64, %72, %86, %100, %137, %144, %93, %79, %68, %60
+.loopexit:                                        ; preds = %_ZNK4llvm3MVT9isIntegerEv.exit.thread, %52, %107, %_ZN4llvm17ValueTypeByHwModeaSEOS0_.exit, %56, %64, %72, %86, %100, %139, %146, %93, %79, %68, %60
   ret void
 }
 

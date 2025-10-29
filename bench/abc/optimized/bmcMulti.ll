@@ -951,7 +951,7 @@ define range(i32 -1, 1) i32 @Gia_ManMultiProve(ptr noundef %0, ptr noundef reado
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8, !tbaa !94
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %19, label %5
+  br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %4, i64 4
@@ -963,74 +963,74 @@ define range(i32 -1, 1) i32 @Gia_ManMultiProve(ptr noundef %0, ptr noundef reado
   %8 = getelementptr i8, ptr %4, i64 8
   br label %9
 
-9:                                                ; preds = %13, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
+9:                                                ; preds = %14, %.lr.ph.i.i
+  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %14 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
   %.val14.i.i = load ptr, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !16
-  %switch.i.i = icmp ult ptr %11, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %13, label %12
+  %12 = icmp ult ptr %11, inttoptr (i64 3 to ptr)
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %9
+13:                                               ; preds = %9
   tail call void @free(ptr noundef %11) #16
   %.val.pre.i.i = load i32, ptr %6, align 4, !tbaa !3
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %9
-  %.val.i.i = phi i32 [ %.val18.i.i, %9 ], [ %.val.pre.i.i, %12 ]
+14:                                               ; preds = %13, %9
+  %.val.i.i = phi i32 [ %.val18.i.i, %9 ], [ %.val.pre.i.i, %13 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %14 = sext i32 %.val.i.i to i64
-  %15 = icmp slt i64 %indvars.iv.next.i.i, %14
-  br i1 %15, label %9, label %Vec_PtrFreeData.exit.i, !llvm.loop !95
+  %15 = sext i32 %.val.i.i to i64
+  %16 = icmp slt i64 %indvars.iv.next.i.i, %15
+  br i1 %16, label %9, label %Vec_PtrFreeData.exit.i, !llvm.loop !95
 
-Vec_PtrFreeData.exit.i:                           ; preds = %13, %5
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %18
+Vec_PtrFreeData.exit.i:                           ; preds = %14, %5
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %19
 
-18:                                               ; preds = %Vec_PtrFreeData.exit.i
-  tail call void @free(ptr noundef nonnull %17) #16
+19:                                               ; preds = %Vec_PtrFreeData.exit.i
+  tail call void @free(ptr noundef nonnull %18) #16
   br label %Vec_PtrFreeFree.exit
 
-Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %18
+Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %19
   tail call void @free(ptr noundef nonnull %4) #16
   store ptr null, ptr %3, align 8, !tbaa !94
-  br label %19
+  br label %20
 
-19:                                               ; preds = %Vec_PtrFreeFree.exit, %2
-  %20 = tail call ptr @Gia_ManToAig(ptr noundef nonnull %0, i32 noundef 0) #16
-  %21 = tail call ptr @Gia_ManMultiProveAig(ptr noundef %20, ptr noundef %1)
-  store ptr %21, ptr %3, align 8, !tbaa !94
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph.i, label %Vec_PtrCountZero.exit
+20:                                               ; preds = %Vec_PtrFreeFree.exit, %2
+  %21 = tail call ptr @Gia_ManToAig(ptr noundef nonnull %0, i32 noundef 0) #16
+  %22 = tail call ptr @Gia_ManMultiProveAig(ptr noundef %21, ptr noundef %1)
+  store ptr %22, ptr %3, align 8, !tbaa !94
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !3
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph.i, label %Vec_PtrCountZero.exit
 
-.lr.ph.i:                                         ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %wide.trip.count.i = zext nneg i32 %23 to i64
-  br label %27
+.lr.ph.i:                                         ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
+  %wide.trip.count.i = zext nneg i32 %24 to i64
+  br label %28
 
-27:                                               ; preds = %27, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %32, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %30 = icmp eq ptr %29, null
-  %31 = zext i1 %30 to i32
-  %32 = add nuw nsw i32 %.08.i, %31
+28:                                               ; preds = %28, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
+  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %33, %28 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %31 = icmp eq ptr %30, null
+  %32 = zext i1 %31 to i32
+  %33 = add nuw nsw i32 %.08.i, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrCountZero.exit, label %27, !llvm.loop !70
+  br i1 %exitcond.not.i, label %Vec_PtrCountZero.exit, label %28, !llvm.loop !70
 
-Vec_PtrCountZero.exit:                            ; preds = %27, %19
-  %.0.lcssa.i = phi i32 [ 0, %19 ], [ %32, %27 ]
-  %33 = icmp eq i32 %.0.lcssa.i, %23
-  %34 = sext i1 %33 to i32
-  ret i32 %34
+Vec_PtrCountZero.exit:                            ; preds = %28, %20
+  %.0.lcssa.i = phi i32 [ 0, %20 ], [ %33, %28 ]
+  %34 = icmp eq i32 %.0.lcssa.i, %24
+  %35 = sext i1 %34 to i32
+  ret i32 %35
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

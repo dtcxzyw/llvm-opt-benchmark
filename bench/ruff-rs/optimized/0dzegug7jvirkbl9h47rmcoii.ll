@@ -94793,14 +94793,14 @@ _ZN11ruff_linter5rules6pylint5rules27subprocess_popen_preexec_fn27subprocess_pop
 
 3863:                                             ; preds = %3865, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2a9268fedfda4648E.exit.i.i.i.i"
   %3864 = phi ptr [ %3866, %3865 ], [ %3859, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2a9268fedfda4648E.exit.i.i.i.i" ]
-  %.not.not.not.i51.not.i.i.i.i = icmp eq ptr %3864, %3862
-  br i1 %.not.not.not.i51.not.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h44736d80eee4765aE.exit.i.i.i.i", label %3865
+  %.not.not.not.i47.not.i.i.i.i = icmp eq ptr %3864, %3862
+  br i1 %.not.not.not.i47.not.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h44736d80eee4765aE.exit.i.i.i.i", label %3865
 
 3865:                                             ; preds = %3863
   %3866 = getelementptr inbounds nuw i8, ptr %3864, i64 104
   %3867 = getelementptr i8, ptr %3864, i64 95
-  %.val.i52.i.i.i.i = load i8, ptr %3867, align 1, !range !692, !noalias !5890, !noundef !3
-  %.not.i.i.i.i.i.i = icmp eq i8 %.val.i52.i.i.i.i, -38
+  %.val.i48.i.i.i.i = load i8, ptr %3867, align 1, !range !692, !noalias !5890, !noundef !3
+  %.not.i.i.i.i.i.i = icmp eq i8 %.val.i48.i.i.i.i, -38
   br i1 %.not.i.i.i.i.i.i, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i", label %3863
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h44736d80eee4765aE.exit.i.i.i.i": ; preds = %3863
@@ -94822,21 +94822,21 @@ _ZN11ruff_linter5rules6pylint5rules27subprocess_popen_preexec_fn27subprocess_pop
   %3874 = load ptr, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !5894, !noalias !5895, !nonnull !3, !noundef !3
   %3875 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %3876 = load i64, ptr %3875, align 8, !alias.scope !5894, !noalias !5895, !noundef !3
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit49.i.i.i.i"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit45.i.i.i.i"
 
 3877:                                             ; preds = %3871
   %3878 = getelementptr inbounds nuw i8, ptr %73, i64 136
   %3879 = load i64, ptr %3878, align 8, !alias.scope !5894, !noalias !5895, !noundef !3
   %3880 = icmp ugt i64 %3879, 8
-  br i1 %3880, label %.invoke.i.i281, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit49.i.i.i.i", !prof !212
+  br i1 %3880, label %.invoke.i.i281, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit45.i.i.i.i", !prof !212
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit49.i.i.i.i": ; preds = %3877, %3873
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit45.i.i.i.i": ; preds = %3877, %3873
   %.sroa.17.0.i.i.i.i = phi i64 [ %3876, %3873 ], [ %3879, %3877 ]
   %.sroa.08.0.i.i.i.i = phi ptr [ %3874, %3873 ], [ %.sroa.729.0..sroa_idx.i, %3877 ]
   %3881 = icmp eq i64 %.sroa.17.0.i.i.i.i, 2
   br i1 %3881, label %3882, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
 
-3882:                                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit49.i.i.i.i"
+3882:                                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit45.i.i.i.i"
   %3883 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
   %3884 = load ptr, ptr %3883, align 8, !noalias !5896, !nonnull !3, !align !45, !noundef !3
   %3885 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 24
@@ -94967,8 +94967,8 @@ _ZN11ruff_linter5rules6pylint5rules27subprocess_popen_preexec_fn27subprocess_pop
           to label %.noexc22.i.i unwind label %3969, !noalias !5897
 
 .noexc22.i.i:                                     ; preds = %3938
-  %.not64.i.i.i.i = icmp eq i8 %3939, 0
-  br i1 %.not64.i.i.i.i, label %3940, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
+  %.not60.i.i.i.i = icmp eq i8 %3939, 0
+  br i1 %.not60.i.i.i.i, label %3940, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
 
 3940:                                             ; preds = %.noexc22.i.i
   %3941 = select i1 %3923, i64 3, i64 2
@@ -94979,15 +94979,15 @@ _ZN11ruff_linter5rules6pylint5rules27subprocess_popen_preexec_fn27subprocess_pop
           to label %.noexc23.i.i unwind label %3969, !noalias !5897
 
 .noexc23.i.i:                                     ; preds = %3942
-  %.not65.i.i.i.i = icmp eq i8 %3943, 0
-  br i1 %.not65.i.i.i.i, label %3944, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
+  %.not61.i.i.i.i = icmp eq i8 %3943, 0
+  br i1 %.not61.i.i.i.i, label %3944, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
 
 3944:                                             ; preds = %.noexc23.i.i, %.noexc12.i.i280
   br i1 %3872, label %3946, label %3950
 
 .loopexit.sink.split.i.i.i.i:                     ; preds = %.noexc30.i.i, %.noexc29.i.i, %.noexc28.i.i, %.noexc27.i.i, %.noexc26.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit.i.i.i.i", %3940, %.noexc21.i.i, %.noexc20.i.i
-  %.sink68.i.i.i.i = phi i64 [ %3941, %3940 ], [ 3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit.i.i.i.i" ], [ %spec.select.i.i.i.i, %.noexc26.i.i ], [ 0, %.noexc27.i.i ], [ 1, %.noexc29.i.i ], [ 2, %.noexc30.i.i ], [ 2, %.noexc28.i.i ], [ 1, %.noexc21.i.i ], [ 1, %.noexc20.i.i ]
-  %3945 = invoke noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments19find_argument_value17h897cb2def357446aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3848, ptr noalias noundef nonnull readonly align 1 @anon.158f56963078a041553d42a6ce1813d5.859, i64 noundef 8, i64 noundef %.sink68.i.i.i.i)
+  %.sink64.i.i.i.i = phi i64 [ %3941, %3940 ], [ 3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit.i.i.i.i" ], [ %spec.select.i.i.i.i, %.noexc26.i.i ], [ 0, %.noexc27.i.i ], [ 1, %.noexc29.i.i ], [ 2, %.noexc30.i.i ], [ 2, %.noexc28.i.i ], [ 1, %.noexc21.i.i ], [ 1, %.noexc20.i.i ]
+  %3945 = invoke noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments19find_argument_value17h897cb2def357446aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3848, ptr noalias noundef nonnull readonly align 1 @anon.158f56963078a041553d42a6ce1813d5.859, i64 noundef 8, i64 noundef %.sink64.i.i.i.i)
           to label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.i.i" unwind label %3969, !noalias !5897
 
 3946:                                             ; preds = %3944
@@ -95054,8 +95054,8 @@ _ZN11ruff_linter5rules6pylint5rules27subprocess_popen_preexec_fn27subprocess_pop
           to label %.noexc30.i.i unwind label %3969, !noalias !5897
 
 .noexc30.i.i:                                     ; preds = %3967
-  %.not66.i.i.i.i = icmp eq i8 %3968, 0
-  br i1 %.not66.i.i.i.i, label %.loopexit.sink.split.i.i.i.i, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
+  %.not62.i.i.i.i = icmp eq i8 %3968, 0
+  br i1 %.not62.i.i.i.i, label %.loopexit.sink.split.i.i.i.i, label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
 
 3969:                                             ; preds = %3967, %3965, %3963, %3961, %3956, %.invoke.i.i281, %.loopexit.sink.split.i.i.i.i, %3942, %3938, %3934, %3930, %3926, %.noexc17.i.i, %3920, %3916, %3912, %3908, %3904, %3902, %3898, %3893, %3888, %3882, %3869
   %3970 = landingpad { ptr, i32 }
@@ -95072,7 +95072,7 @@ _ZN11ruff_linter5rules6pylint5rules27subprocess_popen_preexec_fn27subprocess_pop
   %.not34.i.i.i.i = icmp eq ptr %3945, null
   br i1 %.not34.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6filter17h023e3d580dafe02cE.exit.i", label %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i"
 
-"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i": ; preds = %3855, %3865, %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.i.i", %.noexc30.i.i, %.noexc29.i.i, %.noexc23.i.i, %.noexc22.i.i, %.noexc21.i.i, %.noexc18.i.i, %.noexc14.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit49.i.i.i.i"
+"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.thread.i.i": ; preds = %3855, %3865, %"_ZN11ruff_linter5rules6pylint5rules20unspecified_encoding20unspecified_encoding28_$u7b$$u7b$closure$u7d$$u7d$17h398b473ecc22edfdE.exit.i.i", %.noexc30.i.i, %.noexc29.i.i, %.noexc23.i.i, %.noexc22.i.i, %.noexc21.i.i, %.noexc18.i.i, %.noexc14.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2dbdd138c88f410E.exit45.i.i.i.i"
   %3974 = load i64, ptr %73, align 8, !range !308, !alias.scope !5901, !noalias !5871, !noundef !3
   %3975 = icmp eq i64 %3974, 0
   br i1 %3975, label %3976, label %3977

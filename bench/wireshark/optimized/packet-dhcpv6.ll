@@ -2240,7 +2240,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 
 26:                                               ; preds = %9
   store i8 1, ptr %5, align 1
-  br label %1178
+  br label %1179
 
 27:                                               ; preds = %9
   %28 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -2253,7 +2253,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 
 34:                                               ; preds = %27
   store i8 1, ptr %5, align 1
-  br label %1178
+  br label %1179
 
 35:                                               ; preds = %27
   %36 = load i32, ptr @hf_option_type_str, align 4
@@ -2317,47 +2317,47 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
     i16 37, label %677
     i16 38, label %688
     i16 39, label %695
-    i16 40, label %744
-    i16 41, label %753
-    i16 42, label %757
-    i16 112, label %761
-    i16 44, label %765
+    i16 40, label %745
+    i16 41, label %754
+    i16 42, label %758
+    i16 112, label %762
+    i16 44, label %766
     i16 45, label %.preheader1455
-    i16 46, label %799
-    i16 47, label %805
-    i16 48, label %816
-    i16 52, label %825
-    i16 64, label %834
-    i16 26, label %836
-    i16 165, label %861
-    i16 166, label %867
-    i16 167, label %873
-    i16 67, label %881
-    i16 103, label %892
+    i16 46, label %800
+    i16 47, label %806
+    i16 48, label %817
+    i16 52, label %826
+    i16 64, label %835
+    i16 26, label %837
+    i16 165, label %862
+    i16 166, label %868
+    i16 167, label %874
+    i16 67, label %882
+    i16 103, label %893
     i16 111, label %.preheader1462
-    i16 114, label %907
-    i16 115, label %913
-    i16 117, label %920
-    i16 118, label %930
-    i16 119, label %940
-    i16 120, label %947
-    i16 121, label %953
-    i16 122, label %959
-    i16 123, label %965
-    i16 124, label %971
-    i16 125, label %977
-    i16 126, label %983
-    i16 127, label %989
-    i16 128, label %998
-    i16 129, label %1004
-    i16 130, label %1015
-    i16 131, label %1018
-    i16 132, label %1025
-    i16 133, label %1031
-    i16 134, label %1037
-    i16 135, label %1043
-    i16 79, label %1049
-    i16 144, label %1071
+    i16 114, label %908
+    i16 115, label %914
+    i16 117, label %921
+    i16 118, label %931
+    i16 119, label %941
+    i16 120, label %948
+    i16 121, label %954
+    i16 122, label %960
+    i16 123, label %966
+    i16 124, label %972
+    i16 125, label %978
+    i16 126, label %984
+    i16 127, label %990
+    i16 128, label %999
+    i16 129, label %1005
+    i16 130, label %1016
+    i16 131, label %1019
+    i16 132, label %1026
+    i16 133, label %1032
+    i16 134, label %1038
+    i16 135, label %1044
+    i16 79, label %1050
+    i16 144, label %1072
   ]
 
 .preheader1462:                                   ; preds = %35
@@ -2370,7 +2370,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 
 .lr.ph1485:                                       ; preds = %.preheader1455
   %49 = add i32 %47, %31
-  br label %791
+  br label %792
 
 .preheader:                                       ; preds = %35
   %.not1562 = icmp eq i16 %30, 0
@@ -3558,7 +3558,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %714 = icmp eq i8 %710, 5
   %spec.select1425 = select i1 %714, ptr @.str.897, ptr %.21307
   %.pre = zext i8 %708 to i32
-  br label %723
+  br label %724
 
 715:                                              ; preds = %707
   %716 = zext i8 %708 to i32
@@ -3573,686 +3573,686 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %.71312 = select i1 %721, ptr @.str.901, ptr %.61311
   %722 = and i32 %716, 2
   %.not1387 = icmp ne i32 %722, 0
-  %switch = icmp samesign ult i32 %717, 2
-  %or.cond1426 = and i1 %.not1387, %switch
+  %723 = icmp samesign ult i32 %717, 2
+  %or.cond1426 = and i1 %.not1387, %723
   %spec.select1427 = select i1 %or.cond1426, ptr @.str.902, ptr @.str.893
-  br label %723
+  br label %724
 
-723:                                              ; preds = %715, %709
+724:                                              ; preds = %715, %709
   %.pre-phi = phi i32 [ %716, %715 ], [ %.pre, %709 ]
   %.31308 = phi ptr [ %.71312, %715 ], [ %spec.select1425, %709 ]
   %.01304 = phi ptr [ %spec.select1427, %715 ], [ @.str.893, %709 ]
-  %724 = load i32, ptr @hf_clientfqdn_flags, align 4
-  %725 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %42, i32 noundef %724, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.903, i32 noundef %.pre-phi, ptr noundef %.31308, ptr noundef nonnull %.01304)
-  %726 = load i32, ptr @ett_clientfqdn_flags, align 4
-  %727 = tail call ptr @proto_item_add_subtree(ptr noundef %725, i32 noundef %726)
+  %725 = load i32, ptr @hf_clientfqdn_flags, align 4
+  %726 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %42, i32 noundef %725, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.903, i32 noundef %.pre-phi, ptr noundef %.31308, ptr noundef nonnull %.01304)
+  %727 = load i32, ptr @ett_clientfqdn_flags, align 4
+  %728 = tail call ptr @proto_item_add_subtree(ptr noundef %726, i32 noundef %727)
   %switch.tableidx = add i8 %8, -1
-  %728 = icmp ult i8 %switch.tableidx, 6
+  %729 = icmp ult i8 %switch.tableidx, 6
   %switch.shifted = lshr i8 53, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond1661 = select i1 %728, i1 %switch.lobit, i1 false
-  br i1 %or.cond1661, label %switch.lookup, label %729
+  %or.cond1661 = select i1 %729, i1 %switch.lobit, i1 false
+  br i1 %or.cond1661, label %switch.lookup, label %730
 
-729:                                              ; preds = %723
-  %730 = load i32, ptr @hf_clientfqdn_server_n, align 4
-  %731 = tail call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %730, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+730:                                              ; preds = %724
+  %731 = load i32, ptr @hf_clientfqdn_server_n, align 4
+  %732 = tail call ptr @proto_tree_add_item(ptr noundef %728, i32 noundef %731, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %723, %729
-  %hf_clientfqdn_server_o.sink = phi ptr [ @hf_clientfqdn_server_o, %729 ], [ @hf_clientfqdn_client_n, %723 ]
-  %hf_clientfqdn_server_s.sink = phi ptr [ @hf_clientfqdn_server_s, %729 ], [ @hf_clientfqdn_client_s, %723 ]
-  %732 = load i32, ptr %hf_clientfqdn_server_o.sink, align 4
-  %733 = tail call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %732, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
-  %734 = load i32, ptr %hf_clientfqdn_server_s.sink, align 4
-  %735 = tail call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %734, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
-  %736 = and i32 %.pre-phi, 5
-  %737 = icmp eq i32 %736, 5
-  br i1 %737, label %738, label %740
+switch.lookup:                                    ; preds = %724, %730
+  %hf_clientfqdn_server_o.sink = phi ptr [ @hf_clientfqdn_server_o, %730 ], [ @hf_clientfqdn_client_n, %724 ]
+  %hf_clientfqdn_server_s.sink = phi ptr [ @hf_clientfqdn_server_s, %730 ], [ @hf_clientfqdn_client_s, %724 ]
+  %733 = load i32, ptr %hf_clientfqdn_server_o.sink, align 4
+  %734 = tail call ptr @proto_tree_add_item(ptr noundef %728, i32 noundef %733, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+  %735 = load i32, ptr %hf_clientfqdn_server_s.sink, align 4
+  %736 = tail call ptr @proto_tree_add_item(ptr noundef %728, i32 noundef %735, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+  %737 = and i32 %.pre-phi, 5
+  %738 = icmp eq i32 %737, 5
+  br i1 %738, label %739, label %741
 
-738:                                              ; preds = %switch.lookup
-  %739 = tail call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_s_bit_should_be_zero, ptr noundef %0, i32 noundef %47, i32 noundef 1)
-  br label %740
+739:                                              ; preds = %switch.lookup
+  %740 = tail call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_s_bit_should_be_zero, ptr noundef %0, i32 noundef %47, i32 noundef 1)
+  br label %741
 
-740:                                              ; preds = %738, %switch.lookup
-  %741 = load i32, ptr @hf_client_fqdn, align 4
-  %742 = add i32 %3, 5
-  %743 = add i16 %30, -1
-  tail call fastcc void @dhcpv6_domain(ptr noundef %42, ptr noundef %1, i32 noundef %741, ptr noundef %0, i32 noundef %742, i16 noundef zeroext %743)
+741:                                              ; preds = %739, %switch.lookup
+  %742 = load i32, ptr @hf_client_fqdn, align 4
+  %743 = add i32 %3, 5
+  %744 = add i16 %30, -1
+  tail call fastcc void @dhcpv6_domain(ptr noundef %42, ptr noundef %1, i32 noundef %742, ptr noundef %0, i32 noundef %743, i16 noundef zeroext %744)
   br label %proto_item_set_url.exit
 
-744:                                              ; preds = %35
-  %745 = and i32 %31, 15
-  %.not1386 = icmp eq i32 %745, 0
-  br i1 %.not1386, label %.preheader1452, label %746
+745:                                              ; preds = %35
+  %746 = and i32 %31, 15
+  %.not1386 = icmp eq i32 %746, 0
+  br i1 %.not1386, label %.preheader1452, label %747
 
-.preheader1452:                                   ; preds = %744
+.preheader1452:                                   ; preds = %745
   %.not1548 = icmp eq i16 %30, 0
   br i1 %.not1548, label %proto_item_set_url.exit, label %.lr.ph1490
 
-746:                                              ; preds = %744
-  %747 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.904)
+747:                                              ; preds = %745
+  %748 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.904)
   br label %proto_item_set_url.exit
 
 .lr.ph1490:                                       ; preds = %.preheader1452, %.lr.ph1490
-  %.813211489 = phi i32 [ %751, %.lr.ph1490 ], [ 0, %.preheader1452 ]
-  %748 = load i32, ptr @hf_pana_agent, align 4
-  %749 = add i32 %.813211489, %47
-  %750 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %748, ptr noundef %0, i32 noundef %749, i32 noundef 16, i32 noundef 0)
-  %751 = add nuw nsw i32 %.813211489, 16
-  %752 = icmp samesign ult i32 %751, %31
-  br i1 %752, label %.lr.ph1490, label %proto_item_set_url.exit, !llvm.loop !35
+  %.813211489 = phi i32 [ %752, %.lr.ph1490 ], [ 0, %.preheader1452 ]
+  %749 = load i32, ptr @hf_pana_agent, align 4
+  %750 = add i32 %.813211489, %47
+  %751 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %749, ptr noundef %0, i32 noundef %750, i32 noundef 16, i32 noundef 0)
+  %752 = add nuw nsw i32 %.813211489, 16
+  %753 = icmp samesign ult i32 %752, %31
+  br i1 %753, label %.lr.ph1490, label %proto_item_set_url.exit, !llvm.loop !35
 
-753:                                              ; preds = %35
+754:                                              ; preds = %35
   %.not1385 = icmp eq i16 %30, 0
-  br i1 %.not1385, label %proto_item_set_url.exit, label %754
+  br i1 %.not1385, label %proto_item_set_url.exit, label %755
 
-754:                                              ; preds = %753
-  %755 = load i32, ptr @hf_opt_timezone, align 4
-  %756 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %755, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
+755:                                              ; preds = %754
+  %756 = load i32, ptr @hf_opt_timezone, align 4
+  %757 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %756, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-757:                                              ; preds = %35
+758:                                              ; preds = %35
   %.not1384 = icmp eq i16 %30, 0
-  br i1 %.not1384, label %proto_item_set_url.exit, label %758
+  br i1 %.not1384, label %proto_item_set_url.exit, label %759
 
-758:                                              ; preds = %757
-  %759 = load i32, ptr @hf_opt_tzdb, align 4
-  %760 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %759, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
+759:                                              ; preds = %758
+  %760 = load i32, ptr @hf_opt_tzdb, align 4
+  %761 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %760, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-761:                                              ; preds = %35
+762:                                              ; preds = %35
   %.not1383 = icmp eq i16 %30, 0
-  br i1 %.not1383, label %proto_item_set_url.exit, label %762
+  br i1 %.not1383, label %proto_item_set_url.exit, label %763
 
-762:                                              ; preds = %761
-  %763 = load i32, ptr @hf_opt_mudurl, align 4
-  %764 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %763, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
+763:                                              ; preds = %762
+  %764 = load i32, ptr @hf_opt_mudurl, align 4
+  %765 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %764, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-765:                                              ; preds = %35
-  %766 = icmp ult i16 %30, 17
-  br i1 %766, label %767, label %769
+766:                                              ; preds = %35
+  %767 = icmp ult i16 %30, 17
+  br i1 %767, label %768, label %770
 
-767:                                              ; preds = %765
-  %768 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.905)
+768:                                              ; preds = %766
+  %769 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.905)
   br label %proto_item_set_url.exit
 
-769:                                              ; preds = %765
-  %770 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
-  %771 = load i32, ptr @hf_lq_query, align 4
-  %772 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %771, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
-  store ptr %772, ptr %11, align 8
-  %773 = load i32, ptr @proto_dhcpv6, align 4
-  %774 = icmp eq i32 %6, %773
-  %775 = add i8 %770, -3
-  %or.cond27 = icmp ult i8 %775, 3
-  %or.cond = select i1 %774, i1 %or.cond27, i1 false
-  br i1 %or.cond, label %776, label %778
+770:                                              ; preds = %766
+  %771 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
+  %772 = load i32, ptr @hf_lq_query, align 4
+  %773 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %772, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+  store ptr %773, ptr %11, align 8
+  %774 = load i32, ptr @proto_dhcpv6, align 4
+  %775 = icmp eq i32 %6, %774
+  %776 = add i8 %771, -3
+  %or.cond27 = icmp ult i8 %776, 3
+  %or.cond = select i1 %775, i1 %or.cond27, i1 false
+  br i1 %or.cond, label %777, label %779
 
-776:                                              ; preds = %769
-  %777 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %772, ptr noundef nonnull @ei_dhcpv6_bulk_leasequery_bad_query_type)
-  br label %778
+777:                                              ; preds = %770
+  %778 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %773, ptr noundef nonnull @ei_dhcpv6_bulk_leasequery_bad_query_type)
+  br label %779
 
-778:                                              ; preds = %776, %769
-  %779 = load i32, ptr @hf_lq_query_link_address, align 4
-  %780 = add i32 %3, 5
-  %781 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %779, ptr noundef %0, i32 noundef %780, i32 noundef 16, i32 noundef 0)
+779:                                              ; preds = %777, %770
+  %780 = load i32, ptr @hf_lq_query_link_address, align 4
+  %781 = add i32 %3, 5
+  %782 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %780, ptr noundef %0, i32 noundef %781, i32 noundef 16, i32 noundef 0)
   %.not1547 = icmp eq i16 %30, 17
   br i1 %.not1547, label %proto_item_set_url.exit, label %.lr.ph1488
 
-.lr.ph1488:                                       ; preds = %778
-  %782 = add i32 %47, %31
-  br label %783
+.lr.ph1488:                                       ; preds = %779
+  %783 = add i32 %47, %31
+  br label %784
 
-783:                                              ; preds = %.lr.ph1488, %783
-  %.141486 = phi i32 [ 17, %.lr.ph1488 ], [ %spec.select1422, %783 ]
-  %784 = add i32 %.141486, %47
-  %785 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %784, i32 noundef %782, ptr noundef %5, i32 noundef %6, ptr noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
-  %786 = add i32 %785, %.141486
-  %787 = load i8, ptr %5, align 1, !range !6, !noundef !7
-  %788 = trunc nuw i8 %787 to i1
-  %spec.select1422 = select i1 %788, i32 %31, i32 %786
-  %789 = sub i32 %31, %spec.select1422
-  %790 = icmp sgt i32 %789, 0
-  br i1 %790, label %783, label %proto_item_set_url.exit, !llvm.loop !36
+784:                                              ; preds = %.lr.ph1488, %784
+  %.141486 = phi i32 [ 17, %.lr.ph1488 ], [ %spec.select1422, %784 ]
+  %785 = add i32 %.141486, %47
+  %786 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %785, i32 noundef %783, ptr noundef %5, i32 noundef %6, ptr noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
+  %787 = add i32 %786, %.141486
+  %788 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %789 = trunc nuw i8 %788 to i1
+  %spec.select1422 = select i1 %789, i32 %31, i32 %787
+  %790 = sub i32 %31, %spec.select1422
+  %791 = icmp sgt i32 %790, 0
+  br i1 %791, label %784, label %proto_item_set_url.exit, !llvm.loop !36
 
-791:                                              ; preds = %.lr.ph1485, %791
-  %.161484 = phi i32 [ 0, %.lr.ph1485 ], [ %spec.select1423, %791 ]
-  %792 = add i32 %.161484, %47
-  %793 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %792, i32 noundef %49, ptr noundef %5, i32 noundef %6, ptr noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
-  %794 = add i32 %793, %.161484
-  %795 = load i8, ptr %5, align 1, !range !6, !noundef !7
-  %796 = trunc nuw i8 %795 to i1
-  %spec.select1423 = select i1 %796, i32 %31, i32 %794
-  %797 = sub i32 %31, %spec.select1423
-  %798 = icmp sgt i32 %797, 0
-  br i1 %798, label %791, label %proto_item_set_url.exit, !llvm.loop !37
+792:                                              ; preds = %.lr.ph1485, %792
+  %.161484 = phi i32 [ 0, %.lr.ph1485 ], [ %spec.select1423, %792 ]
+  %793 = add i32 %.161484, %47
+  %794 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %793, i32 noundef %49, ptr noundef %5, i32 noundef %6, ptr noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
+  %795 = add i32 %794, %.161484
+  %796 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %797 = trunc nuw i8 %796 to i1
+  %spec.select1423 = select i1 %797, i32 %31, i32 %795
+  %798 = sub i32 %31, %spec.select1423
+  %799 = icmp sgt i32 %798, 0
+  br i1 %799, label %792, label %proto_item_set_url.exit, !llvm.loop !37
 
-799:                                              ; preds = %35
+800:                                              ; preds = %35
   %.not1382 = icmp eq i16 %30, 4
-  br i1 %.not1382, label %802, label %800
+  br i1 %.not1382, label %803, label %801
 
-800:                                              ; preds = %799
-  %801 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.906)
+801:                                              ; preds = %800
+  %802 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.906)
   br label %proto_item_set_url.exit
 
-802:                                              ; preds = %799
-  %803 = load i32, ptr @hf_clt_time, align 4
-  %804 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %803, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+803:                                              ; preds = %800
+  %804 = load i32, ptr @hf_clt_time, align 4
+  %805 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %804, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-805:                                              ; preds = %35
-  %806 = icmp ult i16 %30, 16
-  br i1 %806, label %807, label %809
+806:                                              ; preds = %35
+  %807 = icmp ult i16 %30, 16
+  br i1 %807, label %808, label %810
 
-807:                                              ; preds = %805
-  %808 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.907)
+808:                                              ; preds = %806
+  %809 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.907)
   br label %proto_item_set_url.exit
 
-809:                                              ; preds = %805
-  %810 = load i32, ptr @hf_lq_relay_data_peer_addr, align 4
-  %811 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %810, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0)
-  %812 = load i32, ptr @hf_lq_relay_data_msg, align 4
-  %813 = add i32 %3, 20
-  %814 = add nsw i32 %31, -16
-  %815 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %812, ptr noundef %0, i32 noundef %813, i32 noundef %814, i32 noundef 0)
+810:                                              ; preds = %806
+  %811 = load i32, ptr @hf_lq_relay_data_peer_addr, align 4
+  %812 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %811, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0)
+  %813 = load i32, ptr @hf_lq_relay_data_msg, align 4
+  %814 = add i32 %3, 20
+  %815 = add nsw i32 %31, -16
+  %816 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %813, ptr noundef %0, i32 noundef %814, i32 noundef %815, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-816:                                              ; preds = %35
-  %817 = and i32 %31, 15
-  %.not1381 = icmp eq i32 %817, 0
-  br i1 %.not1381, label %.preheader1457, label %818
+817:                                              ; preds = %35
+  %818 = and i32 %31, 15
+  %.not1381 = icmp eq i32 %818, 0
+  br i1 %.not1381, label %.preheader1457, label %819
 
-.preheader1457:                                   ; preds = %816
+.preheader1457:                                   ; preds = %817
   %.not1545 = icmp eq i16 %30, 0
   br i1 %.not1545, label %proto_item_set_url.exit, label %.lr.ph1483
 
-818:                                              ; preds = %816
-  %819 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.908)
+819:                                              ; preds = %817
+  %820 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.908)
   br label %proto_item_set_url.exit
 
 .lr.ph1483:                                       ; preds = %.preheader1457, %.lr.ph1483
-  %.913221482 = phi i32 [ %823, %.lr.ph1483 ], [ 0, %.preheader1457 ]
-  %820 = load i32, ptr @hf_lq_client_link, align 4
-  %821 = add i32 %.913221482, %47
-  %822 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %820, ptr noundef %0, i32 noundef %821, i32 noundef 16, i32 noundef 0)
-  %823 = add nuw nsw i32 %.913221482, 16
-  %824 = icmp samesign ult i32 %823, %31
-  br i1 %824, label %.lr.ph1483, label %proto_item_set_url.exit, !llvm.loop !38
+  %.913221482 = phi i32 [ %824, %.lr.ph1483 ], [ 0, %.preheader1457 ]
+  %821 = load i32, ptr @hf_lq_client_link, align 4
+  %822 = add i32 %.913221482, %47
+  %823 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %821, ptr noundef %0, i32 noundef %822, i32 noundef 16, i32 noundef 0)
+  %824 = add nuw nsw i32 %.913221482, 16
+  %825 = icmp samesign ult i32 %824, %31
+  br i1 %825, label %.lr.ph1483, label %proto_item_set_url.exit, !llvm.loop !38
 
-825:                                              ; preds = %35
-  %826 = and i32 %31, 15
-  %.not1380 = icmp eq i32 %826, 0
-  br i1 %.not1380, label %.preheader1459, label %827
+826:                                              ; preds = %35
+  %827 = and i32 %31, 15
+  %.not1380 = icmp eq i32 %827, 0
+  br i1 %.not1380, label %.preheader1459, label %828
 
-.preheader1459:                                   ; preds = %825
+.preheader1459:                                   ; preds = %826
   %.not1544 = icmp eq i16 %30, 0
   br i1 %.not1544, label %proto_item_set_url.exit, label %.lr.ph1481
 
-827:                                              ; preds = %825
-  %828 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.909)
+828:                                              ; preds = %826
+  %829 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.909)
   br label %proto_item_set_url.exit
 
 .lr.ph1481:                                       ; preds = %.preheader1459, %.lr.ph1481
-  %.1013231480 = phi i32 [ %832, %.lr.ph1481 ], [ 0, %.preheader1459 ]
-  %829 = load i32, ptr @hf_capwap_ac_v6, align 4
-  %830 = add i32 %.1013231480, %47
-  %831 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %829, ptr noundef %0, i32 noundef %830, i32 noundef 16, i32 noundef 0)
-  %832 = add nuw nsw i32 %.1013231480, 16
-  %833 = icmp samesign ult i32 %832, %31
-  br i1 %833, label %.lr.ph1481, label %proto_item_set_url.exit, !llvm.loop !39
+  %.1013231480 = phi i32 [ %833, %.lr.ph1481 ], [ 0, %.preheader1459 ]
+  %830 = load i32, ptr @hf_capwap_ac_v6, align 4
+  %831 = add i32 %.1013231480, %47
+  %832 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %830, ptr noundef %0, i32 noundef %831, i32 noundef 16, i32 noundef 0)
+  %833 = add nuw nsw i32 %.1013231480, 16
+  %834 = icmp samesign ult i32 %833, %31
+  br i1 %834, label %.lr.ph1481, label %proto_item_set_url.exit, !llvm.loop !39
 
-834:                                              ; preds = %35
-  %835 = load i32, ptr @hf_aftr_name, align 4
-  tail call fastcc void @dhcpv6_domain(ptr noundef %42, ptr noundef %1, i32 noundef %835, ptr noundef %0, i32 noundef %47, i16 noundef zeroext %30)
+835:                                              ; preds = %35
+  %836 = load i32, ptr @hf_aftr_name, align 4
+  tail call fastcc void @dhcpv6_domain(ptr noundef %42, ptr noundef %1, i32 noundef %836, ptr noundef %0, i32 noundef %47, i16 noundef zeroext %30)
   br label %proto_item_set_url.exit
 
-836:                                              ; preds = %35
-  %837 = icmp ult i16 %30, 25
-  br i1 %837, label %838, label %840
+837:                                              ; preds = %35
+  %838 = icmp ult i16 %30, 25
+  br i1 %838, label %839, label %841
 
-838:                                              ; preds = %836
-  %839 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.910)
+839:                                              ; preds = %837
+  %840 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.910)
   br label %proto_item_set_url.exit
 
-840:                                              ; preds = %836
-  %841 = load i32, ptr @hf_iaprefix_pref_lifetime, align 4
-  %842 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %841, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
-  %843 = load i32, ptr @hf_iaprefix_valid_lifetime, align 4
-  %844 = add i32 %3, 8
-  %845 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %843, ptr noundef %0, i32 noundef %844, i32 noundef 4, i32 noundef 0)
-  %846 = load i32, ptr @hf_iaprefix_pref_len, align 4
-  %847 = add i32 %3, 12
-  %848 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %846, ptr noundef %0, i32 noundef %847, i32 noundef 1, i32 noundef 0)
-  %849 = load i32, ptr @hf_iaprefix_pref_addr, align 4
-  %850 = add i32 %3, 13
-  %851 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %849, ptr noundef %0, i32 noundef %850, i32 noundef 16, i32 noundef 0)
+841:                                              ; preds = %837
+  %842 = load i32, ptr @hf_iaprefix_pref_lifetime, align 4
+  %843 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %842, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+  %844 = load i32, ptr @hf_iaprefix_valid_lifetime, align 4
+  %845 = add i32 %3, 8
+  %846 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %844, ptr noundef %0, i32 noundef %845, i32 noundef 4, i32 noundef 0)
+  %847 = load i32, ptr @hf_iaprefix_pref_len, align 4
+  %848 = add i32 %3, 12
+  %849 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %847, ptr noundef %0, i32 noundef %848, i32 noundef 1, i32 noundef 0)
+  %850 = load i32, ptr @hf_iaprefix_pref_addr, align 4
+  %851 = add i32 %3, 13
+  %852 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %850, ptr noundef %0, i32 noundef %851, i32 noundef 16, i32 noundef 0)
   %.not1543 = icmp eq i16 %30, 25
   br i1 %.not1543, label %proto_item_set_url.exit, label %.lr.ph1479
 
-.lr.ph1479:                                       ; preds = %840
-  %852 = add i32 %47, %31
-  br label %853
+.lr.ph1479:                                       ; preds = %841
+  %853 = add i32 %47, %31
+  br label %854
 
-853:                                              ; preds = %.lr.ph1479, %853
-  %.181477 = phi i32 [ 25, %.lr.ph1479 ], [ %spec.select1424, %853 ]
-  %854 = add i32 %.181477, %47
-  %855 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %854, i32 noundef %852, ptr noundef %5, i32 noundef %6, ptr noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
-  %856 = add i32 %855, %.181477
-  %857 = load i8, ptr %5, align 1, !range !6, !noundef !7
-  %858 = trunc nuw i8 %857 to i1
-  %spec.select1424 = select i1 %858, i32 %31, i32 %856
-  %859 = sub i32 %31, %spec.select1424
-  %860 = icmp sgt i32 %859, 0
-  br i1 %860, label %853, label %proto_item_set_url.exit, !llvm.loop !40
+854:                                              ; preds = %.lr.ph1479, %854
+  %.181477 = phi i32 [ 25, %.lr.ph1479 ], [ %spec.select1424, %854 ]
+  %855 = add i32 %.181477, %47
+  %856 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %855, i32 noundef %853, ptr noundef %5, i32 noundef %6, ptr noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
+  %857 = add i32 %856, %.181477
+  %858 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %859 = trunc nuw i8 %858 to i1
+  %spec.select1424 = select i1 %859, i32 %31, i32 %857
+  %860 = sub i32 %31, %spec.select1424
+  %861 = icmp sgt i32 %860, 0
+  br i1 %861, label %854, label %proto_item_set_url.exit, !llvm.loop !40
 
-861:                                              ; preds = %35
+862:                                              ; preds = %35
   %.not1379 = icmp eq i16 %30, 16
-  br i1 %.not1379, label %864, label %862
+  br i1 %.not1379, label %865, label %863
 
-862:                                              ; preds = %861
-  %863 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.911)
+863:                                              ; preds = %862
+  %864 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.911)
   br label %proto_item_set_url.exit
 
-864:                                              ; preds = %861
-  %865 = load i32, ptr @hf_mip6_ha, align 4
-  %866 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %865, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0)
+865:                                              ; preds = %862
+  %866 = load i32, ptr @hf_mip6_ha, align 4
+  %867 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %866, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-867:                                              ; preds = %35
+868:                                              ; preds = %35
   %.not1378 = icmp eq i16 %30, 16
-  br i1 %.not1378, label %870, label %868
+  br i1 %.not1378, label %871, label %869
 
-868:                                              ; preds = %867
-  %869 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.912)
+869:                                              ; preds = %868
+  %870 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.912)
   br label %proto_item_set_url.exit
 
-870:                                              ; preds = %867
-  %871 = load i32, ptr @hf_mip6_hoa, align 4
-  %872 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %871, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0)
+871:                                              ; preds = %868
+  %872 = load i32, ptr @hf_mip6_hoa, align 4
+  %873 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %872, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-873:                                              ; preds = %35
-  %874 = icmp ult i16 %30, 4
-  br i1 %874, label %875, label %877
+874:                                              ; preds = %35
+  %875 = icmp ult i16 %30, 4
+  br i1 %875, label %876, label %878
 
-875:                                              ; preds = %873
-  %876 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.913)
+876:                                              ; preds = %874
+  %877 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.913)
   br label %proto_item_set_url.exit
 
-877:                                              ; preds = %873
-  %878 = load i32, ptr @hf_nai, align 4
-  %879 = add nsw i32 %31, -2
-  %880 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %878, ptr noundef %0, i32 noundef %47, i32 noundef %879, i32 noundef 0)
+878:                                              ; preds = %874
+  %879 = load i32, ptr @hf_nai, align 4
+  %880 = add nsw i32 %31, -2
+  %881 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %879, ptr noundef %0, i32 noundef %47, i32 noundef %880, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-881:                                              ; preds = %35
-  %882 = add i16 %30, -18
-  %or.cond29 = icmp ult i16 %882, -16
-  br i1 %or.cond29, label %883, label %885
+882:                                              ; preds = %35
+  %883 = add i16 %30, -18
+  %or.cond29 = icmp ult i16 %883, -16
+  br i1 %or.cond29, label %884, label %886
 
-883:                                              ; preds = %881
-  %884 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.914)
+884:                                              ; preds = %882
+  %885 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.914)
   br label %proto_item_set_url.exit
 
-885:                                              ; preds = %881
-  %886 = load i32, ptr @hf_pd_exclude_pref_len, align 4
-  %887 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %886, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
-  %888 = load i32, ptr @hf_pd_exclude_subnet_id, align 4
-  %889 = add i32 %3, 5
-  %890 = add nsw i32 %31, -1
-  %891 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %888, ptr noundef %0, i32 noundef %889, i32 noundef %890, i32 noundef 0)
+886:                                              ; preds = %882
+  %887 = load i32, ptr @hf_pd_exclude_pref_len, align 4
+  %888 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %887, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+  %889 = load i32, ptr @hf_pd_exclude_subnet_id, align 4
+  %890 = add i32 %3, 5
+  %891 = add nsw i32 %31, -1
+  %892 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %889, ptr noundef %0, i32 noundef %890, i32 noundef %891, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-892:                                              ; preds = %35
-  %893 = load i32, ptr @hf_option_captive_portal, align 4
-  %894 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %893, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
-  %.not.i = icmp eq ptr %894, null
-  br i1 %.not.i, label %proto_item_set_url.exit, label %895
+893:                                              ; preds = %35
+  %894 = load i32, ptr @hf_option_captive_portal, align 4
+  %895 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %894, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 0)
+  %.not.i = icmp eq ptr %895, null
+  br i1 %.not.i, label %proto_item_set_url.exit, label %896
 
-895:                                              ; preds = %892
-  %896 = getelementptr inbounds nuw i8, ptr %894, i64 40
-  %897 = load ptr, ptr %896, align 8
-  %.not5.i = icmp eq ptr %897, null
-  br i1 %.not5.i, label %proto_item_set_url.exit, label %898
+896:                                              ; preds = %893
+  %897 = getelementptr inbounds nuw i8, ptr %895, i64 40
+  %898 = load ptr, ptr %897, align 8
+  %.not5.i = icmp eq ptr %898, null
+  br i1 %.not5.i, label %proto_item_set_url.exit, label %899
 
-898:                                              ; preds = %895
-  %899 = getelementptr inbounds nuw i8, ptr %897, i64 28
-  %900 = load i32, ptr %899, align 4
-  %901 = or i32 %900, 4
-  store i32 %901, ptr %899, align 4
+899:                                              ; preds = %896
+  %900 = getelementptr inbounds nuw i8, ptr %898, i64 28
+  %901 = load i32, ptr %900, align 4
+  %902 = or i32 %901, 4
+  store i32 %902, ptr %900, align 4
   br label %proto_item_set_url.exit
 
 .lr.ph1476:                                       ; preds = %.preheader1462, %.lr.ph1476
-  %.013001475 = phi i32 [ %905, %.lr.ph1476 ], [ %47, %.preheader1462 ]
-  %.201474 = phi i32 [ %904, %.lr.ph1476 ], [ %31, %.preheader1462 ]
-  %902 = load i32, ptr @hf_option_s46_option_code, align 4
-  %903 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %902, ptr noundef %0, i32 noundef %.013001475, i32 noundef 2, i32 noundef 0)
-  %904 = add nsw i32 %.201474, -2
-  %905 = add i32 %.013001475, 2
-  %906 = icmp samesign ugt i32 %904, 1
-  br i1 %906, label %.lr.ph1476, label %proto_item_set_url.exit, !llvm.loop !41
+  %.013001475 = phi i32 [ %906, %.lr.ph1476 ], [ %47, %.preheader1462 ]
+  %.201474 = phi i32 [ %905, %.lr.ph1476 ], [ %31, %.preheader1462 ]
+  %903 = load i32, ptr @hf_option_s46_option_code, align 4
+  %904 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %903, ptr noundef %0, i32 noundef %.013001475, i32 noundef 2, i32 noundef 0)
+  %905 = add nsw i32 %.201474, -2
+  %906 = add i32 %.013001475, 2
+  %907 = icmp samesign ugt i32 %905, 1
+  br i1 %907, label %.lr.ph1476, label %proto_item_set_url.exit, !llvm.loop !41
 
-907:                                              ; preds = %35
+908:                                              ; preds = %35
   %.not1377 = icmp eq i16 %30, 1
-  br i1 %.not1377, label %910, label %908
+  br i1 %.not1377, label %911, label %909
 
-908:                                              ; preds = %907
-  %909 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+909:                                              ; preds = %908
+  %910 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-910:                                              ; preds = %907
-  %911 = load i32, ptr @hf_option_failover_binding_status, align 4
-  %912 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %911, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+911:                                              ; preds = %908
+  %912 = load i32, ptr @hf_option_failover_binding_status, align 4
+  %913 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %912, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-913:                                              ; preds = %35
+914:                                              ; preds = %35
   %.not1376 = icmp eq i16 %30, 2
-  br i1 %.not1376, label %916, label %914
+  br i1 %.not1376, label %917, label %915
 
-914:                                              ; preds = %913
-  %915 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+915:                                              ; preds = %914
+  %916 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-916:                                              ; preds = %913
-  %917 = load i32, ptr @hf_option_failover_connect_flags, align 4
-  %918 = load i32, ptr @ett_dhcpv6_failover_connect_flags, align 4
-  %919 = tail call ptr @proto_tree_add_bitmask(ptr noundef %42, ptr noundef %0, i32 noundef %47, i32 noundef %917, i32 noundef %918, ptr noundef nonnull @dhcpv6_failover_connect_flags_fields, i32 noundef 0)
+917:                                              ; preds = %914
+  %918 = load i32, ptr @hf_option_failover_connect_flags, align 4
+  %919 = load i32, ptr @ett_dhcpv6_failover_connect_flags, align 4
+  %920 = tail call ptr @proto_tree_add_bitmask(ptr noundef %42, ptr noundef %0, i32 noundef %47, i32 noundef %918, i32 noundef %919, ptr noundef nonnull @dhcpv6_failover_connect_flags_fields, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-920:                                              ; preds = %35
+921:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %921 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef %47, ptr noundef nonnull %15, ptr noundef nonnull %16)
-  %922 = load i32, ptr @hf_option_failover_dns_hostname, align 4
-  %923 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %924 = load ptr, ptr %923, align 8
-  %925 = load ptr, ptr %15, align 8
-  %926 = load i32, ptr %16, align 4
-  %927 = sext i32 %926 to i64
-  %928 = call ptr @format_text(ptr noundef %924, ptr noundef %925, i64 noundef %927)
-  %929 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %922, ptr noundef %0, i32 noundef %47, i32 noundef %31, ptr noundef %928)
+  %922 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef %47, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %923 = load i32, ptr @hf_option_failover_dns_hostname, align 4
+  %924 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %925 = load ptr, ptr %924, align 8
+  %926 = load ptr, ptr %15, align 8
+  %927 = load i32, ptr %16, align 4
+  %928 = sext i32 %927 to i64
+  %929 = call ptr @format_text(ptr noundef %925, ptr noundef %926, i64 noundef %928)
+  %930 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %923, ptr noundef %0, i32 noundef %47, i32 noundef %31, ptr noundef %929)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %proto_item_set_url.exit
 
-930:                                              ; preds = %35
+931:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %931 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef %47, ptr noundef nonnull %17, ptr noundef nonnull %18)
-  %932 = load i32, ptr @hf_option_failover_dns_zonename, align 4
-  %933 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %934 = load ptr, ptr %933, align 8
-  %935 = load ptr, ptr %17, align 8
-  %936 = load i32, ptr %18, align 4
-  %937 = sext i32 %936 to i64
-  %938 = call ptr @format_text(ptr noundef %934, ptr noundef %935, i64 noundef %937)
-  %939 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %932, ptr noundef %0, i32 noundef %47, i32 noundef %31, ptr noundef %938)
+  %932 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef %47, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %933 = load i32, ptr @hf_option_failover_dns_zonename, align 4
+  %934 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %935 = load ptr, ptr %934, align 8
+  %936 = load ptr, ptr %17, align 8
+  %937 = load i32, ptr %18, align 4
+  %938 = sext i32 %937 to i64
+  %939 = call ptr @format_text(ptr noundef %935, ptr noundef %936, i64 noundef %938)
+  %940 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %933, ptr noundef %0, i32 noundef %47, i32 noundef %31, ptr noundef %939)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %proto_item_set_url.exit
 
-940:                                              ; preds = %35
+941:                                              ; preds = %35
   %.not1375 = icmp eq i16 %30, 2
-  br i1 %.not1375, label %943, label %941
+  br i1 %.not1375, label %944, label %942
 
-941:                                              ; preds = %940
-  %942 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+942:                                              ; preds = %941
+  %943 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-943:                                              ; preds = %940
-  %944 = load i32, ptr @hf_option_failover_dns_flags, align 4
-  %945 = load i32, ptr @ett_dhcpv6_failover_dns_flags, align 4
-  %946 = tail call ptr @proto_tree_add_bitmask(ptr noundef %42, ptr noundef %0, i32 noundef %47, i32 noundef %944, i32 noundef %945, ptr noundef nonnull @dhcpv6_failover_dns_flags_fields, i32 noundef 0)
+944:                                              ; preds = %941
+  %945 = load i32, ptr @hf_option_failover_dns_flags, align 4
+  %946 = load i32, ptr @ett_dhcpv6_failover_dns_flags, align 4
+  %947 = tail call ptr @proto_tree_add_bitmask(ptr noundef %42, ptr noundef %0, i32 noundef %47, i32 noundef %945, i32 noundef %946, ptr noundef nonnull @dhcpv6_failover_dns_flags_fields, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-947:                                              ; preds = %35
+948:                                              ; preds = %35
   %.not1374 = icmp eq i16 %30, 4
-  br i1 %.not1374, label %950, label %948
+  br i1 %.not1374, label %951, label %949
 
-948:                                              ; preds = %947
-  %949 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+949:                                              ; preds = %948
+  %950 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-950:                                              ; preds = %947
-  %951 = load i32, ptr @hf_option_failover_expiration_time, align 4
-  %952 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %951, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+951:                                              ; preds = %948
+  %952 = load i32, ptr @hf_option_failover_expiration_time, align 4
+  %953 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %952, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-953:                                              ; preds = %35
+954:                                              ; preds = %35
   %.not1373 = icmp eq i16 %30, 4
-  br i1 %.not1373, label %956, label %954
+  br i1 %.not1373, label %957, label %955
 
-954:                                              ; preds = %953
-  %955 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+955:                                              ; preds = %954
+  %956 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-956:                                              ; preds = %953
-  %957 = load i32, ptr @hf_option_failover_max_unacked_bndupd, align 4
-  %958 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %957, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+957:                                              ; preds = %954
+  %958 = load i32, ptr @hf_option_failover_max_unacked_bndupd, align 4
+  %959 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %958, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-959:                                              ; preds = %35
+960:                                              ; preds = %35
   %.not1372 = icmp eq i16 %30, 4
-  br i1 %.not1372, label %962, label %960
+  br i1 %.not1372, label %963, label %961
 
-960:                                              ; preds = %959
-  %961 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+961:                                              ; preds = %960
+  %962 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-962:                                              ; preds = %959
-  %963 = load i32, ptr @hf_option_failover_mclt, align 4
-  %964 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %963, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+963:                                              ; preds = %960
+  %964 = load i32, ptr @hf_option_failover_mclt, align 4
+  %965 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %964, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-965:                                              ; preds = %35
+966:                                              ; preds = %35
   %.not1371 = icmp eq i16 %30, 4
-  br i1 %.not1371, label %968, label %966
+  br i1 %.not1371, label %969, label %967
 
-966:                                              ; preds = %965
-  %967 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+967:                                              ; preds = %966
+  %968 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-968:                                              ; preds = %965
-  %969 = load i32, ptr @hf_option_failover_partner_lifetime, align 4
-  %970 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %969, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+969:                                              ; preds = %966
+  %970 = load i32, ptr @hf_option_failover_partner_lifetime, align 4
+  %971 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %970, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-971:                                              ; preds = %35
+972:                                              ; preds = %35
   %.not1370 = icmp eq i16 %30, 4
-  br i1 %.not1370, label %974, label %972
+  br i1 %.not1370, label %975, label %973
 
-972:                                              ; preds = %971
-  %973 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+973:                                              ; preds = %972
+  %974 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-974:                                              ; preds = %971
-  %975 = load i32, ptr @hf_option_failover_partner_lifetime_sent, align 4
-  %976 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %975, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+975:                                              ; preds = %972
+  %976 = load i32, ptr @hf_option_failover_partner_lifetime_sent, align 4
+  %977 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %976, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-977:                                              ; preds = %35
+978:                                              ; preds = %35
   %.not1369 = icmp eq i16 %30, 4
-  br i1 %.not1369, label %980, label %978
+  br i1 %.not1369, label %981, label %979
 
-978:                                              ; preds = %977
-  %979 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+979:                                              ; preds = %978
+  %980 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-980:                                              ; preds = %977
-  %981 = load i32, ptr @hf_option_failover_partner_downtime, align 4
-  %982 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %981, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+981:                                              ; preds = %978
+  %982 = load i32, ptr @hf_option_failover_partner_downtime, align 4
+  %983 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %982, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-983:                                              ; preds = %35
+984:                                              ; preds = %35
   %.not1368 = icmp eq i16 %30, 4
-  br i1 %.not1368, label %986, label %984
+  br i1 %.not1368, label %987, label %985
 
-984:                                              ; preds = %983
-  %985 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+985:                                              ; preds = %984
+  %986 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-986:                                              ; preds = %983
-  %987 = load i32, ptr @hf_option_failover_partner_raw_clt_time, align 4
-  %988 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %987, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+987:                                              ; preds = %984
+  %988 = load i32, ptr @hf_option_failover_partner_raw_clt_time, align 4
+  %989 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %988, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-989:                                              ; preds = %35
+990:                                              ; preds = %35
   %.not1367 = icmp eq i16 %30, 4
-  br i1 %.not1367, label %992, label %990
+  br i1 %.not1367, label %993, label %991
 
-990:                                              ; preds = %989
-  %991 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+991:                                              ; preds = %990
+  %992 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-992:                                              ; preds = %989
-  %993 = load i32, ptr @hf_option_failover_major_version, align 4
-  %994 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %993, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
-  %995 = load i32, ptr @hf_option_failover_minor_version, align 4
-  %996 = add i32 %3, 6
-  %997 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %995, ptr noundef %0, i32 noundef %996, i32 noundef 2, i32 noundef 0)
+993:                                              ; preds = %990
+  %994 = load i32, ptr @hf_option_failover_major_version, align 4
+  %995 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %994, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
+  %996 = load i32, ptr @hf_option_failover_minor_version, align 4
+  %997 = add i32 %3, 6
+  %998 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %996, ptr noundef %0, i32 noundef %997, i32 noundef 2, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-998:                                              ; preds = %35
+999:                                              ; preds = %35
   %.not1366 = icmp eq i16 %30, 4
-  br i1 %.not1366, label %1001, label %999
+  br i1 %.not1366, label %1002, label %1000
 
-999:                                              ; preds = %998
-  %1000 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+1000:                                             ; preds = %999
+  %1001 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-1001:                                             ; preds = %998
-  %1002 = load i32, ptr @hf_option_failover_keepalive_time, align 4
-  %1003 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1002, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+1002:                                             ; preds = %999
+  %1003 = load i32, ptr @hf_option_failover_keepalive_time, align 4
+  %1004 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1003, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1004:                                             ; preds = %35
-  %1005 = icmp ult i16 %30, 4
-  br i1 %1005, label %1006, label %1008
+1005:                                             ; preds = %35
+  %1006 = icmp ult i16 %30, 4
+  br i1 %1006, label %1007, label %1009
 
-1006:                                             ; preds = %1004
-  %1007 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+1007:                                             ; preds = %1005
+  %1008 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-1008:                                             ; preds = %1004
-  %1009 = load i32, ptr @hf_option_failover_reconfigure_time, align 4
-  %1010 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1009, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
-  %1011 = load i32, ptr @hf_option_failover_reconfigure_key, align 4
-  %1012 = add i32 %3, 8
-  %1013 = add nsw i32 %31, -4
-  %1014 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1011, ptr noundef %0, i32 noundef %1012, i32 noundef %1013, i32 noundef 0)
+1009:                                             ; preds = %1005
+  %1010 = load i32, ptr @hf_option_failover_reconfigure_time, align 4
+  %1011 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1010, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+  %1012 = load i32, ptr @hf_option_failover_reconfigure_key, align 4
+  %1013 = add i32 %3, 8
+  %1014 = add nsw i32 %31, -4
+  %1015 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1012, ptr noundef %0, i32 noundef %1013, i32 noundef %1014, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1015:                                             ; preds = %35
-  %1016 = load i32, ptr @hf_option_failover_relationship_name, align 4
-  %1017 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1016, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 2)
+1016:                                             ; preds = %35
+  %1017 = load i32, ptr @hf_option_failover_relationship_name, align 4
+  %1018 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1017, ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef 2)
   br label %proto_item_set_url.exit
 
-1018:                                             ; preds = %35
+1019:                                             ; preds = %35
   %.not1365 = icmp eq i16 %30, 1
-  br i1 %.not1365, label %1021, label %1019
+  br i1 %.not1365, label %1022, label %1020
 
-1019:                                             ; preds = %1018
-  %1020 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+1020:                                             ; preds = %1019
+  %1021 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-1021:                                             ; preds = %1018
-  %1022 = load i32, ptr @hf_option_failover_server_flags, align 4
-  %1023 = load i32, ptr @ett_dhcpv6_failover_server_flags, align 4
-  %1024 = tail call ptr @proto_tree_add_bitmask(ptr noundef %42, ptr noundef %0, i32 noundef %47, i32 noundef %1022, i32 noundef %1023, ptr noundef nonnull @dhcpv6_failover_server_flags_fields, i32 noundef 0)
+1022:                                             ; preds = %1019
+  %1023 = load i32, ptr @hf_option_failover_server_flags, align 4
+  %1024 = load i32, ptr @ett_dhcpv6_failover_server_flags, align 4
+  %1025 = tail call ptr @proto_tree_add_bitmask(ptr noundef %42, ptr noundef %0, i32 noundef %47, i32 noundef %1023, i32 noundef %1024, ptr noundef nonnull @dhcpv6_failover_server_flags_fields, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1025:                                             ; preds = %35
+1026:                                             ; preds = %35
   %.not1364 = icmp eq i16 %30, 1
-  br i1 %.not1364, label %1028, label %1026
+  br i1 %.not1364, label %1029, label %1027
 
-1026:                                             ; preds = %1025
-  %1027 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+1027:                                             ; preds = %1026
+  %1028 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-1028:                                             ; preds = %1025
-  %1029 = load i32, ptr @hf_option_failover_server_state, align 4
-  %1030 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1029, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+1029:                                             ; preds = %1026
+  %1030 = load i32, ptr @hf_option_failover_server_state, align 4
+  %1031 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1030, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1031:                                             ; preds = %35
+1032:                                             ; preds = %35
   %.not1363 = icmp eq i16 %30, 4
-  br i1 %.not1363, label %1034, label %1032
+  br i1 %.not1363, label %1035, label %1033
 
-1032:                                             ; preds = %1031
-  %1033 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+1033:                                             ; preds = %1032
+  %1034 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-1034:                                             ; preds = %1031
-  %1035 = load i32, ptr @hf_option_failover_start_time_of_state, align 4
-  %1036 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1035, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+1035:                                             ; preds = %1032
+  %1036 = load i32, ptr @hf_option_failover_start_time_of_state, align 4
+  %1037 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1036, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1037:                                             ; preds = %35
+1038:                                             ; preds = %35
   %.not1362 = icmp eq i16 %30, 4
-  br i1 %.not1362, label %1040, label %1038
+  br i1 %.not1362, label %1041, label %1039
 
-1038:                                             ; preds = %1037
-  %1039 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
+1039:                                             ; preds = %1038
+  %1040 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.915)
   br label %proto_item_set_url.exit
 
-1040:                                             ; preds = %1037
-  %1041 = load i32, ptr @hf_option_failover_state_expiration_time, align 4
-  %1042 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1041, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
+1041:                                             ; preds = %1038
+  %1042 = load i32, ptr @hf_option_failover_state_expiration_time, align 4
+  %1043 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1042, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1043:                                             ; preds = %35
+1044:                                             ; preds = %35
   %.not1361 = icmp eq i16 %30, 2
-  br i1 %.not1361, label %1046, label %1044
+  br i1 %.not1361, label %1047, label %1045
 
-1044:                                             ; preds = %1043
-  %1045 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.916)
+1045:                                             ; preds = %1044
+  %1046 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.916)
   br label %proto_item_set_url.exit
 
-1046:                                             ; preds = %1043
-  %1047 = load i32, ptr @hf_option_relay_port, align 4
-  %1048 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1047, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
+1047:                                             ; preds = %1044
+  %1048 = load i32, ptr @hf_option_relay_port, align 4
+  %1049 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1048, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1049:                                             ; preds = %35
-  %1050 = icmp ult i16 %30, 2
-  br i1 %1050, label %1051, label %1053
+1050:                                             ; preds = %35
+  %1051 = icmp ult i16 %30, 2
+  br i1 %1051, label %1052, label %1054
 
-1051:                                             ; preds = %1049
-  %1052 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.917)
+1052:                                             ; preds = %1050
+  %1053 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.917)
   br label %proto_item_set_url.exit
 
-1053:                                             ; preds = %1049
-  %1054 = load i32, ptr @hf_client_link_layer_addr_hwtype, align 4
-  %1055 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %1054, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12)
+1054:                                             ; preds = %1050
+  %1055 = load i32, ptr @hf_client_link_layer_addr_hwtype, align 4
+  %1056 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %1055, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12)
   %.not1360 = icmp eq i16 %30, 2
-  br i1 %.not1360, label %proto_item_set_url.exit, label %1056
+  br i1 %.not1360, label %proto_item_set_url.exit, label %1057
 
-1056:                                             ; preds = %1053
-  %1057 = load i32, ptr %12, align 4
-  %1058 = trunc i32 %1057 to i16
-  %1059 = load i32, ptr @hf_client_link_layer_addr, align 4
-  %1060 = add i32 %3, 6
-  %1061 = add nsw i32 %31, -2
-  %1062 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %1063 = load ptr, ptr %1062, align 8
-  %1064 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %1063, ptr noundef %0, i32 noundef %1060, i32 noundef %1061, i16 noundef zeroext %1058)
-  %1065 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %1059, ptr noundef %0, i32 noundef %1060, i32 noundef %1061, ptr noundef %1064)
-  switch i16 %1058, label %proto_item_set_url.exit [
-    i16 6, label %1066
-    i16 1, label %1066
+1057:                                             ; preds = %1054
+  %1058 = load i32, ptr %12, align 4
+  %1059 = trunc i32 %1058 to i16
+  %1060 = load i32, ptr @hf_client_link_layer_addr, align 4
+  %1061 = add i32 %3, 6
+  %1062 = add nsw i32 %31, -2
+  %1063 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %1064 = load ptr, ptr %1063, align 8
+  %1065 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %1064, ptr noundef %0, i32 noundef %1061, i32 noundef %1062, i16 noundef zeroext %1059)
+  %1066 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %1060, ptr noundef %0, i32 noundef %1061, i32 noundef %1062, ptr noundef %1065)
+  switch i16 %1059, label %proto_item_set_url.exit [
+    i16 6, label %1067
+    i16 1, label %1067
   ]
 
-1066:                                             ; preds = %1056, %1056
-  %1067 = icmp eq i32 %1061, 6
-  br i1 %1067, label %1068, label %proto_item_set_url.exit
+1067:                                             ; preds = %1057, %1057
+  %1068 = icmp eq i32 %1062, 6
+  br i1 %1068, label %1069, label %proto_item_set_url.exit
 
-1068:                                             ; preds = %1066
-  %1069 = load i32, ptr @hf_client_link_layer_addr_ether, align 4
-  %1070 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1069, ptr noundef %0, i32 noundef %1060, i32 noundef 6, i32 noundef 0)
+1069:                                             ; preds = %1067
+  %1070 = load i32, ptr @hf_client_link_layer_addr_ether, align 4
+  %1071 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1070, ptr noundef %0, i32 noundef %1061, i32 noundef 6, i32 noundef 0)
   br label %proto_item_set_url.exit
 
-1071:                                             ; preds = %35
+1072:                                             ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -4261,194 +4261,194 @@ switch.lookup:                                    ; preds = %723, %729
   store i32 0, ptr %21, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4
-  %1072 = icmp ult i16 %30, 6
-  br i1 %1072, label %1073, label %1075
+  %1073 = icmp ult i16 %30, 6
+  br i1 %1073, label %1074, label %1076
 
-1073:                                             ; preds = %1071
-  %1074 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.918)
+1074:                                             ; preds = %1072
+  %1075 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.918)
   br label %.loopexit
 
-1075:                                             ; preds = %1071
-  %1076 = load i32, ptr @hf_dnr_svcpriority, align 4
-  %1077 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1076, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
-  %1078 = load i32, ptr @hf_dnr_auth_domain_name_len, align 4
-  %1079 = add i32 %3, 6
-  %1080 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1078, ptr noundef %0, i32 noundef %1079, i32 noundef 2, i32 noundef 0)
-  %1081 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1079)
-  %1082 = zext i16 %1081 to i32
-  %1083 = add nuw nsw i32 %1082, 4
-  %1084 = icmp samesign ugt i32 %1083, %31
-  br i1 %1084, label %1085, label %1087
+1076:                                             ; preds = %1072
+  %1077 = load i32, ptr @hf_dnr_svcpriority, align 4
+  %1078 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1077, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
+  %1079 = load i32, ptr @hf_dnr_auth_domain_name_len, align 4
+  %1080 = add i32 %3, 6
+  %1081 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1079, ptr noundef %0, i32 noundef %1080, i32 noundef 2, i32 noundef 0)
+  %1082 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1080)
+  %1083 = zext i16 %1082 to i32
+  %1084 = add nuw nsw i32 %1083, 4
+  %1085 = icmp samesign ugt i32 %1084, %31
+  br i1 %1085, label %1086, label %1088
 
-1085:                                             ; preds = %1075
-  %1086 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.919)
+1086:                                             ; preds = %1076
+  %1087 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.919)
   br label %.loopexit
 
-1087:                                             ; preds = %1075
-  %1088 = load i32, ptr @hf_dnr_auth_domain_name, align 4
-  %1089 = add i32 %3, 8
-  tail call fastcc void @dhcpv6_domain(ptr noundef %42, ptr noundef %1, i32 noundef %1088, ptr noundef %0, i32 noundef %1089, i16 noundef zeroext %1081)
-  %1090 = add nuw nsw i32 %1082, 6
-  %1091 = icmp samesign ugt i32 %1090, %31
-  br i1 %1091, label %1092, label %1094
+1088:                                             ; preds = %1076
+  %1089 = load i32, ptr @hf_dnr_auth_domain_name, align 4
+  %1090 = add i32 %3, 8
+  tail call fastcc void @dhcpv6_domain(ptr noundef %42, ptr noundef %1, i32 noundef %1089, ptr noundef %0, i32 noundef %1090, i16 noundef zeroext %1082)
+  %1091 = add nuw nsw i32 %1083, 6
+  %1092 = icmp samesign ugt i32 %1091, %31
+  br i1 %1092, label %1093, label %1095
 
-1092:                                             ; preds = %1087
-  %1093 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.920)
+1093:                                             ; preds = %1088
+  %1094 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.920)
   br label %.loopexit
 
-1094:                                             ; preds = %1087
-  %1095 = add i32 %1083, %47
-  %1096 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1095)
-  %1097 = zext i16 %1096 to i32
-  %1098 = load i32, ptr @hf_dnr_addrs_len, align 4
-  %1099 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1098, ptr noundef %0, i32 noundef %1095, i32 noundef 2, i32 noundef 0)
-  %1100 = and i32 %1097, 15
-  %.not = icmp eq i32 %1100, 0
-  br i1 %.not, label %1103, label %1101
+1095:                                             ; preds = %1088
+  %1096 = add i32 %1084, %47
+  %1097 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1096)
+  %1098 = zext i16 %1097 to i32
+  %1099 = load i32, ptr @hf_dnr_addrs_len, align 4
+  %1100 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1099, ptr noundef %0, i32 noundef %1096, i32 noundef 2, i32 noundef 0)
+  %1101 = and i32 %1098, 15
+  %.not = icmp eq i32 %1101, 0
+  br i1 %.not, label %1104, label %1102
 
-1101:                                             ; preds = %1094
-  %1102 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.921, i32 noundef %1097)
+1102:                                             ; preds = %1095
+  %1103 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.921, i32 noundef %1098)
   br label %.loopexit
 
-1103:                                             ; preds = %1094
-  %1104 = add nuw nsw i32 %1090, %1097
-  %1105 = icmp samesign ugt i32 %1104, %31
-  br i1 %1105, label %1107, label %.preheader1466
+1104:                                             ; preds = %1095
+  %1105 = add nuw nsw i32 %1091, %1098
+  %1106 = icmp samesign ugt i32 %1105, %31
+  br i1 %1106, label %1108, label %.preheader1466
 
-.preheader1466:                                   ; preds = %1103
-  %.not1541 = icmp eq i16 %1096, 0
+.preheader1466:                                   ; preds = %1104
+  %.not1541 = icmp eq i16 %1097, 0
   br i1 %.not1541, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader1466
-  %1106 = add i32 %1090, %47
-  br label %1109
+  %1107 = add i32 %1091, %47
+  br label %1110
 
-1107:                                             ; preds = %1103
-  %1108 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.922)
+1108:                                             ; preds = %1104
+  %1109 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.922)
   br label %.loopexit
 
-1109:                                             ; preds = %.lr.ph, %1109
-  %.1113241468 = phi i32 [ 0, %.lr.ph ], [ %1115, %1109 ]
-  %1110 = load i32, ptr @hf_dnr_addrs, align 4
-  %1111 = add i32 %1106, %.1113241468
-  %1112 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1110, ptr noundef %0, i32 noundef %1111, i32 noundef 16, i32 noundef 0)
-  %1113 = lshr exact i32 %.1113241468, 4
-  %1114 = add nuw nsw i32 %1113, 1
-  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1112, ptr noundef nonnull @.str.875, i32 noundef %1114)
-  %1115 = add nuw nsw i32 %.1113241468, 16
-  %1116 = icmp samesign ult i32 %1115, %1097
-  br i1 %1116, label %1109, label %._crit_edge, !llvm.loop !42
+1110:                                             ; preds = %.lr.ph, %1110
+  %.1113241468 = phi i32 [ 0, %.lr.ph ], [ %1116, %1110 ]
+  %1111 = load i32, ptr @hf_dnr_addrs, align 4
+  %1112 = add i32 %1107, %.1113241468
+  %1113 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1111, ptr noundef %0, i32 noundef %1112, i32 noundef 16, i32 noundef 0)
+  %1114 = lshr exact i32 %.1113241468, 4
+  %1115 = add nuw nsw i32 %1114, 1
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1113, ptr noundef nonnull @.str.875, i32 noundef %1115)
+  %1116 = add nuw nsw i32 %.1113241468, 16
+  %1117 = icmp samesign ult i32 %1116, %1098
+  br i1 %1117, label %1110, label %._crit_edge, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %1109, %.preheader1466
-  %.lcssa1467 = phi ptr [ null, %.preheader1466 ], [ %1112, %1109 ]
+._crit_edge:                                      ; preds = %1110, %.preheader1466
+  %.lcssa1467 = phi ptr [ null, %.preheader1466 ], [ %1113, %1110 ]
   store ptr %.lcssa1467, ptr %11, align 8
-  %1117 = icmp samesign ult i32 %1104, %31
-  br i1 %1117, label %.preheader1465, label %1176
+  %1118 = icmp samesign ult i32 %1105, %31
+  br i1 %1118, label %.preheader1465, label %1177
 
 .preheader1465:                                   ; preds = %._crit_edge
-  %1118 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  br label %1119
+  %1119 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  br label %1120
 
-1119:                                             ; preds = %.preheader1465, %1174
-  %.012981473 = phi i32 [ %1104, %.preheader1465 ], [ %.1, %1174 ]
-  %1120 = load i32, ptr @hf_dnr_svcparams, align 4
-  %1121 = add i32 %.012981473, %47
-  %1122 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1120, ptr noundef %0, i32 noundef %1121, i32 noundef -1, i32 noundef 0)
-  %1123 = load i32, ptr @ett_dhcpv6_dnr_svcparams, align 4
-  %1124 = call ptr @proto_item_add_subtree(ptr noundef %1122, i32 noundef %1123)
-  %1125 = load i32, ptr @hf_dnr_svcparams_key, align 4
-  %1126 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1124, i32 noundef %1125, ptr noundef %0, i32 noundef %1121, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19)
-  %1127 = load i32, ptr @hf_dnr_svcparams_length, align 4
-  %1128 = add i32 %1079, %.012981473
-  %1129 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1124, i32 noundef %1127, ptr noundef %0, i32 noundef %1128, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20)
-  %1130 = add nsw i32 %.012981473, 4
-  %1131 = load i32, ptr %19, align 4
-  %1132 = call ptr @val_to_str(i32 noundef %1131, ptr noundef nonnull @dnr_svcparams_key_vals, ptr noundef nonnull @.str.924)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1122, ptr noundef nonnull @.str.923, ptr noundef %1132)
-  %1133 = load i32, ptr %20, align 4
-  %1134 = add i32 %1133, 4
-  call void @proto_item_set_len(ptr noundef %1122, i32 noundef %1134)
-  %1135 = load i32, ptr %19, align 4
-  switch i32 %1135, label %1163 [
+1120:                                             ; preds = %.preheader1465, %1175
+  %.012981473 = phi i32 [ %1105, %.preheader1465 ], [ %.1, %1175 ]
+  %1121 = load i32, ptr @hf_dnr_svcparams, align 4
+  %1122 = add i32 %.012981473, %47
+  %1123 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %1121, ptr noundef %0, i32 noundef %1122, i32 noundef -1, i32 noundef 0)
+  %1124 = load i32, ptr @ett_dhcpv6_dnr_svcparams, align 4
+  %1125 = call ptr @proto_item_add_subtree(ptr noundef %1123, i32 noundef %1124)
+  %1126 = load i32, ptr @hf_dnr_svcparams_key, align 4
+  %1127 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1125, i32 noundef %1126, ptr noundef %0, i32 noundef %1122, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19)
+  %1128 = load i32, ptr @hf_dnr_svcparams_length, align 4
+  %1129 = add i32 %1080, %.012981473
+  %1130 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1125, i32 noundef %1128, ptr noundef %0, i32 noundef %1129, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20)
+  %1131 = add nsw i32 %.012981473, 4
+  %1132 = load i32, ptr %19, align 4
+  %1133 = call ptr @val_to_str(i32 noundef %1132, ptr noundef nonnull @dnr_svcparams_key_vals, ptr noundef nonnull @.str.924)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1123, ptr noundef nonnull @.str.923, ptr noundef %1133)
+  %1134 = load i32, ptr %20, align 4
+  %1135 = add i32 %1134, 4
+  call void @proto_item_set_len(ptr noundef %1123, i32 noundef %1135)
+  %1136 = load i32, ptr %19, align 4
+  switch i32 %1136, label %1164 [
     i32 1, label %.preheader1464
-    i32 3, label %1157
+    i32 3, label %1158
   ]
 
-.preheader1464:                                   ; preds = %1119
-  %1136 = load i32, ptr %20, align 4
-  %.not1542 = icmp eq i32 %1136, 0
+.preheader1464:                                   ; preds = %1120
+  %1137 = load i32, ptr %20, align 4
+  %.not1542 = icmp eq i32 %1137, 0
   br i1 %.not1542, label %._crit_edge1471, label %.lr.ph1470
 
 .lr.ph1470:                                       ; preds = %.preheader1464
-  %1137 = add i32 %1130, %47
-  %1138 = add i32 %1137, 1
-  br label %1140
+  %1138 = add i32 %1131, %47
+  %1139 = add i32 %1138, 1
+  br label %1141
 
-._crit_edge1471:                                  ; preds = %1140, %.preheader1464
-  %.lcssa = phi i32 [ 0, %.preheader1464 ], [ %1155, %1140 ]
-  %1139 = add i32 %.lcssa, %1130
-  br label %1174
+._crit_edge1471:                                  ; preds = %1141, %.preheader1464
+  %.lcssa = phi i32 [ 0, %.preheader1464 ], [ %1156, %1141 ]
+  %1140 = add i32 %.lcssa, %1131
+  br label %1175
 
-1140:                                             ; preds = %.lr.ph1470, %1140
-  %.01469 = phi i32 [ 0, %.lr.ph1470 ], [ %1154, %1140 ]
+1141:                                             ; preds = %.lr.ph1470, %1141
+  %.01469 = phi i32 [ 0, %.lr.ph1470 ], [ %1155, %1141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8
-  %1141 = load i32, ptr @hf_dnr_svcparams_alpn_length, align 4
-  %1142 = add i32 %.01469, %1137
-  %1143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1124, i32 noundef %1141, ptr noundef %0, i32 noundef %1142, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21)
-  %1144 = load i32, ptr @hf_dnr_svcparams_alpn, align 4
-  %1145 = add i32 %1138, %.01469
-  %1146 = load i32, ptr %21, align 4
-  %1147 = load ptr, ptr %1118, align 8
-  %1148 = call ptr @proto_tree_add_item_ret_string(ptr noundef %1124, i32 noundef %1144, ptr noundef %0, i32 noundef %1145, i32 noundef %1146, i32 noundef 0, ptr noundef %1147, ptr noundef nonnull %23)
-  %1149 = icmp eq i32 %.01469, 0
-  %1150 = select i1 %1149, i32 61, i32 44
-  %1151 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1122, ptr noundef nonnull @.str.925, i32 noundef %1150, ptr noundef %1151)
-  %1152 = load i32, ptr %21, align 4
-  %1153 = add nuw i32 %.01469, 1
-  %1154 = add i32 %1153, %1152
+  %1142 = load i32, ptr @hf_dnr_svcparams_alpn_length, align 4
+  %1143 = add i32 %.01469, %1138
+  %1144 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1125, i32 noundef %1142, ptr noundef %0, i32 noundef %1143, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21)
+  %1145 = load i32, ptr @hf_dnr_svcparams_alpn, align 4
+  %1146 = add i32 %1139, %.01469
+  %1147 = load i32, ptr %21, align 4
+  %1148 = load ptr, ptr %1119, align 8
+  %1149 = call ptr @proto_tree_add_item_ret_string(ptr noundef %1125, i32 noundef %1145, ptr noundef %0, i32 noundef %1146, i32 noundef %1147, i32 noundef 0, ptr noundef %1148, ptr noundef nonnull %23)
+  %1150 = icmp eq i32 %.01469, 0
+  %1151 = select i1 %1150, i32 61, i32 44
+  %1152 = load ptr, ptr %23, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1123, ptr noundef nonnull @.str.925, i32 noundef %1151, ptr noundef %1152)
+  %1153 = load i32, ptr %21, align 4
+  %1154 = add nuw i32 %.01469, 1
+  %1155 = add i32 %1154, %1153
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %1155 = load i32, ptr %20, align 4
-  %1156 = icmp ult i32 %1154, %1155
-  br i1 %1156, label %1140, label %._crit_edge1471, !llvm.loop !43
+  %1156 = load i32, ptr %20, align 4
+  %1157 = icmp ult i32 %1155, %1156
+  br i1 %1157, label %1141, label %._crit_edge1471, !llvm.loop !43
 
-1157:                                             ; preds = %1119
-  %1158 = load i32, ptr @hf_dnr_svcparams_port, align 4
-  %1159 = add i32 %1130, %47
-  %1160 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1124, i32 noundef %1158, ptr noundef %0, i32 noundef %1159, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %22)
-  %1161 = load i32, ptr %22, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1122, ptr noundef nonnull @.str.926, i32 noundef %1161)
-  %1162 = add nsw i32 %.012981473, 6
-  br label %1174
+1158:                                             ; preds = %1120
+  %1159 = load i32, ptr @hf_dnr_svcparams_port, align 4
+  %1160 = add i32 %1131, %47
+  %1161 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1125, i32 noundef %1159, ptr noundef %0, i32 noundef %1160, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %22)
+  %1162 = load i32, ptr %22, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1123, ptr noundef nonnull @.str.926, i32 noundef %1162)
+  %1163 = add nsw i32 %.012981473, 6
+  br label %1175
 
-1163:                                             ; preds = %1119
-  %1164 = load i32, ptr %20, align 4
-  %.not1359 = icmp eq i32 %1164, 0
-  br i1 %.not1359, label %1174, label %1165
+1164:                                             ; preds = %1120
+  %1165 = load i32, ptr %20, align 4
+  %.not1359 = icmp eq i32 %1165, 0
+  br i1 %.not1359, label %1175, label %1166
 
-1165:                                             ; preds = %1163
-  %1166 = load i32, ptr @hf_dnr_svcparams_value, align 4
-  %1167 = add i32 %1130, %47
-  %1168 = call ptr @proto_tree_add_item(ptr noundef %1124, i32 noundef %1166, ptr noundef %0, i32 noundef %1167, i32 noundef %1164, i32 noundef 0)
-  %1169 = load ptr, ptr %1118, align 8
-  %1170 = load i32, ptr %20, align 4
-  %1171 = call ptr @tvb_format_text(ptr noundef %1169, ptr noundef %0, i32 noundef %1167, i32 noundef %1170)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1122, ptr noundef nonnull @.str.927, ptr noundef %1171)
-  %1172 = load i32, ptr %20, align 4
-  %1173 = add i32 %1172, %1130
-  br label %1174
+1166:                                             ; preds = %1164
+  %1167 = load i32, ptr @hf_dnr_svcparams_value, align 4
+  %1168 = add i32 %1131, %47
+  %1169 = call ptr @proto_tree_add_item(ptr noundef %1125, i32 noundef %1167, ptr noundef %0, i32 noundef %1168, i32 noundef %1165, i32 noundef 0)
+  %1170 = load ptr, ptr %1119, align 8
+  %1171 = load i32, ptr %20, align 4
+  %1172 = call ptr @tvb_format_text(ptr noundef %1170, ptr noundef %0, i32 noundef %1168, i32 noundef %1171)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1123, ptr noundef nonnull @.str.927, ptr noundef %1172)
+  %1173 = load i32, ptr %20, align 4
+  %1174 = add i32 %1173, %1131
+  br label %1175
 
-1174:                                             ; preds = %1163, %1165, %1157, %._crit_edge1471
-  %.1 = phi i32 [ %1173, %1165 ], [ %1130, %1163 ], [ %1139, %._crit_edge1471 ], [ %1162, %1157 ]
-  %1175 = icmp slt i32 %.1, %31
-  br i1 %1175, label %1119, label %.loopexit, !llvm.loop !44
+1175:                                             ; preds = %1164, %1166, %1158, %._crit_edge1471
+  %.1 = phi i32 [ %1174, %1166 ], [ %1131, %1164 ], [ %1140, %._crit_edge1471 ], [ %1163, %1158 ]
+  %1176 = icmp slt i32 %.1, %31
+  br i1 %1176, label %1120, label %.loopexit, !llvm.loop !44
 
-1176:                                             ; preds = %._crit_edge
-  %1177 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.928)
+1177:                                             ; preds = %._crit_edge
+  %1178 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.928)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1174, %1176, %1107, %1101, %1092, %1085, %1073
+.loopexit:                                        ; preds = %1175, %1177, %1108, %1102, %1093, %1086, %1074
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -4470,11 +4470,11 @@ proto_item_set_url.exit.loopexit1449:             ; preds = %.lr.ph1496, %.prehe
   store ptr %.lcssa1494, ptr %11, align 8
   br label %proto_item_set_url.exit
 
-proto_item_set_url.exit:                          ; preds = %.lr.ph1476, %853, %.lr.ph1481, %.lr.ph1483, %791, %783, %.lr.ph1490, %.lr.ph1492, %.lr.ph1499, %.lr.ph1501, %.lr.ph1513, %.lr.ph1516, %.lr.ph1519, %397, %370, %351, %322, %286, %234, %194, %145, %.preheader1462, %840, %.preheader1459, %.preheader1457, %.preheader1455, %778, %.preheader1452, %.preheader1450, %.preheader1446, %.preheader1444, %.preheader1438, %509, %405, %382, %363, %338, %320, %278, %226, %.preheader, %proto_item_set_url.exit.loopexit1449, %proto_item_set_url.exit.loopexit1443, %proto_item_set_url.exit.loopexit1441, %898, %895, %892, %1056, %767, %700, %740, %543, %549, %545, %504, %295, %302, %310, %312, %266, %276, %250, %257, %259, %199, %213, %224, %117, %95, %1053, %1068, %1066, %761, %762, %757, %758, %753, %754, %697, %663, %664, %641, %642, %636, %637, %613, %614, %568, %569, %565, %566, %556, %492, %495, %479, %483, %460, %468, %428, %430, %334, %336, %169, %143, %60, %98, %111, %132, %134, %104, %100, %126, %128, %113, %.loopexit, %1051, %1046, %1044, %1040, %1038, %1034, %1032, %1028, %1026, %1021, %1019, %1015, %1008, %1006, %1001, %999, %992, %990, %986, %984, %980, %978, %974, %972, %968, %966, %962, %960, %956, %954, %950, %948, %943, %941, %930, %920, %916, %914, %910, %908, %885, %883, %877, %875, %870, %868, %864, %862, %838, %834, %827, %818, %809, %807, %802, %800, %746, %692, %690, %681, %679, %670, %660, %658, %648, %629, %620, %604, %595, %584, %575, %562, %560, %533, %502, %490, %476, %474, %434, %420, %418, %414, %412, %380, %361, %245, %243, %159, %.thread, %35
+proto_item_set_url.exit:                          ; preds = %.lr.ph1476, %854, %.lr.ph1481, %.lr.ph1483, %792, %784, %.lr.ph1490, %.lr.ph1492, %.lr.ph1499, %.lr.ph1501, %.lr.ph1513, %.lr.ph1516, %.lr.ph1519, %397, %370, %351, %322, %286, %234, %194, %145, %.preheader1462, %841, %.preheader1459, %.preheader1457, %.preheader1455, %779, %.preheader1452, %.preheader1450, %.preheader1446, %.preheader1444, %.preheader1438, %509, %405, %382, %363, %338, %320, %278, %226, %.preheader, %proto_item_set_url.exit.loopexit1449, %proto_item_set_url.exit.loopexit1443, %proto_item_set_url.exit.loopexit1441, %899, %896, %893, %1057, %768, %700, %741, %543, %549, %545, %504, %295, %302, %310, %312, %266, %276, %250, %257, %259, %199, %213, %224, %117, %95, %1054, %1069, %1067, %762, %763, %758, %759, %754, %755, %697, %663, %664, %641, %642, %636, %637, %613, %614, %568, %569, %565, %566, %556, %492, %495, %479, %483, %460, %468, %428, %430, %334, %336, %169, %143, %60, %98, %111, %132, %134, %104, %100, %126, %128, %113, %.loopexit, %1052, %1047, %1045, %1041, %1039, %1035, %1033, %1029, %1027, %1022, %1020, %1016, %1009, %1007, %1002, %1000, %993, %991, %987, %985, %981, %979, %975, %973, %969, %967, %963, %961, %957, %955, %951, %949, %944, %942, %931, %921, %917, %915, %911, %909, %886, %884, %878, %876, %871, %869, %865, %863, %839, %835, %828, %819, %810, %808, %803, %801, %747, %692, %690, %681, %679, %670, %660, %658, %648, %629, %620, %604, %595, %584, %575, %562, %560, %533, %502, %490, %476, %474, %434, %420, %418, %414, %412, %380, %361, %245, %243, %159, %.thread, %35
   call void @decrement_dissection_depth(ptr noundef %1)
-  br label %1178
+  br label %1179
 
-1178:                                             ; preds = %proto_item_set_url.exit, %34, %26
+1179:                                             ; preds = %proto_item_set_url.exit, %34, %26
   %.01299 = phi i32 [ 0, %26 ], [ 0, %34 ], [ %32, %proto_item_set_url.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

@@ -1482,23 +1482,23 @@ define hidden void @je_large_prof_info_get(ptr noundef %0, ptr noundef %1, ptr n
   %.0.i.i = inttoptr i64 %6 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i.i, ptr %7, align 8, !tbaa !125
-  %switch = icmp ult i64 %6, 2
-  br i1 %switch, label %13, label %8
+  %8 = icmp ult i64 %6, 2
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @je_nstime_copy(ptr noundef nonnull %2, ptr noundef nonnull %9) #11
-  %10 = getelementptr i8, ptr %1, i64 72
-  %.val = load i64, ptr %10, align 8, !tbaa !5
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %.val, ptr %11, align 8, !tbaa !128
-  br i1 %3, label %12, label %13
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void @je_nstime_copy(ptr noundef nonnull %2, ptr noundef nonnull %10) #11
+  %11 = getelementptr i8, ptr %1, i64 72
+  %.val = load i64, ptr %11, align 8, !tbaa !5
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %.val, ptr %12, align 8, !tbaa !128
+  br i1 %3, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   tail call void @je_prof_recent_alloc_reset(ptr noundef %0, ptr noundef nonnull %1) #11
-  br label %13
+  br label %14
 
-13:                                               ; preds = %4, %8, %12
+14:                                               ; preds = %4, %9, %13
   ret void
 }
 

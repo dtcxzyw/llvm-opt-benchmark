@@ -12608,8 +12608,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isValidOperand
   %18 = and i32 %17, 255
   %19 = add nsw i32 %18, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %19, -2
-  %.not5189 = icmp eq ptr %15, null
-  %.not51 = or i1 %.not5189, %spec.select.i.i.i.i.i.i.i.i
+  %.not5190 = icmp eq ptr %15, null
+  %.not51 = or i1 %.not5190, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not51, label %.critedge, label %20
 
 20:                                               ; preds = %13
@@ -12635,8 +12635,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isValidOperand
   %35 = load i8, ptr %2, align 8, !tbaa !80
   %36 = add i8 %35, -12
   %or.cond = icmp ult i8 %36, 3
-  %or.cond88 = select i1 %27, i1 true, i1 %or.cond
-  br i1 %or.cond88, label %.critedge, label %37
+  %or.cond89 = select i1 %27, i1 true, i1 %or.cond
+  br i1 %or.cond89, label %.critedge, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -12679,20 +12679,20 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %49 ], [ %54, %52 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
-  %.not55101 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not55101, label %.critedge, label %.lr.ph104
+  %.not55102 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not55102, label %.critedge, label %.lr.ph105
 
-.lr.ph104:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
+.lr.ph105:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
   %59 = shl i32 %39, 1
   %60 = zext i32 %59 to i64
   br label %61
 
-61:                                               ; preds = %.lr.ph104, %68
-  %.046102 = phi ptr [ %57, %.lr.ph104 ], [ %69, %68 ]
-  %62 = load ptr, ptr %.046102, align 8, !tbaa !75
+61:                                               ; preds = %.lr.ph105, %68
+  %.046103 = phi ptr [ %57, %.lr.ph105 ], [ %69, %68 ]
+  %62 = load ptr, ptr %.046103, align 8, !tbaa !75
   %63 = load i8, ptr %62, align 8, !tbaa !80
-  %.not95 = icmp eq i8 %63, 17
-  br i1 %.not95, label %64, label %66
+  %.not96 = icmp eq i8 %63, 17
+  br i1 %.not96, label %64, label %66
 
 64:                                               ; preds = %61
   %65 = tail call noundef zeroext i1 @_ZNK4llvm11ConstantInt3ugeEm(ptr noundef nonnull align 8 dereferenceable(40) %62, i64 noundef %60)
@@ -12704,7 +12704,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   br i1 %spec.select.i.i.i.i.i.i.i.i66, label %68, label %.critedge
 
 68:                                               ; preds = %66, %64
-  %69 = getelementptr inbounds nuw i8, ptr %.046102, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.046103, i64 32
   %.not55 = icmp eq ptr %69, %58
   br i1 %.not55, label %.critedge, label %61
 
@@ -12716,8 +12716,8 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
 71:                                               ; preds = %.thread85
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %73 = load i32, ptr %72, align 8, !tbaa !96
-  %.not5897 = icmp eq i32 %73, 0
-  br i1 %.not5897, label %.loopexit, label %.lr.ph
+  %.not5898 = icmp eq i32 %73, 0
+  br i1 %.not5898, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71
   %74 = shl i32 %39, 1
@@ -12725,13 +12725,13 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph
-  %.03998 = phi i32 [ 0, %.lr.ph ], [ %78, %76 ]
-  %77 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.03998) #32
+  %.03999 = phi i32 [ 0, %.lr.ph ], [ %78, %76 ]
+  %77 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.03999) #32
   %.not59 = icmp ult i64 %77, %75
-  %78 = add nuw i32 %.03998, 1
+  %78 = add nuw i32 %.03999, 1
   %.not58 = icmp ne i32 %78, %73
-  %or.cond116.not = select i1 %.not59, i1 %.not58, i1 false
-  br i1 %or.cond116.not, label %76, label %.loopexit, !llvm.loop !288
+  %or.cond117.not = select i1 %.not59, i1 %.not58, i1 false
+  br i1 %or.cond117.not, label %76, label %.loopexit, !llvm.loop !288
 
 .loopexit:                                        ; preds = %76, %71, %.thread85
   %.9 = phi i1 [ undef, %.thread85 ], [ true, %71 ], [ %.not59, %76 ]

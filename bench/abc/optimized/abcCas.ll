@@ -1520,7 +1520,7 @@ define void @Abc_LutCasPrintDsd(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %7 = tail call ptr @Dsd_ManagerStart(ptr noundef %0, i32 noundef %6, i32 noundef 0) #25
   call void @Dsd_Decompose(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 1) #25
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %Vec_PtrFreeFree.exit25, label %8
+  br i1 %.not, label %Vec_PtrFreeFree.exit24, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %5, align 8, !tbaa !24
@@ -1541,18 +1541,18 @@ define void @Abc_LutCasPrintDsd(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %17 = zext nneg i32 %.val15.i.i to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %21
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %21 ], [ 0, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %22
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %22 ], [ 0, %.lr.ph.i.i.preheader ]
   %18 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !10
-  %switch.i.i = icmp ult ptr %19, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i, label %21, label %20
+  %20 = icmp ult ptr %19, inttoptr (i64 3 to ptr)
+  br i1 %20, label %22, label %21
 
-20:                                               ; preds = %.lr.ph.i.i
+21:                                               ; preds = %.lr.ph.i.i
   call void @free(ptr noundef %19) #25
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %.lr.ph.i.i
+22:                                               ; preds = %21, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %17
   br i1 %exitcond.not, label %Vec_PtrFreeFree.exit, label %.lr.ph.i.i, !llvm.loop !60
@@ -1563,53 +1563,53 @@ Vec_PtrFreeData.exit.i:                           ; preds = %8
 
 Vec_PtrFreeFree.exit.thread:                      ; preds = %Vec_PtrFreeData.exit.i
   call void @free(ptr noundef nonnull %10) #25
-  br label %23
+  br label %24
 
-Vec_PtrFreeFree.exit:                             ; preds = %21, %Vec_PtrFreeData.exit.i
+Vec_PtrFreeFree.exit:                             ; preds = %22, %Vec_PtrFreeData.exit.i
   call void @free(ptr noundef nonnull %.val) #25
   call void @free(ptr noundef nonnull %10) #25
-  %22 = icmp eq ptr %11, null
-  br i1 %22, label %Vec_PtrFreeFree.exit25, label %23
+  %23 = icmp eq ptr %11, null
+  br i1 %23, label %Vec_PtrFreeFree.exit24, label %24
 
-23:                                               ; preds = %Vec_PtrFreeFree.exit.thread, %Vec_PtrFreeFree.exit
-  %24 = getelementptr i8, ptr %11, i64 4
-  %.val15.i.i13 = load i32, ptr %24, align 4, !tbaa !3
-  %25 = icmp sgt i32 %.val15.i.i13, 0
-  br i1 %25, label %.lr.ph.i.i17.preheader, label %Vec_PtrFreeData.exit.i14
+24:                                               ; preds = %Vec_PtrFreeFree.exit.thread, %Vec_PtrFreeFree.exit
+  %25 = getelementptr i8, ptr %11, i64 4
+  %.val15.i.i13 = load i32, ptr %25, align 4, !tbaa !3
+  %26 = icmp sgt i32 %.val15.i.i13, 0
+  br i1 %26, label %.lr.ph.i.i17.preheader, label %Vec_PtrFreeData.exit.i14
 
-.lr.ph.i.i17.preheader:                           ; preds = %23
-  %26 = zext nneg i32 %.val15.i.i13 to i64
+.lr.ph.i.i17.preheader:                           ; preds = %24
+  %27 = zext nneg i32 %.val15.i.i13 to i64
   br label %.lr.ph.i.i17
 
-.lr.ph.i.i17:                                     ; preds = %.lr.ph.i.i17.preheader, %30
-  %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i24, %30 ], [ 0, %.lr.ph.i.i17.preheader ]
-  %27 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv.i.i19
-  %28 = load ptr, ptr %27, align 8, !tbaa !10
-  %switch.i.i21 = icmp ult ptr %28, inttoptr (i64 3 to ptr)
-  br i1 %switch.i.i21, label %30, label %29
+.lr.ph.i.i17:                                     ; preds = %.lr.ph.i.i17.preheader, %32
+  %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i23, %32 ], [ 0, %.lr.ph.i.i17.preheader ]
+  %28 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv.i.i19
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  %30 = icmp ult ptr %29, inttoptr (i64 3 to ptr)
+  br i1 %30, label %32, label %31
 
-29:                                               ; preds = %.lr.ph.i.i17
-  call void @free(ptr noundef %28) #25
-  br label %30
+31:                                               ; preds = %.lr.ph.i.i17
+  call void @free(ptr noundef %29) #25
+  br label %32
 
-30:                                               ; preds = %29, %.lr.ph.i.i17
-  %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i19, 1
-  %exitcond28.not = icmp eq i64 %indvars.iv.next.i.i24, %26
-  br i1 %exitcond28.not, label %Vec_PtrFreeData.exit.i14.thread, label %.lr.ph.i.i17, !llvm.loop !60
+32:                                               ; preds = %31, %.lr.ph.i.i17
+  %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i19, 1
+  %exitcond27.not = icmp eq i64 %indvars.iv.next.i.i23, %27
+  br i1 %exitcond27.not, label %Vec_PtrFreeData.exit.i14.thread, label %.lr.ph.i.i17, !llvm.loop !60
 
-Vec_PtrFreeData.exit.i14:                         ; preds = %23
+Vec_PtrFreeData.exit.i14:                         ; preds = %24
   %.not.i.i15 = icmp eq ptr %.val12, null
   br i1 %.not.i.i15, label %Vec_PtrFree.exit.i16, label %Vec_PtrFreeData.exit.i14.thread
 
-Vec_PtrFreeData.exit.i14.thread:                  ; preds = %30, %Vec_PtrFreeData.exit.i14
+Vec_PtrFreeData.exit.i14.thread:                  ; preds = %32, %Vec_PtrFreeData.exit.i14
   call void @free(ptr noundef nonnull %.val12) #25
   br label %Vec_PtrFree.exit.i16
 
 Vec_PtrFree.exit.i16:                             ; preds = %Vec_PtrFreeData.exit.i14.thread, %Vec_PtrFreeData.exit.i14
   call void @free(ptr noundef nonnull %11) #25
-  br label %Vec_PtrFreeFree.exit25
+  br label %Vec_PtrFreeFree.exit24
 
-Vec_PtrFreeFree.exit25:                           ; preds = %Vec_PtrFree.exit.i16, %Vec_PtrFreeFree.exit, %3
+Vec_PtrFreeFree.exit24:                           ; preds = %Vec_PtrFree.exit.i16, %Vec_PtrFreeFree.exit, %3
   call void @Dsd_ManagerStop(ptr noundef %7) #25
   ret void
 }

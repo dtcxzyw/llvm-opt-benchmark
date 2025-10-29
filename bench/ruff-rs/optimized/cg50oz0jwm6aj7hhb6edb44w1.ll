@@ -25154,38 +25154,38 @@ define hidden void @"_ZN4core3ptr152drop_in_place$LT$core..cell..RefCell$LT$std.
 define hidden void @"_ZN4core3ptr152drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17he639ac3ba1c18494E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$17he5713580886575a5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %7 unwind label %3
+          to label %8 unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load i64, ptr %0, align 8, !range !1779, !alias.scope !2644, !noundef !9
-  %switch.i = icmp slt i64 %5, -9223372036854775805
-  br i1 %switch.i, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit", label %6
+  %6 = icmp slt i64 %5, -9223372036854775805
+  br i1 %6, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit", label %7
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8d76ba4c13479be2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit" unwind label %10
+          to label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit" unwind label %12
 
-7:                                                ; preds = %1
-  %8 = load i64, ptr %0, align 8, !range !1779, !alias.scope !2647, !noundef !9
-  %switch.i1 = icmp slt i64 %8, -9223372036854775805
-  br i1 %switch.i1, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit2", label %9
+8:                                                ; preds = %1
+  %9 = load i64, ptr %0, align 8, !range !1779, !alias.scope !2647, !noundef !9
+  %10 = icmp slt i64 %9, -9223372036854775805
+  br i1 %10, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit1", label %11
 
-9:                                                ; preds = %7
+11:                                               ; preds = %8
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8d76ba4c13479be2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i64 noundef 1)
-  br label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit2"
+  br label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit1"
 
-"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit2": ; preds = %7, %9
+"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit1": ; preds = %8, %11
   ret void
 
-10:                                               ; preds = %6
-  %11 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32
   unreachable
 
-"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit": ; preds = %3, %6
+"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ruff_linter..rules..isort..comments..Comment$GT$$GT$$GT$17h2f0b49d93175b18cE.exit": ; preds = %3, %7
   resume { ptr, i32 } %4
 }
 

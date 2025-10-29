@@ -1607,42 +1607,42 @@ define internal fastcc void @reset_signal_handlers(ptr noundef nonnull %0) unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   br label %5
 
-4:                                                ; preds = %16
+4:                                                ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-5:                                                ; preds = %1, %16
-  %.012 = phi i32 [ 1, %1 ], [ %17, %16 ]
-  switch i32 %.012, label %6 [
-    i32 19, label %16
-    i32 9, label %16
+5:                                                ; preds = %1, %17
+  %.013 = phi i32 [ 1, %1 ], [ %18, %17 ]
+  switch i32 %.013, label %6 [
+    i32 19, label %17
+    i32 9, label %17
   ]
 
 6:                                                ; preds = %5
-  %7 = call i32 @sigismember(ptr noundef nonnull %0, i32 noundef %.012) #12
+  %7 = call i32 @sigismember(ptr noundef nonnull %0, i32 noundef %.013) #12
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %16, label %9
+  br i1 %8, label %17, label %9
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %10 = call i32 @sigaction(i32 noundef %.012, ptr noundef null, ptr noundef nonnull %3) #12
+  %10 = call i32 @sigaction(i32 noundef %.013, ptr noundef null, ptr noundef nonnull %3) #12
   %11 = icmp eq i32 %10, -1
   %12 = load ptr, ptr %3, align 8
-  %switch = icmp ult ptr %12, inttoptr (i64 2 to ptr)
-  %or.cond = select i1 %11, i1 true, i1 %switch
-  br i1 %or.cond, label %15, label %13
+  %13 = icmp ult ptr %12, inttoptr (i64 2 to ptr)
+  %or.cond = select i1 %11, i1 true, i1 %13
+  br i1 %or.cond, label %16, label %14
 
-13:                                               ; preds = %9
-  %14 = call i32 @sigaction(i32 noundef %.012, ptr noundef nonnull %2, ptr noundef null) #12
-  br label %15
-
-15:                                               ; preds = %13, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+14:                                               ; preds = %9
+  %15 = call i32 @sigaction(i32 noundef %.013, ptr noundef nonnull %2, ptr noundef null) #12
   br label %16
 
-16:                                               ; preds = %5, %5, %15, %6
-  %17 = add nuw nsw i32 %.012, 1
-  %exitcond.not = icmp eq i32 %17, 65
+16:                                               ; preds = %14, %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %17
+
+17:                                               ; preds = %5, %5, %16, %6
+  %18 = add nuw nsw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %18, 65
   br i1 %exitcond.not, label %4, label %5, !llvm.loop !48
 }
 

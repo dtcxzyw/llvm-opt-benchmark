@@ -69672,7 +69672,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7c
   br i1 %.not.i.i52, label %_ZNK5arrow7compute10Expression4callEv.exit.thread, label %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i
 
 _ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i: ; preds = %1, %tailrecurse.backedge
-  %3 = phi ptr [ %31, %tailrecurse.backedge ], [ %2, %1 ]
+  %3 = phi ptr [ %33, %tailrecurse.backedge ], [ %2, %1 ]
   %.tr53 = phi ptr [ %9, %tailrecurse.backedge ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load i8, ptr %4, align 8, !tbaa !66
@@ -69739,71 +69739,71 @@ _ZNK5arrow7compute10Expression4typeEv.exit35:     ; preds = %23, %25, %_ZSt6get_
   %29 = load i32, ptr %28, align 8, !tbaa !186
   %.off.i = add i32 %29, -10
   %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %30, label %32
+  br i1 %switch.i, label %30, label %34
 
 30:                                               ; preds = %_ZNK5arrow7compute10Expression4typeEv.exit35
-  %.off = add i32 %19, -2
-  %switch = icmp ult i32 %.off, 11
-  br i1 %switch, label %tailrecurse.backedge, label %_ZNK5arrow7compute10Expression4callEv.exit.thread
+  %31 = add i32 %19, -2
+  %32 = icmp ult i32 %31, 11
+  br i1 %32, label %tailrecurse.backedge, label %_ZNK5arrow7compute10Expression4callEv.exit.thread
 
-tailrecurse.backedge:                             ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit, %30, %switch.lookup66, %44
-  %31 = load ptr, ptr %9, align 8, !tbaa !62
-  %.not.i.i = icmp eq ptr %31, null
+tailrecurse.backedge:                             ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit, %30, %switch.lookup66, %46
+  %33 = load ptr, ptr %9, align 8, !tbaa !62
+  %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNK5arrow7compute10Expression4callEv.exit.thread, label %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i
 
-32:                                               ; preds = %_ZNK5arrow7compute10Expression4typeEv.exit35
-  %33 = add i32 %29, -2
-  %switch.and.i = and i32 %33, -7
+34:                                               ; preds = %_ZNK5arrow7compute10Expression4typeEv.exit35
+  %35 = add i32 %29, -2
+  %switch.and.i = and i32 %35, -7
   %switch.selectcmp.i = icmp eq i32 %switch.and.i, 0
-  br i1 %switch.selectcmp.i, label %34, label %42
-
-34:                                               ; preds = %32
-  %35 = add i32 %19, -2
-  %switch.and.i40 = and i32 %35, -7
-  %switch.selectcmp.i41 = icmp eq i32 %switch.and.i40, 0
-  br i1 %switch.selectcmp.i41, label %36, label %_ZNK5arrow7compute10Expression4callEv.exit.thread
+  br i1 %switch.selectcmp.i, label %36, label %44
 
 36:                                               ; preds = %34
-  %switch.tableidx = add i32 %29, -1
-  %37 = icmp ult i32 %switch.tableidx, 44
-  br i1 %37, label %switch.lookup, label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
+  %37 = add i32 %19, -2
+  %switch.and.i40 = and i32 %37, -7
+  %switch.selectcmp.i41 = icmp eq i32 %switch.and.i40, 0
+  br i1 %switch.selectcmp.i41, label %38, label %_ZNK5arrow7compute10Expression4callEv.exit.thread
 
-switch.lookup:                                    ; preds = %36
-  %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrow7compute10Comparison25StripOrderPreservingCastsERKNS0_10ExpressionE, i64 %38
+38:                                               ; preds = %36
+  %switch.tableidx = add i32 %29, -1
+  %39 = icmp ult i32 %switch.tableidx, 44
+  br i1 %39, label %switch.lookup, label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
+
+switch.lookup:                                    ; preds = %38
+  %40 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrow7compute10Comparison25StripOrderPreservingCastsERKNS0_10ExpressionE, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
 
-_ZN5arrowL9bit_widthENS_4Type4typeE.exit:         ; preds = %36, %switch.lookup
-  %.0.i42 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %36 ]
+_ZN5arrowL9bit_widthENS_4Type4typeE.exit:         ; preds = %38, %switch.lookup
+  %.0.i42 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %38 ]
   %switch.tableidx65 = add i32 %19, -1
-  %39 = icmp ult i32 %switch.tableidx65, 44
-  br i1 %39, label %switch.lookup66, label %tailrecurse.backedge
+  %41 = icmp ult i32 %switch.tableidx65, 44
+  br i1 %41, label %switch.lookup66, label %tailrecurse.backedge
 
 switch.lookup66:                                  ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
-  %40 = zext nneg i32 %switch.tableidx65 to i64
-  %switch.gep67 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrowL9bit_widthENS_4Type4typeE, i64 %40
+  %42 = zext nneg i32 %switch.tableidx65 to i64
+  %switch.gep67 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrowL9bit_widthENS_4Type4typeE, i64 %42
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  %41 = icmp samesign ult i32 %.0.i42, %switch.load68
-  br i1 %41, label %_ZNK5arrow7compute10Expression4callEv.exit.thread, label %tailrecurse.backedge
+  %43 = icmp samesign ult i32 %.0.i42, %switch.load68
+  br i1 %43, label %_ZNK5arrow7compute10Expression4callEv.exit.thread, label %tailrecurse.backedge
 
-42:                                               ; preds = %32
-  %43 = add i32 %29, -3
-  %switch.and.i45 = and i32 %43, -7
+44:                                               ; preds = %34
+  %45 = add i32 %29, -3
+  %switch.and.i45 = and i32 %45, -7
   %switch.selectcmp.i46 = icmp eq i32 %switch.and.i45, 0
   %.off.i47 = add i32 %19, -2
   %switch.i48 = icmp ult i32 %.off.i47, 8
   %or.cond51 = select i1 %switch.selectcmp.i46, i1 %switch.i48, i1 false
-  br i1 %or.cond51, label %44, label %_ZNK5arrow7compute10Expression4callEv.exit.thread
+  br i1 %or.cond51, label %46, label %_ZNK5arrow7compute10Expression4callEv.exit.thread
 
-44:                                               ; preds = %42
-  %45 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %29)
-  %46 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %19)
-  %.not27 = icmp samesign ult i32 %45, %46
+46:                                               ; preds = %44
+  %47 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %29)
+  %48 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %19)
+  %.not27 = icmp samesign ult i32 %47, %48
   br i1 %.not27, label %_ZNK5arrow7compute10Expression4callEv.exit.thread, label %tailrecurse.backedge
 
-_ZNK5arrow7compute10Expression4callEv.exit.thread: ; preds = %_ZNK5arrow7compute10Expression4callEv.exit, %42, %44, %34, %switch.lookup66, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i, %tailrecurse.backedge, %30, %1
-  %.tr.lcssa = phi ptr [ %0, %1 ], [ %.tr53, %30 ], [ %9, %tailrecurse.backedge ], [ %.tr53, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i ], [ %.tr53, %switch.lookup66 ], [ %.tr53, %34 ], [ %.tr53, %44 ], [ %.tr53, %42 ], [ %.tr53, %_ZNK5arrow7compute10Expression4callEv.exit ]
+_ZNK5arrow7compute10Expression4callEv.exit.thread: ; preds = %_ZNK5arrow7compute10Expression4callEv.exit, %44, %46, %36, %switch.lookup66, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i, %tailrecurse.backedge, %30, %1
+  %.tr.lcssa = phi ptr [ %0, %1 ], [ %.tr53, %30 ], [ %9, %tailrecurse.backedge ], [ %.tr53, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i ], [ %.tr53, %switch.lookup66 ], [ %.tr53, %36 ], [ %.tr53, %46 ], [ %.tr53, %44 ], [ %.tr53, %_ZNK5arrow7compute10Expression4callEv.exit ]
   ret ptr %.tr.lcssa
 }
 

@@ -71595,7 +71595,7 @@ define internal fastcc void @_ZN14polars_parquet7parquet10statistics10Statistics
   %19 = alloca [192 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = load i64, ptr %2, align 8, !range !2187, !noundef !3
-  switch i64 %20, label %default.unreachable141 [
+  switch i64 %20, label %default.unreachable139 [
     i64 0, label %21
     i64 1, label %22
     i64 2, label %23
@@ -71606,7 +71606,7 @@ define internal fastcc void @_ZN14polars_parquet7parquet10statistics10Statistics
     i64 7, label %28
   ]
 
-default.unreachable141:                           ; preds = %3
+default.unreachable139:                           ; preds = %3
   unreachable
 
 21:                                               ; preds = %3
@@ -71938,8 +71938,8 @@ default.unreachable141:                           ; preds = %3
 104:                                              ; preds = %43, %103
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %106 = load i8, ptr %105, align 8, !range !2254, !noundef !3
-  %.not142 = icmp eq i8 %106, 0
-  br i1 %.not142, label %109, label %110
+  %.not140 = icmp eq i8 %106, 0
+  br i1 %.not140, label %109, label %110
 
 107:                                              ; preds = %109, %103
   %108 = landingpad { ptr, i32 }
@@ -71981,10 +71981,10 @@ default.unreachable141:                           ; preds = %3
   %123 = load i64, ptr %122, align 8, !range !1075, !noundef !3
   %124 = trunc nuw i64 %123 to i1
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %.val.i115 = load double, ptr %125, align 8
-  %126 = fcmp uno double %.val.i115, 0.000000e+00
-  %or.cond131 = select i1 %124, i1 %126, i1 false
-  br i1 %or.cond131, label %134, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h95c66f979a57a151E.exit.thread"
+  %.val.i113 = load double, ptr %125, align 8
+  %126 = fcmp uno double %.val.i113, 0.000000e+00
+  %or.cond129 = select i1 %124, i1 %126, i1 false
+  br i1 %or.cond129, label %134, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h95c66f979a57a151E.exit.thread"
 
 127:                                              ; preds = %115
   store i32 0, ptr %116, align 8
@@ -71995,10 +71995,10 @@ default.unreachable141:                           ; preds = %3
   %129 = load i32, ptr %128, align 8, !range !3098, !noundef !3
   %130 = trunc nuw i32 %129 to i1
   %131 = getelementptr inbounds nuw i8, ptr %19, i64 156
-  %.val.i118 = load float, ptr %131, align 4
-  %132 = fcmp uno float %.val.i118, 0.000000e+00
-  %or.cond129 = select i1 %130, i1 %132, i1 false
-  br i1 %or.cond129, label %133, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h745ba23e520d4391E.exit.thread"
+  %.val.i116 = load float, ptr %131, align 4
+  %132 = fcmp uno float %.val.i116, 0.000000e+00
+  %or.cond127 = select i1 %130, i1 %132, i1 false
+  br i1 %or.cond127, label %133, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h745ba23e520d4391E.exit.thread"
 
 133:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h96c29a3625719b47E.exit.thread"
   store i32 0, ptr %128, align 8
@@ -72013,10 +72013,10 @@ default.unreachable141:                           ; preds = %3
   %136 = load i64, ptr %135, align 8, !range !1075, !noundef !3
   %137 = trunc nuw i64 %136 to i1
   %138 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %.val.i121 = load double, ptr %138, align 8
-  %139 = fcmp uno double %.val.i121, 0.000000e+00
-  %or.cond133 = select i1 %137, i1 %139, i1 false
-  br i1 %or.cond133, label %140, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h745ba23e520d4391E.exit.thread"
+  %.val.i119 = load double, ptr %138, align 8
+  %139 = fcmp uno double %.val.i119, 0.000000e+00
+  %or.cond131 = select i1 %137, i1 %139, i1 false
+  br i1 %or.cond131, label %140, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h745ba23e520d4391E.exit.thread"
 
 140:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h95c66f979a57a151E.exit.thread"
   store i64 0, ptr %135, align 8

@@ -2770,34 +2770,34 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %6 = load ptr, ptr %5, align 16, !tbaa !48
   %7 = load i32, ptr %6, align 4, !tbaa !61
   %8 = and i32 %7, -2
-  %switch = icmp eq i32 %8, 4
-  br i1 %switch, label %9, label %24
+  %9 = icmp eq i32 %8, 4
+  br i1 %9, label %10, label %25
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
-  %13 = load i32, ptr %12, align 8, !tbaa !64
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %24, label %15
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !63
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  %14 = load i32, ptr %13, align 8, !tbaa !64
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %25, label %16
 
-15:                                               ; preds = %9
+16:                                               ; preds = %10
   store i32 0, ptr %3, align 4, !tbaa !45
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %16, align 4, !tbaa !47
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %18 = load i32, ptr %17, align 8, !tbaa !80
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %18, ptr %19, align 4, !tbaa !81
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %21 = load i32, ptr %20, align 4, !tbaa !82
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %21, ptr %22, align 4, !tbaa !83
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float 1.000000e+00, ptr %23, align 4, !tbaa !84
-  br label %24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 0, ptr %17, align 4, !tbaa !47
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %19 = load i32, ptr %18, align 8, !tbaa !80
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %19, ptr %20, align 4, !tbaa !81
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %22 = load i32, ptr %21, align 4, !tbaa !82
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %22, ptr %23, align 4, !tbaa !83
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store float 1.000000e+00, ptr %24, align 4, !tbaa !84
+  br label %25
 
-24:                                               ; preds = %4, %9, %15
+25:                                               ; preds = %4, %10, %16
   ret void
 }
 

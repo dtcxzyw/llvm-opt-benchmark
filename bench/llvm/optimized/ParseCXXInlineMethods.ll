@@ -2284,14 +2284,14 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit: ; pr
 
 50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit, %2
   %51 = phi i16 [ %.pr, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ], [ %19, %2 ]
-  %.not563 = icmp eq i16 %51, 62
-  br i1 %.not563, label %190, label %52
+  %.not564 = icmp eq i16 %51, 62
+  br i1 %.not564, label %190, label %52
 
 52:                                               ; preds = %50
   %53 = tail call noundef zeroext i1 @_ZN5clang6Parser20ConsumeAndStoreUntilENS_3tok9TokenKindES2_RN4llvm11SmallVectorINS_5TokenELj4EEEbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i16 noundef zeroext 24, i16 noundef zeroext 25, ptr noundef nonnull align 8 dereferenceable(112) %1, i1 noundef zeroext true, i1 noundef zeroext false)
   %54 = load i16, ptr %18, align 8, !tbaa !3
-  %.not565 = icmp eq i16 %54, 24
-  br i1 %.not565, label %130, label %55
+  %.not566 = icmp eq i16 %54, 24
+  br i1 %.not566, label %130, label %55
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2720,8 +2720,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit100: ;
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %262, ptr noundef nonnull align 8 dereferenceable(20) %17) #17
   %.sroa.01.0.copyload.i101 = load i32, ptr %216, align 8, !tbaa !324
   %263 = load i16, ptr %18, align 8, !tbaa !3
-  %.not564 = icmp eq i16 %263, 22
-  br i1 %.not564, label %339, label %264
+  %.not565 = icmp eq i16 %263, 22
+  br i1 %.not565, label %339, label %264
 
 264:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit100
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4406,9 +4406,9 @@ _ZN5clang6Parser12ConsumeBraceEv.exit291:         ; preds = %974, %.sink.split.i
   %1009 = getelementptr i8, ptr %1008, i64 -32
   %1010 = load i16, ptr %1009, align 8, !tbaa !3
   switch i16 %1010, label %1011 [
-    i16 5, label %.thread550
     i16 53, label %.thread550
     i16 52, label %.thread550
+    i16 5, label %.thread550
   ]
 
 1011:                                             ; preds = %1004

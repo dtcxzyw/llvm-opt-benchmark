@@ -5226,7 +5226,7 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %16
   %70 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %69, i64 %26
   %71 = sext i32 %.065 to i64
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %70, i64 noundef %71, i32 noundef 0) #23
-  br label %177
+  br label %178
 
 72:                                               ; preds = %64
   %.sroa.012.0.copyload = load i32, ptr %6, align 4, !tbaa !285
@@ -5299,7 +5299,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %77
   %113 = sext i32 %spec.select to i64
   %114 = add nsw i64 %112, %113
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %110, i64 noundef %114, i32 noundef 0) #23
-  br label %177
+  br label %178
 
 115:                                              ; preds = %.thread, %98
   %spec.select78 = phi i32 [ %spec.select77, %.thread ], [ %spec.select, %98 ]
@@ -5310,7 +5310,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %77
   %120 = load i32, ptr %119, align 8
   %121 = and i32 %120, 255
   %122 = icmp eq i32 %121, 1
-  br i1 %122, label %123, label %167
+  br i1 %122, label %123, label %168
 
 123:                                              ; preds = %115
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -5323,90 +5323,90 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %77
 128:                                              ; preds = %123
   %129 = load i16, ptr %65, align 4, !tbaa !761
   %130 = add i16 %129, -2117
-  %switch.i = icmp ult i16 %130, 3
-  br i1 %switch.i, label %131, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
+  %131 = icmp ult i16 %130, 3
+  br i1 %131, label %132, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %117, i64 80
-  %133 = load i64, ptr %132, align 8, !tbaa !265
-  %.not.i = icmp eq i64 %133, 1
-  br i1 %.not.i, label %134, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds nuw i8, ptr %117, i64 80
+  %134 = load i64, ptr %133, align 8, !tbaa !265
+  %.not.i = icmp eq i64 %134, 1
+  br i1 %.not.i, label %135, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %117, i64 100
-  %136 = load i32, ptr %135, align 4, !tbaa !265
-  %.not31.i = icmp eq i32 %136, 0
-  br i1 %.not31.i, label %137, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %117, i64 100
+  %137 = load i32, ptr %136, align 4, !tbaa !265
+  %.not31.i = icmp eq i32 %137, 0
+  br i1 %.not31.i, label %138, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds nuw i8, ptr %117, i64 144
-  %139 = load i64, ptr %138, align 8, !tbaa !265
-  %.not23.i = icmp eq i64 %139, 0
-  br i1 %.not23.i, label %140, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw i8, ptr %117, i64 144
+  %140 = load i64, ptr %139, align 8, !tbaa !265
+  %.not23.i = icmp eq i64 %140, 0
+  br i1 %.not23.i, label %141, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %117, i64 164
-  %142 = load i32, ptr %141, align 4, !tbaa !265
-  %.not32.i = icmp eq i32 %142, 0
-  br i1 %.not32.i, label %143, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %117, i64 164
+  %143 = load i32, ptr %142, align 4, !tbaa !265
+  %.not32.i = icmp eq i32 %143, 0
+  br i1 %.not32.i, label %144, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %117, i64 36
-  %145 = load i32, ptr %144, align 4, !tbaa !265
-  %146 = icmp eq i16 %129, 2118
-  br i1 %146, label %147, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %117, i64 36
+  %146 = load i32, ptr %145, align 4, !tbaa !265
+  %147 = icmp eq i16 %129, 2118
+  br i1 %147, label %148, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
-147:                                              ; preds = %143
-  %148 = call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %145, i32 noundef 32, i1 noundef zeroext false) #23
+148:                                              ; preds = %144
+  %149 = call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %146, i32 noundef 32, i1 noundef zeroext false) #23
   %.pre.i = load ptr, ptr %24, align 8, !tbaa !778
   br label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
 
-_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit: ; preds = %143, %147
-  %149 = phi ptr [ %.pre.i, %147 ], [ %117, %143 ]
-  %.sroa.025.0.i = phi i32 [ %148, %147 ], [ %145, %143 ]
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  %151 = load i32, ptr %150, align 4, !tbaa !265
-  %152 = load ptr, ptr %7, align 8, !tbaa !779
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %154 = load ptr, ptr %153, align 8, !tbaa !780
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !18
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 632
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %159 = getelementptr inbounds nuw i8, ptr %149, i64 32
-  %160 = load i32, ptr %159, align 8
-  %161 = lshr i32 %160, 26
-  %162 = lshr i32 %160, 24
-  %.lobit.i.i = and i32 %162, 1
-  %163 = xor i32 %.lobit.i.i, 1
-  %164 = and i32 %163, %161
-  %165 = icmp ne i32 %164, 0
-  call void @_ZNK4llvm12X86InstrInfo11copyPhysRegERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bbb(ptr noundef nonnull align 8 dereferenceable(416) %157, ptr noundef nonnull align 8 dereferenceable(288) %152, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %158, i32 %151, i32 %.sroa.025.0.i, i1 noundef zeroext %165, i1 noundef zeroext false, i1 noundef zeroext false) #23
+_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit: ; preds = %144, %148
+  %150 = phi ptr [ %.pre.i, %148 ], [ %117, %144 ]
+  %.sroa.025.0.i = phi i32 [ %149, %148 ], [ %146, %144 ]
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
+  %152 = load i32, ptr %151, align 4, !tbaa !265
+  %153 = load ptr, ptr %7, align 8, !tbaa !779
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 32
+  %155 = load ptr, ptr %154, align 8, !tbaa !780
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %157 = load ptr, ptr %156, align 8, !tbaa !18
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 632
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %150, i64 32
+  %161 = load i32, ptr %160, align 8
+  %162 = lshr i32 %161, 26
+  %163 = lshr i32 %161, 24
+  %.lobit.i.i = and i32 %163, 1
+  %164 = xor i32 %.lobit.i.i, 1
+  %165 = and i32 %164, %162
+  %166 = icmp ne i32 %165, 0
+  call void @_ZNK4llvm12X86InstrInfo11copyPhysRegERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bbb(ptr noundef nonnull align 8 dereferenceable(416) %158, ptr noundef nonnull align 8 dereferenceable(288) %153, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %159, i32 %152, i32 %.sroa.025.0.i, i1 noundef zeroext %166, i1 noundef zeroext false, i1 noundef zeroext false) #23
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #23
-  br label %177
+  br label %178
 
-_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread: ; preds = %137, %134, %131, %128, %140, %123
-  %166 = sext i32 %127 to i64
-  call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %119, i64 noundef %166, i32 noundef 0) #23
-  br label %177
+_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread: ; preds = %138, %135, %132, %128, %141, %123
+  %167 = sext i32 %127 to i64
+  call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %119, i64 noundef %167, i32 noundef 0) #23
+  br label %178
 
-167:                                              ; preds = %115
-  %168 = sext i32 %spec.select78 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %170 = load i32, ptr %169, align 8, !tbaa !265
-  %171 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !265
-  %173 = zext i32 %172 to i64
-  %174 = add nsw i64 %173, %168
-  %175 = trunc i64 %174 to i32
-  store i32 %175, ptr %171, align 4, !tbaa !265
-  %176 = lshr i64 %174, 32
-  %.tr = trunc nuw i64 %176 to i32
-  %.narrow = add i32 %170, %.tr
-  store i32 %.narrow, ptr %169, align 8, !tbaa !265
-  br label %177
+168:                                              ; preds = %115
+  %169 = sext i32 %spec.select78 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %171 = load i32, ptr %170, align 8, !tbaa !265
+  %172 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  %173 = load i32, ptr %172, align 4, !tbaa !265
+  %174 = zext i32 %173 to i64
+  %175 = add nsw i64 %174, %169
+  %176 = trunc i64 %175 to i32
+  store i32 %176, ptr %172, align 4, !tbaa !265
+  %177 = lshr i64 %175, 32
+  %.tr = trunc nuw i64 %177 to i32
+  %.narrow = add i32 %171, %.tr
+  store i32 %.narrow, ptr %170, align 8, !tbaa !265
+  br label %178
 
-177:                                              ; preds = %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, %106, %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread, %167, %68
+178:                                              ; preds = %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, %106, %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread, %168, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 false
 }

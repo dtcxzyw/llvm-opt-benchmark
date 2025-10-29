@@ -153323,12 +153323,12 @@ define void @"_ZN89_$LT$typst..foundations..calc..AngleLike$u20$as$u20$typst..fo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN89_$LT$typst..foundations..calc..AngleLike$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hc3ae1f2e36ee7346E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 8, !range !9821, !alias.scope !38934, !noundef !4
-  %switch.cast = zext nneg i8 %1 to i30
-  %switch.downshift = lshr i30 88, %switch.cast
-  %switch.masked = trunc i30 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i8, ptr %0, align 8, !range !9821, !alias.scope !38934, !noundef !4
+  %3 = add nsw i8 %2, -3
+  %4 = icmp ult i8 %3, 2
+  %5 = icmp eq i8 %2, 6
+  %.0 = or i1 %4, %5
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -153753,12 +153753,12 @@ define void @"_ZN85_$LT$typst..foundations..calc..ToAbs$u20$as$u20$typst..founda
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN85_$LT$typst..foundations..calc..ToAbs$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hb8993bd326cad864E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 8, !range !9821, !alias.scope !39000, !noundef !4
-  %switch.cast = zext nneg i8 %1 to i30
-  %switch.downshift = lshr i30 760, %switch.cast
-  %switch.masked = trunc i30 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i8, ptr %0, align 8, !range !9821, !alias.scope !39000, !noundef !4
+  %3 = add nsw i8 %2, -3
+  %4 = icmp ult i8 %3, 5
+  %5 = icmp eq i8 %2, 9
+  %.0 = or i1 %4, %5
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -3581,32 +3581,32 @@ define hidden noundef zeroext i1 @_ZN9CodeCache14is_non_nmethodEPh(ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, -2
-  %switch3 = icmp eq i32 %9, 2
-  br i1 %switch3, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
+  %10 = icmp eq i32 %9, 2
+  br i1 %10, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i4, 1
+  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
   %.not.i = icmp ne i64 %indvars.iv.next.i, %5
   tail call void @llvm.assume(i1 %.not.i)
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next.i
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 312
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 %13, -2
-  %switch = icmp eq i32 %14, 2
-  br i1 %switch, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 312
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, -2
+  %16 = icmp eq i32 %15, 2
+  br i1 %16, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
 
 _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph, %.lr.ph.i
-  %.lcssa = phi ptr [ %6, %.lr.ph.i ], [ %11, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %.not.i2 = icmp ule ptr %16, %0
-  %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  %.lcssa = phi ptr [ %6, %.lr.ph.i ], [ %12, %.lr.ph ]
+  %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp ult ptr %0, %18
-  %20 = select i1 %.not.i2, i1 %19, i1 false
-  ret i1 %20
+  %.not.i2 = icmp ule ptr %18, %0
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ult ptr %0, %20
+  %22 = select i1 %.not.i2, i1 %21, i1 false
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
@@ -3617,7 +3617,7 @@ define hidden noundef i64 @_ZN9CodeCache27max_distance_to_non_nmethodEv() local_
 
 3:                                                ; preds = %0
   %4 = load i64, ptr @ReservedCodeCacheSize, align 8
-  br label %32
+  br label %34
 
 .lr.ph.i:                                         ; preds = %0
   %5 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
@@ -3629,41 +3629,41 @@ define hidden noundef i64 @_ZN9CodeCache27max_distance_to_non_nmethodEv() local_
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, -2
-  %switch6 = icmp eq i32 %13, 2
-  br i1 %switch6, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
+  %14 = icmp eq i32 %13, 2
+  br i1 %14, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
-  %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i7, 1
+  %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i6, 1
   %.not.i = icmp ne i64 %indvars.iv.next.i, %9
   tail call void @llvm.assume(i1 %.not.i)
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next.i
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 312
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, -2
-  %switch = icmp eq i32 %18, 2
-  br i1 %switch, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
+  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next.i
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 312
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, -2
+  %20 = icmp eq i32 %19, 2
+  br i1 %20, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph
 
 _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph, %.lr.ph.i
-  %.lcssa = phi ptr [ %10, %.lr.ph.i ], [ %15, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = load ptr, ptr @_ZN9CodeCache10_low_boundE, align 8
+  %.lcssa = phi ptr [ %10, %.lr.ph.i ], [ %16, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
-  %24 = sub i64 %21, %23
-  %25 = load ptr, ptr @_ZN9CodeCache11_high_boundE, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = sub i64 %26, %29
-  %31 = tail call i64 @llvm.umax.i64(i64 %24, i64 %30)
-  br label %32
+  %24 = load ptr, ptr @_ZN9CodeCache10_low_boundE, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = sub i64 %23, %25
+  %27 = load ptr, ptr @_ZN9CodeCache11_high_boundE, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = sub i64 %28, %31
+  %33 = tail call i64 @llvm.umax.i64(i64 %26, i64 %32)
+  br label %34
 
-32:                                               ; preds = %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, %3
-  %.0 = phi i64 [ %31, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ], [ %4, %3 ]
+34:                                               ; preds = %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, %3
+  %.0 = phi i64 [ %33, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ], [ %4, %3 ]
   ret i64 %.0
 }
 

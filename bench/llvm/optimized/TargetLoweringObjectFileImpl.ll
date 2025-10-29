@@ -7299,12 +7299,12 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %155, %170
 
 _ZN4llvm11SmallVectorIcLj256EED2Ev.exit64:        ; preds = %171, %174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %191
+  br label %194
 
 .thread91:                                        ; preds = %.thread89
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %176 = load ptr, ptr %175, align 8, !tbaa !776
-  br label %191
+  br label %194
 
 177:                                              ; preds = %18
   %.off.i = add i8 %.sroa.069.0.extract.trunc, -12
@@ -7314,10 +7314,10 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit64:        ; preds = %171, %174
 178:                                              ; preds = %177
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %180 = load ptr, ptr %179, align 8, !tbaa !777
-  br label %191
+  br label %194
 
 181:                                              ; preds = %177
-  switch i8 %.sroa.069.0.extract.trunc, label %188 [
+  switch i8 %.sroa.069.0.extract.trunc, label %185 [
     i8 20, label %182
     i8 11, label %182
     i8 10, label %182
@@ -7327,29 +7327,30 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit64:        ; preds = %171, %174
     i8 6, label %182
     i8 5, label %182
     i8 4, label %182
-    i8 18, label %185
-    i8 17, label %185
-    i8 16, label %185
-    i8 15, label %185
   ]
 
 182:                                              ; preds = %181, %181, %181, %181, %181, %181, %181, %181, %181
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %184 = load ptr, ptr %183, align 8, !tbaa !529
-  br label %191
+  br label %194
 
-185:                                              ; preds = %181, %181, %181, %181
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %187 = load ptr, ptr %186, align 8, !tbaa !778
-  br label %191
+185:                                              ; preds = %181
+  %186 = add i8 %.sroa.069.0.extract.trunc, -15
+  %187 = icmp ult i8 %186, 4
+  br i1 %187, label %188, label %191
 
-188:                                              ; preds = %181
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %190 = load ptr, ptr %189, align 8, !tbaa !779
-  br label %191
+188:                                              ; preds = %185
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %190 = load ptr, ptr %189, align 8, !tbaa !778
+  br label %194
 
-191:                                              ; preds = %188, %185, %182, %178, %.thread91, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit64
-  %.1 = phi ptr [ %.0, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit64 ], [ %176, %.thread91 ], [ %180, %178 ], [ %184, %182 ], [ %187, %185 ], [ %190, %188 ]
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %193 = load ptr, ptr %192, align 8, !tbaa !779
+  br label %194
+
+194:                                              ; preds = %191, %188, %182, %178, %.thread91, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit64
+  %.1 = phi ptr [ %.0, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit64 ], [ %176, %.thread91 ], [ %180, %178 ], [ %184, %182 ], [ %190, %188 ], [ %193, %191 ]
   ret ptr %.1
 }
 

@@ -147731,82 +147731,82 @@ define linkonce_odr hidden void @_ZN5boost8geometry8policies6relate28segments_in
   %21 = and i32 %4, -3
   %or.cond.i.i = icmp ne i32 %21, 1
   %22 = add i32 %4, -4
-  %switch.i = icmp ult i32 %22, -3
-  %not.switch.i = xor i1 %switch.i, true
-  %narrow.i = and i1 %or.cond.i.i, %not.switch.i
-  %narrow82.demorgan.i = or i1 %switch.i, %or.cond.i.i
-  %narrow82.i = xor i1 %narrow82.demorgan.i, true
-  %.159.i = zext i1 %narrow82.i to i32
+  %23 = icmp ult i32 %22, -3
+  %not..i = xor i1 %23, true
+  %narrow.i = and i1 %or.cond.i.i, %not..i
+  %narrow76.demorgan.i = or i1 %23, %or.cond.i.i
+  %narrow76.i = xor i1 %narrow76.demorgan.i, true
+  %.159.i = zext i1 %narrow76.i to i32
   %or.cond.i17.i = icmp eq i32 %15, 1
-  %.sroa.speculate.load.false.sroa.speculated53.v.i = select i1 %14, i1 %narrow.i, i1 %switch.i
+  %.sroa.speculate.load.false.sroa.speculated53.v.i = select i1 %14, i1 %narrow.i, i1 %23
   %.sroa.speculate.load.false.sroa.speculated53.i = zext i1 %.sroa.speculate.load.false.sroa.speculated53.v.i to i32
   %.sroa.speculated42.i = select i1 %or.cond.i17.i, i32 %.159.i, i32 %.sroa.speculate.load.false.sroa.speculated53.i
-  %23 = add nuw nsw i32 %.sroa.speculated42.i, 1
-  %.off70.i = add i32 %5, -1
-  %switch71.i = icmp ult i32 %.off70.i, 3
-  %24 = and i1 %switch71.i, %or.cond.i17.i
-  %spec.select.i = select i1 %24, i32 %23, i32 %.159.i
-  %25 = and i32 %6, -3
-  %or.cond.i20.i = icmp ne i32 %25, 1
-  %26 = add i32 %6, -4
-  %switch77.i = icmp ult i32 %26, -3
-  %not.switch77.i = xor i1 %switch77.i, true
-  %narrow84.i = and i1 %or.cond.i20.i, %not.switch77.i
-  %narrow85.demorgan.i = or i1 %switch77.i, %or.cond.i20.i
-  %narrow85.i = xor i1 %narrow85.demorgan.i, true
-  %.1.i = zext i1 %narrow85.i to i32
+  %24 = add nuw nsw i32 %.sroa.speculated42.i, 1
+  %25 = add i32 %5, -1
+  %26 = icmp ult i32 %25, 3
+  %27 = and i1 %26, %or.cond.i17.i
+  %spec.select.i = select i1 %27, i32 %24, i32 %.159.i
+  %28 = and i32 %6, -3
+  %or.cond.i20.i = icmp ne i32 %28, 1
+  %29 = add i32 %6, -4
+  %30 = icmp ult i32 %29, -3
+  %not.80.i = xor i1 %30, true
+  %narrow79.i = and i1 %or.cond.i20.i, %not.80.i
+  %narrow81.demorgan.i = or i1 %30, %or.cond.i20.i
+  %narrow81.i = xor i1 %narrow81.demorgan.i, true
+  %.1.i = zext i1 %narrow81.i to i32
   %or.cond.i23.i = icmp eq i32 %20, 1
-  %.sroa.speculate.load.false.sroa.speculated.v.i = select i1 %19, i1 %narrow84.i, i1 %switch77.i
+  %.sroa.speculate.load.false.sroa.speculated.v.i = select i1 %19, i1 %narrow79.i, i1 %30
   %.sroa.speculate.load.false.sroa.speculated.i = zext i1 %.sroa.speculate.load.false.sroa.speculated.v.i to i32
   %.sroa.speculated.i = select i1 %or.cond.i23.i, i32 %.1.i, i32 %.sroa.speculate.load.false.sroa.speculated.i
-  %27 = add nuw nsw i32 %.sroa.speculated.i, 1
-  %.off72.i = add i32 %7, -1
-  %switch73.i = icmp ult i32 %.off72.i, 3
-  %28 = and i1 %switch73.i, %or.cond.i23.i
-  %spec.select75.i = select i1 %28, i32 %27, i32 %.1.i
-  %29 = icmp eq i32 %spec.select.i, 1
-  %30 = icmp eq i32 %spec.select75.i, 1
-  %or.cond.i = select i1 %29, i1 %30, i1 false
-  %31 = icmp eq i32 %.sroa.speculated42.i, 0
-  %32 = select i1 %switch71.i, i1 %switch.i, i1 %31
-  %or.cond3.i = select i1 %or.cond.i, i1 %32, i1 false
-  %33 = icmp eq i32 %.sroa.speculated.i, 0
-  %34 = select i1 %switch73.i, i1 %switch77.i, i1 %33
-  %or.cond5.i = select i1 %or.cond3.i, i1 %34, i1 false
-  br i1 %or.cond5.i, label %35, label %39
+  %31 = add nuw nsw i32 %.sroa.speculated.i, 1
+  %32 = add i32 %7, -1
+  %33 = icmp ult i32 %32, 3
+  %34 = and i1 %33, %or.cond.i23.i
+  %spec.select71.i = select i1 %34, i32 %31, i32 %.1.i
+  %35 = icmp eq i32 %spec.select.i, 1
+  %36 = icmp eq i32 %spec.select71.i, 1
+  %or.cond.i = select i1 %35, i1 %36, i1 false
+  %37 = icmp eq i32 %.sroa.speculated42.i, 0
+  %38 = select i1 %26, i1 %23, i1 %37
+  %or.cond3.i = select i1 %or.cond.i, i1 %38, i1 false
+  %39 = icmp eq i32 %.sroa.speculated.i, 0
+  %40 = select i1 %33, i1 %30, i1 %39
+  %or.cond5.i = select i1 %or.cond3.i, i1 %40, i1 false
+  br i1 %or.cond5.i, label %41, label %45
 
-35:                                               ; preds = %12
-  br i1 %3, label %36, label %_ZN5boost8geometry8policies6relate18segments_direction18segments_collinearINS0_5model17referring_segmentIKNS5_2d28point_xyIdNS0_2cs9cartesianEEEEESD_NS0_13segment_ratioIdEEEENS2_14direction_typeERKT_RKT0_biiiiRKT1_SP_SP_SP_.exit
+41:                                               ; preds = %12
+  br i1 %3, label %42, label %_ZN5boost8geometry8policies6relate18segments_direction18segments_collinearINS0_5model17referring_segmentIKNS5_2d28point_xyIdNS0_2cs9cartesianEEEEESD_NS0_13segment_ratioIdEEEENS2_14direction_typeERKT_RKT0_biiiiRKT1_SP_SP_SP_.exit
 
-36:                                               ; preds = %35
-  %37 = icmp eq i32 %18, 0
-  %38 = select i1 %37, i8 116, i8 102
+42:                                               ; preds = %41
+  %43 = icmp eq i32 %18, 0
+  %44 = select i1 %43, i8 116, i8 102
   br label %_ZN5boost8geometry8policies6relate18segments_direction18segments_collinearINS0_5model17referring_segmentIKNS5_2d28point_xyIdNS0_2cs9cartesianEEEEESD_NS0_13segment_ratioIdEEEENS2_14direction_typeERKT_RKT0_biiiiRKT1_SP_SP_SP_.exit
 
-39:                                               ; preds = %12
-  %40 = icmp eq i32 %spec.select.i, 2
-  %41 = icmp eq i32 %spec.select75.i, 2
-  %or.cond7.i = select i1 %40, i1 %41, i1 false
+45:                                               ; preds = %12
+  %46 = icmp eq i32 %spec.select.i, 2
+  %47 = icmp eq i32 %spec.select71.i, 2
+  %or.cond7.i = select i1 %46, i1 %47, i1 false
   %spec.select = select i1 %or.cond7.i, i8 101, i8 99
   br label %_ZN5boost8geometry8policies6relate18segments_direction18segments_collinearINS0_5model17referring_segmentIKNS5_2d28point_xyIdNS0_2cs9cartesianEEEEESD_NS0_13segment_ratioIdEEEENS2_14direction_typeERKT_RKT0_biiiiRKT1_SP_SP_SP_.exit
 
-_ZN5boost8geometry8policies6relate18segments_direction18segments_collinearINS0_5model17referring_segmentIKNS5_2d28point_xyIdNS0_2cs9cartesianEEEEESD_NS0_13segment_ratioIdEEEENS2_14direction_typeERKT_RKT0_biiiiRKT1_SP_SP_SP_.exit: ; preds = %39, %35, %36
-  %.sroa.0.0 = phi i8 [ %38, %36 ], [ 97, %35 ], [ %spec.select, %39 ]
-  %42 = icmp ne i32 %20, 1
-  %43 = sext i1 %42 to i32
-  %44 = select i1 %19, i32 1, i32 %43
-  %45 = zext i1 %3 to i8
+_ZN5boost8geometry8policies6relate18segments_direction18segments_collinearINS0_5model17referring_segmentIKNS5_2d28point_xyIdNS0_2cs9cartesianEEEEESD_NS0_13segment_ratioIdEEEENS2_14direction_typeERKT_RKT0_biiiiRKT1_SP_SP_SP_.exit: ; preds = %45, %41, %42
+  %.sroa.0.0 = phi i8 [ %44, %42 ], [ 97, %41 ], [ %spec.select, %45 ]
+  %48 = icmp ne i32 %20, 1
+  %49 = sext i1 %48 to i32
+  %50 = select i1 %19, i32 1, i32 %49
+  %51 = zext i1 %3 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %13, i64 152, i1 false), !tbaa.struct !2569
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 %.sroa.0.0, ptr %46, align 8, !tbaa !24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 %.sroa.0.0, ptr %52, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 %45, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !15
+  store i8 %51, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !15
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(34) %.sroa.6, i64 34, i1 false), !tbaa.struct !2570
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %18, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %44, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !24
+  store i32 %50, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void

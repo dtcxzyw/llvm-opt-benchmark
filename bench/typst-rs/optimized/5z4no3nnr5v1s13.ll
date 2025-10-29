@@ -132432,12 +132432,12 @@ define void @"_ZN84_$LT$typst..foundations..int..ToInt$u20$as$u20$typst..foundat
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN84_$LT$typst..foundations..int..ToInt$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hc571ef76c66a4b36E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #38 {
   %2 = load i8, ptr %0, align 8, !range !4941, !alias.scope !27958, !noundef !14
-  %.off = add nsw i8 %2, -2
-  %switch = icmp ult i8 %.off, 3
-  %3 = add nsw i8 %2, -13
-  %switch.and.i = and i8 %3, -3
+  %3 = add nsw i8 %2, -2
+  %4 = icmp ult i8 %3, 3
+  %5 = add nsw i8 %2, -13
+  %switch.and.i = and i8 %5, -3
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
-  %.0 = select i1 %switch, i1 true, i1 %switch.selectcmp.i
+  %.0 = select i1 %4, i1 true, i1 %switch.selectcmp.i
   ret i1 %.0
 }
 

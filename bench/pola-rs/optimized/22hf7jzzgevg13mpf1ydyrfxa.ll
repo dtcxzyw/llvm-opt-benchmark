@@ -64716,8 +64716,8 @@ define hidden void @"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h89d3b1ceb9f7154bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %5)
   %18 = load i64, ptr %2, align 8, !range !423, !noundef !6
-  %.not9 = icmp eq i64 %18, 0
-  br i1 %.not9, label %10, label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit"
+  %.not7 = icmp eq i64 %18, 0
+  br i1 %.not7, label %10, label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit"
 
 19:                                               ; preds = %14
   %20 = landingpad { ptr, i32 }

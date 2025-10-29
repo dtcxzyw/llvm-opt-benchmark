@@ -749,53 +749,53 @@ define hidden ptr @ruby_posix_signal(i32 noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = call i32 @sigemptyset(ptr noundef nonnull %7) #16
-  %switch.i = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  %spec.select.i = select i1 %switch.i, i32 0, i32 4
+  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
+  %spec.select.i = select i1 %9, i32 0, i32 4
   store ptr %1, ptr %3, align 8, !tbaa !58
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 %spec.select.i, ptr %9, align 8, !tbaa !69
-  switch i32 %0, label %12 [
-    i32 11, label %10
-    i32 7, label %10
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store i32 %spec.select.i, ptr %10, align 8, !tbaa !69
+  switch i32 %0, label %13 [
+    i32 11, label %11
+    i32 7, label %11
   ]
 
-10:                                               ; preds = %2, %2
-  %11 = or disjoint i32 %spec.select.i, 134217728
-  store i32 %11, ptr %9, align 8, !tbaa !69
-  br label %12
+11:                                               ; preds = %2, %2
+  %12 = or disjoint i32 %spec.select.i, 134217728
+  store i32 %12, ptr %10, align 8, !tbaa !69
+  br label %13
 
-12:                                               ; preds = %10, %2
+13:                                               ; preds = %11, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 1296236546, ptr %5, align 16, !tbaa !20
-  %13 = ptrtoint ptr %4 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store volatile i64 %13, ptr %14, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store volatile i64 152, ptr %15, align 16, !tbaa !20
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store volatile i64 0, ptr %16, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store volatile i64 0, ptr %17, align 16, !tbaa !20
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store volatile i64 0, ptr %18, align 8, !tbaa !20
-  %19 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #16, !srcloc !71
-  store volatile i64 %19, ptr %6, align 8, !tbaa !20
+  %14 = ptrtoint ptr %4 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store volatile i64 %14, ptr %15, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store volatile i64 152, ptr %16, align 16, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store volatile i64 0, ptr %17, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store volatile i64 0, ptr %18, align 16, !tbaa !20
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store volatile i64 0, ptr %19, align 8, !tbaa !20
+  %20 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #16, !srcloc !71
+  store volatile i64 %20, ptr %6, align 8, !tbaa !20
   %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %20 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %ruby_signal.exit, label %22
+  %21 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %ruby_signal.exit, label %23
 
-22:                                               ; preds = %12
+23:                                               ; preds = %13
   %.010.i = load ptr, ptr %4, align 8, !tbaa !58
-  %23 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %23)
+  %24 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %24)
   br label %ruby_signal.exit
 
-ruby_signal.exit:                                 ; preds = %12, %22
-  %.0.i = phi ptr [ %.010.i, %22 ], [ inttoptr (i64 -1 to ptr), %12 ]
+ruby_signal.exit:                                 ; preds = %13, %23
+  %.0.i = phi ptr [ %.010.i, %23 ], [ inttoptr (i64 -1 to ptr), %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
@@ -1221,223 +1221,223 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
 46:                                               ; preds = %43, %45
   %47 = load i32, ptr @ruby_enable_coredump, align 4, !tbaa !19
   %.not16 = icmp eq i32 %47, 0
-  br i1 %.not16, label %48, label %118
+  br i1 %.not16, label %48, label %121
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %50 = call i32 @sigemptyset(ptr noundef nonnull %49) #16
-  %switch.i.i = icmp ult ptr @sigbus, inttoptr (i64 2 to ptr)
+  %51 = icmp ult ptr @sigbus, inttoptr (i64 2 to ptr)
   store ptr @sigbus, ptr %12, align 8, !tbaa !58
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  %52 = select i1 %switch.i.i, i32 134217728, i32 134217732
-  store i32 %52, ptr %51, align 8, !tbaa !69
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  %53 = select i1 %51, i32 134217728, i32 134217732
+  store i32 %53, ptr %52, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store volatile i64 1296236546, ptr %14, align 16, !tbaa !20
-  %53 = ptrtoint ptr %13 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store volatile i64 %53, ptr %54, align 8, !tbaa !20
-  %55 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store volatile i64 152, ptr %55, align 16, !tbaa !20
-  %56 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store volatile i64 0, ptr %56, align 8, !tbaa !20
-  %57 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store volatile i64 0, ptr %57, align 16, !tbaa !20
-  %58 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store volatile i64 0, ptr %58, align 8, !tbaa !20
-  %59 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #16, !srcloc !71
-  store volatile i64 %59, ptr %15, align 8, !tbaa !20
+  %54 = ptrtoint ptr %13 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store volatile i64 %54, ptr %55, align 8, !tbaa !20
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store volatile i64 152, ptr %56, align 16, !tbaa !20
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store volatile i64 0, ptr %57, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store volatile i64 0, ptr %58, align 16, !tbaa !20
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store volatile i64 0, ptr %59, align 8, !tbaa !20
+  %60 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #16, !srcloc !71
+  store volatile i64 %60, ptr %15, align 8, !tbaa !20
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %15, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %60 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %12, ptr noundef nonnull %13) #16
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %63
+  %61 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %12, ptr noundef nonnull %13) #16
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %64
 
-62:                                               ; preds = %48
+63:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.14) #27
   unreachable
 
-63:                                               ; preds = %48
+64:                                               ; preds = %48
   %.010.i.i = load ptr, ptr %13, align 8, !tbaa !58
-  %64 = icmp ne ptr %.010.i.i, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %64)
+  %65 = icmp ne ptr %.010.i.i, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %65 = icmp eq ptr %.010.i.i, inttoptr (i64 1 to ptr)
-  %66 = select i1 %65, ptr null, ptr %.010.i.i
-  store ptr %66, ptr @default_sigbus_handler, align 8, !tbaa !99
+  %66 = icmp eq ptr %.010.i.i, inttoptr (i64 1 to ptr)
+  %67 = select i1 %66, ptr null, ptr %.010.i.i
+  store ptr %67, ptr @default_sigbus_handler, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %68 = call i32 @sigemptyset(ptr noundef nonnull %67) #16
-  %switch.i.i30 = icmp ult ptr @sigill, inttoptr (i64 2 to ptr)
-  %spec.select.i.i31 = select i1 %switch.i.i30, i32 0, i32 4
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %69 = call i32 @sigemptyset(ptr noundef nonnull %68) #16
+  %70 = icmp ult ptr @sigill, inttoptr (i64 2 to ptr)
+  %spec.select.i.i30 = select i1 %70, i32 0, i32 4
   store ptr @sigill, ptr %8, align 8, !tbaa !58
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 %spec.select.i.i31, ptr %69, align 8, !tbaa !69
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  store i32 %spec.select.i.i30, ptr %71, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i64 1296236546, ptr %10, align 16, !tbaa !20
-  %70 = ptrtoint ptr %9 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store volatile i64 %70, ptr %71, align 8, !tbaa !20
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store volatile i64 152, ptr %72, align 16, !tbaa !20
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store volatile i64 0, ptr %73, align 8, !tbaa !20
-  %74 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store volatile i64 0, ptr %74, align 16, !tbaa !20
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %72 = ptrtoint ptr %9 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store volatile i64 %72, ptr %73, align 8, !tbaa !20
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store volatile i64 152, ptr %74, align 16, !tbaa !20
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile i64 0, ptr %75, align 8, !tbaa !20
-  %76 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !71
-  store volatile i64 %76, ptr %11, align 8, !tbaa !20
-  %.0..0..0..0..0..0..0..0..i.i32 = load volatile i64, ptr %11, align 8, !tbaa !20
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store volatile i64 0, ptr %76, align 16, !tbaa !20
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store volatile i64 0, ptr %77, align 8, !tbaa !20
+  %78 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !71
+  store volatile i64 %78, ptr %11, align 8, !tbaa !20
+  %.0..0..0..0..0..0..0..0..i.i31 = load volatile i64, ptr %11, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %77 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %79, label %80
+  %79 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %63
+81:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.15) #27
   unreachable
 
-80:                                               ; preds = %63
-  %.010.i.i33 = load ptr, ptr %9, align 8, !tbaa !58
-  %81 = icmp ne ptr %.010.i.i33, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %81)
+82:                                               ; preds = %64
+  %.010.i.i32 = load ptr, ptr %9, align 8, !tbaa !58
+  %83 = icmp ne ptr %.010.i.i32, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %82 = icmp eq ptr %.010.i.i33, inttoptr (i64 1 to ptr)
-  %83 = select i1 %82, ptr null, ptr %.010.i.i33
-  store ptr %83, ptr @default_sigill_handler, align 8, !tbaa !99
-  %84 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
-  %.not.i = icmp eq i32 %84, 0
-  br i1 %.not.i, label %85, label %90
+  %84 = icmp eq ptr %.010.i.i32, inttoptr (i64 1 to ptr)
+  %85 = select i1 %84, ptr null, ptr %.010.i.i32
+  store ptr %85, ptr @default_sigill_handler, align 8, !tbaa !99
+  %86 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  %.not.i = icmp eq i32 %86, 0
+  br i1 %.not.i, label %87, label %92
 
-85:                                               ; preds = %80
-  %86 = call i64 @sysconf(i32 noundef 250) #16
-  %87 = trunc i64 %86 to i32
-  %88 = call i64 @sysconf(i32 noundef 30) #16
+87:                                               ; preds = %82
+  %88 = call i64 @sysconf(i32 noundef 250) #16
   %89 = trunc i64 %88 to i32
-  %spec.select.i.i38 = call i32 @llvm.smax.i32(i32 %87, i32 %89)
-  %.1.i.i = call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i38, i32 16384)
+  %90 = call i64 @sysconf(i32 noundef 30) #16
+  %91 = trunc i64 %90 to i32
+  %spec.select.i.i37 = call i32 @llvm.smax.i32(i32 %89, i32 %91)
+  %.1.i.i = call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i37, i32 16384)
   store i32 %.1.i.i, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
-  br label %90
+  br label %92
 
-90:                                               ; preds = %85, %80
-  %91 = phi i32 [ %.1.i.i, %85 ], [ %84, %80 ]
-  %92 = zext nneg i32 %91 to i64
-  %93 = call noalias ptr @malloc(i64 noundef %92) #26
-  %.not2.i = icmp eq ptr %93, null
-  br i1 %.not2.i, label %94, label %rb_allocate_sigaltstack.exit
+92:                                               ; preds = %87, %82
+  %93 = phi i32 [ %.1.i.i, %87 ], [ %86, %82 ]
+  %94 = zext nneg i32 %93 to i64
+  %95 = call noalias ptr @malloc(i64 noundef %94) #26
+  %.not2.i = icmp eq ptr %95, null
+  br i1 %.not2.i, label %96, label %rb_allocate_sigaltstack.exit
 
-94:                                               ; preds = %90
+96:                                               ; preds = %92
   call void @rb_memerror() #27
   unreachable
 
-rb_allocate_sigaltstack.exit:                     ; preds = %90
+rb_allocate_sigaltstack.exit:                     ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %92, ptr %95, align 8, !tbaa !65
-  store ptr %93, ptr %6, align 8, !tbaa !67
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %96, align 8, !tbaa !68
-  %97 = call i32 @sigaltstack(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %98 = load ptr, ptr %6, align 8, !tbaa !67
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %94, ptr %97, align 8, !tbaa !65
+  store ptr %95, ptr %6, align 8, !tbaa !67
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %98, align 8, !tbaa !68
+  %99 = call i32 @sigaltstack(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %100 = load ptr, ptr %6, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %99 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 472
-  store ptr %98, ptr %100, align 8, !tbaa !100
+  %101 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 472
+  store ptr %100, ptr %102, align 8, !tbaa !100
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %102 = call i32 @sigemptyset(ptr noundef nonnull %101) #16
-  %switch.i.i39 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %104 = call i32 @sigemptyset(ptr noundef nonnull %103) #16
+  %105 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
   store ptr @sigsegv, ptr %2, align 8, !tbaa !58
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %104 = select i1 %switch.i.i39, i32 134217728, i32 134217732
-  store i32 %104, ptr %103, align 8, !tbaa !69
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %107 = select i1 %105, i32 134217728, i32 134217732
+  store i32 %107, ptr %106, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 1296236546, ptr %4, align 16, !tbaa !20
-  %105 = ptrtoint ptr %3 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store volatile i64 %105, ptr %106, align 8, !tbaa !20
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store volatile i64 152, ptr %107, align 16, !tbaa !20
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store volatile i64 0, ptr %108, align 8, !tbaa !20
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store volatile i64 0, ptr %109, align 16, !tbaa !20
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store volatile i64 0, ptr %110, align 8, !tbaa !20
-  %111 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !71
-  store volatile i64 %111, ptr %5, align 8, !tbaa !20
-  %.0..0..0..0..0..0..0..0..i.i41 = load volatile i64, ptr %5, align 8, !tbaa !20
+  %108 = ptrtoint ptr %3 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store volatile i64 %108, ptr %109, align 8, !tbaa !20
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store volatile i64 152, ptr %110, align 16, !tbaa !20
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store volatile i64 0, ptr %111, align 8, !tbaa !20
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store volatile i64 0, ptr %112, align 16, !tbaa !20
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store volatile i64 0, ptr %113, align 8, !tbaa !20
+  %114 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !71
+  store volatile i64 %114, ptr %5, align 8, !tbaa !20
+  %.0..0..0..0..0..0..0..0..i.i39 = load volatile i64, ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %112 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %117, label %install_sighandler_core.exit45.thread
+  %115 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %120, label %install_sighandler_core.exit43.thread
 
-install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigaltstack.exit
-  %.010.i.i42 = load ptr, ptr %3, align 8, !tbaa !58
-  %114 = icmp ne ptr %.010.i.i42, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %114)
+install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigaltstack.exit
+  %.010.i.i40 = load ptr, ptr %3, align 8, !tbaa !58
+  %117 = icmp ne ptr %.010.i.i40, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %117)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %115 = icmp eq ptr %.010.i.i42, inttoptr (i64 1 to ptr)
-  %116 = select i1 %115, ptr null, ptr %.010.i.i42
-  store ptr %116, ptr @default_sigsegv_handler, align 8, !tbaa !99
-  br label %118
+  %118 = icmp eq ptr %.010.i.i40, inttoptr (i64 1 to ptr)
+  %119 = select i1 %118, ptr null, ptr %.010.i.i40
+  store ptr %119, ptr @default_sigsegv_handler, align 8, !tbaa !99
+  br label %121
 
-117:                                              ; preds = %rb_allocate_sigaltstack.exit
+120:                                              ; preds = %rb_allocate_sigaltstack.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.16) #27
   unreachable
 
-118:                                              ; preds = %install_sighandler_core.exit45.thread, %46
-  %119 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
-  %.not23 = icmp eq i32 %119, 0
-  br i1 %.not23, label %121, label %120
-
-120:                                              ; preds = %118
-  call void @perror(ptr noundef nonnull @Init_signal.failed.17) #28
-  br label %121
-
-121:                                              ; preds = %120, %118
-  %122 = call fastcc i32 @install_sighandler_core(i32 noundef 31, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
-  %.not25 = icmp eq i32 %122, 0
-  br i1 %.not25, label %124, label %123
+121:                                              ; preds = %install_sighandler_core.exit43.thread, %46
+  %122 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
+  %.not23 = icmp eq i32 %122, 0
+  br i1 %.not23, label %124, label %123
 
 123:                                              ; preds = %121
-  call void @perror(ptr noundef nonnull @Init_signal.failed.18) #28
+  call void @perror(ptr noundef nonnull @Init_signal.failed.17) #28
   br label %124
 
 124:                                              ; preds = %123, %121
-  %125 = call fastcc i32 @install_sighandler_core(i32 noundef 17, ptr noundef nonnull @sighandler, ptr noundef null)
-  %.not27 = icmp eq i32 %125, 0
-  br i1 %.not27, label %127, label %126
+  %125 = call fastcc i32 @install_sighandler_core(i32 noundef 31, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
+  %.not25 = icmp eq i32 %125, 0
+  br i1 %.not25, label %127, label %126
 
 126:                                              ; preds = %124
-  call void @perror(ptr noundef nonnull @Init_signal.failed.19) #28
+  call void @perror(ptr noundef nonnull @Init_signal.failed.18) #28
   br label %127
 
-127:                                              ; preds = %124, %126
+127:                                              ; preds = %126, %124
+  %128 = call fastcc i32 @install_sighandler_core(i32 noundef 17, ptr noundef nonnull @sighandler, ptr noundef null)
+  %.not27 = icmp eq i32 %128, 0
+  br i1 %.not27, label %130, label %129
+
+129:                                              ; preds = %127
+  call void @perror(ptr noundef nonnull @Init_signal.failed.19) #28
+  br label %130
+
+130:                                              ; preds = %127, %129
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %128 = call i32 @sigemptyset(ptr noundef nonnull %1) #16
-  %129 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #16
+  %131 = call i32 @sigemptyset(ptr noundef nonnull %1) #16
+  %132 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -1685,111 +1685,111 @@ rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_r
   %.1 = phi i64 [ %.026, %77 ], [ %.026, %rb_ractor_main_p.exit ], [ %.026, %rb_ractor_shareable_p.exit ], [ %92, %91 ], [ %.026, %81 ], [ %.026, %86 ]
   %93 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
   %94 = icmp eq i32 %.0.i, 0
-  br i1 %94, label %116, label %95
+  br i1 %94, label %117, label %95
 
 95:                                               ; preds = %rb_ractor_main_p.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %97 = call i32 @sigemptyset(ptr noundef nonnull %96) #16
-  %switch.i.i = icmp ult ptr %.0, inttoptr (i64 2 to ptr)
-  %spec.select.i.i = select i1 %switch.i.i, i32 0, i32 4
+  %98 = icmp ult ptr %.0, inttoptr (i64 2 to ptr)
+  %spec.select.i.i = select i1 %98, i32 0, i32 4
   store ptr %.0, ptr %4, align 8, !tbaa !58
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 %spec.select.i.i, ptr %98, align 8, !tbaa !69
-  switch i32 %.0.i, label %101 [
-    i32 11, label %99
-    i32 7, label %99
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store i32 %spec.select.i.i, ptr %99, align 8, !tbaa !69
+  switch i32 %.0.i, label %102 [
+    i32 11, label %100
+    i32 7, label %100
   ]
 
-99:                                               ; preds = %95, %95
-  %100 = or disjoint i32 %spec.select.i.i, 134217728
-  store i32 %100, ptr %98, align 8, !tbaa !69
-  br label %101
+100:                                              ; preds = %95, %95
+  %101 = or disjoint i32 %spec.select.i.i, 134217728
+  store i32 %101, ptr %99, align 8, !tbaa !69
+  br label %102
 
-101:                                              ; preds = %99, %95
+102:                                              ; preds = %100, %95
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 1296236546, ptr %6, align 16, !tbaa !20
-  %102 = ptrtoint ptr %5 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store volatile i64 %102, ptr %103, align 8, !tbaa !20
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store volatile i64 152, ptr %104, align 16, !tbaa !20
-  %105 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store volatile i64 0, ptr %105, align 8, !tbaa !20
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store volatile i64 0, ptr %106, align 16, !tbaa !20
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store volatile i64 0, ptr %107, align 8, !tbaa !20
-  %108 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !71
-  store volatile i64 %108, ptr %7, align 8, !tbaa !20
+  %103 = ptrtoint ptr %5 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store volatile i64 %103, ptr %104, align 8, !tbaa !20
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store volatile i64 152, ptr %105, align 16, !tbaa !20
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store volatile i64 0, ptr %106, align 8, !tbaa !20
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store volatile i64 0, ptr %107, align 16, !tbaa !20
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store volatile i64 0, ptr %108, align 8, !tbaa !20
+  %109 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !71
+  store volatile i64 %109, ptr %7, align 8, !tbaa !20
   %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %109 = call i32 @sigaction(i32 noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %112, label %ruby_signal.exit.i
+  %110 = call i32 @sigaction(i32 noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %111 = icmp slt i32 %110, 0
+  br i1 %111, label %113, label %ruby_signal.exit.i
 
-ruby_signal.exit.i:                               ; preds = %101
+ruby_signal.exit.i:                               ; preds = %102
   %.010.i.i = load ptr, ptr %5, align 8, !tbaa !58
-  %111 = icmp ne ptr %.010.i.i, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %111)
+  %112 = icmp ne ptr %.010.i.i, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %112)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %116
+  br label %117
 
-112:                                              ; preds = %101
+113:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %113 = call ptr @rb_errno_ptr() #16
-  %114 = load i32, ptr %113, align 4, !tbaa !19
-  %115 = call fastcc i64 @rb_signo2signm(i32 noundef %.0.i)
-  call void @rb_syserr_fail_str(i32 noundef %114, i64 noundef %115) #18
+  %114 = call ptr @rb_errno_ptr() #16
+  %115 = load i32, ptr %114, align 4, !tbaa !19
+  %116 = call fastcc i64 @rb_signo2signm(i32 noundef %.0.i)
+  call void @rb_syserr_fail_str(i32 noundef %115, i64 noundef %116) #18
   unreachable
 
-116:                                              ; preds = %ruby_signal.exit.i, %rb_ractor_main_p.exit.thread
+117:                                              ; preds = %ruby_signal.exit.i, %rb_ractor_main_p.exit.thread
   %.0.i20 = phi ptr [ %.010.i.i, %ruby_signal.exit.i ], [ inttoptr (i64 -1 to ptr), %rb_ractor_main_p.exit.thread ]
-  %117 = getelementptr inbounds nuw i8, ptr %93, i64 664
-  %118 = sext i32 %.0.i to i64
-  %119 = getelementptr i64, ptr %117, i64 %118
-  %120 = load i64, ptr %119, align 8, !tbaa !20
-  switch i64 %120, label %trap.exit [
-    i64 0, label %121
-    i64 20, label %121
-    i64 36, label %130
+  %118 = getelementptr inbounds nuw i8, ptr %93, i64 664
+  %119 = sext i32 %.0.i to i64
+  %120 = getelementptr i64, ptr %118, i64 %119
+  %121 = load i64, ptr %120, align 8, !tbaa !20
+  switch i64 %121, label %trap.exit [
+    i64 0, label %122
+    i64 20, label %122
+    i64 36, label %131
   ]
 
-121:                                              ; preds = %116, %116
+122:                                              ; preds = %117, %117
   %magicptr.i = ptrtoint ptr %.0.i20 to i64
-  switch i64 %magicptr.i, label %126 [
-    i64 1, label %122
-    i64 0, label %124
+  switch i64 %magicptr.i, label %127 [
+    i64 1, label %123
+    i64 0, label %125
   ]
 
-122:                                              ; preds = %121
-  %123 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.33, i64 noundef 6) #16
+123:                                              ; preds = %122
+  %124 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.33, i64 noundef 6) #16
   br label %trap.exit
 
-124:                                              ; preds = %121
-  %125 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.29, i64 noundef 14) #16
+125:                                              ; preds = %122
+  %126 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.29, i64 noundef 14) #16
   br label %trap.exit
 
-126:                                              ; preds = %121
-  %127 = icmp eq ptr %.0.i20, @sighandler
-  br i1 %127, label %128, label %trap.exit
+127:                                              ; preds = %122
+  %128 = icmp eq ptr %.0.i20, @sighandler
+  br i1 %128, label %129, label %trap.exit
 
-128:                                              ; preds = %126
-  %129 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.32, i64 noundef 7) #16
+129:                                              ; preds = %127
+  %130 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.32, i64 noundef 7) #16
   br label %trap.exit
 
-130:                                              ; preds = %116
-  %131 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.34, i64 noundef 4) #16
+131:                                              ; preds = %117
+  %132 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.34, i64 noundef 4) #16
   br label %trap.exit
 
-trap.exit:                                        ; preds = %116, %122, %124, %126, %128, %130
-  %.015.i = phi i64 [ %120, %116 ], [ %123, %122 ], [ %125, %124 ], [ %129, %128 ], [ %131, %130 ], [ 4, %126 ]
-  store volatile i64 %.1, ptr %119, align 8, !tbaa !20
+trap.exit:                                        ; preds = %117, %123, %125, %127, %129, %131
+  %.015.i = phi i64 [ %121, %117 ], [ %124, %123 ], [ %126, %125 ], [ %130, %129 ], [ %132, %131 ], [ 4, %127 ]
+  store volatile i64 %.1, ptr %120, align 8, !tbaa !20
   ret i64 %.015.i
 }
 
@@ -2032,116 +2032,116 @@ define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = call i32 @sigemptyset(ptr noundef nonnull %12) #16
-  %switch.i = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  %spec.select.i = select i1 %switch.i, i32 0, i32 4
+  %14 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
+  %spec.select.i = select i1 %14, i32 0, i32 4
   store ptr %1, ptr %8, align 8, !tbaa !58
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 %spec.select.i, ptr %14, align 8, !tbaa !69
-  switch i32 %0, label %17 [
-    i32 11, label %15
-    i32 7, label %15
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  store i32 %spec.select.i, ptr %15, align 8, !tbaa !69
+  switch i32 %0, label %18 [
+    i32 11, label %16
+    i32 7, label %16
   ]
 
-15:                                               ; preds = %3, %3
-  %16 = or disjoint i32 %spec.select.i, 134217728
-  store i32 %16, ptr %14, align 8, !tbaa !69
-  br label %17
+16:                                               ; preds = %3, %3
+  %17 = or disjoint i32 %spec.select.i, 134217728
+  store i32 %17, ptr %15, align 8, !tbaa !69
+  br label %18
 
-17:                                               ; preds = %15, %3
+18:                                               ; preds = %16, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i64 1296236546, ptr %10, align 16, !tbaa !20
-  %18 = ptrtoint ptr %9 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store volatile i64 %18, ptr %19, align 8, !tbaa !20
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store volatile i64 152, ptr %20, align 16, !tbaa !20
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store volatile i64 0, ptr %21, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store volatile i64 0, ptr %22, align 16, !tbaa !20
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store volatile i64 0, ptr %23, align 8, !tbaa !20
-  %24 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !71
-  store volatile i64 %24, ptr %11, align 8, !tbaa !20
+  %19 = ptrtoint ptr %9 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store volatile i64 %19, ptr %20, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store volatile i64 152, ptr %21, align 16, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store volatile i64 0, ptr %22, align 8, !tbaa !20
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store volatile i64 0, ptr %23, align 16, !tbaa !20
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store volatile i64 0, ptr %24, align 8, !tbaa !20
+  %25 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !71
+  store volatile i64 %25, ptr %11, align 8, !tbaa !20
   %.0..0..0..0..0..0..i = load volatile i64, ptr %11, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %25 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %ruby_signal.exit.thread, label %27
+  %26 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %ruby_signal.exit.thread, label %28
 
-ruby_signal.exit.thread:                          ; preds = %17
+ruby_signal.exit.thread:                          ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %47
+  br label %49
 
-27:                                               ; preds = %17
+28:                                               ; preds = %18
   %.010.i = load ptr, ptr %9, align 8, !tbaa !58
-  %28 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %28)
+  %29 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %32, label %29
+  br i1 %.not, label %33, label %30
 
-29:                                               ; preds = %27
-  %30 = icmp eq ptr %.010.i, inttoptr (i64 1 to ptr)
-  %31 = select i1 %30, ptr null, ptr %.010.i
-  store ptr %31, ptr %2, align 8, !tbaa !99
-  br label %47
+30:                                               ; preds = %28
+  %31 = icmp eq ptr %.010.i, inttoptr (i64 1 to ptr)
+  %32 = select i1 %31, ptr null, ptr %.010.i
+  store ptr %32, ptr %2, align 8, !tbaa !99
+  br label %49
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   %.not14 = icmp eq ptr %.010.i, null
-  br i1 %.not14, label %47, label %33
+  br i1 %.not14, label %49, label %34
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %35 = call i32 @sigemptyset(ptr noundef nonnull %34) #16
-  %switch.i15 = icmp ult ptr %.010.i, inttoptr (i64 2 to ptr)
-  %spec.select.i16 = select i1 %switch.i15, i32 0, i32 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %36 = call i32 @sigemptyset(ptr noundef nonnull %35) #16
+  %37 = icmp ult ptr %.010.i, inttoptr (i64 2 to ptr)
+  %spec.select.i15 = select i1 %37, i32 0, i32 4
   store ptr %.010.i, ptr %4, align 8, !tbaa !58
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 %spec.select.i16, ptr %36, align 8, !tbaa !69
-  switch i32 %0, label %ruby_signal.exit20 [
-    i32 11, label %37
-    i32 7, label %37
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store i32 %spec.select.i15, ptr %38, align 8, !tbaa !69
+  switch i32 %0, label %ruby_signal.exit19 [
+    i32 11, label %39
+    i32 7, label %39
   ]
 
-37:                                               ; preds = %33, %33
-  %38 = or disjoint i32 %spec.select.i16, 134217728
-  store i32 %38, ptr %36, align 8, !tbaa !69
-  br label %ruby_signal.exit20
+39:                                               ; preds = %34, %34
+  %40 = or disjoint i32 %spec.select.i15, 134217728
+  store i32 %40, ptr %38, align 8, !tbaa !69
+  br label %ruby_signal.exit19
 
-ruby_signal.exit20:                               ; preds = %37, %33
+ruby_signal.exit19:                               ; preds = %39, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 1296236546, ptr %6, align 16, !tbaa !20
-  %39 = ptrtoint ptr %5 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store volatile i64 %39, ptr %40, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store volatile i64 152, ptr %41, align 16, !tbaa !20
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store volatile i64 0, ptr %42, align 8, !tbaa !20
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store volatile i64 0, ptr %43, align 16, !tbaa !20
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %41 = ptrtoint ptr %5 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store volatile i64 %41, ptr %42, align 8, !tbaa !20
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store volatile i64 152, ptr %43, align 16, !tbaa !20
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile i64 0, ptr %44, align 8, !tbaa !20
-  %45 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !71
-  store volatile i64 %45, ptr %7, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i17 = load volatile i64, ptr %7, align 8, !tbaa !20
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store volatile i64 0, ptr %45, align 16, !tbaa !20
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store volatile i64 0, ptr %46, align 8, !tbaa !20
+  %47 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !71
+  store volatile i64 %47, ptr %7, align 8, !tbaa !20
+  %.0..0..0..0..0..0..i16 = load volatile i64, ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %46 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %48 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %49
 
-47:                                               ; preds = %ruby_signal.exit.thread, %29, %ruby_signal.exit20, %32
-  %.0 = phi i32 [ 0, %32 ], [ 0, %ruby_signal.exit20 ], [ 0, %29 ], [ -1, %ruby_signal.exit.thread ]
+49:                                               ; preds = %ruby_signal.exit.thread, %30, %ruby_signal.exit19, %33
+  %.0 = phi i32 [ 0, %33 ], [ 0, %ruby_signal.exit19 ], [ 0, %30 ], [ -1, %ruby_signal.exit.thread ]
   ret i32 %.0
 }
 

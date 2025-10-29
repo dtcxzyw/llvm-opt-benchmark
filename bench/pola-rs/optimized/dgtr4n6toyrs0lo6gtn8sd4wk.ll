@@ -76076,58 +76076,58 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hd8109af
   %34 = add i64 %.sroa.108.017.i, -1
   %35 = getelementptr inbounds i8, ptr %33, i64 -48
   %36 = load i64, ptr %35, align 8, !range !6510, !alias.scope !6511, !noalias !6501, !noundef !4
-  %switch.i.i.i = icmp slt i64 %36, -9223372036854775802
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i", label %37
+  %37 = icmp slt i64 %36, -9223372036854775802
+  br i1 %37, label %"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i", label %38
 
-37:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h1aee77a3004a9ebfE.exit.i"
+38:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h1aee77a3004a9ebfE.exit.i"
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hac0b6a56612e3c62E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %35)
-          to label %"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i" unwind label %38, !noalias !6501
+          to label %"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i" unwind label %39, !noalias !6501
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = getelementptr inbounds i8, ptr %33, i64 -24
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$object_store..attributes..AttributeValue$GT$17ha967f3af6f3dca20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40) #32
-          to label %43 unwind label %41, !noalias !6501
+  %41 = getelementptr inbounds i8, ptr %33, i64 -24
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$object_store..attributes..AttributeValue$GT$17ha967f3af6f3dca20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #32
+          to label %44 unwind label %42, !noalias !6501
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33, !noalias !6501
   unreachable
 
-43:                                               ; preds = %38
-  resume { ptr, i32 } %39
+44:                                               ; preds = %39
+  resume { ptr, i32 } %40
 
-"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i": ; preds = %37, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h1aee77a3004a9ebfE.exit.i"
-  %44 = getelementptr inbounds i8, ptr %33, i64 -24
-  tail call void @"_ZN4core3ptr61drop_in_place$LT$object_store..attributes..AttributeValue$GT$17ha967f3af6f3dca20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44), !noalias !6501
-  %45 = icmp eq i64 %34, 0
-  br i1 %45, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit, label %19
+"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i": ; preds = %38, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h1aee77a3004a9ebfE.exit.i"
+  %45 = getelementptr inbounds i8, ptr %33, i64 -24
+  tail call void @"_ZN4core3ptr61drop_in_place$LT$object_store..attributes..AttributeValue$GT$17ha967f3af6f3dca20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45), !noalias !6501
+  %46 = icmp eq i64 %34, 0
+  br i1 %46, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit, label %19
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit: ; preds = %"_ZN4core3ptr107drop_in_place$LT$$LP$object_store..attributes..Attribute$C$object_store..attributes..AttributeValue$RP$$GT$17ha14ba9b82fb51091E.exit.i", %8
-  %46 = add i64 %6, 1
-  %47 = mul nuw i64 %46, %2
-  %48 = add i64 %3, -1
-  %49 = add nuw i64 %47, %48
-  %50 = sub i64 0, %3
-  %51 = and i64 %49, %50
-  %52 = add i64 %6, 17
-  %53 = add nuw i64 %52, %51
-  %54 = sub nuw i64 -9223372036854775808, %3
-  %55 = icmp ule i64 %53, %54
-  tail call void @llvm.assume(i1 %55)
-  %56 = icmp eq i64 %53, 0
-  br i1 %56, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit", label %57
+  %47 = add i64 %6, 1
+  %48 = mul nuw i64 %47, %2
+  %49 = add i64 %3, -1
+  %50 = add nuw i64 %48, %49
+  %51 = sub i64 0, %3
+  %52 = and i64 %50, %51
+  %53 = add i64 %6, 17
+  %54 = add nuw i64 %53, %52
+  %55 = sub nuw i64 -9223372036854775808, %3
+  %56 = icmp ule i64 %54, %55
+  tail call void @llvm.assume(i1 %56)
+  %57 = icmp eq i64 %54, 0
+  br i1 %57, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit", label %58
 
-57:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit
-  %58 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %59 = sub nsw i64 0, %51
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %60, i64 noundef %53, i64 noundef range(i64 1, -9223372036854775807) %3) #35
+58:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit
+  %59 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %60 = sub nsw i64 0, %52
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %61, i64 noundef %54, i64 noundef range(i64 1, -9223372036854775807) %3) #35
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit": ; preds = %57, %_ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit, %4
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit": ; preds = %58, %_ZN9hashbrown3raw13RawTableInner13drop_elements17hcd57bf07222352cbE.exit, %4
   ret void
 }
 

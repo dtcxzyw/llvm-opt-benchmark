@@ -53693,7 +53693,7 @@ define hidden { i64, i64 } @_ZN13polars_stream5nodes3zip9InputHead7min_len17h287
   %or.cond = select i1 %4, i1 true, i1 %.not.i
   br i1 %or.cond, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hc8435c9f703f49abE.exit.thread", label %9
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hc8435c9f703f49abE.exit.thread": ; preds = %1, %9
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hc8435c9f703f49abE.exit.thread": ; preds = %9, %1
   %.sroa.4.0 = phi i64 [ undef, %1 ], [ %18, %9 ]
   %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %9 ]
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0

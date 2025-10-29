@@ -9849,184 +9849,184 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_126getCmpOpe
 "_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50": ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50.sink.split", %9
   %28 = load i16, ptr %12, align 4, !tbaa !449
   %29 = add i16 %28, -140
-  %switch = icmp ult i16 %29, 3
-  br i1 %switch, label %30, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread"
+  %30 = icmp ult i16 %29, 3
+  br i1 %30, label %31, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread"
 
-30:                                               ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50"
+31:                                               ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %31 = load ptr, ptr %11, align 8, !tbaa !383
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 68
-  %33 = load i32, ptr %32, align 4, !tbaa !15
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %5, i32 %33, ptr noundef nonnull align 8 dereferenceable(504) %1, i1 noundef zeroext true) #25
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %35 = load i8, ptr %34, align 8, !tbaa !466, !range !63, !noundef !64
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %93
+  %32 = load ptr, ptr %11, align 8, !tbaa !383
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 68
+  %34 = load i32, ptr %33, align 4, !tbaa !15
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %5, i32 %34, ptr noundef nonnull align 8 dereferenceable(504) %1, i1 noundef zeroext true) #25
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %36 = load i8, ptr %35, align 8, !tbaa !466, !range !63, !noundef !64
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %38, label %94
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !418
-  %40 = icmp ult i32 %39, 65
-  %41 = load ptr, ptr %5, align 8
-  %.0.in.i = select i1 %40, ptr %5, ptr %41
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !418
+  %41 = icmp ult i32 %40, 65
+  %42 = load ptr, ptr %5, align 8
+  %.0.in.i = select i1 %41, ptr %5, ptr %42
   %.0.i39 = load i64, ptr %.0.in.i, align 8, !tbaa !15
-  %42 = load ptr, ptr %11, align 8, !tbaa !383
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
-  %44 = load i32, ptr %43, align 4, !tbaa !15
-  %45 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %44, ptr noundef nonnull align 8 dereferenceable(504) %1) #25
-  %46 = getelementptr i8, ptr %45, i64 68
-  %.val38 = load i16, ptr %46, align 4, !tbaa !449
+  %43 = load ptr, ptr %11, align 8, !tbaa !383
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
+  %45 = load i32, ptr %44, align 4, !tbaa !15
+  %46 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %45, ptr noundef nonnull align 8 dereferenceable(504) %1) #25
+  %47 = getelementptr i8, ptr %46, i64 68
+  %.val38 = load i16, ptr %47, align 4, !tbaa !449
   switch i16 %.val38, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55" [
     i16 138, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread"
-    i16 62, label %47
+    i16 62, label %48
   ]
 
-47:                                               ; preds = %37
-  %48 = getelementptr i8, ptr %45, i64 32
-  %.val37 = load ptr, ptr %48, align 8
+48:                                               ; preds = %38
+  %49 = getelementptr i8, ptr %46, i64 32
+  %.val37 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %49 = getelementptr inbounds nuw i8, ptr %.val37, i64 68
-  %50 = load i32, ptr %49, align 4, !tbaa !15
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %3, i32 %50, ptr noundef nonnull align 8 dereferenceable(504) %1, i1 noundef zeroext true) #25
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %52 = load i8, ptr %51, align 8, !tbaa !466, !range !63, !noundef !64
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split"
+  %50 = getelementptr inbounds nuw i8, ptr %.val37, i64 68
+  %51 = load i32, ptr %50, align 4, !tbaa !15
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %3, i32 %51, ptr noundef nonnull align 8 dereferenceable(504) %1, i1 noundef zeroext true) #25
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %53 = load i8, ptr %52, align 8, !tbaa !466, !range !63, !noundef !64
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split"
 
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !418
-  %57 = icmp ult i32 %56, 65
-  %58 = load ptr, ptr %3, align 8
-  %.0.in.i.i43 = select i1 %57, ptr %3, ptr %58
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %57 = load i32, ptr %56, align 8, !tbaa !418
+  %58 = icmp ult i32 %57, 65
+  %59 = load ptr, ptr %3, align 8
+  %.0.in.i.i43 = select i1 %58, ptr %3, ptr %59
   %.0.i.i44 = load i64, ptr %.0.in.i.i43, align 8, !tbaa !15
   switch i64 %.0.i.i44, label %.thread72 [
-    i64 65535, label %59
-    i64 255, label %59
-    i64 4294967295, label %59
+    i64 65535, label %60
+    i64 255, label %60
+    i64 4294967295, label %60
   ]
 
-59:                                               ; preds = %54, %54, %54
-  store i8 0, ptr %51, align 8, !tbaa !466
-  %60 = icmp eq ptr %58, null
-  %or.cond.i46 = select i1 %57, i1 true, i1 %60
+60:                                               ; preds = %55, %55, %55
+  store i8 0, ptr %52, align 8, !tbaa !466
+  %61 = icmp eq ptr %59, null
+  %or.cond.i46 = select i1 %58, i1 true, i1 %61
   br i1 %or.cond.i46, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread.sink.split", label %.thread81
 
-.thread81:                                        ; preds = %59
-  call void @_ZdaPv(ptr noundef nonnull %58) #24
+.thread81:                                        ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %59) #24
   br label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread.sink.split"
 
-.thread72:                                        ; preds = %54
-  store i8 0, ptr %51, align 8, !tbaa !466
-  %61 = icmp eq ptr %58, null
-  %or.cond.i4674 = select i1 %57, i1 true, i1 %61
-  br i1 %or.cond.i4674, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split", label %62
+.thread72:                                        ; preds = %55
+  store i8 0, ptr %52, align 8, !tbaa !466
+  %62 = icmp eq ptr %59, null
+  %or.cond.i4674 = select i1 %58, i1 true, i1 %62
+  br i1 %or.cond.i4674, label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split", label %63
 
-62:                                               ; preds = %.thread72
-  call void @_ZdaPv(ptr noundef nonnull %58) #24
+63:                                               ; preds = %.thread72
+  call void @_ZdaPv(ptr noundef nonnull %59) #24
   br label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split"
 
-"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread.sink.split": ; preds = %59, %.thread81
+"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread.sink.split": ; preds = %60, %.thread81
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread"
 
-"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread": ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread.sink.split", %37
-  %63 = icmp ult i64 %.0.i39, 5
-  %64 = select i1 %63, i32 2, i32 1
-  br label %93
+"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread": ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread.sink.split", %38
+  %64 = icmp ult i64 %.0.i39, 5
+  %65 = select i1 %64, i32 2, i32 1
+  br label %94
 
-"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split": ; preds = %.thread72, %47, %62
+"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split": ; preds = %.thread72, %48, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55"
 
-"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55": ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split", %37
+"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55": ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55.sink.split", %38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %65 = load ptr, ptr %11, align 8, !tbaa !383
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
+  %66 = load ptr, ptr %11, align 8, !tbaa !383
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %70, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
-69:                                               ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55"
-  %70 = and i32 %67, 2147483647
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %72 = load i32, ptr %71, align 8, !tbaa !37
-  %73 = icmp ugt i32 %72, %70
-  br i1 %73, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
+70:                                               ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55"
+  %71 = and i32 %68, 2147483647
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %73 = load i32, ptr %72, align 8, !tbaa !37
+  %74 = icmp ugt i32 %73, %71
+  br i1 %74, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %69, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55"
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %70, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread55"
   store i64 0, ptr %6, align 8
-  br label %83
+  br label %84
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %75 = zext nneg i32 %70 to i64
-  %76 = load ptr, ptr %74, align 8, !tbaa !36
-  %77 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %76, i64 %75
-  %78 = load i64, ptr %77, align 8, !tbaa !15
-  store i64 %78, ptr %6, align 8
-  %79 = and i64 %78, -7
-  %spec.select.i.i = icmp ne i64 %79, 0
-  %80 = and i64 %78, 4
-  %81 = icmp ne i64 %80, 0
-  %82 = and i1 %spec.select.i.i, %81
-  br i1 %82, label %92, label %83
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %76 = zext nneg i32 %71 to i64
+  %77 = load ptr, ptr %75, align 8, !tbaa !36
+  %78 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %77, i64 %76
+  %79 = load i64, ptr %78, align 8, !tbaa !15
+  store i64 %79, ptr %6, align 8
+  %80 = and i64 %79, -7
+  %spec.select.i.i = icmp ne i64 %80, 0
+  %81 = and i64 %79, 4
+  %82 = icmp ne i64 %81, 0
+  %83 = and i1 %spec.select.i.i, %82
+  br i1 %83, label %93, label %84
 
-83:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+84:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %84 = call { i64, i8 } @_ZNK4llvm3LLT13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %.fca.0.extract = extractvalue { i64, i8 } %84, 0
-  %.fca.1.extract = extractvalue { i64, i8 } %84, 1
+  %85 = call { i64, i8 } @_ZNK4llvm3LLT13getSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %.fca.0.extract = extractvalue { i64, i8 } %85, 0
+  %.fca.1.extract = extractvalue { i64, i8 } %85, 1
   store i64 %.fca.0.extract, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  %85 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #25
-  %86 = trunc i64 %85 to i32
+  %86 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #25
+  %87 = trunc i64 %86 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %87 = icmp eq i32 %86, 32
-  %88 = icmp ult i64 %.0.i39, 32
-  %or.cond5 = and i1 %88, %87
-  br i1 %or.cond5, label %92, label %89
+  %88 = icmp eq i32 %87, 32
+  %89 = icmp ult i64 %.0.i39, 32
+  %or.cond5 = and i1 %89, %88
+  br i1 %or.cond5, label %93, label %90
 
-89:                                               ; preds = %83
-  %90 = icmp eq i32 %86, 64
-  %91 = icmp ult i64 %.0.i39, 64
-  %or.cond7 = and i1 %91, %90
+90:                                               ; preds = %84
+  %91 = icmp eq i32 %87, 64
+  %92 = icmp ult i64 %.0.i39, 64
+  %or.cond7 = and i1 %92, %91
   %spec.select = zext i1 %or.cond7 to i32
-  br label %92
-
-92:                                               ; preds = %89, %83, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %.5 = phi i32 [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %83 ], [ %spec.select, %89 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %93
 
-93:                                               ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread", %92, %30
-  %.3 = phi i32 [ 0, %30 ], [ %64, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread" ], [ %.5, %92 ]
-  %94 = load i8, ptr %34, align 8, !tbaa !466, !range !63, !noundef !64
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
+93:                                               ; preds = %90, %84, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+  %.5 = phi i32 [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %84 ], [ %spec.select, %90 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %94
 
-96:                                               ; preds = %93
-  store i8 0, ptr %34, align 8, !tbaa !466
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %98 = load i32, ptr %97, align 8, !tbaa !418
-  %99 = icmp ugt i32 %98, 64
-  br i1 %99, label %100, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
+94:                                               ; preds = %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread", %93, %31
+  %.3 = phi i32 [ 0, %31 ], [ %65, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit48.thread" ], [ %.5, %93 ]
+  %95 = load i8, ptr %35, align 8, !tbaa !466, !range !63, !noundef !64
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %97, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr %5, align 8, !tbaa !15
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %103
+97:                                               ; preds = %94
+  store i8 0, ptr %35, align 8, !tbaa !466
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %99 = load i32, ptr %98, align 8, !tbaa !418
+  %100 = icmp ugt i32 %99, 64
+  br i1 %100, label %101, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
-103:                                              ; preds = %100
-  call void @_ZdaPv(ptr noundef nonnull %101) #24
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %5, align 8, !tbaa !15
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %104
+
+104:                                              ; preds = %101
+  call void @_ZdaPv(ptr noundef nonnull %102) #24
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %93, %96, %100, %103
+_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %94, %97, %101, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread"
 
-"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread": ; preds = %.thread79, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit", %9, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50", %2
+"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread": ; preds = %.thread79, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit", %9, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50", %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit" ], [ %.3, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit ], [ 0, %"_ZZN12_GLOBAL__N_126getCmpOperandFoldingProfitEN4llvm8RegisterERNS0_19MachineRegisterInfoEENK3$_0clERKNS0_12MachineInstrE.exit.thread50" ], [ 1, %9 ], [ 1, %.thread79 ]
   ret i32 %.0
 }

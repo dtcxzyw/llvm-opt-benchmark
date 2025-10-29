@@ -161,12 +161,12 @@ declare void @p11ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_a
 define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %2, null
-  br i1 %5, label %74, label %6
+  br i1 %5, label %76, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @jvm_j2pkcs11, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %74, label %9
+  br i1 %8, label %76, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %7, align 8
@@ -174,93 +174,93 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef 65538) #4
   %14 = icmp eq i32 %13, -2
-  %.off = add i32 %13, 3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.sink.split, label %20
+  %15 = add i32 %13, 3
+  %16 = icmp ult i32 %15, 2
+  br i1 %16, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %9
-  %15 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %17 = load ptr, ptr @jvm_j2pkcs11, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = call i32 %18(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef null) #4
-  br label %20
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 %20(ptr noundef nonnull %17, ptr noundef nonnull %4, ptr noundef null) #4
+  br label %22
 
-20:                                               ; preds = %9, %.sink.split
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
+22:                                               ; preds = %9, %.sink.split
+  %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = call ptr %24(ptr noundef nonnull %21, ptr noundef nonnull @.str) #4
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %74, label %27
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr %26(ptr noundef nonnull %23, ptr noundef nonnull @.str) #4
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %76, label %29
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 264
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %4, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = call ptr %31(ptr noundef nonnull %28, ptr noundef nonnull %25, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #4
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %74, label %34
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 264
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr %33(ptr noundef nonnull %30, ptr noundef nonnull %27, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #4
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %76, label %36
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 488
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %4, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %41 = load ptr, ptr %40, align 8
-  call void (ptr, ptr, ptr, ...) %38(ptr noundef nonnull %35, ptr noundef %39, ptr noundef nonnull %32, i64 noundef %0, i64 noundef %1, ptr noundef %41) #4
-  %42 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 488
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 120
+  call void (ptr, ptr, ptr, ...) %40(ptr noundef nonnull %37, ptr noundef %41, ptr noundef nonnull %34, i64 noundef %0, i64 noundef %1, ptr noundef %43) #4
+  %44 = load ptr, ptr %4, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr %45(ptr noundef nonnull %42) #4
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %67, label %47
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr %47(ptr noundef nonnull %44) #4
+  %.not = icmp eq ptr %48, null
+  br i1 %.not, label %69, label %49
 
-47:                                               ; preds = %34
-  %48 = load ptr, ptr %4, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+49:                                               ; preds = %36
+  %50 = load ptr, ptr %4, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr %51(ptr noundef nonnull %48, ptr noundef nonnull @.str.3) #4
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %74, label %54
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %53 = load ptr, ptr %52, align 8
+  %54 = call ptr %53(ptr noundef nonnull %50, ptr noundef nonnull @.str.3) #4
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %76, label %56
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %4, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 264
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %4, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr %58(ptr noundef nonnull %55, ptr noundef nonnull %52, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #4
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %74, label %61
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 264
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr %60(ptr noundef nonnull %57, ptr noundef nonnull %54, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #4
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %76, label %63
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %4, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 416
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %4, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = call i64 (ptr, ptr, ptr, ...) %65(ptr noundef nonnull %62, ptr noundef nonnull %46, ptr noundef nonnull %59) #4
-  br label %67
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 416
+  %67 = load ptr, ptr %66, align 8
+  %68 = call i64 (ptr, ptr, ptr, ...) %67(ptr noundef nonnull %64, ptr noundef nonnull %48, ptr noundef nonnull %61) #4
+  br label %69
 
-67:                                               ; preds = %61, %34
-  %.029 = phi i64 [ %66, %61 ], [ 0, %34 ]
-  br i1 %14, label %74, label %68
+69:                                               ; preds = %63, %36
+  %.029 = phi i64 [ %68, %63 ], [ 0, %36 ]
+  br i1 %14, label %76, label %70
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr @jvm_j2pkcs11, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
+70:                                               ; preds = %69
+  %71 = load ptr, ptr @jvm_j2pkcs11, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 %72(ptr noundef nonnull %69) #4
-  br label %74
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %74 = load ptr, ptr %73, align 8
+  %75 = call i32 %74(ptr noundef nonnull %71) #4
+  br label %76
 
-74:                                               ; preds = %67, %68, %54, %47, %27, %20, %6, %3
-  %.030 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %20 ], [ 0, %27 ], [ 0, %47 ], [ 0, %54 ], [ %.029, %68 ], [ %.029, %67 ]
+76:                                               ; preds = %69, %70, %56, %49, %29, %22, %6, %3
+  %.030 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 0, %29 ], [ 0, %49 ], [ 0, %56 ], [ %.029, %70 ], [ %.029, %69 ]
   ret i64 %.030
 }
 

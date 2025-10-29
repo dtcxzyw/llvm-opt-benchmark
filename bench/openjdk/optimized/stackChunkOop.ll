@@ -11475,7 +11475,7 @@ _ZN13SkipNullValue11should_skipEPv.exit.thread:   ; preds = %136, %133, %_ZNK5fr
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 4872
   br label %155
 
-155:                                              ; preds = %221, %146
+155:                                              ; preds = %222, %146
   %156 = load i8, ptr %147, align 8
   %157 = trunc i8 %156 to i1
   br i1 %157, label %_ZN12OopMapStream7is_doneEv.exit52.thread, label %_ZN12OopMapStream7is_doneEv.exit52
@@ -11490,126 +11490,126 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
   %.sroa.0.0.copyload.i53 = load i32, ptr %148, align 2
   %158 = and i32 %.sroa.0.0.copyload.i53, 3
   %.not28 = icmp eq i32 %158, 0
-  %switch = icmp samesign ult i32 %158, 2
-  br i1 %switch, label %159, label %221
+  %159 = icmp samesign ult i32 %158, 2
+  br i1 %159, label %160, label %222
 
-159:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread
-  %160 = lshr i32 %.sroa.0.0.copyload.i53, 2
-  %161 = and i32 %160, 16383
-  %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %162
-  %164 = ptrtoint ptr %163 to i64
-  %165 = trunc i64 %164 to i32
-  %166 = sub i32 %165, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %167 = icmp ne i32 %166, -1
-  %.not.i.i54 = icmp samesign ult i32 %161, 616
-  %168 = select i1 %167, i1 %.not.i.i54, i1 false
-  br i1 %168, label %169, label %184
+160:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread
+  %161 = lshr i32 %.sroa.0.0.copyload.i53, 2
+  %162 = and i32 %161, 16383
+  %163 = zext nneg i32 %162 to i64
+  %164 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %163
+  %165 = ptrtoint ptr %164 to i64
+  %166 = trunc i64 %165 to i32
+  %167 = sub i32 %166, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %168 = icmp ne i32 %167, -1
+  %.not.i.i54 = icmp samesign ult i32 %162, 616
+  %169 = select i1 %168, i1 %.not.i.i54, i1 false
+  br i1 %169, label %170, label %185
 
-169:                                              ; preds = %159
-  %170 = sdiv i32 %166, 64
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i64, ptr %154, i64 %171
-  %173 = load i64, ptr %172, align 8
-  %174 = srem i32 %166, 64
-  %175 = zext nneg i32 %174 to i64
-  %176 = shl nuw i64 1, %175
-  %177 = and i64 %173, %176
-  %.not.i10.i65 = icmp eq i64 %177, 0
-  br i1 %.not.i10.i65, label %182, label %178
+170:                                              ; preds = %160
+  %171 = sdiv i32 %167, 64
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i64, ptr %154, i64 %172
+  %174 = load i64, ptr %173, align 8
+  %175 = srem i32 %167, 64
+  %176 = zext nneg i32 %175 to i64
+  %177 = shl nuw i64 1, %176
+  %178 = and i64 %174, %177
+  %.not.i10.i65 = icmp eq i64 %178, 0
+  br i1 %.not.i10.i65, label %183, label %179
 
-178:                                              ; preds = %169
-  %179 = sext i32 %166 to i64
-  %180 = getelementptr inbounds ptr, ptr %2, i64 %179
-  %181 = load ptr, ptr %180, align 8
+179:                                              ; preds = %170
+  %180 = sext i32 %167 to i64
+  %181 = getelementptr inbounds ptr, ptr %2, i64 %180
+  %182 = load ptr, ptr %181, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-182:                                              ; preds = %169
-  %183 = call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef nonnull %163) #8
+183:                                              ; preds = %170
+  %184 = call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef nonnull %164) #8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-184:                                              ; preds = %159
-  %185 = sub i32 %165, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %186 = mul nsw i32 %149, %185
-  %187 = load ptr, ptr %150, align 8
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %_ZNK11RegisterMap7in_contEv.exit.i55
+185:                                              ; preds = %160
+  %186 = sub i32 %166, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %187 = mul nsw i32 %149, %186
+  %188 = load ptr, ptr %150, align 8
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %_ZNK11RegisterMap7in_contEv.exit.i55
 
-_ZNK11RegisterMap7in_contEv.exit.i55:             ; preds = %184
-  %189 = load ptr, ptr %187, align 8
-  %.not.i56 = icmp eq ptr %189, null
-  br i1 %.not.i56, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %190
+_ZNK11RegisterMap7in_contEv.exit.i55:             ; preds = %185
+  %190 = load ptr, ptr %188, align 8
+  %.not.i56 = icmp eq ptr %190, null
+  br i1 %.not.i56, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %191
 
-190:                                              ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55
-  %191 = load ptr, ptr %151, align 8
-  %.not.i.i.i57 = icmp eq ptr %191, null
-  br i1 %.not.i.i.i57, label %200, label %192
+191:                                              ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55
+  %192 = load ptr, ptr %151, align 8
+  %.not.i.i.i57 = icmp eq ptr %192, null
+  br i1 %.not.i.i.i57, label %201, label %193
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 44
-  %194 = load i32, ptr %193, align 4
-  %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %196, label %200
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 44
+  %195 = load i32, ptr %194, align 4
+  %196 = icmp sgt i32 %195, 0
+  br i1 %196, label %197, label %201
 
-196:                                              ; preds = %192
-  %197 = load ptr, ptr %152, align 8
-  %198 = zext nneg i32 %194 to i64
-  %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %152, align 8
+  %199 = zext nneg i32 %195 to i64
+  %200 = getelementptr inbounds nuw i64, ptr %198, i64 %199
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60
 
-200:                                              ; preds = %192, %190
-  %201 = load ptr, ptr %153, align 8
+201:                                              ; preds = %193, %191
+  %202 = load ptr, ptr %153, align 8
   %.pre.i.i59 = load ptr, ptr %152, align 8
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60
 
-_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60: ; preds = %200, %196
-  %202 = phi ptr [ %197, %196 ], [ %.pre.i.i59, %200 ]
-  %.0.i.i.i61 = phi ptr [ %199, %196 ], [ %201, %200 ]
-  %203 = sext i32 %186 to i64
-  %204 = getelementptr inbounds i8, ptr %202, i64 %203
-  %205 = ptrtoint ptr %.0.i.i.i61 to i64
-  %206 = ptrtoint ptr %204 to i64
-  %207 = sub i64 %205, %206
-  %sext.i62 = shl i64 %207, 29
-  %208 = ashr i64 %sext.i62, 32
-  %209 = inttoptr i64 %208 to ptr
+_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60: ; preds = %201, %197
+  %203 = phi ptr [ %198, %197 ], [ %.pre.i.i59, %201 ]
+  %.0.i.i.i61 = phi ptr [ %200, %197 ], [ %202, %201 ]
+  %204 = sext i32 %187 to i64
+  %205 = getelementptr inbounds i8, ptr %203, i64 %204
+  %206 = ptrtoint ptr %.0.i.i.i61 to i64
+  %207 = ptrtoint ptr %205 to i64
+  %208 = sub i64 %206, %207
+  %sext.i62 = shl i64 %208, 29
+  %209 = ashr i64 %sext.i62, 32
+  %210 = inttoptr i64 %209 to ptr
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-_ZNK11RegisterMap7in_contEv.exit.thread.i64:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55, %184
-  %210 = load ptr, ptr %152, align 8
-  %211 = sext i32 %186 to i64
-  %212 = getelementptr inbounds i8, ptr %210, i64 %211
+_ZNK11RegisterMap7in_contEv.exit.thread.i64:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55, %185
+  %211 = load ptr, ptr %152, align 8
+  %212 = sext i32 %187 to i64
+  %213 = getelementptr inbounds i8, ptr %211, i64 %212
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66: ; preds = %178, %182, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60, %_ZNK11RegisterMap7in_contEv.exit.thread.i64
-  %.0.i63 = phi ptr [ %209, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60 ], [ %212, %_ZNK11RegisterMap7in_contEv.exit.thread.i64 ], [ %181, %178 ], [ %183, %182 ]
+_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66: ; preds = %179, %183, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60, %_ZNK11RegisterMap7in_contEv.exit.thread.i64
+  %.0.i63 = phi ptr [ %210, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60 ], [ %213, %_ZNK11RegisterMap7in_contEv.exit.thread.i64 ], [ %182, %179 ], [ %184, %183 ]
   %cond35 = icmp eq ptr %.0.i63, null
-  br i1 %cond35, label %213, label %.sink.split
+  br i1 %cond35, label %214, label %.sink.split
 
-213:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
-  %214 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %214, ptr noundef nonnull @.str.11) #8
+214:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
   %215 = load ptr, ptr @tty, align 8
-  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %163, ptr noundef %215) #8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %215, ptr noundef nonnull @.str.11) #8
   %216 = load ptr, ptr @tty, align 8
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %216) #8
+  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %164, ptr noundef %216) #8
   %217 = load ptr, ptr @tty, align 8
-  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %217) #8
-  %218 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %218, align 1
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %217) #8
+  %218 = load ptr, ptr @tty, align 8
+  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %218) #8
+  %219 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %219, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.12, i32 noundef 124, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
   unreachable
 
 .sink.split:                                      ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
-  %219 = load ptr, ptr %0, align 8
-  %220 = load ptr, ptr %219, align 8
+  %220 = load ptr, ptr %0, align 8
+  %221 = load ptr, ptr %220, align 8
   %.sink.in.idx = select i1 %.not28, i64 0, i64 8
-  %.sink.in = getelementptr inbounds nuw i8, ptr %220, i64 %.sink.in.idx
+  %.sink.in = getelementptr inbounds nuw i8, ptr %221, i64 %.sink.in.idx
   %.sink = load ptr, ptr %.sink.in, align 8
-  call void %.sink(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull %.0.i63) #8
-  br label %221
+  call void %.sink(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef nonnull %.0.i63) #8
+  br label %222
 
-221:                                              ; preds = %.sink.split, %_ZN12OopMapStream7is_doneEv.exit52.thread
+222:                                              ; preds = %.sink.split, %_ZN12OopMapStream7is_doneEv.exit52.thread
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %6) #8
   br label %155, !llvm.loop !64
 
@@ -11928,148 +11928,148 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
   %.sroa.0.0.copyload.i53 = load i32, ptr %148, align 2
   %158 = and i32 %.sroa.0.0.copyload.i53, 3
   %.not28 = icmp eq i32 %158, 0
-  %switch = icmp samesign ult i32 %158, 2
-  br i1 %switch, label %159, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread
+  %159 = icmp samesign ult i32 %158, 2
+  br i1 %159, label %160, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread
 
-159:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread
-  %160 = lshr i32 %.sroa.0.0.copyload.i53, 2
-  %161 = and i32 %160, 16383
-  %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %162
-  %164 = ptrtoint ptr %163 to i64
-  %165 = trunc i64 %164 to i32
-  %166 = sub i32 %165, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %167 = icmp ne i32 %166, -1
-  %.not.i.i54 = icmp samesign ult i32 %161, 616
-  %168 = select i1 %167, i1 %.not.i.i54, i1 false
-  br i1 %168, label %169, label %184
+160:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread
+  %161 = lshr i32 %.sroa.0.0.copyload.i53, 2
+  %162 = and i32 %161, 16383
+  %163 = zext nneg i32 %162 to i64
+  %164 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %163
+  %165 = ptrtoint ptr %164 to i64
+  %166 = trunc i64 %165 to i32
+  %167 = sub i32 %166, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %168 = icmp ne i32 %167, -1
+  %.not.i.i54 = icmp samesign ult i32 %162, 616
+  %169 = select i1 %168, i1 %.not.i.i54, i1 false
+  br i1 %169, label %170, label %185
 
-169:                                              ; preds = %159
-  %170 = sdiv i32 %166, 64
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i64, ptr %154, i64 %171
-  %173 = load i64, ptr %172, align 8
-  %174 = srem i32 %166, 64
-  %175 = zext nneg i32 %174 to i64
-  %176 = shl nuw i64 1, %175
-  %177 = and i64 %173, %176
-  %.not.i10.i65 = icmp eq i64 %177, 0
-  br i1 %.not.i10.i65, label %182, label %178
+170:                                              ; preds = %160
+  %171 = sdiv i32 %167, 64
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i64, ptr %154, i64 %172
+  %174 = load i64, ptr %173, align 8
+  %175 = srem i32 %167, 64
+  %176 = zext nneg i32 %175 to i64
+  %177 = shl nuw i64 1, %176
+  %178 = and i64 %174, %177
+  %.not.i10.i65 = icmp eq i64 %178, 0
+  br i1 %.not.i10.i65, label %183, label %179
 
-178:                                              ; preds = %169
-  %179 = sext i32 %166 to i64
-  %180 = getelementptr inbounds ptr, ptr %2, i64 %179
-  %181 = load ptr, ptr %180, align 8
+179:                                              ; preds = %170
+  %180 = sext i32 %167 to i64
+  %181 = getelementptr inbounds ptr, ptr %2, i64 %180
+  %182 = load ptr, ptr %181, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-182:                                              ; preds = %169
-  %183 = call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef nonnull %163) #8
+183:                                              ; preds = %170
+  %184 = call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef nonnull %164) #8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-184:                                              ; preds = %159
-  %185 = sub i32 %165, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %186 = mul nsw i32 %149, %185
-  %187 = load ptr, ptr %150, align 8
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %_ZNK11RegisterMap7in_contEv.exit.i55
+185:                                              ; preds = %160
+  %186 = sub i32 %166, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %187 = mul nsw i32 %149, %186
+  %188 = load ptr, ptr %150, align 8
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %_ZNK11RegisterMap7in_contEv.exit.i55
 
-_ZNK11RegisterMap7in_contEv.exit.i55:             ; preds = %184
-  %189 = load ptr, ptr %187, align 8
-  %.not.i56 = icmp eq ptr %189, null
-  br i1 %.not.i56, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %190
+_ZNK11RegisterMap7in_contEv.exit.i55:             ; preds = %185
+  %190 = load ptr, ptr %188, align 8
+  %.not.i56 = icmp eq ptr %190, null
+  br i1 %.not.i56, label %_ZNK11RegisterMap7in_contEv.exit.thread.i64, label %191
 
-190:                                              ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55
-  %191 = load ptr, ptr %151, align 8
-  %.not.i.i.i57 = icmp eq ptr %191, null
-  br i1 %.not.i.i.i57, label %200, label %192
+191:                                              ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55
+  %192 = load ptr, ptr %151, align 8
+  %.not.i.i.i57 = icmp eq ptr %192, null
+  br i1 %.not.i.i.i57, label %201, label %193
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 44
-  %194 = load i32, ptr %193, align 4
-  %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %196, label %200
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 44
+  %195 = load i32, ptr %194, align 4
+  %196 = icmp sgt i32 %195, 0
+  br i1 %196, label %197, label %201
 
-196:                                              ; preds = %192
-  %197 = load ptr, ptr %152, align 8
-  %198 = zext nneg i32 %194 to i64
-  %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %152, align 8
+  %199 = zext nneg i32 %195 to i64
+  %200 = getelementptr inbounds nuw i64, ptr %198, i64 %199
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60
 
-200:                                              ; preds = %192, %190
-  %201 = load ptr, ptr %153, align 8
+201:                                              ; preds = %193, %191
+  %202 = load ptr, ptr %153, align 8
   %.pre.i.i59 = load ptr, ptr %152, align 8
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60
 
-_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60: ; preds = %200, %196
-  %202 = phi ptr [ %197, %196 ], [ %.pre.i.i59, %200 ]
-  %.0.i.i.i61 = phi ptr [ %199, %196 ], [ %201, %200 ]
-  %203 = sext i32 %186 to i64
-  %204 = getelementptr inbounds i8, ptr %202, i64 %203
-  %205 = ptrtoint ptr %.0.i.i.i61 to i64
-  %206 = ptrtoint ptr %204 to i64
-  %207 = sub i64 %205, %206
-  %sext.i62 = shl i64 %207, 29
-  %208 = ashr i64 %sext.i62, 32
-  %209 = inttoptr i64 %208 to ptr
+_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60: ; preds = %201, %197
+  %203 = phi ptr [ %198, %197 ], [ %.pre.i.i59, %201 ]
+  %.0.i.i.i61 = phi ptr [ %200, %197 ], [ %202, %201 ]
+  %204 = sext i32 %187 to i64
+  %205 = getelementptr inbounds i8, ptr %203, i64 %204
+  %206 = ptrtoint ptr %.0.i.i.i61 to i64
+  %207 = ptrtoint ptr %205 to i64
+  %208 = sub i64 %206, %207
+  %sext.i62 = shl i64 %208, 29
+  %209 = ashr i64 %sext.i62, 32
+  %210 = inttoptr i64 %209 to ptr
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-_ZNK11RegisterMap7in_contEv.exit.thread.i64:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55, %184
-  %210 = load ptr, ptr %152, align 8
-  %211 = sext i32 %186 to i64
-  %212 = getelementptr inbounds i8, ptr %210, i64 %211
+_ZNK11RegisterMap7in_contEv.exit.thread.i64:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i55, %185
+  %211 = load ptr, ptr %152, align 8
+  %212 = sext i32 %187 to i64
+  %213 = getelementptr inbounds i8, ptr %211, i64 %212
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
-_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66: ; preds = %178, %182, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60, %_ZNK11RegisterMap7in_contEv.exit.thread.i64
-  %.0.i63 = phi ptr [ %209, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60 ], [ %212, %_ZNK11RegisterMap7in_contEv.exit.thread.i64 ], [ %181, %178 ], [ %183, %182 ]
+_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66: ; preds = %179, %183, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60, %_ZNK11RegisterMap7in_contEv.exit.thread.i64
+  %.0.i63 = phi ptr [ %210, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i60 ], [ %213, %_ZNK11RegisterMap7in_contEv.exit.thread.i64 ], [ %182, %179 ], [ %184, %183 ]
   %cond35 = icmp eq ptr %.0.i63, null
-  br i1 %cond35, label %213, label %219
+  br i1 %cond35, label %214, label %220
 
-213:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
-  %214 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %214, ptr noundef nonnull @.str.11) #8
+214:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
   %215 = load ptr, ptr @tty, align 8
-  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %163, ptr noundef %215) #8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %215, ptr noundef nonnull @.str.11) #8
   %216 = load ptr, ptr @tty, align 8
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %216) #8
+  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %164, ptr noundef %216) #8
   %217 = load ptr, ptr @tty, align 8
-  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %217) #8
-  %218 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %218, align 1
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %217) #8
+  %218 = load ptr, ptr @tty, align 8
+  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %218) #8
+  %219 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %219, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.12, i32 noundef 124, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
   unreachable
 
-219:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
-  br i1 %.not28, label %220, label %231
+220:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
+  br i1 %.not28, label %221, label %232
 
-220:                                              ; preds = %219
-  %221 = load ptr, ptr %.0.i63, align 8
-  %222 = icmp eq ptr %221, null
-  br i1 %222, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread, label %223
+221:                                              ; preds = %220
+  %222 = load ptr, ptr %.0.i63, align 8
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread, label %224
 
-223:                                              ; preds = %220
-  %224 = load i8, ptr @UseCompressedOops, align 1
-  %225 = trunc i8 %224 to i1
-  %226 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %227 = icmp eq ptr %226, %221
-  %or.cond83 = select i1 %225, i1 %227, i1 false
+224:                                              ; preds = %221
+  %225 = load i8, ptr @UseCompressedOops, align 1
+  %226 = trunc i8 %225 to i1
+  %227 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %228 = icmp eq ptr %227, %222
+  %or.cond83 = select i1 %226, i1 %228, i1 false
   br i1 %or.cond83, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread, label %_ZN13SkipNullValue11should_skipEPv.exit67.thread79
 
-_ZN13SkipNullValue11should_skipEPv.exit67.thread79: ; preds = %223
-  %228 = load ptr, ptr %0, align 8
-  %229 = load ptr, ptr %228, align 8
+_ZN13SkipNullValue11should_skipEPv.exit67.thread79: ; preds = %224
+  %229 = load ptr, ptr %0, align 8
   %230 = load ptr, ptr %229, align 8
-  call void %230(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef nonnull %.0.i63) #8
+  %231 = load ptr, ptr %230, align 8
+  call void %231(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull %.0.i63) #8
   br label %_ZN13SkipNullValue11should_skipEPv.exit67.thread
 
-231:                                              ; preds = %219
-  %232 = load ptr, ptr %0, align 8
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %235 = load ptr, ptr %234, align 8
-  call void %235(ptr noundef nonnull align 8 dereferenceable(8) %232, ptr noundef nonnull %.0.i63) #8
+232:                                              ; preds = %220
+  %233 = load ptr, ptr %0, align 8
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %236 = load ptr, ptr %235, align 8
+  call void %236(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull %.0.i63) #8
   br label %_ZN13SkipNullValue11should_skipEPv.exit67.thread
 
-_ZN13SkipNullValue11should_skipEPv.exit67.thread: ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread, %223, %220, %_ZN13SkipNullValue11should_skipEPv.exit67.thread79, %231
+_ZN13SkipNullValue11should_skipEPv.exit67.thread: ; preds = %_ZN12OopMapStream7is_doneEv.exit52.thread, %224, %221, %_ZN13SkipNullValue11should_skipEPv.exit67.thread79, %232
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %6) #8
   br label %155, !llvm.loop !66
 
@@ -12316,7 +12316,7 @@ _ZN13SkipNullValue11should_skipEPv.exit.thread:   ; preds = %59, %56, %_ZNK5fram
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %74
 
-74:                                               ; preds = %103, %69
+74:                                               ; preds = %104, %69
   %75 = load i8, ptr %70, align 8
   %76 = trunc i8 %75 to i1
   br i1 %76, label %_ZN12OopMapStream7is_doneEv.exit42.thread, label %_ZN12OopMapStream7is_doneEv.exit42
@@ -12331,61 +12331,61 @@ _ZN12OopMapStream7is_doneEv.exit42.thread:        ; preds = %74, %_ZN12OopMapStr
   %.sroa.0.0.copyload.i43 = load i32, ptr %71, align 2
   %77 = and i32 %.sroa.0.0.copyload.i43, 3
   %.not28 = icmp eq i32 %77, 0
-  %switch = icmp samesign ult i32 %77, 2
-  br i1 %switch, label %78, label %103
+  %78 = icmp samesign ult i32 %77, 2
+  br i1 %78, label %79, label %104
 
-78:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread
-  %79 = lshr i32 %.sroa.0.0.copyload.i43, 2
-  %80 = and i32 %79, 16383
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %81
-  %83 = ptrtoint ptr %82 to i64
-  %84 = trunc i64 %83 to i32
-  %85 = sub i32 %84, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %86 = icmp ne i32 %85, -1
-  %.not.i.i44 = icmp samesign ult i32 %80, 616
-  %87 = select i1 %86, i1 %.not.i.i44, i1 false
-  br i1 %87, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
+79:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread
+  %80 = lshr i32 %.sroa.0.0.copyload.i43, 2
+  %81 = and i32 %80, 16383
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %82
+  %84 = ptrtoint ptr %83 to i64
+  %85 = trunc i64 %84 to i32
+  %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %87 = icmp ne i32 %86, -1
+  %.not.i.i44 = icmp samesign ult i32 %81, 616
+  %88 = select i1 %87, i1 %.not.i.i44, i1 false
+  br i1 %88, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
 
-_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread: ; preds = %78
-  %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 -16
+_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread: ; preds = %79
+  %89 = load ptr, ptr %1, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 -16
   br label %.sink.split
 
-_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46: ; preds = %78
-  %90 = sub i32 %84, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %91 = mul nsw i32 %72, %90
-  %92 = load ptr, ptr %73, align 8
-  %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds i8, ptr %92, i64 %93
-  %cond35 = icmp eq ptr %92, null
-  br i1 %cond35, label %95, label %.sink.split
+_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46: ; preds = %79
+  %91 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %92 = mul nsw i32 %72, %91
+  %93 = load ptr, ptr %73, align 8
+  %94 = sext i32 %92 to i64
+  %95 = getelementptr inbounds i8, ptr %93, i64 %94
+  %cond35 = icmp eq ptr %93, null
+  br i1 %cond35, label %96, label %.sink.split
 
-95:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
-  %96 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %96, ptr noundef nonnull @.str.11) #8
+96:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
   %97 = load ptr, ptr @tty, align 8
-  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef %97) #8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull @.str.11) #8
   %98 = load ptr, ptr @tty, align 8
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %98) #8
+  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef %98) #8
   %99 = load ptr, ptr @tty, align 8
-  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %99) #8
-  %100 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %100, align 1
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %99) #8
+  %100 = load ptr, ptr @tty, align 8
+  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %100) #8
+  %101 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %101, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.12, i32 noundef 124, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
   unreachable
 
 .sink.split:                                      ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
-  %.0.i4571 = phi ptr [ %89, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread ], [ %94, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46 ]
-  %101 = load ptr, ptr %0, align 8
-  %102 = load ptr, ptr %101, align 8
+  %.0.i4571 = phi ptr [ %90, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread ], [ %95, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46 ]
+  %102 = load ptr, ptr %0, align 8
+  %103 = load ptr, ptr %102, align 8
   %.sink.in.idx = select i1 %.not28, i64 0, i64 8
-  %.sink.in = getelementptr inbounds nuw i8, ptr %102, i64 %.sink.in.idx
+  %.sink.in = getelementptr inbounds nuw i8, ptr %103, i64 %.sink.in.idx
   %.sink = load ptr, ptr %.sink.in, align 8
-  call void %.sink(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull %.0.i4571) #8
-  br label %103
+  call void %.sink(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %.0.i4571) #8
+  br label %104
 
-103:                                              ; preds = %.sink.split, %_ZN12OopMapStream7is_doneEv.exit42.thread
+104:                                              ; preds = %.sink.split, %_ZN12OopMapStream7is_doneEv.exit42.thread
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %6) #8
   br label %74, !llvm.loop !68
 
@@ -12551,83 +12551,83 @@ _ZN12OopMapStream7is_doneEv.exit42.thread:        ; preds = %74, %_ZN12OopMapStr
   %.sroa.0.0.copyload.i43 = load i32, ptr %71, align 2
   %77 = and i32 %.sroa.0.0.copyload.i43, 3
   %.not28 = icmp eq i32 %77, 0
-  %switch = icmp samesign ult i32 %77, 2
-  br i1 %switch, label %78, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
+  %78 = icmp samesign ult i32 %77, 2
+  br i1 %78, label %79, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
 
-78:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread
-  %79 = lshr i32 %.sroa.0.0.copyload.i43, 2
-  %80 = and i32 %79, 16383
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %81
-  %83 = ptrtoint ptr %82 to i64
-  %84 = trunc i64 %83 to i32
-  %85 = sub i32 %84, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %86 = icmp ne i32 %85, -1
-  %.not.i.i44 = icmp samesign ult i32 %80, 616
-  %87 = select i1 %86, i1 %.not.i.i44, i1 false
-  br i1 %87, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
+79:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread
+  %80 = lshr i32 %.sroa.0.0.copyload.i43, 2
+  %81 = and i32 %80, 16383
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %82
+  %84 = ptrtoint ptr %83 to i64
+  %85 = trunc i64 %84 to i32
+  %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %87 = icmp ne i32 %86, -1
+  %.not.i.i44 = icmp samesign ult i32 %81, 616
+  %88 = select i1 %87, i1 %.not.i.i44, i1 false
+  br i1 %88, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, label %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
 
-_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread: ; preds = %78
-  %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 -16
-  br label %101
+_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread: ; preds = %79
+  %89 = load ptr, ptr %1, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 -16
+  br label %102
 
-_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46: ; preds = %78
-  %90 = sub i32 %84, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %91 = mul nsw i32 %72, %90
-  %92 = load ptr, ptr %73, align 8
-  %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds i8, ptr %92, i64 %93
-  %cond35 = icmp eq ptr %92, null
-  br i1 %cond35, label %95, label %101
+_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46: ; preds = %79
+  %91 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %92 = mul nsw i32 %72, %91
+  %93 = load ptr, ptr %73, align 8
+  %94 = sext i32 %92 to i64
+  %95 = getelementptr inbounds i8, ptr %93, i64 %94
+  %cond35 = icmp eq ptr %93, null
+  br i1 %cond35, label %96, label %102
 
-95:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
-  %96 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %96, ptr noundef nonnull @.str.11) #8
+96:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
   %97 = load ptr, ptr @tty, align 8
-  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef %97) #8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull @.str.11) #8
   %98 = load ptr, ptr @tty, align 8
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %98) #8
+  call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef %98) #8
   %99 = load ptr, ptr @tty, align 8
-  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %99) #8
-  %100 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %100, align 1
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %99) #8
+  %100 = load ptr, ptr @tty, align 8
+  call void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %100) #8
+  %101 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %101, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.12, i32 noundef 124, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
   unreachable
 
-101:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
-  %.0.i4576 = phi ptr [ %89, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread ], [ %94, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46 ]
-  br i1 %.not28, label %102, label %113
+102:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
+  %.0.i4576 = phi ptr [ %90, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread ], [ %95, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46 ]
+  br i1 %.not28, label %103, label %114
 
-102:                                              ; preds = %101
-  %103 = load ptr, ptr %.0.i4576, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread, label %105
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %.0.i4576, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread, label %106
 
-105:                                              ; preds = %102
-  %106 = load i8, ptr @UseCompressedOops, align 1
-  %107 = trunc i8 %106 to i1
-  %108 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %109 = icmp eq ptr %108, %103
-  %or.cond66 = select i1 %107, i1 %109, i1 false
+106:                                              ; preds = %103
+  %107 = load i8, ptr @UseCompressedOops, align 1
+  %108 = trunc i8 %107 to i1
+  %109 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %110 = icmp eq ptr %109, %104
+  %or.cond66 = select i1 %108, i1 %110, i1 false
   br i1 %or.cond66, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread62
 
-_ZN13SkipNullValue11should_skipEPv.exit47.thread62: ; preds = %105
-  %110 = load ptr, ptr %0, align 8
-  %111 = load ptr, ptr %110, align 8
+_ZN13SkipNullValue11should_skipEPv.exit47.thread62: ; preds = %106
+  %111 = load ptr, ptr %0, align 8
   %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %.0.i4576) #8
+  %113 = load ptr, ptr %112, align 8
+  call void %113(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull %.0.i4576) #8
   br label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
 
-113:                                              ; preds = %101
-  %114 = load ptr, ptr %0, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %.0.i4576) #8
+114:                                              ; preds = %102
+  %115 = load ptr, ptr %0, align 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load ptr, ptr %117, align 8
+  call void %118(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull %.0.i4576) #8
   br label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
 
-_ZN13SkipNullValue11should_skipEPv.exit47.thread: ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread, %105, %102, %_ZN13SkipNullValue11should_skipEPv.exit47.thread62, %113
+_ZN13SkipNullValue11should_skipEPv.exit47.thread: ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread, %106, %103, %_ZN13SkipNullValue11should_skipEPv.exit47.thread62, %114
   call void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %6) #8
   br label %74, !llvm.loop !70
 

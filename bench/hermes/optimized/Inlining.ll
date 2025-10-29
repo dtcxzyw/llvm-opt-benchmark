@@ -4034,8 +4034,8 @@ entry:
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this.0.val, i64 8
   store i32 0, ptr %Size.i.i, align 8
   %call = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %I) #11
-  %cmp.not11 = icmp eq i32 %call, 0
-  br i1 %cmp.not11, label %for.end, label %for.body.lr.ph
+  %cmp.not12 = icmp eq i32 %call, 0
+  br i1 %cmp.not12, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.8.val, i64 16
@@ -4044,8 +4044,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %i.012 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ]
-  %call2 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I, i32 noundef %i.012) #11
+  %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ]
+  %call2 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I, i32 noundef %i.013) #11
   store ptr %call2, ptr %oldOp, align 8
   %0 = load i8, ptr %call2, align 8
   %.fr = freeze i8 %0
@@ -4173,9 +4173,9 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
 if.else18:                                        ; preds = %switch.early.test
   %16 = add i8 %.fr, -109
   %17 = icmp ult i8 %16, 11
-  %.off = add i8 %.fr, -121
-  %switch = icmp ult i8 %.off, 2
-  %or.cond = or i1 %17, %switch
+  %18 = add i8 %.fr, -121
+  %19 = icmp ult i8 %18, 2
+  %or.cond = or i1 %17, %19
   br i1 %or.cond, label %if.end39, label %if.else25
 
 if.else25:                                        ; preds = %if.else18
@@ -4183,31 +4183,31 @@ if.else25:                                        ; preds = %if.else18
   %call27 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call26, ptr noundef nonnull @.str)
   %add.ptr = getelementptr inbounds nuw i8, ptr %I, i64 16
   %call28 = call { ptr, i64 } @_ZNK6hermes5Value10getKindStrEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #11
-  %18 = extractvalue { ptr, i64 } %call28, 0
-  %19 = extractvalue { ptr, i64 } %call28, 1
-  %call29 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %call27, ptr %18, i64 %19)
+  %20 = extractvalue { ptr, i64 } %call28, 0
+  %21 = extractvalue { ptr, i64 } %call28, 1
+  %call29 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %call27, ptr %20, i64 %21)
   %call30 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(36) %call29, i8 noundef signext 10)
   %call31 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #11
   %call32 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call31, ptr noundef nonnull @.str.1)
-  %20 = load ptr, ptr %oldOp, align 8
-  %call34 = call { ptr, i64 } @_ZNK6hermes5Value10getKindStrEv(ptr noundef nonnull align 8 dereferenceable(40) %20) #11
-  %21 = extractvalue { ptr, i64 } %call34, 0
-  %22 = extractvalue { ptr, i64 } %call34, 1
-  %call35 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %call32, ptr %21, i64 %22)
+  %22 = load ptr, ptr %oldOp, align 8
+  %call34 = call { ptr, i64 } @_ZNK6hermes5Value10getKindStrEv(ptr noundef nonnull align 8 dereferenceable(40) %22) #11
+  %23 = extractvalue { ptr, i64 } %call34, 0
+  %24 = extractvalue { ptr, i64 } %call34, 1
+  %call35 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %call32, ptr %23, i64 %24)
   %call36 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(36) %call35, i8 noundef signext 10)
   unreachable
 
 if.end39.sink.split:                              ; preds = %if.end13.i.i.i.i, %if.end.i.i, %if.end.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit
   %retval.0.i.i.sink = phi ptr [ %cond.sink.i.i.ph.pn.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %call.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.sink, i64 8
-  %23 = load ptr, ptr %second.i, align 8
+  %25 = load ptr, ptr %second.i, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %if.else18, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit
-  %newOp.0 = phi ptr [ %call2, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %call2, %if.else18 ], [ %23, %if.end39.sink.split ]
-  %24 = load i32, ptr %Size.i.i, align 8
-  %25 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.not.i = icmp ult i32 %24, %25
+  %newOp.0 = phi ptr [ %call2, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %call2, %if.else18 ], [ %25, %if.end39.sink.split ]
+  %26 = load i32, ptr %Size.i.i, align 8
+  %27 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.not.i = icmp ult i32 %26, %27
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.end39
@@ -4216,16 +4216,16 @@ if.then.i14:                                      ; preds = %if.end39
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; preds = %if.end39, %if.then.i14
-  %26 = phi i32 [ %.pre.i, %if.then.i14 ], [ %24, %if.end39 ]
-  %27 = load ptr, ptr %this.0.val, align 8
-  %conv.i3.i = zext i32 %26 to i64
-  %add.ptr.i.i17 = getelementptr inbounds nuw ptr, ptr %27, i64 %conv.i3.i
-  %28 = ptrtoint ptr %newOp.0 to i64
-  store i64 %28, ptr %add.ptr.i.i17, align 1
-  %29 = load i32, ptr %Size.i.i, align 8
-  %add.i = add i32 %29, 1
+  %28 = phi i32 [ %.pre.i, %if.then.i14 ], [ %26, %if.end39 ]
+  %29 = load ptr, ptr %this.0.val, align 8
+  %conv.i3.i = zext i32 %28 to i64
+  %add.ptr.i.i17 = getelementptr inbounds nuw ptr, ptr %29, i64 %conv.i3.i
+  %30 = ptrtoint ptr %newOp.0 to i64
+  store i64 %30, ptr %add.ptr.i.i17, align 1
+  %31 = load i32, ptr %Size.i.i, align 8
+  %add.i = add i32 %31, 1
   store i32 %add.i, ptr %Size.i.i, align 8
-  %inc = add nuw i32 %i.012, 1
+  %inc = add nuw i32 %i.013, 1
   %cmp.not = icmp eq i32 %inc, %call
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !27
 

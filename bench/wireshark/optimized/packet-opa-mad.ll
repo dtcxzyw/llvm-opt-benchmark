@@ -4482,228 +4482,228 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %17 = load i32, ptr %16, align 4
   %switch = icmp ult i32 %17, 2
-  br i1 %switch, label %22, label %18
+  br i1 %switch, label %23, label %18
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = freeze i1 %12
-  %switch65 = icmp ult i32 %20, 2
-  %or.cond = select i1 %21, i1 true, i1 %switch65
-  br i1 %or.cond, label %22, label %115
+  %22 = icmp ult i32 %20, 2
+  %or.cond = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond, label %23, label %116
 
-22:                                               ; preds = %18, %4
-  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %24 = load ptr, ptr @global_mad_vendor_class, align 8
-  %25 = zext i8 %23 to i32
-  %26 = tail call zeroext i1 @value_is_in_range(ptr noundef %24, i32 noundef %25)
-  br i1 %26, label %30, label %27
+23:                                               ; preds = %18, %4
+  %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %25 = load ptr, ptr @global_mad_vendor_class, align 8
+  %26 = zext i8 %24 to i32
+  %27 = tail call zeroext i1 @value_is_in_range(ptr noundef %25, i32 noundef %26)
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr @global_mad_vendor_rmpp_class, align 8
-  %29 = tail call zeroext i1 @value_is_in_range(ptr noundef %28, i32 noundef %25)
-  br i1 %29, label %30, label %60
+28:                                               ; preds = %23
+  %29 = load ptr, ptr @global_mad_vendor_rmpp_class, align 8
+  %30 = tail call zeroext i1 @value_is_in_range(ptr noundef %29, i32 noundef %26)
+  br i1 %30, label %31, label %61
 
-30:                                               ; preds = %27, %22
+31:                                               ; preds = %28, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %31 = call fastcc zeroext i1 @parse_MAD_Common(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  br i1 %31, label %32, label %parse_VENDOR_MANAGEMENT.exit
+  %32 = call fastcc zeroext i1 @parse_MAD_Common(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  br i1 %32, label %33, label %parse_VENDOR_MANAGEMENT.exit
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr @global_mad_vendor_class, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = call zeroext i1 @value_is_in_range(ptr noundef %33, i32 noundef %36)
-  br i1 %37, label %43, label %38
+33:                                               ; preds = %31
+  %34 = load ptr, ptr @global_mad_vendor_class, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i8 %36 to i32
+  %38 = call zeroext i1 @value_is_in_range(ptr noundef %34, i32 noundef %37)
+  br i1 %38, label %44, label %39
 
-38:                                               ; preds = %32
-  %39 = load ptr, ptr @global_mad_vendor_rmpp_class, align 8
-  %40 = call zeroext i1 @value_is_in_range(ptr noundef %39, i32 noundef %36)
-  br i1 %40, label %41, label %43
+39:                                               ; preds = %33
+  %40 = load ptr, ptr @global_mad_vendor_rmpp_class, align 8
+  %41 = call zeroext i1 @value_is_in_range(ptr noundef %40, i32 noundef %37)
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %38
-  %42 = call fastcc zeroext i1 @parse_RMPP(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8)
-  br i1 %42, label %43, label %parse_VENDOR_MANAGEMENT.exit
+42:                                               ; preds = %39
+  %43 = call fastcc zeroext i1 @parse_RMPP(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  br i1 %43, label %44, label %parse_VENDOR_MANAGEMENT.exit
 
-43:                                               ; preds = %41, %38, %32
-  %44 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
-  %45 = trunc nuw i8 %44 to i1
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %47 = load i16, ptr %46, align 4
-  %48 = icmp eq i16 %47, 0
-  %or.cond.not.i = select i1 %45, i1 true, i1 %48
-  br i1 %or.cond.not.i, label %49, label %.sink.split.i
+44:                                               ; preds = %42, %39, %33
+  %45 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
+  %46 = trunc nuw i8 %45 to i1
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %48 = load i16, ptr %47, align 4
+  %49 = icmp eq i16 %48, 0
+  %or.cond.not.i = select i1 %46, i1 true, i1 %49
+  br i1 %or.cond.not.i, label %50, label %.sink.split.i
 
-49:                                               ; preds = %43
-  %50 = load i32, ptr @hf_opa_vendor, align 4
-  %51 = load i32, ptr %9, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef -1, i32 noundef 0)
-  %53 = load ptr, ptr %13, align 8
-  call void @col_append_str(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.2273)
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %55 = load i16, ptr %54, align 8
-  %56 = zext i16 %55 to i32
-  %57 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %56)
+50:                                               ; preds = %44
+  %51 = load i32, ptr @hf_opa_vendor, align 4
+  %52 = load i32, ptr %9, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %52, i32 noundef -1, i32 noundef 0)
+  %54 = load ptr, ptr %13, align 8
+  call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.2273)
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %56 = load i16, ptr %55, align 8
+  %57 = zext i16 %56 to i32
+  %58 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %57)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %49, %43
-  %58 = load i32, ptr %9, align 4
-  %59 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %58)
+.sink.split.i:                                    ; preds = %50, %44
+  %59 = load i32, ptr %9, align 4
+  %60 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %59)
   br label %parse_VENDOR_MANAGEMENT.exit
 
-parse_VENDOR_MANAGEMENT.exit:                     ; preds = %30, %41, %.sink.split.i
+parse_VENDOR_MANAGEMENT.exit:                     ; preds = %31, %42, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %130
+  br label %131
 
-60:                                               ; preds = %27
-  %61 = load ptr, ptr @global_mad_application_class, align 8
-  %62 = tail call zeroext i1 @value_is_in_range(ptr noundef %61, i32 noundef %25)
-  br i1 %62, label %63, label %82
+61:                                               ; preds = %28
+  %62 = load ptr, ptr @global_mad_application_class, align 8
+  %63 = tail call zeroext i1 @value_is_in_range(ptr noundef %62, i32 noundef %26)
+  br i1 %63, label %64, label %83
 
-63:                                               ; preds = %60
+64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %64 = call fastcc zeroext i1 @parse_MAD_Common(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %6)
-  br i1 %64, label %65, label %parse_APPLICATION_MANAGEMENT.exit
+  %65 = call fastcc zeroext i1 @parse_MAD_Common(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %6)
+  br i1 %65, label %66, label %parse_APPLICATION_MANAGEMENT.exit
 
-65:                                               ; preds = %63
-  %66 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
-  %67 = trunc nuw i8 %66 to i1
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %69 = load i16, ptr %68, align 4
-  %70 = icmp eq i16 %69, 0
-  %or.cond.not.i66 = select i1 %67, i1 true, i1 %70
-  br i1 %or.cond.not.i66, label %71, label %.sink.split.i67
+66:                                               ; preds = %64
+  %67 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
+  %68 = trunc nuw i8 %67 to i1
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %70 = load i16, ptr %69, align 4
+  %71 = icmp eq i16 %70, 0
+  %or.cond.not.i65 = select i1 %68, i1 true, i1 %71
+  br i1 %or.cond.not.i65, label %72, label %.sink.split.i66
 
-71:                                               ; preds = %65
-  %72 = load i32, ptr @hf_opa_application, align 4
-  %73 = load i32, ptr %9, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef -1, i32 noundef 0)
-  %75 = load ptr, ptr %13, align 8
-  call void @col_append_str(ptr noundef %75, i32 noundef 25, ptr noundef nonnull @.str.2289)
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %77 = load i16, ptr %76, align 8
-  %78 = zext i16 %77 to i32
-  %79 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %78)
-  br label %.sink.split.i67
+72:                                               ; preds = %66
+  %73 = load i32, ptr @hf_opa_application, align 4
+  %74 = load i32, ptr %9, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef -1, i32 noundef 0)
+  %76 = load ptr, ptr %13, align 8
+  call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.2289)
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %78 = load i16, ptr %77, align 8
+  %79 = zext i16 %78 to i32
+  %80 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %79)
+  br label %.sink.split.i66
 
-.sink.split.i67:                                  ; preds = %71, %65
-  %80 = load i32, ptr %9, align 4
-  %81 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %80)
+.sink.split.i66:                                  ; preds = %72, %66
+  %81 = load i32, ptr %9, align 4
+  %82 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %81)
   br label %parse_APPLICATION_MANAGEMENT.exit
 
-parse_APPLICATION_MANAGEMENT.exit:                ; preds = %63, %.sink.split.i67
+parse_APPLICATION_MANAGEMENT.exit:                ; preds = %64, %.sink.split.i66
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %130
+  br label %131
 
-82:                                               ; preds = %60
-  %83 = load ptr, ptr @global_mad_reserved_class, align 8
-  %84 = tail call zeroext i1 @value_is_in_range(ptr noundef %83, i32 noundef %25)
-  br i1 %84, label %85, label %104
+83:                                               ; preds = %61
+  %84 = load ptr, ptr @global_mad_reserved_class, align 8
+  %85 = tail call zeroext i1 @value_is_in_range(ptr noundef %84, i32 noundef %26)
+  br i1 %85, label %86, label %105
 
-85:                                               ; preds = %82
+86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %86 = call fastcc zeroext i1 @parse_MAD_Common(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %5)
-  br i1 %86, label %87, label %parse_RESERVED_MANAGEMENT.exit
+  %87 = call fastcc zeroext i1 @parse_MAD_Common(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %5)
+  br i1 %87, label %88, label %parse_RESERVED_MANAGEMENT.exit
 
-87:                                               ; preds = %85
-  %88 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
-  %89 = trunc nuw i8 %88 to i1
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %91 = load i16, ptr %90, align 4
-  %92 = icmp eq i16 %91, 0
-  %or.cond.not.i68 = select i1 %89, i1 true, i1 %92
-  br i1 %or.cond.not.i68, label %93, label %.sink.split.i69
+88:                                               ; preds = %86
+  %89 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
+  %90 = trunc nuw i8 %89 to i1
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %92 = load i16, ptr %91, align 4
+  %93 = icmp eq i16 %92, 0
+  %or.cond.not.i67 = select i1 %90, i1 true, i1 %93
+  br i1 %or.cond.not.i67, label %94, label %.sink.split.i68
 
-93:                                               ; preds = %87
-  %94 = load i32, ptr @hf_opa_reservedmclass, align 4
-  %95 = load i32, ptr %9, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %95, i32 noundef -1, i32 noundef 0)
-  %97 = load ptr, ptr %13, align 8
-  call void @col_append_str(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.2290)
-  %98 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %99 = load i16, ptr %98, align 8
-  %100 = zext i16 %99 to i32
-  %101 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %100)
-  br label %.sink.split.i69
+94:                                               ; preds = %88
+  %95 = load i32, ptr @hf_opa_reservedmclass, align 4
+  %96 = load i32, ptr %9, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef -1, i32 noundef 0)
+  %98 = load ptr, ptr %13, align 8
+  call void @col_append_str(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.2290)
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %100 = load i16, ptr %99, align 8
+  %101 = zext i16 %100 to i32
+  %102 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %101)
+  br label %.sink.split.i68
 
-.sink.split.i69:                                  ; preds = %93, %87
-  %102 = load i32, ptr %9, align 4
-  %103 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %102)
+.sink.split.i68:                                  ; preds = %94, %88
+  %103 = load i32, ptr %9, align 4
+  %104 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %103)
   br label %parse_RESERVED_MANAGEMENT.exit
 
-parse_RESERVED_MANAGEMENT.exit:                   ; preds = %85, %.sink.split.i69
+parse_RESERVED_MANAGEMENT.exit:                   ; preds = %86, %.sink.split.i68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %130
+  br label %131
 
-104:                                              ; preds = %82
-  %105 = load ptr, ptr @global_mad_opa_class, align 8
-  %106 = tail call zeroext i1 @value_is_in_range(ptr noundef %105, i32 noundef %25)
-  br i1 %106, label %107, label %114
+105:                                              ; preds = %83
+  %106 = load ptr, ptr @global_mad_opa_class, align 8
+  %107 = tail call zeroext i1 @value_is_in_range(ptr noundef %106, i32 noundef %26)
+  br i1 %107, label %108, label %115
 
-107:                                              ; preds = %104
-  switch i8 %23, label %113 [
-    i8 1, label %108
-    i8 -127, label %109
-    i8 3, label %110
-    i8 50, label %111
-    i8 4, label %112
+108:                                              ; preds = %105
+  switch i8 %24, label %114 [
+    i8 1, label %109
+    i8 -127, label %110
+    i8 3, label %111
+    i8 50, label %112
+    i8 4, label %113
   ]
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   call fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-109:                                              ; preds = %107
+110:                                              ; preds = %108
   call fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   call fastcc void @parse_SUBNADMN(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-111:                                              ; preds = %107
+112:                                              ; preds = %108
   call fastcc void @parse_PERFADMN(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-112:                                              ; preds = %107
+113:                                              ; preds = %108
   call fastcc void @parse_PERF(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-113:                                              ; preds = %107
+114:                                              ; preds = %108
   call fastcc void @parse_UNKNOWN_MANAGEMENT(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-114:                                              ; preds = %104
+115:                                              ; preds = %105
   call fastcc void @parse_UNKNOWN_MANAGEMENT(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %9)
-  br label %130
+  br label %131
 
-115:                                              ; preds = %18
-  %116 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
-  %117 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
-  %118 = load ptr, ptr @ethertype_dissector_table, align 8
-  %119 = zext i16 %116 to i32
-  %120 = tail call ptr @dissector_get_uint_handle(ptr noundef %118, i32 noundef %119)
-  %121 = icmp ne ptr %120, null
-  %122 = icmp eq i16 %117, 0
-  %or.cond4 = select i1 %121, i1 %122, i1 false
-  br i1 %or.cond4, label %123, label %130
+116:                                              ; preds = %18
+  %117 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
+  %118 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
+  %119 = load ptr, ptr @ethertype_dissector_table, align 8
+  %120 = zext i16 %117 to i32
+  %121 = tail call ptr @dissector_get_uint_handle(ptr noundef %119, i32 noundef %120)
+  %122 = icmp ne ptr %121, null
+  %123 = icmp eq i16 %118, 0
+  %or.cond4 = select i1 %122, i1 %123, i1 false
+  br i1 %or.cond4, label %124, label %131
 
-123:                                              ; preds = %115
-  %124 = load i32, ptr @hf_opa_etype, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  %126 = load i32, ptr @hf_opa_etype_reserved16, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %128 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
-  %129 = tail call i32 @call_dissector(ptr noundef nonnull %120, ptr noundef %128, ptr noundef %1, ptr noundef %2)
-  br label %130
+124:                                              ; preds = %116
+  %125 = load i32, ptr @hf_opa_etype, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %125, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  %127 = load i32, ptr @hf_opa_etype_reserved16, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %129 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
+  %130 = tail call i32 @call_dissector(ptr noundef nonnull %121, ptr noundef %129, ptr noundef %1, ptr noundef %2)
+  br label %131
 
-130:                                              ; preds = %115, %123, %parse_VENDOR_MANAGEMENT.exit, %parse_RESERVED_MANAGEMENT.exit, %108, %109, %110, %111, %112, %113, %114, %parse_APPLICATION_MANAGEMENT.exit
-  %131 = call i32 @tvb_captured_length(ptr noundef %0)
+131:                                              ; preds = %116, %124, %parse_VENDOR_MANAGEMENT.exit, %parse_RESERVED_MANAGEMENT.exit, %109, %110, %111, %112, %113, %114, %115, %parse_APPLICATION_MANAGEMENT.exit
+  %132 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %131
+  ret i32 %132
 }
 
 ; Function Attrs: null_pointer_is_valid

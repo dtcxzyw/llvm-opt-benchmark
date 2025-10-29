@@ -81152,10 +81152,10 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   %86 = icmp ne i64 %85, -9223372036854775796
   tail call void @llvm.assume(i1 %86)
   %87 = icmp eq i64 %85, -9223372036854775805
-  br i1 %87, label %88, label %._crit_edge133
+  br i1 %87, label %88, label %._crit_edge127
 
-._crit_edge133:                                   ; preds = %83
-  %.pre134 = load i64, ptr %53, align 8
+._crit_edge127:                                   ; preds = %83
+  %.pre128 = load i64, ptr %53, align 8
   br label %92
 
 88:                                               ; preds = %83
@@ -81163,17 +81163,17 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   %90 = tail call noundef i8 @_ZN11polars_plan5plans3lit12LiteralValue4bool17hf03e044f884eb9bfE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %89)
   %91 = and i8 %90, 1
   %or.cond5.not = icmp eq i8 %91, 0
-  %.pre135 = load i64, ptr %53, align 8
+  %.pre129 = load i64, ptr %53, align 8
   br i1 %or.cond5.not, label %92, label %95
 
-92:                                               ; preds = %._crit_edge133, %88
-  %93 = phi i64 [ %.pre134, %._crit_edge133 ], [ %.pre135, %88 ]
+92:                                               ; preds = %._crit_edge127, %88
+  %93 = phi i64 [ %.pre128, %._crit_edge127 ], [ %.pre129, %88 ]
   %94 = icmp ult i64 %93, %23
   br i1 %94, label %102, label %101, !prof !155
 
 95:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %96 = icmp ult i64 %.pre135, %23
+  %96 = icmp ult i64 %.pre129, %23
   br i1 %96, label %98, label %97, !prof !155
 
 97:                                               ; preds = %95
@@ -81181,7 +81181,7 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   unreachable
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %21, i64 %.pre135
+  %99 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %21, i64 %.pre129
   call fastcc void @"_ZN71_$LT$polars_plan..plans..aexpr..AExpr$u20$as$u20$core..clone..Clone$GT$5clone17hd906804038e84e35E"(ptr noalias noundef align 16 captures(none) dereferenceable(192) %19, ptr noundef nonnull align 16 %99)
   %.sroa.0.0.copyload = load i64, ptr %19, align 16
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -81191,13 +81191,13 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %100
 
-100:                                              ; preds = %32, %43, %46, %137, %125, %212, %220, %207, %227, %130, %_ZN11polars_plan5plans9optimizer13simplify_expr11eval_negate17hf7727a539fa916d8E.exit, %225, %201, %180, %142, %119, %98
-  %.sroa.0.0 = phi i64 [ -9223372036854775805, %142 ], [ -9223372036854775805, %119 ], [ %.sroa.0.0.copyload, %98 ], [ -9223372036854775805, %225 ], [ -9223372036854775805, %201 ], [ %.sroa.0.0.copyload125, %180 ], [ %.sroa.0.1, %_ZN11polars_plan5plans9optimizer13simplify_expr11eval_negate17hf7727a539fa916d8E.exit ], [ -9223372036854775791, %130 ], [ -9223372036854775791, %227 ], [ -9223372036854775791, %207 ], [ -9223372036854775791, %220 ], [ -9223372036854775791, %212 ], [ -9223372036854775791, %125 ], [ -9223372036854775791, %137 ], [ -9223372036854775791, %46 ], [ -9223372036854775791, %43 ], [ -9223372036854775791, %32 ]
+100:                                              ; preds = %32, %43, %46, %130, %137, %125, %212, %220, %207, %227, %_ZN11polars_plan5plans9optimizer13simplify_expr11eval_negate17hf7727a539fa916d8E.exit, %225, %201, %180, %142, %119, %98
+  %.sroa.0.0 = phi i64 [ -9223372036854775805, %142 ], [ -9223372036854775805, %119 ], [ %.sroa.0.0.copyload, %98 ], [ -9223372036854775805, %225 ], [ -9223372036854775805, %201 ], [ %.sroa.0.0.copyload119, %180 ], [ %.sroa.0.1, %_ZN11polars_plan5plans9optimizer13simplify_expr11eval_negate17hf7727a539fa916d8E.exit ], [ -9223372036854775791, %227 ], [ -9223372036854775791, %207 ], [ -9223372036854775791, %220 ], [ -9223372036854775791, %212 ], [ -9223372036854775791, %125 ], [ -9223372036854775791, %137 ], [ -9223372036854775791, %130 ], [ -9223372036854775791, %46 ], [ -9223372036854775791, %43 ], [ -9223372036854775791, %32 ]
   store i64 %.sroa.0.0, ptr %0, align 16
-  %.sroa.13.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.13.0..sroa_idx126, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.420.i, i64 104, i1 false)
-  %.sroa.18.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18.0..sroa_idx128, ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18, i64 80, i1 false)
+  %.sroa.13.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.13.0..sroa_idx120, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.420.i, i64 104, i1 false)
+  %.sroa.18.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18.0..sroa_idx122, ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18, i64 80, i1 false)
   br label %81
 
 101:                                              ; preds = %92
@@ -81232,11 +81232,11 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %118 = tail call noundef i8 @_ZN11polars_plan5plans3lit12LiteralValue4bool17hf03e044f884eb9bfE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %117)
-  %.not159 = icmp eq i8 %118, 0
-  br i1 %.not159, label %119, label %._crit_edge136
+  %.not153 = icmp eq i8 %118, 0
+  br i1 %.not153, label %119, label %._crit_edge130
 
-._crit_edge136:                                   ; preds = %116
-  %.pre137 = load i64, ptr %53, align 8
+._crit_edge130:                                   ; preds = %116
+  %.pre131 = load i64, ptr %53, align 8
   br label %121
 
 119:                                              ; preds = %116
@@ -81254,8 +81254,8 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %100
 
-121:                                              ; preds = %._crit_edge136, %111, %102
-  %122 = phi i64 [ %.pre137, %._crit_edge136 ], [ %93, %111 ], [ %93, %102 ]
+121:                                              ; preds = %._crit_edge130, %111, %102
+  %122 = phi i64 [ %.pre131, %._crit_edge130 ], [ %93, %111 ], [ %93, %102 ]
   %123 = icmp ult i64 %122, %23
   br i1 %123, label %125, label %124, !prof !155
 
@@ -81274,8 +81274,8 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %132 = tail call noundef i8 @_ZN11polars_plan5plans3lit12LiteralValue4bool17hf03e044f884eb9bfE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %131)
-  %.not160 = icmp eq i8 %132, 0
-  br i1 %.not160, label %133, label %100
+  %.not154 = icmp eq i8 %132, 0
+  br i1 %.not154, label %133, label %100
 
 133:                                              ; preds = %130
   %134 = load i64, ptr %71, align 16, !noundef !55
@@ -81325,8 +81325,8 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %152 = tail call noundef i8 @_ZN11polars_plan5plans3lit12LiteralValue4bool17hf03e044f884eb9bfE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %151)
   %153 = icmp ne i8 %152, 0
-  %brmerge121 = or i1 %39, %153
-  br i1 %brmerge121, label %154, label %158
+  %brmerge117 = or i1 %39, %153
+  br i1 %brmerge117, label %154, label %158
 
 154:                                              ; preds = %150, %145
   %155 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -81369,17 +81369,17 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %173 = tail call noundef i8 @_ZN11polars_plan5plans3lit12LiteralValue4bool17hf03e044f884eb9bfE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %172)
   %.not = icmp eq i8 %173, 0
-  %.pre130 = load i64, ptr %57, align 8
+  %.pre124 = load i64, ptr %57, align 8
   br i1 %.not, label %177, label %174
 
 174:                                              ; preds = %._crit_edge, %171
-  %175 = phi i64 [ %.pre, %._crit_edge ], [ %.pre130, %171 ]
+  %175 = phi i64 [ %.pre, %._crit_edge ], [ %.pre124, %171 ]
   %176 = icmp ult i64 %175, %23
   br i1 %176, label %183, label %182, !prof !155
 
 177:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %178 = icmp ult i64 %.pre130, %23
+  %178 = icmp ult i64 %.pre124, %23
   br i1 %178, label %180, label %179, !prof !155
 
 179:                                              ; preds = %177
@@ -81387,13 +81387,13 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   unreachable
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %21, i64 %.pre130
+  %181 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %21, i64 %.pre124
   call fastcc void @"_ZN71_$LT$polars_plan..plans..aexpr..AExpr$u20$as$u20$core..clone..Clone$GT$5clone17hd906804038e84e35E"(ptr noalias noundef align 16 captures(none) dereferenceable(192) %14, ptr noundef nonnull align 16 %181)
-  %.sroa.0.0.copyload125 = load i64, ptr %14, align 16
-  %.sroa.13.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.420.i, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.13.0..sroa_idx127, i64 104, i1 false)
-  %.sroa.18.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18, ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18.0..sroa_idx129, i64 80, i1 false)
+  %.sroa.0.0.copyload119 = load i64, ptr %14, align 16
+  %.sroa.13.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.420.i, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.13.0..sroa_idx121, i64 104, i1 false)
+  %.sroa.18.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %14, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18, ptr noundef nonnull align 16 dereferenceable(80) %.sroa.18.0..sroa_idx123, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %100
 
@@ -81431,10 +81431,10 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   %199 = tail call noundef i8 @_ZN11polars_plan5plans3lit12LiteralValue4bool17hf03e044f884eb9bfE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %198)
   %200 = and i8 %199, 1
   %or.cond20.not = icmp eq i8 %200, 0
-  br i1 %or.cond20.not, label %._crit_edge131, label %201
+  br i1 %or.cond20.not, label %._crit_edge125, label %201
 
-._crit_edge131:                                   ; preds = %197
-  %.pre132 = load i64, ptr %57, align 8
+._crit_edge125:                                   ; preds = %197
+  %.pre126 = load i64, ptr %57, align 8
   br label %203
 
 201:                                              ; preds = %197
@@ -81452,8 +81452,8 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..simplify_expr..SimplifyB
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %100
 
-203:                                              ; preds = %._crit_edge131, %192, %183
-  %204 = phi i64 [ %.pre132, %._crit_edge131 ], [ %175, %192 ], [ %175, %183 ]
+203:                                              ; preds = %._crit_edge125, %192, %183
+  %204 = phi i64 [ %.pre126, %._crit_edge125 ], [ %175, %192 ], [ %175, %183 ]
   %205 = icmp ult i64 %204, %23
   br i1 %205, label %207, label %206, !prof !155
 

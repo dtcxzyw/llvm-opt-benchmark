@@ -642,13 +642,13 @@ _.exit:                                           ; preds = %14, %17
   br label %20
 
 20:                                               ; preds = %_.exit, %11
-  %.not33 = icmp eq i64 %6, 4095
-  br i1 %.not33, label %.critedge, label %.lr.ph
+  %.not34 = icmp eq i64 %6, 4095
+  br i1 %.not34, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %28
-  %.0.ptr35 = phi ptr [ %.0.ptr, %28 ], [ %.ptr26, %20 ]
-  %.0.idx34 = phi i64 [ %.0.add, %28 ], [ %6, %20 ]
-  %21 = load i8, ptr %.0.ptr35, align 1, !tbaa !14
+.lr.ph:                                           ; preds = %20, %30
+  %.0.ptr36 = phi ptr [ %.0.ptr, %30 ], [ %.ptr26, %20 ]
+  %.0.idx35 = phi i64 [ %.0.add, %30 ], [ %6, %20 ]
+  %21 = load i8, ptr %.0.ptr36, align 1, !tbaa !14
   %.not27 = icmp eq i8 %21, 0
   br i1 %.not27, label %.critedge.loopexit, label %22
 
@@ -659,34 +659,34 @@ _.exit:                                           ; preds = %14, %17
   %.fr = freeze i8 %25
   %26 = and i8 %.fr, 64
   %.not28 = icmp eq i8 %26, 0
-  %.off = add i8 %21, -9
-  %switch = icmp ult i8 %.off, 2
-  %or.cond = or i1 %switch, %.not28
-  br i1 %or.cond, label %28, label %27
+  %27 = add i8 %21, -9
+  %28 = icmp ult i8 %27, 2
+  %or.cond = or i1 %28, %.not28
+  br i1 %or.cond, label %30, label %29
 
-27:                                               ; preds = %22
-  store i8 63, ptr %.0.ptr35, align 1, !tbaa !14
-  br label %28
+29:                                               ; preds = %22
+  store i8 63, ptr %.0.ptr36, align 1, !tbaa !14
+  br label %30
 
-28:                                               ; preds = %22, %27
-  %.0.add = add nuw nsw i64 %.0.idx34, 1
+30:                                               ; preds = %22, %29
+  %.0.add = add nuw nsw i64 %.0.idx35, 1
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add
   %.not = icmp eq i64 %.0.add, 4095
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !17
 
-.critedge.loopexit:                               ; preds = %28, %.lr.ph
-  %.0.idx.lcssa.ph = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %28 ]
-  %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr35, %.lr.ph ], [ %.0.ptr, %28 ]
-  %29 = add nuw nsw i64 %.0.idx.lcssa.ph, 1
+.critedge.loopexit:                               ; preds = %30, %.lr.ph
+  %.0.idx.lcssa.ph = phi i64 [ %.0.idx35, %.lr.ph ], [ 4095, %30 ]
+  %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr36, %.lr.ph ], [ %.0.ptr, %30 ]
+  %31 = add nuw nsw i64 %.0.idx.lcssa.ph, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %20
-  %.0.idx.lcssa = phi i64 [ 4096, %20 ], [ %29, %.critedge.loopexit ]
+  %.0.idx.lcssa = phi i64 [ 4096, %20 ], [ %31, %.critedge.loopexit ]
   %.0.ptr.lcssa = phi ptr [ %.ptr26, %20 ], [ %.0.ptr.lcssa.ph, %.critedge.loopexit ]
   store i8 10, ptr %.0.ptr.lcssa, align 1, !tbaa !14
-  %30 = tail call i32 @fflush(ptr noundef %0)
-  %31 = tail call i32 @fileno(ptr noundef %0) #18
-  %32 = call i64 @write_in_full(i32 noundef %31, ptr noundef nonnull %5, i64 noundef %.0.idx.lcssa) #18
+  %32 = tail call i32 @fflush(ptr noundef %0)
+  %33 = tail call i32 @fileno(ptr noundef %0) #18
+  %34 = call i64 @write_in_full(i32 noundef %33, ptr noundef nonnull %5, i64 noundef %.0.idx.lcssa) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

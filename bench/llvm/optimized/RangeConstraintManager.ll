@@ -20428,28 +20428,28 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122RangeConstraintManager14
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !870
-  %.off = add i32 %17, -10
-  %switch = icmp ult i32 %.off, 6
-  br i1 %switch, label %18, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
+  %18 = add i32 %17, -10
+  %19 = icmp ult i32 %18, 6
+  br i1 %19, label %20, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !873
-  %21 = load ptr, ptr %20, align 8, !tbaa !444
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i64 %23(ptr noundef nonnull align 8 dereferenceable(28) %20) #25
-  %25 = and i64 %24, -16
-  %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr %26, align 16, !tbaa !336
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %28, align 8, !tbaa !63
-  %29 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -16
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load ptr, ptr %30, align 16, !tbaa !336
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i8, ptr %32, align 16
-  switch i8 %33, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit [
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !873
+  %23 = load ptr, ptr %22, align 8, !tbaa !444
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i64 %25(ptr noundef nonnull align 8 dereferenceable(28) %22) #25
+  %27 = and i64 %26, -16
+  %28 = inttoptr i64 %27 to ptr
+  %29 = load ptr, ptr %28, align 16, !tbaa !336
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %30, align 8, !tbaa !63
+  %31 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -16
+  %32 = inttoptr i64 %31 to ptr
+  %33 = load ptr, ptr %32, align 16, !tbaa !336
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i8, ptr %34, align 16
+  switch i8 %35, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit [
     i8 43, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 42, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 41, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
@@ -20458,42 +20458,42 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122RangeConstraintManager14
     i8 13, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
   ]
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %18
-  %34 = load i32, ptr %32, align 16
-  %35 = and i32 %34, 267911168
-  %36 = icmp eq i32 %35, 255328256
-  br i1 %36, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %20
+  %36 = load i32, ptr %34, align 16
+  %37 = and i32 %36, 267911168
+  %38 = icmp eq i32 %37, 255328256
+  br i1 %38, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %18, %18, %18, %18, %18, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !875
-  %39 = load ptr, ptr %38, align 8, !tbaa !444
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call i64 %41(ptr noundef nonnull align 8 dereferenceable(28) %38) #25
-  %43 = and i64 %42, -16
-  %44 = inttoptr i64 %43 to ptr
-  %45 = load ptr, ptr %44, align 16, !tbaa !336
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i19 = load i64, ptr %46, align 8, !tbaa !63
-  %47 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i19, -16
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load ptr, ptr %48, align 16, !tbaa !336
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i8, ptr %50, align 16
-  switch i8 %51, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20 [
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %20, %20, %20, %20, %20, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %40 = load ptr, ptr %39, align 8, !tbaa !875
+  %41 = load ptr, ptr %40, align 8, !tbaa !444
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i64 %43(ptr noundef nonnull align 8 dereferenceable(28) %40) #25
+  %45 = and i64 %44, -16
+  %46 = inttoptr i64 %45 to ptr
+  %47 = load ptr, ptr %46, align 16, !tbaa !336
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i19 = load i64, ptr %48, align 8, !tbaa !63
+  %49 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i19, -16
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load ptr, ptr %50, align 16, !tbaa !336
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load i8, ptr %52, align 16
+  switch i8 %53, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20 [
     i8 43, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
     i8 42, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
     i8 41, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
     i8 33, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
     i8 11, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
-    i8 13, label %52
+    i8 13, label %54
   ]
 
-52:                                               ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %53 = load i32, ptr %50, align 16
-  %54 = and i32 %53, 267911168
-  %55 = icmp eq i32 %54, 255328256
+54:                                               ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %55 = load i32, ptr %52, align 16
+  %56 = and i32 %55, 267911168
+  %57 = icmp eq i32 %56, 255328256
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
@@ -20505,8 +20505,8 @@ switch.lookup:                                    ; preds = %11
   %switch.masked = trunc i19 %switch.downshift to i1
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; preds = %10, %11, %switch.lookup, %15, %18, %_ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20, %52, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %3, %5
-  %.3 = phi i1 [ true, %5 ], [ true, %3 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %55, %52 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ false, %_ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20 ], [ false, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ false, %18 ], [ false, %15 ], [ %switch.masked, %switch.lookup ], [ true, %11 ], [ false, %10 ]
+_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit: ; preds = %10, %11, %switch.lookup, %15, %20, %_ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20, %54, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %3, %5
+  %.3 = phi i1 [ true, %5 ], [ true, %3 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %57, %54 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ false, %_ZNK5clang4Type13isNullPtrTypeEv.exit.fold.split.i20 ], [ false, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ false, %20 ], [ false, %15 ], [ %switch.masked, %switch.lookup ], [ true, %11 ], [ false, %10 ]
   ret i1 %.3
 }
 

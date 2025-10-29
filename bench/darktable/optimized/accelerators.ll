@@ -9921,13 +9921,13 @@ define void @dt_shortcut_key_press(i8 noundef zeroext %0, i32 noundef %1, i32 no
 
 23:                                               ; preds = %17, %13, %9
   store i32 0, ptr @_focus_loss_key, align 4, !tbaa !9
-  br label %186
+  br label %188
 
 24:                                               ; preds = %3
   %25 = load ptr, ptr @_hold_keys, align 8, !tbaa !72
   %26 = call ptr @g_slist_find_custom(ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull @_cmp_key) #24
   %.not77 = icmp eq ptr %26, null
-  br i1 %.not77, label %27, label %186
+  br i1 %.not77, label %27, label %188
 
 27:                                               ; preds = %24
   %.not78 = icmp eq i8 %0, 0
@@ -10218,23 +10218,23 @@ _interrupt_delayed_release.exit:                  ; preds = %_interrupt_delayed_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !260
   %183 = call ptr @g_slist_prepend(ptr noundef %170, ptr noundef nonnull %182) #24
   store ptr %183, ptr @_pressed_keys, align 8, !tbaa !72
-  %.off = add i32 %2, -65361
-  %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %184, label %185
+  %184 = add i32 %2, -65361
+  %185 = icmp ult i32 %184, 4
+  br i1 %185, label %186, label %187
 
-184:                                              ; preds = %179
+186:                                              ; preds = %179
   call void @dt_shortcut_key_release(i8 noundef zeroext 0, i32 noundef %1, i32 noundef %2)
-  br label %185
+  br label %187
 
-185:                                              ; preds = %179, %184
+187:                                              ; preds = %179, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %186
+  br label %188
 
 .critedge100:                                     ; preds = %168, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %186
+  br label %188
 
-186:                                              ; preds = %23, %24, %185, %.critedge100
+188:                                              ; preds = %23, %24, %187, %.critedge100
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

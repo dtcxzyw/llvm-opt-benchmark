@@ -10052,72 +10052,72 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   %.fr = freeze { i16, ptr } %28
   %29 = extractvalue { i16, ptr } %.fr, 0
   %.not.i.i17 = icmp eq i16 %29, 1
-  %switch = icmp ult i16 %23, 2
-  %or.cond = select i1 %.not.i.i17, i1 true, i1 %switch
+  %30 = icmp ult i16 %23, 2
+  %or.cond = select i1 %.not.i.i17, i1 true, i1 %30
   br i1 %or.cond, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %_ZNK4llvm4User10getOperandEj.exit
-  %30 = load ptr, ptr %3, align 8, !tbaa !194
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  %32 = zext i16 %23 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !197
-  %35 = icmp eq ptr %34, null
+  %31 = load ptr, ptr %3, align 8, !tbaa !194
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
+  %33 = zext i16 %23 to i64
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !197
+  %36 = icmp eq ptr %35, null
   %.not.i20 = icmp eq i16 %29, 0
-  %or.cond47 = or i1 %35, %.not.i20
+  %or.cond47 = or i1 %36, %.not.i20
   br i1 %or.cond47, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %36 = zext i16 %29 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !197
-  %.not48 = icmp eq ptr %38, null
-  br i1 %.not48, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %39
+  %37 = zext i16 %29 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !197
+  %.not48 = icmp eq ptr %39, null
+  br i1 %.not48, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %40
 
-39:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21
-  %40 = load i32, ptr %7, align 4
-  %41 = and i32 %40, 1073741824
-  %.not.i.i23 = icmp eq i32 %41, 0
-  br i1 %.not.i.i23, label %45, label %42
+40:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21
+  %41 = load i32, ptr %7, align 4
+  %42 = and i32 %41, 1073741824
+  %.not.i.i23 = icmp eq i32 %42, 0
+  br i1 %.not.i.i23, label %46, label %43
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 -8
-  %44 = load ptr, ptr %43, align 8, !tbaa !229
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %1, i64 -8
+  %45 = load ptr, ptr %44, align 8, !tbaa !229
   br label %_ZNK4llvm4User10getOperandEj.exit24
 
-45:                                               ; preds = %39
-  %46 = and i32 %40, 134217727
-  %47 = zext nneg i32 %46 to i64
-  %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %48
+46:                                               ; preds = %40
+  %47 = and i32 %41, 134217727
+  %48 = zext nneg i32 %47 to i64
+  %49 = sub nsw i64 0, %48
+  %50 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %49
   br label %_ZNK4llvm4User10getOperandEj.exit24
 
-_ZNK4llvm4User10getOperandEj.exit24:              ; preds = %42, %45
-  %50 = phi ptr [ %44, %42 ], [ %49, %45 ]
-  %51 = load ptr, ptr %50, align 8, !tbaa !230
-  %52 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %51)
-  %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %53
+_ZNK4llvm4User10getOperandEj.exit24:              ; preds = %43, %46
+  %51 = phi ptr [ %45, %43 ], [ %50, %46 ]
+  %52 = load ptr, ptr %51, align 8, !tbaa !230
+  %53 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %52)
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %54
 
-53:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit24
-  %54 = icmp eq i16 %23, %29
-  br i1 %54, label %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split, label %55
+54:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit24
+  %55 = icmp eq i16 %23, %29
+  br i1 %55, label %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split, label %56
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %0, align 8, !tbaa !152
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %23, i16 %29, i32 noundef 234, i32 noundef %52) #21
-  %.not15.not = icmp eq i32 %59, 0
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %0, align 8, !tbaa !152
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %23, i16 %29, i32 noundef 234, i32 noundef %53) #21
+  %.not15.not = icmp eq i32 %60, 0
   br i1 %.not15.not, label %_ZNK4llvm3EVTeqES0_.exit.thread, label %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split
 
-_ZNK4llvm3EVTeqES0_.exit.thread.sink.split:       ; preds = %55, %53
-  %.sink = phi i32 [ %52, %53 ], [ %59, %55 ]
+_ZNK4llvm3EVTeqES0_.exit.thread.sink.split:       ; preds = %56, %54
+  %.sink = phi i32 [ %53, %54 ], [ %60, %56 ]
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %.sink, i32 noundef 1)
   br label %_ZNK4llvm3EVTeqES0_.exit.thread
 
-_ZNK4llvm3EVTeqES0_.exit.thread:                  ; preds = %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split, %_ZNK4llvm4User10getOperandEj.exit24, %55, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21
-  %.0 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit24 ], [ false, %55 ], [ true, %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split ], [ false, %_ZNK4llvm4User10getOperandEj.exit ]
+_ZNK4llvm3EVTeqES0_.exit.thread:                  ; preds = %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split, %_ZNK4llvm4User10getOperandEj.exit24, %56, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21
+  %.0 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit21 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit24 ], [ false, %56 ], [ true, %_ZNK4llvm3EVTeqES0_.exit.thread.sink.split ], [ false, %_ZNK4llvm4User10getOperandEj.exit ]
   ret i1 %.0
 }
 

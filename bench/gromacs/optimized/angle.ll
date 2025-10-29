@@ -1736,7 +1736,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinis
 
 27:                                               ; preds = %25
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %28 unwind label %.thread93
+          to label %28 unwind label %.thread92
 
 28:                                               ; preds = %27
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %3, align 8, !tbaa !4
@@ -1744,23 +1744,23 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinis
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %29, align 8, !tbaa !156
-  %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.79, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !156
-  %.sroa.588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 431, ptr %.sroa.588.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.79, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !156
+  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 431, ptr %.sroa.587.0..sroa_idx, align 8, !tbaa !78
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %26, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %30 unwind label %33
 
 30:                                               ; preds = %28
   invoke void @__cxa_throw(ptr %26, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %107 unwind label %33
+          to label %108 unwind label %33
 
 .thread:                                          ; preds = %25
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread93:                                        ; preds = %27
+.thread92:                                        ; preds = %27
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
@@ -1775,356 +1775,356 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinis
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.023, label %.sink.split146, label %106
+  br i1 %.023, label %.sink.split144, label %107
 
-.sink.split:                                      ; preds = %.thread, %.thread93
-  %.pn57.pn92.ph = phi { ptr, i32 } [ %32, %.thread93 ], [ %31, %.thread ]
+.sink.split:                                      ; preds = %.thread, %.thread92
+  %.pn57.pn91.ph = phi { ptr, i32 } [ %32, %.thread92 ], [ %31, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split146
+  br label %.sink.split144
 
 35:                                               ; preds = %2
-  %switch = icmp ult i32 %22, 2
-  br i1 %switch, label %36, label %51
+  %36 = icmp ult i32 %22, 2
+  br i1 %36, label %37, label %52
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %38 = load ptr, ptr %37, align 8, !tbaa !155
-  %39 = tail call noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull align 8 dereferenceable(16) %38)
-  br i1 %39, label %41, label %.thread103
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %39 = load ptr, ptr %38, align 8, !tbaa !155
+  %40 = tail call noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
+  br i1 %40, label %42, label %.thread102
 
-.thread103:                                       ; preds = %36
-  %40 = load i32, ptr %23, align 4
+.thread102:                                       ; preds = %37
+  %41 = load i32, ptr %23, align 4
   %.pre = load i32, ptr %21, align 8, !tbaa !16
-  br label %62
+  br label %63
 
-41:                                               ; preds = %36
-  %42 = tail call ptr @__cxa_allocate_exception(i64 24) #28
+42:                                               ; preds = %37
+  %43 = tail call ptr @__cxa_allocate_exception(i64 24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.80)
-          to label %43 unwind label %.thread96
+          to label %44 unwind label %.thread95
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) %7)
-          to label %44 unwind label %.thread100
+          to label %45 unwind label %.thread99
 
-44:                                               ; preds = %43
+45:                                               ; preds = %44
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %45, align 8, !tbaa !156
-  %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @.str.79, ptr %.sroa.483.0..sroa_idx, align 8, !tbaa !156
-  %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 437, ptr %.sroa.584.0..sroa_idx, align 8, !tbaa !78
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %42, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %46 unwind label %49
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %46, align 8, !tbaa !156
+  %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @.str.79, ptr %.sroa.482.0..sroa_idx, align 8, !tbaa !156
+  %.sroa.583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 437, ptr %.sroa.583.0..sroa_idx, align 8, !tbaa !78
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %43, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %47 unwind label %50
 
-46:                                               ; preds = %44
-  invoke void @__cxa_throw(ptr %42, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %107 unwind label %49
+47:                                               ; preds = %45
+  invoke void @__cxa_throw(ptr %43, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
+          to label %108 unwind label %50
 
-.thread96:                                        ; preds = %41
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  br label %.sink.split137
-
-.thread100:                                       ; preds = %43
+.thread95:                                        ; preds = %42
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #28
-  br label %.sink.split137
+  br label %.sink.split135
 
-49:                                               ; preds = %44, %46
-  %.020 = phi i1 [ false, %46 ], [ true, %44 ]
-  %50 = landingpad { ptr, i32 }
+.thread99:                                        ; preds = %44
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #28
+  br label %.sink.split135
+
+50:                                               ; preds = %45, %47
+  %.020 = phi i1 [ false, %47 ], [ true, %45 ]
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.020, label %.sink.split146, label %106
+  br i1 %.020, label %.sink.split144, label %107
 
-.sink.split137:                                   ; preds = %.thread96, %.thread100
-  %.pn54.pn99.ph = phi { ptr, i32 } [ %48, %.thread100 ], [ %47, %.thread96 ]
+.sink.split135:                                   ; preds = %.thread95, %.thread99
+  %.pn54.pn98.ph = phi { ptr, i32 } [ %49, %.thread99 ], [ %48, %.thread95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split146
+  br label %.sink.split144
 
-51:                                               ; preds = %35
-  br i1 %.not, label %52, label %62
+52:                                               ; preds = %35
+  br i1 %.not, label %53, label %63
 
-52:                                               ; preds = %51
-  %53 = tail call ptr @__cxa_allocate_exception(i64 24) #28
+53:                                               ; preds = %52
+  %54 = tail call ptr @__cxa_allocate_exception(i64 24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.81)
-          to label %54 unwind label %.thread106
+          to label %55 unwind label %.thread104
 
-54:                                               ; preds = %52
+55:                                               ; preds = %53
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %10)
-          to label %55 unwind label %.thread110
+          to label %56 unwind label %.thread108
 
-55:                                               ; preds = %54
+56:                                               ; preds = %55
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8, !tbaa !4
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %56, align 8, !tbaa !156
-  %.sroa.479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr @.str.79, ptr %.sroa.479.0..sroa_idx, align 8, !tbaa !156
-  %.sroa.580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 443, ptr %.sroa.580.0..sroa_idx, align 8, !tbaa !78
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %53, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %57 unwind label %60
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %57, align 8, !tbaa !156
+  %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr @.str.79, ptr %.sroa.478.0..sroa_idx, align 8, !tbaa !156
+  %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i32 443, ptr %.sroa.579.0..sroa_idx, align 8, !tbaa !78
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %54, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %58 unwind label %61
 
-57:                                               ; preds = %55
-  invoke void @__cxa_throw(ptr %53, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %107 unwind label %60
+58:                                               ; preds = %56
+  invoke void @__cxa_throw(ptr %54, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
+          to label %108 unwind label %61
 
-.thread106:                                       ; preds = %52
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  br label %.sink.split138
-
-.thread110:                                       ; preds = %54
+.thread104:                                       ; preds = %53
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #28
-  br label %.sink.split138
+  br label %.sink.split136
 
-60:                                               ; preds = %55, %57
-  %.017 = phi i1 [ false, %57 ], [ true, %55 ]
-  %61 = landingpad { ptr, i32 }
+.thread108:                                       ; preds = %55
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #28
+  br label %.sink.split136
+
+61:                                               ; preds = %56, %58
+  %.017 = phi i1 [ false, %58 ], [ true, %56 ]
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.017, label %.sink.split146, label %106
+  br i1 %.017, label %.sink.split144, label %107
 
-.sink.split138:                                   ; preds = %.thread106, %.thread110
-  %.pn.pn109.ph = phi { ptr, i32 } [ %59, %.thread110 ], [ %58, %.thread106 ]
+.sink.split136:                                   ; preds = %.thread104, %.thread108
+  %.pn.pn107.ph = phi { ptr, i32 } [ %60, %.thread108 ], [ %59, %.thread104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.sink.split146
+  br label %.sink.split144
 
-62:                                               ; preds = %.thread103, %51
-  %63 = phi i32 [ %.pre, %.thread103 ], [ %22, %51 ]
-  %64 = phi i32 [ %40, %.thread103 ], [ %24, %51 ]
-  %65 = icmp ult i32 %63, 4
-  br i1 %65, label %switch.lookup, label %66
+63:                                               ; preds = %.thread102, %52
+  %64 = phi i32 [ %.pre, %.thread102 ], [ %22, %52 ]
+  %65 = phi i32 [ %41, %.thread102 ], [ %24, %52 ]
+  %66 = icmp ult i32 %64, 4
+  br i1 %66, label %switch.lookup, label %67
 
-66:                                               ; preds = %62
-  %67 = tail call ptr @__cxa_allocate_exception(i64 24) #28
+67:                                               ; preds = %63
+  %68 = tail call ptr @__cxa_allocate_exception(i64 24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull @.str.82)
-          to label %68 unwind label %.thread113
+          to label %69 unwind label %.thread111
 
-68:                                               ; preds = %66
+69:                                               ; preds = %67
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(56) %13)
-          to label %69 unwind label %.thread117
+          to label %70 unwind label %.thread115
 
-69:                                               ; preds = %68
+70:                                               ; preds = %69
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %70, align 8, !tbaa !156
-  %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr @.str.79, ptr %.sroa.475.0..sroa_idx, align 8, !tbaa !156
-  %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 453, ptr %.sroa.576.0..sroa_idx, align 8, !tbaa !78
-  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %67, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %71 unwind label %74
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %71, align 8, !tbaa !156
+  %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr @.str.79, ptr %.sroa.474.0..sroa_idx, align 8, !tbaa !156
+  %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i32 453, ptr %.sroa.575.0..sroa_idx, align 8, !tbaa !78
+  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %68, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %72 unwind label %75
 
-71:                                               ; preds = %69
-  invoke void @__cxa_throw(ptr %67, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %107 unwind label %74
+72:                                               ; preds = %70
+  invoke void @__cxa_throw(ptr %68, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
+          to label %108 unwind label %75
 
-.thread113:                                       ; preds = %66
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  br label %.sink.split139
-
-.thread117:                                       ; preds = %68
+.thread111:                                       ; preds = %67
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #28
-  br label %.sink.split139
+  br label %.sink.split137
 
-74:                                               ; preds = %69, %71
-  %.014 = phi i1 [ false, %71 ], [ true, %69 ]
-  %75 = landingpad { ptr, i32 }
+.thread115:                                       ; preds = %69
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #28
+  br label %.sink.split137
+
+75:                                               ; preds = %70, %72
+  %.014 = phi i1 [ false, %72 ], [ true, %70 ]
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.014, label %.sink.split146, label %106
+  br i1 %.014, label %.sink.split144, label %107
 
-.sink.split139:                                   ; preds = %.thread113, %.thread117
-  %.pn51.pn116.ph = phi { ptr, i32 } [ %73, %.thread117 ], [ %72, %.thread113 ]
+.sink.split137:                                   ; preds = %.thread111, %.thread115
+  %.pn51.pn114.ph = phi { ptr, i32 } [ %74, %.thread115 ], [ %73, %.thread111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.sink.split146
+  br label %.sink.split144
 
-switch.lookup:                                    ; preds = %62
-  %76 = zext nneg i32 %63 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, i64 %76
+switch.lookup:                                    ; preds = %63
+  %77 = zext nneg i32 %64 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, i64 %77
   %switch.load = load i32, ptr %switch.gep, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 %switch.load, ptr %77, align 8, !tbaa !157
-  switch i32 %64, label %80 [
-    i32 0, label %90
-    i32 1, label %.thread136.sink.split
-    i32 2, label %78
-    i32 3, label %90
-    i32 4, label %90
-    i32 5, label %79
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i32 %switch.load, ptr %78, align 8, !tbaa !157
+  switch i32 %65, label %81 [
+    i32 0, label %91
+    i32 1, label %.thread134.sink.split
+    i32 2, label %79
+    i32 3, label %91
+    i32 4, label %91
+    i32 5, label %80
   ]
 
-78:                                               ; preds = %switch.lookup
-  br label %.thread136.sink.split
-
 79:                                               ; preds = %switch.lookup
-  br label %.thread136.sink.split
+  br label %.thread134.sink.split
 
 80:                                               ; preds = %switch.lookup
-  %81 = tail call ptr @__cxa_allocate_exception(i64 24) #28
+  br label %.thread134.sink.split
+
+81:                                               ; preds = %switch.lookup
+  %82 = tail call ptr @__cxa_allocate_exception(i64 24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.83)
-          to label %82 unwind label %.thread120
+          to label %83 unwind label %.thread118
 
-82:                                               ; preds = %80
+83:                                               ; preds = %81
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(56) %16)
-          to label %83 unwind label %.thread124
+          to label %84 unwind label %.thread122
 
-83:                                               ; preds = %82
+84:                                               ; preds = %83
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %15, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8, !tbaa !4
-  %84 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %84, align 8, !tbaa !156
-  %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr @.str.79, ptr %.sroa.471.0..sroa_idx, align 8, !tbaa !156
-  %.sroa.572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 463, ptr %.sroa.572.0..sroa_idx, align 8, !tbaa !78
-  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %81, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %85 unwind label %88
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %85, align 8, !tbaa !156
+  %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr @.str.79, ptr %.sroa.470.0..sroa_idx, align 8, !tbaa !156
+  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i32 463, ptr %.sroa.571.0..sroa_idx, align 8, !tbaa !78
+  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %82, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %86 unwind label %89
 
-85:                                               ; preds = %83
-  invoke void @__cxa_throw(ptr %81, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %107 unwind label %88
+86:                                               ; preds = %84
+  invoke void @__cxa_throw(ptr %82, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
+          to label %108 unwind label %89
 
-.thread120:                                       ; preds = %80
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  br label %.sink.split141
-
-.thread124:                                       ; preds = %82
+.thread118:                                       ; preds = %81
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #28
-  br label %.sink.split141
+  br label %.sink.split139
 
-88:                                               ; preds = %83, %85
-  %.011 = phi i1 [ false, %85 ], [ true, %83 ]
-  %89 = landingpad { ptr, i32 }
+.thread122:                                       ; preds = %83
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #28
+  br label %.sink.split139
+
+89:                                               ; preds = %84, %86
+  %.011 = phi i1 [ false, %86 ], [ true, %84 ]
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.011, label %.sink.split146, label %106
+  br i1 %.011, label %.sink.split144, label %107
 
-.sink.split141:                                   ; preds = %.thread120, %.thread124
-  %.pn48.pn123.ph = phi { ptr, i32 } [ %87, %.thread124 ], [ %86, %.thread120 ]
+.sink.split139:                                   ; preds = %.thread118, %.thread122
+  %.pn48.pn121.ph = phi { ptr, i32 } [ %88, %.thread122 ], [ %87, %.thread118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.sink.split146
+  br label %.sink.split144
 
-90:                                               ; preds = %switch.lookup, %switch.lookup, %switch.lookup
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 0, ptr %91, align 4, !tbaa !158
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %93 = load ptr, ptr %92, align 8, !tbaa !155
-  %94 = tail call noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull align 8 dereferenceable(16) %93)
-  br i1 %94, label %95, label %.thread136
+91:                                               ; preds = %switch.lookup, %switch.lookup, %switch.lookup
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  store i32 0, ptr %92, align 4, !tbaa !158
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %94 = load ptr, ptr %93, align 8, !tbaa !155
+  %95 = tail call noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull align 8 dereferenceable(16) %94)
+  br i1 %95, label %96, label %.thread134
 
-95:                                               ; preds = %90
-  %96 = tail call ptr @__cxa_allocate_exception(i64 24) #28
+96:                                               ; preds = %91
+  %97 = tail call ptr @__cxa_allocate_exception(i64 24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull @.str.84)
-          to label %97 unwind label %.thread127
+          to label %98 unwind label %.thread125
 
-97:                                               ; preds = %95
+98:                                               ; preds = %96
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(56) %19)
-          to label %98 unwind label %.thread131
+          to label %99 unwind label %.thread129
 
-98:                                               ; preds = %97
+99:                                               ; preds = %98
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %18, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %20, align 8, !tbaa !4
-  %99 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %99, align 8, !tbaa !156
+  %100 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %100, align 8, !tbaa !156
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @.str.79, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !156
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 468, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !78
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %96, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %100 unwind label %103
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %97, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %101 unwind label %104
 
-100:                                              ; preds = %98
-  invoke void @__cxa_throw(ptr %96, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %107 unwind label %103
+101:                                              ; preds = %99
+  invoke void @__cxa_throw(ptr %97, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
+          to label %108 unwind label %104
 
-.thread127:                                       ; preds = %95
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  br label %.sink.split143
-
-.thread131:                                       ; preds = %97
+.thread125:                                       ; preds = %96
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #28
-  br label %.sink.split143
+  br label %.sink.split141
 
-103:                                              ; preds = %98, %100
-  %.0 = phi i1 [ false, %100 ], [ true, %98 ]
-  %104 = landingpad { ptr, i32 }
+.thread129:                                       ; preds = %98
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #28
+  br label %.sink.split141
+
+104:                                              ; preds = %99, %101
+  %.0 = phi i1 [ false, %101 ], [ true, %99 ]
+  %105 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %.0, label %.sink.split146, label %106
+  br i1 %.0, label %.sink.split144, label %107
 
-.sink.split143:                                   ; preds = %.thread127, %.thread131
-  %.pn45.pn130.ph = phi { ptr, i32 } [ %102, %.thread131 ], [ %101, %.thread127 ]
+.sink.split141:                                   ; preds = %.thread125, %.thread129
+  %.pn45.pn128.ph = phi { ptr, i32 } [ %103, %.thread129 ], [ %102, %.thread125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.sink.split146
+  br label %.sink.split144
 
-.thread136.sink.split:                            ; preds = %switch.lookup, %79, %78
-  %.sink144 = phi i32 [ 3, %78 ], [ 1, %79 ], [ 2, %switch.lookup ]
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 %.sink144, ptr %105, align 4, !tbaa !158
-  br label %.thread136
+.thread134.sink.split:                            ; preds = %switch.lookup, %80, %79
+  %.sink142 = phi i32 [ 3, %79 ], [ 1, %80 ], [ 2, %switch.lookup ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  store i32 %.sink142, ptr %106, align 4, !tbaa !158
+  br label %.thread134
 
-.thread136:                                       ; preds = %.thread136.sink.split, %90
+.thread134:                                       ; preds = %.thread134.sink.split, %91
   ret void
 
-.sink.split146:                                   ; preds = %103, %.sink.split143, %88, %.sink.split141, %74, %.sink.split139, %60, %.sink.split138, %49, %.sink.split137, %33, %.sink.split
-  %.sink147 = phi ptr [ %26, %.sink.split ], [ %26, %33 ], [ %42, %.sink.split137 ], [ %42, %49 ], [ %53, %.sink.split138 ], [ %53, %60 ], [ %67, %.sink.split139 ], [ %67, %74 ], [ %81, %.sink.split141 ], [ %81, %88 ], [ %96, %.sink.split143 ], [ %96, %103 ]
-  %.pn57.pn.pn.ph = phi { ptr, i32 } [ %.pn57.pn92.ph, %.sink.split ], [ %34, %33 ], [ %.pn54.pn99.ph, %.sink.split137 ], [ %50, %49 ], [ %.pn.pn109.ph, %.sink.split138 ], [ %61, %60 ], [ %.pn51.pn116.ph, %.sink.split139 ], [ %75, %74 ], [ %.pn48.pn123.ph, %.sink.split141 ], [ %89, %88 ], [ %.pn45.pn130.ph, %.sink.split143 ], [ %104, %103 ]
-  call void @__cxa_free_exception(ptr %.sink147) #28
-  br label %106
+.sink.split144:                                   ; preds = %104, %.sink.split141, %89, %.sink.split139, %75, %.sink.split137, %61, %.sink.split136, %50, %.sink.split135, %33, %.sink.split
+  %.sink145 = phi ptr [ %26, %.sink.split ], [ %26, %33 ], [ %43, %.sink.split135 ], [ %43, %50 ], [ %54, %.sink.split136 ], [ %54, %61 ], [ %68, %.sink.split137 ], [ %68, %75 ], [ %82, %.sink.split139 ], [ %82, %89 ], [ %97, %.sink.split141 ], [ %97, %104 ]
+  %.pn57.pn.pn.ph = phi { ptr, i32 } [ %.pn57.pn91.ph, %.sink.split ], [ %34, %33 ], [ %.pn54.pn98.ph, %.sink.split135 ], [ %51, %50 ], [ %.pn.pn107.ph, %.sink.split136 ], [ %62, %61 ], [ %.pn51.pn114.ph, %.sink.split137 ], [ %76, %75 ], [ %.pn48.pn121.ph, %.sink.split139 ], [ %90, %89 ], [ %.pn45.pn128.ph, %.sink.split141 ], [ %105, %104 ]
+  call void @__cxa_free_exception(ptr %.sink145) #28
+  br label %107
 
-106:                                              ; preds = %.sink.split146, %103, %88, %74, %60, %49, %33
-  %.pn57.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %50, %49 ], [ %75, %74 ], [ %89, %88 ], [ %104, %103 ], [ %61, %60 ], [ %.pn57.pn.pn.ph, %.sink.split146 ]
+107:                                              ; preds = %.sink.split144, %104, %89, %75, %61, %50, %33
+  %.pn57.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %51, %50 ], [ %76, %75 ], [ %90, %89 ], [ %105, %104 ], [ %62, %61 ], [ %.pn57.pn.pn.ph, %.sink.split144 ]
   resume { ptr, i32 } %.pn57.pn.pn
 
-107:                                              ; preds = %100, %85, %71, %57, %46, %30
+108:                                              ; preds = %101, %86, %72, %58, %47, %30
   unreachable
 }
 

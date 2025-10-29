@@ -19252,8 +19252,8 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree20do_remove_empty_loopEP14Ph
 26:                                               ; preds = %25, %20
   %27 = phi i32 [ %.pre, %25 ], [ %22, %20 ]
   %28 = and i32 %27, 2
-  %switch.not = icmp eq i32 %28, 0
-  br i1 %switch.not, label %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, label %.thread93
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, label %.thread93
 
 _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i: ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -19347,16 +19347,16 @@ _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i: ; preds = %26
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %117 = load i32, ptr %116, align 8
-  %.not96 = icmp slt i32 %115, %117
-  br i1 %.not96, label %.thread93, label %123
+  %.not97 = icmp slt i32 %115, %117
+  br i1 %.not97, label %.thread93, label %123
 
 118:                                              ; preds = %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i
   %119 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %120 = load i32, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %110, i64 28
   %122 = load i32, ptr %121, align 4
-  %.not = icmp sgt i32 %120, %122
-  br i1 %.not, label %.thread93, label %123
+  %.not96 = icmp sgt i32 %120, %122
+  br i1 %.not96, label %.thread93, label %123
 
 123:                                              ; preds = %113, %118
   %124 = load ptr, ptr %14, align 8
@@ -19461,8 +19461,8 @@ _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i: ; preds = %26
   %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %188
   %204 = load ptr, ptr %203, align 8
   %205 = call noundef ptr @_ZNK19BaseCountedLoopNode5limitEv(ptr noundef nonnull align 8 dereferenceable(72) %14)
-  %.not97 = icmp eq ptr %204, %205
-  br i1 %.not97, label %.thread93, label %.thread90
+  %.not98 = icmp eq ptr %204, %205
+  br i1 %.not98, label %.thread93, label %.thread90
 
 .thread90:                                        ; preds = %138, %143, %155, %174, %183, %193, %201
   %206 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -19489,8 +19489,8 @@ _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i: ; preds = %26
 
 220:                                              ; preds = %.thread90
   %221 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %209, i64 noundef 32, i32 noundef 0) #11
-  %.pre98 = load i32, ptr %210, align 8
-  %222 = zext i32 %.pre98 to i64
+  %.pre99 = load i32, ptr %210, align 8
+  %222 = zext i32 %.pre99 to i64
   %223 = shl nuw nsw i64 %222, 3
   br label %_ZN9Node_ListC2Ej.exit
 

@@ -71689,8 +71689,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %19
 
 19:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit", %10
-  %.sroa.2.0 = phi i64 [ %3, %10 ], [ %46, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit" ]
-  %.0 = phi i64 [ 0, %10 ], [ %47, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit" ]
+  %.sroa.2.0 = phi i64 [ %3, %10 ], [ %47, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit" ]
+  %.0 = phi i64 [ 0, %10 ], [ %48, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !25782
   store i64 -9223372036854775807, ptr %7, align 8, !noalias !25787
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !25788
@@ -71762,37 +71762,37 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store i64 -9223372036854775807, ptr %37, align 8, !noalias !25787
   call void @llvm.experimental.noalias.scope.decl(metadata !25805)
   %38 = load i64, ptr %6, align 8, !range !13163, !alias.scope !25805, !noalias !25788, !noundef !4
-  %switch.i.i.i.i.i.i = icmp slt i64 %38, -9223372036854775805
-  br i1 %switch.i.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit", label %39
+  %39 = icmp slt i64 %38, -9223372036854775805
+  br i1 %39, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit", label %40
 
-39:                                               ; preds = %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$6insert17hd5b5bc3fd967bfc0E.exit.i.i.i.i.i"
+40:                                               ; preds = %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$6insert17hd5b5bc3fd967bfc0E.exit.i.i.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !25808
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5dbed0f5d11d7700E.llvm.11905809803391100490"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !25788
-  %40 = load i64, ptr %17, align 8, !range !7207, !noalias !25808, !noundef !4
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i", label %41
+  %41 = load i64, ptr %17, align 8, !range !7207, !noalias !25808, !noundef !4
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %41, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i", label %42
 
-41:                                               ; preds = %39
-  %42 = load i64, ptr %18, align 8, !noalias !25808, !noundef !4
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i", label %44
+42:                                               ; preds = %40
+  %43 = load i64, ptr %18, align 8, !noalias !25808, !noundef !4
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i", label %45
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %5, align 8, !noalias !25808, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %42, i64 noundef %40) #66, !noalias !25788
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %5, align 8, !noalias !25808, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %43, i64 noundef %41) #66, !noalias !25788
   br label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i"
 
-"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i": ; preds = %44, %41, %39
+"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i": ; preds = %45, %42, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25808
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit": ; preds = %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$6insert17hd5b5bc3fd967bfc0E.exit.i.i.i.i.i", %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$hir_ty..mir..MirSpan$GT$$GT$17h148d652ea93a6005E.exit.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !25788
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !25782
-  %46 = add i64 %.sroa.2.0, 1
-  %47 = add nuw i64 %.0, 1
-  %48 = icmp eq i64 %47, %14
-  br i1 %48, label %.loopexit15, label %19
+  %47 = add i64 %.sroa.2.0, 1
+  %48 = add nuw i64 %.0, 1
+  %49 = icmp eq i64 %48, %14
+  br i1 %49, label %.loopexit15, label %19
 
 .loopexit15:                                      ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hec6a753489cb3745E.exit", %4
   ret void

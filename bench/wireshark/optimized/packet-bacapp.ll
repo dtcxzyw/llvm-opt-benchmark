@@ -7057,7 +7057,7 @@ define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %
   %.0106 = phi i32 [ 3, %27 ], [ 5, %32 ], [ 1, %36 ], [ 1, %21 ]
   %.0105 = phi i32 [ %25, %27 ], [ %25, %32 ], [ %25, %36 ], [ %3, %21 ]
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %89, label %40
+  br i1 %.not, label %90, label %40
 
 40:                                               ; preds = %39
   switch i8 %22, label %42 [
@@ -7126,46 +7126,46 @@ define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %
 73:                                               ; preds = %.thread119, %.thread114, %62
   %.0112 = phi ptr [ %.0113121, %.thread119 ], [ %.0113116, %.thread114 ], [ %.0111, %62 ]
   %74 = and i8 %9, 6
-  %switch = icmp eq i8 %74, 6
-  br i1 %switch, label %75, label %78
+  %75 = icmp eq i8 %74, 6
+  br i1 %75, label %76, label %79
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr @hf_BACnetNamedTag, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %.0112, i32 noundef %76, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  br label %89
+76:                                               ; preds = %73
+  %77 = load i32, ptr @hf_BACnetNamedTag, align 4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %.0112, i32 noundef %77, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  br label %90
 
-78:                                               ; preds = %73
-  br i1 %23, label %79, label %85
+79:                                               ; preds = %73
+  br i1 %23, label %80, label %86
 
-79:                                               ; preds = %78
-  %80 = load i32, ptr @hf_BACnetNamedTag, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %.0112, i32 noundef %80, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  %82 = load i32, ptr @hf_bacapp_tag_lvt, align 4
-  %83 = load i32, ptr %6, align 4
-  %84 = call ptr @proto_tree_add_uint(ptr noundef %.0112, i32 noundef %82, ptr noundef nonnull %0, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %83)
-  br label %89
+80:                                               ; preds = %79
+  %81 = load i32, ptr @hf_BACnetNamedTag, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %.0112, i32 noundef %81, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %83 = load i32, ptr @hf_bacapp_tag_lvt, align 4
+  %84 = load i32, ptr %6, align 4
+  %85 = call ptr @proto_tree_add_uint(ptr noundef %.0112, i32 noundef %83, ptr noundef nonnull %0, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %84)
+  br label %90
 
-85:                                               ; preds = %78
-  %86 = load i32, ptr @hf_bacapp_tag_lvt, align 4
-  %87 = load i32, ptr %6, align 4
-  %88 = call ptr @proto_tree_add_uint(ptr noundef %.0112, i32 noundef %86, ptr noundef nonnull %0, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %87)
-  br label %89
+86:                                               ; preds = %79
+  %87 = load i32, ptr @hf_bacapp_tag_lvt, align 4
+  %88 = load i32, ptr %6, align 4
+  %89 = call ptr @proto_tree_add_uint(ptr noundef %.0112, i32 noundef %87, ptr noundef nonnull %0, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %88)
+  br label %90
 
-89:                                               ; preds = %75, %85, %79, %39
-  %90 = load i32, ptr %6, align 4
-  %91 = call i32 @tvb_reported_length(ptr noundef nonnull %0)
-  %92 = icmp ugt i32 %90, %91
-  br i1 %92, label %93, label %98
+90:                                               ; preds = %76, %86, %80, %39
+  %91 = load i32, ptr %6, align 4
+  %92 = call i32 @tvb_reported_length(ptr noundef nonnull %0)
+  %93 = icmp ugt i32 %91, %92
+  br i1 %93, label %94, label %99
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %8, align 8
-  %95 = load i32, ptr %6, align 4
-  %96 = call i32 @tvb_reported_length(ptr noundef nonnull %0)
-  %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %94, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2604, i32 noundef %95, i32 noundef %96)
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %8, align 8
+  %96 = load i32, ptr %6, align 4
+  %97 = call i32 @tvb_reported_length(ptr noundef nonnull %0)
+  %98 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %95, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2604, i32 noundef %96, i32 noundef %97)
   store i32 1, ptr %6, align 4
-  br label %98
+  br label %99
 
-98:                                               ; preds = %93, %89
+99:                                               ; preds = %94, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }

@@ -33239,7 +33239,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i33: ;
 42:                                               ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   store i64 %114, ptr %31, align 8
   store i64 %113, ptr %16, align 8
-  store ptr %.pre.i76, ptr %30, align 8
+  store ptr %.pre.i75, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5423
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !5423
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5423
@@ -33293,10 +33293,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i33: ;
 
 _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i: ; preds = %29, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   %56 = phi i32 [ %41, %29 ], [ %115, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.sroa.0.0.i10185 = phi i1 [ true, %29 ], [ %.sroa.0.0.i10.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.sroa.0.0.i10184 = phi i1 [ true, %29 ], [ %.sroa.0.0.i10.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %57 = phi i64 [ 1, %29 ], [ %114, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %58 = phi i64 [ 1, %29 ], [ %113, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.pre.i79184 = phi ptr [ %26, %29 ], [ %.pre.i76, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.pre.i78183 = phi ptr [ %26, %29 ], [ %.pre.i75, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5426), !noalias !5411
   %.val17.i = load i8, ptr %21, align 2, !alias.scope !5412, !noalias !5415
   %59 = zext nneg i8 %.val17.i to i128
@@ -33333,7 +33333,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %72 = icmp samesign ugt i64 %58, 144115188075855871
   %73 = icmp ugt i64 %71, 9223372036854775800
   %74 = select i1 %72, i1 true, i1 %73
-  br i1 %74, label %.loopexit61, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
+  br i1 %74, label %.loopexit60, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %68
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5431
@@ -33343,7 +33343,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %6
 
 76:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
   %77 = shl nuw nsw i64 %58, 6
-  store ptr %.pre.i79184, ptr %4, align 8, !alias.scope !5441, !noalias !5431
+  store ptr %.pre.i78183, ptr %4, align 8, !alias.scope !5441, !noalias !5431
   store i64 %77, ptr %.sroa.5.0..sroa_idx.i41.i.i.i, align 8, !alias.scope !5441, !noalias !5431
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
 
@@ -33359,22 +33359,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %6
 80:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
   store i64 %58, ptr %31, align 8
   store i64 %58, ptr %16, align 8
-  store ptr %.pre.i79184, ptr %30, align 8
+  store ptr %.pre.i78183, ptr %30, align 8
   %81 = load i64, ptr %36, align 8, !range !355, !noalias !5431, !noundef !3
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %83 = load i64, ptr %82, align 8, !noalias !5431
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5431
   br label %84
 
-.loopexit61:                                      ; preds = %68
+.loopexit60:                                      ; preds = %68
   store i64 %58, ptr %31, align 8
   store i64 %58, ptr %16, align 8
-  store ptr %.pre.i79184, ptr %30, align 8
+  store ptr %.pre.i78183, ptr %30, align 8
   br label %84
 
-84:                                               ; preds = %.loopexit61, %80
-  %.sroa.6.0.i.ph.i.i = phi i64 [ %83, %80 ], [ undef, %.loopexit61 ]
-  %.sroa.04.0.i.ph.i.i = phi i64 [ %81, %80 ], [ 0, %.loopexit61 ]
+84:                                               ; preds = %.loopexit60, %80
+  %.sroa.6.0.i.ph.i.i = phi i64 [ %83, %80 ], [ undef, %.loopexit60 ]
+  %.sroa.04.0.i.ph.i.i = phi i64 [ %81, %80 ], [ 0, %.loopexit60 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i, i64 %.sroa.6.0.i.ph.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.585) #37
           to label %.noexc.i unwind label %86, !noalias !5444
 
@@ -33399,9 +33399,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %6
   unreachable
 
 .noexc17:                                         ; preds = %.noexc16, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i"
-  %.pre.i78 = phi ptr [ %85, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i79184, %.noexc16 ]
+  %.pre.i77 = phi ptr [ %85, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i78183, %.noexc16 ]
   %90 = phi i64 [ %70, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %58, %.noexc16 ]
-  %91 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i78, i64 %57
+  %91 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i77, i64 %57
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %92 = add i64 %57, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !5427
@@ -33417,16 +33417,16 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %6
           to label %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge unwind label %.loopexit
 
 94:                                               ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46
-  %.pre-phi118 = phi i1 [ %102, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
-  %.pre-phi117 = phi i128 [ %100, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %60, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
+  %.pre-phi117 = phi i1 [ %102, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
+  %.pre-phi116 = phi i128 [ %100, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %60, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
   %.val18.i = phi i8 [ %.val.i25.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
-  %.pre.i77 = phi ptr [ %.pre.i78, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i79184, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
+  %.pre.i76 = phi ptr [ %.pre.i77, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i78183, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
   %95 = phi i64 [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %58, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
   %96 = phi i64 [ %92, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %57, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
-  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i10185, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
-  %97 = and i128 %.pre-phi117, 337570925882730900174282555711
+  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i10184, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ]
+  %97 = and i128 %.pre-phi116, 337570925882730900174282555711
   %98 = icmp ne i128 %97, 0
-  %.sroa.0.0.i32.i27.i = or i1 %.pre-phi118, %98
+  %.sroa.0.0.i32.i27.i = or i1 %.pre-phi117, %98
   br i1 %.sroa.0.0.i32.i27.i, label %105, label %103, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit: ; preds = %.noexc17
@@ -33487,12 +33487,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i: ;
           cleanup
   store i64 %96, ptr %31, align 8
   store i64 %95, ptr %16, align 8
-  store ptr %.pre.i77, ptr %30, align 8
+  store ptr %.pre.i76, ptr %30, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7) #39, !noalias !5459
   br label %.thread
 
 _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ; preds = %.noexc21, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %93, %.noexc26
-  %.pre.i76 = phi ptr [ %.pre.i78, %93 ], [ %.pre.i77, %.noexc26 ], [ %.pre.i77, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i77, %.noexc21 ]
+  %.pre.i75 = phi ptr [ %.pre.i77, %93 ], [ %.pre.i76, %.noexc26 ], [ %.pre.i76, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i76, %.noexc21 ]
   %113 = phi i64 [ %90, %93 ], [ %95, %.noexc26 ], [ %95, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %95, %.noexc21 ]
   %114 = phi i64 [ %92, %93 ], [ %96, %.noexc26 ], [ %96, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %96, %.noexc21 ]
   %.sroa.0.0.i10.be = phi i1 [ false, %93 ], [ %.sroa.0.1.i, %.noexc26 ], [ %.sroa.0.1.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.sroa.0.1.i, %.noexc21 ]
@@ -33509,7 +33509,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
 118:                                              ; preds = %.noexc19
   store i64 %96, ptr %31, align 8
   store i64 %95, ptr %16, align 8
-  store ptr %.pre.i77, ptr %30, align 8
+  store ptr %.pre.i76, ptr %30, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
@@ -33537,7 +33537,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
           cleanup
   store i64 %96, ptr %31, align 8
   store i64 %95, ptr %16, align 8
-  store ptr %.pre.i77, ptr %30, align 8
+  store ptr %.pre.i76, ptr %30, align 8
   br label %.thread
 
 123:                                              ; preds = %.noexc25
@@ -33545,14 +33545,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   br label %.noexc26
 
 .loopexit:                                        ; preds = %120, %93, %103, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %109, %119, %.noexc26, %66
-  %.pre.i81 = phi ptr [ %.pre.i78, %93 ], [ %.pre.i77, %103 ], [ %.pre.i77, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i77, %109 ], [ %.pre.i77, %119 ], [ %.pre.i77, %120 ], [ %.pre.i77, %.noexc26 ], [ %.pre.i79184, %66 ]
+  %.pre.i80 = phi ptr [ %.pre.i77, %93 ], [ %.pre.i76, %103 ], [ %.pre.i76, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i76, %109 ], [ %.pre.i76, %119 ], [ %.pre.i76, %120 ], [ %.pre.i76, %.noexc26 ], [ %.pre.i78183, %66 ]
   %124 = phi i64 [ %90, %93 ], [ %95, %103 ], [ %95, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %95, %109 ], [ %95, %119 ], [ %95, %120 ], [ %95, %.noexc26 ], [ %58, %66 ]
   %125 = phi i64 [ %92, %93 ], [ %96, %103 ], [ %96, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %96, %109 ], [ %96, %119 ], [ %96, %120 ], [ %96, %.noexc26 ], [ %57, %66 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %125, ptr %31, align 8
   store i64 %124, ptr %16, align 8
-  store ptr %.pre.i81, ptr %30, align 8
+  store ptr %.pre.i80, ptr %30, align 8
   br label %.thread
 
 .loopexit.split-lp:                               ; preds = %42, %.noexc14, %118
@@ -33585,12 +33585,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   ret void
 
 .noexc24.loopexit:                                ; preds = %.noexc17, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46
-  %.pre.i80 = phi ptr [ %.pre.i78, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.pre.i79184, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ], [ %.pre.i78, %.noexc17 ]
+  %.pre.i79 = phi ptr [ %.pre.i77, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.pre.i78183, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ], [ %.pre.i77, %.noexc17 ]
   %132 = phi i64 [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %58, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ], [ %90, %.noexc17 ]
   %133 = phi i64 [ %92, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %57, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit46 ], [ %92, %.noexc17 ]
   store i64 %133, ptr %31, align 8
   store i64 %132, ptr %16, align 8
-  store ptr %.pre.i80, ptr %30, align 8
+  store ptr %.pre.i79, ptr %30, align 8
   br label %.noexc24
 
 .noexc24:                                         ; preds = %.noexc24.loopexit, %118
@@ -35715,7 +35715,7 @@ define internal fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$i
   %eh.lpad-body = phi { ptr, i32 } [ %90, %89 ], [ %82, %81 ], [ %101, %100 ]
   %.val25 = load ptr, ptr %66, align 8, !alias.scope !1156, !nonnull !3, !noundef !3
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$ruff_python_ast..generated..ExprUnaryOp$GT$17h1e9f607bf4f19dd7E"(ptr %.val25) #39
-          to label %common.resume697 unwind label %103
+          to label %common.resume694 unwind label %103
 
 83:                                               ; preds = %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %78, ptr noundef nonnull align 1 dereferenceable(44) @anon.aab41dc2a4de2fafba55bf875aa63917.502, i64 44, i1 false), !noalias !5716
@@ -35808,15 +35808,15 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h9e7b167ed0c004a4E.exit32: ; pr
 102:                                              ; preds = %480, %482, %_ZN18ruff_python_parser6parser6Parser9add_error17h2c2daa7c5b6b5887E.exit, %511, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$24parse_postfix_expression17h37e09e95e956ba81E.exit", %91
   ret void
 
-103:                                              ; preds = %.body, %.body692, %.body48, %.body51, %.body41
+103:                                              ; preds = %.body, %.body689, %.body48, %.body51, %.body41
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #40
   unreachable
 
-common.resume697:                                 ; preds = %458, %462, %434, %.thread13.i, %.body, %.body692, %.body48, %.body51, %.body41, %351, %361, %191, %194, %.body.i, %.body41.i.thread, %.body41.i, %388, %402
-  %common.resume697.op = phi { ptr, i32 } [ %eh.lpad-body49, %.body48 ], [ %eh.lpad-body693, %.body692 ], [ %eh.lpad-body42, %.body41 ], [ %eh.lpad-body52, %.body51 ], [ %eh.lpad-body, %.body ], [ %195, %194 ], [ %188, %191 ], [ %.pn38.pn.i257, %.body41.i.thread ], [ %eh.lpad-body48.i, %.body41.i ], [ %371, %.body.i ], [ %362, %361 ], [ %348, %351 ], [ %389, %388 ], [ %403, %402 ], [ %eh.lpad-body9.i, %.thread13.i ], [ %435, %434 ], [ %463, %462 ], [ %459, %458 ]
-  resume { ptr, i32 } %common.resume697.op
+common.resume694:                                 ; preds = %458, %462, %434, %.thread13.i, %.body, %.body689, %.body48, %.body51, %.body41, %351, %361, %191, %194, %.body.i, %.body41.i.thread, %.body41.i, %388, %402
+  %common.resume694.op = phi { ptr, i32 } [ %eh.lpad-body49, %.body48 ], [ %eh.lpad-body690, %.body689 ], [ %eh.lpad-body42, %.body41 ], [ %eh.lpad-body52, %.body51 ], [ %eh.lpad-body, %.body ], [ %195, %194 ], [ %188, %191 ], [ %.pn38.pn.i257, %.body41.i.thread ], [ %eh.lpad-body48.i, %.body41.i ], [ %371, %.body.i ], [ %362, %361 ], [ %348, %351 ], [ %389, %388 ], [ %403, %402 ], [ %eh.lpad-body9.i, %.thread13.i ], [ %435, %434 ], [ %463, %462 ], [ %459, %458 ]
+  resume { ptr, i32 } %common.resume694.op
 
 105:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -36068,8 +36068,8 @@ common.resume697:                                 ; preds = %458, %462, %434, %.
   %.sroa.0.0.copyload = load i32, ptr %53, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.8389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.sroa.8389.0.copyload = load ptr, ptr %.sroa.8389.0..sroa_idx, align 8
+  %.sroa.8386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.sroa.8386.0.copyload = load ptr, ptr %.sroa.8386.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 16
   %.sroa.9.0.copyload = load ptr, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -36130,45 +36130,45 @@ common.resume697:                                 ; preds = %458, %462, %434, %.
   %.sroa.6231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.7232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 17
   %.sroa.8233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.8.0..sroa_idx381 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %.sroa.8389.0..sroa_idx390 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.sroa.9.0..sroa_idx398 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.sroa.10.0..sroa_idx406 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %.sroa.11.0..sroa_idx414 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %.sroa.12.0..sroa_idx422 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.sroa.13.0..sroa_idx430 = getelementptr inbounds nuw i8, ptr %43, i64 33
-  %.sroa.14.0..sroa_idx434 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %.sroa.15.0..sroa_idx438 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %.sroa.16.0..sroa_idx446 = getelementptr inbounds nuw i8, ptr %43, i64 60
-  %.sroa.8.0..sroa_idx383 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %.sroa.8389.0..sroa_idx392 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %.sroa.9.0..sroa_idx400 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %.sroa.10.0..sroa_idx408 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %.sroa.11.0..sroa_idx416 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  %.sroa.12.0..sroa_idx424 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %.sroa.13.0..sroa_idx431 = getelementptr inbounds nuw i8, ptr %45, i64 33
-  %.sroa.14.0..sroa_idx435 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %.sroa.15.0..sroa_idx440 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %.sroa.16.0..sroa_idx448 = getelementptr inbounds nuw i8, ptr %45, i64 60
-  %.sroa.8.0..sroa_idx385 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %.sroa.8389.0..sroa_idx394 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %.sroa.9.0..sroa_idx402 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %.sroa.10.0..sroa_idx410 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %.sroa.11.0..sroa_idx418 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  %.sroa.12.0..sroa_idx426 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %.sroa.13.0..sroa_idx432 = getelementptr inbounds nuw i8, ptr %46, i64 33
-  %.sroa.14.0..sroa_idx436 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %.sroa.15.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %.sroa.16.0..sroa_idx450 = getelementptr inbounds nuw i8, ptr %46, i64 60
+  %.sroa.8.0..sroa_idx378 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.sroa.8386.0..sroa_idx387 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sroa.9.0..sroa_idx395 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.sroa.10.0..sroa_idx403 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.sroa.11.0..sroa_idx411 = getelementptr inbounds nuw i8, ptr %43, i64 28
+  %.sroa.12.0..sroa_idx419 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %.sroa.13.0..sroa_idx427 = getelementptr inbounds nuw i8, ptr %43, i64 33
+  %.sroa.14.0..sroa_idx431 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %.sroa.15.0..sroa_idx435 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %.sroa.16.0..sroa_idx443 = getelementptr inbounds nuw i8, ptr %43, i64 60
+  %.sroa.8.0..sroa_idx380 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %.sroa.8386.0..sroa_idx389 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.sroa.9.0..sroa_idx397 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %.sroa.10.0..sroa_idx405 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %.sroa.11.0..sroa_idx413 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  %.sroa.12.0..sroa_idx421 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %.sroa.13.0..sroa_idx428 = getelementptr inbounds nuw i8, ptr %45, i64 33
+  %.sroa.14.0..sroa_idx432 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %.sroa.15.0..sroa_idx437 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %.sroa.16.0..sroa_idx445 = getelementptr inbounds nuw i8, ptr %45, i64 60
+  %.sroa.8.0..sroa_idx382 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %.sroa.8386.0..sroa_idx391 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.sroa.9.0..sroa_idx399 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %.sroa.10.0..sroa_idx407 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %.sroa.11.0..sroa_idx415 = getelementptr inbounds nuw i8, ptr %46, i64 28
+  %.sroa.12.0..sroa_idx423 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %.sroa.13.0..sroa_idx429 = getelementptr inbounds nuw i8, ptr %46, i64 33
+  %.sroa.14.0..sroa_idx433 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %.sroa.15.0..sroa_idx439 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %.sroa.16.0..sroa_idx447 = getelementptr inbounds nuw i8, ptr %46, i64 60
   br label %180
 
 180:                                              ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit", %376
   %.sroa.15.0 = phi i32 [ %.sroa.15.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.8.1, %376 ]
   %.sroa.12.0 = phi i8 [ %.sroa.12.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.7.sroa.9.0, %376 ]
   %.sroa.11.0 = phi i32 [ %.sroa.11.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.7.sroa.8.0, %376 ]
-  %.sroa.10.0465 = phi i32 [ %.sroa.10.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.7.sroa.7.0, %376 ]
+  %.sroa.10.0462 = phi i32 [ %.sroa.10.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.7.sroa.7.0, %376 ]
   %.sroa.9.0 = phi ptr [ %.sroa.9.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.7.sroa.0.0, %376 ]
-  %.sroa.8389.0 = phi ptr [ %.sroa.8389.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.4.0, %376 ]
+  %.sroa.8386.0 = phi ptr [ %.sroa.8386.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.4.0, %376 ]
   %.sroa.16.0 = phi i32 [ %.sroa.16.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.9.1, %376 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.0.0.i, %376 ]
   %.sroa.7.i.sroa.8.0 = phi i32 [ undef, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$10parse_atom17h1755825bb7e626a8E.exit" ], [ %.sroa.7.i.sroa.8.1, %376 ]
@@ -36185,16 +36185,16 @@ common.resume697:                                 ; preds = %458, %462, %434, %.
 181:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !5747
   store i32 %.sroa.0.0, ptr %46, align 8, !noalias !5748
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx385, align 4, !noalias !5748
-  store ptr %.sroa.8389.0, ptr %.sroa.8389.0..sroa_idx394, align 8, !noalias !5748
-  store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx402, align 8, !noalias !5748
-  store i32 %.sroa.10.0465, ptr %.sroa.10.0..sroa_idx410, align 8, !noalias !5748
-  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx418, align 4, !noalias !5748
-  store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx426, align 8, !noalias !5748
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx432, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !noalias !5748
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx436, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false), !noalias !5748
-  store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx442, align 8, !noalias !5748
-  store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx450, align 4, !noalias !5748
+  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx382, align 4, !noalias !5748
+  store ptr %.sroa.8386.0, ptr %.sroa.8386.0..sroa_idx391, align 8, !noalias !5748
+  store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx399, align 8, !noalias !5748
+  store i32 %.sroa.10.0462, ptr %.sroa.10.0..sroa_idx407, align 8, !noalias !5748
+  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx415, align 4, !noalias !5748
+  store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx423, align 8, !noalias !5748
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx429, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !noalias !5748
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx433, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false), !noalias !5748
+  store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx439, align 8, !noalias !5748
+  store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx447, align 4, !noalias !5748
   call void @llvm.experimental.noalias.scope.decl(metadata !5749)
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !5752
   invoke fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_arguments17h2a3de194fe0fa15dE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
@@ -36229,7 +36229,7 @@ common.resume697:                                 ; preds = %458, %462, %434, %.
 
 191:                                              ; preds = %187
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ruff_python_ast..nodes..Arguments$GT$17h66a2189c5e92b63fE"(ptr noalias noundef align 8 dereferenceable(40) %24) #39
-          to label %common.resume697 unwind label %192, !noalias !5755
+          to label %common.resume694 unwind label %192, !noalias !5755
 
 192:                                              ; preds = %194, %191
   %193 = landingpad { ptr, i32 }
@@ -36241,21 +36241,21 @@ common.resume697:                                 ; preds = %458, %462, %434, %.
   %195 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %46) #39
-          to label %common.resume697 unwind label %192, !noalias !5761
+          to label %common.resume694 unwind label %192, !noalias !5761
 
 196:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !5747
   store i32 %.sroa.0.0, ptr %45, align 8, !noalias !5748
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx383, align 4, !noalias !5748
-  store ptr %.sroa.8389.0, ptr %.sroa.8389.0..sroa_idx392, align 8, !noalias !5748
-  store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx400, align 8, !noalias !5748
-  store i32 %.sroa.10.0465, ptr %.sroa.10.0..sroa_idx408, align 8, !noalias !5748
-  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx416, align 4, !noalias !5748
-  store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx424, align 8, !noalias !5748
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx431, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !noalias !5748
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx435, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false), !noalias !5748
-  store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx440, align 8, !noalias !5748
-  store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx448, align 4, !noalias !5748
+  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx380, align 4, !noalias !5748
+  store ptr %.sroa.8386.0, ptr %.sroa.8386.0..sroa_idx389, align 8, !noalias !5748
+  store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx397, align 8, !noalias !5748
+  store i32 %.sroa.10.0462, ptr %.sroa.10.0..sroa_idx405, align 8, !noalias !5748
+  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx413, align 4, !noalias !5748
+  store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx421, align 8, !noalias !5748
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx428, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !noalias !5748
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx432, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false), !noalias !5748
+  store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx437, align 8, !noalias !5748
+  store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx445, align 4, !noalias !5748
   call void @llvm.experimental.noalias.scope.decl(metadata !5762)
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser7do_bump17hd4a74405d8673557E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, i8 noundef 19)
           to label %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i unwind label %198, !noalias !5765
@@ -36268,7 +36268,7 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i: ; preds =
   br i1 %197, label %200, label %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i
 
 .body41.i:                                        ; preds = %.body66.i
-  br i1 %.sroa.025.2.lpad-body.i, label %.body41.i.thread, label %common.resume697
+  br i1 %.sroa.025.2.lpad-body.i, label %.body41.i.thread, label %common.resume694
 
 198:                                              ; preds = %352, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i, %200, %196
   %199 = landingpad { ptr, i32 }
@@ -36304,18 +36304,18 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i: ; preds = 
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser7do_bump17hd4a74405d8673557E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, i8 noundef 22)
           to label %208 unwind label %.loopexit.split-lp.loopexit, !noalias !5765
 
-.loopexit279:                                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h5c8b47ee729be761E.exit.i", %342
+.loopexit276:                                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h5c8b47ee729be761E.exit.i", %342
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body66.i
 
 .loopexit.split-lp.loopexit:                      ; preds = %224, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %205
-  %lpad.loopexit286 = landingpad { ptr, i32 }
+  %lpad.loopexit283 = landingpad { ptr, i32 }
           cleanup
   br label %.body66.i
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke
-  %lpad.loopexit.split-lp287 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp284 = landingpad { ptr, i32 }
           cleanup
   br label %.body66.i
 
@@ -36427,7 +36427,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i: ; preds
 235:                                              ; preds = %.noexc74.i.backedge
   store i64 %304, ptr %167, align 8
   store i64 %303, ptr %33, align 8
-  store ptr %.pre.i.i321, ptr %166, align 8
+  store ptr %.pre.i.i318, ptr %166, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !5803
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5803
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5803
@@ -36438,7 +36438,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i: ; preds
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val18.i = load i64, ptr %237, align 8, !alias.scope !5805, !noalias !5801, !noundef !3
   %238 = invoke fastcc { ptr, i64 } @_ZN18ruff_python_parser6parser6Parser8src_text17hdd79dfbf084642d9E(ptr nonnull %.val17.i, i64 %.val18.i, i32 noundef %.val.i145, i32 noundef %.val14.i)
-          to label %.noexc148 unwind label %.loopexit.split-lp281.loopexit.split-lp
+          to label %.noexc148 unwind label %.loopexit.split-lp278.loopexit.split-lp
 
 .noexc148:                                        ; preds = %235
   %239 = extractvalue { ptr, i64 } %238, 0
@@ -36474,17 +36474,17 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i: ; preds
   %248 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 3, ptr %248, align 8, !noalias !5803
   invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.662) #37
-          to label %.noexc149 unwind label %.loopexit.split-lp281.loopexit.split-lp
+          to label %.noexc149 unwind label %.loopexit.split-lp278.loopexit.split-lp
 
 .noexc149:                                        ; preds = %.noexc148
   unreachable
 
 .noexc72.i:                                       ; preds = %231, %.noexc74.i.backedge
   %249 = phi i32 [ %234, %231 ], [ %305, %.noexc74.i.backedge ]
-  %.sroa.0.0.i68.i893 = phi i1 [ true, %231 ], [ %.sroa.0.0.i68.i.be, %.noexc74.i.backedge ]
+  %.sroa.0.0.i68.i890 = phi i1 [ true, %231 ], [ %.sroa.0.0.i68.i.be, %.noexc74.i.backedge ]
   %250 = phi i64 [ 1, %231 ], [ %304, %.noexc74.i.backedge ]
   %251 = phi i64 [ 1, %231 ], [ %303, %.noexc74.i.backedge ]
-  %.pre.i.i324892 = phi ptr [ %210, %231 ], [ %.pre.i.i321, %.noexc74.i.backedge ]
+  %.pre.i.i321889 = phi ptr [ %210, %231 ], [ %.pre.i.i318, %.noexc74.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5805)
   %.val17.i.i = load i8, ptr %70, align 2, !alias.scope !5795, !noalias !5796
   %252 = icmp eq i8 %.val17.i.i, 21
@@ -36509,7 +36509,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
 _ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread: ; preds = %.noexc72.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !5806
   invoke fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$11parse_slice17h540c6ab5d35c18f5E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %19, ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
-          to label %.noexc135 unwind label %.loopexit280
+          to label %.noexc135 unwind label %.loopexit277
 
 .noexc135:                                        ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread
   %258 = icmp eq i64 %250, %251
@@ -36522,7 +36522,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a
   %263 = icmp samesign ugt i64 %250, 144115188075855871
   %264 = icmp ugt i64 %262, 9223372036854775800
   %265 = select i1 %263, i1 true, i1 %264
-  br i1 %265, label %.loopexit285, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
+  br i1 %265, label %.loopexit282, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = %259
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !5810
@@ -36532,7 +36532,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 
 267:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
   %268 = shl nuw nsw i64 %250, 6
-  store ptr %.pre.i.i324892, ptr %17, align 8, !alias.scope !5820, !noalias !5810
+  store ptr %.pre.i.i321889, ptr %17, align 8, !alias.scope !5820, !noalias !5810
   store i64 %268, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i, align 8, !alias.scope !5820, !noalias !5810
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
 
@@ -36548,22 +36548,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 271:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
   store i64 %250, ptr %167, align 8
   store i64 %250, ptr %33, align 8
-  store ptr %.pre.i.i324892, ptr %166, align 8
+  store ptr %.pre.i.i321889, ptr %166, align 8
   %272 = load i64, ptr %170, align 8, !range !355, !noalias !5810, !noundef !3
   %273 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %274 = load i64, ptr %273, align 8, !noalias !5810
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !5810
   br label %275
 
-.loopexit285:                                     ; preds = %259
+.loopexit282:                                     ; preds = %259
   store i64 %250, ptr %167, align 8
   store i64 %250, ptr %33, align 8
-  store ptr %.pre.i.i324892, ptr %166, align 8
+  store ptr %.pre.i.i321889, ptr %166, align 8
   br label %275
 
-275:                                              ; preds = %.loopexit285, %271
-  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %274, %271 ], [ undef, %.loopexit285 ]
-  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %272, %271 ], [ 0, %.loopexit285 ]
+275:                                              ; preds = %.loopexit282, %271
+  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %274, %271 ], [ undef, %.loopexit282 ]
+  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %272, %271 ], [ 0, %.loopexit282 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.536) #37
           to label %.noexc.i.i unwind label %277, !noalias !5824
 
@@ -36588,9 +36588,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   unreachable
 
 .noexc73.i:                                       ; preds = %.noexc135, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i"
-  %.pre.i.i323 = phi ptr [ %276, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i" ], [ %.pre.i.i324892, %.noexc135 ]
+  %.pre.i.i320 = phi ptr [ %276, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i" ], [ %.pre.i.i321889, %.noexc135 ]
   %281 = phi i64 [ %261, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i" ], [ %251, %.noexc135 ]
-  %282 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i323, i64 %250
+  %282 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i320, i64 %250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %282, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false), !noalias !5826
   %283 = add i64 %250, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !5806
@@ -36603,14 +36603,14 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 
 284:                                              ; preds = %.noexc73.i
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser7do_bump17hd4a74405d8673557E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, i8 noundef 22)
-          to label %.noexc74.i.backedge unwind label %.loopexit280
+          to label %.noexc74.i.backedge unwind label %.loopexit277
 
 285:                                              ; preds = %.noexc73.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152
   %.val18.i.i = phi i8 [ %.val17.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.val.i132, %.noexc73.i ]
-  %.pre.i.i322 = phi ptr [ %.pre.i.i324892, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.pre.i.i323, %.noexc73.i ]
+  %.pre.i.i319 = phi ptr [ %.pre.i.i321889, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.pre.i.i320, %.noexc73.i ]
   %286 = phi i64 [ %251, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %281, %.noexc73.i ]
   %287 = phi i64 [ %250, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %283, %.noexc73.i ]
-  %.sroa.0.1.i.i = phi i1 [ %.sroa.0.0.i68.i893, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ false, %.noexc73.i ]
+  %.sroa.0.1.i.i = phi i1 [ %.sroa.0.0.i68.i890, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ false, %.noexc73.i ]
   %288 = icmp eq i8 %.val18.i.i, 21
   br i1 %288, label %.thread, label %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit
 
@@ -36627,7 +36627,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a
 294:                                              ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit
   %.val22.i.i = load i32, ptr %168, align 8, !alias.scope !5795, !noalias !5796, !noundef !3
   %295 = invoke fastcc noundef zeroext i1 @_ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE(i8 %.val18.i.i, i32 %.val22.i.i)
-          to label %.noexc75.i unwind label %.loopexit280, !noalias !5765
+          to label %.noexc75.i unwind label %.loopexit277, !noalias !5765
 
 .noexc75.i:                                       ; preds = %294
   br i1 %295, label %308, label %306
@@ -36639,7 +36639,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a
 
 _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; preds = %296
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser7do_bump17hd4a74405d8673557E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, i8 noundef range(i8 7, 91) 22)
-          to label %.noexc74.i.backedge unwind label %.loopexit280
+          to label %.noexc74.i.backedge unwind label %.loopexit277
 
 .thread:                                          ; preds = %285, %296
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !5834
@@ -36658,7 +36658,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
   %300 = extractvalue { i32, i32 } %298, 0
   %301 = extractvalue { i32, i32 } %298, 1
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser9add_error5inner17h3955faca222ab86fE(ptr noalias noundef align 8 dereferenceable(24) %174, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %21, i32 noundef %300, i32 noundef %301)
-          to label %.noexc127 unwind label %.loopexit280
+          to label %.noexc127 unwind label %.loopexit277
 
 .noexc127:                                        ; preds = %299
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !5834
@@ -36670,12 +36670,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
           cleanup
   store i64 %287, ptr %167, align 8
   store i64 %286, ptr %33, align 8
-  store ptr %.pre.i.i322, ptr %166, align 8
+  store ptr %.pre.i.i319, ptr %166, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21) #39, !noalias !5839
   br label %.body70.i
 
 .noexc74.i.backedge:                              ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i, %.noexc127, %284, %.noexc79.i
-  %.pre.i.i321 = phi ptr [ %.pre.i.i323, %284 ], [ %.pre.i.i322, %.noexc79.i ], [ %.pre.i.i322, %.noexc127 ], [ %.pre.i.i322, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ]
+  %.pre.i.i318 = phi ptr [ %.pre.i.i320, %284 ], [ %.pre.i.i319, %.noexc79.i ], [ %.pre.i.i319, %.noexc127 ], [ %.pre.i.i319, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ]
   %303 = phi i64 [ %281, %284 ], [ %286, %.noexc79.i ], [ %286, %.noexc127 ], [ %286, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ]
   %304 = phi i64 [ %283, %284 ], [ %287, %.noexc79.i ], [ %287, %.noexc127 ], [ %287, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ]
   %.sroa.0.0.i68.i.be = phi i1 [ false, %284 ], [ %.sroa.0.1.i.i, %.noexc79.i ], [ %.sroa.0.1.i.i, %.noexc127 ], [ %.sroa.0.1.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ]
@@ -36692,29 +36692,29 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
 308:                                              ; preds = %.noexc75.i
   store i64 %287, ptr %167, align 8
   store i64 %286, ptr %33, align 8
-  store ptr %.pre.i.i322, ptr %166, align 8
+  store ptr %.pre.i.i319, ptr %166, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
-          to label %_ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd69629dbE.exit.i unwind label %.loopexit.split-lp281.loopexit, !noalias !5765
+          to label %_ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd69629dbE.exit.i unwind label %.loopexit.split-lp278.loopexit, !noalias !5765
 
 309:                                              ; preds = %306
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !5842
   invoke fastcc void @_ZN18ruff_python_parser6parser19RecoveryContextKind12create_error17h20b6fe065ce72b48E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %26, i8 noundef 8, i8 undef, i8 %.val15.i.i)
-          to label %313 unwind label %.loopexit280, !noalias !5765
+          to label %313 unwind label %.loopexit277, !noalias !5765
 
 310:                                              ; preds = %306
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, i8 noundef 22)
-          to label %.noexc79.i unwind label %.loopexit280
+          to label %.noexc79.i unwind label %.loopexit277
 
 .noexc79.i:                                       ; preds = %310, %314
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser8bump_any17hf4fcb2824f31d554E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
-          to label %.noexc74.i.backedge unwind label %.loopexit280, !noalias !5765
+          to label %.noexc74.i.backedge unwind label %.loopexit277, !noalias !5765
 
 311:                                              ; preds = %313
   %312 = landingpad { ptr, i32 }
           cleanup
   store i64 %287, ptr %167, align 8
   store i64 %286, ptr %33, align 8
-  store ptr %.pre.i.i322, ptr %166, align 8
+  store ptr %.pre.i.i319, ptr %166, align 8
   br label %.body70.i
 
 313:                                              ; preds = %309
@@ -36728,12 +36728,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
   br label %.noexc79.i
 
 _ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd69629dbE.exit.i.loopexit: ; preds = %.noexc73.i, %.noexc73.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152
-  %.pre.i.i326 = phi ptr [ %.pre.i.i324892, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.pre.i.i324892, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.pre.i.i323, %.noexc73.i ], [ %.pre.i.i323, %.noexc73.i ]
+  %.pre.i.i323 = phi ptr [ %.pre.i.i321889, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.pre.i.i321889, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %.pre.i.i320, %.noexc73.i ], [ %.pre.i.i320, %.noexc73.i ]
   %315 = phi i64 [ %251, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %251, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %281, %.noexc73.i ], [ %281, %.noexc73.i ]
   %316 = phi i64 [ %250, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %250, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit152 ], [ %283, %.noexc73.i ], [ %283, %.noexc73.i ]
   store i64 %316, ptr %167, align 8
   store i64 %315, ptr %33, align 8
-  store ptr %.pre.i.i326, ptr %166, align 8
+  store ptr %.pre.i.i323, ptr %166, align 8
   br label %_ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd69629dbE.exit.i
 
 _ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd69629dbE.exit.i: ; preds = %_ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd69629dbE.exit.i.loopexit, %308
@@ -36751,29 +36751,29 @@ _ZN18ruff_python_parser6parser6Parser26parse_comma_separated_list17h8e1d000fd696
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.45.sroa.0.i)
   br label %thread-pre-split
 
-.loopexit280:                                     ; preds = %310, %294, %309, %.noexc79.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i, %299, %284, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread
-  %.pre.i.i327 = phi ptr [ %.pre.i.i322, %294 ], [ %.pre.i.i322, %309 ], [ %.pre.i.i322, %310 ], [ %.pre.i.i322, %.noexc79.i ], [ %.pre.i.i322, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ], [ %.pre.i.i322, %299 ], [ %.pre.i.i323, %284 ], [ %.pre.i.i324892, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread ]
+.loopexit277:                                     ; preds = %310, %294, %309, %.noexc79.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i, %299, %284, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread
+  %.pre.i.i324 = phi ptr [ %.pre.i.i319, %294 ], [ %.pre.i.i319, %309 ], [ %.pre.i.i319, %310 ], [ %.pre.i.i319, %.noexc79.i ], [ %.pre.i.i319, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ], [ %.pre.i.i319, %299 ], [ %.pre.i.i320, %284 ], [ %.pre.i.i321889, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread ]
   %317 = phi i64 [ %286, %294 ], [ %286, %309 ], [ %286, %310 ], [ %286, %.noexc79.i ], [ %286, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ], [ %286, %299 ], [ %281, %284 ], [ %251, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread ]
   %318 = phi i64 [ %287, %294 ], [ %287, %309 ], [ %287, %310 ], [ %287, %.noexc79.i ], [ %287, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i ], [ %287, %299 ], [ %283, %284 ], [ %250, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit143.thread ]
-  %lpad.loopexit282 = landingpad { ptr, i32 }
+  %lpad.loopexit279 = landingpad { ptr, i32 }
           cleanup
   store i64 %318, ptr %167, align 8
   store i64 %317, ptr %33, align 8
-  store ptr %.pre.i.i327, ptr %166, align 8
+  store ptr %.pre.i.i324, ptr %166, align 8
   br label %.body70.i
 
-.loopexit.split-lp281.loopexit:                   ; preds = %308
-  %lpad.loopexit289 = landingpad { ptr, i32 }
+.loopexit.split-lp278.loopexit:                   ; preds = %308
+  %lpad.loopexit286 = landingpad { ptr, i32 }
           cleanup
   br label %.body70.i
 
-.loopexit.split-lp281.loopexit.split-lp:          ; preds = %.noexc148, %235
+.loopexit.split-lp278.loopexit.split-lp:          ; preds = %.noexc148, %235
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body70.i
 
-.body70.i:                                        ; preds = %.loopexit280, %.loopexit.split-lp281.loopexit.split-lp, %.loopexit.split-lp281.loopexit, %277, %.body.i125, %311
-  %eh.lpad-body71.i = phi { ptr, i32 } [ %312, %311 ], [ %302, %.body.i125 ], [ %278, %277 ], [ %lpad.loopexit282, %.loopexit280 ], [ %lpad.loopexit289, %.loopexit.split-lp281.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp281.loopexit.split-lp ]
+.body70.i:                                        ; preds = %.loopexit277, %.loopexit.split-lp278.loopexit.split-lp, %.loopexit.split-lp278.loopexit, %277, %.body.i125, %311
+  %eh.lpad-body71.i = phi { ptr, i32 } [ %312, %311 ], [ %302, %.body.i125 ], [ %278, %277 ], [ %lpad.loopexit279, %.loopexit277 ], [ %lpad.loopexit286, %.loopexit.split-lp278.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp278.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Expr$GT$$GT$17he430f9a7a165cf35E"(ptr noalias noundef align 8 dereferenceable(24) %33) #39
           to label %.body41.i.thread unwind label %217
 
@@ -36840,13 +36840,13 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit.i: ; preds = %.loopexi
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !5772
   store i8 13, ptr %32, align 8, !noalias !5772
   %341 = invoke { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %335)
-          to label %342 unwind label %.loopexit279, !noalias !5765
+          to label %342 unwind label %.loopexit276, !noalias !5765
 
 342:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h5c8b47ee729be761E.exit.i"
   %343 = extractvalue { i32, i32 } %341, 0
   %344 = extractvalue { i32, i32 } %341, 1
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser28add_unsupported_syntax_error17h26bec670219fc279E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %32, i32 noundef %343, i32 noundef %344)
-          to label %345 unwind label %.loopexit279, !noalias !5765
+          to label %345 unwind label %.loopexit276, !noalias !5765
 
 345:                                              ; preds = %342
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !5772
@@ -36882,11 +36882,11 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit87.i: ; preds = %_ZN5al
 
 351:                                              ; preds = %347
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17h5650e92f0d1d2371E"(ptr noalias noundef align 8 dereferenceable(8) %31) #39
-          to label %common.resume697 unwind label %217, !noalias !5765
+          to label %common.resume694 unwind label %217, !noalias !5765
 
-.body66.i:                                        ; preds = %.loopexit279, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %326, %.body.i.i
-  %.sroa.025.2.lpad-body.i = phi i1 [ true, %.body.i.i ], [ false, %326 ], [ true, %.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit279 ]
-  %eh.lpad-body48.i = phi { ptr, i32 } [ %227, %.body.i.i ], [ %327, %326 ], [ %lpad.loopexit286, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp287, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit279 ]
+.body66.i:                                        ; preds = %.loopexit276, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %326, %.body.i.i
+  %.sroa.025.2.lpad-body.i = phi i1 [ true, %.body.i.i ], [ false, %326 ], [ true, %.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit276 ]
+  %eh.lpad-body48.i = phi { ptr, i32 } [ %227, %.body.i.i ], [ %327, %326 ], [ %lpad.loopexit283, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp284, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit276 ]
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %34) #39
           to label %.body41.i unwind label %217, !noalias !5765
 
@@ -36924,7 +36924,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hb1396644f1a5196aE.exit.i: ; pr
   %362 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %36) #39
-          to label %common.resume697 unwind label %363, !noalias !5765
+          to label %common.resume694 unwind label %363, !noalias !5765
 
 363:                                              ; preds = %361
   %364 = landingpad { ptr, i32 }
@@ -36934,7 +36934,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hb1396644f1a5196aE.exit.i: ; pr
 
 .body.i:                                          ; preds = %370
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17h5650e92f0d1d2371E"(ptr noalias noundef align 8 dereferenceable(8) %37) #39
-          to label %common.resume697 unwind label %217, !noalias !5765
+          to label %common.resume694 unwind label %217, !noalias !5765
 
 365:                                              ; preds = %_ZN18ruff_python_parser6parser6Parser9add_error17hb1396644f1a5196aE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %358, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
@@ -36982,22 +36982,22 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit95.i: ; preds = %365
 .body41.i.thread:                                 ; preds = %.body70.i, %198, %355, %.body41.i
   %.pn38.pn.i257 = phi { ptr, i32 } [ %eh.lpad-body48.i, %.body41.i ], [ %356, %355 ], [ %199, %198 ], [ %eh.lpad-body71.i, %.body70.i ]
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %45) #39
-          to label %common.resume697 unwind label %217, !noalias !5768
+          to label %common.resume694 unwind label %217, !noalias !5768
 
 374:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !5747
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !5747
   store i32 %.sroa.0.0, ptr %43, align 8, !noalias !5748
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx381, align 4, !noalias !5748
-  store ptr %.sroa.8389.0, ptr %.sroa.8389.0..sroa_idx390, align 8, !noalias !5748
-  store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx398, align 8, !noalias !5748
-  store i32 %.sroa.10.0465, ptr %.sroa.10.0..sroa_idx406, align 8, !noalias !5748
-  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx414, align 4, !noalias !5748
-  store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx422, align 8, !noalias !5748
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx430, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !noalias !5748
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx434, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false), !noalias !5748
-  store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx438, align 8, !noalias !5748
-  store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx446, align 4, !noalias !5748
+  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx378, align 4, !noalias !5748
+  store ptr %.sroa.8386.0, ptr %.sroa.8386.0..sroa_idx387, align 8, !noalias !5748
+  store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx395, align 8, !noalias !5748
+  store i32 %.sroa.10.0462, ptr %.sroa.10.0..sroa_idx403, align 8, !noalias !5748
+  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx411, align 4, !noalias !5748
+  store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx419, align 8, !noalias !5748
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.0..sroa_idx427, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false), !noalias !5748
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx431, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false), !noalias !5748
+  store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx435, align 8, !noalias !5748
+  store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx443, align 4, !noalias !5748
   call fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$26parse_attribute_expression17h3ef680e2f49b575bE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %44, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef align 8 captures(none) dereferenceable(64) %43, i32 noundef %.val21), !noalias !5744
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !5747
   %.sroa.7.i.sroa.4.4.copyload = load ptr, ptr %44, align 8, !noalias !5747
@@ -37051,10 +37051,10 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit95.i: ; preds = %365
   br label %376
 
 "_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$24parse_postfix_expression17h37e09e95e956ba81E.exit": ; preds = %180
-  %.sroa.10461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10461.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false)
-  %.sroa.11462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11462.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false)
+  %.sroa.10458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10458.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, i64 7, i1 false)
+  %.sroa.11459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11459.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.sroa.7.sroa.10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.sroa.7.sroa.11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
@@ -37062,22 +37062,22 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit95.i: ; preds = %365
   %377 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %378 = load i8, ptr %377, align 8, !range !106, !noundef !3
   store i32 %.sroa.0.0, ptr %0, align 8
-  %.sroa.4455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.4455.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx456 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8389.0, ptr %.sroa.5.0..sroa_idx456, align 8
-  %.sroa.6.0..sroa_idx457 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.9.0, ptr %.sroa.6.0..sroa_idx457, align 8
-  %.sroa.7.0..sroa_idx458 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.10.0465, ptr %.sroa.7.0..sroa_idx458, align 8
-  %.sroa.8459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.11.0, ptr %.sroa.8459.0..sroa_idx, align 4
-  %.sroa.9460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.12.0, ptr %.sroa.9460.0..sroa_idx, align 8
-  %.sroa.12463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.sroa.15.0, ptr %.sroa.12463.0..sroa_idx, align 8
-  %.sroa.13464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.sroa.16.0, ptr %.sroa.13464.0..sroa_idx, align 4
+  %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.8.0.copyload, ptr %.sroa.4452.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx453 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.8386.0, ptr %.sroa.5.0..sroa_idx453, align 8
+  %.sroa.6.0..sroa_idx454 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.9.0, ptr %.sroa.6.0..sroa_idx454, align 8
+  %.sroa.7.0..sroa_idx455 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.sroa.10.0462, ptr %.sroa.7.0..sroa_idx455, align 8
+  %.sroa.8456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %.sroa.11.0, ptr %.sroa.8456.0..sroa_idx, align 4
+  %.sroa.9457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sroa.12.0, ptr %.sroa.9457.0..sroa_idx, align 8
+  %.sroa.12460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %.sroa.15.0, ptr %.sroa.12460.0..sroa_idx, align 8
+  %.sroa.13461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %.sroa.16.0, ptr %.sroa.13461.0..sroa_idx, align 4
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %378, ptr %379, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
@@ -37120,7 +37120,7 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit: ; preds = %
   %389 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %41) #39
-          to label %common.resume697 unwind label %390, !noalias !5864
+          to label %common.resume694 unwind label %390, !noalias !5864
 
 390:                                              ; preds = %388
   %391 = landingpad { ptr, i32 }
@@ -37177,7 +37177,7 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit109: ; preds 
   %403 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %39) #39
-          to label %common.resume697 unwind label %404, !noalias !5873
+          to label %common.resume694 unwind label %404, !noalias !5873
 
 404:                                              ; preds = %402
   %405 = landingpad { ptr, i32 }
@@ -37254,8 +37254,8 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit: ; preds = %_
   %426 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %427 = load i8, ptr %426, align 8, !range !106, !noalias !5905
   %428 = trunc nuw i8 %427 to i1
-  %or.cond.i684 = select i1 %425, i1 true, i1 %428
-  br i1 %or.cond.i684, label %429, label %438
+  %or.cond.i681 = select i1 %425, i1 true, i1 %428
+  br i1 %or.cond.i681, label %429, label %438
 
 429:                                              ; preds = %_ZN18ruff_python_parser6parser6Parser9add_error17hddafbeb4072432aaE.exit.i, %423
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !5905
@@ -37276,7 +37276,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit: ; preds = %_
   %435 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8) #39
-          to label %common.resume697 unwind label %436, !noalias !5900
+          to label %common.resume694 unwind label %436, !noalias !5900
 
 436:                                              ; preds = %434
   %437 = landingpad { ptr, i32 }
@@ -37321,20 +37321,20 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hddafbeb4072432aaE.exit.i: ; pr
 .thread13.i:                                      ; preds = %445, %443
   %eh.lpad-body9.i = phi { ptr, i32 } [ %446, %445 ], [ %444, %443 ]
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %11) #39
-          to label %common.resume697 unwind label %447, !noalias !5900
+          to label %common.resume694 unwind label %447, !noalias !5900
 
 "_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$27parse_yield_from_expression17h8538e5f1f0f6f996E.exit": ; preds = %429
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %431, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !5900
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !5905
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %.val.i = load i32, ptr %449, align 4, !alias.scope !5903, !noalias !5900, !noundef !3
-  %.sroa.0.0.i.i685 = call i32 @llvm.umin.i32(i32 %.val.i, i32 %.val21)
+  %.sroa.0.0.i.i682 = call i32 @llvm.umin.i32(i32 %.val.i, i32 %.val21)
   %450 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %431, ptr %450, align 8, !alias.scope !5900, !noalias !5903
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 %.sroa.0.0.i.i685, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5900, !noalias !5903
-  %.sroa.5.0..sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  store i32 %.val.i, ptr %.sroa.5.0..sroa_idx.i686, align 4, !alias.scope !5900, !noalias !5903
+  store i32 %.sroa.0.0.i.i682, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5900, !noalias !5903
+  %.sroa.5.0..sroa_idx.i683 = getelementptr inbounds nuw i8, ptr %55, i64 20
+  store i32 %.val.i, ptr %.sroa.5.0..sroa_idx.i683, align 4, !alias.scope !5900, !noalias !5903
   store i32 14, ptr %55, align 8, !alias.scope !5900, !noalias !5903
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !5905
   br label %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_yield_expression17h154d4bdcb795b6ecE.exit"
@@ -37360,16 +37360,16 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hddafbeb4072432aaE.exit.i: ; pr
 
 457:                                              ; preds = %453
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 64) #37
-          to label %.noexc.i688 unwind label %458, !noalias !5892
+          to label %.noexc.i685 unwind label %458, !noalias !5892
 
-.noexc.i688:                                      ; preds = %457
+.noexc.i685:                                      ; preds = %457
   unreachable
 
 458:                                              ; preds = %457
   %459 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #39
-          to label %common.resume697 unwind label %460, !noalias !5892
+          to label %common.resume694 unwind label %460, !noalias !5892
 
 460:                                              ; preds = %458
   %461 = landingpad { ptr, i32 }
@@ -37381,7 +37381,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hddafbeb4072432aaE.exit.i: ; pr
   %463 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %7) #39
-          to label %common.resume697 unwind label %464, !noalias !5892
+          to label %common.resume694 unwind label %464, !noalias !5892
 
 464:                                              ; preds = %462
   %465 = landingpad { ptr, i32 }
@@ -37444,7 +37444,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hddafbeb4072432aaE.exit.i: ; pr
   %eh.lpad-body49 = phi { ptr, i32 } [ %479, %478 ], [ %477, %476 ]
   %.val23 = load ptr, ptr %61, align 8, !alias.scope !1153, !nonnull !3, !noundef !3
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$ruff_python_ast..generated..ExprStarred$GT$17h18d3c61e197670eeE"(ptr %.val23) #39
-          to label %common.resume697 unwind label %103
+          to label %common.resume694 unwind label %103
 
 480:                                              ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$24parse_starred_expression17he219ec6dbd3b4998E.exit", %_ZN18ruff_python_parser6parser6Parser9add_error17h6a5f69c8d03a16d8E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43)
@@ -37485,29 +37485,29 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h6a5f69c8d03a16d8E.exit: ; pred
 
 488:                                              ; preds = %484
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef 1, i64 36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.252) #37
-          to label %.noexc690 unwind label %489
+          to label %.noexc687 unwind label %489
 
-.noexc690:                                        ; preds = %488
+.noexc687:                                        ; preds = %488
   unreachable
 
 489:                                              ; preds = %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h697bf3365d154dcdE.exit.i", %488
   %490 = landingpad { ptr, i32 }
           cleanup
-  br label %.body692
+  br label %.body689
 
-.body692:                                         ; preds = %497, %489
-  %eh.lpad-body693 = phi { ptr, i32 } [ %490, %489 ], [ %498, %497 ]
+.body689:                                         ; preds = %497, %489
+  %eh.lpad-body690 = phi { ptr, i32 } [ %490, %489 ], [ %498, %497 ]
   invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..generated..ExprAwait$GT$17hc48f5495a6d21c0bE"(ptr %399) #39
-          to label %common.resume697 unwind label %103
+          to label %common.resume694 unwind label %103
 
 491:                                              ; preds = %484
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %486, ptr noundef nonnull align 1 dereferenceable(36) @anon.aab41dc2a4de2fafba55bf875aa63917.509, i64 36, i1 false), !noalias !5935
   %492 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 36, ptr %492, align 8
-  %.sroa.4695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %486, ptr %.sroa.4695.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx696 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store i64 36, ptr %.sroa.5.0..sroa_idx696, align 8
+  %.sroa.4692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store ptr %486, ptr %.sroa.4692.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx693 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  store i64 36, ptr %.sroa.5.0..sroa_idx693, align 8
   store i8 0, ptr %58, align 8
   %493 = invoke { i32, i32 } @"_ZN88_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h793bceb7af35ca7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %59)
           to label %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h697bf3365d154dcdE.exit.i" unwind label %497, !noalias !5936
@@ -37523,7 +37523,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h6a5f69c8d03a16d8E.exit: ; pred
   %498 = landingpad { ptr, i32 }
           cleanup
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %58) #39, !noalias !5940
-  br label %.body692
+  br label %.body689
 
 _ZN18ruff_python_parser6parser6Parser9add_error17h641b92505ecb4d5fE.exit: ; preds = %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h697bf3365d154dcdE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -37537,7 +37537,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h641b92505ecb4d5fE.exit: ; pred
 .body41:                                          ; preds = %415, %499
   %eh.lpad-body42 = phi { ptr, i32 } [ %500, %499 ], [ %416, %415 ]
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..generated..ExprLambda$GT$17h6d7fc78fde58c940E"(ptr noalias noundef align 8 dereferenceable(24) %57) #39
-          to label %common.resume697 unwind label %103
+          to label %common.resume694 unwind label %103
 
 _ZN18ruff_python_parser6parser6Parser9add_error17h2c2daa7c5b6b5887E.exit: ; preds = %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h7f614c9b38c8699aE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
@@ -37580,7 +37580,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2c2daa7c5b6b5887E.exit: ; pred
 .body51:                                          ; preds = %507, %509
   %eh.lpad-body52 = phi { ptr, i32 } [ %510, %509 ], [ %508, %507 ]
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %55) #39
-          to label %common.resume697 unwind label %103
+          to label %common.resume694 unwind label %103
 
 511:                                              ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_yield_expression17h154d4bdcb795b6ecE.exit", %_ZN18ruff_python_parser6parser6Parser9add_error17hddafbeb4072432aaE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %55, i64 64, i1 false)
@@ -38312,10 +38312,10 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit: ; preds = %
 85:                                               ; preds = %.noexc8.backedge
   store i64 %320, ptr %54, align 8
   store i64 %319, ptr %47, align 8
-  store ptr %.pre.i.i57229, ptr %53, align 8
+  store ptr %.pre.i.i57226, ptr %53, align 8
   store i64 %318, ptr %56, align 8
   store i64 %317, ptr %46, align 8
-  store ptr %.pre.i73.i301, ptr %55, align 8
+  store ptr %.pre.i73.i298, ptr %55, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6060
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6060
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6060
@@ -38369,16 +38369,16 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit: ; preds = %
 
 .noexc:                                           ; preds = %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit, %.noexc8.backedge
   %99 = phi i32 [ %84, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %321, %.noexc8.backedge ]
-  %.sroa.0.0.i845 = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.0.0.i.be, %.noexc8.backedge ]
-  %.sroa.05.0.i844 = phi i32 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.05.0.i.be, %.noexc8.backedge ]
-  %.sroa.0.0111843 = phi i1 [ false, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.0.0111.be, %.noexc8.backedge ]
-  %.sroa.0109.0841 = phi i8 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.0109.0.be, %.noexc8.backedge ]
+  %.sroa.0.0.i842 = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.0.0.i.be, %.noexc8.backedge ]
+  %.sroa.05.0.i841 = phi i32 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.05.0.i.be, %.noexc8.backedge ]
+  %.sroa.0.0111840 = phi i1 [ false, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.0.0111.be, %.noexc8.backedge ]
+  %.sroa.0109.0838 = phi i8 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.sroa.0109.0.be, %.noexc8.backedge ]
   %100 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %320, %.noexc8.backedge ]
   %101 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %319, %.noexc8.backedge ]
-  %.pre.i.i57234840 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.pre.i.i57229, %.noexc8.backedge ]
+  %.pre.i.i57231837 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.pre.i.i57226, %.noexc8.backedge ]
   %102 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %318, %.noexc8.backedge ]
   %103 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %317, %.noexc8.backedge ]
-  %.pre.i73.i307839 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.pre.i73.i301, %.noexc8.backedge ]
+  %.pre.i73.i304836 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit ], [ %.pre.i73.i298, %.noexc8.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6062)
   %.val17.i = load i8, ptr %50, align 2, !alias.scope !6050, !noalias !6053
   %104 = zext nneg i8 %.val17.i to i128
@@ -38435,18 +38435,18 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i: ; preds = 
   br i1 %113, label %271, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i"
 
 .thread137.loopexit:                              ; preds = %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h670bf475ac1f5dfdE.exit.i62.i", %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h670bf475ac1f5dfdE.exit.i52.i", %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h670bf475ac1f5dfdE.exit.i46.i", %140, %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h670bf475ac1f5dfdE.exit.i36.i", %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h670bf475ac1f5dfdE.exit.i.i"
-  %lpad.loopexit167 = landingpad { ptr, i32 }
+  %lpad.loopexit164 = landingpad { ptr, i32 }
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   br label %.thread
 
 .thread137.loopexit.split-lp:                     ; preds = %199
-  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp165 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -38455,14 +38455,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i: ; preds = 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   br label %.body20
 
 115:                                              ; preds = %.noexc62
-  %116 = trunc nuw i8 %.sroa.0109.0841 to i1
+  %116 = trunc nuw i8 %.sroa.0109.0838 to i1
   %117 = load i8, ptr %60, align 8, !range !106, !noalias !6068
   %118 = trunc nuw i8 %117 to i1
   %.not.i60 = xor i1 %118, true
@@ -38505,10 +38505,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i: ; preds = 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26) #39, !noalias !6073
   br label %.thread
 
@@ -38550,10 +38550,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit.i: ; pr
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %23) #39, !noalias !6081
   br label %.thread
 
@@ -38580,7 +38580,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit42.i: ; preds 
   br i1 %147, label %192, label %195
 
 148:                                              ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit42.i
-  %149 = trunc nuw i8 %.sroa.0109.0841 to i1
+  %149 = trunc nuw i8 %.sroa.0109.0838 to i1
   br i1 %149, label %178, label %177
 
 150:                                              ; preds = %_ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit51.i, %_ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i, %177, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit42.i
@@ -38596,7 +38596,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit42.i: ; preds 
   %156 = icmp samesign ugt i64 %101, 144115188075855871
   %157 = icmp ugt i64 %155, 9223372036854775800
   %158 = select i1 %156, i1 true, i1 %157
-  br i1 %158, label %.loopexit170, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58
+  br i1 %158, label %.loopexit167, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58: ; preds = %152
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !6082
@@ -38606,7 +38606,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58: ; preds 
 
 160:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58
   %161 = shl nuw nsw i64 %101, 6
-  store ptr %.pre.i.i57234840, ptr %12, align 8, !alias.scope !6092, !noalias !6082
+  store ptr %.pre.i.i57231837, ptr %12, align 8, !alias.scope !6092, !noalias !6082
   store i64 %161, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i, align 8, !alias.scope !6092, !noalias !6082
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
 
@@ -38622,28 +38622,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58: ; preds 
 164:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
   store i64 %101, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   %165 = load i64, ptr %64, align 8, !range !355, !noalias !6082, !noundef !3
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %167 = load i64, ptr %166, align 8, !noalias !6082
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !6082
   br label %168
 
-.loopexit170:                                     ; preds = %152
+.loopexit167:                                     ; preds = %152
   store i64 %101, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   br label %168
 
-168:                                              ; preds = %.loopexit170, %164
-  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %167, %164 ], [ undef, %.loopexit170 ]
-  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %165, %164 ], [ 0, %.loopexit170 ]
+168:                                              ; preds = %.loopexit167, %164
+  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %167, %164 ], [ undef, %.loopexit167 ]
+  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %165, %164 ], [ 0, %.loopexit167 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.531) #37
           to label %.noexc.i.i unwind label %170, !noalias !6096
 
@@ -38668,16 +38668,16 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58: ; preds 
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i": ; preds = %150, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i"
-  %.pre.i.i57233 = phi ptr [ %169, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i" ], [ %.pre.i.i57234840, %150 ]
+  %.pre.i.i57230 = phi ptr [ %169, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i" ], [ %.pre.i.i57231837, %150 ]
   %174 = phi i64 [ %154, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i" ], [ %101, %150 ]
-  %175 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i57233, i64 %100
+  %175 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i57230, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %175, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !noalias !6098
   %176 = add i64 %100, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !6068
   br label %.noexc64
 
 177:                                              ; preds = %148
-  br i1 %.sroa.0.0111843, label %183, label %150
+  br i1 %.sroa.0.0111840, label %183, label %150
 
 178:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !6068
@@ -38696,10 +38696,10 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i58: ; preds 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16) #39, !noalias !6103
   br label %.thread
 
@@ -38724,10 +38724,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit51.i: ; 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15) #39, !noalias !6108
   br label %.thread
 
@@ -38736,13 +38736,13 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i: ; 
   br label %150
 
 .noexc64:                                         ; preds = %256, %255, %251, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i"
-  %.pre.i73.i304 = phi ptr [ %.pre.i73.i305, %251 ], [ %.pre.i73.i307839, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %.pre.i73.i305, %255 ], [ %.pre.i73.i305, %256 ]
+  %.pre.i73.i301 = phi ptr [ %.pre.i73.i302, %251 ], [ %.pre.i73.i304836, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %.pre.i73.i302, %255 ], [ %.pre.i73.i302, %256 ]
   %188 = phi i64 [ %246, %251 ], [ %103, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %246, %255 ], [ %246, %256 ]
   %189 = phi i64 [ %248, %251 ], [ %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %248, %255 ], [ %248, %256 ]
-  %.pre.i.i57232 = phi ptr [ %.pre.i.i57234840, %251 ], [ %.pre.i.i57233, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %.pre.i.i57234840, %255 ], [ %.pre.i.i57234840, %256 ]
+  %.pre.i.i57229 = phi ptr [ %.pre.i.i57231837, %251 ], [ %.pre.i.i57230, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %.pre.i.i57231837, %255 ], [ %.pre.i.i57231837, %256 ]
   %190 = phi i64 [ %101, %251 ], [ %174, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %101, %255 ], [ %101, %256 ]
   %191 = phi i64 [ %100, %251 ], [ %176, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ %100, %255 ], [ %100, %256 ]
-  %.sroa.0.2 = phi i1 [ true, %251 ], [ %.sroa.0.0111843, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ true, %255 ], [ true, %256 ]
+  %.sroa.0.2 = phi i1 [ true, %251 ], [ %.sroa.0.0111840, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3983e9719f8a910dE.exit.i" ], [ true, %255 ], [ true, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !6068
   br label %.noexc7
 
@@ -38763,10 +38763,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i: ; 
 199:                                              ; preds = %195
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef 1, i64 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.252) #37
           to label %.noexc59.i unwind label %.thread137.loopexit.split-lp, !noalias !6066
 
@@ -38802,10 +38802,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i: ; 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   %207 = getelementptr inbounds nuw i8, ptr %21, i64 23
   %208 = load i8, ptr %207, align 1, !range !28, !alias.scope !6123, !noalias !6068, !noundef !3
   %209 = icmp eq i8 %208, -40
@@ -38853,10 +38853,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i: ; 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %19) #39, !noalias !6134
   br label %.thread
 
@@ -38872,10 +38872,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i: ; 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   br label %.thread
 
 223:                                              ; preds = %219
@@ -38893,7 +38893,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17h2644e6491f39d1dcE.exit57.i: ; 
   %228 = call i64 @llvm.umax.i64(i64 %227, i64 4)
   %229 = mul i64 %228, 104
   %230 = icmp samesign ugt i64 %103, 44343134792571037
-  br i1 %230, label %.loopexit171, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i
+  br i1 %230, label %.loopexit168, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6135
@@ -38903,7 +38903,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
 
 232:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i
   %233 = mul nuw nsw i64 %103, 104
-  store ptr %.pre.i73.i307839, ptr %10, align 8, !alias.scope !6145, !noalias !6135
+  store ptr %.pre.i73.i304836, ptr %10, align 8, !alias.scope !6145, !noalias !6135
   store i64 %233, ptr %.sroa.5.0..sroa_idx.i41.i.i.i76.i, align 8, !alias.scope !6145, !noalias !6135
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i77.i"
 
@@ -38919,28 +38919,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
 236:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i77.i"
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %103, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   %237 = load i64, ptr %75, align 8, !range !355, !noalias !6135, !noundef !3
   %238 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %239 = load i64, ptr %238, align 8, !noalias !6135
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !6135
   br label %240
 
-.loopexit171:                                     ; preds = %226
+.loopexit168:                                     ; preds = %226
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %103, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   br label %240
 
-240:                                              ; preds = %.loopexit171, %236
-  %.sroa.6.0.i.ph.i.i79.i = phi i64 [ %239, %236 ], [ undef, %.loopexit171 ]
-  %.sroa.04.0.i.ph.i.i80.i = phi i64 [ %237, %236 ], [ 0, %.loopexit171 ]
+240:                                              ; preds = %.loopexit168, %236
+  %.sroa.6.0.i.ph.i.i79.i = phi i64 [ %239, %236 ], [ undef, %.loopexit168 ]
+  %.sroa.04.0.i.ph.i.i80.i = phi i64 [ %237, %236 ], [ 0, %.loopexit168 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i80.i, i64 %.sroa.6.0.i.ph.i.i79.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.533) #37
           to label %.noexc.i81.i unwind label %242, !noalias !6149
 
@@ -38965,9 +38965,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit.i": ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i.i"
-  %.pre.i73.i305 = phi ptr [ %241, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i.i" ], [ %.pre.i73.i307839, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i" ]
+  %.pre.i73.i302 = phi ptr [ %241, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i.i" ], [ %.pre.i73.i304836, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i" ]
   %246 = phi i64 [ %228, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i.i" ], [ %103, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i" ]
-  %247 = getelementptr inbounds nuw { { i32, [15 x i32] }, { [31 x i8], i8 }, { i32, i32 } }, ptr %.pre.i73.i305, i64 %102
+  %247 = getelementptr inbounds nuw { { i32, [15 x i32] }, { [31 x i8], i8 }, { i32, i32 } }, ptr %.pre.i73.i302, i64 %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %247, ptr noundef nonnull align 8 dereferenceable(104) %17, i64 104, i1 false), !noalias !6151
   %248 = add i64 %102, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !6068
@@ -38981,8 +38981,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
   %252 = trunc nuw i8 %.sroa.018.3.i to i1
   %253 = load i8, ptr %76, align 1, !range !28
   %254 = icmp eq i8 %253, -40
-  %or.cond163 = select i1 %252, i1 %254, i1 false, !prof !290
-  br i1 %or.cond163, label %256, label %.noexc64, !prof !290
+  %or.cond160 = select i1 %252, i1 %254, i1 false, !prof !290
+  br i1 %or.cond160, label %256, label %.noexc64, !prof !290
 
 255:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit.i"
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %27)
@@ -38997,10 +38997,10 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
           cleanup
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %102, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   %259 = getelementptr inbounds nuw i8, ptr %22, i64 31
   %260 = load i8, ptr %259, align 1, !range !28, !alias.scope !6152, !noalias !6068, !noundef !3
   %261 = icmp eq i8 %260, -40
@@ -39011,7 +39011,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
           to label %.thread unwind label %214, !noalias !6066
 
 .thread:                                          ; preds = %221, %.thread137.loopexit, %.thread137.loopexit.split-lp, %257, %262, %242, %205, %210, %.thread133, %.thread130, %.thread127, %.thread121, %.thread118
-  %.pn.pn.i117 = phi { ptr, i32 } [ %131, %.thread118 ], [ %139, %.thread121 ], [ %182, %.thread127 ], [ %187, %.thread130 ], [ %218, %.thread133 ], [ %206, %210 ], [ %206, %205 ], [ %222, %221 ], [ %243, %242 ], [ %258, %262 ], [ %258, %257 ], [ %lpad.loopexit167, %.thread137.loopexit ], [ %lpad.loopexit.split-lp168, %.thread137.loopexit.split-lp ]
+  %.pn.pn.i117 = phi { ptr, i32 } [ %131, %.thread118 ], [ %139, %.thread121 ], [ %182, %.thread127 ], [ %187, %.thread130 ], [ %218, %.thread133 ], [ %206, %210 ], [ %206, %205 ], [ %222, %221 ], [ %243, %242 ], [ %258, %262 ], [ %258, %257 ], [ %lpad.loopexit164, %.thread137.loopexit ], [ %lpad.loopexit.split-lp165, %.thread137.loopexit.split-lp ]
   %.sroa.018.1.i115 = phi i8 [ 1, %.thread118 ], [ 1, %.thread121 ], [ 1, %.thread127 ], [ 1, %.thread130 ], [ 1, %.thread133 ], [ 0, %210 ], [ 0, %205 ], [ 1, %221 ], [ %.sroa.018.3.i, %242 ], [ %.sroa.018.3.i, %262 ], [ %.sroa.018.3.i, %257 ], [ 1, %.thread137.loopexit ], [ 1, %.thread137.loopexit.split-lp ]
   %263 = load i32, ptr %27, align 8, !range !365, !noalias !6068, !noundef !3
   %264 = icmp eq i32 %263, 27
@@ -39021,8 +39021,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
   %266 = trunc nuw i8 %.sroa.018.1.i115 to i1
   %267 = load i8, ptr %76, align 1, !range !28
   %268 = icmp eq i8 %267, -40
-  %or.cond166 = select i1 %266, i1 %268, i1 false, !prof !290
-  br i1 %or.cond166, label %270, label %.body20, !prof !290
+  %or.cond163 = select i1 %266, i1 %268, i1 false, !prof !290
+  br i1 %or.cond163, label %270, label %.body20, !prof !290
 
 269:                                              ; preds = %.thread
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %27) #39
@@ -39037,7 +39037,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
   %273 = call i64 @llvm.umax.i64(i64 %272, i64 4)
   %274 = mul i64 %273, 104
   %275 = icmp samesign ugt i64 %103, 44343134792571037
-  br i1 %275, label %.loopexit172, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i
+  br i1 %275, label %.loopexit169, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i: ; preds = %271
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6163
@@ -39047,7 +39047,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i: ; preds 
 
 277:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i
   %278 = mul nuw nsw i64 %103, 104
-  store ptr %.pre.i73.i307839, ptr %8, align 8, !alias.scope !6173, !noalias !6163
+  store ptr %.pre.i73.i304836, ptr %8, align 8, !alias.scope !6173, !noalias !6163
   store i64 %278, ptr %.sroa.5.0..sroa_idx.i41.i.i.i94.i, align 8, !alias.scope !6173, !noalias !6163
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i95.i"
 
@@ -39063,28 +39063,28 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i: ; preds 
 281:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i95.i"
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %103, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   %282 = load i64, ptr %80, align 8, !range !355, !noalias !6163, !noundef !3
   %283 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %284 = load i64, ptr %283, align 8, !noalias !6163
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6163
   br label %285
 
-.loopexit172:                                     ; preds = %271
+.loopexit169:                                     ; preds = %271
   store i64 %100, ptr %54, align 8
   store i64 %101, ptr %47, align 8
-  store ptr %.pre.i.i57234840, ptr %53, align 8
+  store ptr %.pre.i.i57231837, ptr %53, align 8
   store i64 %103, ptr %56, align 8
   store i64 %103, ptr %46, align 8
-  store ptr %.pre.i73.i307839, ptr %55, align 8
+  store ptr %.pre.i73.i304836, ptr %55, align 8
   br label %285
 
-285:                                              ; preds = %.loopexit172, %281
-  %.sroa.6.0.i.ph.i.i98.i = phi i64 [ %284, %281 ], [ undef, %.loopexit172 ]
-  %.sroa.04.0.i.ph.i.i99.i = phi i64 [ %282, %281 ], [ 0, %.loopexit172 ]
+285:                                              ; preds = %.loopexit169, %281
+  %.sroa.6.0.i.ph.i.i98.i = phi i64 [ %284, %281 ], [ undef, %.loopexit169 ]
+  %.sroa.04.0.i.ph.i.i99.i = phi i64 [ %282, %281 ], [ 0, %.loopexit169 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i99.i, i64 %.sroa.6.0.i.ph.i.i98.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.534) #37
           to label %.noexc.i100.i unwind label %287, !noalias !6177
 
@@ -39109,9 +39109,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i: ; preds 
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i": ; preds = %.noexc63, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i97.i"
-  %.pre.i73.i306 = phi ptr [ %286, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i97.i" ], [ %.pre.i73.i307839, %.noexc63 ]
+  %.pre.i73.i303 = phi ptr [ %286, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i97.i" ], [ %.pre.i73.i304836, %.noexc63 ]
   %291 = phi i64 [ %273, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb5c2f1457e936daaE.exit.i97.i" ], [ %103, %.noexc63 ]
-  %292 = getelementptr inbounds nuw { { i32, [15 x i32] }, { [31 x i8], i8 }, { i32, i32 } }, ptr %.pre.i73.i306, i64 %102
+  %292 = getelementptr inbounds nuw { { i32, [15 x i32] }, { [31 x i8], i8 }, { i32, i32 } }, ptr %.pre.i73.i303, i64 %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %292, ptr noundef nonnull align 8 dereferenceable(104) %28, i64 104, i1 false), !noalias !6179
   %293 = add i64 %102, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !6068
@@ -39119,14 +39119,14 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i: ; preds 
   br label %.noexc7
 
 .noexc7:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i", %.noexc64
-  %.pre.i73.i303 = phi ptr [ %.pre.i73.i306, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.pre.i73.i304, %.noexc64 ]
+  %.pre.i73.i300 = phi ptr [ %.pre.i73.i303, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.pre.i73.i301, %.noexc64 ]
   %294 = phi i64 [ %291, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %188, %.noexc64 ]
   %295 = phi i64 [ %293, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %189, %.noexc64 ]
-  %.pre.i.i57231 = phi ptr [ %.pre.i.i57234840, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.pre.i.i57232, %.noexc64 ]
+  %.pre.i.i57228 = phi ptr [ %.pre.i.i57231837, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.pre.i.i57229, %.noexc64 ]
   %296 = phi i64 [ %101, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %190, %.noexc64 ]
   %297 = phi i64 [ %100, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %191, %.noexc64 ]
-  %.sroa.0109.2 = phi i8 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.sroa.0109.0841, %.noexc64 ]
-  %.sroa.0.3 = phi i1 [ %.sroa.0.0111843, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.sroa.0.2, %.noexc64 ]
+  %.sroa.0109.2 = phi i8 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.sroa.0109.0838, %.noexc64 ]
+  %.sroa.0.3 = phi i1 [ %.sroa.0.0111840, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit101.i" ], [ %.sroa.0.2, %.noexc64 ]
   %.val.i49 = load i8, ptr %50, align 2, !range !2571, !alias.scope !6180, !noundef !3
   switch i8 %.val.i49, label %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge [
     i8 22, label %298
@@ -39139,29 +39139,29 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i92.i: ; preds 
           to label %.noexc8.backedge unwind label %.loopexit
 
 299:                                              ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84
-  %.pre-phi496 = phi i1 [ %306, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.pre-phi494 = phi i128 [ %.pre493, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %105, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.pre-phi493 = phi i1 [ %306, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.pre-phi491 = phi i128 [ %.pre490, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %105, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
   %.val18.i = phi i8 [ %.val.i49, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.pre.i73.i302 = phi ptr [ %.pre.i73.i303, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i73.i307839, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.pre.i73.i299 = phi ptr [ %.pre.i73.i300, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i73.i304836, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
   %300 = phi i64 [ %294, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %103, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
   %301 = phi i64 [ %295, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %102, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.pre.i.i57230 = phi ptr [ %.pre.i.i57231, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i.i57234840, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.pre.i.i57227 = phi ptr [ %.pre.i.i57228, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i.i57231837, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
   %302 = phi i64 [ %296, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %101, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
   %303 = phi i64 [ %297, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %100, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.sroa.0109.1 = phi i8 [ %.sroa.0109.2, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0109.0841, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.sroa.0.1 = phi i1 [ %.sroa.0.3, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0111843, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.sroa.05.1.i = phi i32 [ 0, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.05.0.i844, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i845, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
-  %304 = and i128 %.pre-phi494, 337570925882730900174282555711
+  %.sroa.0109.1 = phi i8 [ %.sroa.0109.2, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0109.0838, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.3, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0111840, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.sroa.05.1.i = phi i32 [ 0, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.05.0.i841, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i842, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ]
+  %304 = and i128 %.pre-phi491, 337570925882730900174282555711
   %305 = icmp ne i128 %304, 0
-  %.sroa.0.0.i36.i = or i1 %.pre-phi496, %305
+  %.sroa.0.0.i36.i = or i1 %.pre-phi493, %305
   br i1 %.sroa.0.0.i36.i, label %309, label %307, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge: ; preds = %.noexc7
   %.pre = zext nneg i8 %.val.i49 to i128
-  %.pre493 = shl nuw nsw i128 1, %.pre
-  %.pre495 = add nsw i8 %.val.i49, -99
-  %306 = icmp ult i8 %.pre495, 3
+  %.pre490 = shl nuw nsw i128 1, %.pre
+  %.pre492 = add nsw i8 %.val.i49, -99
+  %306 = icmp ult i8 %.pre492, 3
   br label %299
 
 307:                                              ; preds = %299
@@ -39210,18 +39210,18 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41: ;
           cleanup
   store i64 %303, ptr %54, align 8
   store i64 %302, ptr %47, align 8
-  store ptr %.pre.i.i57230, ptr %53, align 8
+  store ptr %.pre.i.i57227, ptr %53, align 8
   store i64 %301, ptr %56, align 8
   store i64 %300, ptr %46, align 8
-  store ptr %.pre.i73.i302, ptr %55, align 8
+  store ptr %.pre.i73.i299, ptr %55, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %31) #39, !noalias !6190
   br label %.body20
 
 .noexc8.backedge:                                 ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41, %.noexc43, %298, %.noexc13
-  %.pre.i73.i301 = phi ptr [ %.pre.i73.i303, %298 ], [ %.pre.i73.i302, %.noexc13 ], [ %.pre.i73.i302, %.noexc43 ], [ %.pre.i73.i302, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
+  %.pre.i73.i298 = phi ptr [ %.pre.i73.i300, %298 ], [ %.pre.i73.i299, %.noexc13 ], [ %.pre.i73.i299, %.noexc43 ], [ %.pre.i73.i299, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
   %317 = phi i64 [ %294, %298 ], [ %300, %.noexc13 ], [ %300, %.noexc43 ], [ %300, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
   %318 = phi i64 [ %295, %298 ], [ %301, %.noexc13 ], [ %301, %.noexc43 ], [ %301, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
-  %.pre.i.i57229 = phi ptr [ %.pre.i.i57231, %298 ], [ %.pre.i.i57230, %.noexc13 ], [ %.pre.i.i57230, %.noexc43 ], [ %.pre.i.i57230, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
+  %.pre.i.i57226 = phi ptr [ %.pre.i.i57228, %298 ], [ %.pre.i.i57227, %.noexc13 ], [ %.pre.i.i57227, %.noexc43 ], [ %.pre.i.i57227, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
   %319 = phi i64 [ %296, %298 ], [ %302, %.noexc13 ], [ %302, %.noexc43 ], [ %302, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
   %320 = phi i64 [ %297, %298 ], [ %303, %.noexc13 ], [ %303, %.noexc43 ], [ %303, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
   %.sroa.0109.0.be = phi i8 [ %.sroa.0109.2, %298 ], [ %.sroa.0109.1, %.noexc13 ], [ %.sroa.0109.1, %.noexc43 ], [ %.sroa.0109.1, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ]
@@ -39241,10 +39241,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41: ;
 324:                                              ; preds = %.noexc9
   store i64 %303, ptr %54, align 8
   store i64 %302, ptr %47, align 8
-  store ptr %.pre.i.i57230, ptr %53, align 8
+  store ptr %.pre.i.i57227, ptr %53, align 8
   store i64 %301, ptr %56, align 8
   store i64 %300, ptr %46, align 8
-  store ptr %.pre.i73.i302, ptr %55, align 8
+  store ptr %.pre.i73.i299, ptr %55, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %..noexc11_crit_edge unwind label %.loopexit.split-lp
 
@@ -39271,10 +39271,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41: ;
           cleanup
   store i64 %303, ptr %54, align 8
   store i64 %302, ptr %47, align 8
-  store ptr %.pre.i.i57230, ptr %53, align 8
+  store ptr %.pre.i.i57227, ptr %53, align 8
   store i64 %301, ptr %56, align 8
   store i64 %300, ptr %46, align 8
-  store ptr %.pre.i73.i302, ptr %55, align 8
+  store ptr %.pre.i73.i299, ptr %55, align 8
   br label %.body20
 
 329:                                              ; preds = %325
@@ -39291,20 +39291,20 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41: ;
   br label %.noexc13
 
 .loopexit:                                        ; preds = %326, %307, %325, %.noexc13, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41, %313, %298, %111, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i, %112, %255, %256
-  %.pre.i73.i309 = phi ptr [ %.pre.i73.i302, %307 ], [ %.pre.i73.i302, %325 ], [ %.pre.i73.i302, %326 ], [ %.pre.i73.i302, %.noexc13 ], [ %.pre.i73.i302, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %.pre.i73.i302, %313 ], [ %.pre.i73.i303, %298 ], [ %.pre.i73.i307839, %111 ], [ %.pre.i73.i307839, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.pre.i73.i307839, %112 ], [ %.pre.i73.i305, %255 ], [ %.pre.i73.i305, %256 ]
+  %.pre.i73.i306 = phi ptr [ %.pre.i73.i299, %307 ], [ %.pre.i73.i299, %325 ], [ %.pre.i73.i299, %326 ], [ %.pre.i73.i299, %.noexc13 ], [ %.pre.i73.i299, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %.pre.i73.i299, %313 ], [ %.pre.i73.i300, %298 ], [ %.pre.i73.i304836, %111 ], [ %.pre.i73.i304836, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.pre.i73.i304836, %112 ], [ %.pre.i73.i302, %255 ], [ %.pre.i73.i302, %256 ]
   %332 = phi i64 [ %300, %307 ], [ %300, %325 ], [ %300, %326 ], [ %300, %.noexc13 ], [ %300, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %300, %313 ], [ %294, %298 ], [ %103, %111 ], [ %103, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %103, %112 ], [ %246, %255 ], [ %246, %256 ]
   %333 = phi i64 [ %301, %307 ], [ %301, %325 ], [ %301, %326 ], [ %301, %.noexc13 ], [ %301, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %301, %313 ], [ %295, %298 ], [ %102, %111 ], [ %102, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %102, %112 ], [ %248, %255 ], [ %248, %256 ]
-  %.pre.i.i57236 = phi ptr [ %.pre.i.i57230, %307 ], [ %.pre.i.i57230, %325 ], [ %.pre.i.i57230, %326 ], [ %.pre.i.i57230, %.noexc13 ], [ %.pre.i.i57230, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %.pre.i.i57230, %313 ], [ %.pre.i.i57231, %298 ], [ %.pre.i.i57234840, %111 ], [ %.pre.i.i57234840, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.pre.i.i57234840, %112 ], [ %.pre.i.i57234840, %255 ], [ %.pre.i.i57234840, %256 ]
+  %.pre.i.i57233 = phi ptr [ %.pre.i.i57227, %307 ], [ %.pre.i.i57227, %325 ], [ %.pre.i.i57227, %326 ], [ %.pre.i.i57227, %.noexc13 ], [ %.pre.i.i57227, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %.pre.i.i57227, %313 ], [ %.pre.i.i57228, %298 ], [ %.pre.i.i57231837, %111 ], [ %.pre.i.i57231837, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.pre.i.i57231837, %112 ], [ %.pre.i.i57231837, %255 ], [ %.pre.i.i57231837, %256 ]
   %334 = phi i64 [ %302, %307 ], [ %302, %325 ], [ %302, %326 ], [ %302, %.noexc13 ], [ %302, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %302, %313 ], [ %296, %298 ], [ %101, %111 ], [ %101, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %101, %112 ], [ %101, %255 ], [ %101, %256 ]
   %335 = phi i64 [ %303, %307 ], [ %303, %325 ], [ %303, %326 ], [ %303, %.noexc13 ], [ %303, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41 ], [ %303, %313 ], [ %297, %298 ], [ %100, %111 ], [ %100, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %100, %112 ], [ %100, %255 ], [ %100, %256 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %335, ptr %54, align 8
   store i64 %334, ptr %47, align 8
-  store ptr %.pre.i.i57236, ptr %53, align 8
+  store ptr %.pre.i.i57233, ptr %53, align 8
   store i64 %333, ptr %56, align 8
   store i64 %332, ptr %46, align 8
-  store ptr %.pre.i73.i309, ptr %55, align 8
+  store ptr %.pre.i73.i306, ptr %55, align 8
   br label %.body20
 
 .loopexit.split-lp:                               ; preds = %351, %324, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i, %347, %85, %.noexc79
@@ -39314,24 +39314,24 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i41: ;
   br label %.body20
 
 .noexc11.loopexit:                                ; preds = %.noexc7, %.noexc7, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84
-  %.val.i.i492 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.val.i49, %.noexc7 ], [ %.val.i49, %.noexc7 ]
-  %.pre.i73.i308 = phi ptr [ %.pre.i73.i307839, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i73.i307839, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i73.i303, %.noexc7 ], [ %.pre.i73.i303, %.noexc7 ]
+  %.val.i.i489 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.val.i49, %.noexc7 ], [ %.val.i49, %.noexc7 ]
+  %.pre.i73.i305 = phi ptr [ %.pre.i73.i304836, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i73.i304836, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i73.i300, %.noexc7 ], [ %.pre.i73.i300, %.noexc7 ]
   %336 = phi i64 [ %103, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %103, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %294, %.noexc7 ], [ %294, %.noexc7 ]
   %337 = phi i64 [ %102, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %102, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %295, %.noexc7 ], [ %295, %.noexc7 ]
-  %.pre.i.i57235 = phi ptr [ %.pre.i.i57234840, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i.i57234840, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i.i57231, %.noexc7 ], [ %.pre.i.i57231, %.noexc7 ]
+  %.pre.i.i57232 = phi ptr [ %.pre.i.i57231837, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i.i57231837, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.pre.i.i57228, %.noexc7 ], [ %.pre.i.i57228, %.noexc7 ]
   %338 = phi i64 [ %101, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %101, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %296, %.noexc7 ], [ %296, %.noexc7 ]
   %339 = phi i64 [ %100, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %100, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %297, %.noexc7 ], [ %297, %.noexc7 ]
-  %.sroa.05.3.i.ph = phi i32 [ %.sroa.05.0.i844, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.sroa.05.0.i844, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ 0, %.noexc7 ], [ 0, %.noexc7 ]
+  %.sroa.05.3.i.ph = phi i32 [ %.sroa.05.0.i841, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ %.sroa.05.0.i841, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit84 ], [ 0, %.noexc7 ], [ 0, %.noexc7 ]
   store i64 %339, ptr %54, align 8
   store i64 %338, ptr %47, align 8
-  store ptr %.pre.i.i57235, ptr %53, align 8
+  store ptr %.pre.i.i57232, ptr %53, align 8
   store i64 %337, ptr %56, align 8
   store i64 %336, ptr %46, align 8
-  store ptr %.pre.i73.i308, ptr %55, align 8
+  store ptr %.pre.i73.i305, ptr %55, align 8
   br label %.noexc11
 
 .noexc11:                                         ; preds = %..noexc11_crit_edge, %.noexc11.loopexit
-  %.val.i.i = phi i8 [ %.val.i.i.pre, %..noexc11_crit_edge ], [ %.val.i.i492, %.noexc11.loopexit ]
+  %.val.i.i = phi i8 [ %.val.i.i.pre, %..noexc11_crit_edge ], [ %.val.i.i489, %.noexc11.loopexit ]
   %.sroa.05.3.i = phi i32 [ %.sroa.05.1.i, %..noexc11_crit_edge ], [ %.sroa.05.3.i.ph, %.noexc11.loopexit ]
   store i32 %58, ptr %57, align 8, !alias.scope !6050, !noalias !6053
   %340 = icmp eq i32 %.sroa.05.3.i, 1
@@ -47219,8 +47219,8 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit: ; preds = %
   %64 = zext nneg i8 %.val9 to i128
   %65 = shl nuw nsw i128 1, %64
   %66 = and i128 %65, 26029868521018294539740160
-  %.not124 = icmp eq i128 %66, 0
-  br i1 %.not124, label %67, label %79
+  %.not123 = icmp eq i128 %66, 0
+  br i1 %.not123, label %67, label %79
 
 67:                                               ; preds = %63
   call void @llvm.experimental.noalias.scope.decl(metadata !7323)
@@ -47299,7 +47299,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i57: ;
 97:                                               ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   store i64 %164, ptr %86, align 8
   store i64 %163, ptr %23, align 8
-  store ptr %.pre.i148, ptr %85, align 8
+  store ptr %.pre.i145, ptr %85, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !7346
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !7346
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !7346
@@ -47353,10 +47353,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i57: ;
 
 _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i: ; preds = %84, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   %111 = phi i32 [ %96, %84 ], [ %165, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.sroa.0.0.i34264 = phi i1 [ true, %84 ], [ %.sroa.0.0.i34.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.sroa.0.0.i34261 = phi i1 [ true, %84 ], [ %.sroa.0.0.i34.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %112 = phi i64 [ 1, %84 ], [ %164, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %113 = phi i64 [ 1, %84 ], [ %163, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.pre.i151263 = phi ptr [ %81, %84 ], [ %.pre.i148, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.pre.i148260 = phi ptr [ %81, %84 ], [ %.pre.i145, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7349), !noalias !7329
   %.val17.i = load i8, ptr %35, align 2, !alias.scope !7336, !noalias !7339
   %114 = zext nneg i8 %.val17.i to i128
@@ -47392,7 +47392,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %125 = icmp samesign ugt i64 %113, 144115188075855871
   %126 = icmp ugt i64 %124, 9223372036854775800
   %127 = select i1 %125, i1 true, i1 %126
-  br i1 %127, label %.loopexit133, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
+  br i1 %127, label %.loopexit130, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7354
@@ -47402,7 +47402,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
 
 129:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
   %130 = shl nuw nsw i64 %113, 6
-  store ptr %.pre.i151263, ptr %3, align 8, !alias.scope !7364, !noalias !7354
+  store ptr %.pre.i148260, ptr %3, align 8, !alias.scope !7364, !noalias !7354
   store i64 %130, ptr %.sroa.5.0..sroa_idx.i41.i.i.i, align 8, !alias.scope !7364, !noalias !7354
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
 
@@ -47418,22 +47418,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
 133:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
   store i64 %113, ptr %86, align 8
   store i64 %113, ptr %23, align 8
-  store ptr %.pre.i151263, ptr %85, align 8
+  store ptr %.pre.i148260, ptr %85, align 8
   %134 = load i64, ptr %91, align 8, !range !355, !noalias !7354, !noundef !3
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %136 = load i64, ptr %135, align 8, !noalias !7354
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7354
   br label %137
 
-.loopexit133:                                     ; preds = %121
+.loopexit130:                                     ; preds = %121
   store i64 %113, ptr %86, align 8
   store i64 %113, ptr %23, align 8
-  store ptr %.pre.i151263, ptr %85, align 8
+  store ptr %.pre.i148260, ptr %85, align 8
   br label %137
 
-137:                                              ; preds = %.loopexit133, %133
-  %.sroa.6.0.i.ph.i.i = phi i64 [ %136, %133 ], [ undef, %.loopexit133 ]
-  %.sroa.04.0.i.ph.i.i = phi i64 [ %134, %133 ], [ 0, %.loopexit133 ]
+137:                                              ; preds = %.loopexit130, %133
+  %.sroa.6.0.i.ph.i.i = phi i64 [ %136, %133 ], [ undef, %.loopexit130 ]
+  %.sroa.04.0.i.ph.i.i = phi i64 [ %134, %133 ], [ 0, %.loopexit130 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i, i64 %.sroa.6.0.i.ph.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.587) #37
           to label %.noexc.i unwind label %139, !noalias !7367
 
@@ -47458,9 +47458,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
   unreachable
 
 .noexc41:                                         ; preds = %.noexc40, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i"
-  %.pre.i150 = phi ptr [ %138, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i151263, %.noexc40 ]
+  %.pre.i147 = phi ptr [ %138, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i148260, %.noexc40 ]
   %143 = phi i64 [ %123, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %113, %.noexc40 ]
-  %144 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i150, i64 %112
+  %144 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i147, i64 %112
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %145 = add i64 %112, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !7350
@@ -47477,23 +47477,23 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
           to label %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge unwind label %.loopexit
 
 147:                                              ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80
-  %.pre-phi195 = phi i1 [ %152, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
-  %.pre-phi193 = phi i128 [ %.pre192, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %115, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
+  %.pre-phi192 = phi i1 [ %152, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
+  %.pre-phi190 = phi i128 [ %.pre189, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %115, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
   %.val18.i = phi i8 [ %.val.i25.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
-  %.pre.i149 = phi ptr [ %.pre.i150, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i151263, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
+  %.pre.i146 = phi ptr [ %.pre.i147, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i148260, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
   %148 = phi i64 [ %143, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %113, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
   %149 = phi i64 [ %145, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %112, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
-  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i34264, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
-  %150 = and i128 %.pre-phi193, 337570925882730900174282555711
+  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i34261, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ]
+  %150 = and i128 %.pre-phi190, 337570925882730900174282555711
   %151 = icmp ne i128 %150, 0
-  %.sroa.0.0.i32.i27.i = or i1 %.pre-phi195, %151
+  %.sroa.0.0.i32.i27.i = or i1 %.pre-phi192, %151
   br i1 %.sroa.0.0.i32.i27.i, label %155, label %153, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge: ; preds = %.noexc41
   %.pre = zext nneg i8 %.val.i25.i to i128
-  %.pre192 = shl nuw nsw i128 1, %.pre
-  %.pre194 = add nsw i8 %.val.i25.i, -99
-  %152 = icmp ult i8 %.pre194, 3
+  %.pre189 = shl nuw nsw i128 1, %.pre
+  %.pre191 = add nsw i8 %.val.i25.i, -99
+  %152 = icmp ult i8 %.pre191, 3
   br label %147
 
 153:                                              ; preds = %147
@@ -47542,12 +47542,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i: ;
           cleanup
   store i64 %149, ptr %86, align 8
   store i64 %148, ptr %23, align 8
-  store ptr %.pre.i149, ptr %85, align 8
+  store ptr %.pre.i146, ptr %85, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10) #39, !noalias !7382
   br label %.thread104
 
 _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ; preds = %.noexc45, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %146, %.noexc50
-  %.pre.i148 = phi ptr [ %.pre.i150, %146 ], [ %.pre.i149, %.noexc50 ], [ %.pre.i149, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i149, %.noexc45 ]
+  %.pre.i145 = phi ptr [ %.pre.i147, %146 ], [ %.pre.i146, %.noexc50 ], [ %.pre.i146, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i146, %.noexc45 ]
   %163 = phi i64 [ %143, %146 ], [ %148, %.noexc50 ], [ %148, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %148, %.noexc45 ]
   %164 = phi i64 [ %145, %146 ], [ %149, %.noexc50 ], [ %149, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %149, %.noexc45 ]
   %.sroa.0.0.i34.be = phi i1 [ false, %146 ], [ %.sroa.0.1.i, %.noexc50 ], [ %.sroa.0.1.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.sroa.0.1.i, %.noexc45 ]
@@ -47564,7 +47564,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
 168:                                              ; preds = %.noexc43
   store i64 %149, ptr %86, align 8
   store i64 %148, ptr %23, align 8
-  store ptr %.pre.i149, ptr %85, align 8
+  store ptr %.pre.i146, ptr %85, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %..noexc48_crit_edge unwind label %.loopexit.split-lp
 
@@ -47596,7 +47596,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
           cleanup
   store i64 %149, ptr %86, align 8
   store i64 %148, ptr %23, align 8
-  store ptr %.pre.i149, ptr %85, align 8
+  store ptr %.pre.i146, ptr %85, align 8
   br label %.thread104
 
 173:                                              ; preds = %.noexc49
@@ -47604,14 +47604,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   br label %.noexc50
 
 .loopexit:                                        ; preds = %170, %119, %146, %153, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %159, %169, %.noexc50
-  %.pre.i153 = phi ptr [ %.pre.i151263, %119 ], [ %.pre.i150, %146 ], [ %.pre.i149, %153 ], [ %.pre.i149, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i149, %159 ], [ %.pre.i149, %169 ], [ %.pre.i149, %170 ], [ %.pre.i149, %.noexc50 ]
+  %.pre.i150 = phi ptr [ %.pre.i148260, %119 ], [ %.pre.i147, %146 ], [ %.pre.i146, %153 ], [ %.pre.i146, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i146, %159 ], [ %.pre.i146, %169 ], [ %.pre.i146, %170 ], [ %.pre.i146, %.noexc50 ]
   %174 = phi i64 [ %113, %119 ], [ %143, %146 ], [ %148, %153 ], [ %148, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %148, %159 ], [ %148, %169 ], [ %148, %170 ], [ %148, %.noexc50 ]
   %175 = phi i64 [ %112, %119 ], [ %145, %146 ], [ %149, %153 ], [ %149, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %149, %159 ], [ %149, %169 ], [ %149, %170 ], [ %149, %.noexc50 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %175, ptr %86, align 8
   store i64 %174, ptr %23, align 8
-  store ptr %.pre.i153, ptr %85, align 8
+  store ptr %.pre.i150, ptr %85, align 8
   br label %.thread104
 
 .loopexit.split-lp:                               ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i, %184, %97, %.noexc38, %168
@@ -47620,17 +47620,17 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   br label %.thread104
 
 .noexc48.loopexit:                                ; preds = %.noexc41, %.noexc41, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80
-  %.val.i.i191 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.val.i25.i, %.noexc41 ], [ %.val.i25.i, %.noexc41 ]
-  %.pre.i152 = phi ptr [ %.pre.i151263, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.pre.i151263, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.pre.i150, %.noexc41 ], [ %.pre.i150, %.noexc41 ]
+  %.val.i.i188 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.val.i25.i, %.noexc41 ], [ %.val.i25.i, %.noexc41 ]
+  %.pre.i149 = phi ptr [ %.pre.i148260, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.pre.i148260, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %.pre.i147, %.noexc41 ], [ %.pre.i147, %.noexc41 ]
   %176 = phi i64 [ %113, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %113, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %143, %.noexc41 ], [ %143, %.noexc41 ]
   %177 = phi i64 [ %112, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %112, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit80 ], [ %145, %.noexc41 ], [ %145, %.noexc41 ]
   store i64 %177, ptr %86, align 8
   store i64 %176, ptr %23, align 8
-  store ptr %.pre.i152, ptr %85, align 8
+  store ptr %.pre.i149, ptr %85, align 8
   br label %.noexc48
 
 .noexc48:                                         ; preds = %..noexc48_crit_edge, %.noexc48.loopexit
-  %.val.i.i = phi i8 [ %.val.i.i.pre, %..noexc48_crit_edge ], [ %.val.i.i191, %.noexc48.loopexit ]
+  %.val.i.i = phi i8 [ %.val.i.i.pre, %..noexc48_crit_edge ], [ %.val.i.i188, %.noexc48.loopexit ]
   store i32 %88, ptr %87, align 8, !alias.scope !7336, !noalias !7339
   call void @llvm.experimental.noalias.scope.decl(metadata !7391)
   %178 = icmp eq i8 %.val.i.i, 20
@@ -48092,8 +48092,8 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit: ; preds = %
   %86 = zext nneg i8 %.val17 to i128
   %87 = shl nuw nsw i128 1, %86
   %88 = and i128 %87, 26029868521018294539740160
-  %.not193 = icmp eq i128 %88, 0
-  br i1 %.not193, label %89, label %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit87
+  %.not192 = icmp eq i128 %88, 0
+  br i1 %.not192, label %89, label %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit87
 
 89:                                               ; preds = %85
   call void @llvm.experimental.noalias.scope.decl(metadata !7454)
@@ -48201,7 +48201,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit87: ; preds
 133:                                              ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   store i64 %215, ptr %120, align 8
   store i64 %214, ptr %33, align 8
-  store ptr %.pre.i219, ptr %119, align 8
+  store ptr %.pre.i216, ptr %119, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !7478
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !7478
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !7478
@@ -48255,10 +48255,10 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit87: ; preds
 
 _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i: ; preds = %118, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   %147 = phi i32 [ %132, %118 ], [ %216, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.sroa.0.0.i59347 = phi i1 [ true, %118 ], [ %.sroa.0.0.i59.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.sroa.0.0.i59344 = phi i1 [ true, %118 ], [ %.sroa.0.0.i59.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %148 = phi i64 [ 1, %118 ], [ %215, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %149 = phi i64 [ 1, %118 ], [ %214, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.pre.i222346 = phi ptr [ %115, %118 ], [ %.pre.i219, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.pre.i219343 = phi ptr [ %115, %118 ], [ %.pre.i216, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7481), !noalias !7467
   %.val17.i = load i8, ptr %57, align 2, !alias.scope !7468, !noalias !7471
   %150 = zext nneg i8 %.val17.i to i128
@@ -48302,7 +48302,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %166 = icmp samesign ugt i64 %149, 144115188075855871
   %167 = icmp ugt i64 %165, 9223372036854775800
   %168 = select i1 %166, i1 true, i1 %167
-  br i1 %168, label %.loopexit202, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
+  br i1 %168, label %.loopexit199, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %162
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7486
@@ -48312,7 +48312,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
 
 170:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
   %171 = shl nuw nsw i64 %149, 6
-  store ptr %.pre.i222346, ptr %3, align 8, !alias.scope !7496, !noalias !7486
+  store ptr %.pre.i219343, ptr %3, align 8, !alias.scope !7496, !noalias !7486
   store i64 %171, ptr %.sroa.5.0..sroa_idx.i41.i.i.i, align 8, !alias.scope !7496, !noalias !7486
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
 
@@ -48328,22 +48328,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
 174:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
   store i64 %149, ptr %120, align 8
   store i64 %149, ptr %33, align 8
-  store ptr %.pre.i222346, ptr %119, align 8
+  store ptr %.pre.i219343, ptr %119, align 8
   %175 = load i64, ptr %127, align 8, !range !355, !noalias !7486, !noundef !3
   %176 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %177 = load i64, ptr %176, align 8, !noalias !7486
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7486
   br label %178
 
-.loopexit202:                                     ; preds = %162
+.loopexit199:                                     ; preds = %162
   store i64 %149, ptr %120, align 8
   store i64 %149, ptr %33, align 8
-  store ptr %.pre.i222346, ptr %119, align 8
+  store ptr %.pre.i219343, ptr %119, align 8
   br label %178
 
-178:                                              ; preds = %.loopexit202, %174
-  %.sroa.6.0.i.ph.i.i = phi i64 [ %177, %174 ], [ undef, %.loopexit202 ]
-  %.sroa.04.0.i.ph.i.i = phi i64 [ %175, %174 ], [ 0, %.loopexit202 ]
+178:                                              ; preds = %.loopexit199, %174
+  %.sroa.6.0.i.ph.i.i = phi i64 [ %177, %174 ], [ undef, %.loopexit199 ]
+  %.sroa.04.0.i.ph.i.i = phi i64 [ %175, %174 ], [ 0, %.loopexit199 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i, i64 %.sroa.6.0.i.ph.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.589) #37
           to label %.noexc.i unwind label %180, !noalias !7499
 
@@ -48389,7 +48389,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
           cleanup
   store i64 %148, ptr %120, align 8
   store i64 %149, ptr %33, align 8
-  store ptr %.pre.i222346, ptr %119, align 8
+  store ptr %.pre.i219343, ptr %119, align 8
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef align 8 dereferenceable(64) %15) #39
           to label %.body57 unwind label %192, !noalias !7501
 
@@ -48400,9 +48400,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
   unreachable
 
 "_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i": ; preds = %160, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i"
-  %.pre.i221 = phi ptr [ %179, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i222346, %160 ]
+  %.pre.i218 = phi ptr [ %179, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i219343, %160 ]
   %194 = phi i64 [ %164, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %149, %160 ]
-  %195 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i221, i64 %148
+  %195 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i218, i64 %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %195, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false), !noalias !7502
   %196 = add i64 %148, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !7482
@@ -48419,23 +48419,23 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
           to label %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge unwind label %.loopexit
 
 198:                                              ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120
-  %.pre-phi270 = phi i1 [ %203, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
-  %.pre-phi268 = phi i128 [ %.pre267, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %151, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
+  %.pre-phi267 = phi i1 [ %203, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
+  %.pre-phi265 = phi i128 [ %.pre264, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %151, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
   %.val18.i = phi i8 [ %.val.i26.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
-  %.pre.i220 = phi ptr [ %.pre.i221, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i222346, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
+  %.pre.i217 = phi ptr [ %.pre.i218, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i219343, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
   %199 = phi i64 [ %194, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %149, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
   %200 = phi i64 [ %196, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %148, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
-  %.sroa.0.1.i60 = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i59347, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
-  %201 = and i128 %.pre-phi268, 337570925882730900174282555711
+  %.sroa.0.1.i60 = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i59344, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ]
+  %201 = and i128 %.pre-phi265, 337570925882730900174282555711
   %202 = icmp ne i128 %201, 0
-  %.sroa.0.0.i32.i28.i = or i1 %.pre-phi270, %202
+  %.sroa.0.0.i32.i28.i = or i1 %.pre-phi267, %202
   br i1 %.sroa.0.0.i32.i28.i, label %206, label %204, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge: ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i"
   %.pre = zext nneg i8 %.val.i26.i to i128
-  %.pre267 = shl nuw nsw i128 1, %.pre
-  %.pre269 = add nsw i8 %.val.i26.i, -99
-  %203 = icmp ult i8 %.pre269, 3
+  %.pre264 = shl nuw nsw i128 1, %.pre
+  %.pre266 = add nsw i8 %.val.i26.i, -99
+  %203 = icmp ult i8 %.pre266, 3
   br label %198
 
 204:                                              ; preds = %198
@@ -48484,12 +48484,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i: ;
           cleanup
   store i64 %200, ptr %120, align 8
   store i64 %199, ptr %33, align 8
-  store ptr %.pre.i220, ptr %119, align 8
+  store ptr %.pre.i217, ptr %119, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12) #39, !noalias !7516
   br label %.body57
 
 _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ; preds = %.noexc72, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %197, %.noexc75
-  %.pre.i219 = phi ptr [ %.pre.i221, %197 ], [ %.pre.i220, %.noexc75 ], [ %.pre.i220, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i220, %.noexc72 ]
+  %.pre.i216 = phi ptr [ %.pre.i218, %197 ], [ %.pre.i217, %.noexc75 ], [ %.pre.i217, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i217, %.noexc72 ]
   %214 = phi i64 [ %194, %197 ], [ %199, %.noexc75 ], [ %199, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %199, %.noexc72 ]
   %215 = phi i64 [ %196, %197 ], [ %200, %.noexc75 ], [ %200, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %200, %.noexc72 ]
   %.sroa.0.0.i59.be = phi i1 [ false, %197 ], [ %.sroa.0.1.i60, %.noexc75 ], [ %.sroa.0.1.i60, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.sroa.0.1.i60, %.noexc72 ]
@@ -48506,7 +48506,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
 219:                                              ; preds = %.noexc70
   store i64 %200, ptr %120, align 8
   store i64 %199, ptr %33, align 8
-  store ptr %.pre.i220, ptr %119, align 8
+  store ptr %.pre.i217, ptr %119, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %..noexc73_crit_edge unwind label %.loopexit.split-lp
 
@@ -48538,7 +48538,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
           cleanup
   store i64 %200, ptr %120, align 8
   store i64 %199, ptr %33, align 8
-  store ptr %.pre.i220, ptr %119, align 8
+  store ptr %.pre.i217, ptr %119, align 8
   br label %.body57
 
 224:                                              ; preds = %.noexc74
@@ -48546,14 +48546,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   br label %.noexc75
 
 .loopexit:                                        ; preds = %221, %155, %197, %204, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %210, %220, %.noexc75
-  %.pre.i224 = phi ptr [ %.pre.i222346, %155 ], [ %.pre.i221, %197 ], [ %.pre.i220, %204 ], [ %.pre.i220, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i220, %210 ], [ %.pre.i220, %220 ], [ %.pre.i220, %221 ], [ %.pre.i220, %.noexc75 ]
+  %.pre.i221 = phi ptr [ %.pre.i219343, %155 ], [ %.pre.i218, %197 ], [ %.pre.i217, %204 ], [ %.pre.i217, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i217, %210 ], [ %.pre.i217, %220 ], [ %.pre.i217, %221 ], [ %.pre.i217, %.noexc75 ]
   %225 = phi i64 [ %149, %155 ], [ %194, %197 ], [ %199, %204 ], [ %199, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %199, %210 ], [ %199, %220 ], [ %199, %221 ], [ %199, %.noexc75 ]
   %226 = phi i64 [ %148, %155 ], [ %196, %197 ], [ %200, %204 ], [ %200, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %200, %210 ], [ %200, %220 ], [ %200, %221 ], [ %200, %.noexc75 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %226, ptr %120, align 8
   store i64 %225, ptr %33, align 8
-  store ptr %.pre.i224, ptr %119, align 8
+  store ptr %.pre.i221, ptr %119, align 8
   br label %.body57
 
 .loopexit.split-lp:                               ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i, %235, %133, %.noexc64, %219
@@ -48567,17 +48567,17 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
           to label %.thread142 unwind label %239, !noalias !7467
 
 .noexc73.loopexit:                                ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i", %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i", %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120
-  %.val.i.i266 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.val.i26.i, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ], [ %.val.i26.i, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ]
-  %.pre.i223 = phi ptr [ %.pre.i222346, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.pre.i222346, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.pre.i221, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ], [ %.pre.i221, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ]
+  %.val.i.i263 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.val.i26.i, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ], [ %.val.i26.i, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ]
+  %.pre.i220 = phi ptr [ %.pre.i219343, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.pre.i219343, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %.pre.i218, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ], [ %.pre.i218, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ]
   %227 = phi i64 [ %149, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %149, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %194, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ], [ %194, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ]
   %228 = phi i64 [ %148, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %148, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit120 ], [ %196, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ], [ %196, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$20parse_set_expression28_$u7b$$u7b$closure$u7d$$u7d$17h982f8893afe50598E.exit.i" ]
   store i64 %228, ptr %120, align 8
   store i64 %227, ptr %33, align 8
-  store ptr %.pre.i223, ptr %119, align 8
+  store ptr %.pre.i220, ptr %119, align 8
   br label %.noexc73
 
 .noexc73:                                         ; preds = %..noexc73_crit_edge, %.noexc73.loopexit
-  %.val.i.i = phi i8 [ %.val.i.i.pre, %..noexc73_crit_edge ], [ %.val.i.i266, %.noexc73.loopexit ]
+  %.val.i.i = phi i8 [ %.val.i.i.pre, %..noexc73_crit_edge ], [ %.val.i.i263, %.noexc73.loopexit ]
   store i32 %122, ptr %121, align 8, !alias.scope !7468, !noalias !7471
   call void @llvm.experimental.noalias.scope.decl(metadata !7525)
   %229 = icmp eq i8 %.val.i.i, 36
@@ -49323,7 +49323,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i67: ;
 77:                                               ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   store i64 %144, ptr %66, align 8
   store i64 %143, ptr %19, align 8
-  store ptr %.pre.i128, ptr %65, align 8
+  store ptr %.pre.i125, ptr %65, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !7636
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !7636
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !7636
@@ -49377,10 +49377,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i67: ;
 
 _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i: ; preds = %64, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge
   %91 = phi i32 [ %76, %64 ], [ %145, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.sroa.0.0.i44242 = phi i1 [ true, %64 ], [ %.sroa.0.0.i44.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.sroa.0.0.i44239 = phi i1 [ true, %64 ], [ %.sroa.0.0.i44.be, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %92 = phi i64 [ 1, %64 ], [ %144, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   %93 = phi i64 [ 1, %64 ], [ %143, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
-  %.pre.i131241 = phi ptr [ %61, %64 ], [ %.pre.i128, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
+  %.pre.i128238 = phi ptr [ %61, %64 ], [ %.pre.i125, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7639), !noalias !7624
   %.val17.i = load i8, ptr %34, align 2, !alias.scope !7625, !noalias !7628
   %94 = zext nneg i8 %.val17.i to i128
@@ -49416,7 +49416,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %105 = icmp samesign ugt i64 %93, 144115188075855871
   %106 = icmp ugt i64 %104, 9223372036854775800
   %107 = select i1 %105, i1 true, i1 %106
-  br i1 %107, label %.loopexit113, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
+  br i1 %107, label %.loopexit110, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7644
@@ -49426,7 +49426,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
 
 109:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
   %110 = shl nuw nsw i64 %93, 6
-  store ptr %.pre.i131241, ptr %3, align 8, !alias.scope !7654, !noalias !7644
+  store ptr %.pre.i128238, ptr %3, align 8, !alias.scope !7654, !noalias !7644
   store i64 %110, ptr %.sroa.5.0..sroa_idx.i41.i.i.i, align 8, !alias.scope !7654, !noalias !7644
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
 
@@ -49442,22 +49442,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
 113:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i"
   store i64 %93, ptr %66, align 8
   store i64 %93, ptr %19, align 8
-  store ptr %.pre.i131241, ptr %65, align 8
+  store ptr %.pre.i128238, ptr %65, align 8
   %114 = load i64, ptr %71, align 8, !range !355, !noalias !7644, !noundef !3
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %116 = load i64, ptr %115, align 8, !noalias !7644
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7644
   br label %117
 
-.loopexit113:                                     ; preds = %101
+.loopexit110:                                     ; preds = %101
   store i64 %93, ptr %66, align 8
   store i64 %93, ptr %19, align 8
-  store ptr %.pre.i131241, ptr %65, align 8
+  store ptr %.pre.i128238, ptr %65, align 8
   br label %117
 
-117:                                              ; preds = %.loopexit113, %113
-  %.sroa.6.0.i.ph.i.i = phi i64 [ %116, %113 ], [ undef, %.loopexit113 ]
-  %.sroa.04.0.i.ph.i.i = phi i64 [ %114, %113 ], [ 0, %.loopexit113 ]
+117:                                              ; preds = %.loopexit110, %113
+  %.sroa.6.0.i.ph.i.i = phi i64 [ %116, %113 ], [ undef, %.loopexit110 ]
+  %.sroa.04.0.i.ph.i.i = phi i64 [ %114, %113 ], [ 0, %.loopexit110 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i, i64 %.sroa.6.0.i.ph.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.585) #37
           to label %.noexc.i unwind label %119, !noalias !7657
 
@@ -49482,9 +49482,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
   unreachable
 
 .noexc51:                                         ; preds = %.noexc50, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i"
-  %.pre.i130 = phi ptr [ %118, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i131241, %.noexc50 ]
+  %.pre.i127 = phi ptr [ %118, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %.pre.i128238, %.noexc50 ]
   %123 = phi i64 [ %103, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i" ], [ %93, %.noexc50 ]
-  %124 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i130, i64 %92
+  %124 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i127, i64 %92
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %124, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %125 = add i64 %92, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !7640
@@ -49501,23 +49501,23 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
           to label %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge unwind label %.loopexit
 
 127:                                              ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79
-  %.pre-phi174 = phi i1 [ %132, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
-  %.pre-phi172 = phi i128 [ %.pre171, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %95, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
+  %.pre-phi171 = phi i1 [ %132, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
+  %.pre-phi169 = phi i128 [ %.pre168, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %95, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
   %.val18.i = phi i8 [ %.val.i25.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
-  %.pre.i129 = phi ptr [ %.pre.i130, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i131241, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
+  %.pre.i126 = phi ptr [ %.pre.i127, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.pre.i128238, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
   %128 = phi i64 [ %123, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %93, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
   %129 = phi i64 [ %125, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %92, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
-  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i44242, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
-  %130 = and i128 %.pre-phi172, 337570925882730900174282555711
+  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge ], [ %.sroa.0.0.i44239, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ]
+  %130 = and i128 %.pre-phi169, 337570925882730900174282555711
   %131 = icmp ne i128 %130, 0
-  %.sroa.0.0.i32.i27.i = or i1 %.pre-phi174, %131
+  %.sroa.0.0.i32.i27.i = or i1 %.pre-phi171, %131
   br i1 %.sroa.0.0.i32.i27.i, label %135, label %133, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit._crit_edge: ; preds = %.noexc51
   %.pre = zext nneg i8 %.val.i25.i to i128
-  %.pre171 = shl nuw nsw i128 1, %.pre
-  %.pre173 = add nsw i8 %.val.i25.i, -99
-  %132 = icmp ult i8 %.pre173, 3
+  %.pre168 = shl nuw nsw i128 1, %.pre
+  %.pre170 = add nsw i8 %.val.i25.i, -99
+  %132 = icmp ult i8 %.pre170, 3
   br label %127
 
 133:                                              ; preds = %127
@@ -49566,12 +49566,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i: ;
           cleanup
   store i64 %129, ptr %66, align 8
   store i64 %128, ptr %19, align 8
-  store ptr %.pre.i129, ptr %65, align 8
+  store ptr %.pre.i126, ptr %65, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6) #39, !noalias !7672
   br label %.thread
 
 _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ; preds = %.noexc55, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %126, %.noexc60
-  %.pre.i128 = phi ptr [ %.pre.i130, %126 ], [ %.pre.i129, %.noexc60 ], [ %.pre.i129, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i129, %.noexc55 ]
+  %.pre.i125 = phi ptr [ %.pre.i127, %126 ], [ %.pre.i126, %.noexc60 ], [ %.pre.i126, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i126, %.noexc55 ]
   %143 = phi i64 [ %123, %126 ], [ %128, %.noexc60 ], [ %128, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %128, %.noexc55 ]
   %144 = phi i64 [ %125, %126 ], [ %129, %.noexc60 ], [ %129, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %129, %.noexc55 ]
   %.sroa.0.0.i44.be = phi i1 [ false, %126 ], [ %.sroa.0.1.i, %.noexc60 ], [ %.sroa.0.1.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.sroa.0.1.i, %.noexc55 ]
@@ -49588,7 +49588,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
 148:                                              ; preds = %.noexc53
   store i64 %129, ptr %66, align 8
   store i64 %128, ptr %19, align 8
-  store ptr %.pre.i129, ptr %65, align 8
+  store ptr %.pre.i126, ptr %65, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %..noexc58_crit_edge unwind label %.loopexit.split-lp
 
@@ -49620,7 +49620,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
           cleanup
   store i64 %129, ptr %66, align 8
   store i64 %128, ptr %19, align 8
-  store ptr %.pre.i129, ptr %65, align 8
+  store ptr %.pre.i126, ptr %65, align 8
   br label %.thread
 
 153:                                              ; preds = %.noexc59
@@ -49628,14 +49628,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   br label %.noexc60
 
 .loopexit:                                        ; preds = %150, %126, %133, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i, %139, %149, %.noexc60, %99
-  %.pre.i133 = phi ptr [ %.pre.i130, %126 ], [ %.pre.i129, %133 ], [ %.pre.i129, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i129, %139 ], [ %.pre.i129, %149 ], [ %.pre.i129, %150 ], [ %.pre.i129, %.noexc60 ], [ %.pre.i131241, %99 ]
+  %.pre.i130 = phi ptr [ %.pre.i127, %126 ], [ %.pre.i126, %133 ], [ %.pre.i126, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %.pre.i126, %139 ], [ %.pre.i126, %149 ], [ %.pre.i126, %150 ], [ %.pre.i126, %.noexc60 ], [ %.pre.i128238, %99 ]
   %154 = phi i64 [ %123, %126 ], [ %128, %133 ], [ %128, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %128, %139 ], [ %128, %149 ], [ %128, %150 ], [ %128, %.noexc60 ], [ %93, %99 ]
   %155 = phi i64 [ %125, %126 ], [ %129, %133 ], [ %129, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i ], [ %129, %139 ], [ %129, %149 ], [ %129, %150 ], [ %129, %.noexc60 ], [ %92, %99 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %155, ptr %66, align 8
   store i64 %154, ptr %19, align 8
-  store ptr %.pre.i133, ptr %65, align 8
+  store ptr %.pre.i130, ptr %65, align 8
   br label %.thread
 
 .loopexit.split-lp:                               ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i37, %164, %77, %.noexc48, %148
@@ -49644,17 +49644,17 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.backedge: ;
   br label %.thread
 
 .noexc58.loopexit:                                ; preds = %.noexc51, %.noexc51, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79
-  %.val.i.i33170 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.val.i25.i, %.noexc51 ], [ %.val.i25.i, %.noexc51 ]
-  %.pre.i132 = phi ptr [ %.pre.i131241, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.pre.i131241, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.pre.i130, %.noexc51 ], [ %.pre.i130, %.noexc51 ]
+  %.val.i.i33167 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.val.i25.i, %.noexc51 ], [ %.val.i25.i, %.noexc51 ]
+  %.pre.i129 = phi ptr [ %.pre.i128238, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.pre.i128238, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %.pre.i127, %.noexc51 ], [ %.pre.i127, %.noexc51 ]
   %156 = phi i64 [ %93, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %93, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %123, %.noexc51 ], [ %123, %.noexc51 ]
   %157 = phi i64 [ %92, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %92, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit79 ], [ %125, %.noexc51 ], [ %125, %.noexc51 ]
   store i64 %157, ptr %66, align 8
   store i64 %156, ptr %19, align 8
-  store ptr %.pre.i132, ptr %65, align 8
+  store ptr %.pre.i129, ptr %65, align 8
   br label %.noexc58
 
 .noexc58:                                         ; preds = %..noexc58_crit_edge, %.noexc58.loopexit
-  %.val.i.i33 = phi i8 [ %.val.i.i33.pre, %..noexc58_crit_edge ], [ %.val.i.i33170, %.noexc58.loopexit ]
+  %.val.i.i33 = phi i8 [ %.val.i.i33.pre, %..noexc58_crit_edge ], [ %.val.i.i33167, %.noexc58.loopexit ]
   store i32 %68, ptr %67, align 8, !alias.scope !7625, !noalias !7628
   call void @llvm.experimental.noalias.scope.decl(metadata !7681)
   %158 = icmp eq i8 %.val.i.i33, 18
@@ -50039,7 +50039,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
 81:                                               ; preds = %.noexc13.backedge
   store i64 %198, ptr %61, align 8
   store i64 %197, ptr %32, align 8
-  store ptr %.pre.i.i140, ptr %60, align 8
+  store ptr %.pre.i.i137, ptr %60, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !7728
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7728
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !7728
@@ -50093,10 +50093,10 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
 
 .noexc11:                                         ; preds = %58, %.noexc13.backedge
   %95 = phi i32 [ %80, %58 ], [ %199, %.noexc13.backedge ]
-  %.sroa.0.0.i311 = phi i1 [ true, %58 ], [ %.sroa.0.0.i.be, %.noexc13.backedge ]
+  %.sroa.0.0.i308 = phi i1 [ true, %58 ], [ %.sroa.0.0.i.be, %.noexc13.backedge ]
   %96 = phi i64 [ 1, %58 ], [ %198, %.noexc13.backedge ]
   %97 = phi i64 [ 1, %58 ], [ %197, %.noexc13.backedge ]
-  %.pre.i.i145310 = phi ptr [ %55, %58 ], [ %.pre.i.i140, %.noexc13.backedge ]
+  %.pre.i.i142307 = phi ptr [ %55, %58 ], [ %.pre.i.i137, %.noexc13.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7730)
   %.val17.i = load i8, ptr %33, align 2, !alias.scope !7718, !noalias !7721
   %98 = icmp eq i8 %.val17.i, 45
@@ -50170,7 +50170,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i: ;
           cleanup
   store i64 %96, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16) #39, !noalias !7750
   br label %147
 
@@ -50193,7 +50193,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i: ; preds
           cleanup
   store i64 %96, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   br label %147
 
 "_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i": ; preds = %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i
@@ -50208,7 +50208,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i: ; preds
           cleanup
   store i64 %96, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   %118 = load i32, ptr %18, align 8, !range !411, !alias.scope !7751, !noalias !7734, !noundef !3
   %119 = icmp eq i32 %118, 32
   br i1 %119, label %.body9, label %120
@@ -50224,7 +50224,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i: ; preds
   %125 = icmp samesign ugt i64 %97, 72057594037927935
   %126 = icmp ugt i64 %124, 9223372036854775800
   %127 = select i1 %125, i1 true, i1 %126
-  br i1 %127, label %.loopexit111, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
+  br i1 %127, label %.loopexit108, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !7754
@@ -50234,7 +50234,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 
 129:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
   %130 = shl nuw nsw i64 %97, 7
-  store ptr %.pre.i.i145310, ptr %13, align 8, !alias.scope !7764, !noalias !7754
+  store ptr %.pre.i.i142307, ptr %13, align 8, !alias.scope !7764, !noalias !7754
   store i64 %130, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i, align 8, !alias.scope !7764, !noalias !7754
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
 
@@ -50250,22 +50250,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 133:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
   store i64 %97, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   %134 = load i64, ptr %73, align 8, !range !355, !noalias !7754, !noundef !3
   %135 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %136 = load i64, ptr %135, align 8, !noalias !7754
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !7754
   br label %137
 
-.loopexit111:                                     ; preds = %121
+.loopexit108:                                     ; preds = %121
   store i64 %97, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   br label %137
 
-137:                                              ; preds = %.loopexit111, %133
-  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %136, %133 ], [ undef, %.loopexit111 ]
-  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %134, %133 ], [ 0, %.loopexit111 ]
+137:                                              ; preds = %.loopexit108, %133
+  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %136, %133 ], [ undef, %.loopexit108 ]
+  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %134, %133 ], [ 0, %.loopexit108 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.591) #37
           to label %.noexc.i.i unwind label %139, !noalias !7768
 
@@ -50290,9 +50290,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit.i": ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i.i"
-  %.pre.i.i143 = phi ptr [ %138, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i.i" ], [ %.pre.i.i145310, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i" ]
+  %.pre.i.i140 = phi ptr [ %138, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i.i" ], [ %.pre.i.i142307, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i" ]
   %143 = phi i64 [ %123, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i.i" ], [ %97, %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$38parse_conditional_expression_or_higher17h0cbfcdc380ea5ffbE.exit.i" ]
-  %144 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %.pre.i.i143, i64 %96
+  %144 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %.pre.i.i140, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %144, ptr noundef nonnull align 8 dereferenceable(128) %19, i64 128, i1 false), !noalias !7770
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !7734
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !7734
@@ -50315,7 +50315,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
           cleanup
   store i64 %96, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   br label %.body9
 
 150:                                              ; preds = %113
@@ -50331,7 +50331,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   %156 = icmp samesign ugt i64 %97, 72057594037927935
   %157 = icmp ugt i64 %155, 9223372036854775800
   %158 = select i1 %156, i1 true, i1 %157
-  br i1 %158, label %.loopexit112, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i
+  br i1 %158, label %.loopexit109, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i: ; preds = %152
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !7771
@@ -50341,7 +50341,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i: ; preds 
 
 160:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i
   %161 = shl nuw nsw i64 %97, 7
-  store ptr %.pre.i.i145310, ptr %11, align 8, !alias.scope !7781, !noalias !7771
+  store ptr %.pre.i.i142307, ptr %11, align 8, !alias.scope !7781, !noalias !7771
   store i64 %161, ptr %.sroa.5.0..sroa_idx.i41.i.i.i19.i, align 8, !alias.scope !7781, !noalias !7771
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i20.i"
 
@@ -50357,22 +50357,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i: ; preds 
 164:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i20.i"
   store i64 %97, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   %165 = load i64, ptr %76, align 8, !range !355, !noalias !7771, !noundef !3
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %167 = load i64, ptr %166, align 8, !noalias !7771
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !7771
   br label %168
 
-.loopexit112:                                     ; preds = %152
+.loopexit109:                                     ; preds = %152
   store i64 %97, ptr %61, align 8
   store i64 %97, ptr %32, align 8
-  store ptr %.pre.i.i145310, ptr %60, align 8
+  store ptr %.pre.i.i142307, ptr %60, align 8
   br label %168
 
-168:                                              ; preds = %.loopexit112, %164
-  %.sroa.6.0.i.ph.i.i23.i = phi i64 [ %167, %164 ], [ undef, %.loopexit112 ]
-  %.sroa.04.0.i.ph.i.i24.i = phi i64 [ %165, %164 ], [ 0, %.loopexit112 ]
+168:                                              ; preds = %.loopexit109, %164
+  %.sroa.6.0.i.ph.i.i23.i = phi i64 [ %167, %164 ], [ undef, %.loopexit109 ]
+  %.sroa.04.0.i.ph.i.i24.i = phi i64 [ %165, %164 ], [ 0, %.loopexit109 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i24.i, i64 %.sroa.6.0.i.ph.i.i23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.592) #37
           to label %.noexc.i25.i unwind label %170, !noalias !7785
 
@@ -50397,16 +50397,16 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i: ; preds 
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit26.i": ; preds = %150, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i22.i"
-  %.pre.i.i144 = phi ptr [ %169, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i22.i" ], [ %.pre.i.i145310, %150 ]
+  %.pre.i.i141 = phi ptr [ %169, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i22.i" ], [ %.pre.i.i142307, %150 ]
   %174 = phi i64 [ %154, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he2481cfb753a4f8fE.exit.i22.i" ], [ %97, %150 ]
-  %175 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %.pre.i.i144, i64 %96
+  %175 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %.pre.i.i141, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %175, ptr noundef nonnull align 8 dereferenceable(128) %23, i64 128, i1 false), !noalias !7787
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !7734
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !7734
   br label %.noexc12
 
 .noexc12:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit26.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit.i"
-  %.pre.i.i142 = phi ptr [ %.pre.i.i144, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit26.i" ], [ %.pre.i.i143, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit.i" ]
+  %.pre.i.i139 = phi ptr [ %.pre.i.i141, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit26.i" ], [ %.pre.i.i140, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit.i" ]
   %176 = phi i64 [ %174, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit26.i" ], [ %143, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he23d6ca511ab77b0E.exit.i" ]
   %177 = add i64 %96, 1
   %.val.i49 = load i8, ptr %33, align 2, !range !2571, !alias.scope !7788, !noundef !3
@@ -50422,10 +50422,10 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i17.i: ; preds 
 
 179:                                              ; preds = %.noexc12, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75
   %.val18.i = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.val.i49, %.noexc12 ]
-  %.pre.i.i141 = phi ptr [ %.pre.i.i145310, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.pre.i.i142, %.noexc12 ]
+  %.pre.i.i138 = phi ptr [ %.pre.i.i142307, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.pre.i.i139, %.noexc12 ]
   %180 = phi i64 [ %97, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %176, %.noexc12 ]
   %181 = phi i64 [ %96, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %177, %.noexc12 ]
-  %.sroa.0.1.i = phi i1 [ %.sroa.0.0.i311, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ false, %.noexc12 ]
+  %.sroa.0.1.i = phi i1 [ %.sroa.0.0.i308, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ false, %.noexc12 ]
   %182 = icmp eq i8 %.val18.i, 45
   br i1 %182, label %.thread101, label %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit
 
@@ -50485,12 +50485,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42: ;
           cleanup
   store i64 %181, ptr %61, align 8
   store i64 %180, ptr %32, align 8
-  store ptr %.pre.i.i141, ptr %60, align 8
+  store ptr %.pre.i.i138, ptr %60, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25) #39, !noalias !7798
   br label %.body9
 
 .noexc13.backedge:                                ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42, %.noexc44, %178, %.noexc18
-  %.pre.i.i140 = phi ptr [ %.pre.i.i142, %178 ], [ %.pre.i.i141, %.noexc18 ], [ %.pre.i.i141, %.noexc44 ], [ %.pre.i.i141, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ]
+  %.pre.i.i137 = phi ptr [ %.pre.i.i139, %178 ], [ %.pre.i.i138, %.noexc18 ], [ %.pre.i.i138, %.noexc44 ], [ %.pre.i.i138, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ]
   %197 = phi i64 [ %176, %178 ], [ %180, %.noexc18 ], [ %180, %.noexc44 ], [ %180, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ]
   %198 = phi i64 [ %177, %178 ], [ %181, %.noexc18 ], [ %181, %.noexc44 ], [ %181, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ]
   %.sroa.0.0.i.be = phi i1 [ false, %178 ], [ %.sroa.0.1.i, %.noexc18 ], [ %.sroa.0.1.i, %.noexc44 ], [ %.sroa.0.1.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ]
@@ -50507,7 +50507,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42: ;
 202:                                              ; preds = %.noexc14
   store i64 %181, ptr %61, align 8
   store i64 %180, ptr %32, align 8
-  store ptr %.pre.i.i141, ptr %60, align 8
+  store ptr %.pre.i.i138, ptr %60, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %..noexc16_crit_edge unwind label %.loopexit.split-lp
 
@@ -50533,7 +50533,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42: ;
           cleanup
   store i64 %181, ptr %61, align 8
   store i64 %180, ptr %32, align 8
-  store ptr %.pre.i.i141, ptr %60, align 8
+  store ptr %.pre.i.i138, ptr %60, align 8
   br label %.body9
 
 207:                                              ; preds = %203
@@ -50547,14 +50547,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42: ;
   br label %.noexc18
 
 .loopexit:                                        ; preds = %204, %188, %203, %.noexc18, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42, %193, %178, %104, %105
-  %.pre.i.i147 = phi ptr [ %.pre.i.i141, %188 ], [ %.pre.i.i141, %203 ], [ %.pre.i.i141, %204 ], [ %.pre.i.i141, %.noexc18 ], [ %.pre.i.i141, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ], [ %.pre.i.i141, %193 ], [ %.pre.i.i142, %178 ], [ %.pre.i.i145310, %104 ], [ %.pre.i.i145310, %105 ]
+  %.pre.i.i144 = phi ptr [ %.pre.i.i138, %188 ], [ %.pre.i.i138, %203 ], [ %.pre.i.i138, %204 ], [ %.pre.i.i138, %.noexc18 ], [ %.pre.i.i138, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ], [ %.pre.i.i138, %193 ], [ %.pre.i.i139, %178 ], [ %.pre.i.i142307, %104 ], [ %.pre.i.i142307, %105 ]
   %209 = phi i64 [ %180, %188 ], [ %180, %203 ], [ %180, %204 ], [ %180, %.noexc18 ], [ %180, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ], [ %180, %193 ], [ %176, %178 ], [ %97, %104 ], [ %97, %105 ]
   %210 = phi i64 [ %181, %188 ], [ %181, %203 ], [ %181, %204 ], [ %181, %.noexc18 ], [ %181, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42 ], [ %181, %193 ], [ %177, %178 ], [ %96, %104 ], [ %96, %105 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %210, ptr %61, align 8
   store i64 %209, ptr %32, align 8
-  store ptr %.pre.i.i147, ptr %60, align 8
+  store ptr %.pre.i.i144, ptr %60, align 8
   br label %.body9
 
 .loopexit.split-lp:                               ; preds = %202, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i26, %219, %81, %.noexc70
@@ -50568,17 +50568,17 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i42: ;
           to label %.critedge unwind label %227
 
 .noexc16.loopexit:                                ; preds = %.noexc12, %.noexc12, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75
-  %.val.i.i22208 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.val.i49, %.noexc12 ], [ %.val.i49, %.noexc12 ]
-  %.pre.i.i146 = phi ptr [ %.pre.i.i145310, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.pre.i.i145310, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.pre.i.i142, %.noexc12 ], [ %.pre.i.i142, %.noexc12 ]
+  %.val.i.i22205 = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.val.i49, %.noexc12 ], [ %.val.i49, %.noexc12 ]
+  %.pre.i.i143 = phi ptr [ %.pre.i.i142307, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.pre.i.i142307, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %.pre.i.i139, %.noexc12 ], [ %.pre.i.i139, %.noexc12 ]
   %211 = phi i64 [ %97, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %97, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %176, %.noexc12 ], [ %176, %.noexc12 ]
   %212 = phi i64 [ %96, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %96, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit75 ], [ %177, %.noexc12 ], [ %177, %.noexc12 ]
   store i64 %212, ptr %61, align 8
   store i64 %211, ptr %32, align 8
-  store ptr %.pre.i.i146, ptr %60, align 8
+  store ptr %.pre.i.i143, ptr %60, align 8
   br label %.noexc16
 
 .noexc16:                                         ; preds = %..noexc16_crit_edge, %.noexc16.loopexit
-  %.val.i.i22 = phi i8 [ %.val.i.i22.pre, %..noexc16_crit_edge ], [ %.val.i.i22208, %.noexc16.loopexit ]
+  %.val.i.i22 = phi i8 [ %.val.i.i22.pre, %..noexc16_crit_edge ], [ %.val.i.i22205, %.noexc16.loopexit ]
   store i32 %63, ptr %62, align 8, !alias.scope !7718, !noalias !7721
   call void @llvm.experimental.noalias.scope.decl(metadata !7807)
   %213 = icmp eq i8 %.val.i.i22, 36
@@ -54058,7 +54058,7 @@ default.unreachable:                              ; preds = %491
   %507 = icmp samesign ugt i64 %465, 144115188075855871
   %508 = icmp ugt i64 %506, 9223372036854775800
   %509 = select i1 %507, i1 true, i1 %508
-  br i1 %509, label %.loopexit170.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i78.i
+  br i1 %509, label %.loopexit167.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i78.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i78.i: ; preds = %503
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !8342
@@ -54092,24 +54092,24 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i78.i: ; preds 
   %517 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %518 = load i64, ptr %517, align 8, !noalias !8342
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !8342
-  br label %.loopexit170.i
+  br label %.loopexit167.i
 
-.loopexit170.i.loopexit:                          ; preds = %503
+.loopexit167.i.loopexit:                          ; preds = %503
   store i64 %465, ptr %418, align 8
   store ptr %468, ptr %417, align 8
   store i64 %469, ptr %90, align 8
   store ptr %.pre.i58.i857916, ptr %419, align 8
   store i64 %470, ptr %89, align 8
   store i64 %471, ptr %420, align 8
-  br label %.loopexit170.i
+  br label %.loopexit167.i
 
-.loopexit170.i:                                   ; preds = %.loopexit170.i.loopexit, %515
-  %.sroa.6.0.i.ph.i.i83.i = phi i64 [ %518, %515 ], [ undef, %.loopexit170.i.loopexit ]
-  %.sroa.04.0.i.ph.i.i84.i = phi i64 [ %516, %515 ], [ 0, %.loopexit170.i.loopexit ]
+.loopexit167.i:                                   ; preds = %.loopexit167.i.loopexit, %515
+  %.sroa.6.0.i.ph.i.i83.i = phi i64 [ %518, %515 ], [ undef, %.loopexit167.i.loopexit ]
+  %.sroa.04.0.i.ph.i.i84.i = phi i64 [ %516, %515 ], [ 0, %.loopexit167.i.loopexit ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i84.i, i64 %.sroa.6.0.i.ph.i.i83.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.635) #37
           to label %.noexc.i85.i unwind label %520, !noalias !8356
 
-.noexc.i85.i:                                     ; preds = %.loopexit170.i
+.noexc.i85.i:                                     ; preds = %.loopexit167.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i81.i"
@@ -54117,7 +54117,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i78.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !8342
   br label %._crit_edge.i75.i
 
-520:                                              ; preds = %.loopexit170.i
+520:                                              ; preds = %.loopexit167.i
   %521 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %36) #39
@@ -54256,7 +54256,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit71.i: ; pre
   %545 = call i64 @llvm.umax.i64(i64 %544, i64 4)
   %546 = mul i64 %545, 88
   %547 = icmp samesign ugt i64 %463, 52405522936674862
-  br i1 %547, label %.loopexit171.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
+  br i1 %547, label %.loopexit168.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = %543
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !8378
@@ -54290,24 +54290,24 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   %555 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %556 = load i64, ptr %555, align 8, !noalias !8378
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !8378
-  br label %.loopexit171.i
+  br label %.loopexit168.i
 
-.loopexit171.i.loopexit:                          ; preds = %543
+.loopexit168.i.loopexit:                          ; preds = %543
   store i64 %535, ptr %418, align 8
   store ptr %531, ptr %417, align 8
   store i64 %530, ptr %90, align 8
   store ptr %.pre.i58.i857916, ptr %419, align 8
   store i64 %470, ptr %89, align 8
   store i64 %471, ptr %420, align 8
-  br label %.loopexit171.i
+  br label %.loopexit168.i
 
-.loopexit171.i:                                   ; preds = %.loopexit171.i.loopexit, %553
-  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %556, %553 ], [ undef, %.loopexit171.i.loopexit ]
-  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %554, %553 ], [ 0, %.loopexit171.i.loopexit ]
+.loopexit168.i:                                   ; preds = %.loopexit168.i.loopexit, %553
+  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %556, %553 ], [ undef, %.loopexit168.i.loopexit ]
+  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %554, %553 ], [ 0, %.loopexit168.i.loopexit ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.636) #37
           to label %.noexc.i.i unwind label %558, !noalias !8392
 
-.noexc.i.i:                                       ; preds = %.loopexit171.i
+.noexc.i.i:                                       ; preds = %.loopexit168.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8cea83b330af58cdE.exit.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
@@ -54315,7 +54315,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !8378
   br label %._crit_edge.i56.i
 
-558:                                              ; preds = %.loopexit171.i
+558:                                              ; preds = %.loopexit168.i
   %559 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$ruff_python_ast..generated..Pattern$GT$17h51f2e9c9b483df39E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %35) #39
@@ -55393,14 +55393,14 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
 
 850:                                              ; preds = %.noexc660
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser7do_bump17hd4a74405d8673557E(ptr noalias noundef nonnull align 8 dereferenceable(288) %1, i8 noundef 32)
-          to label %871 unwind label %.body59.thread190.i, !noalias !8542
+          to label %871 unwind label %.body59.thread187.i, !noalias !8542
 
 .body59.i:                                        ; preds = %923
   %lpad.loopexit.split-lp.i636 = landingpad { ptr, i32 }
           cleanup
   br label %.body656
 
-.body59.thread190.i:                              ; preds = %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hf6db77a1cd623aa3E.exit.i.i647", %850
+.body59.thread187.i:                              ; preds = %"_ZN56_$LT$$RF$T$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hf6db77a1cd623aa3E.exit.i.i647", %850
   %lpad.loopexit.i638 = landingpad { ptr, i32 }
           cleanup
   store i64 %838, ptr %79, align 8
@@ -55422,7 +55422,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit83.i: ; preds 
   %854 = call i64 @llvm.umax.i64(i64 %853, i64 4)
   %855 = mul i64 %854, 88
   %856 = icmp samesign ugt i64 %837, 52405522936674862
-  br i1 %856, label %.loopexit153.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i
+  br i1 %856, label %.loopexit150.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i: ; preds = %852
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !8563
@@ -55456,24 +55456,24 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i: ; preds 
   %864 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %865 = load i64, ptr %864, align 8, !noalias !8563
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8563
-  br label %.loopexit153.i
+  br label %.loopexit150.i
 
-.loopexit153.i.loopexit:                          ; preds = %852
+.loopexit150.i.loopexit:                          ; preds = %852
   store i64 %837, ptr %79, align 8
   store ptr %839, ptr %792, align 8
   store i64 %840, ptr %793, align 8
   store i64 %841, ptr %795, align 8
   store i64 %842, ptr %78, align 8
   store ptr %.pre.i52.i10131028, ptr %794, align 8
-  br label %.loopexit153.i
+  br label %.loopexit150.i
 
-.loopexit153.i:                                   ; preds = %.loopexit153.i.loopexit, %862
-  %.sroa.6.0.i.ph.i.i74.i = phi i64 [ %865, %862 ], [ undef, %.loopexit153.i.loopexit ]
-  %.sroa.04.0.i.ph.i.i75.i = phi i64 [ %863, %862 ], [ 0, %.loopexit153.i.loopexit ]
+.loopexit150.i:                                   ; preds = %.loopexit150.i.loopexit, %862
+  %.sroa.6.0.i.ph.i.i74.i = phi i64 [ %865, %862 ], [ undef, %.loopexit150.i.loopexit ]
+  %.sroa.04.0.i.ph.i.i75.i = phi i64 [ %863, %862 ], [ 0, %.loopexit150.i.loopexit ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i75.i, i64 %.sroa.6.0.i.ph.i.i74.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.653) #37
           to label %.noexc.i76.i unwind label %867, !noalias !8577
 
-.noexc.i76.i:                                     ; preds = %.loopexit153.i
+.noexc.i76.i:                                     ; preds = %.loopexit150.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8cea83b330af58cdE.exit.i.i637": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i72.i"
@@ -55481,7 +55481,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8563
   br label %876
 
-867:                                              ; preds = %.loopexit153.i
+867:                                              ; preds = %.loopexit150.i
   %868 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$ruff_python_ast..generated..Pattern$GT$17h51f2e9c9b483df39E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %12) #39
@@ -55562,7 +55562,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i: ; preds 
   %891 = extractvalue { i32, i32 } %890, 0
   %892 = extractvalue { i32, i32 } %890, 1
   invoke fastcc void @_ZN18ruff_python_parser6parser6Parser9add_error5inner17h3955faca222ab86fE(ptr noalias noundef align 8 dereferenceable(24) %805, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %15, i32 noundef %891, i32 noundef %892)
-          to label %894 unwind label %.body59.thread190.i, !noalias !8542
+          to label %894 unwind label %.body59.thread187.i, !noalias !8542
 
 .body59.thread.i:                                 ; preds = %889
   %893 = landingpad { ptr, i32 }
@@ -55603,7 +55603,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i69.i: ; preds 
   %901 = icmp samesign ugt i64 %841, 72057594037927935
   %902 = icmp ugt i64 %900, 9223372036854775800
   %903 = select i1 %901, i1 true, i1 %902
-  br i1 %903, label %.loopexit155.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640
+  br i1 %903, label %.loopexit152.i.loopexit, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds = %897
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !8596
@@ -55637,24 +55637,24 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds
   %911 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %912 = load i64, ptr %911, align 8, !noalias !8596
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8596
-  br label %.loopexit155.i
+  br label %.loopexit152.i
 
-.loopexit155.i.loopexit:                          ; preds = %897
+.loopexit152.i.loopexit:                          ; preds = %897
   store i64 %838, ptr %79, align 8
   store ptr %839, ptr %792, align 8
   store i64 %840, ptr %793, align 8
   store i64 %841, ptr %795, align 8
   store i64 %841, ptr %78, align 8
   store ptr %.pre.i52.i10131028, ptr %794, align 8
-  br label %.loopexit155.i
+  br label %.loopexit152.i
 
-.loopexit155.i:                                   ; preds = %.loopexit155.i.loopexit, %909
-  %.sroa.6.0.i.ph.i.i.i644 = phi i64 [ %912, %909 ], [ undef, %.loopexit155.i.loopexit ]
-  %.sroa.04.0.i.ph.i.i.i645 = phi i64 [ %910, %909 ], [ 0, %.loopexit155.i.loopexit ]
+.loopexit152.i:                                   ; preds = %.loopexit152.i.loopexit, %909
+  %.sroa.6.0.i.ph.i.i.i644 = phi i64 [ %912, %909 ], [ undef, %.loopexit152.i.loopexit ]
+  %.sroa.04.0.i.ph.i.i.i645 = phi i64 [ %910, %909 ], [ 0, %.loopexit152.i.loopexit ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i645, i64 %.sroa.6.0.i.ph.i.i.i644, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.655) #37
           to label %.noexc.i.i646 unwind label %914, !noalias !8609
 
-.noexc.i.i646:                                    ; preds = %.loopexit155.i
+.noexc.i.i646:                                    ; preds = %.loopexit152.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6bc96f80fe2e2aa4E.exit.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i642"
@@ -55662,7 +55662,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8596
   br label %._crit_edge.i50.i
 
-914:                                              ; preds = %.loopexit155.i
+914:                                              ; preds = %.loopexit152.i
   %915 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..nodes..PatternKeyword$GT$17h8e87196cdd17d256E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %13) #39
@@ -55780,8 +55780,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds
   call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val31.i.i, i64 noundef 88, i64 noundef 8) #38, !noalias !8627
   %943 = load i8, ptr %802, align 1, !range !284, !noalias !8559, !noundef !3
   %944 = icmp eq i8 %943, -40
-  %or.cond149.i = and i1 %or.cond25.i.i, %944
-  br i1 %or.cond149.i, label %948, label %.body656, !prof !290
+  %or.cond146.i = and i1 %or.cond25.i.i, %944
+  br i1 %or.cond146.i, label %948, label %.body656, !prof !290
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Pattern$GT$$GT$17h0de0dcc01c2d98ffE.exit.i.i": ; preds = %941
   call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val31.i.i, i64 noundef 88, i64 noundef 8) #38, !noalias !8627
@@ -55790,8 +55790,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Pattern$GT$$GT$$GT$17h905f6ad8fa133d9dE.exit.i": ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Pattern$GT$$GT$17h0de0dcc01c2d98ffE.exit.i.i", %939
   %945 = load i8, ptr %802, align 1, !range !284, !noalias !8559, !noundef !3
   %946 = icmp eq i8 %945, -40
-  %or.cond146.i = and i1 %or.cond25.i.i, %946
-  br i1 %or.cond146.i, label %947, label %"_ZN18ruff_python_parser6parser7pattern52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$25parse_match_pattern_class28_$u7b$$u7b$closure$u7d$$u7d$17hfcc7a1a5b4d58411E.exit.i", !prof !290
+  %or.cond143.i = and i1 %or.cond25.i.i, %946
+  br i1 %or.cond143.i, label %947, label %"_ZN18ruff_python_parser6parser7pattern52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$25parse_match_pattern_class28_$u7b$$u7b$closure$u7d$$u7d$17hfcc7a1a5b4d58411E.exit.i", !prof !290
 
 947:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Pattern$GT$$GT$$GT$17h905f6ad8fa133d9dE.exit.i"
   invoke void @"_ZN65_$LT$compact_str..repr..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop13outlined_drop17h8fba1d5ec11e66b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %816)
@@ -55825,9 +55825,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds
   invoke void @"_ZN65_$LT$compact_str..repr..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop13outlined_drop17h8fba1d5ec11e66b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %807)
           to label %.thread.i unwind label %949, !noalias !8542
 
-.thread.i:                                        ; preds = %914, %951, %956, %.body59.i.thread712, %.body59.thread.i, %.body59.thread190.i
-  %.pn20.i.ph.i.pn = phi { ptr, i32 } [ %893, %.body59.thread.i ], [ %lpad.loopexit.i638, %.body59.thread190.i ], [ %lpad.loopexit.split-lp.i636715, %.body59.i.thread712 ], [ %915, %914 ], [ %952, %956 ], [ %952, %951 ]
-  %.sroa.012.1.i116.i = phi i1 [ true, %.body59.thread.i ], [ true, %.body59.thread190.i ], [ true, %.body59.i.thread712 ], [ %or.cond25.i.i, %914 ], [ %or.cond25.i.i, %956 ], [ %or.cond25.i.i, %951 ]
+.thread.i:                                        ; preds = %914, %951, %956, %.body59.i.thread712, %.body59.thread.i, %.body59.thread187.i
+  %.pn20.i.ph.i.pn = phi { ptr, i32 } [ %893, %.body59.thread.i ], [ %lpad.loopexit.i638, %.body59.thread187.i ], [ %lpad.loopexit.split-lp.i636715, %.body59.i.thread712 ], [ %915, %914 ], [ %952, %956 ], [ %952, %951 ]
+  %.sroa.012.1.i116.i = phi i1 [ true, %.body59.thread.i ], [ true, %.body59.thread187.i ], [ true, %.body59.i.thread712 ], [ %or.cond25.i.i, %914 ], [ %or.cond25.i.i, %956 ], [ %or.cond25.i.i, %951 ]
   %957 = load i64, ptr %17, align 8, !range !969, !noalias !8559, !noundef !3
   %958 = icmp eq i64 %957, -9223372036854775802
   br i1 %958, label %960, label %959
@@ -55844,8 +55844,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i640: ; preds
 961:                                              ; preds = %960
   %962 = load i8, ptr %802, align 1, !range !284, !noalias !8559, !noundef !3
   %963 = icmp eq i8 %962, -40
-  %or.cond152.i = and i1 %.sroa.012.1.i116.i, %963
-  br i1 %or.cond152.i, label %964, label %.body656, !prof !290
+  %or.cond149.i = and i1 %.sroa.012.1.i116.i, %963
+  br i1 %or.cond149.i, label %964, label %.body656, !prof !290
 
 964:                                              ; preds = %961
   invoke void @"_ZN65_$LT$compact_str..repr..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop13outlined_drop17h8fba1d5ec11e66b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %816)
@@ -55883,20 +55883,20 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i633: ; preds
   %.sroa.0.1 = phi i1 [ %.sroa.0.3682692, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %.sroa.0.01029, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
   %978 = phi i64 [ %970, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %837, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
   %979 = phi ptr [ %971, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %836, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
-  %.pre-phi183.i = phi i1 [ %982, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
-  %.pre-phi181.i = phi i128 [ %.pre180.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %844, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
+  %.pre-phi180.i = phi i1 [ %982, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
+  %.pre-phi178.i = phi i128 [ %.pre177.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %844, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
   %.val18.i613 = phi i8 [ %.val.i28.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %.val17.i610, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
   %.sroa.0.1.i615 = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i ], [ %.sroa.0.0.i6071030, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i611 ]
-  %980 = and i128 %.pre-phi181.i, 19961934249204208795856273439
+  %980 = and i128 %.pre-phi178.i, 19961934249204208795856273439
   %981 = icmp ne i128 %980, 0
-  %.sroa.0.0.i34.i30.i = or i1 %.pre-phi183.i, %981
+  %.sroa.0.0.i34.i30.i = or i1 %.pre-phi180.i, %981
   br i1 %.sroa.0.0.i34.i30.i, label %985, label %983, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit86._crit_edge.i: ; preds = %"_ZN18ruff_python_parser6parser7pattern52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$25parse_match_pattern_class28_$u7b$$u7b$closure$u7d$$u7d$17hfcc7a1a5b4d58411E.exit.i"
   %.pre.i634 = zext nneg i8 %.val.i28.i to i128
-  %.pre180.i = shl nuw nsw i128 1, %.pre.i634
-  %.pre182.i = add nsw i8 %.val.i28.i, -99
-  %982 = icmp ult i8 %.pre182.i, 3
+  %.pre177.i = shl nuw nsw i128 1, %.pre.i634
+  %.pre179.i = add nsw i8 %.val.i28.i, -99
+  %982 = icmp ult i8 %.pre179.i, 3
   br label %972
 
 983:                                              ; preds = %972
@@ -56953,7 +56953,7 @@ _ZN18ruff_python_parser6parser6Parser4peek17h98e6d2698e1e4d24E.exit.i: ; preds =
 74:                                               ; preds = %.noexc24.backedge
   store i64 %149, ptr %59, align 8
   store i64 %148, ptr %22, align 8
-  store ptr %.pre.i.i129, ptr %58, align 8
+  store ptr %.pre.i.i130, ptr %58, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !8748
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !8748
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !8748
@@ -57007,10 +57007,10 @@ _ZN18ruff_python_parser6parser6Parser4peek17h98e6d2698e1e4d24E.exit.i: ; preds =
 
 .noexc22:                                         ; preds = %57, %.noexc24.backedge
   %88 = phi i32 [ %73, %57 ], [ %150, %.noexc24.backedge ]
-  %.sroa.0.0.i18235 = phi i1 [ true, %57 ], [ %.sroa.0.0.i18.be, %.noexc24.backedge ]
+  %.sroa.0.0.i18236 = phi i1 [ true, %57 ], [ %.sroa.0.0.i18.be, %.noexc24.backedge ]
   %89 = phi i64 [ 1, %57 ], [ %149, %.noexc24.backedge ]
   %90 = phi i64 [ 1, %57 ], [ %148, %.noexc24.backedge ]
-  %.pre.i.i132234 = phi ptr [ %54, %57 ], [ %.pre.i.i129, %.noexc24.backedge ]
+  %.pre.i.i133235 = phi ptr [ %54, %57 ], [ %.pre.i.i130, %.noexc24.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8750)
   %.val17.i = load i8, ptr %63, align 2, !alias.scope !8738, !noalias !8741
   %91 = icmp eq i8 %.val17.i, 24
@@ -57057,7 +57057,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a
   %105 = call i64 @llvm.umax.i64(i64 %104, i64 4)
   %106 = mul i64 %105, 88
   %107 = icmp samesign ugt i64 %90, 52405522936674862
-  br i1 %107, label %.loopexit107, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
+  br i1 %107, label %.loopexit108, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8755
@@ -57067,7 +57067,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 
 109:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i
   %110 = mul nuw nsw i64 %90, 88
-  store ptr %.pre.i.i132234, ptr %11, align 8, !alias.scope !8765, !noalias !8755
+  store ptr %.pre.i.i133235, ptr %11, align 8, !alias.scope !8765, !noalias !8755
   store i64 %110, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i, align 8, !alias.scope !8765, !noalias !8755
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
 
@@ -57083,22 +57083,22 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
 113:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i"
   store i64 %90, ptr %59, align 8
   store i64 %90, ptr %22, align 8
-  store ptr %.pre.i.i132234, ptr %58, align 8
+  store ptr %.pre.i.i133235, ptr %58, align 8
   %114 = load i64, ptr %66, align 8, !range !355, !noalias !8755, !noundef !3
   %115 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %116 = load i64, ptr %115, align 8, !noalias !8755
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !8755
   br label %117
 
-.loopexit107:                                     ; preds = %103
+.loopexit108:                                     ; preds = %103
   store i64 %90, ptr %59, align 8
   store i64 %90, ptr %22, align 8
-  store ptr %.pre.i.i132234, ptr %58, align 8
+  store ptr %.pre.i.i133235, ptr %58, align 8
   br label %117
 
-117:                                              ; preds = %.loopexit107, %113
-  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %116, %113 ], [ undef, %.loopexit107 ]
-  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %114, %113 ], [ 0, %.loopexit107 ]
+117:                                              ; preds = %.loopexit108, %113
+  %.sroa.6.0.i.ph.i.i.i = phi i64 [ %116, %113 ], [ undef, %.loopexit108 ]
+  %.sroa.04.0.i.ph.i.i.i = phi i64 [ %114, %113 ], [ 0, %.loopexit108 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.644) #37
           to label %.noexc.i.i unwind label %119, !noalias !8769
 
@@ -57123,9 +57123,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   unreachable
 
 .noexc23:                                         ; preds = %.noexc62, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8cea83b330af58cdE.exit.i.i"
-  %.pre.i.i131 = phi ptr [ %118, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8cea83b330af58cdE.exit.i.i" ], [ %.pre.i.i132234, %.noexc62 ]
+  %.pre.i.i132 = phi ptr [ %118, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8cea83b330af58cdE.exit.i.i" ], [ %.pre.i.i133235, %.noexc62 ]
   %123 = phi i64 [ %105, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8cea83b330af58cdE.exit.i.i" ], [ %90, %.noexc62 ]
-  %124 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.pre.i.i131, i64 %89
+  %124 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.pre.i.i132, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %124, ptr noundef nonnull align 8 dereferenceable(88) %13, i64 88, i1 false), !noalias !8771
   %125 = add i64 %89, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !8751
@@ -57140,11 +57140,11 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
           to label %.noexc24.backedge unwind label %.loopexit
 
 127:                                              ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88, %137, %100
-  %.val18.i = phi i8 [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.val.i59, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.val17.i, %100 ], [ %.val.i59, %137 ]
-  %.pre.i.i130 = phi ptr [ %.pre.i.i132234, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.pre.i.i131, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.pre.i.i132234, %100 ], [ %.pre.i.i131, %137 ]
-  %128 = phi i64 [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %123, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %90, %100 ], [ %123, %137 ]
-  %129 = phi i64 [ %89, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %125, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %89, %100 ], [ %125, %137 ]
-  %.sroa.0.1.i = phi i1 [ %.sroa.0.0.i18235, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.sroa.0.0.i18235, %100 ], [ false, %137 ]
+  %.val18.i = phi i8 [ %.val.i59, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.val17.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.val17.i, %100 ], [ %.val.i59, %137 ]
+  %.pre.i.i131 = phi ptr [ %.pre.i.i132, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.pre.i.i133235, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.pre.i.i133235, %100 ], [ %.pre.i.i132, %137 ]
+  %128 = phi i64 [ %123, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %90, %100 ], [ %123, %137 ]
+  %129 = phi i64 [ %125, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %89, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %89, %100 ], [ %125, %137 ]
+  %.sroa.0.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.sroa.0.0.i18236, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.sroa.0.0.i18236, %100 ], [ false, %137 ]
   %130 = icmp eq i8 %.val18.i, 24
   br i1 %130, label %.thread104, label %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit
 
@@ -57217,12 +57217,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52: ;
           cleanup
   store i64 %129, ptr %59, align 8
   store i64 %128, ptr %22, align 8
-  store ptr %.pre.i.i130, ptr %58, align 8
+  store ptr %.pre.i.i131, ptr %58, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_parser..error..ParseErrorType$GT$17h010a5187ff82458eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15) #39, !noalias !8782
   br label %.body20
 
 .noexc24.backedge:                                ; preds = %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52, %.noexc54, %126, %.noexc29
-  %.pre.i.i129 = phi ptr [ %.pre.i.i131, %126 ], [ %.pre.i.i130, %.noexc29 ], [ %.pre.i.i130, %.noexc54 ], [ %.pre.i.i130, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ]
+  %.pre.i.i130 = phi ptr [ %.pre.i.i132, %126 ], [ %.pre.i.i131, %.noexc29 ], [ %.pre.i.i131, %.noexc54 ], [ %.pre.i.i131, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ]
   %148 = phi i64 [ %123, %126 ], [ %128, %.noexc29 ], [ %128, %.noexc54 ], [ %128, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ]
   %149 = phi i64 [ %125, %126 ], [ %129, %.noexc29 ], [ %129, %.noexc54 ], [ %129, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ]
   %.sroa.0.0.i18.be = phi i1 [ false, %126 ], [ %.sroa.0.1.i, %.noexc29 ], [ %.sroa.0.1.i, %.noexc54 ], [ %.sroa.0.1.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ]
@@ -57239,7 +57239,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52: ;
 153:                                              ; preds = %.noexc25
   store i64 %129, ptr %59, align 8
   store i64 %128, ptr %22, align 8
-  store ptr %.pre.i.i130, ptr %58, align 8
+  store ptr %.pre.i.i131, ptr %58, align 8
   invoke fastcc void @_ZN18ruff_python_parser12token_source11TokenSource20re_lex_logical_token17h746cf37cecd1f86fE(ptr noalias noundef nonnull align 8 dereferenceable(288) %1)
           to label %.noexc27 unwind label %.loopexit.split-lp
 
@@ -57261,7 +57261,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52: ;
           cleanup
   store i64 %129, ptr %59, align 8
   store i64 %128, ptr %22, align 8
-  store ptr %.pre.i.i130, ptr %58, align 8
+  store ptr %.pre.i.i131, ptr %58, align 8
   br label %.body20
 
 158:                                              ; preds = %154
@@ -57275,14 +57275,14 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52: ;
   br label %.noexc29
 
 .loopexit:                                        ; preds = %155, %139, %154, %.noexc29, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52, %144, %126, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit70.thread
-  %.pre.i.i134 = phi ptr [ %.pre.i.i130, %139 ], [ %.pre.i.i130, %154 ], [ %.pre.i.i130, %155 ], [ %.pre.i.i130, %.noexc29 ], [ %.pre.i.i130, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ], [ %.pre.i.i130, %144 ], [ %.pre.i.i131, %126 ], [ %.pre.i.i132234, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit70.thread ]
+  %.pre.i.i135 = phi ptr [ %.pre.i.i131, %139 ], [ %.pre.i.i131, %154 ], [ %.pre.i.i131, %155 ], [ %.pre.i.i131, %.noexc29 ], [ %.pre.i.i131, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ], [ %.pre.i.i131, %144 ], [ %.pre.i.i132, %126 ], [ %.pre.i.i133235, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit70.thread ]
   %160 = phi i64 [ %128, %139 ], [ %128, %154 ], [ %128, %155 ], [ %128, %.noexc29 ], [ %128, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ], [ %128, %144 ], [ %123, %126 ], [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit70.thread ]
   %161 = phi i64 [ %129, %139 ], [ %129, %154 ], [ %129, %155 ], [ %129, %.noexc29 ], [ %129, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52 ], [ %129, %144 ], [ %125, %126 ], [ %89, %_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E.exit70.thread ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %161, ptr %59, align 8
   store i64 %160, ptr %22, align 8
-  store ptr %.pre.i.i134, ptr %58, align 8
+  store ptr %.pre.i.i135, ptr %58, align 8
   br label %.body20
 
 .loopexit.split-lp:                               ; preds = %153, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i38, %171, %74, %.noexc77
@@ -57296,12 +57296,12 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i52: ;
           to label %182 unwind label %179
 
 .noexc27.loopexit:                                ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit, %.noexc23, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88, %137, %100, %97
-  %.pre.i.i133 = phi ptr [ %.pre.i.i132234, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.pre.i.i131, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.pre.i.i132234, %97 ], [ %.pre.i.i132234, %100 ], [ %.pre.i.i131, %137 ], [ %.pre.i.i132234, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.pre.i.i131, %.noexc23 ], [ %.pre.i.i131, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ]
+  %.pre.i.i134 = phi ptr [ %.pre.i.i133235, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.pre.i.i132, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %.pre.i.i133235, %97 ], [ %.pre.i.i133235, %100 ], [ %.pre.i.i132, %137 ], [ %.pre.i.i133235, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %.pre.i.i132, %.noexc23 ], [ %.pre.i.i132, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ]
   %162 = phi i64 [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %123, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %90, %97 ], [ %90, %100 ], [ %123, %137 ], [ %90, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %123, %.noexc23 ], [ %123, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ]
   %163 = phi i64 [ %89, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %125, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ], [ %89, %97 ], [ %89, %100 ], [ %125, %137 ], [ %89, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit88 ], [ %125, %.noexc23 ], [ %125, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit ]
   store i64 %163, ptr %59, align 8
   store i64 %162, ptr %22, align 8
-  store ptr %.pre.i.i133, ptr %58, align 8
+  store ptr %.pre.i.i134, ptr %58, align 8
   br label %.noexc27
 
 .noexc27:                                         ; preds = %.noexc27.loopexit, %153
@@ -63211,7 +63211,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.0.0.i33.i.i = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %.sroa.0.0.be.i.i.i, %.backedge.i.i.i ]
   %267 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %339, %.backedge.i.i.i ]
   %268 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %338, %.backedge.i.i.i ]
-  %.pre.i.i54.i32.i.i = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %.pre.i.i51.i.i.i, %.backedge.i.i.i ]
+  %.pre.i.i51.i32.i.i = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %.pre.i.i48.i.i.i, %.backedge.i.i.i ]
   %269 = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %337, %.backedge.i.i.i ]
   %270 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %336, %.backedge.i.i.i ]
   %271 = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i26 ], [ %335, %.backedge.i.i.i ]
@@ -63272,7 +63272,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %287 = icmp samesign ugt i64 %267, 144115188075855871
   %288 = icmp ugt i64 %286, 9223372036854775800
   %289 = select i1 %287, i1 true, i1 %288
-  br i1 %289, label %.loopexit48.i.loopexit.i.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i
+  br i1 %289, label %.loopexit45.i.loopexit.i.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; preds = %283
   call void @llvm.lifetime.start.p0(ptr nonnull %118), !noalias !9603
@@ -63282,7 +63282,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
 
 291:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i
   %292 = shl nuw nsw i64 %267, 6
-  store ptr %.pre.i.i54.i32.i.i, ptr %117, align 8, !alias.scope !9613, !noalias !9603
+  store ptr %.pre.i.i51.i32.i.i, ptr %117, align 8, !alias.scope !9613, !noalias !9603
   store i64 %292, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i.i.i, align 8, !alias.scope !9613, !noalias !9603
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i.i"
 
@@ -63303,21 +63303,21 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
   %297 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %298 = load i64, ptr %297, align 8, !noalias !9603
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !9603
-  br label %.loopexit48.i.i.i
+  br label %.loopexit45.i.i.i
 
-.loopexit48.i.loopexit.i.i:                       ; preds = %283
+.loopexit45.i.loopexit.i.i:                       ; preds = %283
   store ptr %269, ptr %240, align 8, !noalias !9576
   store i64 %270, ptr %127, align 8, !noalias !9576
   store i64 %271, ptr %241, align 8, !noalias !9576
-  br label %.loopexit48.i.i.i
+  br label %.loopexit45.i.i.i
 
-.loopexit48.i.i.i:                                ; preds = %.loopexit48.i.loopexit.i.i, %295
-  %.sroa.6.0.i.ph.i.i.i.i.i.i = phi i64 [ %298, %295 ], [ undef, %.loopexit48.i.loopexit.i.i ]
-  %.sroa.04.0.i.ph.i.i.i.i.i.i = phi i64 [ %296, %295 ], [ 0, %.loopexit48.i.loopexit.i.i ]
+.loopexit45.i.i.i:                                ; preds = %.loopexit45.i.loopexit.i.i, %295
+  %.sroa.6.0.i.ph.i.i.i.i.i.i = phi i64 [ %298, %295 ], [ undef, %.loopexit45.i.loopexit.i.i ]
+  %.sroa.04.0.i.ph.i.i.i.i.i.i = phi i64 [ %296, %295 ], [ 0, %.loopexit45.i.loopexit.i.i ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.787) #37
           to label %.noexc.i.i.i.i.i unwind label %300, !noalias !9617
 
-.noexc.i.i.i.i.i:                                 ; preds = %.loopexit48.i.i.i
+.noexc.i.i.i.i.i:                                 ; preds = %.loopexit45.i.i.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i.i"
@@ -63325,7 +63325,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !9603
   br label %"_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17h8e0c7b49daa4d8fcE.exit.i.i.i"
 
-300:                                              ; preds = %.loopexit48.i.i.i
+300:                                              ; preds = %.loopexit45.i.i.i
   %301 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h574ffefe2f2e5fc0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %120) #39
@@ -63340,9 +63340,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
 "_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17h8e0c7b49daa4d8fcE.exit.i.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i", %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_delete_statement28_$u7b$$u7b$closure$u7d$$u7d$17hef60483ded9f1fcdE.exit.i.i.i.i"
   %304 = phi i64 [ %285, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i" ], [ %270, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_delete_statement28_$u7b$$u7b$closure$u7d$$u7d$17hef60483ded9f1fcdE.exit.i.i.i.i" ]
   %305 = phi ptr [ %299, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i" ], [ %269, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_delete_statement28_$u7b$$u7b$closure$u7d$$u7d$17hef60483ded9f1fcdE.exit.i.i.i.i" ]
-  %.pre.i.i53.i.i.i = phi ptr [ %299, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i" ], [ %.pre.i.i54.i32.i.i, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_delete_statement28_$u7b$$u7b$closure$u7d$$u7d$17hef60483ded9f1fcdE.exit.i.i.i.i" ]
+  %.pre.i.i50.i.i.i = phi ptr [ %299, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i" ], [ %.pre.i.i51.i32.i.i, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_delete_statement28_$u7b$$u7b$closure$u7d$$u7d$17hef60483ded9f1fcdE.exit.i.i.i.i" ]
   %306 = phi i64 [ %285, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i.i" ], [ %267, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_delete_statement28_$u7b$$u7b$closure$u7d$$u7d$17hef60483ded9f1fcdE.exit.i.i.i.i" ]
-  %307 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i53.i.i.i, i64 %268
+  %307 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i50.i.i.i, i64 %268
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %307, ptr noundef nonnull align 8 dereferenceable(64) %120, i64 64, i1 false), !noalias !9619
   %308 = add i64 %268, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %120), !noalias !9594
@@ -63358,30 +63358,30 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i: ; pred
   %311 = phi i64 [ %308, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %271, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %312 = phi i64 [ %304, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %270, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %313 = phi ptr [ %305, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %269, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.pre-phi60.i.i.i = phi i1 [ %320, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.pre-phi58.i.i.i = phi i128 [ %.pre57.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %273, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.pre-phi57.i.i.i = phi i1 [ %320, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.pre-phi55.i.i.i = phi i128 [ %.pre54.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %273, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %.val18.i.i.i = phi i8 [ %.val.i26.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %.val17.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.pre.i.i52.i.i.i = phi ptr [ %.pre.i.i53.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %.pre.i.i54.i32.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.pre.i.i49.i.i.i = phi ptr [ %.pre.i.i50.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %.pre.i.i51.i32.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %314 = phi i64 [ %308, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %268, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %315 = phi i64 [ %306, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %267, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %.sroa.0.1.i.i.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i ], [ %.sroa.0.0.i33.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %316 = and i128 %.pre-phi58.i.i.i, 337570925882730900174282555711
+  %316 = and i128 %.pre-phi55.i.i.i, 337570925882730900174282555711
   %317 = icmp ne i128 %316, 0
-  %.sroa.0.0.i38.i28.i.i.i = or i1 %.pre-phi60.i.i.i, %317
+  %.sroa.0.0.i38.i28.i.i.i = or i1 %.pre-phi57.i.i.i, %317
   br i1 %.sroa.0.0.i38.i28.i.i.i, label %323, label %321, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i: ; preds = %"_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17h8e0c7b49daa4d8fcE.exit.i.i.i"
   %switch.selectcmp.case221.i33.i.i.i = icmp ne i8 %.val.i26.i.i.i, 23
   %318 = and i8 %.val.i26.i.i.i, 123
   %319 = icmp ne i8 %318, 10
-  %.not47.i.i.i = and i1 %switch.selectcmp.case221.i33.i.i.i, %319
-  br i1 %.not47.i.i.i, label %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i, label %.loopexit.i.i
+  %.not44.i.i.i = and i1 %switch.selectcmp.case221.i33.i.i.i, %319
+  br i1 %.not44.i.i.i, label %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i, label %.loopexit.i.i
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36._crit_edge.i.i.i: ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i
   %.pre.i.i.i = zext nneg i8 %.val.i26.i.i.i to i128
-  %.pre57.i.i.i = shl nuw nsw i128 1, %.pre.i.i.i
-  %.pre59.i.i.i = add nsw i8 %.val.i26.i.i.i, -99
-  %320 = icmp ult i8 %.pre59.i.i.i, 3
+  %.pre54.i.i.i = shl nuw nsw i128 1, %.pre.i.i.i
+  %.pre56.i.i.i = add nsw i8 %.val.i26.i.i.i, -99
+  %320 = icmp ult i8 %.pre56.i.i.i, 3
   br label %310
 
 321:                                              ; preds = %310
@@ -63459,7 +63459,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.
   %335 = phi i64 [ %311, %.noexc6.i.i ], [ %308, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %311, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %311, %.noexc8.i.i ]
   %336 = phi i64 [ %312, %.noexc6.i.i ], [ %304, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %312, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %312, %.noexc8.i.i ]
   %337 = phi ptr [ %313, %.noexc6.i.i ], [ %305, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %313, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %313, %.noexc8.i.i ]
-  %.pre.i.i51.i.i.i = phi ptr [ %.pre.i.i52.i.i.i, %.noexc6.i.i ], [ %.pre.i.i53.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.pre.i.i52.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %.pre.i.i52.i.i.i, %.noexc8.i.i ]
+  %.pre.i.i48.i.i.i = phi ptr [ %.pre.i.i49.i.i.i, %.noexc6.i.i ], [ %.pre.i.i50.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.pre.i.i49.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %.pre.i.i49.i.i.i, %.noexc8.i.i ]
   %338 = phi i64 [ %314, %.noexc6.i.i ], [ %308, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %314, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %314, %.noexc8.i.i ]
   %339 = phi i64 [ %315, %.noexc6.i.i ], [ %306, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %315, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %315, %.noexc8.i.i ]
   %.sroa.0.0.be.i.i.i = phi i1 [ %.sroa.0.1.i.i.i, %.noexc6.i.i ], [ false, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.sroa.0.1.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i.i ], [ %.sroa.0.1.i.i.i, %.noexc8.i.i ]
@@ -64649,9 +64649,9 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.0.0.i89.i.i = phi i1 [ %.sroa.0.0.ph.i134.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.sroa.0.1.i.i.i74, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %.sroa.05.0.i88.i.i = phi i1 [ %.sroa.05.0.ph.i133.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.sroa.05.1.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %647 = phi i64 [ %.lcssa7396129.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %686, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
-  %648 = phi i64 [ %.promoted85.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %685, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
-  %.pre.i.i88.i87.i.i = phi ptr [ %.lcssa64107128.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.pre.i.i87.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
-  %.promoted85121.i86.i.i = phi i64 [ %.promoted85.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.promoted85120.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
+  %648 = phi i64 [ %.promoted83.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %685, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
+  %.pre.i.i86.i87.i.i = phi ptr [ %.lcssa64107128.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.pre.i.i85.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
+  %.promoted83119.i86.i.i = phi i64 [ %.promoted83.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.promoted83118.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %649 = phi ptr [ %.lcssa64107128.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %684, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %650 = phi i64 [ %.lcssa7396129.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %683, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %651 = phi i64 [ %.lcssa82117127.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %682, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
@@ -64691,7 +64691,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i102: ;
 
 660:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i102
   %661 = mul nuw nsw i64 %647, 72
-  store ptr %.pre.i.i88.i87.i.i, ptr %67, align 8, !alias.scope !9862, !noalias !9852
+  store ptr %.pre.i.i86.i87.i.i, ptr %67, align 8, !alias.scope !9862, !noalias !9852
   store i64 %661, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i.i.i55, align 8, !alias.scope !9862, !noalias !9852
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i.i103"
 
@@ -64749,9 +64749,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i102: ;
 "_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17h4538edeed9d59cfeE.exit.i.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f6d24d67445675E.exit.i.i.i.i.i", %.noexc2.i.i70
   %673 = phi i64 [ %656, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f6d24d67445675E.exit.i.i.i.i.i" ], [ %650, %.noexc2.i.i70 ]
   %674 = phi ptr [ %668, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f6d24d67445675E.exit.i.i.i.i.i" ], [ %649, %.noexc2.i.i70 ]
-  %.pre.i.i86.i.i.i = phi ptr [ %668, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f6d24d67445675E.exit.i.i.i.i.i" ], [ %.pre.i.i88.i87.i.i, %.noexc2.i.i70 ]
+  %.pre.i.i84.i.i.i = phi ptr [ %668, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f6d24d67445675E.exit.i.i.i.i.i" ], [ %.pre.i.i86.i87.i.i, %.noexc2.i.i70 ]
   %675 = phi i64 [ %656, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f6d24d67445675E.exit.i.i.i.i.i" ], [ %647, %.noexc2.i.i70 ]
-  %676 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.pre.i.i86.i.i.i, i64 %648
+  %676 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.pre.i.i84.i.i.i, i64 %648
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %676, ptr noundef nonnull align 8 dereferenceable(72) %69, i64 72, i1 false), !noalias !9868
   %677 = add i64 %648, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !9849
@@ -64769,7 +64769,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100: ; p
   %.lcssa82118.i.i = phi i64 [ %677, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %682, %.noexc8.i.i95 ]
   %.lcssa64108.i.i = phi ptr [ %674, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %684, %.noexc8.i.i95 ]
   %.lcssa7397.i.i = phi i64 [ %673, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %683, %.noexc8.i.i95 ]
-  %.promoted85119.i.i.i = phi i64 [ %677, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %.promoted85120.i.i.i, %.noexc8.i.i95 ]
+  %.promoted83117.i.i.i = phi i64 [ %677, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %.promoted83118.i.i.i, %.noexc8.i.i95 ]
   %.sroa.11.0.ph.be.i.i.i = phi i32 [ %.val10.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %.sroa.11.1.i.i.i, %.noexc8.i.i95 ]
   %.sroa.8.0.ph.be.i.i.i = phi i32 [ %.val.i.i.i101, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %.sroa.8.1.i.i.i, %.noexc8.i.i95 ]
   %.sroa.05.0.ph.be.i.i.i = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i100 ], [ %.sroa.05.4.i.i.i, %.noexc8.i.i95 ]
@@ -64784,7 +64784,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.05.0.ph.i133.i.i = phi i1 [ false, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.sroa.05.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   %.sroa.8.0.ph.i132.i.i = phi i32 [ undef, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.sroa.8.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   %.sroa.11.0.ph.i131.i.i = phi i32 [ undef, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.sroa.11.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
-  %.promoted85.i130.i.i = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.promoted85119.i.i.i, %.outer.backedge.i.i.i ]
+  %.promoted83.i130.i.i = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.promoted83117.i.i.i, %.outer.backedge.i.i.i ]
   %.lcssa7396129.i.i = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.lcssa7397.i.i, %.outer.backedge.i.i.i ]
   %.lcssa64107128.i.i = phi ptr [ inttoptr (i64 8 to ptr), %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.lcssa64108.i.i, %.outer.backedge.i.i.i ]
   %.lcssa82117127.i.i = phi i64 [ 0, %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i53 ], [ %.lcssa82118.i.i, %.outer.backedge.i.i.i ]
@@ -64795,8 +64795,8 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %683 = phi i64 [ %673, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %650, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
   %684 = phi ptr [ %674, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %649, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
   %.val18.i.i.i73 = phi i8 [ %.val.i26.i.i.i71, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %.val17.i.i.i57, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
-  %.promoted85120.i.i.i = phi i64 [ %677, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %.promoted85121.i86.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
-  %.pre.i.i87.i.i.i = phi ptr [ %.pre.i.i86.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %.pre.i.i88.i87.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
+  %.promoted83118.i.i.i = phi i64 [ %677, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %.promoted83119.i86.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
+  %.pre.i.i85.i.i.i = phi ptr [ %.pre.i.i84.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %.pre.i.i86.i87.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
   %685 = phi i64 [ %677, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %648, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
   %686 = phi i64 [ %675, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %647, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
   %.sroa.05.1.i.i.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i.i.i72 ], [ %.sroa.05.0.i88.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.i.i56 ]
@@ -64821,8 +64821,8 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %switch.selectcmp.case213.i33.i.i.i = icmp ne i8 %.val.i26.i.i.i71, 23
   %687 = and i8 %.val.i26.i.i.i71, 123
   %688 = icmp ne i8 %687, 10
-  %.not45.i.i.i = and i1 %switch.selectcmp.case213.i33.i.i.i, %688
-  br i1 %.not45.i.i.i, label %681, label %.loopexit14.i.i
+  %.not43.i.i.i = and i1 %switch.selectcmp.case213.i33.i.i.i, %688
+  br i1 %.not43.i.i.i, label %681, label %.loopexit14.i.i
 
 689:                                              ; preds = %681
   %.val22.i.i.i91 = load i32, ptr %623, align 8, !alias.scope !9836, !noalias !9837, !noundef !3
@@ -69536,9 +69536,9 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.0.0.i89.i.i = phi i1 [ %.sroa.0.0.ph.i134.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.sroa.0.1.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %.sroa.05.0.i88.i.i = phi i1 [ %.sroa.05.0.ph.i133.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.sroa.05.1.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %129 = phi i64 [ %.lcssa7396129.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %172, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
-  %130 = phi i64 [ %.promoted87.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %171, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
-  %.pre.i.i90.i87.i.i = phi ptr [ %.lcssa64107128.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.pre.i.i88.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
-  %.promoted87123.i86.i.i = phi i64 [ %.promoted87.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.promoted87122.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
+  %130 = phi i64 [ %.promoted84.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %171, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
+  %.pre.i.i87.i87.i.i = phi ptr [ %.lcssa64107128.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.pre.i.i85.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
+  %.promoted84120.i86.i.i = phi i64 [ %.promoted84.i130.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %.promoted84119.i.i.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %131 = phi ptr [ %.lcssa64107128.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %170, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %132 = phi i64 [ %.lcssa7396129.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %169, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
   %133 = phi i64 [ %.lcssa82117127.i.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i.i ], [ %168, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i.i ]
@@ -69576,7 +69576,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %143 = call i64 @llvm.umax.i64(i64 %142, i64 4)
   %144 = mul i64 %143, 80
   %145 = icmp samesign ugt i64 %129, 57646075230342348
-  br i1 %145, label %.loopexit47.i.loopexit.i.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i
+  br i1 %145, label %.loopexit44.i.loopexit.i.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; preds = %141
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !10621
@@ -69586,7 +69586,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
 
 147:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i
   %148 = mul nuw nsw i64 %129, 80
-  store ptr %.pre.i.i90.i87.i.i, ptr %48, align 8, !alias.scope !10630, !noalias !10621
+  store ptr %.pre.i.i87.i87.i.i, ptr %48, align 8, !alias.scope !10630, !noalias !10621
   store i64 %148, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i.i.i, align 8, !alias.scope !10630, !noalias !10621
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i.i"
 
@@ -69607,21 +69607,21 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
   %153 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %154 = load i64, ptr %153, align 8, !noalias !10621
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !10621
-  br label %.loopexit47.i.i.i
+  br label %.loopexit44.i.i.i
 
-.loopexit47.i.loopexit.i.i:                       ; preds = %141
+.loopexit44.i.loopexit.i.i:                       ; preds = %141
   store ptr %131, ptr %103, align 8, !noalias !10595
   store i64 %132, ptr %59, align 8, !noalias !10595
   store i64 %133, ptr %104, align 8, !noalias !10595
-  br label %.loopexit47.i.i.i
+  br label %.loopexit44.i.i.i
 
-.loopexit47.i.i.i:                                ; preds = %.loopexit47.i.loopexit.i.i, %151
-  %.sroa.6.0.i.ph.i.i.i.i.i.i = phi i64 [ %154, %151 ], [ undef, %.loopexit47.i.loopexit.i.i ]
-  %.sroa.04.0.i.ph.i.i.i.i.i.i = phi i64 [ %152, %151 ], [ 0, %.loopexit47.i.loopexit.i.i ]
+.loopexit44.i.i.i:                                ; preds = %.loopexit44.i.loopexit.i.i, %151
+  %.sroa.6.0.i.ph.i.i.i.i.i.i = phi i64 [ %154, %151 ], [ undef, %.loopexit44.i.loopexit.i.i ]
+  %.sroa.04.0.i.ph.i.i.i.i.i.i = phi i64 [ %152, %151 ], [ 0, %.loopexit44.i.loopexit.i.i ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i.i.i.i, i64 %.sroa.6.0.i.ph.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.787) #37
           to label %.noexc.i.i.i.i.i unwind label %156, !noalias !10634
 
-.noexc.i.i.i.i.i:                                 ; preds = %.loopexit47.i.i.i
+.noexc.i.i.i.i.i:                                 ; preds = %.loopexit44.i.i.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i.i"
@@ -69629,7 +69629,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !10621
   br label %"_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17hd28267da7d204fb5E.exit.i.i.i"
 
-156:                                              ; preds = %.loopexit47.i.i.i
+156:                                              ; preds = %.loopexit44.i.i.i
   %157 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..nodes..WithItem$GT$17h55b4a665ee2a8e72E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %51) #39
@@ -69644,9 +69644,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i: ; pr
 "_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17hd28267da7d204fb5E.exit.i.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i", %.noexc2.i.i
   %160 = phi i64 [ %143, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i" ], [ %132, %.noexc2.i.i ]
   %161 = phi ptr [ %155, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i" ], [ %131, %.noexc2.i.i ]
-  %.pre.i.i89.i.i.i = phi ptr [ %155, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i" ], [ %.pre.i.i90.i87.i.i, %.noexc2.i.i ]
+  %.pre.i.i86.i.i.i = phi ptr [ %155, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i" ], [ %.pre.i.i87.i87.i.i, %.noexc2.i.i ]
   %162 = phi i64 [ %143, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i.i" ], [ %129, %.noexc2.i.i ]
-  %163 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %.pre.i.i89.i.i.i, i64 %130
+  %163 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %.pre.i.i86.i.i.i, i64 %130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %163, ptr noundef nonnull align 8 dereferenceable(80) %51, i64 80, i1 false), !noalias !10635
   %164 = add i64 %130, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !10613
@@ -69667,7 +69667,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i: ; pred
   %.lcssa82118.i.i = phi i64 [ %164, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %168, %.noexc8.i.i ]
   %.lcssa64108.i.i = phi ptr [ %161, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %170, %.noexc8.i.i ]
   %.lcssa7397.i.i = phi i64 [ %160, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %169, %.noexc8.i.i ]
-  %.promoted87121.i.i.i = phi i64 [ %164, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.promoted87122.i.i.i, %.noexc8.i.i ]
+  %.promoted84118.i.i.i = phi i64 [ %164, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.promoted84119.i.i.i, %.noexc8.i.i ]
   %.sroa.11.0.ph.be.i.i.i = phi i32 [ %.val10.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.sroa.11.1.i.i.i, %.noexc8.i.i ]
   %.sroa.8.0.ph.be.i.i.i = phi i32 [ %.val.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.sroa.8.1.i.i.i, %.noexc8.i.i ]
   %.sroa.05.0.ph.be.i.i.i = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i.i ], [ %.sroa.05.4.i.i.i, %.noexc8.i.i ]
@@ -69682,7 +69682,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.05.0.ph.i133.i.i = phi i1 [ false, %102 ], [ %.sroa.05.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   %.sroa.8.0.ph.i132.i.i = phi i32 [ undef, %102 ], [ %.sroa.8.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   %.sroa.11.0.ph.i131.i.i = phi i32 [ undef, %102 ], [ %.sroa.11.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
-  %.promoted87.i130.i.i = phi i64 [ 0, %102 ], [ %.promoted87121.i.i.i, %.outer.backedge.i.i.i ]
+  %.promoted84.i130.i.i = phi i64 [ 0, %102 ], [ %.promoted84118.i.i.i, %.outer.backedge.i.i.i ]
   %.lcssa7396129.i.i = phi i64 [ 0, %102 ], [ %.lcssa7397.i.i, %.outer.backedge.i.i.i ]
   %.lcssa64107128.i.i = phi ptr [ inttoptr (i64 8 to ptr), %102 ], [ %.lcssa64108.i.i, %.outer.backedge.i.i.i ]
   %.lcssa82117127.i.i = phi i64 [ 0, %102 ], [ %.lcssa82118.i.i, %.outer.backedge.i.i.i ]
@@ -69692,18 +69692,18 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %168 = phi i64 [ %164, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %133, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %169 = phi i64 [ %160, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %132, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %170 = phi ptr [ %161, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %131, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.pre-phi129.i.i.i = phi i1 [ %175, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.pre-phi127.i.i.i = phi i128 [ %.pre126.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %135, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.pre-phi126.i.i.i = phi i1 [ %175, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.pre-phi124.i.i.i = phi i128 [ %.pre123.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %135, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %.val18.i.i.i = phi i8 [ %.val.i26.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.val17.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.promoted87122.i.i.i = phi i64 [ %164, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.promoted87123.i86.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %.pre.i.i88.i.i.i = phi ptr [ %.pre.i.i89.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.pre.i.i90.i87.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.promoted84119.i.i.i = phi i64 [ %164, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.promoted84120.i86.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
+  %.pre.i.i85.i.i.i = phi ptr [ %.pre.i.i86.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.pre.i.i87.i87.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %171 = phi i64 [ %164, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %130, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %172 = phi i64 [ %162, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %129, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %.sroa.05.1.i.i.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.sroa.05.0.i88.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
   %.sroa.0.1.i.i.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i ], [ %.sroa.0.0.i89.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i ]
-  %173 = and i128 %.pre-phi127.i.i.i, 337570925882730900174282555711
+  %173 = and i128 %.pre-phi124.i.i.i, 337570925882730900174282555711
   %174 = icmp ne i128 %173, 0
-  %.sroa.0.0.i42.i28.i.i.i = or i1 %.pre-phi129.i.i.i, %174
+  %.sroa.0.0.i42.i28.i.i.i = or i1 %.pre-phi126.i.i.i, %174
   br i1 %.sroa.0.0.i42.i28.i.i.i, label %178, label %176, !prof !95
 
 .loopexit.i.loopexit.i.i:                         ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i.i
@@ -69717,9 +69717,9 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i.i: ; preds = %"_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17hd28267da7d204fb5E.exit.i.i.i"
   %.pre.i.i.i = zext nneg i8 %.val.i26.i.i.i to i128
-  %.pre126.i.i.i = shl nuw nsw i128 1, %.pre.i.i.i
-  %.pre128.i.i.i = add nsw i8 %.val.i26.i.i.i, -99
-  %175 = icmp ult i8 %.pre128.i.i.i, 3
+  %.pre123.i.i.i = shl nuw nsw i128 1, %.pre.i.i.i
+  %.pre125.i.i.i = add nsw i8 %.val.i26.i.i.i, -99
+  %175 = icmp ult i8 %.pre125.i.i.i, 3
   br label %167
 
 176:                                              ; preds = %167
@@ -70073,7 +70073,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %267 = phi i1 [ false, %238 ], [ %336, %.backedge.i.i.i ]
   %268 = phi i64 [ 0, %238 ], [ %335, %.backedge.i.i.i ]
   %269 = phi i64 [ 0, %238 ], [ %334, %.backedge.i.i.i ]
-  %.pre.i.i55.i105.i.i = phi ptr [ inttoptr (i64 8 to ptr), %238 ], [ %.pre.i.i52.i.i.i, %.backedge.i.i.i ]
+  %.pre.i.i54.i105.i.i = phi ptr [ inttoptr (i64 8 to ptr), %238 ], [ %.pre.i.i51.i.i.i, %.backedge.i.i.i ]
   %.sroa.0.0104.i.i = phi i1 [ false, %238 ], [ %.sroa.0.2.i.i, %.backedge.i.i.i ]
   %270 = phi ptr [ inttoptr (i64 8 to ptr), %238 ], [ %333, %.backedge.i.i.i ]
   %271 = phi i64 [ 0, %238 ], [ %332, %.backedge.i.i.i ]
@@ -70112,7 +70112,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %285 = call i64 @llvm.umax.i64(i64 %284, i64 4)
   %286 = mul i64 %285, 88
   %287 = icmp samesign ugt i64 %268, 52405522936674862
-  br i1 %287, label %.loopexit48.i.loopexit.i.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i
+  br i1 %287, label %.loopexit47.i.loopexit.i.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i: ; preds = %283
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !10718
@@ -70122,7 +70122,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i: ; 
 
 289:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i
   %290 = mul nuw nsw i64 %268, 88
-  store ptr %.pre.i.i55.i105.i.i, ptr %28, align 8, !alias.scope !10727, !noalias !10718
+  store ptr %.pre.i.i54.i105.i.i, ptr %28, align 8, !alias.scope !10727, !noalias !10718
   store i64 %290, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i.i10.i, align 8, !alias.scope !10727, !noalias !10718
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i46.i"
 
@@ -70143,21 +70143,21 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i: ; 
   %295 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %296 = load i64, ptr %295, align 8, !noalias !10718
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !10718
-  br label %.loopexit48.i.i.i
+  br label %.loopexit47.i.i.i
 
-.loopexit48.i.loopexit.i.i:                       ; preds = %283
+.loopexit47.i.loopexit.i.i:                       ; preds = %283
   store ptr %270, ptr %239, align 8, !noalias !10673
   store i64 %271, ptr %43, align 8, !noalias !10673
   store i64 %272, ptr %240, align 8, !noalias !10673
-  br label %.loopexit48.i.i.i
+  br label %.loopexit47.i.i.i
 
-.loopexit48.i.i.i:                                ; preds = %.loopexit48.i.loopexit.i.i, %293
-  %.sroa.6.0.i.ph.i.i.i.i.i48.i = phi i64 [ %296, %293 ], [ undef, %.loopexit48.i.loopexit.i.i ]
-  %.sroa.04.0.i.ph.i.i.i.i.i49.i = phi i64 [ %294, %293 ], [ 0, %.loopexit48.i.loopexit.i.i ]
+.loopexit47.i.i.i:                                ; preds = %.loopexit47.i.loopexit.i.i, %293
+  %.sroa.6.0.i.ph.i.i.i.i.i48.i = phi i64 [ %296, %293 ], [ undef, %.loopexit47.i.loopexit.i.i ]
+  %.sroa.04.0.i.ph.i.i.i.i.i49.i = phi i64 [ %294, %293 ], [ 0, %.loopexit47.i.loopexit.i.i ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i.i.i49.i, i64 %.sroa.6.0.i.ph.i.i.i.i.i48.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.704) #37
           to label %.noexc.i.i.i.i50.i unwind label %298, !noalias !10731
 
-.noexc.i.i.i.i50.i:                               ; preds = %.loopexit48.i.i.i
+.noexc.i.i.i.i50.i:                               ; preds = %.loopexit47.i.i.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i46.i"
@@ -70165,7 +70165,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !10718
   br label %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i"
 
-298:                                              ; preds = %.loopexit48.i.i.i
+298:                                              ; preds = %.loopexit47.i.i.i
   %299 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$ruff_python_parser..parser..statement..ParsedWithItem$GT$17ha4600ccc483971fcE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %30) #39
@@ -70180,9 +70180,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i45.i: ; 
 "_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i", %.noexc12.i42.i
   %302 = phi i64 [ %285, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i" ], [ %271, %.noexc12.i42.i ]
   %303 = phi ptr [ %297, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i" ], [ %270, %.noexc12.i42.i ]
-  %.pre.i.i54.i.i.i = phi ptr [ %297, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i" ], [ %.pre.i.i55.i105.i.i, %.noexc12.i42.i ]
+  %.pre.i.i53.i.i.i = phi ptr [ %297, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i" ], [ %.pre.i.i54.i105.i.i, %.noexc12.i42.i ]
   %304 = phi i64 [ %285, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h10b409a328403417E.exit.i.i.i.i.i" ], [ %268, %.noexc12.i42.i ]
-  %305 = getelementptr inbounds nuw { { { i32, [15 x i32] }, { i32, i32 }, ptr }, i8, [7 x i8] }, ptr %.pre.i.i54.i.i.i, i64 %269
+  %305 = getelementptr inbounds nuw { { { i32, [15 x i32] }, { i32, i32 }, ptr }, i8, [7 x i8] }, ptr %.pre.i.i53.i.i.i, i64 %269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %305, ptr noundef nonnull align 8 dereferenceable(88) %30, i64 88, i1 false), !noalias !10732
   %306 = add i64 %269, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !10714
@@ -70202,24 +70202,24 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i: ; pr
   %309 = phi i64 [ %302, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %271, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %310 = phi ptr [ %303, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %270, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %.sroa.0.1.i.i = phi i1 [ %281, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %.sroa.0.0104.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
-  %.pre-phi61.i.i.i = phi i1 [ %316, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
-  %.pre-phi59.i.i.i = phi i128 [ %.pre58.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %274, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
+  %.pre-phi60.i.i.i = phi i1 [ %316, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
+  %.pre-phi58.i.i.i = phi i128 [ %.pre57.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %274, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %.val18.i.i20.i = phi i8 [ %.val.i27.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %.val17.i.i12.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
-  %.pre.i.i53.i.i.i = phi ptr [ %.pre.i.i54.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %.pre.i.i55.i105.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
+  %.pre.i.i52.i.i.i = phi ptr [ %.pre.i.i53.i.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %.pre.i.i54.i105.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %311 = phi i64 [ %306, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %269, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %312 = phi i64 [ %304, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %268, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %313 = phi i1 [ %281, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %267, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
   %.sroa.0.1.i.i21.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i ], [ %.sroa.0.0.i106.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ]
-  %314 = and i128 %.pre-phi59.i.i.i, 337570925882730900174282555711
+  %314 = and i128 %.pre-phi58.i.i.i, 337570925882730900174282555711
   %315 = icmp ne i128 %314, 0
-  %.sroa.0.0.i42.i29.i.i.i = or i1 %.pre-phi61.i.i.i, %315
+  %.sroa.0.0.i42.i29.i.i.i = or i1 %.pre-phi60.i.i.i, %315
   br i1 %.sroa.0.0.i42.i29.i.i.i, label %319, label %317, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit38._crit_edge.i.i.i: ; preds = %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i"
   %.pre.i.i44.i = zext nneg i8 %.val.i27.i.i.i to i128
-  %.pre58.i.i.i = shl nuw nsw i128 1, %.pre.i.i44.i
-  %.pre60.i.i.i = add nsw i8 %.val.i27.i.i.i, -99
-  %316 = icmp ult i8 %.pre60.i.i.i, 3
+  %.pre57.i.i.i = shl nuw nsw i128 1, %.pre.i.i44.i
+  %.pre59.i.i.i = add nsw i8 %.val.i27.i.i.i, -99
+  %316 = icmp ult i8 %.pre59.i.i.i, 3
   br label %307
 
 317:                                              ; preds = %307
@@ -70298,7 +70298,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i4
   %332 = phi i64 [ %309, %.noexc16.i.i ], [ %302, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %309, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %309, %.noexc18.i.i ]
   %333 = phi ptr [ %310, %.noexc16.i.i ], [ %303, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %310, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %310, %.noexc18.i.i ]
   %.sroa.0.2.i.i = phi i1 [ %.sroa.0.1.i.i, %.noexc16.i.i ], [ %281, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %.sroa.0.1.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %.sroa.0.1.i.i, %.noexc18.i.i ]
-  %.pre.i.i52.i.i.i = phi ptr [ %.pre.i.i53.i.i.i, %.noexc16.i.i ], [ %.pre.i.i54.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %.pre.i.i53.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %.pre.i.i53.i.i.i, %.noexc18.i.i ]
+  %.pre.i.i51.i.i.i = phi ptr [ %.pre.i.i52.i.i.i, %.noexc16.i.i ], [ %.pre.i.i53.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %.pre.i.i52.i.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %.pre.i.i52.i.i.i, %.noexc18.i.i ]
   %334 = phi i64 [ %311, %.noexc16.i.i ], [ %306, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %311, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %311, %.noexc18.i.i ]
   %335 = phi i64 [ %312, %.noexc16.i.i ], [ %304, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %312, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %312, %.noexc18.i.i ]
   %336 = phi i1 [ %313, %.noexc16.i.i ], [ %281, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i43.i ], [ %313, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i41.i ], [ %313, %.noexc18.i.i ]
@@ -70352,7 +70352,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i4
   %344 = phi ptr [ %270, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %270, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %303, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ], [ %303, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ]
   %.sroa.0.3.ph.i.i = phi i1 [ %.sroa.0.0104.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %.sroa.0.0104.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %281, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ], [ %281, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ]
   %.ph.i.i = phi i64 [ %269, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %269, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %306, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ], [ %306, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ]
-  %.ph75.i.i = phi ptr [ %.pre.i.i55.i105.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %.pre.i.i55.i105.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %.pre.i.i54.i.i.i, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ], [ %.pre.i.i54.i.i.i, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ]
+  %.ph75.i.i = phi ptr [ %.pre.i.i54.i105.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %.pre.i.i54.i105.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %.pre.i.i53.i.i.i, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ], [ %.pre.i.i53.i.i.i, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ]
   %.ph76.i.i = phi i64 [ %268, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %268, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i15.i ], [ %304, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ], [ %304, %"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$34try_parse_parenthesized_with_items28_$u7b$$u7b$closure$u7d$$u7d$17h18544d84dd0c8d41E.exit.i.i.i" ]
   store ptr %344, ptr %239, align 8, !noalias !10673
   store i64 %343, ptr %43, align 8, !noalias !10673
@@ -70370,7 +70370,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i4
 
 346:                                              ; preds = %345, %.loopexit74.i.i
   %347 = phi i64 [ %.ph76.i.i, %.loopexit74.i.i ], [ %312, %345 ]
-  %348 = phi ptr [ %.ph75.i.i, %.loopexit74.i.i ], [ %.pre.i.i53.i.i.i, %345 ]
+  %348 = phi ptr [ %.ph75.i.i, %.loopexit74.i.i ], [ %.pre.i.i52.i.i.i, %345 ]
   %349 = phi i64 [ %.ph.i.i, %.loopexit74.i.i ], [ %311, %345 ]
   %.idx108.i.i = mul nuw nsw i64 %349, 88
   %350 = getelementptr inbounds nuw i8, ptr %348, i64 %.idx108.i.i
@@ -70388,7 +70388,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i4
 354:                                              ; preds = %._crit_edge.i, %.loopexit74.i.i
   %.val.i.i = phi i8 [ %.val.i623.i, %.loopexit74.i.i ], [ %.val.i.pre.i, %._crit_edge.i ]
   %355 = phi i64 [ %.ph76.i.i, %.loopexit74.i.i ], [ %312, %._crit_edge.i ]
-  %356 = phi ptr [ %.ph75.i.i, %.loopexit74.i.i ], [ %.pre.i.i53.i.i.i, %._crit_edge.i ]
+  %356 = phi ptr [ %.ph75.i.i, %.loopexit74.i.i ], [ %.pre.i.i52.i.i.i, %._crit_edge.i ]
   %357 = phi i64 [ %.ph.i.i, %.loopexit74.i.i ], [ %311, %._crit_edge.i ]
   %358 = icmp eq i8 %.val.i.i, 18
   br i1 %358, label %359, label %.loopexit72.i.i
@@ -70766,9 +70766,9 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.0.0.i89.i64.i = phi i1 [ %.sroa.0.0.ph.i134.i55.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %.sroa.0.1.i.i92.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
   %.sroa.05.0.i88.i65.i = phi i1 [ %.sroa.05.0.ph.i133.i56.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %.sroa.05.1.i.i91.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
   %471 = phi i64 [ %.lcssa7396129.i60.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %514, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
-  %472 = phi i64 [ %.promoted87.i130.i59.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %513, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
-  %.pre.i.i90.i87.i66.i = phi ptr [ %.lcssa64107128.i61.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %.pre.i.i88.i.i90.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
-  %.promoted87123.i86.i67.i = phi i64 [ %.promoted87.i130.i59.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %.promoted87122.i.i89.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
+  %472 = phi i64 [ %.promoted84.i130.i59.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %513, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
+  %.pre.i.i87.i87.i66.i = phi ptr [ %.lcssa64107128.i61.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %.pre.i.i85.i.i90.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
+  %.promoted84120.i86.i67.i = phi i64 [ %.promoted84.i130.i59.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %.promoted84119.i.i89.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
   %473 = phi ptr [ %.lcssa64107128.i61.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %512, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
   %474 = phi i64 [ %.lcssa7396129.i60.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %511, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
   %475 = phi i64 [ %.lcssa82117127.i62.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph.i54.i ], [ %510, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i.i145.i ]
@@ -70806,7 +70806,7 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %485 = call i64 @llvm.umax.i64(i64 %484, i64 4)
   %486 = mul i64 %485, 80
   %487 = icmp samesign ugt i64 %471, 57646075230342348
-  br i1 %487, label %.loopexit47.i.loopexit.i167.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i
+  br i1 %487, label %.loopexit44.i.loopexit.i167.i, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i: ; preds = %483
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !10832
@@ -70816,7 +70816,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i: ;
 
 489:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i
   %490 = mul nuw nsw i64 %471, 80
-  store ptr %.pre.i.i90.i87.i66.i, ptr %11, align 8, !alias.scope !10841, !noalias !10832
+  store ptr %.pre.i.i87.i87.i66.i, ptr %11, align 8, !alias.scope !10841, !noalias !10832
   store i64 %490, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i.i53.i, align 8, !alias.scope !10841, !noalias !10832
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i160.i"
 
@@ -70837,21 +70837,21 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i: ;
   %495 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %496 = load i64, ptr %495, align 8, !noalias !10832
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !10832
-  br label %.loopexit47.i.i163.i
+  br label %.loopexit44.i.i163.i
 
-.loopexit47.i.loopexit.i167.i:                    ; preds = %483
+.loopexit44.i.loopexit.i167.i:                    ; preds = %483
   store ptr %473, ptr %447, align 8, !noalias !10806
   store i64 %474, ptr %22, align 8, !noalias !10806
   store i64 %475, ptr %448, align 8, !noalias !10806
-  br label %.loopexit47.i.i163.i
+  br label %.loopexit44.i.i163.i
 
-.loopexit47.i.i163.i:                             ; preds = %.loopexit47.i.loopexit.i167.i, %493
-  %.sroa.6.0.i.ph.i.i.i.i.i164.i = phi i64 [ %496, %493 ], [ undef, %.loopexit47.i.loopexit.i167.i ]
-  %.sroa.04.0.i.ph.i.i.i.i.i165.i = phi i64 [ %494, %493 ], [ 0, %.loopexit47.i.loopexit.i167.i ]
+.loopexit44.i.i163.i:                             ; preds = %.loopexit44.i.loopexit.i167.i, %493
+  %.sroa.6.0.i.ph.i.i.i.i.i164.i = phi i64 [ %496, %493 ], [ undef, %.loopexit44.i.loopexit.i167.i ]
+  %.sroa.04.0.i.ph.i.i.i.i.i165.i = phi i64 [ %494, %493 ], [ 0, %.loopexit44.i.loopexit.i167.i ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph.i.i.i.i.i165.i, i64 %.sroa.6.0.i.ph.i.i.i.i.i164.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.787) #37
           to label %.noexc.i.i.i.i166.i unwind label %498, !noalias !10845
 
-.noexc.i.i.i.i166.i:                              ; preds = %.loopexit47.i.i163.i
+.noexc.i.i.i.i166.i:                              ; preds = %.loopexit44.i.i163.i
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i160.i"
@@ -70859,7 +70859,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !10832
   br label %"_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0feb241ebf29cE.exit.i.i.i"
 
-498:                                              ; preds = %.loopexit47.i.i163.i
+498:                                              ; preds = %.loopexit44.i.i163.i
   %499 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..nodes..WithItem$GT$17h55b4a665ee2a8e72E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %14) #39
@@ -70874,9 +70874,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i159.i: ;
 "_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0feb241ebf29cE.exit.i.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i", %.noexc2.i148.i
   %502 = phi i64 [ %485, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i" ], [ %474, %.noexc2.i148.i ]
   %503 = phi ptr [ %497, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i" ], [ %473, %.noexc2.i148.i ]
-  %.pre.i.i89.i.i149.i = phi ptr [ %497, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i" ], [ %.pre.i.i90.i87.i66.i, %.noexc2.i148.i ]
+  %.pre.i.i86.i.i149.i = phi ptr [ %497, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i" ], [ %.pre.i.i87.i87.i66.i, %.noexc2.i148.i ]
   %504 = phi i64 [ %485, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h46664c95f5a45773E.exit.i.i.i.i162.i" ], [ %471, %.noexc2.i148.i ]
-  %505 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %.pre.i.i89.i.i149.i, i64 %472
+  %505 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %.pre.i.i86.i.i149.i, i64 %472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %505, ptr noundef nonnull align 8 dereferenceable(80) %14, i64 80, i1 false), !noalias !10846
   %506 = add i64 %472, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !10824
@@ -70897,7 +70897,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i: ; p
   %.lcssa82118.i108.i = phi i64 [ %506, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %510, %.noexc8.i103.i ]
   %.lcssa64108.i109.i = phi ptr [ %503, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %512, %.noexc8.i103.i ]
   %.lcssa7397.i110.i = phi i64 [ %502, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %511, %.noexc8.i103.i ]
-  %.promoted87121.i.i111.i = phi i64 [ %506, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %.promoted87122.i.i89.i, %.noexc8.i103.i ]
+  %.promoted84118.i.i111.i = phi i64 [ %506, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %.promoted84119.i.i89.i, %.noexc8.i103.i ]
   %.sroa.11.0.ph.be.i.i112.i = phi i32 [ %.val10.i.i153.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %.sroa.11.1.i.i104.i, %.noexc8.i103.i ]
   %.sroa.8.0.ph.be.i.i113.i = phi i32 [ %.val.i.i154.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %.sroa.8.1.i.i105.i, %.noexc8.i103.i ]
   %.sroa.05.0.ph.be.i.i114.i = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i152.i ], [ %.sroa.05.4.i.i106.i, %.noexc8.i103.i ]
@@ -70912,7 +70912,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.05.0.ph.i133.i56.i = phi i1 [ false, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.sroa.05.0.ph.be.i.i114.i, %.outer.backedge.i.i107.i ]
   %.sroa.8.0.ph.i132.i57.i = phi i32 [ undef, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.sroa.8.0.ph.be.i.i113.i, %.outer.backedge.i.i107.i ]
   %.sroa.11.0.ph.i131.i58.i = phi i32 [ undef, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.sroa.11.0.ph.be.i.i112.i, %.outer.backedge.i.i107.i ]
-  %.promoted87.i130.i59.i = phi i64 [ 0, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.promoted87121.i.i111.i, %.outer.backedge.i.i107.i ]
+  %.promoted84.i130.i59.i = phi i64 [ 0, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.promoted84118.i.i111.i, %.outer.backedge.i.i107.i ]
   %.lcssa7396129.i60.i = phi i64 [ 0, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.lcssa7397.i110.i, %.outer.backedge.i.i107.i ]
   %.lcssa64107128.i61.i = phi ptr [ inttoptr (i64 8 to ptr), %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.lcssa64108.i109.i, %.outer.backedge.i.i107.i ]
   %.lcssa82117127.i62.i = phi i64 [ 0, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..WithItem$GT$$GT$$GT$17h7dc54993c7cc1ea4E.exit.i" ], [ %.lcssa82118.i108.i, %.outer.backedge.i.i107.i ]
@@ -70922,18 +70922,18 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %510 = phi i64 [ %506, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %475, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %511 = phi i64 [ %502, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %474, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %512 = phi ptr [ %503, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %473, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
-  %.pre-phi129.i.i86.i = phi i1 [ %517, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
-  %.pre-phi127.i.i87.i = phi i128 [ %.pre126.i.i157.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %477, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
+  %.pre-phi126.i.i86.i = phi i1 [ %517, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
+  %.pre-phi124.i.i87.i = phi i128 [ %.pre123.i.i157.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %477, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %.val18.i.i88.i = phi i8 [ %.val.i26.i.i150.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.val17.i.i68.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
-  %.promoted87122.i.i89.i = phi i64 [ %506, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.promoted87123.i86.i67.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
-  %.pre.i.i88.i.i90.i = phi ptr [ %.pre.i.i89.i.i149.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.pre.i.i90.i87.i66.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
+  %.promoted84119.i.i89.i = phi i64 [ %506, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.promoted84120.i86.i67.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
+  %.pre.i.i85.i.i90.i = phi ptr [ %.pre.i.i86.i.i149.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.pre.i.i87.i87.i66.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %513 = phi i64 [ %506, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %472, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %514 = phi i64 [ %504, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %471, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %.sroa.05.1.i.i91.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.sroa.05.0.i88.i65.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
   %.sroa.0.1.i.i92.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i ], [ %.sroa.0.0.i89.i64.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i ]
-  %515 = and i128 %.pre-phi127.i.i87.i, 337570925882730900174282555711
+  %515 = and i128 %.pre-phi124.i.i87.i, 337570925882730900174282555711
   %516 = icmp ne i128 %515, 0
-  %.sroa.0.0.i42.i28.i.i93.i = or i1 %.pre-phi129.i.i86.i, %516
+  %.sroa.0.0.i42.i28.i.i93.i = or i1 %.pre-phi126.i.i86.i, %516
   br i1 %.sroa.0.0.i42.i28.i.i93.i, label %520, label %518, !prof !95
 
 .loopexit.i.loopexit.i72.i:                       ; preds = %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i71.i
@@ -70947,9 +70947,9 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i155.i: ; preds = %"_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0feb241ebf29cE.exit.i.i.i"
   %.pre.i.i156.i = zext nneg i8 %.val.i26.i.i150.i to i128
-  %.pre126.i.i157.i = shl nuw nsw i128 1, %.pre.i.i156.i
-  %.pre128.i.i158.i = add nsw i8 %.val.i26.i.i150.i, -99
-  %517 = icmp ult i8 %.pre128.i.i158.i, 3
+  %.pre123.i.i157.i = shl nuw nsw i128 1, %.pre.i.i156.i
+  %.pre125.i.i158.i = add nsw i8 %.val.i26.i.i150.i, -99
+  %517 = icmp ult i8 %.pre125.i.i158.i, 3
   br label %509
 
 518:                                              ; preds = %509
@@ -71558,7 +71558,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.0.0.i62.i = phi i1 [ true, %36 ], [ %.sroa.0.0.be.i.i, %.backedge.i.i ]
   %64 = phi i64 [ 1, %36 ], [ %134, %.backedge.i.i ]
   %65 = phi i64 [ 1, %36 ], [ %133, %.backedge.i.i ]
-  %.pre.i.i48.i61.i = phi ptr [ %33, %36 ], [ %.pre.i.i45.i.i, %.backedge.i.i ]
+  %.pre.i.i47.i61.i = phi ptr [ %33, %36 ], [ %.pre.i.i44.i.i, %.backedge.i.i ]
   %66 = phi ptr [ %33, %36 ], [ %132, %.backedge.i.i ]
   %67 = phi i64 [ 1, %36 ], [ %131, %.backedge.i.i ]
   %68 = phi i64 [ 1, %36 ], [ %130, %.backedge.i.i ]
@@ -71608,7 +71608,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i: ; pred
 
 86:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i
   %87 = shl nuw nsw i64 %64, 6
-  store ptr %.pre.i.i48.i61.i, ptr %5, align 8, !alias.scope !10950, !noalias !10940
+  store ptr %.pre.i.i47.i61.i, ptr %5, align 8, !alias.scope !10950, !noalias !10940
   store i64 %87, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i.i, align 8, !alias.scope !10950, !noalias !10940
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i.i"
 
@@ -71666,9 +71666,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i: ; pred
 "_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_tuple_expression28_$u7b$$u7b$closure$u7d$$u7d$17h1a37d3ee1d5d2362E.exit.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i", %.noexc16.i
   %99 = phi i64 [ %80, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i" ], [ %67, %.noexc16.i ]
   %100 = phi ptr [ %94, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i" ], [ %66, %.noexc16.i ]
-  %.pre.i.i47.i.i = phi ptr [ %94, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i" ], [ %.pre.i.i48.i61.i, %.noexc16.i ]
+  %.pre.i.i46.i.i = phi ptr [ %94, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i" ], [ %.pre.i.i47.i61.i, %.noexc16.i ]
   %101 = phi i64 [ %80, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h87e9722d00302c26E.exit.i.i.i.i" ], [ %64, %.noexc16.i ]
-  %102 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i47.i.i, i64 %65
+  %102 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.pre.i.i46.i.i, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %102, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !noalias !10926
   %103 = add i64 %65, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !10937
@@ -71687,16 +71687,16 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i: ; preds 
   %105 = phi i64 [ %103, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %68, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
   %106 = phi i64 [ %99, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %67, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
   %107 = phi ptr [ %100, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %66, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
-  %.pre-phi52.i.i = phi i1 [ %115, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
-  %.pre-phi51.i.i = phi i128 [ %113, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %70, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
+  %.pre-phi51.i.i = phi i1 [ %115, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
+  %.pre-phi50.i.i = phi i128 [ %113, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %70, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
   %.val18.i.i = phi i8 [ %.val.i26.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %.val17.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
-  %.pre.i.i46.i.i = phi ptr [ %.pre.i.i47.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %.pre.i.i48.i61.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
+  %.pre.i.i45.i.i = phi ptr [ %.pre.i.i46.i.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %.pre.i.i47.i61.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
   %108 = phi i64 [ %103, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %65, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
   %109 = phi i64 [ %101, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %64, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
   %.sroa.0.1.i.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35._crit_edge.i.i ], [ %.sroa.0.0.i62.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit.i.i ]
-  %110 = and i128 %.pre-phi51.i.i, 337570925882730900174282555711
+  %110 = and i128 %.pre-phi50.i.i, 337570925882730900174282555711
   %111 = icmp ne i128 %110, 0
-  %.sroa.0.0.i32.i28.i.i = or i1 %.pre-phi52.i.i, %111
+  %.sroa.0.0.i32.i28.i.i = or i1 %.pre-phi51.i.i, %111
   br i1 %.sroa.0.0.i32.i28.i.i, label %118, label %116, !prof !95
 
 _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit35.i.i: ; preds = %"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_tuple_expression28_$u7b$$u7b$closure$u7d$$u7d$17h1a37d3ee1d5d2362E.exit.i.i"
@@ -71786,7 +71786,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i:
   %130 = phi i64 [ %105, %.noexc20.i ], [ %103, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %105, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %105, %.noexc22.i ]
   %131 = phi i64 [ %106, %.noexc20.i ], [ %99, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %106, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %106, %.noexc22.i ]
   %132 = phi ptr [ %107, %.noexc20.i ], [ %100, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %107, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %107, %.noexc22.i ]
-  %.pre.i.i45.i.i = phi ptr [ %.pre.i.i46.i.i, %.noexc20.i ], [ %.pre.i.i47.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %.pre.i.i46.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %.pre.i.i46.i.i, %.noexc22.i ]
+  %.pre.i.i44.i.i = phi ptr [ %.pre.i.i45.i.i, %.noexc20.i ], [ %.pre.i.i46.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %.pre.i.i45.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %.pre.i.i45.i.i, %.noexc22.i ]
   %133 = phi i64 [ %108, %.noexc20.i ], [ %103, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %108, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %108, %.noexc22.i ]
   %134 = phi i64 [ %109, %.noexc20.i ], [ %101, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %109, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %109, %.noexc22.i ]
   %.sroa.0.0.be.i.i = phi i1 [ %.sroa.0.1.i.i, %.noexc20.i ], [ false, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i.i ], [ %.sroa.0.1.i.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i ], [ %.sroa.0.1.i.i, %.noexc22.i ]
@@ -79373,9 +79373,9 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.0.0.i89 = phi i1 [ %.sroa.0.0.ph.i134, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %.sroa.0.1.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
   %.sroa.05.0.i88 = phi i1 [ %.sroa.05.0.ph.i133, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %.sroa.05.1.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
   %46 = phi i64 [ %.lcssa7396129, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %92, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
-  %47 = phi i64 [ %.promoted85.i130, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %91, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
-  %.pre.i.i88.i87 = phi ptr [ %.lcssa64107128, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %.pre.i.i87.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
-  %.promoted85121.i86 = phi i64 [ %.promoted85.i130, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %.promoted85120.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
+  %47 = phi i64 [ %.promoted83.i130, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %91, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
+  %.pre.i.i86.i87 = phi ptr [ %.lcssa64107128, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %.pre.i.i85.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
+  %.promoted83119.i86 = phi i64 [ %.promoted83.i130, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %.promoted83118.i, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
   %48 = phi ptr [ %.lcssa64107128, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %90, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
   %49 = phi i64 [ %.lcssa7396129, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %89, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
   %50 = phi i64 [ %.lcssa82117127, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i.lr.ph ], [ %88, %_ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit.i ]
@@ -79418,7 +79418,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i: ; preds 
 
 61:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i
   %62 = shl nuw nsw i64 %46, 5
-  store ptr %.pre.i.i88.i87, ptr %6, align 8, !alias.scope !12242, !noalias !12235
+  store ptr %.pre.i.i86.i87, ptr %6, align 8, !alias.scope !12242, !noalias !12235
   store i64 %62, ptr %.sroa.5.0..sroa_idx.i41.i.i.i.i.i, align 8, !alias.scope !12242, !noalias !12235
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2f3b6c1d78c96982E.exit.i.i.i.i.i"
 
@@ -79483,9 +79483,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i: ; preds 
 "_ZN18ruff_python_parser6parser6Parser35parse_comma_separated_list_into_vec28_$u7b$$u7b$closure$u7d$$u7d$17h7f60b83ecc482ce7E.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h812cc5afb4f92bb0E.exit.i.i.i", %.noexc2
   %79 = phi i64 [ %55, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h812cc5afb4f92bb0E.exit.i.i.i" ], [ %49, %.noexc2 ]
   %80 = phi ptr [ %69, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h812cc5afb4f92bb0E.exit.i.i.i" ], [ %48, %.noexc2 ]
-  %.pre.i.i86.i = phi ptr [ %69, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h812cc5afb4f92bb0E.exit.i.i.i" ], [ %.pre.i.i88.i87, %.noexc2 ]
+  %.pre.i.i84.i = phi ptr [ %69, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h812cc5afb4f92bb0E.exit.i.i.i" ], [ %.pre.i.i86.i87, %.noexc2 ]
   %81 = phi i64 [ %55, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h812cc5afb4f92bb0E.exit.i.i.i" ], [ %46, %.noexc2 ]
-  %82 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.pre.i.i86.i, i64 %47
+  %82 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.pre.i.i84.i, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !12259
   %83 = add i64 %47, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !12229
@@ -79503,7 +79503,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i: ; preds = 
   %.lcssa82118 = phi i64 [ %83, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %88, %.noexc8 ]
   %.lcssa64108 = phi ptr [ %80, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %90, %.noexc8 ]
   %.lcssa7397 = phi i64 [ %79, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %89, %.noexc8 ]
-  %.promoted85119.i = phi i64 [ %83, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.promoted85120.i, %.noexc8 ]
+  %.promoted83117.i = phi i64 [ %83, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.promoted83118.i, %.noexc8 ]
   %.sroa.11.0.ph.be.i = phi i32 [ %.val10.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.sroa.11.1.i, %.noexc8 ]
   %.sroa.8.0.ph.be.i = phi i32 [ %.val.i, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.sroa.8.1.i, %.noexc8 ]
   %.sroa.05.0.ph.be.i = phi i1 [ true, %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.i ], [ %.sroa.05.4.i, %.noexc8 ]
@@ -79518,7 +79518,7 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %.sroa.05.0.ph.i133 = phi i1 [ false, %2 ], [ %.sroa.05.0.ph.be.i, %.outer.backedge.i ]
   %.sroa.8.0.ph.i132 = phi i32 [ undef, %2 ], [ %.sroa.8.0.ph.be.i, %.outer.backedge.i ]
   %.sroa.11.0.ph.i131 = phi i32 [ undef, %2 ], [ %.sroa.11.0.ph.be.i, %.outer.backedge.i ]
-  %.promoted85.i130 = phi i64 [ 0, %2 ], [ %.promoted85119.i, %.outer.backedge.i ]
+  %.promoted83.i130 = phi i64 [ 0, %2 ], [ %.promoted83117.i, %.outer.backedge.i ]
   %.lcssa7396129 = phi i64 [ 0, %2 ], [ %.lcssa7397, %.outer.backedge.i ]
   %.lcssa64107128 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.lcssa64108, %.outer.backedge.i ]
   %.lcssa82117127 = phi i64 [ 0, %2 ], [ %.lcssa82118, %.outer.backedge.i ]
@@ -79529,8 +79529,8 @@ _ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1e
   %89 = phi i64 [ %79, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %49, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
   %90 = phi ptr [ %80, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %48, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
   %.val18.i = phi i8 [ %.val.i26.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %.val17.i, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
-  %.promoted85120.i = phi i64 [ %83, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %.promoted85121.i86, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
-  %.pre.i.i87.i = phi ptr [ %.pre.i.i86.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %.pre.i.i88.i87, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
+  %.promoted83118.i = phi i64 [ %83, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %.promoted83119.i86, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
+  %.pre.i.i85.i = phi ptr [ %.pre.i.i84.i, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %.pre.i.i86.i87, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
   %91 = phi i64 [ %83, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %47, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
   %92 = phi i64 [ %81, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %46, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
   %.sroa.05.1.i = phi i1 [ false, %_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E.exit36.i ], [ %.sroa.05.0.i88, %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i ]
@@ -79555,8 +79555,8 @@ _ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9
   %switch.selectcmp.case221.i33.i = icmp ne i8 %.val.i26.i, 23
   %93 = and i8 %.val.i26.i, 123
   %94 = icmp ne i8 %93, 10
-  %.not45.i = and i1 %switch.selectcmp.case221.i33.i, %94
-  br i1 %.not45.i, label %87, label %.loopexit14
+  %.not43.i = and i1 %switch.selectcmp.case221.i33.i, %94
+  br i1 %.not43.i, label %87, label %.loopexit14
 
 95:                                               ; preds = %87
   %.val22.i = load i32, ptr %19, align 8, !alias.scope !12215, !noalias !12218, !noundef !3
@@ -96694,7 +96694,7 @@ attributes #42 = { cold "function-inline-cost-multiplier"="2" }
 !7016 = !{!7015, !7017}
 !7017 = distinct !{!7017, !7013, !"_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E: argument 1"}
 !7018 = !{!7017}
-!7019 = !{!"branch_weights", i32 2000, i32 0}
+!7019 = !{!"branch_weights", i32 2000, i32 1}
 !7020 = !{!7021}
 !7021 = distinct !{!7021, !7022, !"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_fstring_elements28_$u7b$$u7b$closure$u7d$$u7d$17h4d8eeb6751288a69E: argument 1"}
 !7022 = distinct !{!7022, !"_ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_fstring_elements28_$u7b$$u7b$closure$u7d$$u7d$17h4d8eeb6751288a69E"}
@@ -99745,7 +99745,7 @@ attributes #42 = { cold "function-inline-cost-multiplier"="2" }
 !10067 = distinct !{!10067, !10063, !"_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E: argument 1"}
 !10068 = !{!10067, !10054, !10047}
 !10069 = !{!10067}
-!10070 = !{!"branch_weights", i32 0, i32 2000, i32 2000, i32 1000, i32 1000}
+!10070 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 1000, i32 1000}
 !10071 = !{!10072, !10054, !10057, !10060, !10050, !10047, !10051}
 !10072 = distinct !{!10072, !10073, !"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_assign_statement28_$u7b$$u7b$closure$u7d$$u7d$17hcf65744d1d51d4c5E: argument 0"}
 !10073 = distinct !{!10073, !"_ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$22parse_assign_statement28_$u7b$$u7b$closure$u7d$$u7d$17hcf65744d1d51d4c5E"}

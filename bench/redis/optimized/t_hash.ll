@@ -4312,33 +4312,33 @@ declare ptr @dictNext(ptr noundef) local_unnamed_addr #0
 define dso_local void @hashTypeCurrentFromListpack(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !113
-  %.off = add i32 %8, -11
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %10, label %9, !prof !122
+  %9 = add i32 %8, -11
+  %10 = icmp ult i32 %9, 2
+  br i1 %10, label %12, label %11, !prof !122
 
-9:                                                ; preds = %6
+11:                                               ; preds = %6
   tail call void @_serverAssert(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2, i32 noundef 1451) #16
   tail call void @abort() #17
   unreachable
 
-10:                                               ; preds = %6
-  %11 = and i32 %1, 1
-  %.not = icmp eq i32 %11, 0
+12:                                               ; preds = %6
+  %13 = and i32 %1, 1
+  %.not = icmp eq i32 %13, 0
   %. = select i1 %.not, i64 24, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %13 = load ptr, ptr %12, align 8, !tbaa !85
-  %14 = tail call ptr @lpGetValue(ptr noundef %13, ptr noundef %3, ptr noundef %4) #16
-  store ptr %14, ptr %2, align 8, !tbaa !85
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %15 = load ptr, ptr %14, align 8, !tbaa !85
+  %16 = tail call ptr @lpGetValue(ptr noundef %15, ptr noundef %3, ptr noundef %4) #16
+  store ptr %16, ptr %2, align 8, !tbaa !85
   %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %18, label %15
+  br i1 %.not14, label %20, label %17
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !114
-  store i64 %17, ptr %5, align 8, !tbaa !28
-  br label %18
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = load i64, ptr %18, align 8, !tbaa !114
+  store i64 %19, ptr %5, align 8, !tbaa !28
+  br label %20
 
-18:                                               ; preds = %15, %10
+20:                                               ; preds = %17, %12
   ret void
 }
 

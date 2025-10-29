@@ -5731,40 +5731,40 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema26ShouldEnterDeclaratorScopeE
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 126
-  %.off = add nsw i16 %8, -16
-  %switch = icmp ult i16 %.off, 6
-  br i1 %switch, label %22, label %9
+  %9 = add nsw i16 %8, -16
+  %10 = icmp ult i16 %9, 6
+  br i1 %10, label %24, label %11
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !680
-  %12 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
-  switch i32 %12, label %21 [
-    i32 5, label %13
-    i32 1, label %13
-    i32 2, label %13
-    i32 0, label %22
-    i32 3, label %22
-    i32 4, label %22
-    i32 6, label %22
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !680
+  %14 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #16
+  switch i32 %14, label %23 [
+    i32 5, label %15
+    i32 1, label %15
+    i32 2, label %15
+    i32 0, label %24
+    i32 3, label %24
+    i32 4, label %24
+    i32 6, label %24
   ]
 
-13:                                               ; preds = %9, %9, %9
-  %14 = load ptr, ptr %4, align 8, !tbaa !13
-  %15 = tail call noundef ptr @_ZN5clang11DeclContext16getRedeclContextEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i16, ptr %16, align 8
-  %18 = and i16 %17, 127
-  %19 = icmp eq i16 %18, 0
-  %20 = icmp eq i16 %18, 22
-  %spec.select.i = or i1 %19, %20
-  br label %22
+15:                                               ; preds = %11, %11, %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !13
+  %17 = tail call noundef ptr @_ZN5clang11DeclContext16getRedeclContextEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8
+  %20 = and i16 %19, 127
+  %21 = icmp eq i16 %20, 0
+  %22 = icmp eq i16 %20, 22
+  %spec.select.i = or i1 %21, %22
+  br label %24
 
-21:                                               ; preds = %9
+23:                                               ; preds = %11
   unreachable
 
-22:                                               ; preds = %3, %13, %9, %9, %9, %9
-  %.0 = phi i1 [ %spec.select.i, %13 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ false, %3 ]
+24:                                               ; preds = %3, %15, %11, %11, %11, %11
+  %.0 = phi i1 [ false, %3 ], [ %spec.select.i, %15 ], [ true, %11 ], [ true, %11 ], [ true, %11 ], [ true, %11 ]
   ret i1 %.0
 }
 

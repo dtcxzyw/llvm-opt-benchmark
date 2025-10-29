@@ -3932,7 +3932,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
 54:                                               ; preds = %22, %21, %7
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %241
+  br label %243
 
 56:                                               ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
   br label %57
@@ -3977,7 +3977,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
 74:                                               ; preds = %66, %64, %63, %62, %61, %59, %57
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %240
+  br label %242
 
 76:                                               ; preds = %66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %13, i8 0, i64 7, i1 false)
@@ -4069,10 +4069,10 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   store i8 1, ptr %89, align 1
   br label %.invoke102
 
-120:                                              ; preds = %.invoke102, %.invoke, %.noexc73, %.noexc72, %.noexc71, %.noexc70, %.noexc69, %220, %.noexc, %159, %221, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit, %218, %217, %215, %213, %.thread, %210, %._crit_edge, %176, %174, %173, %_ZN11floatbuffer4initEii.exit, %152, %147, %130, %127, %126, %109, %76
+120:                                              ; preds = %.invoke102, %.invoke, %.noexc73, %.noexc72, %.noexc71, %.noexc70, %.noexc69, %222, %.noexc, %159, %223, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit, %220, %219, %217, %215, %.thread, %210, %._crit_edge, %176, %174, %173, %_ZN11floatbuffer4initEii.exit, %152, %147, %130, %127, %126, %109, %76
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %239
+  br label %241
 
 122:                                              ; preds = %111
   %123 = getelementptr inbounds nuw i8, ptr %14, i64 33
@@ -4270,7 +4270,7 @@ _ZN11floatbuffer4initEii.exit:                    ; preds = %_ZN7QStringaSEPKc.e
   %201 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %153) #32
-  br label %239
+  br label %241
 
 202:                                              ; preds = %185
   store float %197, ptr %181, align 4
@@ -4303,9 +4303,9 @@ _ZN11floatbuffer4initEii.exit:                    ; preds = %_ZN7QStringaSEPKc.e
           to label %211 unwind label %120
 
 211:                                              ; preds = %210
-  %.off = add i32 %67, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.invoke, label %.thread
+  %212 = add i32 %67, -1
+  %213 = icmp ult i32 %212, 2
+  br i1 %213, label %.invoke, label %.thread
 
 .invoke:                                          ; preds = %211
   %.mux = select i1 %69, i32 32886, i32 32885
@@ -4313,33 +4313,33 @@ _ZN11floatbuffer4initEii.exit:                    ; preds = %_ZN7QStringaSEPKc.e
           to label %.thread unwind label %120
 
 .thread:                                          ; preds = %211, %.invoke
-  %212 = invoke i32 @glGetError()
-          to label %213 unwind label %120
-
-213:                                              ; preds = %.thread
-  %214 = load ptr, ptr @__glewBindBufferARB, align 8
-  invoke void %214(i32 noundef 34962, i32 noundef 0)
+  %214 = invoke i32 @glGetError()
           to label %215 unwind label %120
 
-215:                                              ; preds = %213
+215:                                              ; preds = %.thread
   %216 = load ptr, ptr @__glewBindBufferARB, align 8
-  invoke void %216(i32 noundef 34963, i32 noundef 0)
+  invoke void %216(i32 noundef 34962, i32 noundef 0)
           to label %217 unwind label %120
 
 217:                                              ; preds = %215
-  invoke void @glEnable(i32 noundef 2896)
-          to label %218 unwind label %120
+  %218 = load ptr, ptr @__glewBindBufferARB, align 8
+  invoke void %218(i32 noundef 34963, i32 noundef 0)
+          to label %219 unwind label %120
 
-218:                                              ; preds = %217
-  %219 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %219(i32 noundef 0)
+219:                                              ; preds = %217
+  invoke void @glEnable(i32 noundef 2896)
           to label %220 unwind label %120
 
-220:                                              ; preds = %218
+220:                                              ; preds = %219
+  %221 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %221(i32 noundef 0)
+          to label %222 unwind label %120
+
+222:                                              ; preds = %220
   invoke void @glPushAttrib(i32 noundef 4096)
           to label %.noexc69 unwind label %120
 
-.noexc69:                                         ; preds = %220
+.noexc69:                                         ; preds = %222
   invoke void @glMatrixMode(i32 noundef 5888)
           to label %.noexc70 unwind label %120
 
@@ -4361,64 +4361,64 @@ _ZN11floatbuffer4initEii.exit:                    ; preds = %_ZN7QStringaSEPKc.e
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit: ; preds = %.noexc73
   invoke void @glFinish()
-          to label %221 unwind label %120
-
-221:                                              ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit
-  %222 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject7releaseEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %223 unwind label %120
 
-223:                                              ; preds = %221
-  %224 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %227 = load ptr, ptr %226, align 8
-  %.not.i.i.i.i = icmp eq ptr %227, %225
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %228
+223:                                              ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE9UnsetViewEv.exit
+  %224 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject7releaseEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %225 unwind label %120
 
-228:                                              ; preds = %223
-  store ptr %225, ptr %226, align 8
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %229 = load ptr, ptr %228, align 8
+  %.not.i.i.i.i = icmp eq ptr %229, %227
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %230
+
+230:                                              ; preds = %225
+  store ptr %227, ptr %228, align 8
   br label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
 
-_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %228, %223
-  %229 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %230 = load ptr, ptr %229, align 8
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %236, label %232
+_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %230, %225
+  %231 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %232 = load ptr, ptr %231, align 8
+  %233 = icmp eq ptr %232, null
+  br i1 %233, label %238, label %234
 
-232:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %233 = load ptr, ptr %230, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %235 = load ptr, ptr %234, align 8
-  call void %235(ptr noundef nonnull align 8 dereferenceable(90) %230) #33
-  %.pre.i.i = load ptr, ptr %224, align 8
-  br label %236
+234:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %235 = load ptr, ptr %232, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %237 = load ptr, ptr %236, align 8
+  call void %237(ptr noundef nonnull align 8 dereferenceable(90) %232) #33
+  %.pre.i.i = load ptr, ptr %226, align 8
+  br label %238
 
-236:                                              ; preds = %232, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %237 = phi ptr [ %.pre.i.i, %232 ], [ %225, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
-  %.not.i.i.i.i.i = icmp eq ptr %237, null
-  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %238
+238:                                              ; preds = %234, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %239 = phi ptr [ %.pre.i.i, %234 ], [ %227, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
+  %.not.i.i.i.i.i = icmp eq ptr %239, null
+  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %240
 
-238:                                              ; preds = %236
-  call void @_ZdlPv(ptr noundef nonnull %237) #32
+240:                                              ; preds = %238
+  call void @_ZdlPv(ptr noundef nonnull %239) #32
   br label %_ZN15MLRenderingDataD2Ev.exit
 
-_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %236, %238
+_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %238, %240
   call void @_ZN20QGLFramebufferObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #33
   call void @_ZN26QGLFramebufferObjectFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #33
   ret void
 
-239:                                              ; preds = %200, %120
+241:                                              ; preds = %200, %120
   %.pn.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %201, %200 ]
   call void @_ZN15MLRenderingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #33
-  br label %240
+  br label %242
 
-240:                                              ; preds = %239, %74
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %239 ], [ %75, %74 ]
+242:                                              ; preds = %241, %74
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %241 ], [ %75, %74 ]
   call void @_ZN20QGLFramebufferObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #33
-  br label %241
+  br label %243
 
-241:                                              ; preds = %240, %54
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %240 ], [ %55, %54 ]
+243:                                              ; preds = %242, %54
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %242 ], [ %55, %54 ]
   call void @_ZN26QGLFramebufferObjectFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #33
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }

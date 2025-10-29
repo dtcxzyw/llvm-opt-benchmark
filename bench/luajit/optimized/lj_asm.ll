@@ -19930,9 +19930,9 @@ declare hidden void @lj_ir_kvalue(ptr noundef, ptr noundef, ptr noundef) local_u
 define internal fastcc void @asm_snap_alloc1(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = icmp samesign ult i32 %1, 32768
-  br i1 %4, label %.critedge, label %.lr.ph98
+  br i1 %4, label %.critedge, label %.lr.ph96
 
-.lr.ph98:                                         ; preds = %2
+.lr.ph96:                                         ; preds = %2
   %5 = load ptr, ptr %3, align 8, !tbaa !68
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %6
@@ -19941,18 +19941,18 @@ define internal fastcc void @asm_snap_alloc1(ptr noundef nonnull captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %11
 
-11:                                               ; preds = %.lr.ph98, %tailrecurse.backedge
-  %12 = phi ptr [ %5, %.lr.ph98 ], [ %44, %tailrecurse.backedge ]
-  %13 = phi ptr [ %7, %.lr.ph98 ], [ %46, %tailrecurse.backedge ]
-  %14 = phi i64 [ %6, %.lr.ph98 ], [ %45, %tailrecurse.backedge ]
-  %.tr8196 = phi i32 [ %1, %.lr.ph98 ], [ %.tr81.be, %tailrecurse.backedge ]
+11:                                               ; preds = %.lr.ph96, %tailrecurse.backedge
+  %12 = phi ptr [ %5, %.lr.ph96 ], [ %44, %tailrecurse.backedge ]
+  %13 = phi ptr [ %7, %.lr.ph96 ], [ %46, %tailrecurse.backedge ]
+  %14 = phi i64 [ %6, %.lr.ph96 ], [ %45, %tailrecurse.backedge ]
+  %.tr7994 = phi i32 [ %1, %.lr.ph96 ], [ %.tr79.be, %tailrecurse.backedge ]
   %15 = and i64 %14, 63
   %16 = shl nuw i64 1, %15
   %17 = load i64, ptr %8, align 8, !tbaa !118
   %18 = or i64 %17, %16
   store i64 %18, ptr %8, align 8, !tbaa !118
-  %19 = add nuw nsw i32 %.tr8196, -79764919
-  %20 = xor i32 %19, %.tr8196
+  %19 = add nuw nsw i32 %.tr7994, -79764919
+  %20 = xor i32 %19, %.tr7994
   %21 = tail call i32 @llvm.fshl.i32(i32 %19, i32 -79822848, i32 14)
   %22 = sub nsw i32 %20, %21
   %23 = tail call i32 @llvm.fshl.i32(i32 -79822848, i32 %19, i32 19)
@@ -19995,12 +19995,12 @@ define internal fastcc void @asm_snap_alloc1(ptr noundef nonnull captures(none) 
 
 tailrecurse.backedge:                             ; preds = %116, %100, %42
   %44 = phi ptr [ %.pre, %42 ], [ %12, %100 ], [ %12, %116 ]
-  %.tr81.be.in.in = phi ptr [ %43, %42 ], [ %13, %100 ], [ %13, %116 ]
-  %.tr81.be.in = load i16, ptr %.tr81.be.in.in, align 2, !tbaa !20
-  %.tr81.be = zext i16 %.tr81.be.in to i32
-  %45 = zext i16 %.tr81.be.in to i64
+  %.tr79.be.in.in = phi ptr [ %43, %42 ], [ %13, %100 ], [ %13, %116 ]
+  %.tr79.be.in = load i16, ptr %.tr79.be.in.in, align 2, !tbaa !20
+  %.tr79.be = zext i16 %.tr79.be.in to i32
+  %45 = zext i16 %.tr79.be.in to i64
   %46 = getelementptr inbounds nuw %union.IRIns, ptr %44, i64 %45
-  %47 = icmp sgt i16 %.tr81.be.in, -1
+  %47 = icmp sgt i16 %.tr79.be.in, -1
   br i1 %47, label %.critedge, label %11
 
 48:                                               ; preds = %38
@@ -20011,23 +20011,23 @@ tailrecurse.backedge:                             ; preds = %116, %100, %42
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw %union.IRIns, ptr %49, i64 %53
   %55 = icmp ugt ptr %54, %13
-  br i1 %55, label %.lr.ph103, label %.critedge
+  br i1 %55, label %.lr.ph101, label %.critedge
 
-.lr.ph103:                                        ; preds = %48, %asm_sunk_store.exit.thread
-  %.060100 = phi ptr [ %90, %asm_sunk_store.exit.thread ], [ %54, %48 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.060100, i64 6
+.lr.ph101:                                        ; preds = %48, %asm_sunk_store.exit.thread
+  %.06098 = phi ptr [ %90, %asm_sunk_store.exit.thread ], [ %54, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.06098, i64 6
   %57 = load i8, ptr %56, align 2, !tbaa !20
   %58 = icmp eq i8 %57, -2
   br i1 %58, label %59, label %asm_sunk_store.exit.thread
 
-59:                                               ; preds = %.lr.ph103
-  %60 = getelementptr inbounds nuw i8, ptr %.060100, i64 7
+59:                                               ; preds = %.lr.ph101
+  %60 = getelementptr inbounds nuw i8, ptr %.06098, i64 7
   %61 = load i8, ptr %60, align 1, !tbaa !20
   %62 = icmp eq i8 %61, -1
   br i1 %62, label %63, label %asm_sunk_store.exit
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %.060100, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.06098, i64 5
   %65 = load i8, ptr %64, align 1, !tbaa !20
   switch i8 %65, label %asm_sunk_store.exit.thread [
     i8 74, label %66
@@ -20038,7 +20038,7 @@ tailrecurse.backedge:                             ; preds = %116, %100, %42
 
 66:                                               ; preds = %63, %63, %63, %63
   %67 = load ptr, ptr %3, align 8, !tbaa !68
-  %68 = load i16, ptr %.060100, align 8, !tbaa !20
+  %68 = load i16, ptr %.06098, align 8, !tbaa !20
   %69 = zext i16 %68 to i64
   %70 = getelementptr inbounds nuw %union.IRIns, ptr %67, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 5
@@ -20064,20 +20064,20 @@ tailrecurse.backedge:                             ; preds = %116, %100, %42
 asm_sunk_store.exit:                              ; preds = %59
   %83 = zext i8 %61 to i64
   %84 = getelementptr inbounds nuw %union.IRIns, ptr %13, i64 %83
-  %85 = icmp eq ptr %84, %.060100
+  %85 = icmp eq ptr %84, %.06098
   br i1 %85, label %86, label %asm_sunk_store.exit.thread
 
 86:                                               ; preds = %78, %asm_sunk_store.exit
-  %87 = getelementptr inbounds nuw i8, ptr %.060100, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.06098, i64 2
   %88 = load i16, ptr %87, align 2, !tbaa !20
   %89 = zext i16 %88 to i32
   tail call fastcc void @asm_snap_alloc1(ptr noundef %0, i32 noundef %89)
   br label %asm_sunk_store.exit.thread
 
-asm_sunk_store.exit.thread:                       ; preds = %78, %63, %.lr.ph103, %asm_sunk_store.exit, %86
-  %90 = getelementptr inbounds i8, ptr %.060100, i64 -8
+asm_sunk_store.exit.thread:                       ; preds = %78, %63, %.lr.ph101, %asm_sunk_store.exit, %86
+  %90 = getelementptr inbounds i8, ptr %.06098, i64 -8
   %91 = icmp ugt ptr %90, %13
-  br i1 %91, label %.lr.ph103, label %.critedge, !llvm.loop !175
+  br i1 %91, label %.lr.ph101, label %.critedge, !llvm.loop !175
 
 92:                                               ; preds = %37
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 5
@@ -20099,28 +20099,28 @@ asm_sunk_store.exit.thread:                       ; preds = %78, %63, %.lr.ph103
   br i1 %104, label %.lr.ph, label %tailrecurse.backedge
 
 .lr.ph:                                           ; preds = %100, %116
-  %.05995 = phi ptr [ %117, %116 ], [ %103, %100 ]
-  %105 = load i16, ptr %.05995, align 8, !tbaa !20
+  %.05993 = phi ptr [ %117, %116 ], [ %103, %100 ]
+  %105 = load i16, ptr %.05993, align 8, !tbaa !20
   %106 = zext i16 %105 to i32
-  %107 = icmp eq i32 %.tr8196, %106
+  %107 = icmp eq i32 %.tr7994, %106
   br i1 %107, label %113, label %108
 
 108:                                              ; preds = %.lr.ph
-  %109 = getelementptr inbounds nuw i8, ptr %.05995, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %.05993, i64 2
   %110 = load i16, ptr %109, align 2, !tbaa !20
   %111 = zext i16 %110 to i32
-  %112 = icmp eq i32 %.tr8196, %111
+  %112 = icmp eq i32 %.tr7994, %111
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %108, %.lr.ph
-  %114 = getelementptr inbounds nuw i8, ptr %.05995, i64 6
+  %114 = getelementptr inbounds nuw i8, ptr %.05993, i64 6
   %115 = load i8, ptr %114, align 2, !tbaa !20
   %.off72 = add i8 %115, 3
   %switch73 = icmp ult i8 %.off72, 2
   br i1 %switch73, label %116, label %.thread
 
 116:                                              ; preds = %113, %108
-  %117 = getelementptr inbounds i8, ptr %.05995, i64 -8
+  %117 = getelementptr inbounds i8, ptr %.05993, i64 -8
   %118 = icmp ugt ptr %117, %13
   br i1 %118, label %.lr.ph, label %tailrecurse.backedge, !llvm.loop !176
 
@@ -20154,7 +20154,7 @@ asm_sunk_store.exit.thread:                       ; preds = %78, %63, %.lr.ph103
   br i1 %.not.not.i, label %asm_snap_canremat.exit, label %128
 
 asm_snap_canremat.exit:                           ; preds = %.preheader, %.thread
-  %132 = tail call fastcc i32 @ra_allocref(ptr noundef %0, i32 noundef %.tr8196, i32 noundef %123)
+  %132 = tail call fastcc i32 @ra_allocref(ptr noundef %0, i32 noundef %.tr7994, i32 noundef %123)
   %133 = load i8, ptr %119, align 4, !tbaa !20
   %134 = and i8 %133, 64
   %.not70 = icmp eq i8 %134, 0

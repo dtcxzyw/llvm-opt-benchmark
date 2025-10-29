@@ -1961,18 +1961,18 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define { i64, ptr } @_ZN3nix13nextComponentERPKcS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
   %.promoted = load ptr, ptr %0, align 8
-  %.not48 = icmp eq ptr %.promoted, %1
-  br i1 %.not48, label %.loopexit, label %.lr.ph
+  %.not47 = icmp eq ptr %.promoted, %1
+  br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge2
-  %.promoted53 = phi ptr [ %4, %.critedge2 ], [ %.promoted, %2 ]
-  %3 = load i8, ptr %.promoted53, align 1
+  %.promoted52 = phi ptr [ %4, %.critedge2 ], [ %.promoted, %2 ]
+  %3 = load i8, ptr %.promoted52, align 1
   %.off = add i8 %3, -45
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw i8, ptr %.promoted53, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.promoted52, i64 1
   store ptr %4, ptr %0, align 8
   %.not = icmp eq ptr %4, %1
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -1981,57 +1981,57 @@ define { i64, ptr } @_ZN3nix13nextComponentERPKcS1_(ptr noundef nonnull align 8 
   %5 = sext i8 %3 to i32
   %isdigittmp = add nsw i32 %5, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  %.not3954 = icmp eq ptr %.promoted53, %1
-  br i1 %isdigit, label %.preheader, label %.preheader45
+  %.not3953 = icmp eq ptr %.promoted52, %1
+  br i1 %isdigit, label %.preheader, label %.preheader44
 
-.preheader45:                                     ; preds = %.critedge
-  br i1 %.not3954, label %.critedge4, label %.lr.ph51
+.preheader44:                                     ; preds = %.critedge
+  br i1 %.not3953, label %.critedge4, label %.lr.ph50
 
 .preheader:                                       ; preds = %.critedge
-  br i1 %.not3954, label %.critedge4, label %.lr.ph55
+  br i1 %.not3953, label %.critedge4, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %.preheader, %9
-  %6 = phi ptr [ %10, %9 ], [ %.promoted53, %.preheader ]
+.lr.ph54:                                         ; preds = %.preheader, %9
+  %6 = phi ptr [ %10, %9 ], [ %.promoted52, %.preheader ]
   %7 = load i8, ptr %6, align 1
   %8 = sext i8 %7 to i32
   %isdigittmp40 = add nsw i32 %8, -48
   %isdigit41 = icmp ult i32 %isdigittmp40, 10
   br i1 %isdigit41, label %9, label %.critedge4
 
-9:                                                ; preds = %.lr.ph55
+9:                                                ; preds = %.lr.ph54
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %10, ptr %0, align 8
   %.not39 = icmp eq ptr %10, %1
-  br i1 %.not39, label %.critedge4, label %.lr.ph55, !llvm.loop !10
+  br i1 %.not39, label %.critedge4, label %.lr.ph54, !llvm.loop !10
 
-.lr.ph51:                                         ; preds = %.preheader45, %14
-  %11 = phi ptr [ %15, %14 ], [ %.promoted53, %.preheader45 ]
+.lr.ph50:                                         ; preds = %.preheader44, %16
+  %11 = phi ptr [ %17, %16 ], [ %.promoted52, %.preheader44 ]
   %12 = load i8, ptr %11, align 1
   %.fr = freeze i8 %12
   %13 = sext i8 %.fr to i32
   %isdigittmp35 = add nsw i32 %13, -48
   %isdigit36 = icmp ult i32 %isdigittmp35, 10
-  %.off43 = add i8 %.fr, -45
-  %switch44 = icmp ult i8 %.off43, 2
-  %or.cond = or i1 %switch44, %isdigit36
-  br i1 %or.cond, label %.critedge4, label %14
+  %14 = add i8 %.fr, -45
+  %15 = icmp ult i8 %14, 2
+  %or.cond = or i1 %15, %isdigit36
+  br i1 %or.cond, label %.critedge4, label %16
 
-14:                                               ; preds = %.lr.ph51
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store ptr %15, ptr %0, align 8
-  %.not34 = icmp eq ptr %15, %1
-  br i1 %.not34, label %.critedge4, label %.lr.ph51, !llvm.loop !11
+16:                                               ; preds = %.lr.ph50
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store ptr %17, ptr %0, align 8
+  %.not34 = icmp eq ptr %17, %1
+  br i1 %.not34, label %.critedge4, label %.lr.ph50, !llvm.loop !11
 
-.critedge4:                                       ; preds = %14, %.lr.ph51, %9, %.lr.ph55, %.preheader45, %.preheader
-  %16 = phi ptr [ %1, %.preheader45 ], [ %1, %.preheader ], [ %1, %9 ], [ %6, %.lr.ph55 ], [ %1, %14 ], [ %11, %.lr.ph51 ]
-  %17 = ptrtoint ptr %16 to i64
-  %18 = ptrtoint ptr %.promoted53 to i64
-  %19 = sub i64 %17, %18
+.critedge4:                                       ; preds = %16, %.lr.ph50, %9, %.lr.ph54, %.preheader44, %.preheader
+  %18 = phi ptr [ %1, %.preheader44 ], [ %1, %.preheader ], [ %1, %9 ], [ %6, %.lr.ph54 ], [ %1, %16 ], [ %11, %.lr.ph50 ]
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %.promoted52 to i64
+  %21 = sub i64 %19, %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2, %2, %.critedge4
-  %.sroa.3.0 = phi ptr [ %.promoted53, %.critedge4 ], [ @.str, %2 ], [ @.str, %.critedge2 ]
-  %.sroa.0.0 = phi i64 [ %19, %.critedge4 ], [ 0, %2 ], [ 0, %.critedge2 ]
+  %.sroa.3.0 = phi ptr [ %.promoted52, %.critedge4 ], [ @.str, %2 ], [ @.str, %.critedge2 ]
+  %.sroa.0.0 = phi i64 [ %21, %.critedge4 ], [ 0, %2 ], [ 0, %.critedge2 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -2043,25 +2043,25 @@ define noundef range(i32 -1, 2) i32 @_ZN3nix15compareVersionsESt17basic_string_v
   %6 = getelementptr inbounds i8, ptr %1, i64 %0
   br label %7
 
-7:                                                ; preds = %40, %4
-  %.055 = phi ptr [ %1, %4 ], [ %.560, %40 ]
-  %.054 = phi ptr [ %3, %4 ], [ %.5, %40 ]
-  %.not = icmp eq ptr %.055, %6
+7:                                                ; preds = %44, %4
+  %.053 = phi ptr [ %1, %4 ], [ %.558, %44 ]
+  %.052 = phi ptr [ %3, %4 ], [ %.5, %44 ]
+  %.not = icmp eq ptr %.053, %6
   br i1 %.not, label %8, label %.lr.ph.i
 
 8:                                                ; preds = %7
-  %.not12 = icmp eq ptr %.054, %5
-  br i1 %.not12, label %42, label %_ZN3nix13nextComponentERPKcS1_.exit
+  %.not12 = icmp eq ptr %.052, %5
+  br i1 %.not12, label %46, label %_ZN3nix13nextComponentERPKcS1_.exit
 
 .lr.ph.i:                                         ; preds = %7, %.critedge2.i
-  %.156 = phi ptr [ %10, %.critedge2.i ], [ %.055, %7 ]
-  %9 = load i8, ptr %.156, align 1
+  %.154 = phi ptr [ %10, %.critedge2.i ], [ %.053, %7 ]
+  %9 = load i8, ptr %.154, align 1
   %.off.i = add i8 %9, -45
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %.critedge2.i, label %.critedge.i
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw i8, ptr %.156, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.154, i64 1
   %.not.i = icmp eq ptr %10, %6
   br i1 %.not.i, label %_ZN3nix13nextComponentERPKcS1_.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -2069,136 +2069,136 @@ define noundef range(i32 -1, 2) i32 @_ZN3nix15compareVersionsESt17basic_string_v
   %11 = sext i8 %9 to i32
   %isdigittmp.i = add nsw i32 %11, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  %.not3954.i = icmp eq ptr %.156, %6
-  br i1 %isdigit.i, label %.preheader.i, label %.preheader45.i
+  %.not3953.i = icmp eq ptr %.154, %6
+  br i1 %isdigit.i, label %.preheader.i, label %.preheader44.i
 
-.preheader45.i:                                   ; preds = %.critedge.i
-  br i1 %.not3954.i, label %.critedge4.i, label %.lr.ph51.i
+.preheader44.i:                                   ; preds = %.critedge.i
+  br i1 %.not3953.i, label %.critedge4.i, label %.lr.ph50.i
 
 .preheader.i:                                     ; preds = %.critedge.i
-  br i1 %.not3954.i, label %.critedge4.i, label %.lr.ph55.i
+  br i1 %.not3953.i, label %.critedge4.i, label %.lr.ph54.i
 
-.lr.ph55.i:                                       ; preds = %.preheader.i, %14
-  %.459 = phi ptr [ %15, %14 ], [ %.156, %.preheader.i ]
-  %12 = load i8, ptr %.459, align 1
+.lr.ph54.i:                                       ; preds = %.preheader.i, %14
+  %.457 = phi ptr [ %15, %14 ], [ %.154, %.preheader.i ]
+  %12 = load i8, ptr %.457, align 1
   %13 = sext i8 %12 to i32
   %isdigittmp40.i = add nsw i32 %13, -48
   %isdigit41.i = icmp ult i32 %isdigittmp40.i, 10
   br i1 %isdigit41.i, label %14, label %.critedge4.i
 
-14:                                               ; preds = %.lr.ph55.i
-  %15 = getelementptr inbounds nuw i8, ptr %.459, i64 1
+14:                                               ; preds = %.lr.ph54.i
+  %15 = getelementptr inbounds nuw i8, ptr %.457, i64 1
   %.not39.i = icmp eq ptr %15, %6
-  br i1 %.not39.i, label %.critedge4.i, label %.lr.ph55.i, !llvm.loop !10
+  br i1 %.not39.i, label %.critedge4.i, label %.lr.ph54.i, !llvm.loop !10
 
-.lr.ph51.i:                                       ; preds = %.preheader45.i, %18
-  %.257 = phi ptr [ %19, %18 ], [ %.156, %.preheader45.i ]
-  %16 = load i8, ptr %.257, align 1
+.lr.ph50.i:                                       ; preds = %.preheader44.i, %20
+  %.255 = phi ptr [ %21, %20 ], [ %.154, %.preheader44.i ]
+  %16 = load i8, ptr %.255, align 1
   %.fr.i = freeze i8 %16
   %17 = sext i8 %.fr.i to i32
   %isdigittmp35.i = add nsw i32 %17, -48
   %isdigit36.i = icmp ult i32 %isdigittmp35.i, 10
-  %.off43.i = add i8 %.fr.i, -45
-  %switch44.i = icmp ult i8 %.off43.i, 2
-  %or.cond.i = or i1 %switch44.i, %isdigit36.i
-  br i1 %or.cond.i, label %.critedge4.i, label %18
+  %18 = add i8 %.fr.i, -45
+  %19 = icmp ult i8 %18, 2
+  %or.cond.i = or i1 %19, %isdigit36.i
+  br i1 %or.cond.i, label %.critedge4.i, label %20
 
-18:                                               ; preds = %.lr.ph51.i
-  %19 = getelementptr inbounds nuw i8, ptr %.257, i64 1
-  %.not34.i = icmp eq ptr %19, %6
-  br i1 %.not34.i, label %.critedge4.i, label %.lr.ph51.i, !llvm.loop !11
+20:                                               ; preds = %.lr.ph50.i
+  %21 = getelementptr inbounds nuw i8, ptr %.255, i64 1
+  %.not34.i = icmp eq ptr %21, %6
+  br i1 %.not34.i, label %.critedge4.i, label %.lr.ph50.i, !llvm.loop !11
 
-.critedge4.i:                                     ; preds = %18, %.lr.ph51.i, %14, %.lr.ph55.i, %.preheader.i, %.preheader45.i
-  %.358 = phi ptr [ %.156, %.preheader.i ], [ %.156, %.preheader45.i ], [ %.459, %.lr.ph55.i ], [ %15, %14 ], [ %19, %18 ], [ %.257, %.lr.ph51.i ]
-  %20 = phi ptr [ %6, %.preheader.i ], [ %6, %.preheader45.i ], [ %.459, %.lr.ph55.i ], [ %6, %14 ], [ %6, %18 ], [ %.257, %.lr.ph51.i ]
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %.156 to i64
-  %23 = sub i64 %21, %22
+.critedge4.i:                                     ; preds = %20, %.lr.ph50.i, %14, %.lr.ph54.i, %.preheader.i, %.preheader44.i
+  %.356 = phi ptr [ %.154, %.preheader.i ], [ %.154, %.preheader44.i ], [ %.457, %.lr.ph54.i ], [ %15, %14 ], [ %21, %20 ], [ %.255, %.lr.ph50.i ]
+  %22 = phi ptr [ %6, %.preheader.i ], [ %6, %.preheader44.i ], [ %.457, %.lr.ph54.i ], [ %6, %14 ], [ %6, %20 ], [ %.255, %.lr.ph50.i ]
+  %23 = ptrtoint ptr %22 to i64
+  %24 = ptrtoint ptr %.154 to i64
+  %25 = sub i64 %23, %24
   br label %_ZN3nix13nextComponentERPKcS1_.exit
 
 _ZN3nix13nextComponentERPKcS1_.exit:              ; preds = %.critedge2.i, %8, %.critedge4.i
-  %.560 = phi ptr [ %.358, %.critedge4.i ], [ %.055, %8 ], [ %10, %.critedge2.i ]
-  %.sroa.3.0.i = phi ptr [ %.156, %.critedge4.i ], [ @.str, %8 ], [ @.str, %.critedge2.i ]
-  %.sroa.0.0.i = phi i64 [ %23, %.critedge4.i ], [ 0, %8 ], [ 0, %.critedge2.i ]
-  %.not48.i14 = icmp eq ptr %.054, %5
-  br i1 %.not48.i14, label %_ZN3nix13nextComponentERPKcS1_.exit44, label %.lr.ph.i15
+  %.558 = phi ptr [ %.356, %.critedge4.i ], [ %.053, %8 ], [ %10, %.critedge2.i ]
+  %.sroa.3.0.i = phi ptr [ %.154, %.critedge4.i ], [ @.str, %8 ], [ @.str, %.critedge2.i ]
+  %.sroa.0.0.i = phi i64 [ %25, %.critedge4.i ], [ 0, %8 ], [ 0, %.critedge2.i ]
+  %.not47.i14 = icmp eq ptr %.052, %5
+  br i1 %.not47.i14, label %_ZN3nix13nextComponentERPKcS1_.exit42, label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %_ZN3nix13nextComponentERPKcS1_.exit, %.critedge2.i42
-  %.1 = phi ptr [ %25, %.critedge2.i42 ], [ %.054, %_ZN3nix13nextComponentERPKcS1_.exit ]
-  %24 = load i8, ptr %.1, align 1
-  %.off.i17 = add i8 %24, -45
+.lr.ph.i15:                                       ; preds = %_ZN3nix13nextComponentERPKcS1_.exit, %.critedge2.i40
+  %.1 = phi ptr [ %27, %.critedge2.i40 ], [ %.052, %_ZN3nix13nextComponentERPKcS1_.exit ]
+  %26 = load i8, ptr %.1, align 1
+  %.off.i17 = add i8 %26, -45
   %switch.i18 = icmp ult i8 %.off.i17, 2
-  br i1 %switch.i18, label %.critedge2.i42, label %.critedge.i19
+  br i1 %switch.i18, label %.critedge2.i40, label %.critedge.i19
 
-.critedge2.i42:                                   ; preds = %.lr.ph.i15
-  %25 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %.not.i43 = icmp eq ptr %25, %5
-  br i1 %.not.i43, label %_ZN3nix13nextComponentERPKcS1_.exit44, label %.lr.ph.i15, !llvm.loop !9
+.critedge2.i40:                                   ; preds = %.lr.ph.i15
+  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %.not.i41 = icmp eq ptr %27, %5
+  br i1 %.not.i41, label %_ZN3nix13nextComponentERPKcS1_.exit42, label %.lr.ph.i15, !llvm.loop !9
 
 .critedge.i19:                                    ; preds = %.lr.ph.i15
-  %26 = sext i8 %24 to i32
-  %isdigittmp.i20 = add nsw i32 %26, -48
+  %28 = sext i8 %26 to i32
+  %isdigittmp.i20 = add nsw i32 %28, -48
   %isdigit.i21 = icmp ult i32 %isdigittmp.i20, 10
-  %.not3954.i22 = icmp eq ptr %.1, %5
-  br i1 %isdigit.i21, label %.preheader.i37, label %.preheader45.i23
+  %.not3953.i22 = icmp eq ptr %.1, %5
+  br i1 %isdigit.i21, label %.preheader.i35, label %.preheader44.i23
 
-.preheader45.i23:                                 ; preds = %.critedge.i19
-  br i1 %.not3954.i22, label %.critedge4.i32, label %.lr.ph51.i24
+.preheader44.i23:                                 ; preds = %.critedge.i19
+  br i1 %.not3953.i22, label %.critedge4.i30, label %.lr.ph50.i24
 
-.preheader.i37:                                   ; preds = %.critedge.i19
-  br i1 %.not3954.i22, label %.critedge4.i32, label %.lr.ph55.i38
+.preheader.i35:                                   ; preds = %.critedge.i19
+  br i1 %.not3953.i22, label %.critedge4.i30, label %.lr.ph54.i36
 
-.lr.ph55.i38:                                     ; preds = %.preheader.i37, %29
-  %.4 = phi ptr [ %30, %29 ], [ %.1, %.preheader.i37 ]
-  %27 = load i8, ptr %.4, align 1
-  %28 = sext i8 %27 to i32
-  %isdigittmp40.i39 = add nsw i32 %28, -48
-  %isdigit41.i40 = icmp ult i32 %isdigittmp40.i39, 10
-  br i1 %isdigit41.i40, label %29, label %.critedge4.i32
+.lr.ph54.i36:                                     ; preds = %.preheader.i35, %31
+  %.4 = phi ptr [ %32, %31 ], [ %.1, %.preheader.i35 ]
+  %29 = load i8, ptr %.4, align 1
+  %30 = sext i8 %29 to i32
+  %isdigittmp40.i37 = add nsw i32 %30, -48
+  %isdigit41.i38 = icmp ult i32 %isdigittmp40.i37, 10
+  br i1 %isdigit41.i38, label %31, label %.critedge4.i30
 
-29:                                               ; preds = %.lr.ph55.i38
-  %30 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %.not39.i41 = icmp eq ptr %30, %5
-  br i1 %.not39.i41, label %.critedge4.i32, label %.lr.ph55.i38, !llvm.loop !10
+31:                                               ; preds = %.lr.ph54.i36
+  %32 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  %.not39.i39 = icmp eq ptr %32, %5
+  br i1 %.not39.i39, label %.critedge4.i30, label %.lr.ph54.i36, !llvm.loop !10
 
-.lr.ph51.i24:                                     ; preds = %.preheader45.i23, %33
-  %.2 = phi ptr [ %34, %33 ], [ %.1, %.preheader45.i23 ]
-  %31 = load i8, ptr %.2, align 1
-  %.fr.i25 = freeze i8 %31
-  %32 = sext i8 %.fr.i25 to i32
-  %isdigittmp35.i26 = add nsw i32 %32, -48
+.lr.ph50.i24:                                     ; preds = %.preheader44.i23, %37
+  %.2 = phi ptr [ %38, %37 ], [ %.1, %.preheader44.i23 ]
+  %33 = load i8, ptr %.2, align 1
+  %.fr.i25 = freeze i8 %33
+  %34 = sext i8 %.fr.i25 to i32
+  %isdigittmp35.i26 = add nsw i32 %34, -48
   %isdigit36.i27 = icmp ult i32 %isdigittmp35.i26, 10
-  %.off43.i28 = add i8 %.fr.i25, -45
-  %switch44.i29 = icmp ult i8 %.off43.i28, 2
-  %or.cond.i30 = or i1 %switch44.i29, %isdigit36.i27
-  br i1 %or.cond.i30, label %.critedge4.i32, label %33
+  %35 = add i8 %.fr.i25, -45
+  %36 = icmp ult i8 %35, 2
+  %or.cond.i28 = or i1 %36, %isdigit36.i27
+  br i1 %or.cond.i28, label %.critedge4.i30, label %37
 
-33:                                               ; preds = %.lr.ph51.i24
-  %34 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %.not34.i31 = icmp eq ptr %34, %5
-  br i1 %.not34.i31, label %.critedge4.i32, label %.lr.ph51.i24, !llvm.loop !11
+37:                                               ; preds = %.lr.ph50.i24
+  %38 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  %.not34.i29 = icmp eq ptr %38, %5
+  br i1 %.not34.i29, label %.critedge4.i30, label %.lr.ph50.i24, !llvm.loop !11
 
-.critedge4.i32:                                   ; preds = %33, %.lr.ph51.i24, %29, %.lr.ph55.i38, %.preheader.i37, %.preheader45.i23
-  %.3 = phi ptr [ %.1, %.preheader.i37 ], [ %.1, %.preheader45.i23 ], [ %.4, %.lr.ph55.i38 ], [ %30, %29 ], [ %34, %33 ], [ %.2, %.lr.ph51.i24 ]
-  %35 = phi ptr [ %5, %.preheader.i37 ], [ %5, %.preheader45.i23 ], [ %.4, %.lr.ph55.i38 ], [ %5, %29 ], [ %5, %33 ], [ %.2, %.lr.ph51.i24 ]
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %.1 to i64
-  %38 = sub i64 %36, %37
-  br label %_ZN3nix13nextComponentERPKcS1_.exit44
+.critedge4.i30:                                   ; preds = %37, %.lr.ph50.i24, %31, %.lr.ph54.i36, %.preheader.i35, %.preheader44.i23
+  %.3 = phi ptr [ %.1, %.preheader.i35 ], [ %.1, %.preheader44.i23 ], [ %.4, %.lr.ph54.i36 ], [ %32, %31 ], [ %38, %37 ], [ %.2, %.lr.ph50.i24 ]
+  %39 = phi ptr [ %5, %.preheader.i35 ], [ %5, %.preheader44.i23 ], [ %.4, %.lr.ph54.i36 ], [ %5, %31 ], [ %5, %37 ], [ %.2, %.lr.ph50.i24 ]
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %.1 to i64
+  %42 = sub i64 %40, %41
+  br label %_ZN3nix13nextComponentERPKcS1_.exit42
 
-_ZN3nix13nextComponentERPKcS1_.exit44:            ; preds = %.critedge2.i42, %_ZN3nix13nextComponentERPKcS1_.exit, %.critedge4.i32
-  %.5 = phi ptr [ %.054, %_ZN3nix13nextComponentERPKcS1_.exit ], [ %.3, %.critedge4.i32 ], [ %25, %.critedge2.i42 ]
-  %.sroa.3.0.i33 = phi ptr [ @.str, %_ZN3nix13nextComponentERPKcS1_.exit ], [ %.1, %.critedge4.i32 ], [ @.str, %.critedge2.i42 ]
-  %.sroa.0.0.i34 = phi i64 [ 0, %_ZN3nix13nextComponentERPKcS1_.exit ], [ %38, %.critedge4.i32 ], [ 0, %.critedge2.i42 ]
-  %39 = tail call fastcc noundef zeroext i1 @_ZN3nixL12componentsLTESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.0.0.i, ptr nonnull %.sroa.3.0.i, i64 %.sroa.0.0.i34, ptr nonnull %.sroa.3.0.i33)
-  br i1 %39, label %42, label %40
+_ZN3nix13nextComponentERPKcS1_.exit42:            ; preds = %.critedge2.i40, %_ZN3nix13nextComponentERPKcS1_.exit, %.critedge4.i30
+  %.5 = phi ptr [ %.052, %_ZN3nix13nextComponentERPKcS1_.exit ], [ %.3, %.critedge4.i30 ], [ %27, %.critedge2.i40 ]
+  %.sroa.3.0.i31 = phi ptr [ @.str, %_ZN3nix13nextComponentERPKcS1_.exit ], [ %.1, %.critedge4.i30 ], [ @.str, %.critedge2.i40 ]
+  %.sroa.0.0.i32 = phi i64 [ 0, %_ZN3nix13nextComponentERPKcS1_.exit ], [ %42, %.critedge4.i30 ], [ 0, %.critedge2.i40 ]
+  %43 = tail call fastcc noundef zeroext i1 @_ZN3nixL12componentsLTESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.0.0.i, ptr nonnull %.sroa.3.0.i, i64 %.sroa.0.0.i32, ptr nonnull %.sroa.3.0.i31)
+  br i1 %43, label %46, label %44
 
-40:                                               ; preds = %_ZN3nix13nextComponentERPKcS1_.exit44
-  %41 = tail call fastcc noundef zeroext i1 @_ZN3nixL12componentsLTESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.0.0.i34, ptr nonnull %.sroa.3.0.i33, i64 %.sroa.0.0.i, ptr nonnull %.sroa.3.0.i)
-  br i1 %41, label %42, label %7, !llvm.loop !12
+44:                                               ; preds = %_ZN3nix13nextComponentERPKcS1_.exit42
+  %45 = tail call fastcc noundef zeroext i1 @_ZN3nixL12componentsLTESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.0.0.i32, ptr nonnull %.sroa.3.0.i31, i64 %.sroa.0.0.i, ptr nonnull %.sroa.3.0.i)
+  br i1 %45, label %46, label %7, !llvm.loop !12
 
-42:                                               ; preds = %8, %40, %_ZN3nix13nextComponentERPKcS1_.exit44
-  %.0 = phi i32 [ -1, %_ZN3nix13nextComponentERPKcS1_.exit44 ], [ 1, %40 ], [ 0, %8 ]
+46:                                               ; preds = %8, %44, %_ZN3nix13nextComponentERPKcS1_.exit42
+  %.0 = phi i32 [ -1, %_ZN3nix13nextComponentERPKcS1_.exit42 ], [ 1, %44 ], [ 0, %8 ]
   ret i32 %.0
 }
 

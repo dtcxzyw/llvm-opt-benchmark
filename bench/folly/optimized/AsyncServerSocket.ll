@@ -5848,94 +5848,94 @@ define linkonce_odr void @_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17As
   %4 = alloca %"class.std::unique_ptr.145", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = atomicrmw xchg ptr %5, i64 0 acquire, align 8, !noalias !314
-  %switch.i = icmp ult i64 %6, 2
-  br i1 %switch.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %7
+  %7 = icmp ult i64 %6, 2
+  br i1 %7, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %8
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   %.0.i.i.i = inttoptr i64 %6 to ptr
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %7
-  %.0711.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %.0.i.i.i, %7 ]
-  %.0810.i.i = phi ptr [ %.0711.i.i, %.lr.ph.i.i ], [ null, %7 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !317, !noalias !318
-  store ptr %.0810.i.i, ptr %8, align 8, !tbaa !317, !noalias !318
-  %.not.i.i = icmp eq ptr %9, null
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %8
+  %.0711.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %.0.i.i.i, %8 ]
+  %.0810.i.i = phi ptr [ %.0711.i.i, %.lr.ph.i.i ], [ null, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 80
+  %10 = load ptr, ptr %9, align 8, !tbaa !317, !noalias !318
+  store ptr %.0810.i.i, ptr %9, align 8, !tbaa !317, !noalias !318
+  %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %.lr.ph.i.i1, label %.lr.ph.i.i, !llvm.loop !321
 
 .lr.ph.i.i1:                                      ; preds = %.lr.ph.i.i, %.lr.ph.i.i1
-  %10 = phi ptr [ %12, %.lr.ph.i.i1 ], [ %.0711.i.i, %.lr.ph.i.i ]
+  %11 = phi ptr [ %13, %.lr.ph.i.i1 ], [ %.0711.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %12 = load ptr, ptr %11, align 8, !tbaa !317
-  store ptr %10, ptr %4, align 8, !tbaa !317
-  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %13 = load ptr, ptr %12, align 8, !tbaa !317
+  store ptr %11, ptr %4, align 8, !tbaa !317
+  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i.i.i = icmp eq ptr %12, null
+  %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i1, !llvm.loop !322
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit: ; preds = %.lr.ph.i.i1, %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 64, !tbaa !323
-  %.not.i1.i.i2 = icmp eq ptr %14, null
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = load ptr, ptr %14, align 64, !tbaa !323
+  %.not.i1.i.i2 = icmp eq ptr %15, null
   br i1 %.not.i1.i.i2, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5, label %.lr.ph.i.i3
 
 .lr.ph.i.i3:                                      ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %17
 
-16:                                               ; preds = %16, %.lr.ph.i.i3
-  %17 = phi ptr [ %14, %.lr.ph.i.i3 ], [ %22, %16 ]
+17:                                               ; preds = %17, %.lr.ph.i.i3
+  %18 = phi ptr [ %15, %.lr.ph.i.i3 ], [ %23, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !317
-  store ptr %19, ptr %13, align 64, !tbaa !317
-  store ptr %17, ptr %3, align 8, !tbaa !317
-  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %17)
-  %20 = load i64, ptr %15, align 8, !tbaa !324
-  %21 = add nsw i64 %20, -1
-  store i64 %21, ptr %15, align 8, !tbaa !324
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %20 = load ptr, ptr %19, align 8, !tbaa !317
+  store ptr %20, ptr %14, align 64, !tbaa !317
+  store ptr %18, ptr %3, align 8, !tbaa !317
+  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %18)
+  %21 = load i64, ptr %16, align 8, !tbaa !324
+  %22 = add nsw i64 %21, -1
+  store i64 %22, ptr %16, align 8, !tbaa !324
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %22 = load ptr, ptr %13, align 64, !tbaa !323
-  %.not.i.i.i4 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i4, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5, label %16, !llvm.loop !322
+  %23 = load ptr, ptr %14, align 64, !tbaa !323
+  %.not.i.i.i4 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i4, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5, label %17, !llvm.loop !322
 
-_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5: ; preds = %16, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit
-  %23 = load atomic i64, ptr %5 monotonic, align 64
-  %24 = icmp eq i64 %23, 1
-  br i1 %24, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit, label %25
+_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5: ; preds = %17, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit
+  %24 = load atomic i64, ptr %5 monotonic, align 64
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit, label %26
 
-25:                                               ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5
-  %26 = load atomic i64, ptr %5 acquire, align 64
-  %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit, label %27
+26:                                               ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5
+  %27 = load atomic i64, ptr %5 acquire, align 64
+  %.not.i = icmp eq i64 %27, 0
+  br i1 %.not.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit, label %28
 
-27:                                               ; preds = %25
-  %.0.i.i3.i = inttoptr i64 %26 to ptr
+28:                                               ; preds = %26
+  %.0.i.i3.i = inttoptr i64 %27 to ptr
   br label %.lr.ph.i.i6
 
-.lr.ph.i.i6:                                      ; preds = %.lr.ph.i.i6, %27
-  %.0711.i.i7 = phi ptr [ %29, %.lr.ph.i.i6 ], [ %.0.i.i3.i, %27 ]
-  %.0810.i.i8 = phi ptr [ %.0711.i.i7, %.lr.ph.i.i6 ], [ null, %27 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0711.i.i7, i64 80
-  %29 = load ptr, ptr %28, align 8, !tbaa !317, !noalias !325
-  store ptr %.0810.i.i8, ptr %28, align 8, !tbaa !317, !noalias !325
-  %.not.i.i9 = icmp eq ptr %29, null
+.lr.ph.i.i6:                                      ; preds = %.lr.ph.i.i6, %28
+  %.0711.i.i7 = phi ptr [ %30, %.lr.ph.i.i6 ], [ %.0.i.i3.i, %28 ]
+  %.0810.i.i8 = phi ptr [ %.0711.i.i7, %.lr.ph.i.i6 ], [ null, %28 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0711.i.i7, i64 80
+  %30 = load ptr, ptr %29, align 8, !tbaa !317, !noalias !325
+  store ptr %.0810.i.i8, ptr %29, align 8, !tbaa !317, !noalias !325
+  %.not.i.i9 = icmp eq ptr %30, null
   br i1 %.not.i.i9, label %.lr.ph.i.i.i, label %.lr.ph.i.i6, !llvm.loop !321
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i6, %.lr.ph.i.i.i
-  %30 = phi ptr [ %32, %.lr.ph.i.i.i ], [ %.0711.i.i7, %.lr.ph.i.i6 ]
+  %31 = phi ptr [ %33, %.lr.ph.i.i.i ], [ %.0711.i.i7, %.lr.ph.i.i6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  %32 = load ptr, ptr %31, align 8, !tbaa !317
-  store ptr %30, ptr %2, align 8, !tbaa !317
-  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %30)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %33 = load ptr, ptr %32, align 8, !tbaa !317
+  store ptr %31, ptr %2, align 8, !tbaa !317
+  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not.i.i.i.i = icmp eq ptr %32, null
+  %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !322
 
-_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit: ; preds = %.lr.ph.i.i.i, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5, %25
+_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueueD2Ev.exit: ; preds = %.lr.ph.i.i.i, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit5, %26
   ret void
 }
 
@@ -5963,88 +5963,88 @@ define linkonce_odr void @_ZN5folly32EventBaseAtomicNotificationQueueISt7variant
 8:                                                ; preds = %5
   %9 = cmpxchg ptr %6, i64 0, i64 1 release monotonic, align 8, !noalias !328
   %10 = extractvalue { i64, i1 } %9, 1
-  br i1 %10, label %29, label %_ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
+  br i1 %10, label %30, label %_ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
 
 _ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i: ; preds = %8, %5
   %11 = atomicrmw xchg ptr %6, i64 0 acquire, align 8, !noalias !331
-  %switch.i.i.i = icmp ult i64 %11, 2
-  br i1 %switch.i.i.i, label %29, label %12
+  %12 = icmp ult i64 %11, 2
+  br i1 %12, label %30, label %13
 
-12:                                               ; preds = %_ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
+13:                                               ; preds = %_ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
   %.0.i.i.i.i.i = inttoptr i64 %11 to ptr
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %12
-  %.012.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 0, %12 ]
-  %.0711.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %.0.i.i.i.i.i, %12 ]
-  %.0810.i.i.i.i = phi ptr [ %.0711.i.i.i.i, %.lr.ph.i.i.i.i ], [ null, %12 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.0711.i.i.i.i, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !334
-  store ptr %.0810.i.i.i.i, ptr %13, align 8, !tbaa !317, !noalias !334
-  %15 = add nuw nsw i64 %.012.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq ptr %14, null
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %13
+  %.012.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i ], [ 0, %13 ]
+  %.0711.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i ], [ %.0.i.i.i.i.i, %13 ]
+  %.0810.i.i.i.i = phi ptr [ %.0711.i.i.i.i, %.lr.ph.i.i.i.i ], [ null, %13 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.0711.i.i.i.i, i64 80
+  %15 = load ptr, ptr %14, align 8, !tbaa !317, !noalias !334
+  store ptr %.0810.i.i.i.i, ptr %14, align 8, !tbaa !317, !noalias !334
+  %16 = add nuw nsw i64 %.012.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue3armEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !321
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue3armEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %16 = load ptr, ptr %3, align 64, !tbaa !323
-  %.not.i1.i.i.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %3, align 64, !tbaa !323
+  %.not.i1.i.i.i = icmp eq ptr %17, null
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 392
   br i1 %.not.i1.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueaSEOS7_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue3armEv.exit.i, %.lr.ph.i.i.i
-  %17 = phi ptr [ %22, %.lr.ph.i.i.i ], [ %16, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue3armEv.exit.i ]
+  %18 = phi ptr [ %23, %.lr.ph.i.i.i ], [ %17, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue3armEv.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !317
-  store ptr %19, ptr %3, align 64, !tbaa !317
-  store ptr %17, ptr %2, align 8, !tbaa !317
-  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %17)
-  %20 = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !324
-  %21 = add nsw i64 %20, -1
-  store i64 %21, ptr %.phi.trans.insert.i.i, align 8, !tbaa !324
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %20 = load ptr, ptr %19, align 8, !tbaa !317
+  store ptr %20, ptr %3, align 64, !tbaa !317
+  store ptr %18, ptr %2, align 8, !tbaa !317
+  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %18)
+  %21 = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !324
+  %22 = add nsw i64 %21, -1
+  store i64 %22, ptr %.phi.trans.insert.i.i, align 8, !tbaa !324
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %22 = load ptr, ptr %3, align 64, !tbaa !323
-  %.not.i.i.i4.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %3, align 64, !tbaa !323
+  %.not.i.i.i4.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i4.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueaSEOS7_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !322
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueaSEOS7_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue3armEv.exit.i
   store ptr %.0711.i.i.i.i, ptr %3, align 64, !tbaa !317
-  store i64 %15, ptr %.phi.trans.insert.i.i, align 8, !tbaa !237
+  store i64 %16, ptr %.phi.trans.insert.i.i, align 8, !tbaa !237
   br label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE3armEv.exit
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE3armEv.exit: ; preds = %1, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueaSEOS7_.exit.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = invoke noundef zeroext i1 @_ZN5folly14EventBaseEvent15eb_event_activeEi(ptr noundef nonnull align 8 dereferenceable(168) %23, i32 noundef 0)
-          to label %.noexc unwind label %34
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = invoke noundef zeroext i1 @_ZN5folly14EventBaseEvent15eb_event_activeEi(ptr noundef nonnull align 8 dereferenceable(168) %24, i32 noundef 0)
+          to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE3armEv.exit
-  br i1 %24, label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit, label %25
+  br i1 %25, label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit, label %26
 
-25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %27 = load i64, ptr %26, align 32, !tbaa !252
-  %28 = add nsw i64 %27, 1
-  store i64 %28, ptr %26, align 32, !tbaa !252
+26:                                               ; preds = %.noexc
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %28 = load i64, ptr %27, align 32, !tbaa !252
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr %27, align 32, !tbaa !252
   invoke void @_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE8notifyFdEv(ptr noundef nonnull align 64 dereferenceable(490) %0)
-          to label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit unwind label %34
+          to label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit unwind label %35
 
-29:                                               ; preds = %8, %_ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i8 1, ptr %30, align 8, !tbaa !303
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %32 = load i64, ptr %31, align 8, !tbaa !306
-  %33 = add nsw i64 %32, 1
-  store i64 %33, ptr %31, align 8, !tbaa !306
+30:                                               ; preds = %8, %_ZNSt6atomicIPN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEE23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store i8 1, ptr %31, align 8, !tbaa !303
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %33 = load i64, ptr %32, align 8, !tbaa !306
+  %34 = add nsw i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !306
   br label %_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit
 
-_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit: ; preds = %.noexc, %25, %29
+_ZN5folly32EventBaseAtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEENS2_14RemoteAcceptor8ConsumerEE13activateEventEv.exit: ; preds = %.noexc, %26, %30
   ret void
 
-34:                                               ; preds = %25, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE3armEv.exit
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %26, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE3armEv.exit
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #50
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #50
   unreachable
 }
 
@@ -6107,181 +6107,181 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueISt7va
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %2, %70
-  %.043 = phi i1 [ false, %2 ], [ %.1, %70 ]
-  %.01442 = phi i1 [ false, %2 ], [ true, %70 ]
+.critedge2:                                       ; preds = %2, %71
+  %.043 = phi i1 [ false, %2 ], [ %.1, %71 ]
+  %.01442 = phi i1 [ false, %2 ], [ true, %71 ]
   %15 = load ptr, ptr %10, align 64, !tbaa !323
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %16, label %70
+  br i1 %.not.i, label %16, label %71
 
 16:                                               ; preds = %.critedge2
   %17 = atomicrmw xchg ptr %6, i64 0 acquire, align 8, !noalias !337
-  %switch.i = icmp ult i64 %17, 2
-  br i1 %switch.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %18
+  %18 = icmp ult i64 %17, 2
+  br i1 %18, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %19
 
-18:                                               ; preds = %16
+19:                                               ; preds = %16
   %.0.i.i.i22 = inttoptr i64 %17 to ptr
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %18
-  %.012.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %18 ]
-  %.0711.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %.0.i.i.i22, %18 ]
-  %.0810.i.i = phi ptr [ %.0711.i.i, %.lr.ph.i.i ], [ null, %18 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !317, !noalias !340
-  store ptr %.0810.i.i, ptr %19, align 8, !tbaa !317, !noalias !340
-  %21 = add nuw nsw i64 %.012.i.i, 1
-  %.not.i.i = icmp eq ptr %20, null
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %19
+  %.012.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %19 ]
+  %.0711.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %.0.i.i.i22, %19 ]
+  %.0810.i.i = phi ptr [ %.0711.i.i, %.lr.ph.i.i ], [ null, %19 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 80
+  %21 = load ptr, ptr %20, align 8, !tbaa !317, !noalias !340
+  store ptr %.0810.i.i, ptr %20, align 8, !tbaa !317, !noalias !340
+  %22 = add nuw nsw i64 %.012.i.i, 1
+  %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %.lr.ph.i.i, !llvm.loop !321
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit: ; preds = %.lr.ph.i.i, %16
   %.sroa.0.2 = phi ptr [ null, %16 ], [ %.0711.i.i, %.lr.ph.i.i ]
-  %.sroa.9.2 = phi i64 [ 0, %16 ], [ %21, %.lr.ph.i.i ]
-  %22 = load ptr, ptr %10, align 64, !tbaa !323
-  %.not.i1.i.i = icmp eq ptr %22, null
+  %.sroa.9.2 = phi i64 [ 0, %16 ], [ %22, %.lr.ph.i.i ]
+  %23 = load ptr, ptr %10, align 64, !tbaa !323
+  %.not.i1.i.i = icmp eq ptr %23, null
   br i1 %.not.i1.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23
 
 .lr.ph.i.i23:                                     ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
-  %23 = phi ptr [ %69, %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit ], [ %22, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !317
-  store ptr %25, ptr %10, align 64, !tbaa !317
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !143
-  %.not.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %28
+  %24 = phi ptr [ %70, %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit ], [ %23, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  %26 = load ptr, ptr %25, align 8, !tbaa !317
+  store ptr %26, ptr %10, align 64, !tbaa !317
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %28 = load ptr, ptr %27, align 8, !tbaa !143
+  %.not.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %29
 
-28:                                               ; preds = %.lr.ph.i.i23
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load atomic i64, ptr %29 acquire, align 8
-  %31 = icmp eq i64 %30, 4294967297
-  %32 = trunc i64 %30 to i32
-  br i1 %31, label %33, label %41
+29:                                               ; preds = %.lr.ph.i.i23
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %31 = load atomic i64, ptr %30 acquire, align 8
+  %32 = icmp eq i64 %31, 4294967297
+  %33 = trunc i64 %31 to i32
+  br i1 %32, label %34, label %42
 
-33:                                               ; preds = %28
-  store i32 0, ptr %29, align 8, !tbaa !308
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 0, ptr %34, align 4, !tbaa !310
-  %35 = load ptr, ptr %27, align 8, !tbaa !12
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #40
-  %38 = load ptr, ptr %27, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %27) #40
+34:                                               ; preds = %29
+  store i32 0, ptr %30, align 8, !tbaa !308
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !310
+  %36 = load ptr, ptr %28, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #40
+  %39 = load ptr, ptr %28, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #40
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
-41:                                               ; preds = %28
-  %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !79
-  %.not.i.i.i.i.i = icmp eq i8 %42, 0
-  br i1 %.not.i.i.i.i.i, label %45, label %43
+42:                                               ; preds = %29
+  %43 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !79
+  %.not.i.i.i.i.i = icmp eq i8 %43, 0
+  br i1 %.not.i.i.i.i.i, label %46, label %44
 
-43:                                               ; preds = %41
-  %44 = add nsw i32 %32, -1
-  store i32 %44, ptr %29, align 4, !tbaa !23
+44:                                               ; preds = %42
+  %45 = add nsw i32 %33, -1
+  store i32 %45, ptr %30, align 4, !tbaa !23
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-45:                                               ; preds = %41
-  %46 = atomicrmw volatile add ptr %29, i32 -1 acq_rel, align 4
+46:                                               ; preds = %42
+  %47 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %43
-  %.0.i.i.i.i.i.i = phi i32 [ %32, %43 ], [ %46, %45 ]
-  %47 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !148
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %46, %44
+  %.0.i.i.i.i.i.i = phi i32 [ %33, %44 ], [ %47, %46 ]
+  %48 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %48, label %49, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !148
 
-48:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #40
+49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #40
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
-_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33, %.lr.ph.i.i23
-  %49 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %50 = load i8, ptr %49, align 8, !tbaa !343
-  switch i8 %50, label %60 [
+_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %34, %.lr.ph.i.i23
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %51 = load i8, ptr %50, align 8, !tbaa !343
+  switch i8 %51, label %61 [
     i8 -1, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
-    i8 0, label %51
+    i8 0, label %52
   ], !prof !345
 
-51:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %23, i64 34
-  %53 = load i8, ptr %52, align 2, !tbaa !101, !range !14, !noundef !102
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
+52:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 34
+  %54 = load i8, ptr %53, align 2, !tbaa !101, !range !14, !noundef !102
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !103
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %59
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !103
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %60
 
-59:                                               ; preds = %55
-  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 110) #52
+60:                                               ; preds = %56
+  call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef 110) #52
   br label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
 
-60:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !80
-  %63 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %64 = icmp eq ptr %62, %63
-  br i1 %64, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+61:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !80
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %65 = icmp eq ptr %63, %64
+  br i1 %65, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %60
-  %65 = load i64, ptr %63, align 8, !tbaa !79
-  %66 = add i64 %65, 1
-  call void @_ZdlPvm(ptr noundef %62, i64 noundef %66) #52
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %61
+  %66 = load i64, ptr %64, align 8, !tbaa !79
+  %67 = add i64 %66, 1
+  call void @_ZdlPvm(ptr noundef %63, i64 noundef %67) #52
   br label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
 
-_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit: ; preds = %60, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, %51, %55, %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 88) #52
-  %67 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
-  %68 = add nsw i64 %67, -1
-  store i64 %68, ptr %.phi.trans.insert.i, align 8, !tbaa !324
-  %69 = load ptr, ptr %10, align 64, !tbaa !323
-  %.not.i.i.i = icmp eq ptr %69, null
+_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit: ; preds = %61, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, %52, %56, %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 88) #52
+  %68 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %69 = add nsw i64 %68, -1
+  store i64 %69, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %70 = load ptr, ptr %10, align 64, !tbaa !323
+  %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23, !llvm.loop !322
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit
   store ptr %.sroa.0.2, ptr %10, align 64, !tbaa !317
   store i64 %.sroa.9.2, ptr %.phi.trans.insert.i, align 8, !tbaa !237
   %.not.i27 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i27, label %.critedge, label %70
+  br i1 %.not.i27, label %.critedge, label %71
 
-70:                                               ; preds = %.critedge2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit
-  %71 = phi ptr [ %15, %.critedge2 ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
+71:                                               ; preds = %.critedge2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit
+  %72 = phi ptr [ %15, %.critedge2 ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
   %.1 = phi i1 [ %.043, %.critedge2 ], [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
-  %72 = load atomic i64, ptr %11 monotonic, align 16
-  %73 = add nsw i64 %72, 1
-  store atomic i64 %73, ptr %11 monotonic, align 16
-  %74 = icmp eq ptr %71, %9
-  %or.cond21 = or i1 %12, %74
-  %75 = select i1 %.1, i1 %or.cond21, i1 false
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %73 = load atomic i64, ptr %11 monotonic, align 16
+  %74 = add nsw i64 %73, 1
+  store atomic i64 %74, ptr %11 monotonic, align 16
+  %75 = icmp eq ptr %72, %9
+  %or.cond21 = or i1 %12, %75
+  %76 = select i1 %.1, i1 %or.cond21, i1 false
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.19") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %76)
-  %77 = load ptr, ptr %4, align 8, !tbaa !346
-  store ptr %77, ptr %5, align 8, !tbaa !346
-  %78 = load ptr, ptr %14, align 8, !tbaa !143
-  store ptr %78, ptr %13, align 8, !tbaa !143
+  call void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.19") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %77)
+  %78 = load ptr, ptr %4, align 8, !tbaa !346
+  store ptr %78, ptr %5, align 8, !tbaa !346
+  %79 = load ptr, ptr %14, align 8, !tbaa !143
+  store ptr %79, ptr %13, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5folly29RequestContextSaverScopeGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %79 = load ptr, ptr %10, align 64, !tbaa !323
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
-  %81 = load ptr, ptr %80, align 8, !tbaa !317
-  store ptr %81, ptr %10, align 64, !tbaa !317
-  store ptr %79, ptr %3, align 8, !tbaa !317
-  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %79)
-  %82 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
-  %83 = add nsw i64 %82, -1
-  store i64 %83, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %80 = load ptr, ptr %10, align 64, !tbaa !323
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 80
+  %82 = load ptr, ptr %81, align 8, !tbaa !317
+  store ptr %82, ptr %10, align 64, !tbaa !317
+  store ptr %80, ptr %3, align 8, !tbaa !317
+  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %80)
+  %83 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %84 = add nsw i64 %83, -1
+  store i64 %84, ptr %.phi.trans.insert.i, align 8, !tbaa !324
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %75, label %.critedge, label %.critedge2, !llvm.loop !347
+  br i1 %76, label %.critedge, label %.critedge2, !llvm.loop !347
 
-.critedge:                                        ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %70
-  %.014.lcssa = phi i1 [ %.01442, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ], [ true, %70 ]
+.critedge:                                        ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %71
+  %.014.lcssa = phi i1 [ %.01442, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ], [ true, %71 ]
   ret i1 %.014.lcssa
 }
 
@@ -6849,7 +6849,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueISt7va
   %16 = icmp eq ptr %10, null
   br label %.critedge2
 
-17:                                               ; preds = %91
+17:                                               ; preds = %92
   %18 = load i32, ptr %11, align 8, !tbaa !220
   %19 = add i32 %18, -1
   %or.cond.not = icmp ult i32 %19, %.116
@@ -6861,206 +6861,206 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueISt7va
   %.04553 = phi i1 [ false, %2 ], [ %.1, %17 ]
   %20 = load ptr, ptr %12, align 64, !tbaa !323
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %21, label %75
+  br i1 %.not.i, label %21, label %76
 
 21:                                               ; preds = %.critedge2
   %22 = atomicrmw xchg ptr %7, i64 0 acquire, align 8, !noalias !349
-  %switch.i = icmp ult i64 %22, 2
-  br i1 %switch.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %23
+  %23 = icmp ult i64 %22, 2
+  br i1 %23, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %21
   %.0.i.i.i22 = inttoptr i64 %22 to ptr
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %23
-  %.012.i.i = phi i64 [ %26, %.lr.ph.i.i ], [ 0, %23 ]
-  %.0711.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %.0.i.i.i22, %23 ]
-  %.0810.i.i = phi ptr [ %.0711.i.i, %.lr.ph.i.i ], [ null, %23 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !317, !noalias !352
-  store ptr %.0810.i.i, ptr %24, align 8, !tbaa !317, !noalias !352
-  %26 = add nuw nsw i64 %.012.i.i, 1
-  %.not.i.i = icmp eq ptr %25, null
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %24
+  %.012.i.i = phi i64 [ %27, %.lr.ph.i.i ], [ 0, %24 ]
+  %.0711.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %.0.i.i.i22, %24 ]
+  %.0810.i.i = phi ptr [ %.0711.i.i, %.lr.ph.i.i ], [ null, %24 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 80
+  %26 = load ptr, ptr %25, align 8, !tbaa !317, !noalias !352
+  store ptr %.0810.i.i, ptr %25, align 8, !tbaa !317, !noalias !352
+  %27 = add nuw nsw i64 %.012.i.i, 1
+  %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %.lr.ph.i.i, !llvm.loop !321
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit: ; preds = %.lr.ph.i.i, %21
   %.sroa.0.2 = phi ptr [ null, %21 ], [ %.0711.i.i, %.lr.ph.i.i ]
-  %.sroa.9.2 = phi i64 [ 0, %21 ], [ %26, %.lr.ph.i.i ]
-  %27 = load ptr, ptr %12, align 64, !tbaa !323
-  %.not.i1.i.i = icmp eq ptr %27, null
+  %.sroa.9.2 = phi i64 [ 0, %21 ], [ %27, %.lr.ph.i.i ]
+  %28 = load ptr, ptr %12, align 64, !tbaa !323
+  %.not.i1.i.i = icmp eq ptr %28, null
   br i1 %.not.i1.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23
 
 .lr.ph.i.i23:                                     ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
-  %28 = phi ptr [ %74, %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit ], [ %27, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !317
-  store ptr %30, ptr %12, align 64, !tbaa !317
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  %32 = load ptr, ptr %31, align 8, !tbaa !143
-  %.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %33
+  %29 = phi ptr [ %75, %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit ], [ %28, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %31 = load ptr, ptr %30, align 8, !tbaa !317
+  store ptr %31, ptr %12, align 64, !tbaa !317
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 72
+  %33 = load ptr, ptr %32, align 8, !tbaa !143
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %34
 
-33:                                               ; preds = %.lr.ph.i.i23
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = load atomic i64, ptr %34 acquire, align 8
-  %36 = icmp eq i64 %35, 4294967297
-  %37 = trunc i64 %35 to i32
-  br i1 %36, label %38, label %46
+34:                                               ; preds = %.lr.ph.i.i23
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %36 = load atomic i64, ptr %35 acquire, align 8
+  %37 = icmp eq i64 %36, 4294967297
+  %38 = trunc i64 %36 to i32
+  br i1 %37, label %39, label %47
 
-38:                                               ; preds = %33
-  store i32 0, ptr %34, align 8, !tbaa !308
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 0, ptr %39, align 4, !tbaa !310
-  %40 = load ptr, ptr %32, align 8, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #40
-  %43 = load ptr, ptr %32, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %32) #40
+39:                                               ; preds = %34
+  store i32 0, ptr %35, align 8, !tbaa !308
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  store i32 0, ptr %40, align 4, !tbaa !310
+  %41 = load ptr, ptr %33, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %33) #40
+  %44 = load ptr, ptr %33, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(16) %33) #40
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
-46:                                               ; preds = %33
-  %47 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !79
-  %.not.i.i.i.i.i = icmp eq i8 %47, 0
-  br i1 %.not.i.i.i.i.i, label %50, label %48
+47:                                               ; preds = %34
+  %48 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !79
+  %.not.i.i.i.i.i = icmp eq i8 %48, 0
+  br i1 %.not.i.i.i.i.i, label %51, label %49
 
-48:                                               ; preds = %46
-  %49 = add nsw i32 %37, -1
-  store i32 %49, ptr %34, align 4, !tbaa !23
+49:                                               ; preds = %47
+  %50 = add nsw i32 %38, -1
+  store i32 %50, ptr %35, align 4, !tbaa !23
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-50:                                               ; preds = %46
-  %51 = atomicrmw volatile add ptr %34, i32 -1 acq_rel, align 4
+51:                                               ; preds = %47
+  %52 = atomicrmw volatile add ptr %35, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %50, %48
-  %.0.i.i.i.i.i.i = phi i32 [ %37, %48 ], [ %51, %50 ]
-  %52 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %52, label %53, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !148
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %51, %49
+  %.0.i.i.i.i.i.i = phi i32 [ %38, %49 ], [ %52, %51 ]
+  %53 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %53, label %54, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !148
 
-53:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #40
+54:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #40
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
-_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %53, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %38, %.lr.ph.i.i23
-  %54 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %55 = load i8, ptr %54, align 8, !tbaa !343
-  switch i8 %55, label %65 [
+_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %54, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %39, %.lr.ph.i.i23
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %56 = load i8, ptr %55, align 8, !tbaa !343
+  switch i8 %56, label %66 [
     i8 -1, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
-    i8 0, label %56
+    i8 0, label %57
   ], !prof !345
 
-56:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %28, i64 34
-  %58 = load i8, ptr %57, align 2, !tbaa !101, !range !14, !noundef !102
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
+57:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %29, i64 34
+  %59 = load i8, ptr %58, align 2, !tbaa !101, !range !14, !noundef !102
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %61, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !103
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %64
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !103
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %65
 
-64:                                               ; preds = %60
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef 110) #52
+65:                                               ; preds = %61
+  call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef 110) #52
   br label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
 
-65:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !80
-  %68 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+66:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !80
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %65
-  %70 = load i64, ptr %68, align 8, !tbaa !79
-  %71 = add i64 %70, 1
-  call void @_ZdlPvm(ptr noundef %67, i64 noundef %71) #52
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %66
+  %71 = load i64, ptr %69, align 8, !tbaa !79
+  %72 = add i64 %71, 1
+  call void @_ZdlPvm(ptr noundef %68, i64 noundef %72) #52
   br label %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit
 
-_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit: ; preds = %65, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, %56, %60, %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 88) #52
-  %72 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
-  %73 = add nsw i64 %72, -1
-  store i64 %73, ptr %.phi.trans.insert.i, align 8, !tbaa !324
-  %74 = load ptr, ptr %12, align 64, !tbaa !323
-  %.not.i.i.i = icmp eq ptr %74, null
+_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit: ; preds = %66, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, %57, %61, %65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef 88) #52
+  %73 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %74 = add nsw i64 %73, -1
+  store i64 %74, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %75 = load ptr, ptr %12, align 64, !tbaa !323
+  %.not.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23, !llvm.loop !322
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit
   store ptr %.sroa.0.2, ptr %12, align 64, !tbaa !317
   store i64 %.sroa.9.2, ptr %.phi.trans.insert.i, align 8, !tbaa !237
   %.not.i27 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i27, label %.critedge, label %75
+  br i1 %.not.i27, label %.critedge, label %76
 
-75:                                               ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %.critedge2
-  %76 = phi ptr [ %20, %.critedge2 ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
+76:                                               ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %.critedge2
+  %77 = phi ptr [ %20, %.critedge2 ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
   %.1 = phi i1 [ %.04553, %.critedge2 ], [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
-  %77 = load atomic i64, ptr %13 monotonic, align 16
-  %78 = add nsw i64 %77, 1
-  store atomic i64 %78, ptr %13 monotonic, align 16
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  %78 = load atomic i64, ptr %13 monotonic, align 16
+  %79 = add nsw i64 %78, 1
+  store atomic i64 %79, ptr %13 monotonic, align 16
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.19") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %79)
-  %80 = load ptr, ptr %5, align 8, !tbaa !346
-  store ptr %80, ptr %6, align 8, !tbaa !346
-  %81 = load ptr, ptr %15, align 8, !tbaa !143
-  store ptr %81, ptr %14, align 8, !tbaa !143
+  call void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.19") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %80)
+  %81 = load ptr, ptr %5, align 8, !tbaa !346
+  store ptr %81, ptr %6, align 8, !tbaa !346
+  %82 = load ptr, ptr %15, align 8, !tbaa !143
+  store ptr %82, ptr %14, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !355
-  %82 = invoke noundef zeroext i8 @_ZSt5visitIZN5folly17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS1_14NewConnMessageENS1_12ErrorMessageEEEEUlOT_E_JRS7_EENSt13invoke_resultIS9_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeESA_DpOSF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(57) %76)
-          to label %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit unwind label %83
+  %83 = invoke noundef zeroext i8 @_ZSt5visitIZN5folly17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS1_14NewConnMessageENS1_12ErrorMessageEEEEUlOT_E_JRS7_EENSt13invoke_resultIS9_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeESA_DpOSF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(57) %77)
+          to label %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit unwind label %84
 
-83:                                               ; preds = %75
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %76
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #50
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #50
   unreachable
 
-_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit: ; preds = %75
-  %86 = icmp eq ptr %76, %10
-  %or.cond21 = or i1 %16, %86
-  %87 = select i1 %.1, i1 %or.cond21, i1 false
+_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit: ; preds = %76
+  %87 = icmp eq ptr %77, %10
+  %or.cond21 = or i1 %16, %87
+  %88 = select i1 %.1, i1 %or.cond21, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5folly29RequestContextSaverScopeGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i8 %82, label %91 [
-    i8 1, label %88
-    i8 0, label %89
+  switch i8 %83, label %92 [
+    i8 1, label %89
+    i8 0, label %90
   ]
 
-88:                                               ; preds = %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
-  br label %89
+89:                                               ; preds = %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
+  br label %90
 
-89:                                               ; preds = %88, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
-  %.3 = phi i1 [ true, %88 ], [ %87, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ]
-  %90 = add i32 %.0154355, 1
-  br label %91
+90:                                               ; preds = %89, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
+  %.3 = phi i1 [ true, %89 ], [ %88, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ]
+  %91 = add i32 %.0154355, 1
+  br label %92
 
-91:                                               ; preds = %89, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
-  %.2 = phi i1 [ %87, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ], [ %.3, %89 ]
-  %.116 = phi i32 [ %.0154355, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ], [ %90, %89 ]
+92:                                               ; preds = %90, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
+  %.2 = phi i1 [ %88, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ], [ %.3, %90 ]
+  %.116 = phi i32 [ %.0154355, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ], [ %91, %90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %92 = load ptr, ptr %12, align 64, !tbaa !323
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 80
-  %94 = load ptr, ptr %93, align 8, !tbaa !317
-  store ptr %94, ptr %12, align 64, !tbaa !317
-  store ptr %92, ptr %3, align 8, !tbaa !317
-  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %92)
-  %95 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
-  %96 = add nsw i64 %95, -1
-  store i64 %96, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %93 = load ptr, ptr %12, align 64, !tbaa !323
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 80
+  %95 = load ptr, ptr %94, align 8, !tbaa !317
+  store ptr %95, ptr %12, align 64, !tbaa !317
+  store ptr %93, ptr %3, align 8, !tbaa !317
+  call void @_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %93)
+  %96 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !324
+  %97 = add nsw i64 %96, -1
+  store i64 %97, ptr %.phi.trans.insert.i, align 8, !tbaa !324
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.2, label %.critedge, label %17, !llvm.loop !348
 
-.critedge:                                        ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %91, %17
-  %.014.lcssa = phi i1 [ %.0144454, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ], [ true, %91 ], [ true, %17 ]
+.critedge:                                        ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %92, %17
+  %.014.lcssa = phi i1 [ %.0144454, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ], [ true, %92 ], [ true, %17 ]
   ret i1 %.014.lcssa
 }
 

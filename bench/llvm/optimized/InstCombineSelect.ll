@@ -23017,16 +23017,16 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %5
   %.sink22.i.i = phi i64 [ %31, %30 ], [ %27, %26 ]
   %.sroa.0.0.extract.trunc = trunc i64 %.sink22.i.i to i32
   %33 = and i32 %.sroa.0.0.extract.trunc, -2
-  %switch = icmp eq i32 %33, 32
-  br i1 %switch, label %.critedge2, label %.critedge
+  %34 = icmp eq i32 %33, 32
+  br i1 %34, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %32
-  %34 = icmp eq i32 %.sroa.0.0.extract.trunc, 32
-  %35 = select i1 %34, ptr %11, ptr %9
+  %35 = icmp eq i32 %.sroa.0.0.extract.trunc, 32
+  %36 = select i1 %35, ptr %11, ptr %9
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %_ZNK4llvm5Value9hasOneUseEv.exit, %5, %._crit_edge.i.i, %17, %32, %1
-  %.0 = phi ptr [ null, %1 ], [ %35, %.critedge2 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ null, %5 ], [ null, %._crit_edge.i.i ], [ null, %17 ], [ null, %32 ]
+  %.0 = phi ptr [ null, %1 ], [ %36, %.critedge2 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ null, %5 ], [ null, %._crit_edge.i.i ], [ null, %17 ], [ null, %32 ]
   ret ptr %.0
 }
 

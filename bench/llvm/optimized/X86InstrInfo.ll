@@ -11067,7 +11067,7 @@ declare noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo21findCommutedOpIndicesERK
 define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20hasCommutePreferenceERNS_12MachineInstrERb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i16, ptr %4, align 4, !tbaa !221
-  switch i16 %5, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread [
+  switch i16 %5, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread [
     i16 652, label %6
     i16 611, label %6
   ]
@@ -11093,96 +11093,96 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20hasCommutePreferen
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 68
   %22 = load i16, ptr %21, align 4, !tbaa !221
   %23 = add i16 %22, -2117
-  %switch.i = icmp ult i16 %23, 3
-  br i1 %switch.i, label %24, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
+  %24 = icmp ult i16 %23, 3
+  br i1 %24, label %25, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !239
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 164
-  %28 = load i32, ptr %27, align 4, !tbaa !240
-  %.not14.i = icmp eq i32 %28, 0
-  br i1 %.not14.i, label %29, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !239
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 164
+  %29 = load i32, ptr %28, align 4, !tbaa !240
+  %.not14.i = icmp eq i32 %29, 0
+  br i1 %.not14.i, label %30, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 255
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 255
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %26, i64 144
-  %36 = load i64, ptr %35, align 8, !tbaa !240
-  %.not.i = icmp eq i64 %36, 0
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 144
+  %37 = load i64, ptr %36, align 8, !tbaa !240
+  %.not.i = icmp eq i64 %37, 0
   br i1 %.not.i, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
 
-_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit: ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %38 = load i64, ptr %37, align 8, !tbaa !240
-  %39 = icmp slt i64 %38, 2
-  br i1 %39, label %40, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
+_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit: ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %39 = load i64, ptr %38, align 8, !tbaa !240
+  %40 = icmp slt i64 %39, 2
+  br i1 %40, label %41, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
 
-40:                                               ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !243
-  %43 = load ptr, ptr %7, align 8, !tbaa !243
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread.sink.split, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
+41:                                               ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !243
+  %44 = load ptr, ptr %7, align 8, !tbaa !243
+  %45 = icmp eq ptr %43, %44
+  br i1 %45, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread.sink.split, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
 
-_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread: ; preds = %34, %29, %24, %20, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit, %40, %6
-  %45 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %12, i32 %18) #32
-  %.not29 = icmp eq ptr %45, null
-  br i1 %.not29, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread, label %46
+_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread: ; preds = %35, %30, %25, %20, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit, %41, %6
+  %46 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %12, i32 %18) #32
+  %.not29 = icmp eq ptr %46, null
+  br i1 %.not29, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread, label %47
 
-46:                                               ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 68
-  %48 = load i16, ptr %47, align 4, !tbaa !221
-  %49 = add i16 %48, -2117
-  %switch.i30 = icmp ult i16 %49, 3
-  br i1 %switch.i30, label %50, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
+47:                                               ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 68
+  %49 = load i16, ptr %48, align 4, !tbaa !221
+  %50 = add i16 %49, -2117
+  %51 = icmp ult i16 %50, 3
+  br i1 %51, label %52, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !239
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 164
-  %54 = load i32, ptr %53, align 4, !tbaa !240
-  %.not14.i32 = icmp eq i32 %54, 0
-  br i1 %.not14.i32, label %55, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %54 = load ptr, ptr %53, align 8, !tbaa !239
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 164
+  %56 = load i32, ptr %55, align 4, !tbaa !240
+  %.not14.i31 = icmp eq i32 %56, 0
+  br i1 %.not14.i31, label %57, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %57 = load i32, ptr %56, align 8
-  %58 = and i32 %57, 255
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 128
+  %59 = load i32, ptr %58, align 8
+  %60 = and i32 %59, 255
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw i8, ptr %52, i64 144
-  %62 = load i64, ptr %61, align 8, !tbaa !240
-  %.not.i33 = icmp eq i64 %62, 0
-  br i1 %.not.i33, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
-
-_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34: ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %52, i64 80
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 144
   %64 = load i64, ptr %63, align 8, !tbaa !240
-  %65 = icmp slt i64 %64, 2
-  br i1 %65, label %66, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
+  %.not.i32 = icmp eq i64 %64, 0
+  br i1 %.not.i32, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
 
-66:                                               ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34
-  %67 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !243
-  %69 = load ptr, ptr %7, align 8, !tbaa !243
-  %70 = icmp eq ptr %68, %69
-  br i1 %70, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread.sink.split, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
+_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33: ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 80
+  %66 = load i64, ptr %65, align 8, !tbaa !240
+  %67 = icmp slt i64 %66, 2
+  br i1 %67, label %68, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
 
-_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread.sink.split: ; preds = %66, %40
-  %.sink = phi i8 [ 1, %40 ], [ 0, %66 ]
+68:                                               ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33
+  %69 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %70 = load ptr, ptr %69, align 8, !tbaa !243
+  %71 = load ptr, ptr %7, align 8, !tbaa !243
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread.sink.split, label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
+
+_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread.sink.split: ; preds = %68, %41
+  %.sink = phi i8 [ 1, %41 ], [ 0, %68 ]
   store i8 %.sink, ptr %2, align 1, !tbaa !73
-  br label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread
+  br label %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread
 
-_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread: ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread.sink.split, %60, %55, %50, %46, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34, %66, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34 ], [ false, %66 ], [ false, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread ], [ false, %46 ], [ false, %50 ], [ false, %55 ], [ false, %60 ], [ true, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit34.thread.sink.split ]
+_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread: ; preds = %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread.sink.split, %62, %57, %52, %47, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33, %68, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33 ], [ false, %68 ], [ false, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit.thread ], [ false, %47 ], [ false, %52 ], [ false, %57 ], [ false, %62 ], [ true, %_ZL16isConvertibleLEAPN4llvm12MachineInstrE.exit33.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -30191,7 +30191,7 @@ define dso_local noundef zeroext range(i16 0, 16) i16 @_ZNK4llvm12X86InstrInfo24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 255
   %18 = icmp eq i32 %17, 1
-  %spec.select104 = select i1 %18, i16 14, i16 0
+  %spec.select100 = select i1 %18, i16 14, i16 0
   br label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit"
 
 19:                                               ; preds = %2, %2
@@ -30237,8 +30237,8 @@ _ZL15AdjustBlendMaskjjjPj.exit.i:                 ; preds = %_ZL15AdjustBlendMas
   %45 = lshr i32 %44, %.04267.i26.i27
   %46 = and i32 %45, 3
   %.off = add nsw i32 %46, -1
-  %switch90 = icmp ult i32 %.off, 2
-  %brmerge = or i1 %switch90, %.not49.i29.i32
+  %switch = icmp ult i32 %.off, 2
+  %brmerge = or i1 %switch, %.not49.i29.i32
   br i1 %brmerge, label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit.loopexit", label %_ZL15AdjustBlendMaskjjjPj.exit.i
 
 47:                                               ; preds = %2, %2, %2, %2
@@ -30263,9 +30263,9 @@ _ZL15AdjustBlendMaskjjjPj.exit.i39:               ; preds = %_ZL15AdjustBlendMas
   %59 = shl nuw nsw i32 %.04267.i26.i40, 1
   %60 = lshr i32 %58, %59
   %61 = and i32 %60, 3
-  %.off92 = add nsw i32 %61, -1
-  %switch93 = icmp ult i32 %.off92, 2
-  br i1 %switch93, label %_ZL15AdjustBlendMaskjjjPj.exit31.i43, label %.thread.i30.i44
+  %.off88 = add nsw i32 %61, -1
+  %switch89 = icmp ult i32 %.off88, 2
+  br i1 %switch89, label %_ZL15AdjustBlendMaskjjjPj.exit31.i43, label %.thread.i30.i44
 
 .thread.i30.i44:                                  ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i39
   %62 = add nuw nsw i32 %.04267.i26.i40, 1
@@ -30305,9 +30305,9 @@ _ZL15AdjustBlendMaskjjjPj.exit31.i43:             ; preds = %.thread.i30.i44, %_
   %84 = shl nuw nsw i32 %.04267.i.i51, 1
   %85 = lshr i32 %82, %84
   %86 = and i32 %85, 3
-  %.off94 = add nsw i32 %86, -1
-  %switch95 = icmp ult i32 %.off94, 2
-  br i1 %switch95, label %_ZL15AdjustBlendMaskjjjPj.exit.i54, label %.thread.i.i62
+  %.off90 = add nsw i32 %86, -1
+  %switch91 = icmp ult i32 %.off90, 2
+  br i1 %switch91, label %_ZL15AdjustBlendMaskjjjPj.exit.i54, label %.thread.i.i62
 
 .thread.i.i62:                                    ; preds = %83
   %87 = add nuw nsw i32 %.04267.i.i51, 1
@@ -30323,9 +30323,9 @@ _ZL15AdjustBlendMaskjjjPj.exit.i54:               ; preds = %83, %.thread.i.i62
   %.04267.i26.i55 = phi i32 [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i54 ], [ 4, %.thread.i30.i59 ]
   %90 = lshr i32 %82, %.04267.i26.i55
   %91 = and i32 %90, 15
-  %.off96 = add nsw i32 %91, -1
-  %switch97 = icmp ult i32 %.off96, 14
-  br i1 %switch97, label %_ZL15AdjustBlendMaskjjjPj.exit31.i58, label %.thread.i30.i59
+  %.off92 = add nsw i32 %91, -1
+  %switch93 = icmp ult i32 %.off92, 14
+  br i1 %switch93, label %_ZL15AdjustBlendMaskjjjPj.exit31.i58, label %.thread.i30.i59
 
 .thread.i30.i59:                                  ; preds = %89
   br i1 %.not49.i29.i60, label %.loopexit.i61, label %89, !llvm.loop !1577
@@ -30422,11 +30422,11 @@ _ZL15AdjustBlendMaskjjjPj.exit31.i58:             ; preds = %89, %.loopexit.i61
   br label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit"
 
 "_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit.loopexit": ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i
-  %.mux = select i1 %switch90, i16 10, i16 14
+  %.mux = select i1 %switch, i16 10, i16 14
   br label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit"
 
 "_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit": ; preds = %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit.loopexit", %10, %_ZL15AdjustBlendMaskjjjPj.exit31.i43, %.thread.i30.i22.preheader, %_ZL15AdjustBlendMaskjjjPj.exit31.i58, %70, %47, %33, %19, %2, %146, %121, %112, %101, %95, %150, %.critedge2, %.critedge
-  %.0 = phi i16 [ 0, %150 ], [ 14, %.critedge ], [ 0, %.critedge2 ], [ 0, %95 ], [ 0, %101 ], [ 0, %112 ], [ 0, %121 ], [ 6, %146 ], [ 6, %2 ], [ 0, %19 ], [ 0, %33 ], [ 0, %47 ], [ 0, %70 ], [ %94, %_ZL15AdjustBlendMaskjjjPj.exit31.i58 ], [ %spec.select, %.thread.i30.i22.preheader ], [ %spec.select87, %_ZL15AdjustBlendMaskjjjPj.exit31.i43 ], [ %spec.select104, %10 ], [ %.mux, %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit.loopexit" ]
+  %.0 = phi i16 [ 0, %150 ], [ 14, %.critedge ], [ 0, %.critedge2 ], [ 0, %95 ], [ 0, %101 ], [ 0, %112 ], [ 0, %121 ], [ 6, %146 ], [ 6, %2 ], [ 0, %19 ], [ 0, %33 ], [ 0, %47 ], [ 0, %70 ], [ %94, %_ZL15AdjustBlendMaskjjjPj.exit31.i58 ], [ %spec.select, %.thread.i30.i22.preheader ], [ %spec.select87, %_ZL15AdjustBlendMaskjjjPj.exit31.i43 ], [ %spec.select100, %10 ], [ %.mux, %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit.loopexit" ]
   ret i16 %.0
 }
 
