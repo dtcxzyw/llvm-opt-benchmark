@@ -4589,7 +4589,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1618, %.noexc356
 1741:                                             ; preds = %1735, %1734
   %indvars.iv.next151.i.i = add nuw nsw i64 %indvars.iv150.i.i, 1
   %exitcond155.not.i.i = icmp eq i64 %indvars.iv.next151.i.i, %wide.trip.count139.i.i
-  br i1 %exitcond155.not.i.i, label %1743, label %.preheader.i233.i, !llvm.loop !178
+  br i1 %exitcond155.not.i.i, label %1744, label %.preheader.i233.i, !llvm.loop !178
 
 1742:                                             ; preds = %1739, %1655, %1643, %1595, %1587
   %.pn.i227.i = phi { ptr, i32 } [ %1588, %1587 ], [ %1596, %1595 ], [ %1644, %1643 ], [ %1740, %1739 ], [ %1656, %1655 ]
@@ -4600,17 +4600,17 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1618, %.noexc356
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit.i
 
-1743:                                             ; preds = %1741
-  %1744 = load i64, ptr %1715, align 8, !tbaa !117
+1744:                                             ; preds = %1741
+  %1745 = load i64, ptr %1715, align 8, !tbaa !117
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %1745 = sext i32 %.0169379.i to i64
-  %1746 = getelementptr inbounds i32, ptr %.163.i, i64 %1745
-  %1747 = load i32, ptr %1746, align 4, !tbaa !4
-  %1748 = add nsw i32 %1747, 1
-  store i32 %1748, ptr %1746, align 4, !tbaa !4
-  %1749 = load ptr, ptr %1664, align 8, !tbaa !98
-  %1750 = getelementptr inbounds ptr, ptr %.167.i, i64 %1745
-  store ptr %1749, ptr %1750, align 8, !tbaa !80
+  %1746 = sext i32 %.0169379.i to i64
+  %1747 = getelementptr inbounds i32, ptr %.163.i, i64 %1746
+  %1748 = load i32, ptr %1747, align 4, !tbaa !4
+  %1749 = add nsw i32 %1748, 1
+  store i32 %1749, ptr %1747, align 4, !tbaa !4
+  %1750 = load ptr, ptr %1664, align 8, !tbaa !98
+  %1751 = getelementptr inbounds ptr, ptr %.167.i, i64 %1746
+  store ptr %1750, ptr %1751, align 8, !tbaa !80
   %1751 = sitofp i64 %1744 to double
   %1752 = call double @llvm.fmuladd.f64(double %1751, double %.1166.i, double %.1168.i)
   %1753 = fcmp ogt double %1752, %.156378.i
@@ -4619,8 +4619,8 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1618, %.noexc356
   invoke fastcc void @_ZL30lambda_data_list_insert_sampleP13lambda_data_tP9samples_t(ptr noundef %1754, ptr noundef nonnull %1598)
           to label %.loopexit.i unwind label %.loopexit.split-lp709.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.loopexit.i:                                      ; preds = %1743, %.thread.i268
-  %.35876663.i = phi double [ %.156378.i, %.thread.i268 ], [ %.358.ph.i, %1743 ]
+.loopexit.i:                                      ; preds = %1744, %.thread.i268
+  %.459.i = phi double [ %.156378.i, %.thread.i268 ], [ %.358.ph.i, %1743 ]
   %1755 = add nsw i32 %.0169379.i, 1
   br label %1756
 
@@ -4672,9 +4672,9 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1618, %.noexc356
   %1771 = getelementptr inbounds nuw i8, ptr %1770, i64 8
   %1772 = load i32, ptr %1771, align 8, !tbaa !44
   %1773 = icmp sgt i32 %1772, 1
-  br i1 %1773, label %.thread664.i, label %1774
+  br i1 %1773, label %.thread663.i, label %1774
 
-.thread664.i:                                     ; preds = %1768
+.thread663.i:                                     ; preds = %1768
   store i16 40, ptr %54, align 16
   br label %.lr.ph.i246.i.preheader
 
@@ -4682,7 +4682,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1618, %.noexc356
   %1775 = icmp eq i32 %1772, 1
   br i1 %1775, label %.lr.ph.i246.i.preheader, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i255
 
-.lr.ph.i246.i.preheader:                          ; preds = %1774, %.thread664.i
+.lr.ph.i246.i.preheader:                          ; preds = %1774, %.thread663.i
   %.229.i.i258.ph = phi ptr [ %252, %.thread664.i ], [ %54, %1774 ]
   br label %.lr.ph.i246.i
 
@@ -4920,7 +4920,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit610: ; preds = %1820, %._crit_edge.
           cleanup
   br label %.body406
 
-.loopexit.split-lp709.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1316, %.noexc342, %.noexc343, %1362, %1509, %1597, %.noexc353, %.noexc354, %.noexc355, %.lr.ph122.i.i, %1743
+.loopexit.split-lp709.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1316, %.noexc342, %.noexc343, %1362, %1509, %1597, %.noexc353, %.noexc354, %.noexc355, %.lr.ph122.i.i, %1744
   %lpad.loopexit729 = landingpad { ptr, i32 }
           cleanup
   br label %.body406

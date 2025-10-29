@@ -35115,7 +35115,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   %136 = load ptr, ptr %135, align 8, !tbaa !623
   br label %165
 
-._crit_edge.loopexit:                             ; preds = %_ZN9Imath_3_14halfC2Ef.exit
+._crit_edge:                                      ; preds = %_ZN9Imath_3_14halfC2Ef.exit
   %137 = getelementptr inbounds nuw i32, ptr %131, i64 %125
   br label %._crit_edge
 
@@ -35287,7 +35287,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %178, %181, %191, %1
   store i32 %221, ptr %222, align 4, !tbaa !44
   %223 = add nuw i64 %.033103, 1
   %exitcond.not = icmp eq i64 %223, %125
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %165, !llvm.loop !625
+  br i1 %exitcond.not, label %._crit_edge, label %165, !llvm.loop !625
 
 224:                                              ; preds = %._crit_edge
   %225 = load ptr, ptr %13, align 8, !tbaa !42

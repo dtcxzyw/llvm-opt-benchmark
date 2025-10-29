@@ -2357,12 +2357,12 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8, !tbaa !15
   %.not44 = icmp eq i32 %7, 0
-  br i1 %.not44, label %95, label %8
+  br i1 %.not44, label %97, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @stderr, align 8, !tbaa !18
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.83) #13
-  br label %95
+  br label %97
 
 11:                                               ; preds = %1
   %12 = load i8, ptr %.16.val, align 1, !tbaa !38
@@ -2373,12 +2373,12 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i32, ptr %14, align 8, !tbaa !15
   %.not43 = icmp eq i32 %15, 0
-  br i1 %.not43, label %95, label %16
+  br i1 %.not43, label %97, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8, !tbaa !18
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.84) #13
-  br label %95
+  br label %97
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %.16.val, i64 1
@@ -2410,12 +2410,12 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i32, ptr %37, align 8, !tbaa !15
   %.not35 = icmp eq i32 %38, 0
-  br i1 %.not35, label %95, label %39
+  br i1 %.not35, label %97, label %39
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr @stderr, align 8, !tbaa !18
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.83) #13
-  br label %95
+  br label %97
 
 LLGetBits.exit:                                   ; preds = %26, %45
   %42 = phi i32 [ %55, %45 ], [ 0, %26 ]
@@ -2444,29 +2444,29 @@ LLGetBits.exit:                                   ; preds = %26, %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load i32, ptr %58, align 8, !tbaa !15
   %.not37 = icmp eq i32 %59, 0
-  br i1 %.not37, label %95, label %60
+  br i1 %.not37, label %97, label %60
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @stderr, align 8, !tbaa !18
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.83) #13
-  br label %95
+  br label %97
 
 LLGetBits.exit49:                                 ; preds = %45
   %.not.i52 = icmp ugt i64 %21, 3
-  br i1 %.not.i52, label %.preheader, label %63
+  br i1 %.not.i52, label %69, label %63
 
 63:                                               ; preds = %LLGetBits.exit49
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = load i32, ptr %64, align 8, !tbaa !15
   %.not39 = icmp eq i32 %65, 0
-  br i1 %.not39, label %95, label %66
+  br i1 %.not39, label %97, label %66
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr @stderr, align 8, !tbaa !18
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.83) #13
-  br label %95
+  br label %97
 
-.preheader:                                       ; preds = %LLGetBits.exit49, %.preheader
+69:                                               ; preds = %LLGetBits.exit49, %69
   %69 = phi i32 [ %81, %.preheader ], [ 0, %LLGetBits.exit49 ]
   %70 = phi i64 [ %72, %.preheader ], [ 29, %LLGetBits.exit49 ]
   %.01619.i56 = phi i32 [ %82, %.preheader ], [ 0, %LLGetBits.exit49 ]
@@ -2483,26 +2483,26 @@ LLGetBits.exit49:                                 ; preds = %45
   %81 = or i32 %80, %69
   %82 = add nuw nsw i32 %.01619.i56, 1
   %exitcond48.not = icmp eq i32 %82, 3
-  br i1 %exitcond48.not, label %.critedge, label %.preheader, !llvm.loop !48
+  br i1 %exitcond48.not, label %.critedge, label %69, !llvm.loop !48
 
-.critedge:                                        ; preds = %.preheader
+.critedge:; preds = %69
   %83 = getelementptr inbounds nuw i8, ptr %.16.val, i64 4
   %84 = load i8, ptr %83, align 1, !tbaa !38
   %85 = lshr i8 %84, 4
   %86 = and i8 %85, 1
   %87 = zext nneg i8 %86 to i32
   store i64 32, ptr %2, align 8, !tbaa !20
-  %88 = add nsw i32 %35, 1
-  %89 = add nsw i32 %55, 1
-  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %88)
-  %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.86, i32 noundef %89)
-  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.87, i32 noundef %87)
-  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.88, i32 noundef %81)
-  %94 = call fastcc i32 @ParseLosslessTransform(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21, ptr noundef %2)
-  br label %95
+  %90 = add nsw i32 %35, 1
+  %91 = add nsw i32 %55, 1
+  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %90)
+  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.86, i32 noundef %91)
+  %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.87, i32 noundef %87)
+  %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.88, i32 noundef %81)
+  %96 = call fastcc i32 @ParseLosslessTransform(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21, ptr noundef %2)
+  br label %97
 
-95:                                               ; preds = %39, %36, %60, %57, %66, %63, %.critedge, %13, %16, %5, %8
-  %.031 = phi i32 [ 1, %8 ], [ 1, %5 ], [ 4, %16 ], [ 4, %13 ], [ %94, %.critedge ], [ 1, %63 ], [ 1, %66 ], [ 1, %57 ], [ 1, %60 ], [ 1, %36 ], [ 1, %39 ]
+97:                                               ; preds = %39, %36, %60, %57, %66, %63, %.critedge, %13, %16, %5, %8
+  %.031 = phi i32 [ 1, %8 ], [ 1, %5 ], [ 4, %16 ], [ 4, %13 ], [ %96, %.critedge ], [ 1, %63 ], [ 1, %66 ], [ 1, %57 ], [ 1, %60 ], [ 1, %36 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }

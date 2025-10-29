@@ -2047,11 +2047,11 @@ _temp2mul.exit134:                                ; preds = %.preheader.i.i130
   %220 = load double, ptr %105, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  br label %221
+  br label %224
 
-221:                                              ; preds = %221, %204
+224:                                              ; preds = %224, %204
   %.01.i.i = phi i64 [ 0, %204 ], [ %234, %221 ]
-  %222 = getelementptr inbounds nuw float, ptr @dt_XYZ_to_Rec709_D65.xyz_to_srgb_transposed, i64 %.01.i.i
+  %225 = getelementptr inbounds nuw float, ptr @dt_XYZ_to_Rec709_D65.xyz_to_srgb_transposed, i64 %.01.i.i
   %223 = load float, ptr %222, align 4, !tbaa !6
   %224 = fmul reassoc nsz arcp contract afn float %223, %215
   %225 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @dt_XYZ_to_Rec709_D65.xyz_to_srgb_transposed, i64 16), i64 %.01.i.i
@@ -2066,9 +2066,9 @@ _temp2mul.exit134:                                ; preds = %.preheader.i.i130
   store float %232, ptr %233, align 4, !tbaa !6
   %234 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i135 = icmp eq i64 %234, 4
-  br i1 %exitcond.not.i.i135, label %dt_XYZ_to_Rec709_D65.exit.preheader, label %221
+  br i1 %exitcond.not.i.i135, label %dt_XYZ_to_Rec709_D65.exit.preheader, label %224
 
-dt_XYZ_to_Rec709_D65.exit.preheader:              ; preds = %221
+dt_XYZ_to_Rec709_D65.exit.preheader:; preds = %224
   %235 = fptrunc reassoc nsz arcp contract afn double %219 to float
   %236 = fptrunc reassoc nsz arcp contract afn double %213 to float
   %237 = fptrunc reassoc nsz arcp contract afn double %220 to float

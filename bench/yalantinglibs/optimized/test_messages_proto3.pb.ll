@@ -52251,12 +52251,12 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680: ; preds = %if.
   br label %if.end277
 
 if.end277:                                        ; preds = %for.end270, %for.end270.thread, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680
-  %data_size258.0.lcssa3507 = phi i64 [ %add267, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ 0, %for.end270.thread ], [ 0, %for.end270 ]
+  %data_size258.0.lcssa3506 = phi i64 [ %add267, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ 0, %for.end270.thread ], [ 0, %for.end270 ]
   %conv.i681.pre-phi = phi i32 [ %conv273, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ 0, %for.end270.thread ], [ 0, %for.end270 ]
   %total_size.18 = phi i64 [ %add276, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit680 ], [ %add2573505, %for.end270.thread ], [ %add257, %for.end270 ]
   %_repeated_foreign_enum_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   store atomic i32 %conv.i681.pre-phi, ptr %_repeated_foreign_enum_cached_byte_size_ monotonic, align 8
-  %add280 = add i64 %total_size.18, %data_size258.0.lcssa3507
+  %add280 = add i64 %total_size.18, %data_size258.0.lcssa3506
   %repeated_string_piece_ = getelementptr inbounds nuw i8, ptr %this, i64 472
   %call281 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %repeated_string_piece_)
   %conv.i682 = zext i32 %call281 to i64
@@ -54716,7 +54716,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713: ; preds = %if
   br label %if.end889
 
 if.end889:                                        ; preds = %for.end882, %for.end882.thread, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713
-  %data_size870.0.lcssa3513 = phi i64 [ %add879, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ 0, %for.end882.thread ], [ 0, %for.end882 ]
+  %data_size870.0.lcssa3510 = phi i64 [ %add879, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ 0, %for.end882.thread ], [ 0, %for.end882 ]
   %conv.i1714.pre-phi = phi i32 [ %conv885, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ 0, %for.end882.thread ], [ 0, %for.end882 ]
   %total_size.53 = phi i64 [ %add888, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1713 ], [ %add8693511, %for.end882.thread ], [ %add869, %for.end882 ]
   %_packed_nested_enum_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2672
@@ -54837,7 +54837,7 @@ for.end1017:                                      ; preds = %_ZN6google8protobuf
   %reass.add3020 = add nuw nsw i64 %conv958, %conv938
   %reass.add3021 = add nuw nsw i64 %reass.add3020, %conv978
   %reass.mul3022 = shl nuw nsw i64 %reass.add3021, 2
-  %add963 = add i64 %total_size.53, %data_size870.0.lcssa3513
+  %add963 = add i64 %total_size.53, %data_size870.0.lcssa3510
   %add964 = add i64 %add963, %call894
   %add973 = add i64 %add964, %call901
   %add974 = add i64 %add973, %call908
@@ -127315,13 +127315,13 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp, label %for.body.i.preheader, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
 
-for.body.i.preheader:                             ; preds = %entry
+if.then:                                          ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+for.body.i:                                       ; preds = %if.then, %for.inc.i
   %__i.015.i.idx = phi i64 [ %__i.015.i.add, %for.inc.i ], [ 8, %for.body.i.preheader ]
   %__i.015.i.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 %__i.015.i.idx
   %0 = load ptr, ptr %__i.015.i.ptr, align 8
@@ -128021,13 +128021,13 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp, label %for.body.i.preheader, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
 
-for.body.i.preheader:                             ; preds = %entry
+if.then:                                          ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+for.body.i:                                       ; preds = %if.then, %for.inc.i
   %__i.015.i.idx = phi i64 [ %__i.015.i.add, %for.inc.i ], [ 8, %for.body.i.preheader ]
   %__i.015.i.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 %__i.015.i.idx
   %0 = load ptr, ptr %__i.015.i.ptr, align 8
@@ -128727,13 +128727,13 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp, label %for.body.i.preheader, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
 
-for.body.i.preheader:                             ; preds = %entry
+if.then:                                          ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+for.body.i:                                       ; preds = %if.then, %for.inc.i
   %__i.015.i.idx = phi i64 [ %__i.015.i.add, %for.inc.i ], [ 8, %for.body.i.preheader ]
   %__i.015.i.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 %__i.015.i.idx
   %0 = load ptr, ptr %__i.015.i.ptr, align 8
@@ -129433,13 +129433,13 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp, label %for.body.i.preheader, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
 
-for.body.i.preheader:                             ; preds = %entry
+if.then:                                          ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+for.body.i:                                       ; preds = %if.then, %for.inc.i
   %__i.015.i.idx = phi i64 [ %__i.015.i.add, %for.inc.i ], [ 8, %for.body.i.preheader ]
   %__i.015.i.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 %__i.015.i.idx
   %0 = load ptr, ptr %__i.015.i.ptr, align 8
@@ -130139,13 +130139,13 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp, label %for.body.i.preheader, label %if.else
+  br i1 %cmp, label %if.then, label %if.else
 
-for.body.i.preheader:                             ; preds = %entry
+if.then:                                          ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+for.body.i:                                       ; preds = %if.then, %for.inc.i
   %__i.015.i.idx = phi i64 [ %__i.015.i.add, %for.inc.i ], [ 8, %for.body.i.preheader ]
   %__i.015.i.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 %__i.015.i.idx
   %0 = load ptr, ptr %__i.015.i.ptr, align 8

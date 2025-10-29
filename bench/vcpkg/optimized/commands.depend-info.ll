@@ -16006,43 +16006,43 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i22.i: ; preds = %_ZNS
   %.0.i.i.i.i.i21.i = phi i32 [ %253, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i16.i ], [ %.0.i6.i.i.i.i.i25.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i22.i ]
   %255 = icmp slt i32 %.0.i.i.i.i.i21.i, 0
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.023.1.i.i, i64 120
-  br i1 %255, label %250, label %.preheader.i.i, !llvm.loop !541
+  br i1 %255, label %250, label %.preheader.i.i.preheader, !llvm.loop !541
 
-.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i20.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i"
+.preheader.i.i.preheader:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i20.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i"
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i20.i" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -120
-  %257 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -112
-  %.val3.i9.i.i = load i64, ptr %257, align 8, !tbaa !15
+  %258 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -112
+  %.val3.i9.i.i = load i64, ptr %258, align 8, !tbaa !15
   %.sroa.speculated.i.i.i.i10.i.i = call i64 @llvm.umin.i64(i64 %.val3.i9.i.i, i64 %.val3.i.i13.i)
-  %258 = icmp eq i64 %.sroa.speculated.i.i.i.i10.i.i, 0
-  br i1 %258, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i
+  %259 = icmp eq i64 %.sroa.speculated.i.i.i.i10.i.i, 0
+  br i1 %259, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i: ; preds = %.preheader.i.i
   %.val2.i12.i.i = load ptr, ptr %.sroa.0.1.i.i, align 8
   %.val.i13.i.i = load ptr, ptr %0, align 8
-  %259 = call i32 @memcmp(ptr noundef readonly %.val.i13.i.i, ptr noundef readonly %.val2.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i10.i.i) #23
-  %.not.i.i.i.i14.i.i = icmp eq i32 %259, 0
+  %260 = call i32 @memcmp(ptr noundef readonly %.val.i13.i.i, ptr noundef readonly %.val2.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i10.i.i) #23
+  %.not.i.i.i.i14.i.i = icmp eq i32 %260, 0
   br i1 %.not.i.i.i.i14.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i"
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i, %.preheader.i.i
-  %260 = sub i64 %.val3.i.i13.i, %.val3.i9.i.i
-  %spec.select7.i.i.i.i.i17.i.i = call i64 @llvm.smax.i64(i64 %260, i64 -2147483648)
+  %261 = sub i64 %.val3.i.i13.i, %.val3.i9.i.i
+  %spec.select7.i.i.i.i.i17.i.i = call i64 @llvm.smax.i64(i64 %261, i64 -2147483648)
   %.08.i.i.i.i.i18.i.i = call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i17.i.i, i64 2147483647)
   %.0.i6.i.i.i.i19.i.i = trunc nsw i64 %.08.i.i.i.i.i18.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i
-  %.0.i.i.i.i15.i.i = phi i32 [ %259, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i ], [ %.0.i6.i.i.i.i19.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i ]
-  %261 = icmp slt i32 %.0.i.i.i.i15.i.i, 0
-  br i1 %261, label %.preheader.i.i, label %262, !llvm.loop !542
+  %.0.i.i.i.i15.i.i = phi i32 [ %260, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i ], [ %.0.i6.i.i.i.i19.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i ]
+  %262 = icmp slt i32 %.0.i.i.i.i15.i.i, 0
+  br i1 %262, label %.preheader.i.i, label %263, !llvm.loop !542
 
-262:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i"
+263:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5vcpkg28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletES9_E3$_2EclINS_17__normal_iteratorIPNS2_17PackageDependInfoESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit20.i.i"
   %263 = getelementptr i8, ptr %.sroa.023.1.i.i, i64 8
   %264 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -112
   %265 = icmp ult ptr %.sroa.023.1.i.i, %.sroa.0.1.i.i
   br i1 %265, label %266, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEET_SK_SK_T0_.exit"
 
-266:                                              ; preds = %262
+266:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %16, ptr %4, align 8, !tbaa !4
   %267 = load ptr, ptr %.sroa.023.1.i.i, align 8, !tbaa !12
@@ -16622,7 +16622,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt13unordered_se
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %249, !llvm.loop !543
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEET_SK_SK_T0_.exit": ; preds = %262
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEET_SK_SK_T0_.exit": ; preds = %263
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_SK_T0_T1_"(ptr %.sroa.023.1.i.i, ptr %storemerge69, i64 noundef %219)
   %484 = ptrtoint ptr %.sroa.023.1.i.i to i64
   %485 = sub i64 %484, %9
@@ -17998,23 +17998,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i4.i: ; preds 
   %.val.i.i14.i = load i32, ptr %236, align 8, !tbaa !143
   %237 = icmp slt i32 %.val.i.i14.i, %.val1.i.i13.i
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 120
-  br i1 %237, label %235, label %.preheader.i.i, !llvm.loop !552
+  br i1 %237, label %235, label %.preheader.i.i.preheader, !llvm.loop !552
 
-.preheader.i.i:                                   ; preds = %235, %.preheader.i.i
+.preheader.i.i:                                   ; preds = %235, %.preheader.i.i.preheader
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %235 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -120
-  %239 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -88
-  %.val1.i9.i.i = load i32, ptr %239, align 8, !tbaa !143
-  %240 = icmp slt i32 %.val1.i.i13.i, %.val1.i9.i.i
-  br i1 %240, label %.preheader.i.i, label %241, !llvm.loop !553
+  %240 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -88
+  %.val1.i9.i.i = load i32, ptr %240, align 8, !tbaa !143
+  %241 = icmp slt i32 %.val1.i.i13.i, %.val1.i9.i.i
+  br i1 %241, label %.preheader.i.i, label %242, !llvm.loop !553
 
-241:                                              ; preds = %.preheader.i.i
+242:                                              ; preds = %.preheader.i.i
   %242 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 32
   %243 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -88
   %244 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
   br i1 %244, label %245, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEET_SK_SK_T0_.exit"
 
-245:                                              ; preds = %241
+245:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %16, ptr %4, align 8, !tbaa !4
   %246 = load ptr, ptr %.sroa.012.1.i.i, align 8, !tbaa !12
@@ -18600,7 +18600,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt13unordered_se
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %234, !llvm.loop !554
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEET_SK_SK_T0_.exit": ; preds = %241
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEET_SK_SK_T0_.exit": ; preds = %242
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge69, i64 noundef %219)
   %468 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %469 = sub i64 %468, %9
@@ -19784,23 +19784,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i4.i: ; preds 
   %.val.i.i14.i = load i32, ptr %236, align 8, !tbaa !143
   %237 = icmp sgt i32 %.val.i.i14.i, %.val1.i.i13.i
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 120
-  br i1 %237, label %235, label %.preheader.i.i, !llvm.loop !562
+  br i1 %237, label %235, label %.preheader.i.i.preheader, !llvm.loop !562
 
-.preheader.i.i:                                   ; preds = %235, %.preheader.i.i
+.preheader.i.i:                                   ; preds = %235, %.preheader.i.i.preheader
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %235 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -120
-  %239 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -88
-  %.val1.i9.i.i = load i32, ptr %239, align 8, !tbaa !143
-  %240 = icmp sgt i32 %.val1.i.i13.i, %.val1.i9.i.i
-  br i1 %240, label %.preheader.i.i, label %241, !llvm.loop !563
+  %240 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -88
+  %.val1.i9.i.i = load i32, ptr %240, align 8, !tbaa !143
+  %241 = icmp sgt i32 %.val1.i.i13.i, %.val1.i9.i.i
+  br i1 %241, label %.preheader.i.i, label %242, !llvm.loop !563
 
-241:                                              ; preds = %.preheader.i.i
+242:                                              ; preds = %.preheader.i.i
   %242 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 32
   %243 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -88
   %244 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
   br i1 %244, label %245, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEET_SK_SK_T0_.exit"
 
-245:                                              ; preds = %241
+245:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %16, ptr %4, align 8, !tbaa !4
   %246 = load ptr, ptr %.sroa.012.1.i.i, align 8, !tbaa !12
@@ -20386,7 +20386,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt13unordered_se
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %234, !llvm.loop !564
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEET_SK_SK_T0_.exit": ; preds = %241
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEET_SK_SK_T0_.exit": ; preds = %242
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge69, i64 noundef %219)
   %468 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %469 = sub i64 %468, %9

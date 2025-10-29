@@ -126,7 +126,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %65 = load i8, ptr %64, align 1, !tbaa !9
   %66 = zext i8 %65 to i32
   %.not88 = icmp sgt i8 %65, -1
-  br i1 %.not88, label %83, label %67
+  br i1 %.not88, label %84, label %67
 
 67:                                               ; preds = %62
   %.not89 = icmp ult i64 %63, %4
@@ -139,55 +139,55 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   br i1 %71, label %.lr.ph.preheader, label %.critedge2.loopexit96
 
 .lr.ph.preheader:                                 ; preds = %68
-  %72 = and i32 %66, 127
-  %73 = add nuw nsw i32 %72, 2
+  %73 = and i32 %66, 127
+  %74 = add nuw nsw i32 %73, 2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.074100 = phi i32 [ %79, %.lr.ph ], [ %73, %.lr.ph.preheader ]
-  %.37999 = phi i64 [ %80, %.lr.ph ], [ %.076106, %.lr.ph.preheader ]
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %.37999
-  %75 = load i8, ptr %74, align 1, !tbaa !9
-  %.narrow = add i8 %75, %70
-  %76 = zext i8 %.narrow to i32
-  %77 = or disjoint i32 %13, %76
-  %78 = getelementptr inbounds nuw i32, ptr %5, i64 %.37999
-  store i32 %77, ptr %78, align 4, !tbaa !11
-  %79 = add nsw i32 %.074100, -1
-  %80 = add nuw i64 %.37999, 1
-  %81 = icmp samesign ugt i32 %.074100, 1
-  %82 = icmp ult i64 %80, %invariant.umin
-  %or.cond93 = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond93, label %.lr.ph, label %.critedge2.loopexit96, !llvm.loop !13
+  %.074100 = phi i32 [ %80, %.lr.ph ], [ %74, %.lr.ph.preheader ]
+  %.37999 = phi i64 [ %81, %.lr.ph ], [ %.076106, %.lr.ph.preheader ]
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.37999
+  %76 = load i8, ptr %75, align 1, !tbaa !9
+  %.narrow = add i8 %76, %70
+  %77 = zext i8 %.narrow to i32
+  %78 = or disjoint i32 %13, %77
+  %79 = getelementptr inbounds nuw i32, ptr %5, i64 %.37999
+  store i32 %78, ptr %79, align 4, !tbaa !11
+  %80 = add nsw i32 %.074100, -1
+  %81 = add nuw i64 %.37999, 1
+  %82 = icmp samesign ugt i32 %.074100, 1
+  %83 = icmp ult i64 %81, %invariant.umin
+  %or.cond93 = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond93, label %.lr.ph, label %.critedge2, !llvm.loop !13
 
-83:                                               ; preds = %62
-  %84 = icmp ult i64 %.076106, %invariant.umin
-  br i1 %84, label %.lr.ph104.preheader, label %.critedge2
+84:                                               ; preds = %62
+  %85 = icmp ult i64 %.076106, %invariant.umin
+  br i1 %85, label %.lr.ph104.preheader, label %.critedge2
 
-.lr.ph104.preheader:                              ; preds = %83
-  %85 = add nuw nsw i32 %66, 2
+.lr.ph104.preheader:                              ; preds = %84
+  %86 = add nuw nsw i32 %66, 2
   br label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %.lr.ph104
-  %.175103 = phi i32 [ %90, %.lr.ph104 ], [ %85, %.lr.ph104.preheader ]
-  %.581102 = phi i64 [ %91, %.lr.ph104 ], [ %.076106, %.lr.ph104.preheader ]
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %.581102
-  %87 = load i8, ptr %86, align 1, !tbaa !9
-  %88 = sext i8 %87 to i32
-  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %.581102
-  store i32 %88, ptr %89, align 4, !tbaa !11
-  %90 = add nsw i32 %.175103, -1
-  %91 = add nuw i64 %.581102, 1
-  %92 = icmp samesign ugt i32 %.175103, 1
-  %93 = icmp ult i64 %91, %invariant.umin
-  %or.cond95 = select i1 %92, i1 %93, i1 false
+  %.175103 = phi i32 [ %91, %.lr.ph104 ], [ %86, %.lr.ph104.preheader ]
+  %.581102 = phi i64 [ %92, %.lr.ph104 ], [ %.076106, %.lr.ph104.preheader ]
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 %.581102
+  %88 = load i8, ptr %87, align 1, !tbaa !9
+  %89 = sext i8 %88 to i32
+  %90 = getelementptr inbounds nuw i32, ptr %5, i64 %.581102
+  store i32 %89, ptr %90, align 4, !tbaa !11
+  %91 = add nsw i32 %.175103, -1
+  %92 = add nuw i64 %.581102, 1
+  %93 = icmp samesign ugt i32 %.175103, 1
+  %94 = icmp ult i64 %92, %invariant.umin
+  %or.cond95 = select i1 %93, i1 %94, i1 false
   br i1 %or.cond95, label %.lr.ph104, label %.critedge2, !llvm.loop !15
 
-default.unreachable120:                           ; preds = %26
+default.unreachable121:                           ; preds = %26
   unreachable
 
-.critedge2.loopexit96:                            ; preds = %.lr.ph, %68
-  %.379.lcssa = phi i64 [ %.076106, %68 ], [ %80, %.lr.ph ]
+.critedge2:                                       ; preds = %.lr.ph, %68
+  %.177 = phi i64 [ %.076106, %68 ], [ %80, %.lr.ph ]
   %94 = add nuw i64 %.2, 2
   br label %.critedge2
 

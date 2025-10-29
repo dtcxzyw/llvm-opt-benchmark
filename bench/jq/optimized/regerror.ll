@@ -785,10 +785,10 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   br i1 %41, label %.lr.ph75, label %.loopexit66, !llvm.loop !24
 
 .lr.ph75:                                         ; preds = %.preheader68, %.loopexit
-  %.in = phi i32 [ %42, %.loopexit ], [ %31, %.preheader68 ]
+  %.in = phi i32 [ %41, %.loopexit ], [ %31, %.preheader68 ]
   %.274 = phi ptr [ %.3.lcssa, %.loopexit ], [ %.05197, %.preheader68 ]
   %.25573 = phi ptr [ %40, %.loopexit ], [ %.05396, %.preheader68 ]
-  %42 = add nsw i32 %.in, -1
+  %41 = add nsw i32 %.in, -1
   %43 = load i8, ptr %.25573, align 1, !tbaa !18
   %44 = zext i8 %43 to i32
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #9
@@ -854,7 +854,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %71 = load ptr, ptr %25, align 8, !tbaa !27
   %72 = call i32 %71(i32 noundef %70, i32 noundef 7) #9
   %.not63 = icmp eq i32 %72, 0
-  br i1 %.not63, label %73, label %89
+  br i1 %.not63, label %73, label %90
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %25, align 8, !tbaa !27
@@ -862,7 +862,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %76 = zext i8 %75 to i32
   %77 = call i32 %74(i32 noundef %76, i32 noundef 9) #9
   %.not64 = icmp eq i32 %77, 0
-  br i1 %.not64, label %78, label %89
+  br i1 %.not64, label %78, label %90
 
 78:                                               ; preds = %73
   %79 = load i8, ptr %.05396, align 1, !tbaa !18
@@ -873,30 +873,30 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   br i1 %83, label %.lr.ph94.preheader, label %.loopexit65
 
 .lr.ph94.preheader:                               ; preds = %78
-  %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr i8, ptr %7, i64 %84
-  %scevgep107 = getelementptr i8, ptr %85, i64 -1
+  %85 = zext nneg i32 %82 to i64
+  %86 = getelementptr i8, ptr %7, i64 %85
+  %scevgep108 = getelementptr i8, ptr %86, i64 -1
   br label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
-  %.193 = phi ptr [ %86, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
-  %.692 = phi ptr [ %88, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
-  %86 = getelementptr inbounds nuw i8, ptr %.193, i64 1
-  %87 = load i8, ptr %.193, align 1, !tbaa !18
-  %88 = getelementptr inbounds nuw i8, ptr %.692, i64 1
-  store i8 %87, ptr %.692, align 1, !tbaa !18
-  %exitcond108.not = icmp eq ptr %.193, %scevgep107
-  br i1 %exitcond108.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !28
+  %.193 = phi ptr [ %87, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
+  %.692 = phi ptr [ %89, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
+  %87 = getelementptr inbounds nuw i8, ptr %.193, i64 1
+  %88 = load i8, ptr %.193, align 1, !tbaa !18
+  %89 = getelementptr inbounds nuw i8, ptr %.692, i64 1
+  store i8 %88, ptr %.692, align 1, !tbaa !18
+  %exitcond109.not = icmp eq ptr %.193, %scevgep108
+  br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !28
 
-89:                                               ; preds = %73, %69
-  %90 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  %91 = load i8, ptr %.05396, align 1, !tbaa !18
-  %92 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
-  store i8 %91, ptr %.05197, align 1, !tbaa !18
+90:                                               ; preds = %73, %69
+  %91 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
+  %92 = load i8, ptr %.05396, align 1, !tbaa !18
+  %93 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
+  store i8 %92, ptr %.05197, align 1, !tbaa !18
   br label %.loopexit66
 
 .loopexit65:                                      ; preds = %.lr.ph94, %78
-  %.6.lcssa = phi ptr [ %.05197, %78 ], [ %88, %.lr.ph94 ]
+  %.356 = phi ptr [ %.05197, %78 ], [ %88, %.lr.ph94 ]
   %93 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
   br label %.loopexit66
 

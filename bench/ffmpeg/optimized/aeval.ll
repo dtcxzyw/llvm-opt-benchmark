@@ -315,11 +315,11 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %.lr.ph66.split
 
 .lr.ph66.split.us:                                ; preds = %.lr.ph66
-  %.promoted = load i64, ptr %8, align 8, !tbaa !32
+  %48 = load i64, ptr %8, align 8, !tbaa !32
   %48 = add nsw i32 %.0, -1
   %49 = zext nneg i32 %48 to i64
-  %50 = add i64 %.promoted, %49
-  %51 = add i64 %50, 1
+  %50 = add i64 %48, %49
+  %52 = add i64 %50, 1
   %52 = load i32, ptr %10, align 8, !tbaa !44
   %53 = sitofp i32 %52 to double
   %54 = uitofp i64 %50 to double
